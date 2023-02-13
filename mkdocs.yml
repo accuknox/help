@@ -1,0 +1,180 @@
+# Project information
+site_name: "AccuKnox"
+site_description: "Zero trust Runtime Kubernetes security"
+site_author: "Ravi Kishor"
+site_url: "https://accuknox.com/"
+# Copyright
+copyright: "&copy; 2023 AccuKnox. All Rights Reserved."
+# Repository
+repo_name: "GitHub"
+repo_url: "https://github.com/kubearmor/KubeArmor"
+edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
+# Configuration
+docs_dir: "docs"
+dev_addr: '127.0.0.1:80'
+theme:
+  name: "material"
+  features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  language: "en"
+  shortcuts:
+    help: 191 # ?
+    next: 78 # n
+    previous: 80 # p
+    search: 83 # s
+  #font:
+  #text: 'Ubuntu'
+  #code: 'Ubuntu Mono'
+  #icon:
+  logo: 'assets/images/logo.png'
+  favicon: 'assets/images/favicon.ico'
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-experimental
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+plugins:
+  - search:
+      separator: '[\s\-\.]+'
+      lang:
+        - en
+# Customization
+extra_javascript:
+# - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
+extra_css:
+# - "assets/css/custom.css"
+extra:
+  analytics:
+    provider: google
+    property: G-QP9CWLWH0P
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target=_blank>feedback form</a>.
+  manifest: "manifest.json"
+  social:
+    - icon: "fontawesome/brands/github-alt"
+      link: "https://github.com/accuknox"
+    - icon: "fontawesome/brands/twitter"
+      link: "https://twitter.com/AccuKnox"
+
+# Page tree
+pages:
+
+
+nav:
+  - "Overview":
+    - "CNAPP Definition" : "overview/cnapp-definition.md"
+    - "Need for CNAPP & Arch" : "overview/need-for-cnapp-and-arch.md"
+    - "What is CSPM" : "overview/what-is-cspm.md"
+    - "What is CWPP" : "overview/what-is-cwpp.md"
+    - "Getting Started" : "overview/getting-started.md"
+    - "Misconfigurations & VS" : "overview/misconfigurations-and-vs.md"
+    - "Reg & Image Scan" : "overview/reg-and-image-scan.md"
+    - "Remediation" : "overview/remediation.md"
+    - "Reports & Compliance" : "overview/reports-and-compliance.md"
+
+  - "Install & Upgrade":
+    - "Install & Upgrade" : "install/install-and-upgrade.md"
+
+  - "Integrations":
+    - "CI CD Integrations" : "integrations/ci-cd-integrations.md"
+    - "Ticketing" : "integrations/ticketing.md"
+    - "SIEM" : "integrations/siem.md"
+    - "Log Agg" : "integrations/log-agg.md"
+
+  - "Use-Cases":
+    - "Static Security" : "use-cases/static-security.md"
+    - "Playbook for automated collection & execution" : "use-cases/playbook-for-automated-collection-and-execution.md"
+    - "Container Security" : "use-cases/container-security.md"
+    - "Zero Trust Model" : "use-cases/zero-trust-model.md"
+    - "Full Stack Observability by eBPF & LSM for enforcement" : "use-cases/full-stack-observability-by-ebpf-and-lsm-for-enforcement.md"
+    - "Asset Inventory" : "use-cases/asset-inventory.md"
+    - "Securing you Cloud Infra through detecting Misconfiguration & Vulnerabilities" : "use-cases/securing-you-cloud-infra-through-detecting-misconfiguration-and-vulnerabilities.md"
+    - "Compliances & Reporting" : "use-cases/compliances-and-reporting.md"
+    - "Auto-Discovered Policies & Hardening Policies" : "use-cases/auto-discovered-policies-and-hardening-policies.md"
+    - "Network Segmentation" : "use-cases/network-segmentation.md"
+    - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
+
+  - "Support Matrix":
+    - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
+    - "Public Cloud" : "support-matrix/public-cloud.md"
+    - "Private Cloud" : "support-matrix/private-cloud.md"
+    - "VMs" : "support-matrix/vms.md"
+
+  - "API Reference":
+    - "API Reference" : "api-reference/api-reference.md"
+
+  - "Troubleshooting & FAQs":
+    - "Troubleshooting & FAQs" : "faqs/troubleshooting-and-faqs.md"
