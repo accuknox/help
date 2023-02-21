@@ -154,7 +154,7 @@ nav:
 
   - "Deploy & Use":
     - "Deploy & Use" : "deploy/deploy-and-use.md"
-   - "On-prem-installation Guide" : "deploy/on-prem-installation-guide.md"
+    - "On-prem-installation Guide" : "deploy/on-prem-installation-guide.md"
 
   - "AccuKnox SaaS":
     - "Dashboard" : "saas/dashboard.md"
