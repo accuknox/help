@@ -1,3 +1,5 @@
+# **Need for CNAPP:** 
+
 In the recent times many companies are switching their legacy deployments to cloud based deployments. So  in the cloud Native deployments security plays a major role. Because in the Cloud deployments cycle the developers use various open source tools to develop their code and in the deploying face these codes are packaged into images which are then run using the Infrastructure as code components in the cloud. This process of code build, deploy and run is happening faster in the cloud deployments. Hence cloud Native security is the most important factor that one must not ignore. 
 
  
