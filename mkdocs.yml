@@ -104,6 +104,7 @@ extra_javascript:
 # - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
 extra_css:
 # - "assets/css/custom.css"
+
 extra:
   analytics:
     provider: google
@@ -140,7 +141,11 @@ nav:
     - "Defining Runtime security & Static Security" : "overview/defining-runtime-security-and-static-security.md"
     - "What is CSPM" : "overview/what-is-cspm.md"
     - "What is CWPP" : "overview/what-is-cwpp.md"
-    - "Getting Started" : "overview/getting-started.md"
+    - "Getting Started":
+           - "Open source vs Enterprise" : "overview/open-source-vs-enterprise.md"
+           - "AccuKnox Agents" : "overview/accuknox-agents.md"
+           - "Cloud Onboarding" : "overview/cloud-onboarding.md"
+           - "Cluster Onboarding" : "overview/cluster-onboarding.md"
     - "Misconfigurations & VS" : "overview/misconfigurations-and-vs.md"
     - "Reg & Image Scan" : "overview/reg-and-image-scan.md"
     - "Monitoring & logs, Telemetry" : "overview/monitoring-and-logs-telemetry.md"
@@ -149,6 +154,7 @@ nav:
 
   - "Deploy & Use":
     - "Deploy & Use" : "deploy/deploy-and-use.md"
+   - "On-prem-installation Guide" : "deploy/on-prem-installation-guide.md"
 
   - "AccuKnox SaaS":
     - "Dashboard" : "saas/dashboard.md"
