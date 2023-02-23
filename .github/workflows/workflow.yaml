@@ -1,0 +1,40 @@
+name: test.help.accuknox.com pipeline
+
+on:
+ push:
+   branches:
+     - gh-actions
+
+jobs:
+ Deploy:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v2
+
+     - name: Install dependencies
+       run: apt update && apt upgrade && apt install mkdocs -y
+
+
+
+     - name: Build static file
+       run: mkdocs build
+
+     - name: Configure AWS Credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+         aws-access-key-id: ${{ secrets.DEVELOPMENT_AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.DEVELOPMENT_AWS_SECRET_ACCESS_KEY }}
+         aws-region: us-east-1
+
+     - name: Deploy static site to S3 bucket
+       run: aws s3 sync ./site s3://test.help.accuknox.com
+       
+    #  - name: Invalidate CloudFront
+    #    uses: chetan/invalidate-cloudfront-action@v2
+    #    env:
+    #       DISTRIBUTION: "EXNS62Q7796YF"
+    #       PATHS: "/*"
+    #       AWS_REGION: "us-east-1"
+    #       AWS_ACCESS_KEY_ID: ${{ secrets.DEVELOPMENT_AWS_ACCESS_KEY_ID }}
+    #       AWS_SECRET_ACCESS_KEY: ${{ secrets.DEVELOPMENT_AWS_SECRET_ACCESS_KEY }}
