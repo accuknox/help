@@ -1,104 +1,65 @@
-Cluster Onboarding: 
+# **AccuKnox Agents:**
+Accuknox Agents Consists of 
 
-Un Managed cluster installation:
-![](/overview/images/k3s.png)
-Step 1: As a first time user, the management console will show up the CNAPP dashboard without any data mentioned in widgets, since the cloud account and cluster onboarding is not done. 
-![](/overview/images/cnapp-dashboard.png)
-Step 2: Navigate to Manage Cluster from Settings Tab: 
-From this page we can onboard the clusters running in various cloud platforms like GCP,AWS and Azure. We can onboard locally setup cluster using an unmanaged cloud option. 
-![](/overview/images/cluster-onboarding-1.png)
+## **KubeArmor:**
+KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. It operates with Linux security modules LSMs, meaning that it can work on top of any Linux platforms (such as Alpine, Ubuntu, and Container-optimized OS from Google) if Linux security modules (e.g., AppArmor, SELinux, or BPF-LSM) are enabled in the Linux Kernel. KubeArmor will use the appropriate LSMs to enforce the required policies. 
 
-Step 3: In our example we are going to onboard a locally setup cluster using an unmanaged cloud option. 
-For unmanaged cloud option Regional/zonal values are optional.
-![](/overview/images/cluster-onboarding-2.png)
-step 4: Onboarded Cluster without AccuKnox agents: 
+![](/overview/images/Kubearmor.png)
 
-The onboarded cluster’s workload details will not be visible as we have not installed AccuKnox agents. So next we will be installing AccuKnox agents.
-![](/overview/images/cluster-onboarding-3.png)
-Step 5: Installing KubeArmor and AccuKnox agents: 
+KubeArmor allows operators to define security policies and apply them to Kubernetes. Then, KubeArmor will automatically detect the changes in security policies from Kubernetes and enforce them on the corresponding containers and nodes. If there are any violations against security policies, KubeArmor immediately generates alerts with container identities. If operators have any logging systems, it automatically sends the alerts to their systems as well.
 
-We are going to install KubeArmor and AccuKnox-agents to connect to the AccuKnox SaaS application.
+## **Feeder Service:**
+The feeder service sends information from the Client Cluster to the AccuKnox SaaS Control Plane. Feeder Service is an agent which runs on every node, collects telemetry/alert events from source systems & messages, and emits them to Messaging Cluster for Storage & Analysis.
+Ways in which the Feeder service communicates to the central control plane:
 
-Step 5.1: KubeArmor Installation: 
++ Directly posting messages to Kafka Topic
 
-KubeArmor: 
++ List of topics (Each component has a separate topic name) on where the feeder service publishes feeds.
 
-KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. With KubeArmor, a user can:
++ Posting via a GRPC or REST API Service
 
-Restrict file system access for certain processes
+All communication between Feeder and Control plane (Kafka. etc) is encrypted using TLS. Feeder Service uses a secret key from Kubernetes secrets to be applied to it when connecting to the control plane. This secret key allows for the feeder to talk to the control plane and exchange data for a particular tenant-id/workspace-id. This is an API key that is generated as part of the cluster onboarding. The feeder service will self-assess some metrics and logs and send that information to the Control plane for its own health assessment for one or more components including its own (running on nodes). The Feeder Service makes it simpler to monitor the detailed communication between each entity.
 
-Restrict what processes can be spawned within the pod
+## **Shared Informer Agent:**
 
-Restrict the capabilities that can be used by the processes within the pod
-![](/overview/images/kubeArmor.png)
+Shared Informer Agent watches all the changes occurring in Kubernetes entities such as Pods, Nodes, Namespaces, Endpoints, and Services.
 
-KubeArmor differs from seccomp-based profiles, wherein KubeArmor allows to dynamically set the restrictions on the pod. With seccomp, the restrictions must be placed during the pod startup and cannot be changed later. KubeArmor leverages Linux Security Modules (LSMs) to enforce policies at runtime.
-![](/overview/images/cluster-onboarding-4.png)
-KubeArmor is installed using the following commands:
++ Any changes to an entity can be easily tracked by the Shared Informer Agent such as the Creation of an entity, update of an entity and if any entity has been deleted and as soon as the changes occur to the entities, the Shared Informer Agent pushes the information to the backend.
 
-```bash
->> curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
->> karmor install
-```
-![](/overview/images/cluster-onboarding-5.png)
-Step 5.2 AccuKnox-Agents installation:
++ The Shared Informant Agent makes it simpler to track and manage all of the entities that are present in Kubernetes as well as see changes in entities as they occur in real-time.
 
-After installing KubeArmor we are going to install AccuKnox Agents in the cluster. 
+## **Policy Enforcement Agent:**
+AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeArmor and Cillium. Policy Enforcement Agent not only keeps the track of the policies but is capable of doing tasks such as applying policies, denying policies, updating policies, and deleting the policies.
 
-AccuKnox Agents: 
++ The policy enforcement agent encrypts and decrypts the policies while handing them to and from the policy provider service. It reads the specification of the policies and provides back to the policy provider service.
 
-KubeArmor:  KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. KubeArmor dynamically set the restrictions on the pod. KubeArmor leverages Linux Security Modules (LSMs) to enforce policies at runtime.
++ All of the changes done to the policy can be tracked granularly with the help of the Policy Enforcement Agent and Policy Gitops Flow which helps with version control and robust management of the security policies.
 
-Feeder Service: It collects the feeds from kubeArmor and relays to the app. 
+## **Policy Discovery engine:** 
+Accuknox policy enforcement engines based on KubeArmor and Cilium are very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. Accuknox policy auto-discovery engine leverages the pod visibility provided by KubeArmor and Cilium to auto-generate network and system policies.
 
-Shared Informer Agent: It collects information about the cluster like pods, nodes, namespaces etc., 
+![](/overview/images/discovery-engine.png)
 
-Policy Discovery Engine: It discovers the policies using the workload and cluster information that is relayed by a shared informer Agent. 
-![](/overview/images/cluster-onboarding-6.png)
-Accuknox Agents can be installed using the following command: 
+AccuKnox’s Runtime security solution is able to provide full visibility into all of these application interactions with the host kernel and provide the ability to filter or restrict specific actions at runtime.
 
-```bash
- helm repo add accuknox-agents-dev https://accuknox-agents-dev:h47Sh4taEs@agents.accuknox.com/repository/accuknox-agents-dev
-      helm repo update
-      helm upgrade --install agents-operator accuknox-agents-dev/agents-operator \
-        --set props.tenant_id="1354" \
-        --set props.workspace_id="1354" \
-        --set props.cluster_name="demotestk3" \
-        --set props.CLUSTER_NAME="demotestk3" \
-        --set props.cluster_id="1762" \
-        --set props.helm_repo="accuknox-agents-dev" \
-        --set props.helm_repo_url="https://accuknox-agents-dev:h47Sh4taEs@agents.accuknox.com/repository/accuknox-agents-dev" \
-        --set props.docker_repo_host="agents.accuknox.com" \
-        --set props.docker_repo_username="accuknox-agents-image" \
-        --set props.docker_repo_password="SjnnJxs3fk" \
-        --create-namespace -n accuknox-agents
-```
-![](/overview/images/cluster-onboarding-7.png)
+With Accuknox you can automatically discover the application interaction and network interaction (as described below) in the form of policy as code subsequently these policies can be audited or enforced at runtime giving you the ability to restrict specific behaviors of the application.
 
-Note: In the above command workspace_id,cluster_name,tenant_id  are specific to this example and it will vary based on the cluster
+For example, you could have a policy that states the following:
 
-Step 6: Onboarded Cluster: 
++ Pod A cannot access /etc/bin folder
 
-After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory->cloud Workloads option 
-![](/overview/images/cluster-onboarding-8.png)
++ Pod B cannot initiate ptrace i.e. trace the execution of other processes.
 
-Cloud Account onboarding:
++ Pod C cannot communicate to a remote TCP server running on port 5000.
 
-Onboarding AWS Account using Access Keys method:
+This list can be as exhaustive as you like, and these policies are enforced within the kernel using kernel primitives and technologies as listed below:
 
-Step 1: To onboard Cloud Account Navigate to Settings->cloud Accounts
-![](/overview/images/cloud-onboarding-1.png)
-Step 2: In the Cloud Account Page select Add Account option
+Network Security using eBPF / Cilium
++ Network runtime protection in the form of L3, L4, and L7 rules using identity (x509 certificates or K8s labels) for your K8s workloads. In K8s policies, this is implemented as a CNI using Cilium.
 
-We can onboard AWS, Microsoft Azure and Google Cloud Platform Accounts in AccuKnox Saas.
-![](/overview/images/cloud-onboarding-2.png)
-Step 3: We can onboard AWS account using Manual and Access Keys Methods.
-![](/overview/images/cloud-onboarding-3.png)
-Step 4: Now select Access Keys Connection method from the dropdown menu.
-![](/overview/images/cloud-onboarding-4.png)
-Step 5: In the next Screen select the labels and Tags field from the dropdown Menu.
-![](/overview/images/cloud-onboarding-5.png)
-Step 6: After giving labels and Tag in the Next Screen Provide the AWS account’s Access Key and Secret Access Key ID and Select the Region of the AWS account.
-![](/images/cloud-onboarding-6.png)
-Step 7: AWS account is added to the AccuKnox using Access Key Method. We can see the onboarded cloud account by navigating to Settings->cloud Accounts option. 
-![](/overview/images/cloud-onboarding-7.png)
++ For Virtual Machine workloads, labels are used to provide host-level network policies for L3, L4, and L7.
+
+Application security using Linux Security Modules (LSM) / [KubeArmor]
++ The Linux Security Module (LSM) framework provides a mechanism for various security checks to be hooked by new kernel extensions. It denies access to essential kernel objects, such as files, inodes, task structures, credentials, and inter-process communication objects.
+
++ AccuKnox supports AppArmor and SELinux as of today for its enforcement engine at runtime.
