@@ -32,11 +32,11 @@ jobs:
      - name: Deploy static site to S3 bucket
        run: aws s3 sync ./site s3://test.help.accuknox.com
        
-    #  - name: Invalidate CloudFront
-    #    uses: chetan/invalidate-cloudfront-action@v2
-    #    env:
-    #       DISTRIBUTION: "EXNS62Q7796YF"
-    #       PATHS: "/*"
-    #       AWS_REGION: "us-east-1"
-    #       AWS_ACCESS_KEY_ID: ${{ secrets.DEVELOPMENT_AWS_ACCESS_KEY_ID }}
-    #       AWS_SECRET_ACCESS_KEY: ${{ secrets.DEVELOPMENT_AWS_SECRET_ACCESS_KEY }}
+     - name: Invalidate CloudFront
+       uses: chetan/invalidate-cloudfront-action@v2
+       env:
+          DISTRIBUTION: "E3CMS280VR8O6A"
+          PATHS: "/*"
+          AWS_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.DEVELOPMENT_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEVELOPMENT_AWS_SECRET_ACCESS_KEY }}
