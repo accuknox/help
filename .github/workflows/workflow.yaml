@@ -3,7 +3,7 @@ name: test.help.accuknox.com pipeline
 on:
  push:
    branches:
-     - gh-actions
+     - main
 
 jobs:
  Deploy:
