@@ -7,15 +7,15 @@ Follow this section to get to know about deploying Accuknox in On-premise enviro
 Create Cluster and VPC by running the following terraform script:
 
 **Step 1:** Download Terraform and Terraform script
-You can download Terraform here
+You can download Terraform [here](https://developer.hashicorp.com/terraform/downloads)
 Use the **aws configure** command to log into your AWS account before executing the Terraform scripts.
-```bash
->> git clone https://github.com/accuknox/onprem-resources-tf.git
+```sh
+git clone https://github.com/accuknox/onprem-resources-tf.git
 ```
 
 **Step 2:** Change the Directory
-```bash
->> cd onprem-resources-tf
+```sh
+cd onprem-resources-tf
 ```
 **Note :**
 
@@ -30,44 +30,38 @@ Update the **region,vpc_name&cluster_name**
 Update the cidr, private_subnets & public_subnets
 
 **Step 3:** Run the following commands to create Cluster and VPC
-```bash
+```sh
 terraform init
-
-
 terraform plan
-
-
 terraform apply
-
-
 terraform output > terraform_output.txt
 ```
 
 Directly from the user interface, download the records (Legacy TXT record and DKIM tokens) for **SES**. Alter the ses domain name in the **variable.tf** as well. 
 
 Run below command to get out of the directory
-```bash
+```sh
 cd ..
 ```
 
 **Helm Pull Registry:**
-```bash
-export ACCOUNT_ID="956994857092"
+```sh
+export ACCOUNT_ID="xxxxxxxx"
 export REGION="us-east-2"
-export ACCESS_KEY_ID="AKIA55UKWVCCJZTUL3PQ"
-export SECRET_ACCESS_KEY="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"
+export ACCESS_KEY_ID="xxxxxxxxxxxxxxxx"
+export SECRET_ACCESS_KEY="xxxxxxxxxxxxxxxxx"
 export AWS_ECR_REPO="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
 ```
 
-```bash
+```sh
 AWS_ACCESS_KEY_ID=${ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY} aws ecr get-login-password --region ${REGION} | helm registry login --username AWS --password-stdin ${AWS_ECR_REPO}
 ```
 
 Pull Helm chart from repository
-```bash 
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/pre-requisites-installation-chart --untar
+```sh 
+helm pull oci://${AWS_ECR_REPO}/onprem/pre-requisites-installation-chart --untar
 ```
-```bash
+```sh
 cd pre-requisites-installation-chart
 ```
 
@@ -78,18 +72,16 @@ cd pre-requisites-installation-chart
 + Execute the scripts to install Prerequisites EBS and EFS CSI drivers.
 + Before execution make sure the file is executable if not, run the below command
 
-
-
-```bash
+```sh
 chmod +x createnamespace.sh &&  ./createnamespace.sh
 ```
-```bash
+```sh
 chmod +x  pre-ebs-efs.sh && ./pre-ebs-efs.sh
 ```
-```bash
+```sh
 
 ### **DB & Istio & Keycloak Installation Script:**                                 
-```bash
+```sh
 chmod +x install.sh && ./install.sh
 ```
 
@@ -113,29 +105,27 @@ kubectl run -i -n accuknox-mongodb --rm --tty percona-client --image=percona/per
 ```
 
  **[Optional]Pulsar command :** Namespaces list in accuknox tenant
-```bash
+```sh
 kubectl exec -it -n accuknox-pulsar pod/pulsar-toolset-0 -- bin/pulsar-admin namespaces list accuknox
 ```
 
 Run below command to get out of the directory
-```bash
+```sh
 cd ..
 ```
-
-
 
 ## **Installing Istio Gateway**
 
 Pull Helm chart from repository
 
-```bash
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/istio-gateway-chart --untar
+```sh
+helm pull oci://${AWS_ECR_REPO}/onprem/istio-gateway-chart --untar
 ```
 
 Run the following command
 
-```bash
-helm install istio-gateway oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/istio-gateway-chart \
+```sh
+helm install istio-gateway oci://${AWS_ECR_REPO}/onprem/istio-gateway-chart \
         --set global.hosts.cwpp="example.com" \
         --set  global.hosts.keycloak="example.com" \ 
         --set global.hosts.cspm="*.example.com" \
@@ -148,11 +138,11 @@ helm install istio-gateway oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/on
 ## **Vault Installation**
 
 **Step 1:** Pull Helm chart from repository
-```bash
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/vault-chart  --untar
+```sh
+helm pull oci://${AWS_ECR_REPO}/onprem/vault-chart  --untar
 ```
 
-```bash
+```sh
 cd vault-chart/
 ```
 
@@ -162,7 +152,7 @@ Make sure that EBS is configured on the cluster to deploy consul. storage class 
 Before running the following script, AWS CLI needs to configure with the user which has admin access for IAM, KMS and EKS Cluster using **aws configure** on your local machine 
 
 Run the following command to Install Vault
-```bash
+```sh
  chmod +x vault_install.sh && ./vault_install.sh
 ```
 
@@ -171,7 +161,7 @@ Run the following command to Install Vault
 **Step 2:** Add secrets for the all microservices in vault
 
 **Note :** Need Vault binary on your local to run the following script. 
-Refer documentation Install | Vault | HashiCorp Developer
+Refer documentation [Install | Vault | HashiCorp Developer](https://developer.hashicorp.com/vault/downloads)
 
 Below **TOKEN** & **PASSWORD** are required **vault/microservice_secrets.sh** script file:
 
@@ -184,12 +174,12 @@ Below **TOKEN** & **PASSWORD** are required **vault/microservice_secrets.sh** sc
 + Mongo-DB datapipeline user password
 
 Run the following command in another terminal to port-forward the vault server to access on local:
-```bash
+```sh
 kubectl port-forward service/vault 8200:8200 -n accuknox-vault
 ```
 
 Run the following commands create **secrets**, **policy** & **roles** for kubernetes auth method for all microservices:
-```bash
+```sh
 ./microservices_secrets.sh
 ```
 
@@ -209,14 +199,14 @@ Once the keycloak pod is up and running open the Url which you configured in Ist
 **Note :** Before uploading edit DNS in four marked places in **accuknox-ui.json** file.
 ```bash
 
-    "rootUrl": "https://onprem.keycloak.accuknox.com/*",
-    "adminUrl": "https:/onprem.keycloak.accuknox.com/",
+    "rootUrl": "https://onprem.keycloak.example.com/*",
+    "adminUrl": "https:/onprem.keycloak.example.com/",
     "redirectUris": [
         "http://localhost:3000/*",
-        "https://onprem.keycloak.accuknox.com/*"
+        "https://onprem.keycloak.example.com/*"
     ],
     "webOrigins": [
-        "https://onprem.keycloak.accuknox.com"
+        "https://onprem.keycloak.example.com"
 
 ```
 + Click on **Clients** → **accuknox-ui** → **Credential**
@@ -225,38 +215,80 @@ Once the keycloak pod is up and running open the Url which you configured in Ist
 **Note :** Kindly note the client secret and client id to install user-management
 + Now Keycloak has been configured
 
-##**Divy**
+## **Microservices Deployment:**
+```sh
+export ACCOUNT_ID="xxxxxxxxx"
+export REGION="us-east-2"
+export ACCESS_KEY_ID="xxxxxxxxxxx"
+export SECRET_ACCESS_KEY="xxxxxxxxxxxxxxxxx"
+export AWS_ECR_REPO="${ACCOUNT_ID}.dkr.ecr.${REGION}.amazonaws.com"
+export REDIS_PASSWORD="xxxxxxxxx"
+export GIT_PVT_KEY_PATH="/path/to/key"
+export GIT_PUB_KEY_PATH="/path/to/key"
+export SALT_EFS_VOLUME_ID="fs-***"
+export CWPP_API_URL="https://cwpp.example.com"
+export CSPM_API_URL="https://cspm.example.com"
+export CSPM_APP_CONFIG_PATH="/path/to/config"
+export EXT_ELASTICACHE=""
+export EXT_RDS=""
+export DIVY_STATICFILES_EFS_VOLUME_ID="fs-***"
+export DIVY_MEDIA_EFS_VOLUME_ID="fs-**"
+```
 
-**Step 1:** Divy API Deployment
+
++ Run the below command
+
+```sh
+helm upgrade --install accuknox-services oci://${AWS_ECR_REPO}/onprem/accuknox-services \
+	--set-file global.saltstack.master.keys.git_pvt=${GIT_PVT_KEY_PATH} \
+	--set-file global.saltstack.master.keys.git_pub=${GIT_PUB_KEY_PATH} \
+	--set-file global.cspm.appconfig=${CSPM_APP_CONFIG_PATH} \
+	--set aws.accounId=${ACCOUNT_ID} \
+	--set aws.accessKeyId=${ACCESS_KEY_ID} \
+	--set aws.secretAccessKey=${SECRET_ACCESS_KEY} \
+	--set aws.region=${REGION} \
+	--set global.hosts.cwpp=${CWPP_API_URL} \
+	--set global.hosts.cspm=${CSPM_API_URL} \
+	--set global.redis.conf.password=${REDIS_PASSWORD} \
+	--set extsvc.elasticache.externalName=${EXT_ELASTICACHE} \
+	--set extsvc.rds.externalName=${EXT_RDS} \
+	--set extraPersistentVolume.divystaticfiles.spec.csi.volumeHandle=${DIVY_STATICFILES_EFS_VOLUME_ID} \
+	--set extraPersistentVolume.divymedia.spec.csi.volumeHandle=${DIVY_MEDIA_EFS_VOLUME_ID} \
+	--set extraPersistentVolume.minionkeys.spec.csi.volumeHandle=${SALT_EFS_VOLUME_ID} 
+```
+
+##**CSPM**
+
+**Step 1:** CSPM API Deployment
 
 Create database on RDS by running the following commands in the cluster which is running on same VPC
 ```bash
 kubectl run my-shell --rm -i --tty --image ubuntu -- bash
 ```
-```bash
+```sh
 apt update
 ```
 
 Run the following command to install postgresql-client
-```bash
+```sh
 apt install postgresql-client
 ```
 ![](/deploy/images/image-2.png)
 ** Note:**  Find the RDS endpoints from AWS RDS console → Databases → <database name>
 
-```bash
+```sh
 psql --host=<aws endpoint> --port=5432 --username=<username> --password --dbname=postgres
 ```
 
 To create Database run the following command
-```bash
+```sh
 CREATE DATABASE divy; 
 CREATE DATABASE soarcast; 
 ```
 
 Pull Helm chart from repository
-```bash
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/divy-backend-chart --untar
+```sh
+helm pull oci://${AWS_ECR_REPO}/onprem/divy-backend-chart --untar
 ```
 
 
@@ -264,8 +296,7 @@ helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/divy-backend
 
 Once database created, update the **appconfig.json** with above newly created creds for RDS,ElastiCache,SMTP,Vault & Keycloak use the following repo to deploy Divy api.
 
-```bash
-
+```sh
 // Setting this to 1 turns debug mode on and setting it to 0 turns it off. It is highly recommended to turn off debug mode in a production environment because the debug messages can reveal sensitive data, but it is helpful for debugging in a test environment.
 DEBUG: 0 
 // email for user verification
@@ -321,8 +352,8 @@ KEYCLOAK_CLIENT_SECRET_KEY: “”
 KEYCLOAK_ADMIN_URL : //keycloak endpoint url
 KEYCLOAK_ADMIN_USERNAME : //keycloak admin username
 KEYCLOAK_ADMIN_PASSWORD : //keycloak admin password
-KEYCLOAK_ADMIN_REALM_NAME : accuknox
-KEYCLOAK_ADMIN_USER_REALM_NAME: accuknox
+KEYCLOAK_ADMIN_REALM_NAME : xxxxxxx
+KEYCLOAK_ADMIN_USER_REALM_NAME: xxxxxx
 // This is used for providing logging to help troubleshoot bugs. This field can be left blank for basic deployment.
 SENTRY_KEY: “”  
 SALTSTACK_API_URL:“https://saltmaster-service.accuknox-saltstack.svc.cluster.local:8000”
@@ -353,9 +384,8 @@ MAIN_AWS_ACCESS_KEY_SECRET: ""
 **Note:**  Kindly update the endpoint of **RDS**, **ElastiCache** and **EFS _ID**
 EFS_ID -> from aws EFS console with the name CSPM-STATICFILES filesystem
 
-
 Run the following command to install Divy
-```bash
+```sh
 helm install divy divy-backend-chart \
 	--set redisExternalServices.externalName=<RDS-ENDPOINT>  \
 	--set postgresExternalServices.externalName=<ELASTICACHE-ENDPOINT> \
@@ -367,8 +397,8 @@ helm install divy divy-backend-chart \
 **Deploy Nginx:**
 
 Pull Helm chart from repository
-```bash
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/divy-nginx-chart --untar
+```sh
+helm pull oci://${AWS_ECR_REPO}/onprem/divy-nginx-chart --untar
 ```
 
 
@@ -379,12 +409,12 @@ In the secret directory, create files called cert and key. Paste the ca cert bun
 **Note:** Kindly update the certificates in the nginx helm chart secrets.
 
 Run the following command to install nginx
-```bash
+```sh
 helm install nginx nginx-chart -n accuknox-divy
 ```
 
 To check the deployed pods
-```bash
+```sh
 kubectl get pods -n accuknox-divy
 ```
 ![](/deploy/images/image-3.png)
@@ -393,7 +423,7 @@ kubectl get pods -n accuknox-divy
 **Create a Root Tenant in Divy:**
 
 *Divy web pod
-```bash
+```sh
 kubectl exec -it uswgi-*** -- bash -n <namespace>
 
 python3 manage.py shell
@@ -415,7 +445,7 @@ exit
 **Create a Superuser:**
 
 In the same container run the following command to create superuser
-```bash
+```sh
 python3 manage.py createsuperuser
 ```
 
@@ -428,14 +458,14 @@ You can access the divy api UI on **https://<domain name>/admin/** use above cre
 **Step 1:** Soarcast API Deployment
 
 Pull Helm chart from repository
-```bash
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/soarcast-chart --untar
+```sh
+helm pull oci://${AWS_ECR_REPO}/onprem/soarcast-chart --untar
 ```
 
 **Note:** soarcast-chart/secretfiles/appconfig.json
 
 Once database created update the **appconfig.json** with  previously created creds for RDS(same has divy ), ElastiCache, SMTP & Vault  use the following repo to deploy soarcast api
-```bash
+```sh
 DEBUG: 0 // Setting this to 1 turns debug mode on and setting it to 0 turns it off. It is highly recommended to turn off debug mode in a production environment because the debug messages can reveal sensitive data, but it is helpful for debugging in a test environment.
 
 "EMAIL_HOST": "", //add smtp endpoint (get it from smtp setting)
@@ -478,7 +508,7 @@ Note: Kindly update the endpoint of **RDS**, **ElastiCache** and **EFS _ID**
 EFS_ID -> from aws EFS console with the name **CSPM-STATICFILES** filesystem
 
 Run the following command to install Soarcast
-``bash
+``sh
 helm install soarcast-chart --set redisExternalServices.externalName=<RDS-ENDPOINT>  --set postgresExternalServices.externalName=<ELASTICACHE-ENDPOINT> --set pvspec.csi.volumeHandle=<CSPM-STATICFILES-EFS-ID> -n accuknox-soarcast
 ```
 
@@ -486,8 +516,8 @@ helm install soarcast-chart --set redisExternalServices.externalName=<RDS-ENDPOI
 
 Pull Helm chart from repository
 
-```bash
-helm pull oci://956994857092.dkr.ecr.us-east-2.amazonaws.com/onprem/soarcast-nginx-charts --untar
+```sh
+helm pull oci://${AWS_ECR_REPO}/onprem/soarcast-nginx-charts --untar
 ```
 
 Soarcast uses NGINX as a reverse proxy in front of the web application
@@ -496,12 +526,12 @@ In the secret directory, create files called cert and key. Paste the ca cert bun
 **Note:** Kindly update the certificates in the nginx helm chart secrets.
 
 Run the following command to install nginx
-```bash
+```sh
 helm install nginx nginx-chart -n accuknox-divy
 ```
 
 To check the deployed pods
-```bash
+```sh
 kubectl get pods -n accuknox-divy
 ```
 ![](/deploy/images/image-3a.png)
@@ -511,10 +541,10 @@ kubectl get pods -n accuknox-divy
 
 *soarcast web pod
 run the following command to create superuser
-```bash
+```sh
 kubectl exec -it uswgi-*** -- bash -n <namespace>
 ```
-```bash
+```sh
 python3 manage.py createsuperuser
 ```
 
@@ -535,55 +565,5 @@ swaggerurl : https://cspm.example.com/api/swagger/
 
 + Data object (to be blank) , click on → Execute and 201 status code (view token)
 ![](/deploy/images/image-5.png)
-## **AccuKnox Services Deployment Steps**
 
 
-**Export the below variables**
-```bash
-export AWS_ACCOUNT_ID="956994857092"
-export AWS_REGION="us-east-2"
-export AWS_ACCESS_KEY_ID="AKIA55UKWVCCJK7NPHHR"
-export AWS_SECRET_ACCESS_KEY="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"
-export AWS_ECR_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
-export REDIS_PASSWORD="somepassword"
-export GIT_PVT_KEY_PATH="/path/to/key"
-export GIT_PUB_KEY_PATH="/path/to/key"
-export SALT_EFS_VOLUME_ID="fs-***"
-export CWPP_API_URL="https://cwpp.example.com"
-export CSPM_API_URL="https://cspm.example.com"
-export CSPM_AUTHN_TOKEN="token"
-```
-
-| Command               | Description                                                    |
-| :-------------------- | :------------------------------------------------------------- |
-| `SALT_EFS_VOLUME_ID`  | Get the Volume filesystem ID of saltstack from EFS AWS service.|
-| `GIT_PVT_KEY_PATH`    | Key file will be shared via mail.                              |
-| `GIT_PUB_KEY_PATH`    | Key file will be shared via mail.                              |
-
-
-
-
-**Authenticate the Registry**
-```bash
-aws ecr get-login-password --region ${AWS_REGION} | helm registry login --username AWS --password-stdin ${AWS_ECR_REPO}
-```
-
-
-**Deploy the Accuknox Services**
-
-+ Run the below command.
-```bash
-helm upgrade --install accuknox-services oci://${AWS_ECR_REPO}/onprem/accuknox-services \
-             --set aws.accounId=${AWS_ACCOUNT_ID} \
-             --set aws.accessKeyId=${AWS_ACCESS_KEY_ID} \
-             --set aws.secretAccessKey=${AWS_SECRET_ACCESS_KEY} \
-             --set aws.region=${AWS_REGION} \
-             --set global.hosts.cwpp=${CWPP_API_URL} \
-             --set global.hosts.cspm=${CSPM_API_URL} \
-             --set global.authNtoken=${CSPM_AUTHN_TOKEN} \
-             --set global.redis.conf.password=${REDIS_PASSWORD} \
-             --set extraPersistentVolume.minionkeys.spec.csi.volumeHandle=${SALT_EFS_VOLUME_ID} \
-             --set-file global.saltstack.master.keys.git_pvt=${GIT_PVT_KEY_PATH} \
-             --set-file global.saltstack.master.keys.git_pub=${GIT_PUB_KEY_PATH}
-
-```
