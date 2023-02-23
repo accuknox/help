@@ -14,11 +14,6 @@ jobs:
 
      - name: Build
        uses: jnanadarshan/mkdocs-build-action@v1
- 
-
-
-     - name: Build static file
-       run: mkdocs build
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
