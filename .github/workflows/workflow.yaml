@@ -12,9 +12,9 @@ jobs:
      - name: Checkout
        uses: actions/checkout@v2
 
-     - name: Install dependencies
-       run: apt update && apt upgrade && apt install mkdocs -y
-
+     - name: Build
+       uses: jnanadarshan/mkdocs-build-action@v1
+ 
 
 
      - name: Build static file
