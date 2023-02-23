@@ -152,48 +152,48 @@ nav:
     - "Remediation" : "overview/remediation.md"
     - "Reports & Compliance" : "overview/reports-and-compliance.md"
 
-  - "Deploy & Use":
-    - "Deploy & Use" : "deploy/deploy-and-use.md"
-    - "On-prem-installation Guide" : "deploy/on-prem-installation-guide.md"
-
   - "AccuKnox SaaS":
     - "Dashboard" : "saas/dashboard.md"
-    - "Inventory" : "saas/inventory.md"
-    - "Assets" : "saas/assets.md"
-    - "Cloud Workloads" : "saas/cloud-workloads.md"
-    - "Imports" : "saas/imports.md"
-    - "Explorer" : "saas/explorer.md"
-    - "Baselines" : "saas/baselines.md"
-    - "Issues" : "saas/issues.md"
-    - "Vulnerabilities" : "saas/vulnerabilities.md"
-    - "Registry Scan" : "saas/registry-scan.md"
-    - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
-    - "Compliance" : "saas/compliance.md"
-    - "Baselines" : "saas/baselines.md"
-    - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
-    - "Runtime Protection" : "saas/runtime-protection.md"
-    - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
-    - "App Behavior" : "saas/app-behavior.md"
-    - "Policies" : "saas/policies.md"
+    - "Inventory" : 
+          - "Assets": "saas/assets.md"
+          - "Cloud Workloads" : "saas/cloud-workloads.md"
+          - "Imports" : "saas/imports.md"
+          - "Explorer" : "saas/explorer.md"
+          - "Baselines" : "saas/baselines.md"
+    - "Issues" :
+          - "Vulnerabilities" : "saas/vulnerabilities.md"
+          - "Registry Scan" : "saas/registry-scan.md"
+          - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
+    - "Compliance" : 
+          - "Baselines" : "saas/baselines.md"
+          - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
+    - "Runtime Protection" : 
+          - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
+          - "App Behavior" : "saas/app-behavior.md"
+          - "Policies" : "saas/policies.md"
     - "Targets" : "saas/targets.md"
-    - "Remediation" : "saas/remediation.md"
-    - "Ticket Summary" : "saas/ticket-summary.md"
-    - "Monitors/Logging" : "saas/monitors-logging.md"
-    - "Logs" : "saas/logs.md"
-    - "Triggers" : "saas/triggers.md"
-    - "Monitors" : "saas/monitors.md"
+    - "Remediation" : 
+          - "Ticket Summary" : "saas/ticket-summary.md"
+    - "Monitors/Logging" : 
+          - "Logs" : "saas/logs.md"
+          - "Triggers" : "saas/triggers.md"
+          - "Monitors" : "saas/monitors.md"
     - "Reports" : "saas/reports.md"
     - "Notifications" : "saas/notifications.md"
-    - "Settings" : "saas/settings.md"
-    - "Cloud Accounts" : "saas/cloud-accounts.md"
-    - "Manage Cluster" : "saas/manage-cluster.md"
-    - "User Management" : "saas/user-management.md"
-    - "RBAC" : "saas/rbac.md"
-    - "Integrations" : "saas/integrations.md"
-    - "Labels" : "saas/labels.md"
-    - "Tags" : "saas/tags.md"
-    - "Groups" : "saas/groups.md"
-    - "Ticket Template" : "saas/ticket-template.md"
+    - "Settings" : 
+          - "Cloud Accounts" : "saas/cloud-accounts.md"
+          - "Manage Cluster" : "saas/manage-cluster.md"
+          - "User Management" : "saas/user-management.md"
+          - "RBAC" : "saas/rbac.md"
+          - "Integrations" : "saas/integrations.md"
+          - "Labels" : "saas/labels.md"
+          - "Tags" : "saas/tags.md"
+          - "Groups" : "saas/groups.md"
+          - "Ticket Template" : "saas/ticket-template.md"
+
+  - "Deploy & Use":
+    - "On-prem-installation Guide" : "deploy/on-prem-installation-guide.md"
+    - "5G & Edge" : "deploy/5g-edge.md"
 
   - "Integrations":
     - "CI CD Integrations" : "integrations/ci-cd-integrations.md"
@@ -219,9 +219,7 @@ nav:
     - "Public Cloud" : "support-matrix/public-cloud.md"
     - "Private Cloud" : "support-matrix/private-cloud.md"
     - "VMs" : "support-matrix/vms.md"
-
-  - "API Reference":
-    - "API Reference" : "api-reference/api-reference.md"
-
+    
   - "Troubleshooting & FAQs":
-    - "Troubleshooting & FAQs" : "faqs/troubleshooting-and-faqs.md"
+    - "FAQs" : "faqs/troubleshooting-and-faqs.md"
+
