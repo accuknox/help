@@ -11,9 +11,11 @@ jobs:
    steps:
      - name: Checkout
        uses: actions/checkout@v2
-
-     - name: Build
-       uses: jnanadarshan/mkdocs-build-action@v0.24
+     - uses: actions/setup-python@v2
+       with:
+          python-version: 3.x
+     - run: pip install mkdocs
+     - run: mkdocs gh-deploy --force --clean --verbose
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
