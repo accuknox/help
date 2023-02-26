@@ -202,15 +202,24 @@ nav:
     - "Log Agg" : "integrations/log-agg.md"
 
   - "Use-Cases":
-    - "Static Security" : "use-cases/static-security.md"
-    - "Playbook for automated collection & execution" : "use-cases/playbook-for-automated-collection-and-execution.md"
-    - "Container Security" : "use-cases/container-security.md"
-    - "Zero Trust Model" : "use-cases/zero-trust-model.md"
+    - "Vulnerability Management" : "use-cases/vulnerability.md"
+    - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfig.md"
+    - "Container Security" :
+      - "Image Scan": "use-cases/image-scan.md" 
+      - "CIS": "use-cases/cis.md" 
+    - "Zero Trust Model" : 
+      - "Cloud Security": "use-cases/cloud-security.md" 
+      - "App Graph": "use-cases/app-graph.md" 
+      - "Risk-Based Priortization": "use-cases/risk-priortization.md" 
+      - "policies": "use-cases/policies.md" 
     - "Full Stack Observability by eBPF & LSM for enforcement" : "use-cases/full-stack-observability-by-ebpf-and-lsm-for-enforcement.md"
     - "Asset Inventory" : "use-cases/asset-inventory.md"
     - "Securing you Cloud Infra through detecting Misconfiguration & Vulnerabilities" : "use-cases/securing-you-cloud-infra-through-detecting-misconfiguration-and-vulnerabilities.md"
     - "Compliances & Reporting" : "use-cases/compliances-and-reporting.md"
-    - "Auto-Discovered Policies & Hardening Policies" : "use-cases/auto-discovered-policies-and-hardening-policies.md"
+    - "Auto-Discovered Policies & Hardening Policies" : 
+      - "Policy using GitOps Workflow": "use-cases/gitops-workflow.md" 
+      - "Policy Auto discovery": "use-cases/policy-auto-discover.md" 
+      - "Hardening Polcies": "use-cases/harden-policies.md" 
     - "Network Segmentation" : "use-cases/network-segmentation.md"
     - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
 
