@@ -210,7 +210,7 @@ Once the keycloak pod is up and running open the Url which you configured in Ist
 
 ```
 + Click on **Clients** → **accuknox-ui** → **Credential**
-![](/deploy/images/image-1.png)
+![](/getting-started/images/image-1.png)
 
 **Note :** Kindly note the client secret and client id to install user-management
 + Now Keycloak has been configured
@@ -273,7 +273,7 @@ Run the following command to install postgresql-client
 ```sh
 apt install postgresql-client
 ```
-![](/deploy/images/image-2.png)
+![](/getting-started/images/image-2.png)
 ** Note:**  Find the RDS endpoints from AWS RDS console → Databases → <database name>
 
 ```sh
@@ -417,7 +417,7 @@ To check the deployed pods
 ```sh
 kubectl get pods -n accuknox-divy
 ```
-![](/deploy/images/image-3.png)
+![](/getting-started/images/image-3.png)
 
 
 **Create a Root Tenant in Divy:**
@@ -534,7 +534,7 @@ To check the deployed pods
 ```sh
 kubectl get pods -n accuknox-divy
 ```
-![](/deploy/images/image-3a.png)
+![](/getting-started/images/image-3a.png)
 
 
 **Create a Superuser:**
@@ -561,9 +561,9 @@ password:  // use the divy superuser pass
 swaggerurl : https://cspm.example.com/api/swagger/
 
 + Click on → **POST/token** and then click → **try it out**
-![](/deploy/images/image-4.png)
+![](/getting-started/images/image-4.png)
 
 + Data object (to be blank) , click on → Execute and 201 status code (view token)
-![](/deploy/images/image-5.png)
+![](/getting-started/images/image-5.png)
 
 

@@ -34,3 +34,28 @@ Policies section gives the user information about the runtime protection policie
 **Step 7:**  Custom policy will be saved to the workspace. 
 
 ![](/saas/images/custom-policy-7.png)
+
+**Applying Hardening policy:**
+
+
+Users can follow this section to apply the hardening policies that are generated based on the workloads in the cluster. 
+
+**Step 1:** Select your cluster and namespace from this Policies screen.
+
+![](/saas/images/Harden-policy-1.png)
+
+**Step 2:** Selecting the below hardening policy to apply
+
+![](/saas/images/Harden-policy-2.png)
+
+**Step 3:** After applying the above hardening policy, it goes into pending state
+
+![](/saas/images/Harden-policy-3.png)
+
+**Step 4:** To make it active the user with admin privilege needs to give approval
+
+![](/saas/images/Harden-policy-4.png)
+
+**Step 5:**  After approval policy goes into active state. The hardening policy is applied successfully in the cluster.
+
+![](/saas/images/Harden-policy-5.png)

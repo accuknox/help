@@ -141,16 +141,7 @@ nav:
     - "Defining Runtime security & Static Security" : "overview/defining-runtime-security-and-static-security.md"
     - "What is CSPM" : "overview/what-is-cspm.md"
     - "What is CWPP" : "overview/what-is-cwpp.md"
-    - "Getting Started":
-           - "Open source vs Enterprise" : "overview/open-source-vs-enterprise.md"
-           - "AccuKnox Agents" : "overview/accuknox-agents.md"
-           - "Cloud Onboarding" : "overview/cloud-onboarding.md"
-           - "Cluster Onboarding" : "overview/cluster-onboarding.md"
-    - "Misconfigurations & VS" : "overview/misconfigurations-and-vs.md"
-    - "Reg & Image Scan" : "overview/reg-and-image-scan.md"
-    - "Monitoring & logs, Telemetry" : "overview/monitoring-and-logs-telemetry.md"
-    - "Remediation" : "overview/remediation.md"
-    - "Reports & Compliance" : "overview/reports-and-compliance.md"
+    - "Open source vs Enterprise" : "overview/open-source-vs-enterprise.md"
 
   - "AccuKnox SaaS":
     - "Dashboard" : "saas/dashboard.md"
@@ -191,9 +182,12 @@ nav:
           - "Groups" : "saas/groups.md"
           - "Ticket Template" : "saas/ticket-template.md"
 
-  - "Deploy & Use":
-    - "On-prem-installation Guide" : "deploy/on-prem-installation-guide.md"
-    - "5G & Edge" : "deploy/5g-edge.md"
+  - "Getting Started":
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+    - "Open Source Installation": "getting-started/open-source.md"
+    - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
+    - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
+    - "On-prem-installation Guide" : "getting-started/on-prem-installation-guide.md"
 
   - "Integrations":
     - "CI CD Integrations" : "integrations/ci-cd-integrations.md"
@@ -228,6 +222,8 @@ nav:
     - "Public Cloud" : "support-matrix/public-cloud.md"
     - "Private Cloud" : "support-matrix/private-cloud.md"
     - "VMs" : "support-matrix/vms.md"
+    - "Supported Benchmarks" : "support-matrix/supported-benchmarks.md"
+    - "Assets list" : "support-matrix/assets-list.md"
     
   - "Troubleshooting & FAQs":
     - "FAQs" : "faqs/troubleshooting-and-faqs.md"
