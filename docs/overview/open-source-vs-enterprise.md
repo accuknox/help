@@ -6,13 +6,13 @@ Accuknox offers a suite of fully open source tools (CNCF projects, apache licens
 
 | Features                         | Open Source      | Enterprise |
 | :--------------------------------| :----------------| :----------|
-| Kubearmor (in-line mitigation)   | yes              | yes        |
-| Security Policies                | yes              | yes        |
-| Alerts & telemetry contextual to Host & Kubernetes workload| yes | yes  |
-| Network security using CNI       | yes              | yes        |
-| Hardening policies               | No               | yes        |
-| Channel Integration              | No               | yes        |
-| Discovery Engine                 | No               | yes        |
-|Full gitops workflow integration  | No               | yes        |
-| Multi-tenant, multi-cluster management solution| No | yes        |
-| Comprehensive Dashboard          | No               | yes        |
+| Kubearmor (in-line mitigation)   | **Yes**          | **Yes**    |
+| Security Policies                | **Yes**          | **Yes**    |
+| Alerts & telemetry contextual to Host & Kubernetes workload| **Yes** | **Yes**  |
+| Network security using CNI       | **Yes**          | **Yes**    |
+| Hardening policies               | No               | **Yes**    |
+| Channel Integration              | No               | **Yes**    |
+| Discovery Engine                 | No               | **Yes**    |
+|Full gitops workflow integration  | No               | **Yes**    |
+| Multi-tenant, multi-cluster management solution| No | **Yes**    |
+| Comprehensive Dashboard          | No               | **Yes**    |
