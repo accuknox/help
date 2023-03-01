@@ -136,7 +136,7 @@ pages:
 nav:
   - "Overview":
     - "CNAPP Definition" : "overview/cnapp-definition.md"
-    - "Need for CNAPP & Arch" : "overview/need-for-cnapp-and-arch.md"
+    - "Need for CNAPP & Architecture" : "overview/need-for-cnapp-and-arch.md"
     - "Defining Runtime security & Static Security" : "overview/defining-runtime-security-and-static-security.md"
     - "What is CSPM?" : "overview/what-is-cspm.md"
     - "What is CWPP?" : "overview/what-is-cwpp.md"
