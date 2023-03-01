@@ -2,7 +2,7 @@
 
 In the below section you can find the detailed steps to be followed for onboarding cluster to AccuKnox SaaS. AccuKnox Saas Platform supports onboarding of AKS, EKS, GKE and umanaged Clusters.  
 
-## **Un Managed cluster installation:**
+## **Unmanaged cluster installation:**
 Below shown image is the unmanaged k3s cluster running in local machine with Ubuntu 22.04 Operating System. We can onboard this umanaged cluster by following the steps shown below 
 ![](/getting-started/images/k3s.png)
 

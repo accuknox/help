@@ -1,7 +1,7 @@
 # **Cloud Account onboarding:**
 Accuknox Saas Platform supports AWS,Microsoft Azure, Google Cloud Platform accounts onboarding. In this section we can find the steps to onboard various cloud accounts to the Accuknox SaaS platform. 
 
-## **Onboarding AWS Account using Access Keys method:**
+## **AWS Onboarding:**
 
 In this example we are onboarding AWS account using the Access Keys method. 
 

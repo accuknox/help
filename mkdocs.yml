@@ -17,7 +17,6 @@ theme:
   features:
     - content.code.annotate
     - navigation.indexes
-    - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
@@ -139,8 +138,8 @@ nav:
     - "CNAPP Definition" : "overview/cnapp-definition.md"
     - "Need for CNAPP & Arch" : "overview/need-for-cnapp-and-arch.md"
     - "Defining Runtime security & Static Security" : "overview/defining-runtime-security-and-static-security.md"
-    - "What is CSPM" : "overview/what-is-cspm.md"
-    - "What is CWPP" : "overview/what-is-cwpp.md"
+    - "What is CSPM?" : "overview/what-is-cspm.md"
+    - "What is CWPP?" : "overview/what-is-cwpp.md"
     - "Open source vs Enterprise" : "overview/open-source-vs-enterprise.md"
 
   - "AccuKnox SaaS":
@@ -156,7 +155,7 @@ nav:
           - "Registry Scan" : "saas/registry-scan.md"
           - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
     - "Compliance" : 
-          - "Baselines" : "saas/baselines.md"
+          - "Baselines" : "saas/inventory-baselines.md"
           - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
     - "Runtime Protection" : 
           - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
@@ -190,11 +189,18 @@ nav:
     - "On-prem-installation Guide" : "getting-started/on-prem-installation-guide.md"
 
   - "Integrations":
-    - "CI CD Integrations" : "integrations/ci-cd-integrations.md"
-    - "Ticketing" : "integrations/ticketing.md"
-    - "SIEM" : "integrations/siem.md"
-    - "Log Agg" : "integrations/log-agg.md"
-
+     - "Ticketing" :
+         - "Jira cloud(CWPP)" : "integrations/jira-cloud-cwpp.md"
+         - "Jira cloud(CSPM)" : "integrations/jira-cloud-cspm.md"
+         - "Jira Server(CSPM)" : "integrations/jira-server-cspm.md"
+         - "Freshwise(CSPM)" : "integrations/freshwise-cspm.md"
+     - "Notification" : 
+         - "Slack(CWPP)" : "integrations/slack.md"
+         - "Email (CSPM)" : "integrations/email.md" 
+     - "SIEM/ Security Events" : 
+         - "Splunk(CWPP)" : "integrations/splunk.md"
+         - "AWS Cloudwatch(CWPP)" : "integrations/aws-cloudwatch.md"
+         - "Rsyslog(CWPP)" : "integrations/rsyslog.md"
   - "Use-Cases":
     - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfig.md"

@@ -1,4 +1,4 @@
-## **Cloud Security Posture Management (CSPM):** 
+## **What is Cloud Security Posture Management (CSPM)? ** 
 
  According to Gartner, **CSPM** is defined as “a continuous process of cloud security improvement and adaptation to reduce the likelihood of a successful attack.“ Cloud Security Posture Management helps to identify, remediate misconfigurations and Vulnerabilities present in the cloud workloads. It has the ability to provide continuous compliance of cloud workloads by detecting the vulnerabilities that are risky to security of the cloud resources.
 
