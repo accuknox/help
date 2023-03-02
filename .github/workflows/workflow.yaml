@@ -25,8 +25,8 @@ jobs:
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
        with:
-         aws-access-key-id: ${{ secrets.DEVELOPMENT_AWS_ACCESS_KEY_ID }}
-         aws-secret-access-key: ${{ secrets.DEVELOPMENT_AWS_SECRET_ACCESS_KEY }}
+         aws-access-key-id: ${{ secrets.AWS_DEV_ACCESS_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_DEV_SECRET_ID }}
          aws-region: us-east-1
 
      - name: Deploy static site to S3 bucket
@@ -38,5 +38,5 @@ jobs:
           DISTRIBUTION: "EBIKFZ6DE74S"
           PATHS: "/*"
           AWS_REGION: "us-east-1"
-          AWS_ACCESS_KEY_ID: ${{ secrets.DEVELOPMENT_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEVELOPMENT_AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_DEV_ACCESS_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_DEV_SECRET_ID }}
