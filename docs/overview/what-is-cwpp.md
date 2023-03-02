@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **what is Cloud Workload Protection Platform (CWPP)?** 
 
 According to Gartner, “CWPPs are workload-centric security products that protect server workloads in hybrid, multi-cloud data center environments. CWPPs provide consistent visibility and control for physical machines, virtual machines (VMs), containers, and serverless workloads, regardless of location. Cloud Workload Protection Platform (CWPP) solutions help protect your cloud infrastructure workloads from security threats.

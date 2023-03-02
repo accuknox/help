@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **AccuKnox FAQs:** 
 
 **1. Do AccuKnox CSPM support an agent-based scanning or agentless scanning ?**

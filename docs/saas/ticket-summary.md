@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **Remediation**
 
 AccuKnox’s Cloud Native Application Protection Platform (CNAPP) detects known vulnerabilities and security findings from infrastructure and application security posture assessment. Usually, once you onboard the infrastructure or workloads, we will run a scan that will identifies, prioritizes and remediate security and compliance flaws. 

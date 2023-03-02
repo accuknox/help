@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 ## **CSPM Executive Dashboard**
 
 The Compliance Executive dashboard provides you a composite view of continuous conformances of cloud resources to technical benchmarks like CIS etc. and legal frameworks HIPAA, PCI-DSS etc. Below are the aspects we cover to provide a single pane of glass visibility into the security posture of your entire infrastructure.

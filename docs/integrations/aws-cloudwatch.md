@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 ## AWS CloudWatch Integration
 
 Navigate to Settings->Integrations. Choose **"AWS CloudWatch"** services and click the **Integrate Now** button.

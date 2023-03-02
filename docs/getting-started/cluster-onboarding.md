@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # **Cluster Onboarding:** 
 
 In the below section you can find the detailed steps to be followed for onboarding cluster to AccuKnox SaaS. AccuKnox Saas Platform supports onboarding of AKS, EKS, GKE and umanaged Clusters.  
