@@ -2,6 +2,7 @@
 
 According to Gartner, “CWPPs are workload-centric security products that protect server workloads in hybrid, multi-cloud data center environments. CWPPs provide consistent visibility and control for physical machines, virtual machines (VMs), containers, and serverless workloads, regardless of location. Cloud Workload Protection Platform (CWPP) solutions help protect your cloud infrastructure workloads from security threats.
 
+
 AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves security by leveraging KubeArmor which uses inline Mitigation. AccuKnox’s open-source tool KubeArmor uses Linux Security Modules to apply the restricting behavior so that it prevents the attacks before it is happening. Let us consider an attack scenario where an attacker gets access to one of the application pods that is running in the cluster. If executes any remote code in the pod security will be compromised and the attacker can take control of the pod. 
 
 So we can mitigate this scenario in two ways. First is Post-Attack Mitigation. In Post-Attack Mitigation works by killing the suspicious process in response to an alert indicating malicious intent. An attacker is allowed to execute its binary. The attacker could possibly disable the security controls, access logs, etc to circumvent the attack detection. By the time, the malicious process is killed, it might have already deleted, encrypted, or transmitted the sensitive contents. 
