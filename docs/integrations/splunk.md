@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## Splunk Integration
 
 Splunk is a software platform to search, analyze, and visualize machine-generated data gathered from websites, applications, sensors, and devices.

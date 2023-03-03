@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **Triggers:**
 
 With the use of triggers, AccuKnox can send alerts to third-party SIEM (security information and event management) platforms and logging tools like Slack, Splunk, Elastic Search, Cloud Watch, and Jira.

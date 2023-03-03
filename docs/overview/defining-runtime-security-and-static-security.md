@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 ## **Static Security:** 
 
 Static Security in the cloud is the process of identifying the vulnerabilities and misconfigurations present in the cloud resources. In the static security part, the cloud resources are scanned for vulnerabilities and misconfigurations based on security benchmarks and frameworks. 

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## RSyslog Integration
 
 To forward the events to RSyslog you must first set up the RSyslog Integration.

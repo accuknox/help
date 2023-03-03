@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **Policies:**
 
 Policies section gives the user information about the runtime protection policies that are applied in the cluster. Policies are classified as Discovered, Active, inactive, Pending, Hardening and so on. We can see the policies based on the cluster, Namespace and policy type that we select in the filters shown in the page. We have option to see the policies related to particular namespace. Along with the discovered and Hardening policies users can also create custom policy by using the policy editor tool. 

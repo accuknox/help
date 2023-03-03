@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **Monitors**
 
 Monitors section helps the users to monitor the assets that are present in the cloud account that is onboarded to the AccuKnox platform. 

@@ -151,13 +151,13 @@ nav:
           - "Cloud Workloads" : "saas/cloud-workloads.md"
           - "Imports" : "saas/imports.md"
           - "Explorer" : "saas/explorer.md"
-          - "Baselines" : "saas/baselines.md"
+          - "Baselines" : "saas/inventory-baseline.md"
     - "Issues" :
           - "Vulnerabilities" : "saas/vulnerabilities.md"
           - "Registry Scan" : "saas/registry-scan.md"
           - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
     - "Compliance" : 
-          - "Baselines" : "saas/inventory-baselines.md"
+          - "Baselines" : "saas/baselines.md"
           - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
     - "Runtime Protection" : 
           - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
@@ -192,17 +192,16 @@ nav:
 
   - "Integrations":
      - "Ticketing" :
-         - "Jira cloud(CWPP)" : "integrations/jira-cloud-cwpp.md"
-         - "Jira cloud(CSPM)" : "integrations/jira-cloud-cspm.md"
-         - "Jira Server(CSPM)" : "integrations/jira-server-cspm.md"
-         - "Freshwise(CSPM)" : "integrations/freshwise-cspm.md"
+         - "Jira cloud" : "integrations/jira-cloud-cwpp.md"
+         - "Jira Server" : "integrations/jira-server-cspm.md"
+         - "Freshwise" : "integrations/freshwise-cspm.md"
      - "Notification" : 
-         - "Slack(CWPP)" : "integrations/slack.md"
-         - "Email (CSPM)" : "integrations/email.md" 
+         - "Slack" : "integrations/slack.md"
+         - "Email" : "integrations/email.md" 
      - "SIEM/ Security Events" : 
-         - "Splunk(CWPP)" : "integrations/splunk.md"
-         - "AWS Cloudwatch(CWPP)" : "integrations/aws-cloudwatch.md"
-         - "Rsyslog(CWPP)" : "integrations/rsyslog.md"
+         - "Splunk" : "integrations/splunk.md"
+         - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+         - "Rsyslog" : "integrations/rsyslog.md"
   - "Use-Cases":
     - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfig.md"
@@ -212,8 +211,8 @@ nav:
     - "Zero Trust Model" : 
       - "Cloud Security": "use-cases/cloud-security.md" 
       - "App Graph": "use-cases/app-graph.md" 
-      - "Risk-Based Priortization": "use-cases/risk-priortization.md" 
-      - "policies": "use-cases/policies.md" 
+      - "Risk-Based Prioritization": "use-cases/risk-priortization.md" 
+      - "Policies": "use-cases/policies.md" 
     - "Full Stack Observability by eBPF & LSM for enforcement" : "use-cases/full-stack-observability-by-ebpf-and-lsm-for-enforcement.md"
     - "Asset Inventory" : "use-cases/asset-inventory.md"
     - "Securing you Cloud Infra through detecting Misconfiguration & Vulnerabilities" : "use-cases/securing-you-cloud-infra-through-detecting-misconfiguration-and-vulnerabilities.md"

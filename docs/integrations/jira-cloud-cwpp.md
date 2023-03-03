@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## Jira Integration
 
 Integrate AccuKnox with Jira and receive AccuKnox alert notifications in your Jira accounts. With this integration, you can automate the process of generating Jira tickets with your existing security workflow.
