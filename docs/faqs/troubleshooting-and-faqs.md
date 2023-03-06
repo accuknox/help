@@ -127,7 +127,7 @@ Accuknox Enterprise version consists of various agents such as
 
 **1. What are all the compliance frameworks that AccuKnox is covering?**
 
-AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, CMMC, Fisma etc. 
+AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, CMMC, Fisma . 
 
 **2. Does Inline remediation slowdown the process?**
 
@@ -135,7 +135,7 @@ LSMs are already enabled in the environment and use host based LSM security. Sin
 
 **3. What does AccuKnox measure, while doing security posture observation?**
 
-+ Compliance Frameworks (MITRE, CIS, NIST etc) for hardening workloads
++ Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads
 + Understanding the Application behaviour using LSMs
 + Hardening policies are blocked based policies
 + Behavioural policies are allow based policies
@@ -157,7 +157,7 @@ Currently it is located in US region
 
 **7. Is there a support for CIEM?**
 
-It is as part of the roadmap, like IOT edge, 5G Security, etc
+It is as part of the roadmap, like IOT edge, 5G Security
 
 **8. What will happen to my application running on a VM?**
 
