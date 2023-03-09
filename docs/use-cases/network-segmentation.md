@@ -1,23 +1,30 @@
+Identity-aware Policy Discovery and microsegmentation enables security teams such as SOC, DevSecOps teams to logically seggregate workloads into distinct security segments and have more granular control over those segments. For example segregation based on application tiers, compliance etc.
 
-Review the auto discovered network policy generated for the wordpress-mysql application
+Network segmentation is a way to have protection in east-west traffic control to prevent lateral movement within a cluster as by default, Kubernetes is a open system. AccuKnox’s CWPP provides micro-segmentation at the lowest possible granularity level which is also a smallest execution unit in Kubernetes i.e. Pods. We will help you to identify process execution request emanating from a Pod, network connections its trying to make internally and externally as well as files-system its accessing. Based on the behavior of a particular pod and restricting the behavior to the expected flow of process/events/traffic, one can develop a least permissive security posture from creating a whitelisting policies and auditing/denying everything else.
+
+ 
+
+Lets understand this with an use-case example - **Network Segmentation for sample app - Wordpress-mysql**
+
+1.Review the auto discovered network policy generated for the wordpress-mysql application
 
 ![](/use-cases/images/network-1.png)
 
-+ Select the below network policy from All Policies screen
+2.Select the below network policy from All Policies screen
 ![](/use-cases/images/network-2.png)
 
-+ Applying the network policy 
+3.Applying the network policy 
 
+4.Select the network policy you want apply from the Policies screen 
 ![](/use-cases/images/network-3.png)
 
-+ select the network policy you want apply from the Policies screen 
-
-+ After applying the policy, it goes into pending state 
-
-To make it active the user needs to approve
+5.After applying the policy, it goes into pending state 
 
 ![](/use-cases/images/network-4.png)
 
-+ After approval the policy goes into active state
+6.To make it active the user needs to approve
 
 ![](/use-cases/images/network-5.png)
+7.After approval the policy goes into active state
+
+![](/use-cases/images/network-6.png)

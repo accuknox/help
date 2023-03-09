@@ -2,24 +2,24 @@ This section is used to integrate external services with AccuKnox which allows t
 
 Under the CWPP subsection user can integrate with various SIEM and ticketing tools like
 
-   + [Splunk](././integrations/splunk.md)
+   + [Splunk](./../integrations/splunk.md)
 
-   + [Rsyslog](/integrations/rsyslog.md)
+   + [Rsyslog](./../integrations/rsyslog.md)
 
-   + [AWS CloudWatch](/integrations/aws-cloudwatch.md)
+   + [AWS CloudWatch](./../integrations/aws-cloudwatch.md)
 
    + Elastic Search
 
-   + [Slack](/integrations/slack.md)
+   + [Slack](./../integrations/slack.md)
 
-   + [Jira](/integrations/jira-cloud-cwpp.md)
+   + [Jira](./../integrations/jira-cloud-cwpp.md)
    
-   ![](/saas/images/integration-1.jpg)
+   ![](/saas/images/Integration-1.jpg)
 
 
 Under the CSPM subsection users can integrate the Jira server, Jira cloud, FreshService, ConnectWise, and Email Backend. 
-![](/saas/images/integration-2.jpg)
+![](/saas/images/Integration-2.jpg)
 
-Under Registry, the user can add a container registry from Nexus, ECR, GCR, and DockerHub that stores private container images. For adding registry [click here](/saas/registry-scan)
+Under Registry, the user can add a container registry from Nexus, ECR, GCR, and DockerHub that stores private container images. For adding registry [click here](/saas/registry-scan.md)
 
-![](/saas/images/integration-3.png)
+![](/saas/images/Integration-3.png)

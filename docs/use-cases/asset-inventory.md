@@ -1,3 +1,5 @@
+
+
 The users with multiple cloud accounts and workloads across various public clouds will find it difficult to get a comprehensive view of their cloud assets in a single place. They need to switch across various cloud providers console and monitor these assets. This becomes huge problem for the users. 
 
 ![](/use-cases/images/assets-1.png)
@@ -8,7 +10,7 @@ Asset findings will be listed along with graphical view of assets finding by dat
 
 ![](/use-cases/images/assets-2.png)
 
-Asset Details: 
+**Asset Details:** 
 
 When the user clicks one of the assets from the list, they will be getting details about the assets like asset name, type, last scan date and vulnerabilities that are identified in that assets. Along with the Asset details AccuKnox SaaS provides the vulnerability findings that have passed or failed the baseline compliance that we set for the cloud account. 
 

@@ -17,17 +17,17 @@ With CNAPP Dashboard, AccuKnox provides you a comprehensive view of the security
 
 + Runtime Policies Assessment will provide you a view of overall policies status that are governing your runtime protection aspect of your application. You should be able to see following details regarding Policies -
 
- + Total Applied Policies across entire organization
+  + Total Applied Policies across entire organization
 
- + Discovered Policies based on your cluster/environment
+  + Discovered Policies based on your cluster/environment
 
- + Changed Policies based on detection of config change in the application at runtime
+  + Changed Policies based on detection of config change in the application at runtime
 
- + Active Policies which are actively governing the security posture of your infrastructure
+  + Active Policies which are actively governing the security posture of your infrastructure
 
- + Pending Policies which are subjected to Admin Approval and could be originated from discovered policies, custom created policies or duplicated altered with minor changes policies
+  + Pending Policies which are subjected to Admin Approval and could be originated from discovered policies, custom created policies or duplicated altered with minor changes policies
 
- + Inactive Policies which are not governing your application behavior and are inactivated by Admin
+  + Inactive Policies which are not governing your application behavior and are inactivated by Admin
 
 + Namespace Specific Alerts is to solve a concern that is pertinent to many customers where they specifically would want to ensure security coverage from the distinction at namespace-level in a cluster. It will also show namespace specific alerts from all clusters for that tenant. On clicking widgets title, it will redirect you to the log screen with appropriate filter
 
