@@ -2,7 +2,7 @@ This section is used to integrate external services with AccuKnox which allows t
 
 Under the CWPP subsection user can integrate with various SIEM and ticketing tools like
 
-   + [Splunk](/integrations/splunk.md)
+   + [Splunk](././integrations/splunk.md)
 
    + [Rsyslog](/integrations/rsyslog.md)
 

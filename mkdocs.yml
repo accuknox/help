@@ -204,10 +204,9 @@ nav:
          - "Rsyslog" : "integrations/rsyslog.md"
   - "Use-Cases":
     - "Vulnerability Management" : "use-cases/vulnerability.md"
-    - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfig.md"
+    - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
     - "Container Security" :
       - "Image Scan": "use-cases/image-scan.md" 
-      - "CIS": "use-cases/cis.md" 
     - "Zero Trust Model" : 
       - "Cloud Security": "use-cases/cloud-security.md" 
       - "App Graph": "use-cases/app-graph.md" 
@@ -217,10 +216,8 @@ nav:
     - "Asset Inventory" : "use-cases/asset-inventory.md"
     - "Securing you Cloud Infra through detecting Misconfiguration & Vulnerabilities" : "use-cases/securing-you-cloud-infra-through-detecting-misconfiguration-and-vulnerabilities.md"
     - "Compliances & Reporting" : "use-cases/compliances-and-reporting.md"
-    - "Auto-Discovered Policies & Hardening Policies" : 
-      - "Policy using GitOps Workflow": "use-cases/gitops-workflow.md" 
-      - "Policy Auto discovery": "use-cases/policy-auto-discover.md" 
-      - "Hardening Polcies": "use-cases/harden-policies.md" 
+    - "Application Behavior Modeling": "use-cases/app-behavior.md"
+    - "Application Hardening" : "use-cases/app-hardening.md"
     - "Network Segmentation" : "use-cases/network-segmentation.md"
     - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
 
