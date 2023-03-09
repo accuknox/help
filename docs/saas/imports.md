@@ -5,7 +5,7 @@ hide:
 
 ## **Imports**
 
-AccuKnox provides you flexibility to help you onboard security scanning tool of your choice and scan your cloud infra against the onboarded security tool. There is numerous security scanning tool almost all the time for specific Asset type scan and hence to address this issue, we let user onboard security choice of their choice. 
+AccuKnox provides you flexibility to help you onboard security scanning tool of your choice and scan your cloud infra against the onboarded security tool. There is numerous security scanning tool almost all the time for specific Asset type scan and hence to address this issue, we let user onboard security tool of their choice. 
 
 ![](/saas/images/imports.png)
 

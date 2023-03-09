@@ -14,9 +14,8 @@ Accuknox CSPM tool supports both agentless scanning and agent-based vulnerabilit
 
 ## **Runtime Security:** 
 
-In the runtime or dynamic security, the cloud workloads are prevented from the malicious attacks, vulnerability exploits by using the various tools. In the runtime cloud workloads are prevented from the attack by 
+In the runtime or dynamic security, the cloud workloads are prevented from the malicious attacks, vulnerability exploits by using the various tools. In the runtime Modern Kubernetes and other cloud applications include
 
-Modern Kubernetes and other cloud applications include:
 + Dozens of open source libraries, all of which come with inherent supply chain risks; Example a recent study found that more than half the docker images had some vulnerability.
 
 + It is not entirely common but sometimes unpatched vulnerabilities, or misconfigurations slip through in production

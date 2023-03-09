@@ -7,15 +7,15 @@ AccuKnox can secure containers by scanning container images, monitoring code in 
 Lets understand this by an example use-case - **Container Image scanning**
 
 
-1. User can add docker hub, ECR registries by navigating to Issues->Registryscan. In the screen click Add registry option
++ User can add docker hub, ECR registries by navigating to *Issues->Registryscan*. In the screen click Add registry option
 
 ![](/use-cases/images/image-scan-1.png)
 
-2. If you have an existing registry give the necessary details of your registry to scan.If you do not have an existing registry follow these steps:i) For creating ECR registry, refer here ii) For creating GCR registry, refer here iii) For creating Docker hub registry, refer here iv) For creating Nexus registry, refer here
++ If you have an existing registry give the necessary details of your registry to scan.If you do not have an existing registry follow these steps:i) For creating ECR registry, refer here ii) For creating GCR registry, refer here iii) For creating Docker hub registry, refer here iv) For creating Nexus registry, refer here
 
 ![](/use-cases/images/image-scan-2.png)
 
 
-3. Once the registry is added successfully. The scan will automatically start and user can navigate to the Issues->Registry scan option to see the findings
++ Once the registry is added successfully. The scan will automatically start and user can navigate to the Issues->Registry scan option to see the findings
 
 ![](/use-cases/images/image-scan-3.png)

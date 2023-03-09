@@ -15,7 +15,7 @@ In the list view users can get the selected pod’s application behavior in 3 ty
 
 + **File Observability:** 
 
-It provides the information about the file access that are being happening the pod. 
+It provides the information about the file access that are happening inside the pod. 
 
 It gives information like which process is accessing which file in the pod. 
 
@@ -36,7 +36,7 @@ It also gives information about the process that are blocked from execution in t
 
 + **Network Observability:** 
 
-Network Observability shows the ingress and egress connection that are coming to ang going out of the pod. 
+Network Observability shows the ingress and egress connection that are coming to and going out of the pod. 
 
 It gives the information regarding Port number, source from where the ingress connection is coming and Destination to which egress connection is destined to go.
 

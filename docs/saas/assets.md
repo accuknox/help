@@ -23,7 +23,7 @@ Asset Types -
 
 + Apps - This will inform you about the application related cloud resources like load balancer etc.
 
-![](/saas/images/cspm-exec-dashboard.png)
+![](/saas/images/assets.png)
 
 
 + Web/API - This will be the Web/API related cloud information
