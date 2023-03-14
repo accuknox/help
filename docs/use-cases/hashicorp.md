@@ -117,13 +117,13 @@ Before Applying the kubeArmor Policy any ransomware attacker who gains access to
 
 ![](/use-cases/images/vault-13.png)
 
-**Step 6:** Now if try to access the vault folder using the shell or bash of the vault pod the access will be denied as the KubeArmor policy deny the permission. 
+**Step 6:** Now if you try to access the vault folder using the shell or bash of the vault pod, the access will be denied as the KubeArmor policy deny the permission. 
 
 ![](/use-cases/images/vault-14.png)
 
-**Step 7:** We can view the logs  alerts by navigating to the *Monitors/Logging-> logs*
+**Step 7:** We can view the log alerts by navigating to the *Monitors/Logging-> logs*
 
 ![](/use-cases/images/vault-15.png)
 
 
-This will save the Volume mount of the HashiCorp Vault to be accessed by any attacker and also it prevents the vault application from remote code execution. 
+This will save the Volume mount of the HashiCorp Vault to be accessed by any attacker and also it prevents the vault application from remote code execution via AccuKnox's inline remediation.
