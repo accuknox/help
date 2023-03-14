@@ -17,6 +17,9 @@ To set up this integration, you need to coordinate with your Jira administrator 
 #### **b. Steps to Integrate:**
 + Go to Channel Integration.
 + Click integrate now on JIRA
+
+![](/integrations/images/Jira-int.png)
+
 + Enter the following details to configure JIRA.
 
    + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,```sh Test JIRA ```
