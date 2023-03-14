@@ -19,6 +19,9 @@ After logging into your Slack channel, you must generate a Hook URL.
 #### **b. Steps to Integrate:**
 + Go to Channel Integration.
 + Click integrate now on Slack.
+
+![](/saas/images/slack-int.png)
+
 + Fill up the following fields:
 
 + **Integration Name:** Enter the name for the integration. You can set any name. e.g., ```sh Container Security Alerts ```

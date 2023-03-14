@@ -5,16 +5,16 @@ hide:
 
 ## **AccuKnox FAQs:** 
 
-**1. Do AccuKnox CSPM support an agent-based scanning or agentless scanning ?**
+**1. Do AccuKnox CNAPP support an agent-based scanning or agentless scanning ?**
 
-For CSPM, AccuKnox supports both agentless scanning and agent-based scanning. AccuKnox CSPM does not require any agent for Public Cloud Infrastructure scan as it leverages security tools of these clouds itself. However, to scan Infrastructure behind a firewall or Private Cloud, it leverages open source based Saltstack’s minion (agent) which helps to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring. 
+For CSPM, Accuknox support agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, Accuknox CSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
 
-For CWPP, AccuKnox supports agent-based scanning and in-line mitigation from unknown attacks. Agent in this case is open source based KubeArmor, that was developed by AccuKnox and donated to CNCF.  It is now a sandbox project of CNCF. 
-Together we provide a complete CI/CD (static) and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload.	
+
+For CWPP, Accuknox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload.
 
 **2. What is the differentiation of AccuKnox in Static Security?**
 
-In the Static Security solution, unlike other CSPM tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. We help to automate collection and execution through “Playbooks Builder” where we provide flexibility to define security tools of choice to assess the infrastructure. We also correlate and normalize results from a variety of security scanning tools and provide detailed     results of vulnerabilities across infrastructure.
+In the Static Security solution, unlike other CSPM tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. We also correlate and normalize results from a variety of security scanning tools and provide detailed     results of vulnerabilities across infrastructure.
 
 **3. How AccuKnox helps to achieve static security?**
 
@@ -22,49 +22,29 @@ AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account t
 	
 **4. How AccuKnox helps to achieve Runtime security?**
 
-AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves runtime security by leveraging CNCF sandbox project, KubeArmor, which is a cloud-native runtime security enforcement system by AccuKnox that restricts and have more granular control over the application behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. With 
-
-KubeArmor, a user can:
-
-+ restrict file system access for certain processes
-+ restrict what processes can be spawned within the pod
-+ restrict the capabilities that can be used by the processes within the pod
-
-It also helps to prevent from following 
-
-+ Prevents (detects) backdoor fetch-store-exec operations from subverted process or embedded malicious logic
-+ Prevents unauthorized network Interface usage
-+ Prevents unauthorized file system manipulations
-+ Prevents unauthorized process execution, termination, thread hijacking
-+ Prevents unauthorized administrative functions and command invocations
-+ Introduces strong identity management for all cross-container communications
-+ Produces fine-grain app-level audits and alerts for all permission violations
+AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves runtime security by leveraging CNCF sandbox project, KubeArmor, which is a cloud-native runtime security enforcement system by AccuKnox that restricts and have more granular control over the application behavior such as process execution, file access, and networking operation of containers and nodes at the system level.
 
 **5. What is the differentiation of AccuKnox in Runtime Security?**
 
-AccuKnox leverages KubeArmor, which is a cloud-native runtime security enforcement system that leverages these LSMs to secure the workloads. LSMs are really powerful but they weren’t built with modern workloads including Containers and Orchestrators in mind. Hence, eBPF has provided us with the ability to safely and efficiently extend the kernel’s capabilities without requiring changes to kernel source code or loading kernel modules. BPF LSM leverages the powerful LSM framework while providing us with the ability to load our custom programs with decision-making into the kernel seamlessly helping us protect modern workloads. Therefore, BPF-LSM is used by KubeArmor to enforce security posture wherein any malicious attacks will be stopped before execution, known as in-line mitigation (mentioned by Forrester report)
+AccuKnox leverages KubeArmor, which is a cloud-native runtime security enforcement system that leverages Linux Security Modules to secure the workloads. LSMs are really powerful but they weren’t built with modern workloads including Containers and Orchestrators in mind. Hence, eBPF has provided us with the ability to extend capabilities and BPF LSM provide us with the ability to load our custom programs with decision-making into the kernel seamlessly helping us protect modern workloads. Therefore, KubeArmor helps to enforce security posture wherein any malicious attacks will be stopped before execution, known as in-line mitigation (mentioned by Forrester report)
 
 **6. What does KubeArmor leverage for enforcement and what are its advantages?**
 
-KubeArmor uses inline mitigation to reduce the attack surface of the pod/container/VM. KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux (only for host protection) for inline mitigation.
+KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux for inline mitigation to reduce the attack surface of the pod/container/VM.LSMs have several advantages over any other techniques. By using LSMs, KubeArmor does not have to disturb pods/containers and also doesn't require change at host or CRI level to apply security policies. 
 
-![](/faqs/images/kubearmor.png)
-
-LSMs have several advantages over any other technique:
-
-+ KubeArmor does not change anything with the pod/container.
-+ KubeArmor does not require change at the host level or at the CRI (Container Runtime Interface) level to enforce blocking rules. 
-+ KubeArmor deploys as a non-privileged daemonset with certain capabilities that allows it to monitor other pods/containers and host.
-+ A given cluster can have multiple nodes utilizing different LSMs. KubeArmor abstracts away the complexities of the LSMs and provides an easy way for policy enforcement. KubeArmor manages the complexity of the LSMs under-the-hood.
+KubeArmor deploys as a non-privileged daemonset with certain capabilities that allows it to monitor other pods/containers and host. A given cluster can have multiple nodes utilizing different LSMs so KubeArmor abstracts away the complexities of the LSMs and provides an easy way for policy enforcement.
 
 **7. What are the integration tools that are supported by AccuKnox?**
 
-AccuKnox integrated with multiple Cloud Account, Registries, SIEM platform, Ticketing or Notifications Tools and the list is ever growing. AccuKnox is pretty flexible to support the progression of the list with the customer’s request as our roadmap item. Some of them supported today are as follows 
+AccuKnox can integrate multiple Cloud Account, Registries, SIEM platform, Ticketing or Notifications Tools and the list is ever growing. AccuKnox is pretty flexible to support the progression of the list with the customer’s request as our roadmap item. Some of the supported today are as follows:
 
 + Security Events/SIEM : Splunk, Rsyslog, AWS CloudWatch, Elastic Search, Webhooks
+
 + Notification Tools: Slack, Jira, PagerDuty, Emails
-+ Ticketing Tools: Jira, FreshService, Connectwise, Zendesk, 
-+ Registries: Nexus, ECR, GCR, DockerHub
+
++ Ticketing Tools: Jira, FreshService, Connectwise, Zendesk,
+
++ Registries: Nexus, ECR, GCR, DockerHub 
 
 **8. How AccuKnox helps in Policy Version Control for Runtime Security?**
 
@@ -72,13 +52,12 @@ Accknox enables DevSecOps teams to embed security policies as code into their Gi
 
 **9. How AccuKnox helps to achieve Microsegmentation?**
 
-AccuKnox’s CWPP provides micro-segmentation at the lowest possible granularity level which is also a smallest execution unit in Kubernetes i.e. Pods. We will help you to identify process execution request emanating from a Pod, network connections its trying to make internally and externally as well as files-system its accessing. Based on the behavior of a particular pod and restricting the behavior to the expected flow of process/events/traffic, one can develop a least permissive security posture from creating a whitelisting policies and auditing/denying everything else.
+AccuKnox CWPP provides micro-segmentation at the lowest possible granularity level which is also a smallest execution unit in Kubernetes i.e. Pods. We will help you to identify process execution request from the pods, network connections the pods are trying to make internally or externally and files-system the pods are accessing. By observing the behavior of a particular pod and restricting that behavior so that it functions according  to the expected flow of process/events/traffic, one can develop a least permissive security posture from creating a whitelisting policies and auditing/denying everything else.
 
 
 **10. How AccuKnox helps to recommend Auto-Discovered Policies?**
 
-AccuKnox CWPP solution uses various agents like Discovery Engine that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. Also uses agent like Shared informer Agent which collects information about the cluster like pods, nodes, namespaces etc., The policy Discovery engine discovers the policies using the workload and cluster information that is relayed by shared informer Agent. 
-![](/faqs/images/discovery-engine.png)
+Accuknox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster  information that is relayed by Shared Informer Agent.
 
 **11. What are Hardening Policies?**
 
@@ -108,8 +87,10 @@ KubeArmor supporting un-orchestrated containers, k8s workloads and bare metal VM
 
 **16. What is the difference between Post-attack mitigation and in-line mitigation and which is better?**
 
-Post-exploit Mitigation works by killing the suspicious process in response to an alert indicating malicious intent. Attacker will be allowed to execute its binary. Attacker could possibly disable the security controls, access logs, etc to circumvent the attack detection. By the time the malicious process is killed, it might have already deleted, encrypted, or transmitted the sensitive contents.
+Post-exploit Mitigation works by killing the suspicious process in response to an alert indicating malicious intent. In this case attacker will be allowed to is able to execute its binary and could possibly disable the security controls, access logs, etc to circumvent the attack detection. By the time the malicious process is killed, it might have already deleted, encrypted, or transmitted the sensitive contents. 
+
 ![](/faqs/images/post-attack-mitigation.png)
+
 Inline Mitigation on the other hand prevents the malicious attack at the time of happening itself. It doesn’t allow the attack to happen by protecting the environment with security policy or firewall. AccuKnox’s open source tool KubeArmor provides Inline Mitigation. KubeArmor uses inline mitigation to reduce the attack surface of pod/container/VM. KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux (only for host protection) for inline mitigation
 
 **17.What role does AccuKnox Agents play in runtime-security?**
