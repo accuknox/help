@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 
 ## Accuknox Agents
 
@@ -9,7 +13,7 @@
 | Policy Enforcement     | Deployment      |  
 | Discovery Engine Agent | Deployment      |  
 
-- It is assumed that the user has some basic familiarity with Kubernetes, kubectl and helm. It also assumes that you are familiar with the AccuKnox opensource tool workflow. If you're new to AccuKnox itself, refer first to [opensource installation](/getting-started/open-source.md)
+- It is assumed that the user has some basic familiarity with Kubernetes, kubectl and helm. It also assumes that you are familiar with the AccuKnox opensource tool workflow. If you're new to AccuKnox itself, refer first to [opensource installation](./../getting-started/open-source.md)
 
 - It is recommended to have the following configured before onboarding:
 

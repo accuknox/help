@@ -20,6 +20,6 @@ Under the CWPP subsection user can integrate with various SIEM and ticketing too
 Under the CSPM subsection users can integrate the Jira server, Jira cloud, FreshService, ConnectWise, and Email Backend. 
 ![](/saas/images/Integration-2.jpg)
 
-Under Registry, the user can add a container registry from Nexus, ECR, GCR, and DockerHub that stores private container images. For adding registry [click here](/saas/registry-scan.md)
+Under Registry, the user can add a container registry from Nexus, ECR, GCR, and DockerHub that stores private container images. For adding registry [click here](./../saas/registry-scan.md)
 
 ![](/saas/images/Integration-3.png)
