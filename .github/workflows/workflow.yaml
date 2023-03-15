@@ -19,8 +19,10 @@ jobs:
        with:
           key: ${{ github.ref }}
           path: .cache
-     - run: pip install mkdocs-material 
-     - run: mkdocs build 
+     - run: | 
+             pip install mkdocs-material
+             pip install mkdocs-redirects
+             mkdocs build 
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
