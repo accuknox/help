@@ -195,7 +195,7 @@ nav:
     - "Open Source Installation": "getting-started/open-source.md"
     - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
     - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
-    - "On-prem-installation Guide" : "getting-started/on-prem-installation-guide.md"
+    - "On-prem-Installation Guide" : "getting-started/on-prem-installation-guide.md"
 
   - "Integrations":
      - "Ticketing" :
