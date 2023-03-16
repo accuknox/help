@@ -24,13 +24,6 @@ hide:
 ## **Pre-requisites**
 ### Minimum Resource required
 
-A Kubernetes cluster with
-
-> -   Number of Nodes : 3
-> -   Machine Type: e2-standard-2    
-> -   Total vCPUs : 6
-> -   Total Memory: 24GB
-
 | Deployments   | Resource usage   |
 |---|---|
 |KubeArmor    |  CPU: 200 m, Memory: 200 Mi |
