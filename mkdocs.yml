@@ -167,7 +167,6 @@ nav:
           - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
           - "App Behavior" : "saas/app-behavior.md"
           - "Policies" : "saas/policies.md"
-    - "Collectors" : "saas/targets.md"
     - "Remediation" : 
           - "Ticket Summary" : "saas/ticket-summary.md"
     - "Monitors/Logging" : 
