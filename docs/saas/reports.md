@@ -30,4 +30,4 @@ To get the reports user need to add report configuration from the Reports sectio
 
 In the Configuration user needs to provide the details about their Name, Email and configuration for the report. These configurations are Groups, Labels, Month, Period, Risks, Baselines, Pages, Day of the month, Day of the week.
 
-![](/saas/images/reports-configuration.png)
+<!--![](/saas/images/reports-configuration.png)-->
