@@ -195,6 +195,16 @@ nav:
     - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
     - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
     - "On-prem-Installation Guide" : "getting-started/on-prem-installation-guide.md"
+    - "Support Matrix":
+         - "KubeArmor Support Matrix" : "getting-started/kubearmor-support-matrix.md"
+         - "Public Cloud" : "getting-started/public-cloud.md"
+         - "Private Cloud" : "getting-started/private-cloud.md"
+         - "VMs" : "getting-started/vms.md"
+         - "Supported Benchmarks" : "getting-started/supported-benchmarks.md"
+         - "Assets list" : "getting-started/assets-list.md"
+    - "Release Notes":
+         - "AccuKnox" : "getting-started/accuknox.md"
+         - "KubeArmor" : "getting-started/kubearmor.md"
 
   - "Integrations":
      - "Ticketing" :
@@ -205,6 +215,8 @@ nav:
          - "Splunk" : "integrations/splunk.md"
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
          - "Rsyslog" : "integrations/rsyslog.md"
+  
+  
   - "Use-Cases":
     - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
@@ -217,13 +229,6 @@ nav:
     - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
     - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
 
-  - "Support Matrix":
-    - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
-    - "Public Cloud" : "support-matrix/public-cloud.md"
-    - "Private Cloud" : "support-matrix/private-cloud.md"
-    - "VMs" : "support-matrix/vms.md"
-    - "Supported Benchmarks" : "support-matrix/supported-benchmarks.md"
-    - "Assets list" : "support-matrix/assets-list.md"
     
   - "Troubleshooting & FAQs":
     - "FAQs" : "faqs/troubleshooting-and-faqs.md"
