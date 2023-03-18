@@ -101,7 +101,7 @@ AccuKnox can forward the data to Splunk in two ways:
 **Prerequisites:**
 1.  Feeder Service and KubeArmor are Installed and running on the user’s K8s Cluster.
 
-2. A sample application can be used to generate the alerts, check [how to deploy a sample application](../../open-source/quick_start_guide.md#2), and generate alerts.
+2. A sample application can be used to generate the alerts, check [how to deploy a sample application](/getting-started/open-source/#2-install-sample-application), and generate alerts.
 
 
 #### **Configuring feeder for the first time to forward the events:**
