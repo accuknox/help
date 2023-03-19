@@ -12,6 +12,9 @@ Static Security in the cloud is the process of identifying the vulnerabilities a
 
 Accuknox CSPM tool supports both agentless scanning and agent-based vulnerability scanning. AccuKnox CSPM does not require any agent for Public Cloud Infrastructure scan as it leverages the security tools of these clouds themselves. However, to scan Infrastructure behind a firewall or Private Cloud, it leverages open source-based Saltstack’s minion (agent) which helps to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, and Resource Monitoring. 
 
+![](/overview/images/ci-cd.png)
+
+
 ## **Runtime Security:** 
 
 In the runtime or dynamic security, the cloud workloads are prevented from the malicious attacks, vulnerability exploits by using the various tools. In the runtime Modern Kubernetes and other cloud applications include
