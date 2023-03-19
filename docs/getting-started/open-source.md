@@ -3,6 +3,12 @@ hide:
   - toc
 ---
 
+KubeArmor is an open-source sandbox project of AccuKnox which was donated to CNCF [link to CNCF -Cloud Native Computing Foundation](https://www.cncf.io/projects/kubearmor/)
+
+To contribute to the project access the Github page [link to github](https://github.com/kubearmor/KubeArmor)
+Learn more about KubeArmor here [kubearmor.io - Runtime protection for Kubernetes](https://kubearmor.io/)
+
+
 ![Alt](/getting-started/images/accuknox-deployment-opensource.png){: style="height:auto;width:auto"}
 
 ??? "Deploying Sample Cluster (_skip if you already have a cluster configured_)"
