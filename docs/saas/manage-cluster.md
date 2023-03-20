@@ -3,4 +3,4 @@
 
 ![](/saas/images/manage-cluster-1.jpg)
 
- For onboarding cluster into AccuKnox SaaS [click here](/getting-started/cluster-onboarding.md)
+ For onboarding cluster into AccuKnox SaaS [click here](./../getting-started/cluster-onboarding.md)
