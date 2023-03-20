@@ -11,10 +11,13 @@ Reports contain insights about vulnerability scans of assets which are done by t
 
 **Severity**
 tells the level of severity of the policy according to the compliance frameworks.
+
 **Policy Name** 
 contains the name of the security checks that are applied to resources. These security checks are designed by compliance frameworks which helps to maintain security posture.
+
 **Resource(s) Passed and Failed**
 is the number of resources that are vulnerable because they don’t follow the guidelines set by compliance framework.
+
 **Overall Status** 
 tells if any resource have failed the security checks. 
 
@@ -22,16 +25,20 @@ tells if any resource have failed the security checks.
 
 **Resources Monitored** 
 are the total number of assets within you cloud account which scanned for vulnerabilities and misconfigurations.
+
 **Accounts Monitored** 
 is the total number of cloud accounts that were scanned.
+
 **Pass and Fail** 
 is the total number of resources that passed or failed the guidelines set by the compliance framework.
 
 ![](/saas/images/reports-executive-summary.png)
 
 User can click on the policies to see detailed view of the policy, In addition to previous information this page also contains : 
+
 **Description** 
 gives the information about the policy and the consequences of the misconfiguration or vulnerability.
+
 **Recommendations** 
 provide the user with information about steps that can be taken to resolve the vulnerability for failed resources.
 
