@@ -5,18 +5,18 @@ hide:
 
 # **Reports**
 
-Reports contain insights about vulnerability scans of assets which are done by tools like Stig, Prowler, Nipper, SecurityHub, etc. It contains information about all the security checks for misconfigurations and vulnerabilities as such the configurations of security critical assets align to compliance frameworks (PCI-DSS, NIST, GDPR, SOC2, HIPAA, etc.). Reports provide detailed summary about security posture of assets within your cloud account. Alerts are divided into different sections according to the process from which the alerts were produced. These sections are identity and access management, Logging, Monitoring, Networking and Storage.
+Reports gives a comprehensive view of security checks that are used to detect misconfigured and vulnerable assets. These assets are scanned by tools like Stig, Prowler, Nipper, SecurityHub, etc. to find misconfigurations and vulnerabilities with respect to compliance frameworks (PCI-DSS, NIST, GDPR, SOC2, HIPAA, etc.). The security checks are in accordance with compliance frameworks to ensure the security of sensitive data. These checks are divided into different sections, namely identity and access management, Logging, Monitoring, Networking and Storage.
 
 ![](/saas/images/reports-table-of-content.png)
 
 **Severity**
-tells the level of severity of the policy according to the compliance frameworks.
+is a scoring system designed to help user to take action on urgent issues according to their score. In general , Critical and high priority issued should be resolved and the others should only be monitored.
 
 **Policy Name** 
-contains the name of the security checks that are applied to resources. These security checks are designed by compliance frameworks which helps to maintain security posture.
+contains the name of the security checks that are applied to resources. These security checks are designed to align with compliance frameworks.
 
 **Resource(s) Passed and Failed**
-is the number of resources that are vulnerable because they don’t follow the guidelines set by compliance framework.
+is the number of resources that are vulnerable because they don’t follow the guidelines set by compliance framework. Any check with failed resources is set as alert.
 
 **Overall Status** 
 tells if any resource have failed the security checks. 

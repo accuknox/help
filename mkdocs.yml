@@ -215,9 +215,8 @@ nav:
          - "Splunk" : "integrations/splunk.md"
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
          - "Rsyslog" : "integrations/rsyslog.md"
-     - "How to guides" :
-         - "Install Accuknox Splunk App" : "integrations/accuKnox-splunk-app-installation-configuration.md"
-         - "Use Rsyslog feeder": "integrations/rsyslog_feeder_integration.md"
+     - "Install Accuknox Splunk App" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+     - "Use Rsyslog feeder": "integrations/rsyslog_feeder_integration.md"
   - "Use-Cases":
     - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
