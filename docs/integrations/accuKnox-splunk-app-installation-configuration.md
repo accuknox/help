@@ -14,10 +14,14 @@ The AccuKnox Splunk App is designed to deliver operational reporting as well as 
 Users can view the real-time alerts in form of logs and telemetries.
 
 ***Important features***
- - Dashboard to track the real time alerts genrated from K8s cluster.
- - Data models with pivots for easy access to data and visualization.
- - Filter out the Alerts based on defferent namespaces, pods, operations, severity, tags and the actions of policies.
- - Drilldown ability to see how the alerts genrated, what policy was violated and what was the result for the same.
+
+-  Dashboard to track the real time alerts genrated from K8s cluster.
+
+-  Data models with pivots for easy access to data and visualization.
+
+-  Filter out the Alerts based on defferent namespaces, pods, operations, severity, tags and the actions of policies.
+
+-  Drilldown ability to see how the alerts genrated, what policy was violated and what was the result for the same.
 
 ## **Installation**
 #### **Prerequisites :**
