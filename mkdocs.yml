@@ -189,7 +189,9 @@ nav:
           - "Ticket Template" : "saas/ticket-template.md"
 
   - "Getting Started":
-    - "Prerequisite" : "getting-started/prereq.md"
+    - "Prerequisites" : 
+        - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+        - "CSPM Prerequisites": "getting-started/cspm-prereq.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Open Source Installation": "getting-started/open-source.md"
     - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
@@ -228,7 +230,9 @@ nav:
     - "Network Segmentation" : "use-cases/network-segmentation.md"
     - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
     - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
-
+    - "Protect Sample Workloads" :
+      - "WordPress-MySQL Application": "use-cases/wordpress-mysql.md" 
+      - "DVWA Application": "use-cases/dvwa.md"  
   
   - "Troubleshooting & FAQs":
     - "FAQs" : "faqs/troubleshooting-and-faqs.md"
