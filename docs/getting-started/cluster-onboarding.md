@@ -84,12 +84,12 @@ Accuknox Agents can be installed using the following command:
         --set props.workspace_id="1354" \
         --set props.cluster_name="demotestk3" \
         --set props.CLUSTER_NAME="demotestk3" \
-        --set props.cluster_id="1762" \
+        --set props.cluster_id="********" \
         --set props.helm_repo="accuknox-agents-dev" \
-        --set props.helm_repo_url="https://accuknox-agents-dev:h47Sh4taEs@agents.accuknox.com/repository/accuknox-agents-dev" \
+        --set props.helm_repo_url="https://accuknox-agents-dev:**********@agents.accuknox.com/repository/accuknox-agents-dev" \
         --set props.docker_repo_host="agents.accuknox.com" \
-        --set props.docker_repo_username="accuknox-agents-image" \
-        --set props.docker_repo_password="SjnnJxs3fk" \
+        --set props.docker_repo_username="***********" \
+        --set props.docker_repo_password="***********" \
         --create-namespace -n accuknox-agents
 ```
 
