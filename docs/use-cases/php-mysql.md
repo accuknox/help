@@ -4,7 +4,7 @@ Database Management is an important part when you have a large amount of data ar
 ### **Prerequisites**
 
 1. Kubernetes cluster deployed on any platform. (Local , Azure, Aws, GCP)
-2. Cluster onboarded on Accuknox Saas platform. Follow this [onboarding guide](/getting-started/cluster-onboarding)
+2. Cluster onboarded on AccuKnox Saas platform. Follow this [onboarding guide](/getting-started/cluster-onboarding)
 
 ### **Deploy Sample PHP/MySQL Web application in Kubernetes**
 
@@ -416,7 +416,7 @@ Data: /etc/mysql/my.cnf
 Action: syscall=SYS_OPENAT fd=-100 flags=/etc/mysql/my.cnf
 Result: Audit
 ```
-b. You can easily watch these alerts at Accuknox Saas → Monitors/Logging → logs
+b. You can easily watch these alerts at AccuKnox Saas → Monitors/Logging → logs
 
 ![](./images/mysql-logs.png)
 

@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-## Accuknox Agents
+## AccuKnox Agents
 
 | Deployments            | Deployment Type | 
 |------------------------|-----------------|
