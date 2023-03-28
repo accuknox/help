@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-WordPress-MySQL Application has the WordPress front end connecting to the MySQL backend. When this application is deployed in the k8s environment, we have two pods one for WordPress and another for Mysql. We can onboard the cluster to our Accuknox SaaS by following the steps here 
+WordPress-MySQL Application has the WordPress front end connecting to the MySQL backend. When this application is deployed in the k8s environment, we have two pods one for WordPress and another for Mysql. We can onboard the cluster to our AccuKnox SaaS by following the steps here 
 
  
 

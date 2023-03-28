@@ -212,7 +212,7 @@ nav:
      - "Ticketing" :
          - "Jira cloud" : "integrations/jira-cloud-cwpp.md"
          - "Jira Server" : "integrations/jira-server-cspm.md"
-         - "Freshservice" : "integrations/freshwise-cspm.md"
+         - "Freshservice" : "integrations/freshservice-cspm.md"
      - "SIEM/ Security Events" : 
          - "Splunk" : "integrations/splunk.md"
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"

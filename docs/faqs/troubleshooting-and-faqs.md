@@ -7,10 +7,10 @@ hide:
 
 **1. Do AccuKnox CNAPP support an agent-based scanning or agentless scanning ?**
 
-For CSPM, Accuknox support agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, Accuknox CSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
+For CSPM, AccuKnox support agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnoxCSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
 
 
-For CWPP, Accuknox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload.
+For CWPP, AccuKnox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload.
 
 **2. What is the differentiation of AccuKnox in Static Security?**
 
@@ -57,7 +57,7 @@ AccuKnox CWPP provides micro-segmentation at the lowest possible granularity lev
 
 **10. How AccuKnox helps to recommend Auto-Discovered Policies?**
 
-Accuknox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster  information that is relayed by Shared Informer Agent.
+AccuKnox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster  information that is relayed by Shared Informer Agent.
 
 **11. What are Hardening Policies?**
 
@@ -77,8 +77,8 @@ KubeArmor supports allow-based policies which result in specific actions to be a
 
 KubeArmor supports following types of workloads: 
 
-+ K8s orchestrated workloads: Workloads deployed as k8s orchestrated containers. In this case, Kubearmor is deployed as a k8s daemonset. Note, KubeArmor supports policy enforcement on both k8s-pods (KubeArmorPolicy) as well as k8s-nodes (KubeArmorHostPolicy).
-+ VM/Bare-Metals workloads: Workloads deployed on Virtual Machines or Bare Metal i.e. workloads directly operating as host processes. In this case, Kubearmor is deployed in systemd mode.
++ K8s orchestrated workloads: Workloads deployed as k8s orchestrated containers. In this case, KubeArmor is deployed as a k8s daemonset. Note, KubeArmor supports policy enforcement on both k8s-pods (KubeArmorPolicy) as well as k8s-nodes (KubeArmorHostPolicy).
++ VM/Bare-Metals workloads: Workloads deployed on Virtual Machines or Bare Metal i.e. workloads directly operating as host processes. In this case, KubeArmor is deployed in systemd mode.
 
 **15. How AccuKnox helps achieve protection for Edge, 5G workloads?**
 
@@ -95,7 +95,7 @@ Inline Mitigation on the other hand prevents the malicious attack at the time of
 
 **17.What role does AccuKnox Agents play in runtime-security?**
 
-Accuknox Enterprise version consists of various agents such as 
+AccuKnox Enterprise version consists of various agents such as 
 
 **KubeArmor:**  KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. KubeArmor dynamically set the restrictions on the pod. KubeArmor leverages Linux Security Modules (LSMs) to enforce policies at runtime.
 

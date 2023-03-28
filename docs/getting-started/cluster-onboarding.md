@@ -74,7 +74,7 @@ After installing KubeArmor we are going to install AccuKnox Agents in the cluste
 
 ![](/getting-started/images/cluster-onboarding-6.png)
 
-Accuknox Agents can be installed using the following command: 
+AccuKnox Agents can be installed using the following command: 
 
 ```bash
  helm repo add accuknox-agents-dev https://accuknox-agents-dev:h47Sh4taEs@agents.accuknox.com/repository/accuknox-agents-dev

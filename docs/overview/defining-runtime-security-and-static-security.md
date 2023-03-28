@@ -10,7 +10,7 @@ Static Security in the cloud is the process of identifying the vulnerabilities a
 
 **AccuKnox Cloud Security Posture Management (CSPM) tool** scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Wait for 3rd party or Accepted risk, and many more, so that you get to act on findings that are remediable and contain the SLA. We also give comprehensive compliance reports based on various security governance for third-party assessment operators (3PAO) auditing.
 
-Accuknox CSPM tool supports both agentless scanning and agent-based vulnerability scanning. AccuKnox CSPM does not require any agent for Public Cloud Infrastructure scan as it leverages the security tools of these clouds themselves. However, to scan Infrastructure behind a firewall or Private Cloud, it leverages open source-based Saltstack’s minion (agent) which helps to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, and Resource Monitoring. 
+AccuKnox CSPM tool supports both agentless scanning and agent-based vulnerability scanning. AccuKnox CSPM does not require any agent for Public Cloud Infrastructure scan as it leverages the security tools of these clouds themselves. However, to scan Infrastructure behind a firewall or Private Cloud, it leverages open source-based Saltstack’s minion (agent) which helps to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, and Resource Monitoring. 
 
 ![](/overview/images/ci-cd.png)
 

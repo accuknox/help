@@ -42,7 +42,7 @@ provide the user with information about steps that can be taken to resolve the v
 
 ### Report configuration 
 
-To get the reports user need to add report configuration from the Reports section in Accuknox Saas
+To get the reports user need to add report configuration from the Reports section in AccuKnox Saas.
 
 ![](/saas/images/reports-main.png)
 
@@ -52,4 +52,4 @@ In the Configuration user needs to provide the details about their Name, Email a
 
 ## **Conclusion**
 
-As a part of CSPM, AccuKnox enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and containing the SLA. Hence, Accuknox provides a comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
+As a part of CSPM, AccuKnox enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and containing the SLA. Hence, AccuKnox provides a comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing. Check [Troubleshooting & FAQs page](/faqs/troubleshooting-and-faqs) to get more answers.

@@ -5,7 +5,7 @@ hide:
 ## **App Behavior:**
 
 
-Application Behavior of the cluster workloads that are onboarded to the Accuknox Saas are collected with help of KubeArmor and the AccuKnox Agents that are installed as Daemon sets in the cluster. The informations are collected at the pod level granularity. So that the users can get the information about each pods that are running in each namespaces. Application behavior of the cluster workloads are given in two ways, one is the list view and other is the Graphical view. 
+Application Behavior of the cluster workloads that are onboarded to the AccuKnox Saas are collected with help of KubeArmor and the AccuKnox Agents that are installed as Daemon sets in the cluster. The informations are collected at the pod level granularity. So that the users can get the information about each pods that are running in each namespaces. Application behavior of the cluster workloads are given in two ways, one is the list view and other is the Graphical view. 
 
  
 

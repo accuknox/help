@@ -5,7 +5,7 @@ hide:
 
 ## **CWPP Dashboard:**
 
-Accuknox CWPP Dashboard gives comprehensive view of runtime protection with help of widgets like Alert summary, Compliance summary, Namespace, Pod alerts and other alerts based on severity and operations. All these widgets gives the user clear idea of the runtime protection that is being done in the cluster. User can select the cluster in the filter provided and see the dashboard summary related to that cluster. There is also option for seeing the alerts and summary for particular Namespace in the cluster using the Namespace filter. 
+AccuKnox CWPP Dashboard gives comprehensive view of runtime protection with help of widgets like Alert summary, Compliance summary, Namespace, Pod alerts and other alerts based on severity and operations. All these widgets gives the user clear idea of the runtime protection that is being done in the cluster. User can select the cluster in the filter provided and see the dashboard summary related to that cluster. There is also option for seeing the alerts and summary for particular Namespace in the cluster using the Namespace filter. 
 ![](/saas/images/cwpp-dashboard.png)
 
 **Alerts Summary:** 
