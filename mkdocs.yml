@@ -1,5 +1,5 @@
 # Project information
-site_name: "AccuKnox"
+site_name: ""
 site_description: "Zero trust Runtime Kubernetes security"
 site_author: "Ravi Kishor"
 site_url: "https://accuknox.com/"
@@ -109,7 +109,7 @@ extra_javascript:
 # - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
 extra_css:
 # - "assets/css/custom.css"
-
+- "assets/stylesheets/style.css"
 extra:
   analytics:
     provider: google
