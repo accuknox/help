@@ -48,7 +48,7 @@ theme:
   #text: 'Ubuntu'
   #code: 'Ubuntu Mono'
   #icon:
-  logo: 'assets/images/logo.png'
+  logo: 'assets/images/ak-logo.png'
   favicon: 'assets/images/favicon.ico'
   hide:
   - toc
@@ -108,7 +108,6 @@ plugins:
 extra_javascript:
 # - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
 extra_css:
-# - "assets/css/custom.css"
 - "assets/stylesheets/style.css"
 extra:
   analytics:
