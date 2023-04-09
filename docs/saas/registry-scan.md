@@ -26,3 +26,5 @@ AccuKnox CSPM tool provides with registry scan where the user can onboard their 
 After the scan is complete, the scan data and findings will be populated into the screen. In this screen user will be getting information like no images scanned and risk associated with the images. Risks are classified as Critical, High, Medium, Low.
 
 ![](/saas/images/registry-6.png)
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

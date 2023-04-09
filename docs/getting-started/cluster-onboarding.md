@@ -215,3 +215,6 @@ In the below section you can find the detailed steps to be followed for onboardi
       **Step 6:** After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory->cloud Workloads option
 
       ![](/getting-started/images/gke-10.png)
+
+
+  [^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

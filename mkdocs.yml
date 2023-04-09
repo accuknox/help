@@ -48,7 +48,7 @@ theme:
   #text: 'Ubuntu'
   #code: 'Ubuntu Mono'
   #icon:
-  logo: 'assets/images/ak-logo.png'
+  logo: 'assets/images/logo-black.png' 
   favicon: 'assets/images/favicon.ico'
   hide:
   - toc
@@ -133,7 +133,12 @@ extra:
       link: "https://github.com/accuknox"
     - icon: "fontawesome/brands/twitter"
       link: "https://twitter.com/AccuKnox"
-
+    - icon: "fontawesome/brands/slack"
+      link: "https://kubearmor.slack.com/join/shared_invite/zt-1ltmqdbc6-rSHw~LM6MesZZasmP2hAcA#/shared-invite/email"
+    - icon: "fontawesome/brands/linkedin"
+      link: "https://www.linkedin.com/company/accuknox/?original_referer=https%3A%2F%2Fwww.accuknox.com%2F"
+    - icon: "fontawesome/brands/youtube"
+      link: "https://www.youtube.com/channel/UCLqK0vGQTa2ctjnbNzvP52Q"
 # Page tree
 pages:
 
@@ -216,6 +221,7 @@ nav:
          - "Splunk" : "integrations/splunk.md"
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
          - "Rsyslog" : "integrations/rsyslog.md"
+     - "Registry": "integrations/.md"
      - "Forwarding events for Splunk App" : "integrations/accuKnox-splunk-app-installation-configuration.md"
      - "Rsyslog feeder integration": "integrations/rsyslog_feeder_integration.md"
   - "Use-Cases":

@@ -19,3 +19,5 @@ The Compliance Executive dashboard provides you a composite view of continuous c
 + Zero-Trust is easy to attain but to stay at zero trust, continuous compliance is required and for this, we provide you compliance summary in a time-series manner with trends of complying to standard framework.
 
 + Visibility into categorized cloud resources/Asset across multi cloud environment becomes essential when we would like to see and manage compliance of specific resources. We cover that in Compliance summary based on Asset.
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

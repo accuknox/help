@@ -52,3 +52,5 @@ Some of the use cases are:
 + Produces fine-grain app-level audits and alerts for all permission violations
 
 **Accuknox’s CWPP** provides runtime security for your Kubernetes workloads to prevent malicious activity as determined by MITRE and other indicators of compromise and stops your workload from behaving maliciously at runtime. This gives you the necessary guardrails to restrict application behavior within a set of predefined policies while you apply a patch. Unlike traditional solutions that recommend a full quarantine of the workloads, accuknox's runtime solution can provide you active runtime protection allowing you to only restrict the malicious behavior as opposed to the entire workload.
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

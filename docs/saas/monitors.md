@@ -31,3 +31,5 @@ Monitors section helps the users to monitor the assets that are present in the c
 + The user can add hosts and can view Assigned hosts under the ‘Assigned Hosts’ section.
 
 ![](/saas/images/monitors-3.png)
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -15,3 +15,6 @@ So we can mitigate this scenario in two ways. First is Post-Attack Mitigation. I
 AccuKnox’s CWPP tool uses the second method which is Inline Remediation. AccuKnox CWPP uses KubeArmor which is CNCF Sand boxed project. It is a cloud-native runtime security enforcement system that leverages these LSMs to secure workloads. KubeArmor does inline remediation by leveraging best-of-breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux to prevent the attack even before a process is spawned. It doesn’t allow the process to execute. 
 
 eBPF has provided us with the ability to safely and efficiently extend the kernel’s capabilities without requiring changes to kernel source code or loading kernel modules. BPF LSM leverages the powerful LSM framework while providing us with the ability to load our custom programs with decision-making into the kernel seamlessly helping us protect modern workloads with enough context while we can choose to keep the interface easy to understand and user-friendly.
+
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

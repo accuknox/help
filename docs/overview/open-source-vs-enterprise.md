@@ -4,15 +4,17 @@ AccuKnox offers a suite of fully open source tools (CNCF projects, apache licens
 
 ![](/overview/images/os-vs-enterprise.png)
 
-| Features                         | Open Source      | Enterprise |
-| :--------------------------------| :----------------| :----------|
-| KubeArmor (in-line mitigation)   | **Yes**          | **Yes**    |
-| Security Policies                | **Yes**          | **Yes**    |
-| Alerts & telemetry contextual to Host & Kubernetes workload| **Yes** | **Yes**  |
-| Network security using CNI       | **Yes**          | **Yes**    |
-| Hardening policies               | No               | **Yes**    |
-| Channel Integration              | No               | **Yes**    |
-| Discovery Engine                 | No               | **Yes**    |
-|Full gitops workflow integration  | No               | **Yes**    |
-| Multi-tenant, multi-cluster management solution| No | **Yes**    |
-| Comprehensive Dashboard          | No               | **Yes**    |
+| Features                         | Open Source      | Enterprise       |
+| :--------------------------------| :----------------| :----------------|
+| Kubearmor (in-line mitigation)   |:heavy_check_mark:|:heavy_check_mark:|
+| Security Policies                |:heavy_check_mark:|:heavy_check_mark:|
+| Alerts & telemetry contextual to Host & Kubernetes workload|:heavy_check_mark:|:heavy_check_mark:|
+| Network security using CNI       |:heavy_check_mark:|:heavy_check_mark:|
+| Hardening policies               | :x:              |:heavy_check_mark:|
+| Channel Integration              | :x:              |:heavy_check_mark:|
+| Discovery Engine                 | :x:              |:heavy_check_mark:|
+|Full gitops workflow integration  | :x:              |:heavy_check_mark:|
+| Multi-tenant, multi-cluster management solution| :x:|:heavy_check_mark:|
+| Comprehensive Dashboard          | :x:              |:heavy_check_mark:|
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
