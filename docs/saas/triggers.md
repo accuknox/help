@@ -77,3 +77,6 @@ You can perform delete operation on a single trigger or on multiple triggers
 **Step 2:** Click Delete icon from the right corner in the screen to delete the selected triggers. Triggers will be deleted. 
 
 ![](/saas/images/delete-trigger-2.png)
+
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

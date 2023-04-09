@@ -40,3 +40,5 @@ With CNAPP Dashboard, AccuKnox provides you a comprehensive view of the security
 + Top 10 Alerts by Policy will be critical to inform user about any violation in the Policies governing the runtime security of the application over a period of time. It will be helpful to look back on the top events with high severity for user to take action on it, if necessary.
 
 + Compliance Alerts will inform user of standard compliance framework related violation alert. AccuKnox helps you to identify violation with respect to technical compliance such as CIS, STIG etc. and governance compliance such as NIST, MITRE, HIPAA etc. This widget will give you compliance conformance assessed from all the clusters for that tenant.
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

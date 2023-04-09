@@ -239,3 +239,6 @@ From AccuKnox we can manage the type of data forwardered to integration using tr
    Note: Before selecting the notification channel, you should complete the  channel integration for this channel. Review the Channel Integration for more context.        [Channel Integration Guide](/saas/slack/)
 
 3. Click `Save` button to store the trigger in database.
+
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

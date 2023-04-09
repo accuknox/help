@@ -74,3 +74,5 @@ Click one of the events in the log to view the details pane.
 The Log Detail contents vary depending on the selected component type of the log event.
 
 ![](/saas/images/logs-panel.png)
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

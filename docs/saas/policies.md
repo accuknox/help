@@ -64,3 +64,5 @@ Users can follow this section to apply the hardening policies that are generated
 **Step 5:**  After approval policy goes into active state. The hardening policy is applied successfully in the cluster.
 
 ![](/saas/images/Harden-policy-5.png)
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -35,3 +35,5 @@ To set up this integration, you need to coordinate with your Jira administrator 
 + Click **Save** to save the Integration.
 
 You can now configure Alert Triggers for JIRA .
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

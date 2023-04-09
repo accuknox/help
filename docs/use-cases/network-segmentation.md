@@ -28,3 +28,5 @@ Lets understand this with an use-case example - **Network Segmentation for sampl
 7.After approval the policy goes into active state
 
 ![](/use-cases/images/network-6.png)
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

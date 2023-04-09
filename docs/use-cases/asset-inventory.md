@@ -15,3 +15,5 @@ Asset findings will be listed along with graphical view of assets finding by dat
 When the user clicks one of the assets from the list, they will be getting details about the assets like asset name, type, last scan date and vulnerabilities that are identified in that assets. Along with the Asset details AccuKnox SaaS provides the vulnerability findings that have passed or failed the baseline compliance that we set for the cloud account. 
 
 ![](/use-cases/images/assets-3.png)
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

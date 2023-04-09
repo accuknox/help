@@ -10,3 +10,5 @@ In the cloud-native deployment phases, there can be many security issues like vu
 
  
 There are multiple tools that are available to provide security in various stages of the Software Development Life cycle. But using these tools at different stages becomes difficult as there is no common connectivity between these tools to get reports and findings. Hence we need a single tool that provides end-to-end solutions for cloud security from the development to the production process. Therefore Cloud Native Application Protection Platform tool which is a one-stop solution that integrates various results and normalizes/correlates the findings to provide complete security to the cloud resources becomes the need of the hour. 
+
+[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
