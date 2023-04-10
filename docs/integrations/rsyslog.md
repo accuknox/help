@@ -12,7 +12,7 @@ To forward the events to RSyslog you must first set up the RSyslog Integration.
 + A running RSyslog server.
 + Host name/IP, Port number, Transport type(TCP or UDP)
 
-**Note:** To deploy RSyslog server , [RSyslog Documentation] (https://www.rsyslog.com/doc/v8-stable/) .
+**Note:** To deploy RSyslog server, follow [RSyslog Documentation](https://www.rsyslog.com/doc/v8-stable/) .
 
 #### **b. Steps to Integrate:**
 

@@ -10,7 +10,7 @@ Under the CWPP subsection user can integrate with various SIEM and ticketing too
 
    + Elastic Search
 
-   + [Slack](./../integrations/slack.md)
+   + [Slack](./../saas/slack.md)
 
    + [Jira](./../integrations/jira-cloud-cwpp.md)
    

@@ -1,3 +1,9 @@
+---
+hide:
+  - toc
+---
+
+
 Database Management is an important part when you have a large amount of data around you. MySQL is one of the most famous open-source Relational Databases to store and handle your data. So securing the data is the main concern for any organization.
 
 [AccuKnox](https://www.accuknox.com/)  provides runtime cloud security for your applications. In this cookbook, we will demonstrate how MySQL applications can be protected.
