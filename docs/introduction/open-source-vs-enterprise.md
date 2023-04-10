@@ -2,7 +2,7 @@
 
 AccuKnox offers a suite of fully open source tools (CNCF projects, apache license) as well as an enterprise SAAS suite.
 
-![](/overview/images/os-vs-enterprise.png)
+![](/introduction/images/os-vs-enterprise.png)
 
 | Features                         | Open Source      | Enterprise       |
 | :--------------------------------| :----------------| :----------------|
