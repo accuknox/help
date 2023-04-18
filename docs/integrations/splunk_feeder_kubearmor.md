@@ -1,3 +1,4 @@
+
 # Splunk Integration With KubeArmor
   
 
@@ -10,13 +11,13 @@ Users can view the real-time alerts in form of logs and telemetries.
 
 ***Important features***
 
--  Dashboard to track the real time alerts genrated from K8s cluster.
+-  Dashboard to track the real time alerts generated from K8s cluster.
 
 -  Data models with pivots for easy access to data and visualization.
 
--  Filter out the Alerts based on defferent namespaces, pods, operations, severity, tags and the actions of policies.
+-  Filter out the Alerts based on different namespaces, pods, operations, severity, tags and the actions of policies.
 
--  Drilldown ability to see how the alerts genrated, what policy was violated and what was the result for the same.
+-  Drill-down ability to see how the alerts generated, what policy was violated and what was the result for the same.
 
 ## **Installation**
 #### **Prerequisites :**
@@ -41,23 +42,24 @@ vi install-feeder-only.yaml
 ```
 4. Update the following fields in the YAML file and save it. 
 
-| Fields                                   | Values                                                                                                                                                         |
-|------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `clusterName`                       | Add `clustername` from which data will be forwarded.                                                                                                   |
-| `SPLUNK_FEEDER_ENABLED`                       | Setting this to `true` forward the Policy Violated Alerts to Splunk                                                                                            |
-| `SPLUNK_FEEDER_URL`                         | Add`HEC URL` of your Splunk Deployment, e.g., `https://splunk-xxxxxxxxxx.com/services/collector`                                                                                                              |
-| `SPLUNK_FEEDER_TOKEN`                                  | Enter your Splunk HEC Token here, created while adding a new HEC For example: `x000x0x0x-0xxx-0xxx-xxxx-xxxxx00000` |                                                                                                                                                                                                                   |
-| `SPLUNK_FEEDER_INDEX`                                 | Enter your Splunk HEC Index here, created while adding a new HEC For example: `main`                                   |
-| `SPLUNK_FEEDER_SOURCE`                            | User can add any source, For example: `KubeArmor`
-| `SPLUNK_FEEDER_SOURCE_TYPE`                            | User needs to add source type as `json`
-| `SPLUNK_ALERTS_ENABLED`                            | Setting this to `true` forward the Policy Violated Alerts to Splunk, To forward any alerts this needs to be true
-| `SPLUNK_LOGS_ENABLED`                            |Setting this to `true` forward the Container Logs to Splunk.
+| Fields           | Values                                                                                                             |
+|------------------------|--------------------------------------------------------------------------------------------------------------------|
+| `clusterName`                            | Add `clustername` from which data will be forwarded.                                                               |
+| `SPLUNK_FEEDER_ENABLED`                  | Setting this to `true` forward the Policy Violated Alerts to Splunk                                                |
+| `SPLUNK_FEEDER_URL`                      | Add`HEC URL` of your Splunk Deployment, e.g., `https://splunk-xxxxxxxxxx.com/services/collector`                   |
+| `SPLUNK_FEEDER_TOKEN`                    | Enter your Splunk HEC Token here, created while adding a new HEC For example: `x000x0x0x-0xxx-0xxx-xxxx-xxxxx00000`                                                                                                                            |
+| `SPLUNK_FEEDER_INDEX`                    | Enter your Splunk HEC Index here, created while adding a new HEC For example: `main`                                |
+| `SPLUNK_FEEDER_SOURCE`                   | User can add any source, For example: `KubeArmor`                                                                   |
+| `SPLUNK_FEEDER_SOURCE_TYPE`              | User needs to add source type as `json`                                                                             |
+| `SPLUNK_ALERTS_ENABLED`                  | Setting this to `true` forward the Policy Violated Alerts to Splunk, To forward any alerts this needs to be true    |
+| `SPLUNK_LOGS_ENABLED`                    |Setting this to `true` forward the Container Logs to Splunk.|
+
 5. Now install Feeder Service using the below command
 ```bash  
 helm install feeder-service oci://public.ecr.aws/k9v9d5v2/accuknox-agents --version 0.1.0 --values=install-feeder-only.yaml  -n accuknox-agents --create-namespace
 ```
-```Note*: To edit the Splunk Variable, User can edit the config-map named splunk-vars in accuknox-agents namespace, to edit use this coomand: kubectl edit cm splunk-vars -n accuknox-agents```
-## **Step2:AccuKnox Splunk App Installation on Splunk Deployment**
+```Note*: To edit the Splunk Variable anytime in future, User can edit the config-map named splunk-vars in accuknox-agents namespace, to edit use this command: kubectl edit cm splunk-vars -n accuknox-agents```
+## **Step2: AccuKnox Splunk App Installation on Splunk Deployment**
 ### Where to install it?
 Splunk App can be installed on Splunk Enterprise Deployment done on K8s or VM.
 ***User can install the App using three different ways.***
