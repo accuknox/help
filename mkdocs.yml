@@ -219,8 +219,9 @@ nav:
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
          - "Rsyslog" : "integrations/rsyslog.md"
      - "Registry": "integrations/registry.md"
-     - "Forwarding events for Splunk App" : "integrations/accuKnox-splunk-app-installation-configuration.md"
-     - "Rsyslog feeder integration": "integrations/rsyslog_feeder_integration.md"
+     - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+     - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
+     - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
   - "Use-Cases":
     - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
