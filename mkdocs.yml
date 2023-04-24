@@ -11,7 +11,7 @@ repo_url: "https://github.com/kubearmor/KubeArmor"
 edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
 # Configuration
 docs_dir: "docs"
-#dev_addr: '127.0.0.1:80'
+dev_addr: '127.0.0.1:80'
 theme:
   name: "material"
   features:
@@ -238,6 +238,6 @@ nav:
       - "DVWA Application": "use-cases/dvwa.md"  
       - "PHP-MySQL Application": "use-cases/php-mysql.md"
   
-  - "Troubleshooting & FAQs":
+  - "FAQs":
     - "FAQs" : "faqs/troubleshooting-and-faqs.md"
 
