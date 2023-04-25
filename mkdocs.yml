@@ -239,5 +239,5 @@ nav:
       - "PHP-MySQL Application": "use-cases/php-mysql.md"
   
   - "FAQs":
-    - "FAQs" : "faqs/troubleshooting-and-faqs.md"
+    - "" : "faqs/troubleshooting-and-faqs.md"
 
