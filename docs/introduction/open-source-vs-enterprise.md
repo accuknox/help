@@ -1,12 +1,12 @@
 ## **Opensource vs Enterprise:**
 
-AccuKnox offers a suite of fully open source tools (CNCF projects, apache license) as well as an enterprise SAAS suite.
+[AccuKnox](https://www.accuknox.com/contact-us) offers a suite of fully open source tools (CNCF projects, apache license) as well as an enterprise SAAS suite.
 
 ![](/introduction/images/os-vs-enterprise.png)
 
 | Features                         | Open Source      | Enterprise       |
 | :--------------------------------| :----------------| :----------------|
-| Kubearmor (in-line mitigation)   |:heavy_check_mark:|:heavy_check_mark:|
+| [Kubearmor](https://github.com/kubearmor/KubeArmor) (in-line mitigation)   |:heavy_check_mark:|:heavy_check_mark:|
 | Security Policies                |:heavy_check_mark:|:heavy_check_mark:|
 | Alerts & telemetry contextual to Host & Kubernetes workload|:heavy_check_mark:|:heavy_check_mark:|
 | Network security using CNI       |:heavy_check_mark:|:heavy_check_mark:|
