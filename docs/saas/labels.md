@@ -2,4 +2,5 @@ Labels are key-value pairs that are used to organize components like Policies, C
 
 ![](/saas/images/Labels-1.jpg)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -241,4 +241,5 @@ From AccuKnox we can manage the type of data forwardered to integration using tr
 3. Click `Save` button to store the trigger in database.
 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

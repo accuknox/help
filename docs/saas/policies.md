@@ -65,4 +65,5 @@ Users can follow this section to apply the hardening policies that are generated
 
 ![](/saas/images/Harden-policy-5.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -61,4 +61,5 @@ Alerts based on Severity widget will be providing the information about the seve
 
 ![](/saas/images/alerts-severity.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

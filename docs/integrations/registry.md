@@ -20,4 +20,5 @@ AccuKnox CSPM Security leverages various open source scanning tools to scan the 
 
 [DockerHub](https://hub.docker.com/) Repositories can be integrated with AccuKnox SaaS. Once these registries are onboarded, the images are scanned for vulnerabilities and risks. These findings are populated in the dashboard with Critical, High, low vulnerabilities. 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

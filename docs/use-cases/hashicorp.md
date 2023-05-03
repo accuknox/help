@@ -128,4 +128,5 @@ Before Applying the kubeArmor Policy any ransomware attacker who gains access to
 
 This will save the Volume mount of the HashiCorp Vault to be accessed by any attacker and also it prevents the vault application from remote code execution via AccuKnox's inline remediation.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

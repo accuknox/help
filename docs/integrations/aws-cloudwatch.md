@@ -46,4 +46,5 @@ Navigate to Settings->Integrations. Choose **"AWS CloudWatch"** services and cli
 + Based on Frequency (Real Time / Once in a Day / Week)
 + The Rule Engine matches the real time logs against the triggers created.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

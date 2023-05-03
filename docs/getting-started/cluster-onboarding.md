@@ -217,4 +217,5 @@ In the below section you can find the detailed steps to be followed for onboardi
       ![](/getting-started/images/gke-10.png)
 
 
-  [^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+  - - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

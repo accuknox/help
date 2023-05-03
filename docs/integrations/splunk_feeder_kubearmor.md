@@ -119,4 +119,5 @@ git clone https://github.com/accuknox/splunk.git AccuKnox
 
 ```
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

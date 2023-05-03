@@ -34,4 +34,5 @@ Lets understand this by following use-case example - **Auditing Application Beha
 
  ![](/use-cases/images/app-behavior-5.png)
 
- [^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+ - - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

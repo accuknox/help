@@ -43,4 +43,5 @@ Here Enter the following details:
 
 You can now configure Alert Triggers for Freshservice.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

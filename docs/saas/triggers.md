@@ -79,4 +79,5 @@ You can perform delete operation on a single trigger or on multiple triggers
 ![](/saas/images/delete-trigger-2.png)
 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

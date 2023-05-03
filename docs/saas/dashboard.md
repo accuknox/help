@@ -41,4 +41,5 @@ With CNAPP Dashboard, AccuKnox provides you a comprehensive view of the security
 
 + Compliance Alerts will inform user of standard compliance framework related violation alert. AccuKnox helps you to identify violation with respect to technical compliance such as CIS, STIG etc. and governance compliance such as NIST, MITRE, HIPAA etc. This widget will give you compliance conformance assessed from all the clusters for that tenant.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

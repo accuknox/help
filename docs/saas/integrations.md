@@ -24,4 +24,5 @@ Under Registry, the user can add a container registry from Nexus, ECR, GCR, and 
 
 ![](/saas/images/Integration-3.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
