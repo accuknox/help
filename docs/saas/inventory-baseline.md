@@ -8,4 +8,5 @@ One of the most common use-cases is that periodical scans of the cloud infra pro
 
 ![](/saas/images/inventory-baselines.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

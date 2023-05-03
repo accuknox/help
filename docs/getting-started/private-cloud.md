@@ -5,4 +5,5 @@ AccuKnox  Zero Trust Cloud Native Application Protection for Multi-Cloud Environ
 + Oracle OKE
 + IBM Cloud
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

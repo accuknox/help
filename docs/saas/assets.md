@@ -36,4 +36,5 @@ Asset Types -
 
 This should give you an organized view into your cloud resources across multi-cloud and enable you to track most sensitive assets or assets of your interest.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

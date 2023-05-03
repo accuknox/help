@@ -75,4 +75,5 @@ The Log Detail contents vary depending on the selected component type of the log
 
 ![](/saas/images/logs-panel.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

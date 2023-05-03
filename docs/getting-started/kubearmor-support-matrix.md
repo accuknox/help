@@ -7,4 +7,5 @@ KubeArmor supports following types of workloads:
 [KubeArmor Support Matrix](https://docs.kubearmor.io/kubearmor/quick-links/support_matrix)
 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -2,4 +2,5 @@ Tags are used to add descriptive metadata to components. In this section, the us
 
 ![](/saas/images/Tags-1.jpg)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -67,4 +67,5 @@ Once the enviornment variables are passed and deployment is updated, the feeder 
 To view the same check the `/var/log` folder inside the RSyslog Server. A directory with name `feeder-service` is created and all the logs are stored inside the same directory as a log file. 
                                                                                                                                         
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

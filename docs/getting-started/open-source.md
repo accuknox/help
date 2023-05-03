@@ -563,4 +563,5 @@ kubectl delete ns accuknox-agents
 2. [KubeArmor support matrix](https://github.com/kubearmor/KubeArmor/blob/main/getting-started/support_matrix.md)
 3. [Integrating KubeArmor with Prometheus and Grafana](https://github.com/kubearmor/kubearmor-prometheus-exporter)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

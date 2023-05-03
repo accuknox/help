@@ -18,4 +18,5 @@ In the Ticket Template section users can create Jira ticket templates related to
 ![](/saas/images/ticket-4.png)
 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

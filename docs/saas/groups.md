@@ -13,4 +13,5 @@ In the Groups section, users can group the assets and it findings by providing a
 
 ![](/saas/images/groups-3.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

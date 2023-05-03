@@ -50,4 +50,5 @@ AccuKnox SaaS platform will have the details of following assets
 **7. Packages** - This will be the dynamic packages or binary detected across all Cloud Accounts of a tenant
 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

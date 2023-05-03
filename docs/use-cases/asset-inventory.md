@@ -16,4 +16,5 @@ When the user clicks one of the assets from the list, they will be getting detai
 
 ![](/use-cases/images/assets-3.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

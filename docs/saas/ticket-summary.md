@@ -19,4 +19,5 @@ We integrate with several Ticketing Tools to track vulnerability/findings post s
 ![](/saas/images/ticket-summary.png)
 
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

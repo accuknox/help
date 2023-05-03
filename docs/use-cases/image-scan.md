@@ -20,4 +20,5 @@ Lets understand this by an example use-case - **Container Image scanning**
 
 ![](/use-cases/images/image-scan-3.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

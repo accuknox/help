@@ -27,4 +27,5 @@ After the scan is complete, the scan data and findings will be populated into th
 
 ![](/saas/images/registry-6.png)
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

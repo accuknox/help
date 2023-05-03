@@ -6,4 +6,5 @@ When a user clicks on the risk from the list, they will be getting more details 
 
  ![](/saas/images/risk-2.jpg)
 
- [^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+ - - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

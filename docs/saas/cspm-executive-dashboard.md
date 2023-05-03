@@ -20,4 +20,5 @@ The Compliance Executive dashboard provides you a composite view of continuous c
 
 + Visibility into categorized cloud resources/Asset across multi cloud environment becomes essential when we would like to see and manage compliance of specific resources. We cover that in Compliance summary based on Asset.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

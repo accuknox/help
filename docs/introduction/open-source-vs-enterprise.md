@@ -17,4 +17,5 @@
 | Multi-tenant, multi-cluster management solution| :x:|:heavy_check_mark:|
 | Comprehensive Dashboard          | :x:              |:heavy_check_mark:|
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

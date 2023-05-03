@@ -10,4 +10,5 @@ AccuKnox can enforce virtual machine and baremetal policies security seamlessly 
 
 AccuKnox components including VM specific components are deployed as a part of a VM cluster as daemons, on all nodes where enforcement must happen.
 
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
