@@ -35,8 +35,8 @@ Click on the Freshservice ticketing backend to add configuration.
 
 Here Enter the following details:
 
-   + **Configuration name:** Enter your Project key here, each project in an organisation starts with some keyvalue and is case sensitive. Breakdown of a jira ticket to identify Project ID: ```sh https://[JIRA-SITE]/browse/[PROJECT ID]-1414 ```, e.g., ```sh DEVSECOPS ```
-   + **Default template:** Enter the summary for the JIRA tickets to be viewed in each JIRA tickets created. e.g., ```sh Issue generated form High Severity Incidents on onboarded cluster. ```
+   + **Configuration name:** this name will be displayed under ticket configuration while creating tickets.
+   + **Default template:** to specify the of data that this configuration will be used for making tickets.
    + **Issue Type:** You can choose from the dropdown.
    + Fill the priority mapping according to your choice and press **save**.
 
