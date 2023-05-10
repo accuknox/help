@@ -101,6 +101,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 plugins:
+  - external-markdown
   - search:
       separator: '[\s\-\.]+'
       lang:

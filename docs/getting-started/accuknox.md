@@ -52,5 +52,5 @@ Report for 3PAO for Compliance Audit
 + Custom Labels & Tags to segregate DEV, TEST, PROD or custom environments
 + Custom Alert Trigger to any Notifications Integration
 
-
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

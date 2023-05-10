@@ -73,5 +73,5 @@ Application security using Linux Security Modules (LSM) / [KubeArmor]
 + AccuKnox supports AppArmor and SELinux as of today for its enforcement engine at runtime.
 
 
-
-[^]:[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+- - - 
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
