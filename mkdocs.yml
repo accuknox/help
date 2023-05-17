@@ -154,7 +154,7 @@ nav:
     - "Accuknox Architecture" : "introduction/accuknox-architecture.md"
     - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
 
-  - "AccuKnox SaaS":
+  - "Enterprise SaaS":
     - "Dashboard" : "saas/dashboard.md"
     - "Inventory" : 
           - "Assets": "saas/assets.md"
@@ -213,6 +213,7 @@ nav:
         - "VMs" : "getting-started/vms.md"
         - "Supported Benchmarks" : "getting-started/supported-benchmarks.md"
         - "Assets list" : "getting-started/assets-list.md" 
+    - "Troubleshooting": "getting-started/troubleshooting.md"
 
   - "Integrations":
      - "Ticketing" :
