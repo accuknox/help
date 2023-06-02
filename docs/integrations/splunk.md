@@ -36,7 +36,7 @@ Select **Settings > Data inputs > HTTP Event Collector** and make sure you see H
     + **Source Type:** Enter your Source Type here, this can be anything and the same will be attach to the event type forwarded to splunk. e.g.,```sh _json ```
 
     + Click **Test** to check the new functionality, You will receive the test message on configured slack channel. e.g.,```sh Test Message host = xxxxxx-deployment-xxxxxx-xxx00 source = http:kafka sourcetype = trials ```
-+ Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications
++ Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications.
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
