@@ -225,6 +225,7 @@ nav:
          - "Splunk" : "integrations/splunk.md"
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
          - "Rsyslog" : "integrations/rsyslog.md"
+         - "Azure Sentinel" : "integrations/azure-sentinel.md" 
      - "Registry": "integrations/registry.md"
      - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
