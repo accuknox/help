@@ -27,16 +27,16 @@ Select **Settings > Data inputs > HTTP Event Collector** and make sure you see H
 + Enter the following details to configure Splunk.
 + **Select the Splunk App** : From the dropdown, Select Splunk Enterprise.
 
-    + **Integration Name:** Enter the name for the integration. You can set any name. e.g., ```sh Test Splunk ```
-    + **Splunk HTTP event collector URL:** Enter your Splunk HEC URL generated earlier.e.g., ```sh https://splunk-xxxxxxxxxx.com/services/collector ```
-    + **Index:** Enter your Splunk Index, once created while creating HEC. e.g., ```sh main ```
-    + **Token:** Enter your Splunk Token, generated while creating HEC URL. e.g., ```sh x000x0x0x-0xxx-0xxx-xxxx-xxxxx00000 ```
-    + **Source:** Enter the source as http: ``sh kafka ``
+    + **Integration Name:** Enter the name for the integration. You can set any name. e.g., ``` Test Splunk ```
+    + **Splunk HTTP event collector URL:** Enter your Splunk HEC URL generated earlier.e.g., ``` https://splunk-xxxxxxxxxx.com/services/collector ```
+    + **Index:** Enter your Splunk Index, once created while creating HEC. e.g., ``` main ```
+    + **Token:** Enter your Splunk Token, generated while creating HEC URL. e.g., ``` x000x0x0x-0xxx-0xxx-xxxx-xxxxx00000 ```
+    + **Source:** Enter the source as http: `` kafka ``
 
-    + **Source Type:** Enter your Source Type here, this can be anything and the same will be attach to the event type forwarded to splunk. e.g.,```sh _json ```
+    + **Source Type:** Enter your Source Type here, this can be anything and the same will be attach to the event type forwarded to splunk. e.g.,``` _json ```
 
-    + Click **Test** to check the new functionality, You will receive the test message on configured slack channel. e.g.,```sh Test Message host = xxxxxx-deployment-xxxxxx-xxx00 source = http:kafka sourcetype = trials ```
-+ Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications
+    + Click **Test** to check the new functionality, You will receive the test message on configured splunk server. e.g.,``` Test Message host = xxxxxx-deployment-xxxxxx-xxx00 source = http:kafka sourcetype = trials ```
++ Click **Save** to save the Integration. You can now configure Alert Triggers for Splunk Events
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -25,14 +25,14 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
     + Enter the following details to configure JIRA.
 
-      + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,```sh Test JIRA ```
-      + **Site:** Enter the site name of your organisation. e.g., ```sh https://jiratest.atlassian.net/ ```
-      + **User Email:** Enter your Jira account email address here.e.g., ```sh jira@organisation.com ```
-      + **Token:** Enter the generated Token here from ```sh https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
-      + **User ID:** Enter your Jira user ID here. You can visit people section and search your name to see the User ID. For more details check here. e.g., ```sh 5bbxxxxxxxxxx0103780 ```
-      + **Project ID:** Enter your Project key here, each project in an organisation starts with some keyvalue and is case sensitive. Breakdown of a jira ticket to identify Project ID: ```sh https://[JIRA-SITE]/browse/[PROJECT ID]-1414 ```, e.g., ```sh DEVSECOPS ```
-      + **Issue Summary:** Enter the summary for the JIRA tickets to be viewed in each JIRA tickets created. e.g., ```sh Issue generated form High Severity Incidents on onboarded cluster. ```
-      + **Issue Type:** You can choose from the dropdown. i.e., ```sh Story and Bug ```
+      + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,``` Test JIRA ```
+      + **Site:** Enter the site name of your organisation. e.g., ``` https://jiratest.atlassian.net/ ```
+      + **User Email:** Enter your Jira account email address here.e.g., ``` jira@organisation.com ```
+      + **Token:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
+      + **User ID:** Enter your Jira user ID here. You can visit people section and search your name to see the User ID. For more details check here. e.g., ``` 5bbxxxxxxxxxx0103780 ```
+      + **Project ID:** Enter your Project key here, each project in an organisation starts with some keyvalue and is case sensitive. Breakdown of a jira ticket to identify Project ID: ``` https://[JIRA-SITE]/browse/[PROJECT ID]-1414 ```, e.g., ``` DEVSECOPS ```
+      + **Issue Summary:** Enter the summary for the JIRA tickets to be viewed in each JIRA tickets created. e.g., ``` Issue generated form High Severity Incidents on onboarded cluster. ```
+      + **Issue Type:** You can choose from the dropdown. i.e., ``` Story and Bug ```
     + Click **Test** to check if the entered details are being validated, If you receive Test Successful, you have entered a valid JIRA credentials.
 
     + Click **Save** to save the Integration.
@@ -47,14 +47,14 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
     Enter the following details to configure JIRA.
 
-    + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,```sh Test JIRA ```
-    + **Site:** Enter the site name of your organisation. e.g., ```sh https://jiratest.atlassian.net/ ```
-    + **User Email:** Enter your Jira account email address here.e.g., ```sh jira@organisation.com ```
-    + **Token:** Enter the generated Token here from ```sh https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
+    + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,``` Test JIRA ```
+    + **Site:** Enter the site name of your organisation. e.g., ``` https://jiratest.atlassian.net/ ```
+    + **User Email:** Enter your Jira account email address here.e.g., ``` jira@organisation.com ```
+    + **Token:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
 
     ![](/integrations/images/jiracspm3.png)
 
-    Click on the Freshservice ticketing backend to add configuration.
+    Click on the Jira ticketing backend to add configuration.
 
     Here Enter the following details:
 
