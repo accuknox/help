@@ -24,15 +24,15 @@ After logging into your Slack channel, you must generate a Hook URL.
 
 + Fill up the following fields:
 
-+ **Integration Name:** Enter the name for the integration. You can set any name. e.g., ```sh Container Security Alerts ```
++ **Integration Name:** Enter the name for the integration. You can set any name. e.g., ``` Container Security Alerts ```
 
-+ **Hook URL:** Enter your generated slack hook URL here. e.g., ```sh https://hooks.slack.com/services/T000/B000/XXXXXXX ```
++ **Hook URL:** Enter your generated slack hook URL here. e.g., ``` https://hooks.slack.com/services/T000/B000/XXXXXXX ```
 
-+ **Sender Name:** Enter the sender name here. e.g., ```sh AccuKnox User ```
++ **Sender Name:** Enter the sender name here. e.g., ``` AccuKnox User ```
 
-+ **Channel Name:** Enter your slack channel name here. e.g.,  ```sh  livealertsforcontainer ```
++ **Channel Name:** Enter your slack channel name here. e.g.,  ```  livealertsforcontainer ```
 
-+ Click **Test** to check the new functionality, You will receive the test message on configured slack channel. ```sh Test message Please ignore !! ```
++ Click **Test** to check the new functionality, You will receive the test message on configured slack channel. ``` Test message Please ignore !! ```
 
 + Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications.
 

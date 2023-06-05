@@ -144,7 +144,7 @@ hide:
 
 ??? "**21. Do I need to enable native security services for AWS to get data into Accuknox?**"
 
-    Accuknox expects AWS Security Hub and Macie to be enabled. Getting data from AWS will not be feasible otherwise.
+    Accuknox only requires an IAM role to be created with read only access to be able to get data from AWS. Security Hub and Macie can be optionally enabled for Accuknox to gather richer telemetry data with more context.
 
 ## **Bonus Questions :**
 
@@ -201,13 +201,14 @@ hide:
 
 ??? "**11. Current AccuKnox's marketplace listing?**"
 
+    Accuknox is currently listed on <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
+    
     We are in the process of listing on
 
     + AWS
     + Azure
     + GCP
     + Oracle
-    + VMWare
     + IBM/OpenShift
 
 ??? "**12. Who are current AccuKnox's partners and resellers?**"
