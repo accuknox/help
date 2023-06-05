@@ -16,7 +16,7 @@ Set up Splunk HTTP Event Collector (HEC) to view alert notifications from AccuKn
 
 To set up **HEC**, use instructions in [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector). For source type,_json is the default; if you specify a custom string on AccuKnox, that value will overwrite anything you set here.
 
-Select **Settings > Data inputs > HTTP Event Collector** and make sure you see HEC added in the list and that the status ows that it is **Enabled** .
+Select **Settings > Data inputs > HTTP Event Collector** and make sure you see HEC added in the list and that the status shows that it is **Enabled** .
 
 #### b. Steps to Integrate:
 + Go to Settings->Integration.
