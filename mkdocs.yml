@@ -204,8 +204,8 @@ nav:
     - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
     - "On-prem-Installation Guide" : "getting-started/on-prem-installation-guide.md"
     - "Release Notes":
-        - "AccuKnox" : "getting-started/accuknox.md"
-        - "KubeArmor" : "getting-started/kubearmor.md"
+        - "AccuKnox" : "getting-started/accuknox-release.md"
+        - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Support Matrix":
         - "KubeArmor Support Matrix" : "getting-started/kubearmor-support-matrix.md"
         - "Public Cloud" : "getting-started/public-cloud.md"
