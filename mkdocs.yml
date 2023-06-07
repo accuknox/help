@@ -202,7 +202,9 @@ nav:
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
     - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
-    - "On-prem-Installation Guide" : "getting-started/on-prem-installation-guide.md"
+    - "On-prem Installation" :
+        - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
+        - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
     - "Release Notes":
         - "AccuKnox" : "getting-started/accuknox-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
