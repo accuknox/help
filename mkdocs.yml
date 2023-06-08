@@ -243,6 +243,7 @@ nav:
     - "Network Segmentation" : "use-cases/network-segmentation.md"
     - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
     - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
+    - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
     - "Protect Sample Workloads" :
       - "WordPress-MySQL Application": "use-cases/wordpress-mysql.md" 
       - "DVWA Application": "use-cases/dvwa.md"  
