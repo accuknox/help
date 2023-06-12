@@ -196,15 +196,17 @@ nav:
 
   - "Getting Started":
     - "Open Source Installation": "getting-started/open-source.md"
-    - "Prerequisites" : 
-        - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+    - "Enterprise SaaS Installation" : 
         - "CSPM Prerequisites": "getting-started/cspm-prereq.md"
-    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
-    - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
+        - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+        - "5G Security Prerequisites": "getting-started/5gsec-prereq.md"
+        - "IoT/Edge Prerequisites": "getting-started/iot-edge-prereq.md"
     - "On-prem Installation" :
         - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
         - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+    - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
+    - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
     - "Release Notes":
         - "AccuKnox" : "getting-started/accuknox-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
@@ -216,6 +218,10 @@ nav:
         - "Supported Benchmarks" : "getting-started/supported-benchmarks.md"
         - "Assets list" : "getting-started/assets-list.md" 
     - "Troubleshooting": "getting-started/troubleshooting.md"
+    - "Sample Workloads Protection" :
+      - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md" 
+      - "DVWA Protection": "getting-started/dvwa.md"  
+      - "PHP-MySQL Protection": "getting-started/php-mysql.md"
 
   - "Integrations":
      - "Ticketing" :
@@ -232,23 +238,23 @@ nav:
      - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
+
   - "Use-Cases":
-    - "Vulnerability Management" : "use-cases/vulnerability.md"
-    - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-    - "Container Security" :
-      - "Image Scan": "use-cases/image-scan.md" 
-    - "Asset Inventory" : "use-cases/asset-inventory.md"
-    - "Application Behavior Modeling": "use-cases/app-behavior.md"
-    - "Application Hardening" : "use-cases/app-hardening.md"
-    - "Network Segmentation" : "use-cases/network-segmentation.md"
-    - "5G, Edge Workload Security" : "use-cases/5g-edge-workload-security.md"
     - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
     - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
-    - "Protect Sample Workloads" :
-      - "WordPress-MySQL Application": "use-cases/wordpress-mysql.md" 
-      - "DVWA Application": "use-cases/dvwa.md"  
-      - "PHP-MySQL Application": "use-cases/php-mysql.md"
-  
+    - "CSPM":
+      - "Vulnerability Management" : "use-cases/vulnerability.md"
+      - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
+      - "Container Security" :
+        - "Image Scan": "use-cases/image-scan.md" 
+      - "Asset Inventory" : "use-cases/asset-inventory.md"
+    - "CWPP":
+      - "Runtime Application Behavior": "use-cases/app-behavior.md"
+      - "Runtime Application Hardening" : "use-cases/app-hardening.md"
+      - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+    - "5G Control Plane Security" : "use-cases/5g-security.md"
+    - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
+    
   - "FAQs":
     - "" : "faqs/troubleshooting-and-faqs.md"
 
