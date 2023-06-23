@@ -202,7 +202,7 @@ VALUES ('John');
 
 Now check the external IP of the web service. If everything works well, you'll see this screen with the name John.
 
-![](/use-cases/images/mysql-john.png)
+![](/getting-started/images/mysql-john.png)
 
 ### **Working with Open-Source AccuKnox tools**
 

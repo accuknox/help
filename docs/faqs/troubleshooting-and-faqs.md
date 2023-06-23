@@ -5,22 +5,22 @@ hide:
 
 ## **AccuKnox FAQs:** 
 
-??? "**1. Do AccuKnox CNAPP support an agent-based scanning or agentless scanning ?**"
+??? "**1. Does AccuKnox CNAPP support only agent-based scanning or does it support agentless scanning ?**"
 
-     For CSPM, AccuKnox support agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnoxCSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
+     For CSPM, AccuKnox supports agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnoxCSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
 
 
-     For CWPP, AccuKnox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload.
+     For CWPP, AccuKnox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload. Thus we require agents to be installed to support scanning the workloads.
 
 ??? "**2. What is the differentiation of AccuKnox in Static Security?**"
 
     In the Static Security solution, unlike other CSPM tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. We also correlate and normalize results from a variety of security scanning tools and provide detailed     results of vulnerabilities across infrastructure.
 
-??? "**3. How AccuKnox helps to achieve static security?**"
+??? "**3. How does AccuKnox help to achieve static security?**"
 
     AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and containing the SLA. We also give comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
 	
-??? "**4. How AccuKnox helps to achieve Runtime security?**"
+??? "**4. How does AccuKnox help to achieve Runtime security?**"
 
     AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves runtime security by leveraging CNCF sandbox project, KubeArmor, which is a cloud-native runtime security enforcement system by AccuKnox that restricts and have more granular control over the application behavior such as process execution, file access, and networking operation of containers and nodes at the system level.
 
@@ -34,7 +34,7 @@ hide:
 
     KubeArmor deploys as a non-privileged daemonset with certain capabilities that allows it to monitor other pods/containers and host. A given cluster can have multiple nodes utilizing different LSMs so KubeArmor abstracts away the complexities of the LSMs and provides an easy way for policy enforcement.
 
-??? "**7. What are the integration tools that are supported by AccuKnox?**"
+??? "**7. What are the integration tools and registries that are supported by AccuKnox?**"
 
     AccuKnox can integrate multiple Cloud Account, Registries, SIEM platform, Ticketing or Notifications Tools and the list is ever growing. AccuKnox is pretty flexible to support the progression of the list with the customer’s request as our roadmap item. Some of the supported today are as follows:
 
@@ -93,7 +93,28 @@ hide:
 
     Inline Mitigation on the other hand prevents the malicious attack at the time of happening itself. It doesn’t allow the attack to happen by protecting the environment with security policy or firewall. AccuKnox’s open source tool KubeArmor provides Inline Mitigation. KubeArmor uses inline mitigation to reduce the attack surface of pod/container/VM. KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux (only for host protection) for inline mitigation
 
-??? "**17.What role does AccuKnox Agents play in runtime-security?**"
+??? "**17. What are the platforms and environments that Accuknox supports?**"
+
+    Accuknox supports the following environments:
+
+    + SaaS
+    + PaaS
+    + IaaS
+
+    Accuknox supports the following cloud platforms:
+
+    + AWS
+    + GCP
+    + Azure
+
+    Accuknox support for the different platforms are as follows:
+
+    + Kubernetes - Fully supported
+    + Linux - [Supported distributions](/getting-started/kubearmor-support-matrix/#supported-linux-distributions)
+    + Serverless - Fargate and ECS supported, others are on roadmap
+    + Windows - On roadmap
+
+??? "**18.What role does AccuKnox Agents play in runtime-security?**"
 
     AccuKnox Enterprise version consists of various agents such as 
 
@@ -105,6 +126,25 @@ hide:
 
     **Policy Discovery Engine:** It discovers the policies using the workload and cluster information that is relayed by a shared informer Agent. 
 
+??? "**19. Does Accuknox provide auto discovery of assets and workloads?**"
+
+    Yes, Accuknox can auto discover assets in the cloud by leveraging the cloud native tools. 
+    
+    For workloads, Accuknox agents will provide the visibility data.
+
+??? "**20. Can Accuknox help in Monitoring?**"
+
+    + With Accuknox, you can create monitors for assets or group of assets to get alerts for changes observed in their Metadata (software version etc)
+
+    + Our Drift detection capability is inherently doing monitoring of the compliance checks (pass/fail) that have changed between scans. 
+
+    + We collect alerts and telemetry generated by Kubearmor and cillium. These alerts are part of our CWPP offering. These alerts are generated for the events that have violated/complied with a policy.
+
+    + For these alerts you can have notification enabled as well through channels like Slack, email etc.
+
+??? "**21. Do I need to enable native security services for AWS to get data into Accuknox?**"
+
+    Accuknox only requires an IAM role to be created with read only access to be able to get data from AWS. Security Hub and Macie can be optionally enabled for Accuknox to gather richer telemetry data with more context.
 
 ## **Bonus Questions :**
 
@@ -116,13 +156,13 @@ hide:
 
     LSMs are already enabled in the environment and use host based LSM security. Since the attacker usually has direct access to the pod, AccuKnox uses Inline remediation to stop the processes before executing. Therefore, inline remediation does not slow down the process
 
-??? "**3. What does AccuKnox measure, while doing security posture observation?**"
+??? "**3. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
 
-    + Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads
-    + Understanding the Application behaviour using LSMs
-    + Hardening policies are blocked based policies
+    + Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
+    + Understanding the Application behaviour using LSMs enables creation of behavioural policies
+    + Hardening policies are block based policies
     + Behavioural policies are allow based policies
-    + Showcasing an example of FIM (File Integrity Monitoring) policy
+    + An example of policies is FIM (File Integrity Monitoring) policy
 
 ??? "**4. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
 
@@ -161,13 +201,14 @@ hide:
 
 ??? "**11. Current AccuKnox's marketplace listing?**"
 
+    Accuknox is currently listed on <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
+    
     We are in the process of listing on
 
     + AWS
     + Azure
     + GCP
     + Oracle
-    + VMWare
     + IBM/OpenShift
 
 ??? "**12. Who are current AccuKnox's partners and resellers?**"

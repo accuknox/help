@@ -268,7 +268,7 @@ The use-cases described in subsequent step uses this sample application.
 
 	**Realtime Logs Streaming:**
 	```sh
-	karmor log
+	karmor logs
 	```
 	> **_NOTE 02:_** Above 2 commands will be common for all use cases, keep this open in separate terminals (_right section of screenshot_)
 
