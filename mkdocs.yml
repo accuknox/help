@@ -229,7 +229,9 @@ nav:
          - "Jira Server" : "integrations/jira-server-cspm.md"
          - "Freshservice" : "integrations/freshservice-cspm.md"
          - "Connectwise" : "integrations/connectwise-cspm.md"
-     - "Telemetry (Sample)" : "integrations/telemetry-sample.md"
+     - "Telemetry (Sample)" : 
+         - "Logs" : "integrations/telemetry-logs.md"
+         - "Alerts" : "integrations/telemetry-alerts.md"
      - "SIEM/ Security Events" : 
          - "Splunk" : "integrations/splunk.md"
          - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
