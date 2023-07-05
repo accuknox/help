@@ -24,19 +24,16 @@ hide:
 ## **Pre-requisites**
 ### Minimum Resource required
 
-| Deployments   | Resource usage   |
-|---|---|
-|KubeArmor    |  CPU: 200 m, Memory: 200 Mi |
-|Agents Operator | CPU: 50 m, Memory: 50 Mi |
-|Discovery Engine  | CPU: 100 m, Memory: 100 Mi |
-|Shared Informer Agent  | CPU: 20 m, Memory: 50 Mi |
-|Feeder Service   | CPU: 50 m, Memory: 100 Mi  |
-|Policy Enforcement   |  CPU: 10 m, Memory: 20 Mi |
+| Deployments   | Resource usage   | Port | Connection Type |
+|---|---|---|---|
+|KubeArmor    |  CPU: 200 m, Memory: 200 Mi | - | - |
+|Agents Operator | CPU: 50 m, Memory: 50 Mi | 8081 | Inbound/Outbound |
+|Discovery Engine  | CPU: 100 m, Memory: 100 Mi | - | - |
+|Shared Informer Agent  | CPU: 20 m, Memory: 50 Mi | 3000 | Inbound/Outbound |
+|Feeder Service   | CPU: 50 m, Memory: 100 Mi  | 3000 | Inbound/Outbound |
+|Policy Enforcement   |  CPU: 10 m, Memory: 20 Mi | 443 | Inbound/Outbound |
 
-| Ports         | Description                                                                  |
-|---------------|------------------------------------------------------------------------------|
-| 9093, 443, 80 | The worker cluster will communicate with accuknox SaaS and general internet  |
-
+- These ports needs to be allowed through firewall.
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
