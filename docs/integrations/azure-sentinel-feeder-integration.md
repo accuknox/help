@@ -9,10 +9,11 @@ Azure Sentinel is a cloud-native SIEM solution by Microsoft that helps organizat
 ## Configuration
 To forward the Alerts based on Policy Violation to Azure sentinel set the following environment variables `AZURE_SENTINEL_ENABLED` and `AZURE_SENTINEL_ALERTS_ENABLED` to true and to forward Logs `AZURE_SENTINEL_LOGS_ENABLED` to true in your Feeder Agent manifest.
 
-Also set the environment variables `AZURE_SENTINEL_GROUP_NAME`, `AZURE_SENTINEL_GROUP_VALUE`, `AZURE_SENTINEL_URL` of the Azure Logic App Deployed. To start editing the chart:
-
-
-kubectl edit configmap azuresentinel-vars -n accuknox-agents
+Also set the environment variables `AZURE_SENTINEL_GROUP_NAME`, `AZURE_SENTINEL_GROUP_VALUE`, `AZURE_SENTINEL_URL` of the Azure Logic App Deployed. 
+To start editing the chart:
+``` sh
+ kubectl edit configmap azuresentinel-vars -n accuknox-agents
+```
 Edit the following Environment Variables mentioned below:
 
 ```yaml
