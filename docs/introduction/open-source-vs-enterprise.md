@@ -3,11 +3,11 @@ hide:
   - toc
 ---
 
-## **Opensource vs Enterprise:**
+### KubeArmor (Opensource)
+<a href="https://github.com/kubearmor/KubeArmor" target="_blank">KubeArmor</a> is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operations) of pods, containers, and nodes (VMs) at the system level.
 
-[AccuKnox](https://www.accuknox.com/contact-us) offers a suite of fully open source tools (CNCF projects, apache license) as well as an enterprise SAAS suite.
-
-![](/introduction/images/os-vs-enterprise.png)
+### Accuknox (Enterprise)
+<a href="https://www.accuknox.com/contact-us" target="_blank">AccuKnox</a> is one of the industry’s most comprehensive and integrated CNAPP solutions which brings together multiple disparate security modules to deliver comprehensive Zero Trust security for Networks, Applications (K8s, VM), and Data across Cloud.
 
 | Features                                                                                                                  | Open Source      | Enterprise       |
 | :-------------------------------------------------------------------------------------------------------------------------| :----------------| :----------------|
@@ -29,6 +29,8 @@ hide:
 | Comprehensive Dashboard across workloads running in Managed/Unmanaged Cluster, Containerized environment, VM or Baremetal | :x:              |:heavy_check_mark:|
 | Integration with Registries for Container Image Vuln Scan                                                                 | :x:              |:heavy_check_mark:|
 | Telemetry aggregation (Process executed, File accessed, Network connections made) and Alerts events (Audit, Block)        | :x:              |:heavy_check_mark:|
+
+![](/introduction/images/os-vs-enterprise.png)
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
