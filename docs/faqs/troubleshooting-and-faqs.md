@@ -188,7 +188,8 @@ hide:
 
 ??? "**9. What is AccuKnox’s licensing model?**"
 
-    If it is a end customer - https://www.accuknox.com/accuknox_sla
+    If it is an end customer - <a href="https://www.accuknox.com/sla" target="_blank">SLA</a>
+    
     If it is a MSSP model, it is a revenue share
 
 ??? "**10. How do you work with resellers and partnership models?**"
