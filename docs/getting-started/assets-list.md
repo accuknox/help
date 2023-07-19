@@ -1,54 +1,9 @@
 
 AccuKnox SaaS platform will have the details of following assets
 
-**1. Cloud Account** - This will be the total number of Cloud Accounts and assets associated to a particular tenant. Under Cloud account some of the assets like 
-    
-+ awsvpc
-
-+ awssecuritygroup
-
-+ awssubnet
-
-+ awsaccount
-
-+ cloudsploitaudit
-
-+ azurevnet 
-
-+ azuresubnet
-
-+ azurenetworkinterface
-
-+ azureresourcegroup
-
-+ azureapplicationsecuritygroup
-
-+ azurenetworksecuritygroup
-
-+ azureaduser
-
-+ azureadgroup
-
-+ azureadserviceprincipal
-
-**2. Hosts** - This will inform you about the number of instances across cloud like 
-
-
-+ Ec2 Instances
-+ Google Compute Engines
-+ Virtual machines
-
-
-**3. Apps** - This will inform you about the application related cloud resources like load balancer etc.
-
-**4. Web/API** - This will be the Web/API related cloud information
-
-**5. Containers** - This will be the total count of containers across all Cloud Accounts of a tenant
-
-**6. Cluster** - This will be the total count of Cluster across all Cloud Accounts of a tenant
-
-**7. Packages** - This will be the dynamic packages or binary detected across all Cloud Accounts of a tenant
-
+| AWS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    	| Azure                                                                                                                                                                                                                                                                                                                                                                                                                                                  	| GCP                                                                                                                                                                                                                                                                                                                                                                      	|
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Virtual Private Cloud (VPC)<br>VPC Subnet<br>EC2 Instance<br>EC2 Network Interface<br>EC2 Network Load Balancer<br>Key Management Service Key (KMS Key)<br>Elastic Container Service Cluster (ECS Cluster)<br>Elastic Kubernetes Service Cluster (EKS Cluster)<br>ElastiCache Cluster<br>Lambda Function<br>RDS Database Instance<br>RDS Database Cluster<br>S3 Bucket<br>VPC Elastic IP (EIP)<br>VPC Security Group<br>VPC Security Group Rule<br>VPC Network ACL (Access Control List)<br>VPC Route Table<br>VPC Route<br>VPC Peering Connection<br>Workspaces Workspace<br>Account<br>IAM User, IAM Role, IAM Group, IAM Policy, IAM Policy Attachment<br>Region<br>Access Analyzer Analyzer<br>CloudTrail Trail<br>CloudWatch Metric<br>EBS Volume<br>EBS Snapshot 	| Virtual Network<br>Subnet<br>Compute Virtual Machine<br>Network Interface<br>Load Balancer<br>Key Vault <br>Kubernetes Cluster<br>Redis Cache<br>SQL Database<br>Storage Container<br>Public IP<br>Application Security Group, Network Security Group<br>Route Table<br>Subscription<br>Azure AD User, Azure AD Group, Azure AD Service Principal(AD - Active Directory)<br>Role Definition, Role Assignment<br>Log Profile, Log Alert<br>Compute Disk 	| Compute Network<br>Compute Subnetwork<br>Compute Instance<br>Key Management Service Key (KMS Key)<br>Kubernetes Cluster<br>Cloud Functions Function<br>SQL Database<br>Storage Bucket<br>Compute Firewall<br>Compute Route<br>Project<br>IAM Policy<br>IAM Role<br>Service Account<br>Compute Region, Compute Zone<br>Logging Metric<br>Compute Disk<br>Compute Snapshot 	|
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
