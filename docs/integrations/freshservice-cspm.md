@@ -21,7 +21,7 @@ To set up this integration, you need to coordinate with your Freshservice admini
 ![](/integrations/images/Freshw1.png)
 ![](/integrations/images/Freshw2.png)
 
-Enter the following details to configure JIRA.
+Enter the following details to configure Freshservice:
 
    + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,```TestFreshservice```
    + **Domain Name**: Enter the site name of your organization as shown in your URL. e.g., for ```https://accuknoxexample.freshservice.com/``` enter the domain name as ```accuknoxexample```.
