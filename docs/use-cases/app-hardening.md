@@ -27,11 +27,11 @@ Lets understand by taking an use-case example - **Disallowing any binaries execu
 
 ![](/use-cases/images/app-harden-4.png)
 
-6. To make it active the user needs to approve
+6.To make it active the user needs to approve
 
 ![](/use-cases/images/app-harden-5.png)
 
-7. After approval policy goes into active state. 
+7.After approval policy goes into active state. 
 
 ![](/use-cases/images/app-harden-6.png)
 

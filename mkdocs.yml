@@ -59,6 +59,11 @@ theme:
 
 # Extensions
 markdown_extensions:
+  - pymdownx.pathconverter:
+      base_path: 'help' # default: ''
+      relative_path: '' # default ''
+      absolute: true # default: false
+      tags: 'a script img link object embed'
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences
@@ -222,6 +227,7 @@ nav:
       - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md" 
       - "DVWA Protection": "getting-started/dvwa.md"  
       - "PHP-MySQL Protection": "getting-started/php-mysql.md"
+    - "Accuknox Manual": "getting-started/accuknox-manual.md"
 
   - "Integrations":
      - "Ticketing" :
