@@ -4,7 +4,7 @@ hide:
 ---
 
 <!--- file: /getting-started/accuknox-manual.md --->
-{% with pdf_file = "/getting-started/images/UserManualAccuKnox.pdf" %}
+{% with pdf_file = "/getting-started/images/AccuKnox_User_Manual_July-2023.pdf" %}
 
 <div>
   <iframe id="inlineFrameManual"
