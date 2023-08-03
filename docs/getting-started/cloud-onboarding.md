@@ -7,6 +7,34 @@ hide:
 # **Cloud Account onboarding:**
 AccuKnox Saas Platform supports AWS,Microsoft Azure, Google Cloud Platform accounts onboarding. In this section we can find the steps to onboard various cloud accounts to the AccuKnoxSaaS platform. 
 
+## **AWS IAM User Creation**
+
+Please follow the following steps to provide a user with appropriate read access:
+
+**Step 1:** Navigate to IAM -> Users and click on Add Users 
+
+![](/getting-started/images/iam-user-0.png)
+
+**Step 2:** Give a username to identify the user
+
+![](/getting-started/images/iam-user-1.png)
+
+**Step 3:** In the "Set Permissions" screen:
+
+a. Select "Attach policies directly"
+
+b. Search "ReadOnly", Filter by Type: "AWS managed - job function" and select the policy
+
+![](/getting-started/images/iam-user-2.png)
+
+c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and select the policy
+
+![](/getting-started/images/iam-user-3.png)
+
+**Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the Accuknox panel
+
+![](/getting-started/images/iam-user-4.png)
+
 ## **AWS Onboarding:**
 
 In this example we are onboarding AWS account using the Access Keys method. 

@@ -59,11 +59,6 @@ theme:
 
 # Extensions
 markdown_extensions:
-  - pymdownx.pathconverter:
-      base_path: 'help' # default: ''
-      relative_path: '' # default ''
-      absolute: true # default: false
-      tags: 'a script img link object embed'
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences
