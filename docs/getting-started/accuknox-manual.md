@@ -11,3 +11,5 @@ hide:
       src="/getting-started/images/AccuKnox_User_Manual_July-2023.pdf">
   </iframe>
 </div>
+
+[DOWNLOAD USER MANUAL](/getting-started/images/AccuKnox_User_Manual_July-2023.pdf){ .md-button .md-button--primary }
