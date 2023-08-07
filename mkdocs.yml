@@ -224,12 +224,9 @@ nav:
       - "PHP-MySQL Protection": "getting-started/php-mysql.md"
     - "Accuknox Manual": "getting-started/accuknox-manual.md"
     - "How to calculate my cloud assets?":
-      - "AWS List of resources": "getting-started/aws-resource-list.md"
-      - "Cloud Assets Count Discovery": 
-        - "AWS Assets mapped by current steampipe": "getting-started/aws-asset-steampipe.md"
-        - "AWS Cloud Account Assets Count": "getting-started/aws-asset-count.md"
-        - "Azure Cloud Account Assets Count": "getting-started/azure-asset-count.md"
-        - "GCP Cloud Account Assets Count": "getting-started/gcp-asset-count.md"
+      - "AWS Cloud Account Assets Count": "getting-started/aws-asset-count.md"
+      - "Azure Cloud Account Assets Count": "getting-started/azure-asset-count.md"
+      - "GCP Cloud Account Assets Count": "getting-started/gcp-asset-count.md"
 
   - "Integrations":
      - "Ticketing" :
