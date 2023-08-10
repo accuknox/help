@@ -247,6 +247,8 @@ nav:
      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
      - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
+     - "Marketplace Listing":
+         - "AWS Marketplace - KubeArmor Installation Steps": "integrations/aws-kubearmor.md"
 
   - "Use-Cases":
     - "Securing the Secrets Manager" :
