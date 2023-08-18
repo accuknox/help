@@ -229,27 +229,30 @@ nav:
       - "GCP Cloud Account Assets Count": "getting-started/gcp-asset-count.md"
 
   - "Integrations":
-     - "Ticketing" :
-         - "Jira cloud" : "integrations/jira-cloud-cwpp.md"
-         - "Jira Server" : "integrations/jira-server-cspm.md"
-         - "Freshservice" : "integrations/freshservice-cspm.md"
-         - "Connectwise" : "integrations/connectwise-cspm.md"
-     - "Telemetry (Sample)" : 
-         - "Logs" : "integrations/telemetry-logs.md"
-         - "Alerts" : "integrations/telemetry-alerts.md"
-     - "SIEM/ Security Events" : 
-         - "Splunk" : "integrations/splunk.md"
-         - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
-         - "Rsyslog" : "integrations/rsyslog.md"
-         - "Azure Sentinel" : "integrations/azure-sentinel.md" 
-     - "Registry": "integrations/registry.md"
-     - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
-     - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
-     - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
-     - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
-     - "Marketplace Listing":
-         - "AWS Marketplace - KubeArmor Installation Steps": "integrations/aws-kubearmor.md"
-         - "Rafay": "integrations/rafay-accuknox.md"
+    - "SIEM/ Security Events" : 
+        - "Telemetry (Sample)" : 
+          - "Logs" : "integrations/telemetry-logs.md"
+          - "Alerts" : "integrations/telemetry-alerts.md"
+        - "Splunk" : "integrations/splunk.md"
+        - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+        - "Rsyslog" : "integrations/rsyslog.md"
+        - "Azure Sentinel" : "integrations/azure-sentinel.md"
+        - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+        - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
+        - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md" 
+        - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
+    - "Registry": "integrations/registry.md"
+    - "Ticketing" :
+        - "Jira cloud" : "integrations/jira-cloud-cwpp.md"
+        - "Jira Server" : "integrations/jira-server-cspm.md"
+        - "Freshservice" : "integrations/freshservice-cspm.md"
+        - "Connectwise" : "integrations/connectwise-cspm.md"
+    - "Notification":
+        - "Slack": "integrations/slack.md"
+    - "Marketplace Listing":
+        - "AWS Marketplace - KubeArmor Installation Steps": "integrations/aws-kubearmor.md"
+    - "Platform":
+        - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
     - "Securing the Secrets Manager" :
