@@ -2,7 +2,6 @@
 hide:
   - toc
 ---
-# Remediation options
 
 ## **Remediation**
 
