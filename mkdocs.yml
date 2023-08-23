@@ -217,16 +217,10 @@ nav:
         - "VMs" : "getting-started/vms.md"
         - "Supported Benchmarks" : "getting-started/supported-benchmarks.md"
         - "Assets list" : "getting-started/assets-list.md" 
-    - "Troubleshooting": "getting-started/troubleshooting.md"
     - "Sample Workloads Protection" :
       - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md" 
       - "DVWA Protection": "getting-started/dvwa.md"  
       - "PHP-MySQL Protection": "getting-started/php-mysql.md"
-    - "Accuknox Manual": "getting-started/accuknox-manual.md"
-    - "How to calculate my cloud assets?":
-      - "AWS Cloud Account Assets Count": "getting-started/aws-asset-count.md"
-      - "Azure Cloud Account Assets Count": "getting-started/azure-asset-count.md"
-      - "GCP Cloud Account Assets Count": "getting-started/gcp-asset-count.md"
 
   - "Integrations":
     - "SIEM/ Security Events" : 
@@ -270,6 +264,14 @@ nav:
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
+
+  - "Resources":
+    - "Calculate Pricing":
+      - "Count my Cloud Assets": "resources/count-assets.md"
+      - "Count my Container Registries": "resources/count-registry.md"
+      - "Count my K8s Cluster Worker Nodes": "resources/count-nodes.md"
+    - "Troubleshooting": "resources/troubleshooting.md"
+    - "User Manual": "resources/accuknox-manual.md"
     
   - "FAQs":
     - "" : "faqs/troubleshooting-and-faqs.md"

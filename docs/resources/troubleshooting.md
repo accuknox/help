@@ -7,7 +7,7 @@ Users can get the kubeArmor sysdump by using the following command:
 ```sh
 >> karmor sysdump 
 ```
-![](/getting-started/images/tbshoot-1.png)
+![](/resources/images/tbshoot-1.png)
 
 
 **Step 2: Getting logs from AccuKnox Agents**
