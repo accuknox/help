@@ -1,4 +1,8 @@
 ## **KubeArmor Version Release Blogs**
+
++ [v0.12 Release Blog](https://github.com/kubearmor/KubeArmor/wiki/v0.12-Release-Blog)
++ [v0.11 Release Blog](https://github.com/kubearmor/KubeArmor/wiki/v0.11-Release-Blog)
++ [v0.10 Release Blog](https://github.com/kubearmor/KubeArmor/wiki/v0.10-Release-Blog)
 + [v0.9 Release Blog](https://github.com/kubearmor/KubeArmor/wiki/v0.9-Release-Blog) 
 + [v0.8 Release Blog](https://github.com/kubearmor/KubeArmor/wiki/v0.8-Release-Blog) 
 + [v0.7 Release Blog](https://github.com/kubearmor/KubeArmor/wiki/v0.7-Release-Blog) 
