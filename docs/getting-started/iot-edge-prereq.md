@@ -1,1 +1,1 @@
-Coming Soon 
+Learn more about how AccuKnox enables security for IoT/Edge at [open horizon.io](https://open-horizon.github.io/docs/kubearmor-integration/docs/README/)

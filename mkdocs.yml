@@ -197,16 +197,21 @@ nav:
   - "Getting Started":
     - "Open Source Installation": "getting-started/open-source.md"
     - "Enterprise SaaS Installation" : 
-        - "CSPM Prerequisites": "getting-started/cspm-prereq.md"
-        - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+        - "Prerequisites" :
+          - "CSPM Prerequisites": "getting-started/cspm-prereq.md"
+          - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+        - "Onboarding" :
+          - "Cloud Account" :
+            - "AWS" : "getting-started/aws-onboarding.md"
+            - "Azure" : "getting-started/azure-onboarding.md"
+            - "GCP" : "getting-started/gcp-onboarding.md"
+          - "Cluster" : "getting-started/cluster-onboarding.md"
         - "5G Security Prerequisites": "getting-started/5gsec-prereq.md"
         - "IoT/Edge Prerequisites": "getting-started/iot-edge-prereq.md"
     - "On-prem Installation" :
         - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
         - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Cloud Onboarding" : "getting-started/cloud-onboarding.md"
-    - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
     - "Release Notes":
         - "AccuKnox" : "getting-started/accuknox-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
