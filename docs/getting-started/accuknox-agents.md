@@ -42,7 +42,7 @@ AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeAr
 + All of the changes done to the policy can be tracked granularly with the help of the Policy Enforcement Agent and Policy Gitops Flow which helps with version control and robust management of the security policies.
 
 ## **Discovery engine:** 
-Accuknox policy enforcement engines based on KubeArmor and Cilium are very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. Accuknox policy auto-discovery engine leverages the pod visibility provided by KubeArmor and Cilium to auto-generate network and system policies.
+Accuknox policy enforcement engine based on KubeArmor is very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. Accuknox policy auto-discovery engine leverages the pod visibility provided by KubeArmor to auto-generate network and system policies.
 
 ![](/getting-started/images/discovery-engine.png)
 
@@ -60,9 +60,9 @@ Pod C cannot communicate to a remote TCP server running on port 5000.
 
 This list can be as exhaustive as you like, and these policies are enforced within the kernel using kernel primitives and technologies as listed below:
 
-Network Security using eBPF / Cilium
+Network Security using eBPF
 
-+ Network runtime protection in the form of L3, L4, and L7 rules using identity (x509 certificates or K8s labels) for your K8s workloads. In K8s policies, this is implemented as a CNI using Cilium.
++ Network runtime protection in the form of L3, L4, and L7 rules using identity (x509 certificates or K8s labels) for your K8s workloads. In K8s policies, this is implemented as a native K8s networkpolicy object.
 
 + For Virtual Machine workloads, labels are used to provide host-level network policies for L3, L4, and L7.
 
