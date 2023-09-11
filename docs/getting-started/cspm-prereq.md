@@ -3,14 +3,13 @@ hide:
   - toc
 ---
 
-# **Cloud Account onboarding**
-AccuKnox Saas Platform supports AWS,Microsoft Azure, Google Cloud Platform accounts onboarding. In this section we can find the steps to onboard various cloud accounts to the AccuKnoxSaaS platform.
+# **Cloud Account Prerequisites**
 
-??? "**Onboarding AWS Cloud Account**"
+AccuKnox Saas Platform supports AWS, Microsoft Azure, Google Cloud Platform accounts onboarding. In this section we can find the prerequisites to onboard the cloud accounts
 
-    ## **AWS IAM User Creation**
+??? "**AWS Cloud Account**"
 
-    Please follow the following steps to provide a user with appropriate read access:
+    AWS onboarding requires creation of an IAM user. Please follow the following steps to provide a user with appropriate read access:
 
     **Step 1:** Navigate to IAM -> Users and click on Add Users 
 
@@ -36,45 +35,11 @@ AccuKnox Saas Platform supports AWS,Microsoft Azure, Google Cloud Platform accou
 
     ![](/getting-started/images/iam-user-4.png)
 
-    ## **AWS Onboarding:**
 
-    In this example we are onboarding AWS account using the Access Keys method. 
-
-    **Step 1:** To onboard Cloud Account Navigate to *Settings->cloud Accounts*
-
-
-    ![](/getting-started/images/cloud-onboarding-1.png)
-
-
-    **Step 2:** In the Cloud Account Page select *Add Account* option
-
-    ![](/getting-started/images/cloud-onboarding-2.png)
-
-
-    **Step 3:** Select the AWS option
-
-    ![](/getting-started/images/cloud-onboarding-3.png)
-
-
-    **Step 4:** In the next Screen select the labels and Tags field from the dropdown Menu.
-
-    ![](/getting-started/images/cloud-onboarding-5.png)
-
-
-    **Step 5:** After giving labels and Tag in the Next Screen Provide the AWS account’s Access Key and Secret Access Key ID and Select the Region of the AWS account.
-
-    ![](/getting-started/images/cloud-onboarding-6.png)
-
-    **Step 6:** AWS account is added to the AccuKnox using Access Key Method. We can see the onboarded cloud account by navigating to Settings->cloud Accounts option. 
-
-    ![](/getting-started/images/cloud-onboarding-7.png)
-
-
-??? "**Onboarding GCP Cloud Account**"
-
-    **1. Rapid Onboarding (via GCP)**
+??? "**GCP Cloud Account**"
 
     For GCP there is a requirement for IAM Service Account Access.
+
     **Step 1:** Log into your Google Cloud console and navigate to IAM Admin > Service Accounts
 
     ![](/getting-started/images/aws1.png)
@@ -107,37 +72,8 @@ AccuKnox Saas Platform supports AWS,Microsoft Azure, Google Cloud Platform accou
 
     ![](/getting-started/images/aws6.png)
 
-    **2. From AccuKnox SaaS UI** 
 
-    **Step 1:** Click settings -> Cloud Accounts
-
-    **Step 2:** Click Add account
-
-    ![](/getting-started/images/aws7.png)  
-
-    **Step 3:** Select GCP as the Cloud Account type
-
-    ![](/getting-started/images/aws8.png)
-
-    **Step 4:** Select the Labels and Tags and click Next
-
-    ![](/getting-started/images/aws9.png)
-
-    **Note:** If there are no labels and tags create new labels and tags via the settings
-
-    **Step 5:** Fill the Project ID, Client Email and Private Key(Copy paste the entire content of the JSON private key that was downloaded) then click Connect.
-
-    ![](/getting-started/images/aws10.png)
-
-    **Note:** For Client Email Id copy the mail id from the Service Account > Details section
-
-    **Step 6:** Check Settings → Cloud Accounts. You will see your cloud account is added successfully.
-
-    ![](/getting-started/images/aws11.png)
-
-??? "**Onboarding Azure Cloud Account**"
-
-    **1. Rapid Onboarding (via Azure)** 
+??? "**Azure Cloud Account**"
 
     For Azure Onboarding it is required to register an App and giving Security read access to that App from the Azure portal.
 
@@ -217,38 +153,6 @@ AccuKnox Saas Platform supports AWS,Microsoft Azure, Google Cloud Platform accou
     **Step 17:** Now, click on *Select members*, select the application that was created similar to the previous role. Finally, click on *Review and Assign*.
 
     ![](/getting-started/images/azure11-1.png)
-
-
-
-
-
-    **2. From AccuKnox SaaS UI** 
-
-    Configuring your Azure cloud account is complete, now we need to onboard the cloud account onto Accuknox Saas Platform.
-
-    **Step 1:** Go to settings-> Cloud Account and click on Add Account
-
-    ![](/getting-started/images/azure12.png)
-
-
-    **Step 2:** Select Microsoft Azure as Cloud Account Type
-
-    ![](/getting-started/images/azure13.png)
-
-
-    **Step 3:** Select or create label and Tags that will be associated with this Cloud Account
-
-    ![](/getting-started/images/azure14.png)
-
-
-    **Step 4:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect
-    
-    ![](/getting-started/images/azure15.png)
-
-
-    **Step 5:** After successfully connecting your cloud account will show up in the list 
-
-    ![](/getting-started/images/azure16.png)
 
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
