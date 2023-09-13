@@ -10,17 +10,20 @@ The given steps are common for all  AKS, EKS, GKE and unmanaged Clusters.
 
 **Agents Uninstallation** 
 
-**Step 1:** Login to your Cluster.
-
-![](/getting-started/images/cluster-off-0.png)
-
-**Step 2:** Uninstall Accuknox agent and Spire token using the following commands:
+Uninstall Accuknox agents using the following commands:
 
 ```sh
       helm uninstall -n accuknox-agents  accuknox-agents
       kubectl delete ns accuknox-agents
 ```
-![](/getting-started/images/cluster-off-1.png)
+Sample:
+
+```sh
+      cloudshell:~ (centering-study-396808)$  helm uninstall -n accuknox-agents  accuknox-agents
+      release "accuknox-agents" uninstalled
+      cloudshell:~ (centering-study-396808)$ kubectl delete ns accuknox-agents
+      namespace "accuknox-agents" deleted
+```
 
 **Cluster Deletion**
 
