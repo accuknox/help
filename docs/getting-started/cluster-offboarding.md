@@ -18,7 +18,6 @@ The given steps are common for all  AKS, EKS, GKE and unmanaged Clusters.
 
 ```sh
       helm uninstall -n accuknox-agents  accuknox-agents
-      kubectl -n accuknox-agents delete secrets spire-agent-secret
       kubectl delete ns accuknox-agents
 ```
 ![](/getting-started/images/cluster-off-1.png)
