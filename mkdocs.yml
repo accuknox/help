@@ -256,8 +256,8 @@ nav:
         - "Slack": "integrations/slack.md"
     - "Marketplace Listing":
         - "AWS Marketplace" :
-          - "KubeArmor Installation Steps": "integrations/aws-kubearmor.md"
-          - "User Playbook": "integrations/aws-playbook.md"
+          - "AccuKnox User Playbook": "integrations/aws-playbook.md"
+          - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
     - "Platform":
         - "Rafay": "integrations/rafay-accuknox.md"
 
