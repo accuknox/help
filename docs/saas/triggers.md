@@ -10,7 +10,7 @@ With the use of triggers, AccuKnox can send alerts to third-party SIEM (security
 **How to create a new trigger?**
 
 **Step 1:**  After choosing specific log filter from the Logs Screen, You can either click elements directly from the log events list, search for elements directly in the filter, or use Search Filters to choose a specific log filter. Then click on Create Trigger button. 
-![](/saas/images/triggers-1.png)
+![](images/triggers-1.png)
 
 **Step 2:** Configure the required options:
 
@@ -26,12 +26,12 @@ When to initiate this trigger: Set the frequency of the trigger. You have four o
 
 **Note:** Before selecting the notification channel, you should complete the channel integration for this channel. Review the Channel Integration for more context.
 
-![](/saas/images/triggers-2.png)
+![](images/triggers-2.png)
 
 **Step 3:**  After giving necessary details the user can click Save option to save the trigger. Trigger will be saved. 
 
 
- ![](/saas/images/triggers-3.png)
+ ![](images/triggers-3.png)
 
 ## **Manage Triggers**
 Triggers can be managed individually, or as a group, by using the checkboxes on the left side of the Trigger UI. Select individual/group of triggers and perform actions, such as enabling, disabling, or deleting. 
@@ -39,7 +39,7 @@ Triggers can be managed individually, or as a group, by using the checkboxes on 
 **View Trigger Details**
 Users need to navigate to Monitors/logging-> select Triggers to view the saved triggers
 
-![](/saas/images/trigger-view.png)
+![](images/trigger-view.png)
  
 
 To view Trigger alert details, click the Details of corresponding Tigger alert row. This will give query info of the selected trigger additionally.
@@ -47,7 +47,7 @@ To view Trigger alert details, click the Details of corresponding Tigger alert r
 **Enable/Disable Triggers**
 
 Alerts can be enabled or disabled using the slider or the actions drop-down menu. 
-![](/saas/images/enable-trigger.png)
+![](images/enable-trigger.png)
 
 
 **Edit an Existing Trigger**
@@ -56,12 +56,12 @@ To edit an existing Tigger alert:
 
 **Step 1:** click Edit Symbol from the right corner More options icon of the corresponding trigger alert
 
-![](/saas/images/edit-trigger-1.png)
+![](images/edit-trigger-1.png)
  
 
 **Step 2:** Edit the trigger, and click Save to confirm the changes. Trigger will be updated. 
 
-![](/saas/images/edit-trigger-2.png)
+![](images/edit-trigger.png)
 
 **Delete Trigger**
 
@@ -71,12 +71,12 @@ You can perform delete operation on a single trigger or on multiple triggers
 
 **Step 1:** From the Triggers UI, check the boxes beside the relevant triggers.
 
-![](/saas/images/delete-trigger-1.png)
+![](images/delete-trigger-1.png)
  
 
 **Step 2:** Click Delete icon from the right corner in the screen to delete the selected triggers. Triggers will be deleted. 
 
-![](/saas/images/delete-trigger-2.png)
+![](images/delete-trigger-2.png)
 
 
 - - - 

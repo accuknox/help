@@ -9,31 +9,31 @@ Lets understand by taking an use-case example - **Disallowing any binaries execu
 
 1.Select your cluster and namespace from this Policies screen. We will be getting list of hardening policies for the selected Namespace.
 
-![](/use-cases/images/app-harden-1.png)
+![](images/app-harden-1.png)
 
 2.Applying the hardening policies 
 
 3.Selecting the below hardening policy to apply
 
-![](/use-cases/images/app-harden-2.png)
+![](images/app-harden-2.png)
 
 
 4.Select this policy and click on the apply option 
 
-![](/use-cases/images/app-harden-3.png)
+![](images/app-harden-3.png)
 
 
 5.After applying the above hardening policy, it goes into pending state 
 
-![](/use-cases/images/app-harden-4.png)
+![](images/app-harden-4.png)
 
 6.To make it active the user needs to approve
 
-![](/use-cases/images/app-harden-5.png)
+![](images/app-harden-5.png)
 
 7.After approval policy goes into active state. 
 
-![](/use-cases/images/app-harden-6.png)
+![](images/app-harden-6.png)
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

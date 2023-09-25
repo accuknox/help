@@ -8,26 +8,26 @@ Lets understand this with an use-case example - **Network Segmentation for sampl
 
 1.Review the auto discovered network policy generated for the wordpress-mysql application
 
-![](/use-cases/images/network-1.png)
+![](images/network-1.png)
 
 2.Select the below network policy from All Policies screen
-![](/use-cases/images/network-2.png)
+![](images/network-2.png)
 
 3.Applying the network policy 
 
 4.Select the network policy you want apply from the Policies screen 
-![](/use-cases/images/network-3.png)
+![](images/network-3.png)
 
 5.After applying the policy, it goes into pending state 
 
-![](/use-cases/images/network-4.png)
+![](images/network-4.png)
 
 6.To make it active the user needs to approve
 
-![](/use-cases/images/network-5.png)
+![](images/network-5.png)
 7.After approval the policy goes into active state
 
-![](/use-cases/images/network-6.png)
+![](images/network-6.png)
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
