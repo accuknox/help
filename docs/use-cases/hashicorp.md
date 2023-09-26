@@ -3,21 +3,21 @@ HashiCorp Vault helps organizations reduce the risk of breaches and data exposur
 
 Usually on /bin/vault accesses this volume mount points to get the secrets stored. If any ransomware attacker gets access to these volume mount points then the secrets can be accessed by them. 
 
-![](/use-cases/images/vault-1.png)
+![](images/vault-1.png)
 
 
 **Ransomware Attacks on HashiCorp Vault:** 
 
 If any ransomware attacker tries to compromise the security of the pod and gets access to the vault pod, they can do a command injection and encrypt the secrets stored in the Volume mount points. Then the organizations have to pay millions of dollars to get back their secrets decrypted. This will be a major challenge that organizations want to protect. 
 
-![](/use-cases/images/vault-2.png)
+![](images/vault-2.png)
 
 
 **KubeArmor Protection:** 
 
 AccuKnox CNCF sandbox open-source project KubeArmor can prevent this type of attack even before it happens. KubeArmor uses the eBPF for observability and LSMs Like AppArmor, SELinux, and BPF-LSM for policy enforcement. Using the eBPF, KubeArmor monitors the workload default Security Posture and also gets the file, process, and network access that are happening in the pod.
 
-![](/use-cases/images/vault-3.png)
+![](images/vault-3.png)
 
 
 Based on the default Security Posture of the workload, policies will be auto-generated with the help of Compliance frameworks like MITRE, NIST, and PCI DSS. Using KubeArmor we can apply policies to restrict malicious activities like remote code execution and command injection at the time of the attack. KubeArmor gives inline remediation so that attack is prevented at the runtime as and when it happens. 
@@ -26,7 +26,7 @@ Based on the default Security Posture of the workload, policies will be auto-gen
 
 Once the Kubernetes cluster with Vault application installed is onboarded into the AccuKnox SaaS. We can see the Application Behaviour by clicking the View Application Behaviour option from the Vault pod.
 
-![](/use-cases/images/vault-4.png)
+![](images/vault-4.png)
 
 **Application Behaviour of Vault pod:** 
 
@@ -34,7 +34,7 @@ Once the Kubernetes cluster with Vault application installed is onboarded into t
 
 Using this Graphical view we can get details about the ingress and egress network connections that are present in the pod. 
 
-![](/use-cases/images/vault-5.png)
+![](images/vault-5.png)
 
 **List view:** 
 
@@ -42,10 +42,10 @@ The list view will be giving details regarding
 
 + File Observability: Files that are accessed in the Vault pod
 
-![](/use-cases/images/vault-6.png)
+![](images/vault-6.png)
     
 + Process Observability:Process that are running in the vault pod 
-![](/use-cases/images/vault-7.png)
+![](images/vault-7.png)
 
 We can protect the vault application using KubeArmor with the help of the following policy
 
@@ -92,38 +92,38 @@ The above KubeArmor policy
 
 Before Applying the kubeArmor Policy any ransomware attacker who gains access to the shell or bash of the Vault can able to access the vault folder to get secret details. 
 
-![](/use-cases/images/vault-8.png)
+![](images/vault-8.png)
 
 **Applying the KubeArmorPolicy:** 
 
 **Step 1:** To create the policy Navigate to *Runtime Protection->Policies*. Then select *Create Policy* option from the screen. 
 
-![](/use-cases/images/vault-9.png)
+![](images/vault-9.png)
 
 **Step 2:** In the policy, editor tool create the above policy and Select Save to workspace option. 
 
-![](/use-cases/images/vault-10.png)
+![](images/vault-10.png)
 
 **Step 3:** When we apply the policy, it goes into the pending state for approval. 
 
-![](/use-cases/images/vault-11.png)
+![](images/vault-11.png)
 
 **Step 4:** Review the changes and approve the policy 
 
-![](/use-cases/images/vault-12.png)
+![](images/vault-12.png)
 
 
 **Step 5:** After Approval policy becomes active 
 
-![](/use-cases/images/vault-13.png)
+![](images/vault-13.png)
 
 **Step 6:** Now if you try to access the vault folder using the shell or bash of the vault pod, the access will be denied as the KubeArmor policy deny the permission. 
 
-![](/use-cases/images/vault-14.png)
+![](images/vault-14.png)
 
 **Step 7:** We can view the log alerts by navigating to the *Monitors/Logging-> logs*
 
-![](/use-cases/images/vault-15.png)
+![](images/vault-15.png)
 
 
 This will save the Volume mount of the HashiCorp Vault to be accessed by any attacker and also it prevents the vault application from remote code execution via AccuKnox's inline remediation.

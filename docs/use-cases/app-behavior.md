@@ -18,21 +18,21 @@ Lets understand this by following use-case example - **Auditing Application Beha
 
  + Network Graph
 
-![](/use-cases/images/app-behavior-1.png)
+![](images/app-behavior-1.png)
 
-![](/use-cases/images/app-behavior-2.png)
+![](images/app-behavior-2.png)
 
  + File Observability
 
-![](/use-cases/images/app-behavior-3.png)
+![](images/app-behavior-3.png)
 
  + Process Observability
 
-![](/use-cases/images/app-behavior-4.png)
+![](images/app-behavior-4.png)
 
  + Network Observability
 
- ![](/use-cases/images/app-behavior-5.png)
+ ![](images/app-behavior-5.png)
 
  - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
