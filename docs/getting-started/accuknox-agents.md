@@ -9,7 +9,7 @@ hide:
 ## **KubeArmor:**
 KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. It operates with Linux security modules LSMs, meaning that it can work on top of any Linux platforms (such as Alpine, Ubuntu, and Container-optimized OS from Google) if Linux security modules (e.g., AppArmor, SELinux, or BPF-LSM) are enabled in the Linux Kernel. KubeArmor will use the appropriate LSMs to enforce the required policies. 
 
-![](/getting-started/images/kubeArmor.png)
+![](/getting-started/images/kubeArmor.jpg)
 
 
 KubeArmor allows operators to define security policies and apply them to Kubernetes. Then, KubeArmor will automatically detect the changes in security policies from Kubernetes and enforce them on the corresponding containers and nodes. If there are any violations against security policies, KubeArmor immediately generates alerts with container identities. If operators have any logging systems, it automatically sends the alerts to their systems as well.
@@ -44,7 +44,7 @@ AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeAr
 ## **Discovery engine:** 
 Accuknox policy enforcement engine based on KubeArmor is very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. Accuknox policy auto-discovery engine leverages the pod visibility provided by KubeArmor to auto-generate network and system policies.
 
-![](/getting-started/images/discovery-engine.png)
+![](images/discovery-engine.png)
 
 AccuKnox’s Runtime security solution is able to provide full visibility into all of these application interactions with the host kernel and provide the ability to filter or restrict specific actions at runtime.
 

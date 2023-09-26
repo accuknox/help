@@ -4,39 +4,68 @@ hide:
 ---
 
 
+**Note:**
+Make sure the Below API Library is enabled in your GCP Account for onboarding into Accuknox SaaS:
+
+1. Compute Engine API
+2. Identity and Access Management (IAM) API
+3. Cloud Resource Manager API
+4. Cloud Functions API
+
 For GCP there is a requirement for IAM Service Account Access.
 
-**Step 1:** Log into your Google Cloud console and navigate to IAM Admin > Service Accounts
+**Step 1:**  Log into your Google Cloud console and navigate to  IAM & Admin choose “Roles“ and Click “Create Role“
 
-![](/getting-started/images/aws1.png)
+![](images/gcp/gcp-0.png)
 
-**Step 2:** Click on "Create Service Account".
+**Step 2:**  Name the “Role” and Click “Add Permission”
 
-![](/getting-started/images/aws2.png)
+![](images/gcp/gcp-1.png)
 
-**Step 3:** Enter "AccuKnox" in the "Service account name", then enter "Accuknox API Access" in the description.
+**Step 3:**  Use the Service: storage filter then value as “storage.buckets.getIamPolicy“
 
-**Step 4:** Click on Continue.
+![](images/gcp/gcp-2.png)
 
-![](/getting-started/images/aws3.png)
+**Step 4:** Choose the permission and Click “Add“ then Click Create in the same page.
 
-**Step 5:** Select the role: Project > Viewer and click Continue.
+![](images/gcp/gcp-3.png)
 
-![](/getting-started/images/aws4.png)
+**Step 5:**  In the Navigation Panel, navigate to IAM Admin > Service Accounts.
 
-**Step 6:** Click on “Done”
+![](images/gcp/gcp-4.png)
 
-**Step 7:** To create a “Key” click the created service account
+**Step 6:** Click on "Create Service Account"
 
-![](/getting-started/images/aws5.png)
+![](images/gcp/gcp-5.png)
 
-**Step 8:** Click Add Key and Create new key
+**Step 7:** Enter any name that you want on Service Account Name.
 
-**Step 9:** Check  the JSON file and create.
+**Step 8:** Click on Continue.
 
-**Note:** The created JSON private key file will be downloaded to your local machine by default.
+![](images/gcp/gcp-6.png)
 
-![](/getting-started/images/aws6.png)
+**Step 9:** Select the role: Project > Viewer and click Add another Role.
+
+![](images/gcp/gcp-7.png)
+
+**Step 10:** Click “Add Another Role” Choose “Custom“ Select the created Custom Role.
+
+![](images/gcp/gcp-8.png)
+
+**Step 11:** Click on “Continue“ and ”Done”
+
+![](images/gcp/gcp-9.png)
+
+**Step 12:** Go to the created Service Account, click on that Service Account navigate to the “Keys“ section.
+
+![](images/gcp/gcp-10.png)
+
+**Step 13:** Click the “Add key“ button and “Create new key “ . Chosen Key type should be JSON format.
+
+![](images/gcp/gcp-11.png)
+
+**Step 12:** Click the “Create“ button it will automatically download the JSON key.
+
 
 
 

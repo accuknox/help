@@ -6,69 +6,90 @@ hide:
 # **GCP Account onboarding**
 Here, we will see the steps to onboard a GCP cloud account to the AccuKnox SaaS platform
 
-## **GCP IAM Service Account Creation**
+**Note:**
+Make sure the Below API Library is enabled in your GCP Account for onboarding into Accuknox SaaS:
+
+1. Compute Engine API
+2. Identity and Access Management (IAM) API
+3. Cloud Resource Manager API
+4. Cloud Functions API
 
 For GCP there is a requirement for IAM Service Account Access.
 
-**Step 1:** Log into your Google Cloud console and navigate to IAM Admin > Service Accounts
+**Step 1:**  Log into your Google Cloud console and navigate to  IAM & Admin choose “Roles“ and Click “Create Role“
 
-![](/getting-started/images/aws1.png)
+![](images/gcp/gcp-0.png)
 
-**Step 2:** Click on "Create Service Account".
+**Step 2:**  Name the “Role” and Click “Add Permission”
 
-![](/getting-started/images/aws2.png)
+![](images/gcp/gcp-1.png)
 
-**Step 3:** Enter "AccuKnox" in the "Service account name", then enter "Accuknox API Access" in the description.
+**Step 3:**  Use the Service: storage filter then value as “storage.buckets.getIamPolicy“
 
-**Step 4:** Click on Continue.
+![](images/gcp/gcp-2.png)
 
-![](/getting-started/images/aws3.png)
+**Step 4:** Choose the permission and Click “Add“ then Click Create in the same page.
 
-**Step 5:** Select the role: Project > Viewer and click Continue.
+![](images/gcp/gcp-3.png)
 
-![](/getting-started/images/aws4.png)
+**Step 5:**  In the Navigation Panel, navigate to IAM Admin > Service Accounts.
 
-**Step 6:** Click on “Done”
+![](images/gcp/gcp-4.png)
 
-**Step 7:** To create a “Key” click the created service account
+**Step 6:** Click on "Create Service Account"
 
-![](/getting-started/images/aws5.png)
+![](images/gcp/gcp-5.png)
 
-**Step 8:** Click Add Key and Create new key
+**Step 7:** Enter any name that you want on Service Account Name.
 
-**Step 9:** Check  the JSON file and create.
+**Step 8:** Click on Continue.
 
-**Note:** The created JSON private key file will be downloaded to your local machine by default.
+![](images/gcp/gcp-6.png)
 
-![](/getting-started/images/aws6.png)
+**Step 9:** Select the role: Project > Viewer and click Add another Role.
 
-## **Onboarding in AccuKnox SaaS UI** 
+![](images/gcp/gcp-7.png)
 
-**Step 1:** Click settings -> Cloud Accounts
+**Step 10:** Click “Add Another Role” Choose “Custom“ Select the created Custom Role.
 
-**Step 2:** Click Add account
+![](images/gcp/gcp-8.png)
 
-![](/getting-started/images/aws7.png)  
+**Step 11:** Click on “Continue“ and ”Done”
 
-**Step 3:** Select GCP as the Cloud Account type
+![](images/gcp/gcp-9.png)
 
-![](/getting-started/images/aws8.png)
+**Step 12:** Go to the created Service Account, click on that Service Account navigate to the “Keys“ section.
 
-**Step 4:** Select the Labels and Tags and click Next
+![](images/gcp/gcp-10.png)
 
-![](/getting-started/images/aws9.png)
+**Step 13:** Click the “Add key“ button and “Create new key “ . Chosen Key type should be JSON format.
 
-**Note:** If there are no labels and tags create new labels and tags via the settings
+![](images/gcp/gcp-11.png)
 
-**Step 5:** Fill the Project ID, Client Email and Private Key(Copy paste the entire content of the JSON private key that was downloaded) then click Connect.
+**Step 12:** Click the “Create“ button it will automatically download the JSON key.
 
-![](/getting-started/images/aws10.png)
+## From AccuKnox SaaS UI
 
-**Note:** For Client Email Id copy the mail id from the Service Account > Details section
+**Step 1:** Go to the Accuknox SaaS. Navigate to the “Settings” -> “Cloud Accounts” then “Add Account”.
 
-**Step 6:** Check Settings → Cloud Accounts. You will see your cloud account is added successfully.
+![](images/gcp/gcp-saas-0.png)
 
-![](/getting-started/images/aws11.png)
+**Step 2:** Click the “GCP Platform”
+
+![](images/gcp/gcp-saas-1.png)
+
+**Step 3:**  Create New Label and Add the Label for identifying the assets inside this account and add a Tag optionally.
+
+![](images/gcp/gcp-saas-2.png)
+
+**Step 4:**  Enter the “Project ID“, “Client Email” and  “Private Key” from the downloaded File. 
+Copy paste the entire downloaded file into the ”Private Key” field . Then Click “Connect“
+
+![](images/gcp/gcp-saas-3.png)
+
+The cloud account has been onboarded successfully
+
+![](images/gcp/gcp-saas-4.png)
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
 
