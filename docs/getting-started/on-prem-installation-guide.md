@@ -1,6 +1,6 @@
 ## **High-Level Architecture Overview**
 
-![](/getting-started/images/on-prem-deploy.png)
+![](images/on-prem-deploy.png)
 
 AccuKnox onprem deployment is based on Kubernetes native architecture.
 
