@@ -21,4 +21,5 @@ jobs:
       - run: pip install mkdocs-material 
       - run: pip install mkdocs-redirects
       - run: pip install mkdocs-embed-external-markdown
+      - run: pip install neoteroi-mkdocs
       - run: mkdocs gh-deploy --force
