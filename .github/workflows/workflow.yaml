@@ -23,6 +23,7 @@ jobs:
              pip install mkdocs-material
              pip install mkdocs-redirects
              pip install mkdocs-embed-external-markdown
+             pip install neoteroi-mkdocs
              mkdocs build 
 
      - name: Configure AWS Credentials
