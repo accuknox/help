@@ -1,8 +1,8 @@
 # Project information
-site_name: "AccuKnox"
-site_description: "Zero trust CNAPP"
-site_author: "AccuKnox"
-site_url: "https://www.accuknox.com/"
+site_name: ""
+site_description: "Zero trust Runtime Kubernetes security"
+site_author: "Ravi Kishor"
+site_url: "https://accuknox.com/"
 # Copyright
 copyright: "&copy; 2023 AccuKnox. All Rights Reserved."
 # Repository
@@ -11,7 +11,7 @@ repo_url: "https://github.com/kubearmor/KubeArmor"
 edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
 # Configuration
 docs_dir: "docs"
-dev_addr: '0.0.0.0:8000'
+dev_addr: '127.0.0.1:80'
 theme:
   name: "material"
   custom_dir: overrides
@@ -100,7 +100,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - neoteroi.cards
 plugins:
   - external-markdown
   - search:
@@ -116,7 +115,6 @@ plugins:
 extra_css:
 - "assets/stylesheets/style.css"
 - "assets/stylesheets/extra.css"
-- "assets/stylesheets/neoteroi-mkdocs.css"
 extra:
   analytics:
     provider: google
@@ -264,9 +262,6 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
-    - "Workload Hardening": "use-cases/use-case-cards.md"
-    - "Audit/Forensics": "use-cases/forensics-cards.md"
-    - "Zero Trust Security": "use-cases/zt-cards.md"
     - "Securing the Secrets Manager" :
       - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
       - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"

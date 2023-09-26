@@ -11,11 +11,3 @@ AccuKnox’s Cloud Native Application Protection platform is a single tool that 
 ## Architecture Overview
 
 ![AccuKnox High Level Design](./docs/introduction/images/accuknox-architecture.png)
-
-## Quick mkdocs setup
-
-```sh
-sudo apt install python3-pip
-pip install mkdocs-material-extensions pymdown-extensions mkdocs-material mkdocs-macros-plugin mkdocs-embed-external-markdown mkdocs-redirects
-mkdocs serve -A localhost:8000
-```
