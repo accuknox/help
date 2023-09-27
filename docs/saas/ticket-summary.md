@@ -16,7 +16,7 @@ We enable customers to handle these vulnerabilities/findings through auto-creati
 We integrate with several Ticketing Tools to track vulnerability/findings post security posture assessment such as - Jira, FreshService, Connectwise, Zendesk etc. We support various Status of Tickets to track its progress such as - Open, Ongoing, Cancelled, Closed or Re-opened. We provide you a composite view of Top findings which have higher severity or related to an important/sensitive assets and where ticket is not associated. 
 
 
-![](/saas/images/ticket-summary.png)
+![](images/ticket-summary.png)
 
 
 - - - 
