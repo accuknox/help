@@ -22,21 +22,21 @@ DVWA web Application is deployed in the cluster in the dvwa namespace. It has We
 
 Once the cluster with the DVWA application is onboarded we can see the application behavior by Navigating to the Runtime Security->App Behavior section. In the screen the select cluster name and namespace in which the DVWA  application is deployed.
 
-![](/getting-started/images/dvwa-1.png)
+![](images/dvwa-1.png)
 
 **1.Network Observability:** It gives data related to network connections happening in the pod
 
 
- ![](/getting-started/images/dvwa-2.png)
+ ![](images/dvwa-2.png)
 
 **2.File Observability:** It gives information regarding files that are being accessed in the pod
 
-![](/getting-started/images/dvwa-3.png)
+![](images/dvwa-3.png)
  
 
 **3.Process Observability:** It shows the process that is being executed in the pod. 
 
-![](/getting-started/images/dvwa-4.png)
+![](images/dvwa-4.png)
 
 ## **Protection Using AccuKnox:** 
 According to the application behavior, the WordPress pod running in the DVWA uses 2 processes ping and apache2. So we are going to whitelist only these 2 processes and block other processes from execution in the WordPress pod. 
@@ -45,24 +45,24 @@ According to the application behavior, the WordPress pod running in the DVWA use
 
 Before applying our KubeArmor Security policy we can see that along with ping other processes are also can be executed.
 
-![](/getting-started/images/dvwa-5.png)
+![](images/dvwa-5.png)
  
 
 - **Applying the KubeArmor policy:** 
 
 **Step 1:** Navigate to the *Runtime Protection-> Policies* and select the cluster and namespace where the DVWA application is deployed.
 
-![](/getting-started/images/dvwa-6.png)
+![](images/dvwa-6.png)
  
 
 **Step 2:** In the screen select the discovered policies in the policy filter section to view the auto-discovered policies for the DVWA application.
 
 
- ![](/getting-started/images/dvwa-7.png)
+ ![](images/dvwa-7.png)
 
 **Step 3:** Click on the auto-discovered system policy for the dvwa web pod to see the policy
 
-![](/getting-started/images/dvwa-8.png)
+![](images/dvwa-8.png)
 
 The policy allows the necessary processes like ping and apache2 to execute. 
 
@@ -143,31 +143,31 @@ spec:
 **Step 4:** To apply this policy, select the policy checkbox and click Apply option
 
 
- ![](/getting-started/images/dvwa-9.png)
+ ![](images/dvwa-9.png)
 
 **Step 5:** When we apply the policy, it goes into the pending state for approval.
 
 
- ![](/getting-started/images/dvwa-10.png)
+ ![](images/dvwa-10.png)
 
 **Step 6:** Review the changes and approve the policy
 
-![](/getting-started/images/dvwa-11.png)
+![](images/dvwa-11.png)
  
 
 **Step 7:** After Approval policy becomes active
-![](/getting-started/images/dvwa-12.png)
+![](images/dvwa-12.png)
 
  
 
 **Step 8:** Now if we try to execute any other processes inside the dvwa pod it will be blocked. 
 
 
- ![](/getting-started/images/dvwa-13.png)
+ ![](images/dvwa-13.png)
 
 **Step 9:** We can view the logs alerts by navigating to the Monitors/Logs-> logs
 
-![](/getting-started/images/dvwa-14.png)
+![](images/dvwa-14.png)
  
 
 Thus DVWA application’s web pod is protected using AccuKnox CWPP Security solution.

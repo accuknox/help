@@ -7,11 +7,11 @@ AWS onboarding requires creation of an IAM user. Please follow the following ste
 
 **Step 1:** Navigate to IAM -> Users and click on Add Users 
 
-![](/getting-started/images/iam-user-0.png)
+![](images/iam-user-0.png)
 
 **Step 2:** Give a username to identify the user
 
-![](/getting-started/images/iam-user-1.png)
+![](images/iam-user-1.png)
 
 **Step 3:** In the "Set Permissions" screen:
 
@@ -19,15 +19,15 @@ a. Select "Attach policies directly"
 
 b. Search "ReadOnly", Filter by Type: "AWS managed - job function" and select the policy
 
-![](/getting-started/images/iam-user-2.png)
+![](images/iam-user-2.png)
 
 c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and select the policy
 
-![](/getting-started/images/iam-user-3.png)
+![](images/iam-user-3.png)
 
 **Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the Accuknox panel
 
-![](/getting-started/images/iam-user-4.png)
+![](images/iam-user-4.png)
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
 

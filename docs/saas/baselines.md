@@ -12,7 +12,7 @@ AccuKnox enables you to discover your security infrastructure, assess the associ
 
 AccuKnox’s Baseline is an approach to detect drift in configuration from the conformance suite from multiple ‘data sources’ that AccuKnox and that can be associated to a specific ‘asset’ or ‘group’ of assets. It is a golden benchmark that is used to detect any change in compliance behavior proactively.  
 
-![](/saas/images/baselines.png)
+![](images/baselines.png)
 
 Baselines can be created for security-critical resources for continuously monitoring and validating against compliance and security policies. In the event of a potential security misconduct, baselines are critical to understand change from established expected behavior and raise an alert when its violated.
 

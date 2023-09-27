@@ -8,7 +8,7 @@ AccuKnox CNAPP Solution provides comprehensive visibility of the cloud assets wi
 
 The Logs summary in AccuKnox displays a complete list of log events that have occurred within the infrastructure during a defined timeline.
 
-![](/saas/images/logs-dash.png)
+![](images/logs-dash.png)
 
 It provides an interface to:
 
@@ -22,7 +22,7 @@ Sent customized alerts to third-party SIEM (security information and event manag
 
 Logs are generated in real-time based on certain conditions/rules you configure on the security policies. You will get logs from four different components
 
-![](/saas/images/logs-1.png)
+![](images/logs-1.png)
  
 
 **K8s-cluster/VM**
@@ -43,16 +43,16 @@ As in the rest of the platform interface, the time range can be set by date rang
 **Filter using elements from the log events list**
 Click one or more elements in a log event to add them directly to the filter.
 
-![](/saas/images/logs-filter.png)
+![](images/logs-filter.png)
  
 
 Click Save button, to save the selected filter to Saved Filters
 
-![](/saas/images/save-filter.png)
+![](images/save-filter.png)
 
 When the user fills the details and clicks the create option the filter will be saved. 
 
-![](/saas/images/logs-saved-filter.png)
+![](images/logs-saved-filter.png)
 
 **Directly search elements in the filter**
 You can directly search by the elements, such as “Cluster_name”, “Flow_IP_destination” etc visible in the logs.
@@ -73,7 +73,7 @@ Click one of the events in the log to view the details pane.
 
 The Log Detail contents vary depending on the selected component type of the log event.
 
-![](/saas/images/logs-panel.png)
+![](images/logs-panel.png)
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

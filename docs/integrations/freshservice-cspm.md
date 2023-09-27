@@ -18,8 +18,8 @@ To set up this integration, you need to coordinate with your Freshservice admini
 + Go to Channel Integration -> CSPM.
 + Click on add connector and select Freshservice
 
-![](/integrations/images/Freshw1.png)
-![](/integrations/images/Freshw2.png)
+![](images/Freshw1.png)
+![](images/Freshw2.png)
 
 Enter the following details to configure Freshservice:
 
@@ -29,7 +29,7 @@ Enter the following details to configure Freshservice:
    + **Secret**: Enter the API key Here. This can be found in profile settings.
    + Click **Save** to save the Integration.
 
-![](/integrations/images/Freshw3.png)
+![](images/Freshw3.png)
 
 Click on the Freshservice ticketing backend to add configuration.
 

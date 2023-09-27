@@ -21,7 +21,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
     + Go to Channel Integration.
     + Click integrate now on JIRA
 
-    ![](/integrations/images/Jira-int.png)
+    ![](images/Jira-int.png)
 
     + Enter the following details to configure JIRA.
 
@@ -42,8 +42,8 @@ To set up this integration, you need to coordinate with your Jira administrator 
     + Go to Channel Integration -> CSPM.
     + Click on add connector and select JIRA Cloud
 
-    ![](/integrations/images/jiracspm1.png)
-    ![](/integrations/images/jiracspm2.png)
+    ![](images/jiracspm1.png)
+    ![](images/jiracspm2.png)
 
     Enter the following details to configure JIRA.
 
@@ -52,7 +52,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
     + **User Email:** Enter your Jira account email address here.e.g., ``` jira@organisation.com ```
     + **Token:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
 
-    ![](/integrations/images/jiracspm3.png)
+    ![](images/jiracspm3.png)
 
     Click on the Jira ticketing backend to add configuration.
 

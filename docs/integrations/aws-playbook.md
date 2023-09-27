@@ -18,31 +18,31 @@ The following steps cater to users who:
 
 **Step 1:** The user initiates the process by searching for AccuKnox CNAPP on the marketplace
 
-![](/integrations/images/aws-playbook/aws-playbook-0.png)
+![](images/aws-playbook/aws-playbook-0.png)
 
 **Step 2:** After reviewing our offerings, the user proceeds to locate the "View Purchase Options" section.
 
-![](/integrations/images/aws-playbook/aws-playbook-1.png)
+![](images/aws-playbook/aws-playbook-1.png)
 
 **Step 3:** Within this section, they can choose one of the two-tiered offers currently available on the marketplace i.e Trial Pack and Starter Pack.
 
-![](/integrations/images/aws-playbook/aws-playbook-2.png)
+![](images/aws-playbook/aws-playbook-2.png)
 
 **Step 4:** If they desire a custom solution beyond the provided offers, they have the option to contact AccuKnox support to discuss alternative possibilities. Contact: support@accuknox.com
 
 **Step 5:** Upon selecting an offer, they will be prompted to accept the contract, which triggers the payment process and the amount is automatically billed to their AWS account.
 
-![](/integrations/images/aws-playbook/aws-playbook-3.png)
+![](images/aws-playbook/aws-playbook-3.png)
 
 **Step 6:** Once the contract is confirmed as completed, the user will receive a prompt to "Set Up Your Account" for SaaS access.
 
-![](/integrations/images/aws-playbook/aws-playbook-4.png)
+![](images/aws-playbook/aws-playbook-4.png)
 
 **Step 7:** Clicking this button redirects the user to a registration page, where they provide their information, including their name, phone number, organization name, and email address.
 
-![](/integrations/images/aws-playbook/aws-playbook-5.png)
+![](images/aws-playbook/aws-playbook-5.png)
 
-![](/integrations/images/aws-playbook/aws-playbook-6.png)
+![](images/aws-playbook/aws-playbook-6.png)
 
 **Step 8:** This information is forwarded to AccuKnox Support, and after verification by our support team, a confirmation email is sent.
 
@@ -68,19 +68,19 @@ To proceed in this process, the customer should have a good understanding of the
 
 **Step 4:** The customer should then log in to that AWS account, search for AccuKnox CNAPP on the marketplace, and locate the private offer to initiate the contract signing.
 
-![](/integrations/images/aws-playbook/aws-playbook-7.png)
+![](images/aws-playbook/aws-playbook-7.png)
 
-![](/integrations/images/aws-playbook/aws-playbook-8.png)
+![](images/aws-playbook/aws-playbook-8.png)
 
 **Step 5:** Once the contract is confirmed and completed, the user will be prompted to "Set Up Your Account" for SaaS access.
 
-![](/integrations/images/aws-playbook/aws-playbook-4.png)
+![](images/aws-playbook/aws-playbook-4.png)
 
 **Step 6:** Clicking this button will redirect the user to a registration page, where they will need to input their personal information, including their name, phone number, organization name, and email address.
 
-![](/integrations/images/aws-playbook/aws-playbook-5.png)
+![](images/aws-playbook/aws-playbook-5.png)
 
-![](/integrations/images/aws-playbook/aws-playbook-6.png)
+![](images/aws-playbook/aws-playbook-6.png)
 
 **Step 7:** This collected information will be sent to AccuKnox Support for verification, and upon successful verification, a confirmation email will be sent.
 
