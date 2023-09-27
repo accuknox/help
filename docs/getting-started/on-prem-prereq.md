@@ -3,48 +3,37 @@ hide:
   - toc
 ---
 
-## **Resource requirements**
+# **System Requirements**
 
-### EKS Clusters
-| Capacity Type  | Instance type   |  Number of nodes  |
-|----------------|-----------------|-------------------|
-|Spot            |       t3.xlarge |                6  |
-|Spot            | m5.xlarge       |  4                |
+### Worker Node Requirements
 
-### RDS
-| DB                | Type        |          Size  |
-|-------------------|-------------|----------------|
-|Aurora Postgres    |  Serverless |  0.5 - 4 ACUs  |
+| Nodes | vCPUs | RAM (GB) | Disk (GB) |
+|-------|-------|----------|-----------|
+| 5     | 8     | 32       | 256       |
+| 4     | 4     | 16       | 128       |
 
-### ElastiCache
-| Name/ID         | Type                                                                  |
-|-----------------|-----------------------------------------------------------------------|
-| Redis           | cache.m5.large                                                        |
+### Kubernetes Requirements
 
-### Load balancers
-| Owner          |
-|----------------|
-| knox-gateway   |
-| istio-ingress  |
-| PPS            |
-| SPIRE          |
+- Start a k8s cluster with the above worker node requirements
 
-### For hosting frontend
-| Name        |
-|-------------|
-| S3          |
-| CloudFront  |
-| ACM         |
+- Ingress Controller (load balancers)
+    - For access to the application
 
-### EFS
-| Number of file systems  |
-|-------------------------|
-| 6                       |
+- Persistent Volumes (PV), provisioner/controller (block device/disks)
+    - Used as data storage for SQL, MongoDB, scanned artifacts
+    - Other internal app usages
 
-### Simple Email Service
-*Production access*
+- DNS CNAME provisioning
+    - Needed for application access & communication
+    - Certs would use this CNAME so that address changes won’t impact the cert validation.
 
+- Email account configuration
+    - Need email username, password
+    - Used for user sign-in, password change, scan notification, sending reports
 
+- Taints & Tolerations (Nodes should be tainted with below taints)
+    - -8 vCPU:  ```node-size=8vcpu:NoSchedule```
+    - -4 vCPU:  ```node-size=4vcpu:NoSchedule```
 
 
 - - - 

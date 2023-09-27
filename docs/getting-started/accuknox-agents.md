@@ -9,7 +9,7 @@ hide:
 ## **KubeArmor:**
 KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. It operates with Linux security modules LSMs, meaning that it can work on top of any Linux platforms (such as Alpine, Ubuntu, and Container-optimized OS from Google) if Linux security modules (e.g., AppArmor, SELinux, or BPF-LSM) are enabled in the Linux Kernel. KubeArmor will use the appropriate LSMs to enforce the required policies. 
 
-![](/getting-started/images/kubeArmor.jpg)
+![](images/kubeArmor.jpg)
 
 
 KubeArmor allows operators to define security policies and apply them to Kubernetes. Then, KubeArmor will automatically detect the changes in security policies from Kubernetes and enforce them on the corresponding containers and nodes. If there are any violations against security policies, KubeArmor immediately generates alerts with container identities. If operators have any logging systems, it automatically sends the alerts to their systems as well.
