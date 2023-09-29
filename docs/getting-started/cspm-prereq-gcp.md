@@ -11,6 +11,9 @@ Make sure the Below API Library is enabled in your GCP Account for onboarding in
 2. Identity and Access Management (IAM) API
 3. Cloud Resource Manager API
 4. Cloud Functions API
+5. KMS API
+6. Kubernetes API
+7. Cloud SQL Admin API
 
 For GCP there is a requirement for IAM Service Account Access.
 
@@ -64,7 +67,7 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ![](images/gcp/gcp-11.png)
 
-**Step 12:** Click the “Create“ button it will automatically download the JSON key.
+**Step 14:** Click the “Create“ button it will automatically download the JSON key.
 
 
 

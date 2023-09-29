@@ -261,6 +261,7 @@ nav:
           - "AccuKnox User Playbook": "integrations/aws-playbook.md"
           - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
     - "Platform":
+        - "OAuth": "integrations/oauth.md"
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
