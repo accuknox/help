@@ -15,7 +15,7 @@
 - title: Account Token
   content: Protect access to service account token
   image: images/uc/cert-file.png
-  url: https://en.wikipedia.org/wiki/Hardening_(computing)
+  url: cards/protect-sa-token.md
 
 - title: Trusted cert bundle
   content: Protect write access to the trusted root certificates bundle.
