@@ -26,38 +26,6 @@ K8s native horizontal and vertical pod autoscaling is enabled for most microserv
 
 Agents need to be deployed in target k8s clusters and virtual machines that have to be secured at runtime and to get workload forensics. Agents use Linux native technologies such as eBPF for workload telemetry and LSMs (Linux Security Modules) for preventing attacks/unknown execution in the target workloads. The security policies are orchestrated from the AccuKnox onprem control plane. AccuKnox leverages SPIFFE/SPIRE for workload/node attestation and certificate provisioning. This ensures that the credentials are not hardcoded and automatically rotated. This also ensures that if the cluster/virtual machine has to be deboarded then the control lies with the AccuKnox control plane.
 
-## **System Requirements**
-
-### Worker Node Requirements
-
-| Nodes | vCPUs | RAM (GB) | Disk (GB) |
-|-------|-------|----------|-----------|
-| 5     | 8     | 32       | 256       |
-| 4     | 4     | 16       | 128       |
-
-### Kubernetes Requirements
-
-- Start a k8s cluster with the above worker node requirements
-
-- Ingress Controller (load balancers)
-    - For access to the application
-
-- Persistent Volumes (PV), provisioner/controller (block device/disks)
-    - Used as data storage for SQL, MongoDB, scanned artifacts
-    - Other internal app usages
-
-- DNS CNAME provisioning
-    - Needed for application access & communication
-    - Certs would use this CNAME so that address changes won’t impact the cert validation.
-
-- Email account configuration
-    - Need email username, password
-    - Used for user sign-in, password change, scan notification, sending reports
-
-- Taints & Tolerations (Nodes should be tainted with below taints)
-    - -8 vCPU:  ```node-size=8vcpu:NoSchedule```
-    - -4 vCPU:  ```node-size=4vcpu:NoSchedule```
-
 ## **Installation Steps**
 
 ### Installation Package
