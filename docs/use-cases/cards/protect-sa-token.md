@@ -73,11 +73,16 @@ ProcessName: /bin/ls
 
 **Policy violation:**
 
-![](../images/cards/protect-sa-token-1.png)
+```sh
+root@wordpress-7c966b5d85-42jwx:/# cd /run/secrets/kubernetes.io/serviceaccount/ 
+root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount# ls 
+ls: cannot open directory .: Permission denied 
+root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount# 
+```
 
 **Alerts/Telemetry on SaaS:**
 
-![](../images/cards/protect-sa-token-2.png)
+![](../images/cards/protect-sa-token-1.png)
 
  - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
