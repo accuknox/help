@@ -1,24 +1,19 @@
-# Account token
+# Service Account token
+Protect access to k8s service account token
 
-## **Description**
-
+## Description
 K8s mounts the service account token as part of every pod by default. The service account token is a credential that can be used as a bearer token to access k8s APIs and gain access to other k8s entities. Many times there are no processes in the pod that use the service account tokens which means in such cases the k8s service account token is an unused asset that can be leveraged by the attacker.
 
-## **Attack Scenario**
-
+## Attack Scenario
 An attacker would check for credential accesses so as to do lateral movements. For example, in most K8s attacks, the attacker after gaining entry into the K8s pods tries to use a service account token and gain access to other entities.
 
-## **Compliance**
+## Tags
+- CIS_v1.27
+- Control-Id-5.1.6
 
-[CIS_v1.27,Control-Id-5.1.6]
-
-## **Reference**
-
-[ https://attack.mitre.org/techniques/T1528/ ]
-
-## **Sample Policy**
-
-```sh
+## Policy Templates
+### Service account token
+```yaml
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
@@ -35,10 +30,16 @@ spec:
         recursive: true
   action: Block
 ```
-
-## **Alerts/Telemetry**
-
+#### Simulation
 ```sh
+root@wordpress-7c966b5d85-42jwx:/# cd /run/secrets/kubernetes.io/serviceaccount/ 
+root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount# ls 
+ls: cannot open directory .: Permission denied 
+root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount# 
+```
+
+#### Expected Alert
+```
 ClusterName: default
 HostName: aditya
 NamespaceName: wordpress-mysql
@@ -65,24 +66,13 @@ ParentProcessName: /bin/bash
 ProcessName: /bin/ls
 ```
 
-## **Dashboard Screenshots**
+## References
+[MITRE Steal Application Access Token](https://attack.mitre.org/techniques/T1528/)
 
-**Hardening policy:**
-
+## Screenshots
+### Hardening policy
 ![](../images/cards/protect-sa-token-0.png)
 
-**Policy violation:**
+### Policy violation
+![](../images/cards/protect-sa-token-0.png)
 
-```sh
-root@wordpress-7c966b5d85-42jwx:/# cd /run/secrets/kubernetes.io/serviceaccount/ 
-root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount# ls 
-ls: cannot open directory .: Permission denied 
-root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount# 
-```
-
-**Alerts/Telemetry on SaaS:**
-
-![](../images/cards/protect-sa-token-1.png)
-
- - - - 
-[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

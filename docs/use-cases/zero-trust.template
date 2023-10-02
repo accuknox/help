@@ -1,0 +1,59 @@
+- title: Process based network control
+  content: Allow only specific processes to access network primitives, deny/audit everything else.
+  image: images/uc/net-console.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Process based asset access
+  content: Allow only specific processes to access sensitive assets, deny/audit everything else.
+  image: images/uc/box-lock.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Process Whitelisting
+  content: Allow only specific processes to execute, deny/audit everything else.
+  image: images/uc/process-white.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Network Segmentation
+  content: Limit network access strictly between whitelisted service endpoints, deny everything else.
+  image: images/uc/net-shield.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Ensure TLS
+  content: Ensure that all service endpoints are using the right TLS and certificate configuration.
+  image: images/uc/shield-lock.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6

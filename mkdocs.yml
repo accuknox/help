@@ -265,9 +265,9 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
-    #    - "Workload Hardening": "use-cases/use-case-cards.md"
-    #    - "Audit/Forensics": "use-cases/forensics-cards.md"
-    #    - "Zero Trust Security": "use-cases/zero-trust-cards.md"
+    - "Workload Hardening": "use-cases/hardening.md"
+    - "Audit/Forensics": "use-cases/forensics.md"
+    - "Zero Trust Security": "use-cases/zero-trust.md"
     - "Securing the Secrets Manager" :
       - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
       - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
