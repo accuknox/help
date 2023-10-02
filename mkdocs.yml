@@ -11,7 +11,7 @@ repo_url: "https://github.com/kubearmor/KubeArmor"
 edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
 # Configuration
 docs_dir: "docs"
-dev_addr: '0.0.0.0:8000'
+dev_addr: '127.0.0.1:8000'
 theme:
   name: "material"
   custom_dir: overrides
@@ -265,9 +265,9 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
-    - "Workload Hardening": "use-cases/use-case-cards.md"
-    - "Audit/Forensics": "use-cases/forensics-cards.md"
-    - "Zero Trust Security": "use-cases/zero-trust-cards.md"
+    - "Workload Hardening": "use-cases/hardening.md"
+    - "Audit/Forensics": "use-cases/forensics.md"
+    - "Zero Trust Security": "use-cases/zero-trust.md"
     - "Securing the Secrets Manager" :
       - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
       - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"

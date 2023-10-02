@@ -15,25 +15,25 @@ Once the cluster with the WordPress-MySQL application is onboarded we can see th
 **1.Network Observability:**
 
 Here we can get the details of the ingress and egress connections that are happening in the pod.
-![](/getting-started/images/word-my-1.png)
+![](images/word-my-1.png)
 
 **2.File observability:**
 
 In file observability, the information related to the files that are being accessed in the pod will be shown 
-![](/getting-started/images/word-my-2.png)
+![](images/word-my-2.png)
 
 **3.Process Observability:** 
 
 In process observability, the information related to the process that is being executed in the pod will be shown. 
 
-![](/getting-started/images/word-my-3.png)
+![](images/word-my-3.png)
 ## **Protecting WordPress-MySQL Application using AccuKnox:** 
 
 ??? "**1. Preventing WordPress from Remote-code execution**" 
 
     Based on the application behavior currently, in the WordPress pod, the attacker can easily get access to the bash and execute his remote code using the package management tools. The attacker can leverage this vulnerability to execute his code or download any binary into the pod. 
 
-    ![](/getting-started/images/word-my-5.png)
+    ![](images/word-my-5.png)
 
     we can protect this with help of hardening policies that kubearmor has discovered based on the application behavior of this WordPress-mysql application. To see and apply this hardening policy follow the below steps
 
@@ -41,12 +41,12 @@ In process observability, the information related to the process that is being e
     **Protection using Accuknox** 
     
     **Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed. 
-    ![](/getting-started/images/word-my-5.png)
+    ![](images/word-my-5.png)
 
     **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application. 
-    ![](/getting-started/images/word-my-6.png)
+    ![](images/word-my-6.png)
     **Step 3:** Click on the WordPress package manager execution hardening policy from the list of policies to see the policy
-    ![](/getting-started/images/word-my-7.png)
+    ![](images/word-my-7.png)
 
     The Hardening policy is blocking the execution of any package management tools inside the WordPress pod. 
     ```bash 
@@ -104,20 +104,20 @@ In process observability, the information related to the process that is being e
     ```
 
     **Step 4:** To apply this policy, select the policy checkbox and click Apply option
-    ![](/getting-started/images/word-my-8.png)
+    ![](images/word-my-8.png)
 
     **Step 5:** The policy goes into the pending state for approval. 
-    ![](/getting-started/images/word-my-9.png)
+    ![](images/word-my-9.png)
 
     **Step 6:** To approve the policy click on the Pending icon, review changes and approve
 
-    ![](/getting-started/images/word-my-10.png)
+    ![](images/word-my-10.png)
     **Step 7:** Now the policy is active and applied on the cluster
-    ![](/getting-started/images/word-my-11.png)
+    ![](images/word-my-11.png)
     **Step 8:** If any attacker tries to install any binary inside the WordPress pod it will be blocked and we will be getting alerts. 
-    ![](/getting-started/images/word-my-12.png)
+    ![](images/word-my-12.png)
     **Step 9:** To see the logs Navigate to the Monitoring/logging->logs 
-    ![](/getting-started/images/word-my-13.png)
+    ![](images/word-my-13.png)
 
     Thus we have prevented the remote code execution in the WordPress pod using AccuKnox’s CWPP protection.
 
@@ -129,18 +129,18 @@ In process observability, the information related to the process that is being e
 
     Currently, any attacker who gets access to the bash or shell of the MySQL pod can modify the contents of the sbin folder by creating a new file and editing the old files.
 
-    ![](/getting-started/images/word-my-14.png)
+    ![](images/word-my-14.png)
 
     Now we are going to prevent this using AccuKnox CWPP Solution. 
 
     **Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed. 
 
-    ![](/getting-started/images/word-my-15.png)
+    ![](images/word-my-15.png)
     **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application. 
 
-    ![](/getting-started/images/word-my-16.png)
+    ![](images/word-my-16.png)
     **Step 3:** Click on the MySQL file integrity hardening policy from the list of policies to see the policy
-    ![](/getting-started/images/word-my-17.png)
+    ![](images/word-my-17.png)
 
     The policy is allowing users to access the critical folders but it is blocking the write or modify access by whitelisting only read access. 
     ```bash 
@@ -187,24 +187,24 @@ In process observability, the information related to the process that is being e
 
     **Step 4:** To apply this policy, select the policy checkbox and click Apply option
 
-    ![](/getting-started/images/word-my-18.png)
+    ![](images/word-my-18.png)
 
     **Step 5:** The policy goes into the pending state for approval. 
 
-    ![](/getting-started/images/word-my-19.png)
+    ![](images/word-my-19.png)
 
     **Step 6:** To approve the policy click on the Pending icon, review changes and approve 
 
-    ![](/getting-started/images/word-my-20.png)
+    ![](images/word-my-20.png)
     **Step 7:** Now the policy is active and applied on the cluster
 
-    ![](/getting-started/images/word-my-21.png)
+    ![](images/word-my-21.png)
     **Step 8:** If any attacker now tries to modify the content of the critical folders it will be blocked. 
 
-    ![](/getting-started/images/word-my-22.png)
+    ![](images/word-my-22.png)
     **Step 9:** To see the logs Navigate to the Monitoring/logging->logs 
 
-    ![](/getting-started/images/word-my-23.png)
+    ![](images/word-my-23.png)
 
     Thus the file integrity of the MySQL pod is maintained using the AccuKnox CWPP security solution. 
 

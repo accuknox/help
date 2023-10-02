@@ -29,11 +29,11 @@ Sample:
 
 **Step 1:** Login to Accuknox SaaS and Go to Manage Cluster under Settings
 
-![](/getting-started/images/cluster-off-2.png)
+![](images/cluster-off-2.png)
 
 **Step 2:** Select the cluster and click Delete to delete the cluster from SaaS.
 
-![](/getting-started/images/cluster-off-3.png)
+![](images/cluster-off-3.png)
 
  
 

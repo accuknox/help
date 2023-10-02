@@ -20,7 +20,7 @@ After logging into your Slack channel, you must generate a Hook URL.
 + Go to Channel Integration.
 + Click integrate now on Slack.
 
-![](/integrations/images/slack-int.png)
+![](images/slack-int.png)
 
 + Fill up the following fields:
 

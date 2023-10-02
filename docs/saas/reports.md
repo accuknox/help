@@ -44,11 +44,11 @@ provide the user with information about steps that can be taken to resolve the v
 
 To get the reports user need to add report configuration from the Reports section in AccuKnox Saas.
 
-![](/saas/images/reports-main.png)
+![](images/reports-main.png)
 
 In the Configuration user needs to provide the details about their Name, Email and configuration for the report. These configurations are Groups, Labels, Month, Period, Risks, Baselines, Pages, Day of the month, Day of the week.
 
-![](/saas/images/reports-configuration.png)
+![](images/reports-configuration.png)
 
 ## **Conclusion**
 

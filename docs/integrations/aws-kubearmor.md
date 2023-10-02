@@ -7,30 +7,30 @@ hide:
 
 <a href="https://aws.amazon.com/marketplace/pp/prodview-5npox4ixz64qk#pdp-pricing" target="_blank">AWS KubeArmor Market place Subscription</a>
 
-![](/integrations/images/aws-kubearmor-0.png)
+![](images/aws-kubearmor-0.png)
 
 [**Note:** Since KubeArmor is Open Source software pricing is $0]
 
-![](/integrations/images/aws-kubearmor-1.png)
+![](images/aws-kubearmor-1.png)
 
 [**Note:** By Clicking  Accept Terms you are Accepting the  End User License Agreement(EULA)]
 
-Download EULA from: <a href="/integrations/images/aws-kubearmor-eula.pdf" target="_blank">End User License Agreement</a>
+Download EULA from: <a href="images/aws-kubearmor-eula.pdf" target="_blank">End User License Agreement</a>
 
 **Step 2:** Configure Software > Select fulfillment option “Helm chart” and continue
 
-![](/integrations/images/aws-kubearmor-2.png)
+![](images/aws-kubearmor-2.png)
 
 **Step 3:** Set Launch target to “Amazon Managed Kubernetes” 
 
-![](/integrations/images/aws-kubearmor-3.png)
+![](images/aws-kubearmor-3.png)
 
 **Step 4:** Select launch options
 
 1. If you have an EKS cluster ready, > Select "Launch on Existing Cluster" . 
 2. If you do not have an EKS cluster > Create an EKS cluster by following these steps: <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html" target="_blank">AWS User Guide to Create a Cluster</a>
 
-![](/integrations/images/aws-kubearmor-4.png)
+![](images/aws-kubearmor-4.png)
 
 **Step 5:** Access the EKS using any CLI (Powershell, EC2, Putty, etc.)
 
@@ -54,7 +54,7 @@ Added new context arn:aws:eks:us-east-2:172721035794:cluster/revalidation-kA-MP 
 
 Copy the command in Step 1 from the instruction and replace it with the RoleARN with EKSClusterRole that already exists. Also specify a namespace name and service account name as required.
 
-![](/integrations/images/aws-kubearmor-4.png)
+![](images/aws-kubearmor-4.png)
 
 ```sh
 kubectl create namespace <ENTER_NAMESPACE_HERE>
@@ -98,7 +98,7 @@ Follow this link to install Helm if not installed: <a href="https://docs.aws.ama
 
 Copy and run the command shown in Step 2 of the instructions. [Note: Remember to replace the namespace with the correct namespace as specified in the command of Step 1]
 
-![](/integrations/images/aws-kubearmor-5.png)
+![](images/aws-kubearmor-5.png)
 
 ```sh
 export HELM_EXPERIMENTAL_OCI=1

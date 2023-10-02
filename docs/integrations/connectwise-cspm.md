@@ -20,8 +20,8 @@ To set up this integration, you need to coordinate with your Connectwise adminis
 + Go to Channel Integration -> CSPM.
 + Click on add connector and select Connectwise
 
-![](/integrations/images/connect1.png)
-![](/integrations/images/connect2.png)
+![](images/connect1.png)
+![](images/connect2.png)
 
 Enter the following details to configure Connectwise.
 
@@ -32,7 +32,7 @@ Enter the following details to configure Connectwise.
    + **Client Id**: To receive your client Id  go to this link:  https://developer.connectwise.com/ClientID and fill the form for Client Id.
    + Click **Save** to save the Integration.
 
-![](/integrations/images/connect3.png)
+![](images/connect3.png)
 
 Click on the Connectwise ticketing backend to **add configuration**.
 

@@ -7,26 +7,26 @@ hide:
 
 Below shown image is from an unmanaged k3s cluster running in local machine with Ubuntu 22.04 Operating System. We can onboard this umanaged cluster by following the steps shown below 
 
-![](/getting-started/images/k3s.png)
+![](images/k3s.png)
 
 **Step 1:** As a first time user, the management console will show up the CNAPP dashboard without any data mentioned in widgets, since the cloud account and cluster onboarding is not done. 
 
-![](/getting-started/images/cnapp-dashboard.png)
+![](images/cnapp-dashboard.png)
 
 **Step 2:** Navigate to Manage Cluster from Settings Tab: 
 From this page we can onboard the clusters running in various cloud platforms like GCP,AWS and Azure. We can onboard locally setup cluster using an unmanaged cloud option. To onboard cluster select *onboard now* option
 
-![](/getting-started/images/cluster-onboarding-1.png)
+![](images/cluster-onboarding-1.png)
 
 **Step 3:** In this screen, give any name to the cluster that you are going to onboard now.
 
-![](/getting-started/images/cluster-onboarding-2.png)
+![](images/cluster-onboarding-2.png)
 
 **Step 4:** Onboarded Cluster without AccuKnox agents: 
 
 The onboarded cluster’s workload details will not be visible as we have not installed AccuKnox agents. So next we will be installing AccuKnox agents.
 
-![](/getting-started/images/cluster-onboarding-3.png)
+![](images/cluster-onboarding-3.png)
 
 **Step 5:** Installing KubeArmor and AccuKnox agents: 
 
@@ -46,7 +46,7 @@ KubeArmor is a cloud-native runtime security enforcement system that restricts t
 
 KubeArmor differs from seccomp-based profiles, wherein KubeArmor allows to dynamically set the restrictions on the pod. With seccomp, the restrictions must be placed during the pod startup and cannot be changed later. KubeArmor leverages Linux Security Modules (LSMs) to enforce policies at runtime.
 
-![](/getting-started/images/cluster-onboarding-4.png)
+![](images/cluster-onboarding-4.png)
 
 KubeArmor is installed using the following commands:
 
@@ -54,7 +54,7 @@ KubeArmor is installed using the following commands:
 >> curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
 >> karmor install
 ```
-![](/getting-started/images/cluster-onboarding-5.png)
+![](images/cluster-onboarding-5.png)
 
 **Step 5.2:** AccuKnox-Agents installation:
 
@@ -70,7 +70,7 @@ After installing KubeArmor we are going to install AccuKnox Agents in the cluste
 
 4. **Policy Discovery Engine:** It discovers the policies using the workload and cluster information that is relayed by a shared informer Agent. 
 
-![](/getting-started/images/cluster-onboarding-6.png)
+![](images/cluster-onboarding-6.png)
 
 AccuKnox Agents can be installed using the following command: 
 
@@ -91,7 +91,7 @@ helm repo add accuknox-agents-dev https://accuknox-agents-dev:h47Sh4taEs@agents.
       --create-namespace -n accuknox-agents
 ```
 
-![](/getting-started/images/cluster-onboarding-7.png)
+![](images/cluster-onboarding-7.png)
 
 **Note:** In the above command **workspace_id,cluster_name,tenant_id**  are specific to this example and it will vary based on the cluster
 
@@ -99,7 +99,7 @@ helm repo add accuknox-agents-dev https://accuknox-agents-dev:h47Sh4taEs@agents.
 
 After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory->cloud Workloads option 
 
-![](/getting-started/images/cluster-onboarding-8.png)
+![](images/cluster-onboarding-8.png)
 
 
   - - - 

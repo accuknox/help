@@ -9,7 +9,7 @@ hide:
 
 With CNAPP Dashboard, AccuKnox provides you a comprehensive view of the security posture from cloud native applications to the infrastructure where its hosted. We cover application or infrastructure inventory to have the visibility, Threat Intelligence using Vulnerability/Findings by Severity, Compliance Monitoring against standard frameworks (technical or legal), Risk Assessment with respect to Image/Repo scan and security issues, Pods exposed to Internet,  critical Runtime Events and policies assessment and Remediations to track for fixing/patching solution to known issues.
 
- ![](/saas/images/cnapp-dash.png)
+ ![](images/cnapp-dash.png)
 
 + **Image Risk Assessment** is very crucial widget which show you the count of images by severity per assessment. It will inform you about the status of overall Images security posture and guide you to take necessary steps on the Images with high severity first. The total Images count can be clicked if you want to see the overall status of the Image scans as it  will send you to the Scan Queue in Registry Scan 
 

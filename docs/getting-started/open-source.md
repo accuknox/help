@@ -9,7 +9,7 @@ To contribute to the project access the [Github page](https://github.com/kubearm
 Learn more about KubeArmor [here](https://kubearmor.io/)
 
 
-![Alt](/getting-started/images/accuknox-deployment-opensource.png){: style="height:auto;width:auto"}
+![Alt](images/accuknox-deployment-opensource.png){: style="height:auto;width:auto"}
 
 ??? "Deploying Sample Cluster (_skip if you already have a cluster configured_)"
 
@@ -223,7 +223,7 @@ The use-cases described in subsequent step uses this sample application.
 
 ## 3. Demo Scenario & Use-cases
 
-![Alt](/getting-started/images/6.png)
+![Alt](images/6.png)
 
 ??? "Use-case 1: Audit access to sensitive data paths"
 
@@ -254,7 +254,7 @@ The use-cases described in subsequent step uses this sample application.
 	```
 	> **_NOTE 01:_** Replace `mysql-xxxxxxxxx-xxxxx` with pod name from Step [#2](#2-install-sample-application)
 
-	![Alt](/getting-started/images/7.png)
+	![Alt](images/7.png)
 
 	**Applying Policy:** Applying above [policy](https://raw.githubusercontent.com/kubearmor/KubeArmor/main/examples/wordpress-mysql/security-policies/ksp-mysql-audit-dir.yaml) to deployed [application](#2-install-sample-application)
 	```sh
@@ -277,7 +277,7 @@ The use-cases described in subsequent step uses this sample application.
 	kubectl exec -it mysql-xxxxxxxxx-xxxxx -n wordpress-mysql -- bash
 	root@mysql-58cdf6ccf-kzbp8:/# touch /var/lib/mysql/test-2
 	```
-	![Alt](/getting-started/images/8.png)
+	![Alt](images/8.png)
 
 ??? "Use-case 2: Block access to files containing sensitive data"
 
@@ -289,7 +289,7 @@ The use-cases described in subsequent step uses this sample application.
 	root@wordpress-bf95888cb-2kx65:/var/www/html# cat /var/www/html/wp-config.php
 	```
 
-	![Alt](/getting-started/images/9.png)
+	![Alt](images/9.png)
 
 	```yaml
 	apiVersion: security.kubearmor.com/v1
@@ -322,7 +322,7 @@ The use-cases described in subsequent step uses this sample application.
 	cat: /var/www/html/wp-config.php: Permission denied
 	```
 
-	![Alt](/getting-started/images/10.png)
+	![Alt](images/10.png)
 
 ??? "Use-case 3: Block access to K8s service account token"
 
@@ -334,7 +334,7 @@ The use-cases described in subsequent step uses this sample application.
 	root@wordpress-bf95888cb-2kx65:/var/www/html# cat /run/secrets/kubernetes.io/serviceaccount/token
 	```
 
-	![Alt](/getting-started/images/11.png)
+	![Alt](images/11.png)
 
 	```yaml
 	apiVersion: security.kubearmor.com/v1
@@ -366,7 +366,7 @@ The use-cases described in subsequent step uses this sample application.
 	cat: /run/secrets/kubernetes.io/serviceaccount/token: Permission denied
 	```
 
-	![Alt](/getting-started/images/12.png)
+	![Alt](images/12.png)
 
 ??? "Use-case 4: Block execution of unwanted processes"
 
@@ -379,7 +379,7 @@ The use-cases described in subsequent step uses this sample application.
 	root@wordpress-bf95888cb-2kx65:/var/www/html# apt-get update
 	```
 
-	![Alt](/getting-started/images/13.png)
+	![Alt](images/13.png)
 
 	```yaml
 	apiVersion: security.kubearmor.com/v1
@@ -413,7 +413,7 @@ The use-cases described in subsequent step uses this sample application.
 	bash: /usr/bin/apt-get: Permission denied
 	```
 
-	![Alt](/getting-started/images/14.png)
+	![Alt](images/14.png)
 
 ## 4. Get Recommended Policies
 
@@ -454,7 +454,7 @@ output report in out/report.txt ...
 	root@wordpress-cb9c668d4-zgczt:/etc/ssl#
 	```
 
-	![Alt](/getting-started/images/before_rec.png)
+	![Alt](images/before_rec.png)
 
 	```yaml
 	apiVersion: security.kubearmor.com/v1
@@ -501,7 +501,7 @@ output report in out/report.txt ...
 	root@wordpress-cb9c668d4-zgczt:/var/www/html#
 	```
 
-	![Alt](/getting-started/images/after_rec.png) 
+	![Alt](images/after_rec.png) 
 
 
 ## 5. Get Auto-Discovered Policies

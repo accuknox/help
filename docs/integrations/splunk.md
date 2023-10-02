@@ -22,7 +22,7 @@ Select **Settings > Data inputs > HTTP Event Collector** and make sure you see H
 + Go to Settings->Integration.
 + Click integrate now on Splunk.
 
-![](/integrations/images/splunk-int.png)
+![](images/splunk-int.png)
 
 + Enter the following details to configure Splunk.
 + **Select the Splunk App** : From the dropdown, Select Splunk Enterprise.

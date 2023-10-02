@@ -1,0 +1,183 @@
+- title: Service Account token
+  content: |
+    Protect access to k8s service account token
+  image: images/uc/cert-file.png
+  details:
+    description: >
+      K8s mounts the service account token as part of every pod by
+      default. The service account token is a credential that can be used as a
+      bearer token to access k8s APIs and gain access to other k8s entities.
+      Many times there are no processes in the pod that use the service account
+      tokens which means in such cases the k8s service account token is an
+      unused asset that can be leveraged by the attacker.
+    attackscenario: >
+      An attacker would check for credential accesses so as to do
+      lateral movements. For example, in most K8s attacks, the attacker after
+      gaining entry into the K8s pods tries to use a service account token and
+      gain access to other entities.
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+    references:
+      - title: MITRE Steal Application Access Token
+        url: https://attack.mitre.org/techniques/T1528/
+    protectionpolicies:
+      - name: Service account token
+        path: res/svc-act-token.yaml
+        simulation: res/svc-act-token-alert.md
+    screenshots:
+      - title: Hardening policy
+        path: ../images/cards/protect-sa-token-0.png
+      - title: Policy violation
+        path: ../images/cards/protect-sa-token-0.png
+- title: FIM
+  content: |
+    File Integrity Monitoring
+  image: images/uc/fim.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+    references:
+      - title: MITRE XYZ
+        url: https://attack.mitre.org/techniques/T1528/
+    protectionpolicies:
+      - name: Service account token
+        path: res/svc-act-token.yaml
+    telemetry:
+      - name: Alert
+      - path: res/svc-act-token-alert.txt
+- title: Packaging tools
+  content: Deny execution of package management tools
+  image: images/uc/pkg-deny.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+- title: Trusted certs bundle
+  content: Protect write access to the trusted root certificates bundle
+  image: images/uc/file-lock.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Database access
+  content: Protect read/write access to raw database tables from unknown processes.
+  image: images/uc/db-eye.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Config data
+  content: Protect access to configuration data containing plain text credentials.
+  image: images/uc/cfg-key.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: File Copy
+  content: Prevent file copy using standard utilities.
+  image: images/uc/file-copy1.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Network Access
+  content: Prevent network access to any processes or selectively enable network access to specific processes.
+  image: images/uc/cloud-deny.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: /tmp/ noexec
+  content: Do not allow execution of binaries from /tmp/ folder.
+  image: images/uc/file-exec-deny.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Admin tools
+  content: Do not allow execution of administrative/maintenance tools inside the pods.
+  image: images/uc/admin-tool.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Discovery tools
+  content: Do not allow discovery/search of tools/configuration.
+  image: images/uc/file-search.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: Logs delete
+  content: Do not allow external tooling to delete logs/traces of critical components.
+  image: images/uc/file-del.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+      - Control-Id-5.1.6
+
+- title: ICMP control
+  content: Do not allow scanning tools to use ICMP for scanning the network.
+  image: images/uc/ip.png
+  details:
+    description: >
+      todo
+    attackscenario: >
+      todo
+    tags:
+      - CIS_v1.27
+

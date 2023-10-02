@@ -8,80 +8,80 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 **Step 1:** Go to your Azure Portal and search for *App registrations* and open it
 
-![](/getting-started/images/azure1.png)
+![](images/azure1.png)
 
 **Step 2:** Here click on *New registration*
 
-![](/getting-started/images/azure2.png)
+![](images/azure2.png)
 
 
 **Step 3:** Give your application a name, remember this name as it will be used again later, For the rest keep the default settings
 
-![](/getting-started/images/azure3.png)
+![](images/azure3.png)
 
 
 **Step 4:** Now your application is created,  save *Application ID* and *Directory ID* as they will be needed to for onboarding on Accuknox Saas and then click on ‘Add a certificate or secret’
 
-![](/getting-started/images/azure4.png)
+![](images/azure4.png)
 
 
 **Step 5:** Click on new client secret and enter the name and expiration date to get *secret id* and *secret value*, save this secret value as this will also be needed for onboarding.
 
-![](/getting-started/images/azure5.png)
+![](images/azure5.png)
 
 **Step 6:** Next, go to *API permissions* tab and click on 'Add  permission'
 
-![](/getting-started/images/azure5-0.png)
+![](images/azure5-0.png)
 
 **Step 7:** On the screen that appears, click on 'Microsoft Graph'
 
-![](/getting-started/images/azure5-1.png)
+![](images/azure5-1.png)
 
 **Step 8:** Next, select Application Permissions and then search for Directory.Read.All and click on Add permissions
 
-![](/getting-started/images/azure5-2.png)
+![](images/azure5-2.png)
 
 **Step 9:** Select ‘Grant Admin Consent’ for Default Directory and click on ‘Yes’
 
-![](/getting-started/images/azure5-3.png)
+![](images/azure5-3.png)
 
 
 **Step 10:** Now we need to give Security read permissions to this registered Application , to do that go to subscriptions
 
-![](/getting-started/images/azure6.png)
+![](images/azure6.png)
 
 
 **Step 11:** First save the subscription ID and click on the subscription name , here it is “Microsoft Azure Sponsorship“
 
-![](/getting-started/images/azure7.png)
+![](images/azure7.png)
 
 
 **Step 12:** Navigate to Access control(IAM) and go to Roles , here select Add and Add role assignment 
 
-![](/getting-started/images/azure8.png)
+![](images/azure8.png)
 
 
 **Step 13:** Search for “Security Reader” Job function Role, select it and press *next*
 
-![](/getting-started/images/azure9.png)
+![](images/azure9.png)
 
 
 **Step 14:** In the member section click on Select *members* it will open a dropdown menu on the right hand side
 
-![](/getting-started/images/azure10.png)
+![](images/azure10.png)
 
 
 **Step 15:** Here search for the Application that you registered in the beginning , select the application and click on *review and assign*.
 
-![](/getting-started/images/azure11.png)
+![](images/azure11.png)
 
 **Step 16:** Similarly, we have to add another role. This time, search for *Log Analytics Reader*. Select it and click *next*
 
-![](/getting-started/images/azure11-0.png)
+![](images/azure11-0.png)
 
 **Step 17:** Now, click on *Select members*, select the application that was created similar to the previous role. Finally, click on *Review and Assign*.
 
-![](/getting-started/images/azure11-1.png)
+![](images/azure11-1.png)
 
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->

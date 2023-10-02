@@ -646,7 +646,7 @@ hide:
     ```
     ## Sample Output
 
-    ![](/resources/images/azure-count.png)
+    ![](images/azure-count.png)
 
 ??? "**GCP**"
 
@@ -696,4 +696,4 @@ hide:
     ```
     ## Sample Output
 
-    ![](/resources/images/gcp-count.png)
+    ![](images/gcp-count.png)
