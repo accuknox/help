@@ -46,9 +46,9 @@ theme:
     next: 78 # n
     previous: 80 # p
     search: 83 # s
-  #font:
-  #text: 'Ubuntu'
-  #code: 'Ubuntu Mono'
+  font:
+    text: 'Montessarat'
+    code: 'Montessarat'
   #icon:
   #logo: 'assets/images/logo-black.png'
   logo_dark_mode: 'assets/images/logo-white.png'
@@ -293,6 +293,5 @@ nav:
     - "Troubleshooting": "resources/troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
     
-  - "FAQs":
-    - "" : "faqs/troubleshooting-and-faqs.md"
+  - "FAQs": "faqs.md"
 
