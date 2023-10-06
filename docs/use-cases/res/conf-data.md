@@ -1,37 +1,3 @@
-# Config data
-Protect access to configuration data containing plain text credentials.
-
-## Description
-Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials. These can be files created by users to store their own credentials, shared credential stores for a group of individuals, configuration files containing passwords for a system or service, or source code/binary files containing embedded passwords.
-
-## Attack Scenario
-An attacker can change the configurations to open Web sites to application security holes such as session hijacking, Cross-Site Scripting attacks, and even allow the disclosure of private data. It can also be leveraged to gather sensitive information.
-
-## Tags
-- CIS Distribution Independent Linuxv2.0
-- Control-Id: 6.16.14
-
-## Policy Templates
-### Config data
-```yaml
-apiVersion: security.kubearmor.com/v1
-kind: KubeArmorPolicy
-metadata:
-  name: ksp-block-stig-v-81883-restrict-access-to-config-files
-  namespace: wordpress-mysql
-spec:
-  tags:
-  - config-files
-  message: Alert! configuration files have been accessed
-  selector:
-    matchLabels:
-      app: wordpress
-  file:
-    matchPatterns:
-    - pattern: /**/*.conf
-      ownerOnly: true
-  action: Block
-```
 #### Simulation
 
 With a shell different than the user owning the file:
@@ -69,14 +35,3 @@ ParentProcessName: /bin/dash
 ProcessName: /bin/cat                                                                                                   
 UID: 1000 
 ```
-
-## References
-[MITRE Unsecured credentials in files](https://attack.mitre.org/techniques/T1552/001/)
-
-## Screenshots
-### Hardening Policy
-![](../images/cards/conf-data-0.png)
-
-### Policy violation
-![](../images/cards/conf-data-1.png)
-
