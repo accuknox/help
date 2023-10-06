@@ -1,38 +1,3 @@
-# Network Segmentation
-Limit network access strictly between whitelisted service endpoints, deny everything else.
-
-## Description
-In Kubernetes, by default all the pods are able to communicate with all the other pods present in the cluster. This increases the security risk associated with the intrusion of an attacker as this model allows easy access to all endpoints. Network segmentation deals with dividing this network into segments and reducing the connections that are allowed.
-
-## Attack Scenario
-An attacker can gain access to a vulnerable pod and then try to access the other pods by lateral movement through the network. This can be prevented by using network segmentation policies which restrict the connections to only those that are strictly necessary for the particular application to function.
-
-## Tags
-- Network Segmentation
-
-## Policy Templates
-### Network micro-segmentation
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: autopol-ingress-564878049
-  namespace: wordpress-mysql
-spec:
-  ingress:
-  - from:
-    - podSelector:
-        matchLabels:
-          app: wordpress
-    ports:
-    - port: 3306
-      protocol: TCP
-  podSelector:
-    matchLabels:
-      app: mysql
-  policyTypes:
-  - Ingress
-```
 #### Simulation
 
 Before applying the policy all network connections to the mysql pod is permitted from other pods and the attacker can use ICMP for discovery
@@ -75,10 +40,3 @@ root@wordpress-fb448db97-42k6S:/var/www/html# curl 10.0.0.10
 curl: (7) Failed to connect to 10.0.0.10 port 80: Connection refused 
 root@wordpress-fb448db97-42k6S:/var/www/html# 
 ```
-
-
-
-## Screenshots
-### Zero Trust Policy
-![](../images/cards/net-seg-0.png)
-

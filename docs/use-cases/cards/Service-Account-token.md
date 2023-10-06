@@ -74,5 +74,5 @@ ProcessName: /bin/ls
 ![](../images/cards/protect-sa-token-0.png)
 
 ### Policy violation
-![](../images/cards/protect-sa-token-0.png)
+![](../images/cards/protect-sa-token-1.png)
 
