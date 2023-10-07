@@ -2,18 +2,97 @@
 Allow only specific processes to access network primitives, deny/audit everything else.
 
 ## Description
-todo
+Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
 
 ## Attack Scenario
-todo
+An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
 
 ## Tags
-- CIS_v1.27
-- Control-Id-5.1.6
+- Process based network control
+
+## Policy Templates
+### Process based network control
+```yaml
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: restrict-proccess
+  namespace: default
+spec:
+  severity: 4
+  selector:
+    matchLabels:
+      app: nginx
+  network:
+    matchProtocols:
+    - protocol: tcp
+      fromSource:
+      - path: /usr/bin/wget
+    - protocol: udp
+      fromSource:
+      - path: /usr/bin/wget
+  action:
+    Allow
+```
+#### Simulation
+Set the default security posture to default-deny
+
+```sh
+kubectl annotate ns default kubearmor-network-posture=block --overwrite
+```
+
+
+```sh
+kubectl exec -it nginx-77b4fdf86c-x7sdm -- bash
+root@nginx-77b4fdf86c-x7sdm:/# curl www.google.com
+curl: (6) Could not resolve host: www.google.com
+root@nginx-77b4fdf86c-x7sdm:/# wget https://github.com/kubearmor/KubeArmor/blob/main/examples/wordpress-mysql/original/wordpress-mysql-deployment.yaml
+--2023-10-06 11:08:58--  https://github.com/kubearmor/KubeArmor/blob/main/examples/wordpress-mysql/original/wordpress-mysql-deployment.yaml
+Resolving github.com (github.com)... 20.207.73.82
+Connecting to github.com (github.com)|20.207.73.82|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15051 (15K) [text/plain]
+Saving to: 'wordpress-mysql-deployment.yaml.2'
+
+wordpress-mysql-deployment.ya 100%[=================================================>]  14.70K  --.-KB/s    in 0.08s
+
+2023-10-06 11:08:59 (178 KB/s) - 'wordpress-mysql-deployment.yaml.2' saved [15051/15051]
+```
+
+#### Expected Alert
+```
+ClusterName: default
+HostName: aditya
+NamespaceName: default
+PodName: nginx-77b4fdf86c-x7sdm
+Labels: app=nginx
+ContainerName: nginx
+ContainerID: 20a6333c6a46e0da32b3062f0ba76e9aed4fc5ef51f5ee8aec5b980963cedea3
+ContainerImage: docker.io/library/nginx:latest@sha256:32da30332506740a2f7c34d5dc70467b7f14ec67d912703568daff790ab3f755
+Type: MatchedPolicy
+PolicyName: DefaultPosture
+Source: /usr/bin/curl www.google.com
+Resource: domain=AF_INET type=SOCK_DGRAM|SOCK_NONBLOCK|SOCK_CLOEXEC protocol=0
+Operation: Network
+Action: Block
+Data: syscall=SYS_SOCKET
+Enforcer: AppArmor
+Result: Permission denied
+HostPID: 80245
+HostPPID: 80209
+Owner: map[Name:nginx Namespace:default Ref:Deployment]
+PID: 827
+PPID: 821
+ParentProcessName: /usr/bin/bash
+ProcessName: /usr/bin/curl
+```
 
 
 
+## Screenshots
+### Zero Trust Policy
+![](../images/cards/net-acc-0.png)
 
-
-
+### Policy violation
+![](../images/cards/net-acc-1.png)
 
