@@ -3,11 +3,23 @@
   image: images/uc/apps.png
   details:
     description: >
-      todo
+      KubeArmor to audit the following process: /bin/ps, /usr/bin/ps, /usr/bin/pgrep, /usr/bin/top, and /usr/bin/htop. This will allow KubeArmor to detect and respond to suspicious activity involving these tools, such as attempts to enumerate or exploit running processes.
     attackscenario: >
-      todo
+      Attackers can use the ps, pgrep, and top commands to enumerate the running processes on a system. This information can then be used to identify critical processes that can be targeted for attack.
     tags:
-      - CIS_v1.27
+      - MITRE-T1602
+    references:
+      - title: MITRE Data from Configuration Repository
+        url: https://attack.mitre.org/techniques/T1602/
+    protectionpolicies:
+      - name: Process Forensics
+        path: res/proc-for.yaml
+        simulation: res/proc-for.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/proc-for-0.png
+      - title: Policy violation
+        path: ../images/cards/proc-for-1.png
 
 - title: File forensics
   content: Get granular details of all the accessed files within the target workloads.
@@ -36,19 +48,59 @@
   image: images/uc/file-star.png
   details:
     description: >
-      todo
+      KubeArmor can continuously monitor and alert on sensitive syscalls in real time, providing the necessary information to investigate and respond to potential attacks. This is done by auditing the syscalls that are executed on the system and looking for suspicious activity.
     attackscenario: >
-      todo
+      An attacker who can control the unlink, chown, and chroot syscalls can delete a large number of files, including system configuration files and user data.
+      The unlink syscall deletes a file.
+      The chown syscall changes the ownership of a file or directory.
+      The chroot syscall changes the root directory for the current process and all of its child processes.
+      This could be prevented by auditing these syscalls by KubeArmor.
     tags:
-      - CIS_v1.27
+      - CIS-4.4
+      - NIST-4.4
+      - MITRE-T1602
+    references:
+      - title: CIS Benchmarks
+        url: https://www.cisecurity.org/cis-benchmarks
+      - title: MITRE Data from Configuration Repository
+        url: https://attack.mitre.org/techniques/T1602/
+    protectionpolicies:
+      - name: Syscall Forensics
+        path: res/sysc-for.yaml
+        simulation: res/sysc-for.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/sysc-for-0.png
+      - title: Policy violation
+        path: ../images/cards/sysc-for-1.png
+
 
 - title: Sensitive Asset audit
   content: Audit any (read/write) accesses to sensitive assets.
   image: images/uc/box-eye.png
   details:
     description: >
-      todo
+      KubeArmor helps the organization to protect their confidential files and directories  by continuous Monitoring and Alerting the access to that particular file or directory regarding the policy that we define.
     attackscenario: >
-      todo
+      By modifying the file such as /etc/security/pwquality.conf , /etc/shadow, /etc/pam.d/, /etc/sudoers can bypass authentication or authorization checks,  gain access to user passwords, weaken password requirements and allow the attacker to run commands as root. 
+      Using KubeArmor, Accuknox can do continuous auditing for every access.
     tags:
-      - CIS_v1.27
+      - NIS, NIST-800-53-r5
+      - NIST_SA
+      - NIST_SA-20
+      - NIST_SA-20-Customized Development of Critical Components
+      - SA
+    references:
+      - title: NIST Security and Privacy Controls for Information Systems and Organizations
+        url: https://csrc.nist.gov/pubs/sp/800/53/r5/ipd
+      - title: CSF Customized Development Of Critical Components
+        url: https://csf.tools/reference/nist-sp-800-53/r4/sa/sa-20/
+    protectionpolicies:
+      - name: Sensitive data Audit
+        path: res/sen-dat-audit.yaml
+        simulation: res/sen-dat-audit.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/sen-dat-audit-0.png
+      - title: Policy violation
+        path: ../images/cards/sen-dat-audit-1.png

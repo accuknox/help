@@ -3,23 +3,40 @@
   image: images/uc/net-console.png
   details:
     description: >
-      todo
+      Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
     attackscenario: >
-      todo
+      An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
     tags:
-      - CIS_v1.27
-      - Control-Id-5.1.6
+      - Process based network control
+    protectionpolicies:
+      - name: Process based network control
+        path: res/proc-base-net.yaml
+        simulation: res/proc-base-net.md
+    screenshots:
+      - title: Zero Trust Policy
+        path: ../images/cards/net-acc-0.png
+      - title: Policy violation
+        path: ../images/cards/net-acc-1.png
 
 - title: Process based asset access
   content: Allow only specific processes to access sensitive assets, deny/audit everything else.
   image: images/uc/box-lock.png
   details:
     description: >
-      todo
+      You can use a security feature called "process isolation" or "process whitelisting" to set specific processes to access specific assets in a container or pod and deny everything else. This can help to secure a containerized environment by limiting the processes that can access the assets within it and preventing unauthorized processes from accessing those assets.
     attackscenario: >
-      todo
+      An attacker uses different attack techniques to change configuration files. Process-based asset access will deny any unknown process from accessing the configuration files.
     tags:
-      - CIS_v1.27
+      - Process based asset access
+    protectionpolicies:
+      - name: Process based asset access
+        path: res/proc-base-acc.yaml
+        simulation: res/proc-base-acc.md
+    screenshots:
+      - title: Zero Trust Policy
+        path: ../images/cards/proc-base-acc-0.png
+      - title: Policy violation
+        path: ../images/cards/proc-base-acc-1.png
 
 - title: Process Whitelisting
   content: Allow only specific processes to execute, deny/audit everything else.

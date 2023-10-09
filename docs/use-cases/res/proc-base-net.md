@@ -1,45 +1,10 @@
-# Network Access
-Prevent network access to any processes or selectively enable network access to specific processes.
-
-## Description
-Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
-
-## Attack Scenario
-An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
-
-## Tags
-- Network Access
-
-## Policy Templates
-### Network Access
-```yaml
-apiVersion: security.kubearmor.com/v1
-kind: KubeArmorPolicy
-metadata:
-  name: restrict-proccess
-  namespace: default
-spec:
-  severity: 4
-  selector:
-    matchLabels:
-      app: nginx
-  network:
-    matchProtocols:
-    - protocol: tcp
-      fromSource:
-      - path: /usr/bin/wget
-    - protocol: udp
-      fromSource:
-      - path: /usr/bin/wget
-  action:
-    Allow
-```
 #### Simulation
 Set the default security posture to default-deny
 
 ```sh
 kubectl annotate ns default kubearmor-network-posture=block --overwrite
 ```
+
 
 ```sh
 kubectl exec -it nginx-77b4fdf86c-x7sdm -- bash
@@ -85,13 +50,3 @@ PPID: 821
 ParentProcessName: /usr/bin/bash
 ProcessName: /usr/bin/curl
 ```
-
-
-
-## Screenshots
-### Hardening Policy
-![](../images/cards/net-acc-0.png)
-
-### Policy violation
-![](../images/cards/net-acc-1.png)
-

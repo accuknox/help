@@ -1,39 +1,3 @@
-# ICMP control
-Do not allow scanning tools to use ICMP for scanning the network.
-
-## Description
-The Internet Control Message Protocol (ICMP) allows Internet hosts to notify each other of errors and allows diagnostics and troubleshooting for system administrators. Because ICMP can also be used by a potential adversary to perform reconnaissance against a target network, and due to historical denial-of-service bugs in broken implementations of ICMP, some network administrators block all ICMP traffic as a network hardening measure
-
-## Attack Scenario
-Adversaries may use scanning tools that uses Internet Control Message Protocol (ICMP)  to perform reconnaissance against a target network and identify the potential loopholes.
-
-## Tags
-- ICMP Control
-
-## Policy Templates
-### ICMP Control
-```yaml
-apiVersion: security.kubearmor.com/v1
-kind: KubeArmorPolicy
-metadata:
-  name: restrict-scanning-tools
-  namespace: default
-spec:
-  severity: 4
-  selector:
-    matchLabels:
-      app: nginx
-  network:
-    matchProtocols:
-    - protocol: icmp
-      fromSource:
-      - path: /usr/bin/ping
-    - protocol: udp
-      fromSource:
-      - path: /usr/bin/ping
-  action: Allow
-  message: Scanning tool has been detected
-```
 #### Simulation
 ```sh
 kubectl exec -it nginx-77b4fdf86c-x7sdm -- bash
@@ -91,13 +55,3 @@ instanceID:0
 tenant_id:167
 workload:1
 ```
-
-
-
-## Screenshots
-### Hardening Policy
-![](../images/cards/icmp-con-0.png)
-
-### Policy violation
-![](../images/cards/icmp-con-1.png)
-

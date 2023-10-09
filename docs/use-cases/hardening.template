@@ -189,12 +189,20 @@
   image: images/uc/cloud-deny.png
   details:
     description: >
-      todo
+      Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
     attackscenario: >
-      todo
+      An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
     tags:
-      - CIS_v1.27
-      - Control-Id-5.1.6
+      - Network Access
+    protectionpolicies:
+      - name: Network Access
+        path: res/net-acc.yaml
+        simulation: res/net-acc.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/net-acc-0.png
+      - title: Policy violation
+        path: ../images/cards/net-acc-1.png
 
 - title: /tmp/ noexec
   content: Do not allow execution of binaries from /tmp/ folder.
@@ -302,9 +310,18 @@
   image: images/uc/ip.png
   details:
     description: >
-      todo
+      The Internet Control Message Protocol (ICMP) allows Internet hosts to notify each other of errors and allows diagnostics and troubleshooting for system administrators. Because ICMP can also be used by a potential adversary to perform reconnaissance against a target network, and due to historical denial-of-service bugs in broken implementations of ICMP, some network administrators block all ICMP traffic as a network hardening measure
     attackscenario: >
-      todo
+      Adversaries may use scanning tools that uses Internet Control Message Protocol (ICMP)  to perform reconnaissance against a target network and identify the potential loopholes.
     tags:
-      - CIS_v1.27
+      - ICMP Control
+    protectionpolicies:
+      - name: ICMP Control
+        path: res/icmp-con.yaml
+        simulation: res/icmp-con.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/icmp-con-0.png
+      - title: Policy violation
+        path: ../images/cards/icmp-con-1.png
 
