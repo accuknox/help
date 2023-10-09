@@ -26,22 +26,48 @@
   image: images/uc/fstree.png
   details:
     description: >
-      todo
+      Changes to system binary folders, configuration paths, and credentials paths need to be monitored for change.
     attackscenario: >
-      todo
+      An attacker might want to update the configuration so as to disable security controls or access logs.
     tags:
-      - CIS_v1.27
+      - CISv1
+      - Control-Id-Linux 4.1.12
+    references:
+      - title: MITRE Data Manipulation
+        url: https://attack.mitre.org/techniques/T1602/
+    protectionpolicies:
+      - name: File Forensics
+        path: res/file-for.yaml
+        simulation: res/file-for.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/file-for-0.png
+      - title: Policy violation
+        path: ../images/cards/file-for-1.png
 
 - title: Network forensics
   content: Get granular details of all the network accesses within the target workloads.
   image: images/uc/net-access.png
   details:
     description: >
-      todo
+      KubeArmor helps the organization to protect their Network level acceass from the attackers by  continuous Monitoring and Alerting the access when it's happening.
     attackscenario: >
-      todo
+      An attacker can scan the open ports on a system by sending connection requests to a wide range of ports. This can be detected by monitoring for a large number of connection attempts to a variety of ports in a short period of time.
     tags:
-      - CIS_v1.27
+      - NIST-800
+      - NIST_SA
+    references:
+      - title: NIST Special Publication 800-series
+        url: https://www.nist.gov/itl/publications-0/nist-special-publication-800-series-general-information
+    protectionpolicies:
+      - name: Network Forensics
+        path: res/net-for.yaml
+        simulation: res/net-for.md
+    screenshots:
+      - title: Hardening Policy
+        path: ../images/cards/net-for-0.png
+      - title: Policy violation
+        path: ../images/cards/net-for-1.png
 
 - title: Syscall forensics
   content: Get granular details of all the security sensitive system calls within the target workloads.
