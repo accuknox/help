@@ -81,9 +81,15 @@
   image: images/uc/shield-lock.png
   details:
     description: >
-      todo
+      k8tls (pronounced cattles), to assess server port security by detecting its TLS and certificates configuration.k8tls has been used in the context of general k8s clusters to understand the security risk posture of exposed k8s service endpoints
     attackscenario: >
-      todo
+      An attacker may perform reconnaissance to identify protocol without TLS to exploit those parameters. TLS ensures all the traffic flows in an encrypted manner to avoid the risk of MITM attacks.
     tags:
-      - CIS_v1.27
-      - Control-Id-5.1.6
+      - Ensuring TLS
+    protectionpolicies:
+      - name: Ensure TLS
+        simulation: res/ens-tls.md
+        path: res/ens-tls.yaml
+    screenshots:
+      - title: Ensure TLS
+        path: ../images/cards/ens-tls-0.png
