@@ -198,27 +198,30 @@ nav:
 
   - "Getting Started":
     - "Open Source Installation": "getting-started/open-source.md"
-    - "Enterprise SaaS Installation" : 
-        - "Prerequisites" :
-          - "CSPM Prerequisites":
-            - "AWS": "getting-started/cspm-prereq-aws.md"
-            - "Azure": "getting-started/cspm-prereq-azure.md"
-            - "GCP": "getting-started/cspm-prereq-gcp.md"
-          - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
-        - "Onboarding" :
-          - "Cloud Account" :
-            - "AWS" : "getting-started/aws-onboarding.md"
-            - "Azure" : "getting-started/azure-onboarding.md"
-            - "GCP" : "getting-started/gcp-onboarding.md"
-          - "Cluster" :
-            - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
-            - "Managed" : "getting-started/cluster-onboarding-managed.md"
-            - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
-        - "5G Security Prerequisites": "getting-started/5gsec-prereq.md"
-        - "IoT/Edge Prerequisites": "getting-started/iot-edge-prereq.md"
-    - "On-prem Installation" :
-        - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
-        - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
+    - "Enterprise Deployment" :
+      - "SaaS" : 
+          - "Deployment model" : "getting-started/saas-deploy.md"
+          - "Prerequisites" :
+            - "CSPM Prerequisites":
+              - "AWS": "getting-started/cspm-prereq-aws.md"
+              - "Azure": "getting-started/cspm-prereq-azure.md"
+              - "GCP": "getting-started/cspm-prereq-gcp.md"
+            - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+          - "Onboarding" :
+            - "Cloud Account" :
+              - "AWS" : "getting-started/aws-onboarding.md"
+              - "Azure" : "getting-started/azure-onboarding.md"
+              - "GCP" : "getting-started/gcp-onboarding.md"
+            - "Cluster" :
+              - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
+              - "Managed" : "getting-started/cluster-onboarding-managed.md"
+              - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
+          - "5G Security Prerequisites": "getting-started/5gsec-prereq.md"
+          - "IoT/Edge Prerequisites": "getting-started/iot-edge-prereq.md"
+      - "On-prem" :
+          - "Deployment model" : "getting-started/on-prem-deploy.md"
+          - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
+          - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
         - "AccuKnox" : "getting-started/accuknox-release.md"
