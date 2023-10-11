@@ -222,6 +222,7 @@ nav:
           - "Deployment model" : "getting-started/on-prem-deploy.md"
           - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
           - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
+      - "DevSecOps" : "getting-started/devsecops.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
         - "AccuKnox" : "getting-started/accuknox-release.md"

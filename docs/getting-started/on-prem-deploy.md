@@ -7,4 +7,4 @@ In on-premise deployment, AccuKnox SaaS Component will be deployed on-premise. W
 
 ![](images/on-prem-saas.png)
 
-For air-gapped On-prem installation, the SaaS deployment images will be provided.
+For Air-Gapped On-prem installation, the SaaS deployment images will be provided.
