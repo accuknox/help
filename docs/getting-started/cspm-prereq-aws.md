@@ -3,6 +3,10 @@ hide:
   - toc
 ---
 
+In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission. 
+
+![](images/accuknox-architecture.png)
+
 AWS onboarding requires creation of an IAM user. Please follow the following steps to provide a user with appropriate read access:
 
 **Step 1:** Navigate to IAM -> Users and click on Add Users 

@@ -3,6 +3,9 @@ hide:
   - toc
 ---
 
+In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission. 
+
+![](images/accuknox-architecture.png)
 
 For Azure Onboarding it is required to register an App and giving Security read access to that App from the Azure portal.
 

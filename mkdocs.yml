@@ -198,9 +198,8 @@ nav:
 
   - "Getting Started":
     - "Open Source Installation": "getting-started/open-source.md"
-    - "Enterprise Deployment" :
+    - "Deployment Models" :
       - "SaaS" : 
-          - "Deployment model" : "getting-started/saas-deploy.md"
           - "Prerequisites" :
             - "CSPM Prerequisites":
               - "AWS": "getting-started/cspm-prereq-aws.md"
@@ -216,10 +215,7 @@ nav:
               - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
               - "Managed" : "getting-started/cluster-onboarding-managed.md"
               - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
-          - "5G Security Prerequisites": "getting-started/5gsec-prereq.md"
-          - "IoT/Edge Prerequisites": "getting-started/iot-edge-prereq.md"
       - "On-prem" :
-          - "Deployment model" : "getting-started/on-prem-deploy.md"
           - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
           - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"

@@ -1,1 +1,0 @@
-Learn more about how AccuKnox can provide 5G security at [5gsec.com](https://www.5gsec.com/tech/tech-5g-kubearmor)
