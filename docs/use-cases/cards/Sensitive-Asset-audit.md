@@ -101,10 +101,5 @@ Tags: NIST,NIST-800-53-r5,CA-9,File Rules,Internal System Connections,NIST_SA,NI
 [NIST Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/ipd)
 [CSF Customized Development Of Critical Components](https://csf.tools/reference/nist-sp-800-53/r4/sa/sa-20/)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/sen-dat-audit-0.png)
 
-### Policy violation
-![](../images/cards/sen-dat-audit-1.png)
 

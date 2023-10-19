@@ -94,10 +94,5 @@ Tags: NIST,PCI-DSS
 ## References
 [MITRE Data Manipulation](https://attack.mitre.org/techniques/T1602/)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/file-for-0.png)
 
-### Policy violation
-![](../images/cards/file-for-1.png)
 

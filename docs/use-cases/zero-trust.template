@@ -6,17 +6,13 @@
       Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
     attackscenario: >
       An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
+      [ **Examples:** Privilege Escalation, Pivoting]
     tags:
       - Process based network control
     protectionpolicies:
       - name: Process based network control
         path: res/proc-base-net.yaml
         simulation: res/proc-base-net.md
-    screenshots:
-      - title: Zero Trust Policy
-        path: ../images/cards/net-acc-0.png
-      - title: Policy violation
-        path: ../images/cards/net-acc-1.png
 
 - title: Process based asset access
   content: Allow only specific processes to access sensitive assets, deny/audit everything else.
@@ -26,17 +22,13 @@
       You can use a security feature called "process isolation" or "process whitelisting" to set specific processes to access specific assets in a container or pod and deny everything else. This can help to secure a containerized environment by limiting the processes that can access the assets within it and preventing unauthorized processes from accessing those assets.
     attackscenario: >
       An attacker uses different attack techniques to change configuration files. Process-based asset access will deny any unknown process from accessing the configuration files.
+      [**Examples:** Credential access, Data manipulation]
     tags:
       - Process based asset access
     protectionpolicies:
       - name: Process based asset access
         path: res/proc-base-acc.yaml
         simulation: res/proc-base-acc.md
-    screenshots:
-      - title: Zero Trust Policy
-        path: ../images/cards/proc-base-acc-0.png
-      - title: Policy violation
-        path: ../images/cards/proc-base-acc-1.png
 
 - title: Process Whitelisting
   content: Allow only specific processes to execute, deny/audit everything else.
@@ -46,17 +38,13 @@
       You can use a security feature called "process isolation" or "process whitelisting" to set specific processes to be executed as part of a container or pod and deny everything else. This can help to secure a containerized environment by limiting the processes that can run within it and preventing unauthorized processes from being executed.
     attackscenario: >
       An attacker uses command injection techniques to insert binaries in the pods/workloads and then execute the binary. Process-Whitelisting will deny any unknown process from execution.
+      [**Examples:** Credential Access, Command Injection]
     tags:
       - Process Whitelisting
     protectionpolicies:
       - name: Process Whitelisting
         path: res/proc-white.yaml
         simulation: res/proc-white.md
-    screenshots:
-      - title: Zero Trust Policy
-        path: ../images/cards/proc-white-0.png
-      - title: Policy violation
-        path: ../images/cards/proc-white-1.png
 
 - title: Network Segmentation
   content: Limit network access strictly between whitelisted service endpoints, deny everything else.
@@ -66,15 +54,13 @@
       In Kubernetes, by default all the pods are able to communicate with all the other pods present in the cluster. This increases the security risk associated with the intrusion of an attacker as this model allows easy access to all endpoints. Network segmentation deals with dividing this network into segments and reducing the connections that are allowed.
     attackscenario: >
       An attacker can gain access to a vulnerable pod and then try to access the other pods by lateral movement through the network. This can be prevented by using network segmentation policies which restrict the connections to only those that are strictly necessary for the particular application to function.
+      [**Examples:** Pivoting, Denial of service(DoS)]
     tags:
       - Network Segmentation
     protectionpolicies:
       - name: Network micro-segmentation
         path: res/net-seg.yaml
         simulation: res/net-seg.md
-    screenshots:
-      - title: Zero Trust Policy
-        path: ../images/cards/net-seg-0.png
 
 - title: Ensure TLS
   content: Ensure that all service endpoints are using the right TLS and certificate configuration.
@@ -84,12 +70,10 @@
       k8tls (pronounced cattles), to assess server port security by detecting its TLS and certificates configuration.k8tls has been used in the context of general k8s clusters to understand the security risk posture of exposed k8s service endpoints
     attackscenario: >
       An attacker may perform reconnaissance to identify protocol without TLS to exploit those parameters. TLS ensures all the traffic flows in an encrypted manner to avoid the risk of MITM attacks.
+      [**Examples:** Man-in-the-middle(MITM)]
     tags:
       - Ensuring TLS
     protectionpolicies:
       - name: Ensure TLS
         simulation: res/ens-tls.md
         path: res/ens-tls.yaml
-    screenshots:
-      - title: Ensure TLS
-        path: ../images/cards/ens-tls-0.png

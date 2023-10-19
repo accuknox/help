@@ -5,7 +5,7 @@ Allow only specific processes to execute, deny/audit everything else.
 You can use a security feature called "process isolation" or "process whitelisting" to set specific processes to be executed as part of a container or pod and deny everything else. This can help to secure a containerized environment by limiting the processes that can run within it and preventing unauthorized processes from being executed.
 
 ## Attack Scenario
-An attacker uses command injection techniques to insert binaries in the pods/workloads and then execute the binary. Process-Whitelisting will deny any unknown process from execution.
+An attacker uses command injection techniques to insert binaries in the pods/workloads and then execute the binary. Process-Whitelisting will deny any unknown process from execution. [**Examples:** Credential Access, Command Injection]
 
 ## Tags
 - Process Whitelisting
@@ -83,10 +83,5 @@ ProcessName: /bin/ping
 
 
 
-## Screenshots
-### Zero Trust Policy
-![](../images/cards/proc-white-0.png)
 
-### Policy violation
-![](../images/cards/proc-white-1.png)
 

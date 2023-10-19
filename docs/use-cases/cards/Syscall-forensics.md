@@ -86,10 +86,5 @@ Tags: CIS-4.4,4.3,4.12,NIST-4.4,4.3,4.12,MITRE-T1602
 [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
 [MITRE Data from Configuration Repository](https://attack.mitre.org/techniques/T1602/)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/sysc-for-0.png)
 
-### Policy violation
-![](../images/cards/sysc-for-1.png)
 

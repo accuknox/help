@@ -15,11 +15,6 @@
       - name: Process Forensics
         path: res/proc-for.yaml
         simulation: res/proc-for.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/proc-for-0.png
-      - title: Policy violation
-        path: ../images/cards/proc-for-1.png
 
 - title: File forensics
   content: Get granular details of all the accessed files within the target workloads.
@@ -39,11 +34,6 @@
       - name: File Forensics
         path: res/file-for.yaml
         simulation: res/file-for.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/file-for-0.png
-      - title: Policy violation
-        path: ../images/cards/file-for-1.png
 
 - title: Network forensics
   content: Get granular details of all the network accesses within the target workloads.
@@ -63,11 +53,6 @@
       - name: Network Forensics
         path: res/net-for.yaml
         simulation: res/net-for.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/net-for-0.png
-      - title: Policy violation
-        path: ../images/cards/net-for-1.png
 
 - title: Syscall forensics
   content: Get granular details of all the security sensitive system calls within the target workloads.
@@ -94,11 +79,6 @@
       - name: Syscall Forensics
         path: res/sysc-for.yaml
         simulation: res/sysc-for.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/sysc-for-0.png
-      - title: Policy violation
-        path: ../images/cards/sysc-for-1.png
 
 
 - title: Sensitive Asset audit
@@ -125,8 +105,3 @@
       - name: Sensitive data Audit
         path: res/sen-dat-audit.yaml
         simulation: res/sen-dat-audit.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/sen-dat-audit-0.png
-      - title: Policy violation
-        path: ../images/cards/sen-dat-audit-1.png

@@ -5,7 +5,7 @@ Limit network access strictly between whitelisted service endpoints, deny everyt
 In Kubernetes, by default all the pods are able to communicate with all the other pods present in the cluster. This increases the security risk associated with the intrusion of an attacker as this model allows easy access to all endpoints. Network segmentation deals with dividing this network into segments and reducing the connections that are allowed.
 
 ## Attack Scenario
-An attacker can gain access to a vulnerable pod and then try to access the other pods by lateral movement through the network. This can be prevented by using network segmentation policies which restrict the connections to only those that are strictly necessary for the particular application to function.
+An attacker can gain access to a vulnerable pod and then try to access the other pods by lateral movement through the network. This can be prevented by using network segmentation policies which restrict the connections to only those that are strictly necessary for the particular application to function. [**Examples:** Pivoting, Denial of service(DoS)]
 
 ## Tags
 - Network Segmentation
@@ -78,7 +78,5 @@ root@wordpress-fb448db97-42k6S:/var/www/html#
 
 
 
-## Screenshots
-### Zero Trust Policy
-![](../images/cards/net-seg-0.png)
+
 

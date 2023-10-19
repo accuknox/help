@@ -5,7 +5,7 @@ Do not allow execution of administrative/maintenance tools inside the pods.
 Adversaries may abuse a container administration service to execute commands within a container. A container administration service such as the Docker daemon, the Kubernetes API server, or the kubelet may allow remote management of containers within an environment.
 
 ## Attack Scenario
-Attackers with permissions could run ‘kubectl exec’ to execute malicious code and compromise resources within a cluster.
+It's important to note that attackers with permissions could potentially run 'kubectl exec' to execute malicious code and compromise resources within a cluster. It's crucial to monitor the activity within the cluster and take proactive measures to prevent these attacks from occurring. [**Examples:** Command Injection, Lateral Movements, etc.]
 
 ## Tags
 - NIST_800-53_AU-2
@@ -56,6 +56,8 @@ root@dvwa-web-566855bc5b-4j4vl:/var/www/html#
 
 #### Expected Alert
 ```
+root:{} 36 items
+ATags:null
 Action:Block
 ClusterName:aditya
 ContainerID:32015ebeea9e1f4d4e7dbf6608c010ef2b34c48f1af11a5c6f0ea2fd27c6ba6c
@@ -63,10 +65,12 @@ ContainerImage:docker.io/cytopia/dvwa:php-8.1@sha256:f7a9d03b1dfcec55757cc39ca24
 ContainerName:dvwa
 Data:syscall=SYS_EXECVE
 Enforcer:AppArmor
+HashID:1167b21433f2a4e78a4c6875bb34232e6a2b3c8535e885bb4f9e336fd2801d92
 HostName:aditya
 HostPID:38035
 HostPPID:37878
 Labels:tier=frontend,app=dvwa-web
+Message:
 NamespaceName:default
 Operation:Process
 Owner:{} 3 items
@@ -75,31 +79,27 @@ Namespace:default
 Ref:Deployment
 PID:554
 PPID:548
-ParentProcessName:/bin/bash
 PodName:dvwa-web-566855bc5b-4j4vl
 PolicyName:DefaultPosture
 ProcessName:/usr/bin/kubectl
 Resource:/usr/bin/kubectl
 Result:Permission denied
+Severity:
 Source:/bin/bash
+Tags:
 Timestamp:1696326880
 Type:MatchedPolicy
+UID:0
 UpdatedTime:2023-10-03T09:54:40.056501Z
 cluster_id:3896
 component_name:kubearmor
 instanceGroup:0
 instanceID:0
-tenant_id:167
 workload:1
 ```
 
 ## References
 [MITRE ATT&CK execution in k8s](https://cloud.redhat.com/blog/protecting-kubernetes-against-mitre-attck-execution#:~:text='kubectl%20exec'%20allows%20a%20user,compromise%20resources%20within%20a%20cluster)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/admin-tools-0.png)
 
-### Policy violation
-![](../images/cards/admin-tools-1.png)
 
