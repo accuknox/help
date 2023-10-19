@@ -19,6 +19,7 @@ rtt min/avg/max/mdev = 51.917/56.005/60.094/4.088 ms
 
 #### Expected Alert
 ```
+root:{} 32 items
 Action:Block
 ClusterName:0-trust
 ContainerID:20a6333c6a46e0da32b3062f0ba76e9aed4fc5ef51f5ee8aec5b980963cedea3
@@ -27,8 +28,8 @@ ContainerName:nginx
 Data:syscall=SYS_SOCKET
 Enforcer:AppArmor
 HostName:aditya
-HostPID:86925
-HostPPID:86860
+HostPID:85001
+HostPPID:84967
 Labels:app=nginx
 NamespaceName:default
 Operation:Network
@@ -36,8 +37,8 @@ Owner:{} 3 items
 Name:nginx
 Namespace:default
 Ref:Deployment
-PID:1065
-PPID:1058
+PID:1047
+PPID:1040
 ParentProcessName:/usr/bin/bash
 PodName:nginx-77b4fdf86c-x7sdm
 PolicyName:DefaultPosture
@@ -45,9 +46,9 @@ ProcessName:/usr/sbin/hping3
 Resource:domain=AF_INET type=SOCK_DGRAM protocol=0
 Result:Permission denied
 Source:/usr/sbin/hping3 127.0.0.1
-Timestamp:1696593040
+Timestamp:1696592283
 Type:MatchedPolicy
-UpdatedTime:2023-10-06T11:50:40.356796Z
+UpdatedTime:2023-10-06T11:38:03.751034Z
 cluster_id:4291
 component_name:kubearmor
 instanceGroup:0

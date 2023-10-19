@@ -5,7 +5,7 @@ Allow only specific processes to access sensitive assets, deny/audit everything 
 You can use a security feature called "process isolation" or "process whitelisting" to set specific processes to access specific assets in a container or pod and deny everything else. This can help to secure a containerized environment by limiting the processes that can access the assets within it and preventing unauthorized processes from accessing those assets.
 
 ## Attack Scenario
-An attacker uses different attack techniques to change configuration files. Process-based asset access will deny any unknown process from accessing the configuration files.
+An attacker uses different attack techniques to change configuration files. Process-based asset access will deny any unknown process from accessing the configuration files. [**Examples:** Credential access, Data manipulation]
 
 ## Tags
 - Process based asset access
@@ -84,10 +84,5 @@ ProcessName: /usr/bin/ls
 
 
 
-## Screenshots
-### Zero Trust Policy
-![](../images/cards/proc-base-acc-0.png)
 
-### Policy violation
-![](../images/cards/proc-base-acc-1.png)
 

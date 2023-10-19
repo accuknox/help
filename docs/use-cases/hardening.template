@@ -11,10 +11,9 @@
       tokens which means in such cases the k8s service account token is an
       unused asset that can be leveraged by the attacker.
     attackscenario: >
-      An attacker would check for credential accesses so as to do
-      lateral movements. For example, in most K8s attacks, the attacker after
-      gaining entry into the K8s pods tries to use a service account token and
-      gain access to other entities.
+      It's important to note that attackers often look for ways to gain access to other entities within Kubernetes clusters. One common method is to check for credential accesses, such as service account tokens, in order to perform lateral movements. For instance, in many Kubernetes attacks, once the attacker gains entry into a pod, they may attempt to use a service account token to access other entities.
+
+      [**Examples:** Credential Access, Comand Injection, etc.]
     tags:
       - CIS_v1.27
       - Control-Id-5.1.6
@@ -25,11 +24,6 @@
       - name: Service account token
         path: res/svc-act-token.yaml
         simulation: res/svc-act-token-alert.md
-    screenshots:
-      - title: Hardening policy
-        path: ../images/cards/protect-sa-token-0.png
-      - title: Policy violation
-        path: ../images/cards/protect-sa-token-1.png
         
 - title: FIM
   content: |
@@ -39,7 +33,9 @@
     description: >
       Changes to system binary folders, configuration paths, and credentials paths need to be monitored for change. With KubeArmor, one can not only monitor for changes but also block any write attempts in such system folders. Compliance frameworks such as PCI-DSS, NIST, and CIS expect FIM to be in place.
     attackscenario: >
-      An attacker might want to update the configuration so as to disable security controls or access logs.
+      In a possible attack scenario, an attacker may try to update the configuration to disable security controls or access logs. This can allow them to gain further access to the system and carry out malicious activities undetected. It's crucial to be aware of such threats and take proactive measures to prevent such attacks from occurring.
+      
+      [**Examples:** Data Manipulation, Integrity Threats, etc.]
     tags:
       - CIS Distribution Independent Linuxv2.0, Control-Id:6.3.5
       - PCI-DSS, Requirement: 6
@@ -54,11 +50,6 @@
       - name: File Integrity Monitoring
         path: res/fim.yaml
         simulation: res/fim-alert.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/fim-0.png
-      - title: Policy violation
-        path: ../images/cards/fim-1.png
 
 - title: Packaging tools
   content: Deny execution of package management tools
@@ -67,7 +58,8 @@
     description: >
       Pods/Containers might get shipped with binaries which should never used in the production environments. Some of those bins might be useful in dev/staging environments but the same container image is carried forward in most cases to the production environment too. For security reasons, the devsecops team might want to disable the use of these binaries in the production environment even though the bins exists in the container. As an example, most of the container images are shipped with package management tools such as apk, apt, yum, etc. If anyone ends up using these bins in the prod env, it will increase the attack surface of the container/pod.
     attackscenario: >
-      Attackers use system tools such as fsck, ip, who, apt, etc for reconnaissance and to download its accessory tooling from the remote servers.
+      In an attack scenario, adversaries may use system tools such as fsck, ip, who, apt, and others for reconnaissance and to download additional tooling from remote servers. These tools can help them gain valuable information about the system and its vulnerabilities, allowing them to carry out further attacks. It's important to be vigilant about such activities and implement security measures to prevent such attacks from happening.
+      [**Examples:** Command Injection, Privilege Escalation, Persistence, etc.]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id:6.4.5
@@ -80,11 +72,7 @@
       - name: Packaging tools execution
         path: res/pkg-tools.yaml
         simulation: res/pkg-tools.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/pkg-tools-0.png
-      - title: Policy violation
-        path: ../images/cards/pkg-tools-1.png
+
 - title: Trusted certs bundle
   content: Protect write access to the trusted root certificates bundle
   image: images/uc/file-lock.png
@@ -92,7 +80,8 @@
     description: >
       Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary-controlled web servers. Root certificates are used in public key cryptography to identify a root certificate authority (CA). When a root certificate is installed, the system or application will trust certificates in the root's chain of trust that have been signed by the root certificate. Installation of a root certificate on a compromised system would give an adversary a way to degrade the security of that system.
     attackscenario: >
-      Adversaries have used this technique to avoid security warnings prompting users when compromised systems connect over HTTPS to adversary-controlled web servers that spoof legitimate websites in order to collect login credentials.
+      By using this technique, attackers can successfully evade security warnings that alert users when compromised systems connect over HTTPS to adversary-controlled web servers. These servers often look like legitimate websites, and are designed to trick users into entering their login credentials, which can then be used by the attackers. It's important to be aware of this threat and take necessary precautions to prevent these attacks from happening.
+      [**Examples:** Man-In-The-Middle(MITM)]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id: 6.3.4
@@ -105,11 +94,6 @@
       - name: Trusted Certs Bundle
         path: res/trusted-cert-bundle.yaml
         simulation: res/trusted-cert-bundle.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/trusted-cert-bundle-0.png
-      - title: Policy violation
-        path: ../images/cards/trusted-cert-bundle-1.png
 
 - title: Database access
   content: Protect read/write access to raw database tables from unknown processes.
@@ -118,7 +102,8 @@
     description: >
       Applications use databases to store all the information such as posts, blogs, user information, etc. WordPress applications almost certainly use a MySQL database for storing their content, and those are usually stored elsewhere on the system, often /var/lib/mysql/some_db_name. 
     attackscenario: >
-      Adversaries have used techniques to steal information from databases, Information can be user credentials, posts, blogs, etc. Later using this information Adversaries can gain access to user accounts and perform a full-account takeover.
+      Adversaries have been known to use various techniques to steal information from databases. This information can include user credentials, posts, blogs, and more. By obtaining this information, adversaries can gain access to user accounts and potentially perform a full-account takeover, which can lead to further compromise of the target system. It's important to ensure that appropriate security measures are in place to protect against these types of attacks.
+      [**Examples:** SQL Injection, Credential Access, Account Takeover, etc.]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id: 6.14.4
@@ -129,11 +114,6 @@
       - name: Database Access
         path: res/db-access.yaml
         simulation: res/db-access.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/db-access-0.png
-      - title: Policy violation
-        path: ../images/cards/db-access-1.png
 
 - title: Config data
   content: Protect access to configuration data containing plain text credentials.
@@ -142,7 +122,8 @@
     description: >
       Adversaries may search local file systems and remote file shares for files containing insecurely stored credentials. These can be files created by users to store their own credentials, shared credential stores for a group of individuals, configuration files containing passwords for a system or service, or source code/binary files containing embedded passwords.
     attackscenario: >
-      An attacker can change the configurations to open Web sites to application security holes such as session hijacking, Cross-Site Scripting attacks, and even allow the disclosure of private data. It can also be leveraged to gather sensitive information.
+      In a possible attack scenario, an attacker may try to change the configurations to open websites to application security holes such as session hijacking and cross-site scripting attacks, which can lead to the disclosure of private data. Additionally, attackers can also leverage these changes to gather sensitive information. It's crucial to take proactive measures to prevent these attacks from occurring.
+      [**Examples:** Cross-Site Scripting(XSS), Data manipulation, Session hijacking, etc.]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id: 6.16.14
@@ -153,11 +134,6 @@
       - name: Config data
         path: res/conf-data.yaml
         simulation: res/conf-data.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/conf-data-0.png
-      - title: Policy violation
-        path: ../images/cards/conf-data-1.png
 
 - title: File Copy
   content: Prevent file copy using standard utilities.
@@ -166,7 +142,8 @@
     description: >
       Exfiltration consists of techniques that adversaries may use to steal data from your network. Once they’ve collected data, adversaries often package it to avoid detection while removing it. This can include compression and encryption. Techniques for getting data out of a target network typically include transferring it over their command and control channel or an alternate channel and may also include putting size limits on the transmission.
     attackscenario: >
-      An attacker can make use of file copy tools to exfiltrate sensitive data. It can also be leveraged for transferring malicious payloads into the workloads and assisting in lateral movement.
+      It's important to note that file copy tools can be leveraged by attackers for exfiltrating sensitive data and transferring malicious payloads into the workloads. Additionally, it can also assist in lateral movement within the system. It's crucial to take proactive measures to prevent these attacks from occurring.
+      [**Examples:** Credential Access, Lateral movements, Information Disclosure, etc.]
     tags:
       - MITRE_TA0010_exfiltration
       - NIST_800-53_SI-4(18)
@@ -178,11 +155,6 @@
       - name: File Copy
         path: res/file-copy.yaml
         simulation: res/file-copy.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/file-copy-0.png
-      - title: Policy violation
-        path: ../images/cards/file-copy-1.png
 
 - title: Network Access
   content: Prevent network access to any processes or selectively enable network access to specific processes.
@@ -191,18 +163,14 @@
     description: >
       Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
     attackscenario: >
-      An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
+      In a possible attack scenario, an attacker binary may attempt to send a beacon to its Command and Control (C&C) Server. Additionally, the binary may use network primitives to exfiltrate pod/container data and configuration. It's important to monitor network traffic and take proactive measures to prevent these attacks from occurring, such as implementing proper access controls and segmenting the network.
+      [**Examples:** Ping Of Death(PoD), DDoS, etc.]
     tags:
       - Network Access
     protectionpolicies:
       - name: Network Access
         path: res/net-acc.yaml
         simulation: res/net-acc.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/net-acc-0.png
-      - title: Policy violation
-        path: ../images/cards/net-acc-1.png
 
 - title: /tmp/ noexec
   content: Do not allow execution of binaries from /tmp/ folder.
@@ -211,7 +179,8 @@
     description: >
       If provided the necessary privileges, users have the ability to install software in organizational information systems. To maintain control over the types of software installed, organizations identify permitted and prohibited actions regarding software installation. Prohibited software installations may include, for example, software with unknown or suspect pedigrees or software that organizations consider potentially malicious.
     attackscenario: >
-      The hacker tries to inject malicious scripts into /tmp folder through the web application exploit and they try to execute this file on the server bringing it down. When we harden the /tmp folder, the user will not be able to execute the script and it will prevent these types of attacks.
+      In an attack scenario, a hacker may attempt to inject malicious scripts into the /tmp folder through a web application exploit. Once the script is uploaded, the attacker may try to execute it on the server in order to take it down. By hardening the /tmp folder, the attacker will not be able to execute the script, preventing such attacks. It's essential to implement these security measures to protect against these types of attacks and ensure the safety of the system.
+      [**Examples:** System Failure, System Breach, etc.]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id: 1.1.5
@@ -223,11 +192,6 @@
       - name: /tmp/ noexec
         path: res/tmp-noexec.yaml
         simulation: res/tmp-noexec.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/tmp-noexec-0.png
-      - title: Policy violation
-        path: ../images/cards/tmp-noexec-1.png
 
 - title: Admin tools
   content: Do not allow execution of administrative/maintenance tools inside the pods.
@@ -236,7 +200,8 @@
     description: >
       Adversaries may abuse a container administration service to execute commands within a container. A container administration service such as the Docker daemon, the Kubernetes API server, or the kubelet may allow remote management of containers within an environment.
     attackscenario: >
-      Attackers with permissions could run ‘kubectl exec’ to execute malicious code and compromise resources within a cluster.
+      It's important to note that attackers with permissions could potentially run 'kubectl exec' to execute malicious code and compromise resources within a cluster. It's crucial to monitor the activity within the cluster and take proactive measures to prevent these attacks from occurring.
+      [**Examples:** Command Injection, Lateral Movements, etc.]
     tags:
       - NIST_800-53_AU-2
       - MITRE_T1609_container_administration_command
@@ -248,11 +213,6 @@
       - name: Admin tools
         path: res/admin-tools.yaml
         simulation: res/admin-tools.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/admin-tools-0.png
-      - title: Policy violation
-        path: ../images/cards/admin-tools-1.png
 
 - title: Discovery tools
   content: Do not allow discovery/search of tools/configuration.
@@ -261,7 +221,8 @@
     description: >
       Adversaries may attempt to get a listing of services running on remote hosts and local network infrastructure devices, including those that may be vulnerable to remote software exploitation. Common methods to acquire this information include port and/or vulnerability scans using tools that are brought onto a system
     attackscenario: >
-      Adversaries may use the information related to services, remote hosts and local network infrastructure devices, including those that may be vulnerable to remote software exploitation to perform malicious attacks like exploiting open ports, injecting payloads to get remote shells.
+      Adversaries can potentially use information related to services, remote hosts, and local network infrastructure devices, including those that may be vulnerable to remote software exploitation to perform malicious attacks like exploiting open ports and injecting payloads to get remote shells. It's crucial to take proactive measures to prevent these attacks from occurring, such as implementing proper network segmentation and hardening network devices.
+      [**Examples:** Brute force, Command Injection, Ping of Death(PoD)]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id: 6.3
@@ -272,11 +233,6 @@
       - name: Discovery tools
         path: res/disc-tools.yaml
         simulation: res/disc-tools.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/disc-tools-0.png
-      - title: Policy violation
-        path: ../images/cards/disc-tools-1.png
 
 - title: Logs delete
   content: Do not allow external tooling to delete logs/traces of critical components.
@@ -285,7 +241,8 @@
     description: >
       Adversaries may delete or modify artifacts generated within systems to remove evidence of their presence or hinder defenses. Various artifacts may be created by an adversary or something that can be attributed to an adversary’s actions. Typically these artifacts are used as defensive indicators related to monitored events, such as strings from downloaded files, logs that are generated from user actions, and other data analyzed by defenders. Location, format, and type of artifact (such as command or login history) are often specific to each platform. 
     attackscenario: >
-      Removal of these indicators may interfere with event collection, reporting, or other processes used to detect intrusion activity. This may compromise the integrity of security solutions by causing notable events to go unreported. This activity may also impede forensic analysis and incident response, due to a lack of sufficient data to determine what occurred.
+      It's important to note that removal of indicators related to intrusion activity may interfere with event collection, reporting, or other processes used to detect such activity. This can compromise the integrity of security solutions by causing notable events to go unreported. Additionally, this activity may impede forensic analysis and incident response, due to a lack of sufficient data to determine what occurred. It's crucial to ensure that all relevant indicators are properly monitored and reported to prevent such issues from occurring.
+      [**Examples:** Integrity Threats, Data Manipulation, etc.]
     tags:
       - CIS Distribution Independent Linuxv2.0
       - Control-Id: 6.6
@@ -299,11 +256,6 @@
       - name: Logs delete
         path: res/log-del.yaml
         simulation: res/log-del.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/log-del-0.png
-      - title: Policy violation
-        path: ../images/cards/log-del-1.png
 
 - title: ICMP control
   content: Do not allow scanning tools to use ICMP for scanning the network.
@@ -312,16 +264,11 @@
     description: >
       The Internet Control Message Protocol (ICMP) allows Internet hosts to notify each other of errors and allows diagnostics and troubleshooting for system administrators. Because ICMP can also be used by a potential adversary to perform reconnaissance against a target network, and due to historical denial-of-service bugs in broken implementations of ICMP, some network administrators block all ICMP traffic as a network hardening measure
     attackscenario: >
-      Adversaries may use scanning tools that uses Internet Control Message Protocol (ICMP)  to perform reconnaissance against a target network and identify the potential loopholes.
+      Adversaries may use scanning tools that utilize Internet Control Message Protocol (ICMP) to perform reconnaissance against a target network and identify potential loopholes. It's crucial to monitor network traffic and take proactive measures to prevent these attacks from occurring, such as implementing proper firewall rules and network segmentation. Additionally, it's important to stay up-to-date with the latest security patches to prevent known vulnerabilities from being exploited.
+      [**Examples:** Network Flood, DoS(Denial of Service)]
     tags:
       - ICMP Control
     protectionpolicies:
       - name: ICMP Control
         path: res/icmp-con.yaml
         simulation: res/icmp-con.md
-    screenshots:
-      - title: Hardening Policy
-        path: ../images/cards/icmp-con-0.png
-      - title: Policy violation
-        path: ../images/cards/icmp-con-1.png
-

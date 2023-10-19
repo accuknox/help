@@ -5,7 +5,7 @@ Allow only specific processes to access network primitives, deny/audit everythin
 Typically, within a pod/container, there are only specific processes that need to use network access. KubeArmor allows one to specify the set of binaries that are allowed to use network primitives such as TCP, UDP, and Raw sockets and deny everyone else.
 
 ## Attack Scenario
-An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration.
+An attacker binary would try to send a beacon to its C&C (Command and Control) Server. Also, the binary might use the network primitives to exfiltrate pod/container data/configuration. [ **Examples:** Privilege Escalation, Pivoting]
 
 ## Tags
 - Process based network control
@@ -89,10 +89,5 @@ ProcessName: /usr/bin/curl
 
 
 
-## Screenshots
-### Zero Trust Policy
-![](../images/cards/net-acc-0.png)
 
-### Policy violation
-![](../images/cards/net-acc-1.png)
 

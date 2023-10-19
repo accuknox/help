@@ -83,10 +83,5 @@ Tags: MITRE,Discovery
 ## References
 [MITRE Data from Configuration Repository](https://attack.mitre.org/techniques/T1602/)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/proc-for-0.png)
 
-### Policy violation
-![](../images/cards/proc-for-1.png)
 

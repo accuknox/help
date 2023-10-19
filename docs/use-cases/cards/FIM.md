@@ -5,7 +5,8 @@ File Integrity Monitoring
 Changes to system binary folders, configuration paths, and credentials paths need to be monitored for change. With KubeArmor, one can not only monitor for changes but also block any write attempts in such system folders. Compliance frameworks such as PCI-DSS, NIST, and CIS expect FIM to be in place.
 
 ## Attack Scenario
-An attacker might want to update the configuration so as to disable security controls or access logs.
+In a possible attack scenario, an attacker may try to update the configuration to disable security controls or access logs. This can allow them to gain further access to the system and carry out malicious activities undetected. It's crucial to be aware of such threats and take proactive measures to prevent such attacks from occurring.
+[**Examples:** Data Manipulation, Integrity Threats, etc.]
 
 ## Tags
 - CIS Distribution Independent Linuxv2.0, Control-Id:6.3.5
@@ -68,6 +69,14 @@ root@mysql-74775b4bf4-65nqf:/sbin# cd ..
 
 ### Expected Alert
 ```
+root:{} 36 items
+ATags:[] 6 items
+0:NIST
+1:NIST_800-53_AU-2
+2:NIST_800-53_SI-4
+3:MITRE
+4:MITRE_T1036_masquerading
+5:MITRE_T1565_data_manipulation
 Action:Block
 ClusterName:aditya
 ContainerID:b75628d4225b8071d5795da342cf2a5c03b1d67b22b40016697fcd17a0db20e4
@@ -75,6 +84,7 @@ ContainerImage:docker.io/library/mysql:5.6@sha256:20575ecebe6216036d25dab5903808
 ContainerName:mysql
 Data:syscall=SYS_OPEN flags=O_WRONLY|O_CREAT|O_NOCTTY|O_NONBLOCK
 Enforcer:AppArmor
+HashID:f0b220bfa3b7aeae754f3bf8a60dd1a0af001f5956ad22f625bdf83406a7fea3
 HostName:aditya
 HostPID:16462
 HostPPID:16435
@@ -88,7 +98,6 @@ Namespace:wordpress-mysql
 Ref:Deployment
 PID:167
 PPID:160
-ParentProcessName:/bin/bash
 PodName:mysql-74775b4bf4-65nqf
 PolicyName:harden-mysql-file-integrity-monitoring
 ProcessName:/bin/touch
@@ -99,12 +108,12 @@ Source:/usr/bin/touch file
 Tags:NIST,NIST_800-53_AU-2,NIST_800-53_SI-4,MITRE,MITRE_T1036_masquerading,MITRE_T1565_data_manipulation
 Timestamp:1696316210
 Type:MatchedPolicy
+UID:0
 UpdatedTime:2023-10-03T06:56:50.829165Z
 cluster_id:3896
 component_name:kubearmor
 instanceGroup:0
 instanceID:0
-tenant_id:167
 workload:1
 ```
 
@@ -112,10 +121,5 @@ workload:1
 [MITRE Data Manipulation](https://attack.mitre.org/techniques/T1565/)
 [PCI DSS and FIM](https://pcidssguide.com/the-pci-dss-and-file-integrity-monitoring/)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/fim-0.png)
 
-### Policy violation
-![](../images/cards/fim-1.png)
 

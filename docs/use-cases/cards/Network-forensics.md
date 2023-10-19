@@ -83,10 +83,5 @@ Tags: NIST-800,AC-18(1),Networking,Access,NIST_SA,NIST_SA-20,NIST_SA-20-Customiz
 ## References
 [NIST Special Publication 800-series](https://www.nist.gov/itl/publications-0/nist-special-publication-800-series-general-information)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/net-for-0.png)
 
-### Policy violation
-![](../images/cards/net-for-1.png)
 

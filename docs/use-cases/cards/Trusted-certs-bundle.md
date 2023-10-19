@@ -5,7 +5,7 @@ Protect write access to the trusted root certificates bundle
 Adversaries may install a root certificate on a compromised system to avoid warnings when connecting to adversary-controlled web servers. Root certificates are used in public key cryptography to identify a root certificate authority (CA). When a root certificate is installed, the system or application will trust certificates in the root's chain of trust that have been signed by the root certificate. Installation of a root certificate on a compromised system would give an adversary a way to degrade the security of that system.
 
 ## Attack Scenario
-Adversaries have used this technique to avoid security warnings prompting users when compromised systems connect over HTTPS to adversary-controlled web servers that spoof legitimate websites in order to collect login credentials.
+By using this technique, attackers can successfully evade security warnings that alert users when compromised systems connect over HTTPS to adversary-controlled web servers. These servers often look like legitimate websites, and are designed to trick users into entering their login credentials, which can then be used by the attackers. It's important to be aware of this threat and take necessary precautions to prevent these attacks from happening. [**Examples:** Man-In-The-Middle(MITM)]
 
 ## Tags
 - CIS Distribution Independent Linuxv2.0
@@ -59,43 +59,45 @@ root@mysql-74775b4bf4-65nqf:/etc/ssl/certs#
 
 #### Expected Alert
 ```
-Action:Block
-ClusterName:aditya
-ContainerID:b75628d4225b8071d5795da342cf2a5c03b1d67b22b40016697fcd17a0db20e4
+root:{} 36 items
+  ATags:null
+  Action:Block
+  ClusterName:aditya
+ContainerID:b75628d4225b8071d5795da342cf2a5c03b1d67b22b40016697fcd17a0db20e4            
 ContainerImage:docker.io/library/mysql:5.6@sha256:20575ecebe6216036d25dab5903808211f1e9ba63dc7825ac20cb975e34cfcae
-ContainerName:mysql
-Data:syscall=SYS_OPEN flags=O_WRONLY|O_CREAT|O_NOCTTY|O_NONBLOCK
-Enforcer:AppArmor
-HostName:aditya
-HostPID:24503
+  ContainerName:mysql
+  Data:syscall=SYS_RMDIR
+  Enforcer:AppArmor
+  HashID:e9e43507c8e19feaf61a50e7e5761443f4b6e8fc0df74928cc0d0cb5cd4fa961
+  HostName:aditya
+HostPID:24462
 HostPPID:24411
 Labels:app=mysql
-Message:Credentials modification denied
+Message:
 NamespaceName:wordpress-mysql
-Operation:File
+Operation:Syscall
 Owner:{} 3 items
-Name:mysql
-Namespace:wordpress-mysql
-Ref:Deployment
-PID:186
+  Name:mysql
+  Namespace:wordpress-mysql
+  Ref:Deployment
+PID:185
 PPID:179
-ParentProcessName:/bin/bash
 PodName:mysql-74775b4bf4-65nqf
-PolicyName:harden-mysql-trusted-cert-mod
-ProcessName:/bin/touch
-Resource:/etc/ssl/certs/new
+PolicyName:DefaultPosture
+ProcessName:/bin/rmdir
+Resource:/etc/ssl/certs
 Result:Permission denied
-Severity:1
-Source:/usr/bin/touch new
-Tags:MITRE,MITRE_T1552_unsecured_credentials,FGT1555,FIGHT
-Timestamp:1696320116
+Severity:
+Source:/bin/rmdir certs
+Tags:
+Timestamp:1696320102
 Type:MatchedPolicy
-UpdatedTime:2023-10-03T08:01:56.680505Z
+UID:0
+UpdatedTime:2023-10-03T08:01:42.373810Z
 cluster_id:3896
 component_name:kubearmor
 instanceGroup:0
 instanceID:0
-tenant_id:167
 workload:1
 ```
 
@@ -103,10 +105,5 @@ workload:1
 [MITRE Subvert Trust Controls](https://attack.mitre.org/techniques/T1553/004/)
 [MITRE Unsecured credentials](https://attack.mitre.org/techniques/T1552/)
 
-## Screenshots
-### Hardening Policy
-![](../images/cards/trusted-cert-bundle-0.png)
 
-### Policy violation
-![](../images/cards/trusted-cert-bundle-1.png)
 
