@@ -8,7 +8,7 @@ check_prereq()
 
 get_field()
 {
-	cat $tmpl | yq ".[$cno].$1"
+		cat $tmpl | yq ".[$cno].$1"
 }
 
 get_references()
@@ -43,7 +43,7 @@ get_protection_policies()
 		p_name=$(get_field "details.protectionpolicies.[$pid].name")
 		p_yaml=$(get_field "details.protectionpolicies.[$pid].path")
 		[[ "$p_name" == "null" ]] || [[ "$p_yaml" == "null" ]] && break
-		[[ $pid -eq 0 ]] && echo "## Policy Templates"
+		[[ $pid -eq 0 ]] && echo "## Policy"
 		p_simulation=$(get_field "details.protectionpolicies.[$pid].simulation")
 		echo -en "### $p_name\n\`\`\`yaml\n$(cat $p_yaml)\n\`\`\`\n"
 		if [ "$p_simulation" != "" ]; then
@@ -66,14 +66,14 @@ card_process()
 # $c_title
 $c_content
 
-## Description
-$(get_field "details.description")
+## Narrative
+$(get_field "details.narrative")
 
 ## Attack Scenario
 $(get_field "details.attackscenario")
 
-## Tags
-$(get_field "details.tags")
+## Compliance
+$(get_field "details.compliance")
 
 $(get_protection_policies)
 

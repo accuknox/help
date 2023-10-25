@@ -1,20 +1,20 @@
 # Sensitive Asset audit
 Audit any (read/write) accesses to sensitive assets.
 
-## Description
+## Narrative
 KubeArmor helps the organization to protect their confidential files and directories  by continuous Monitoring and Alerting the access to that particular file or directory regarding the policy that we define.
 
 ## Attack Scenario
 By modifying the file such as /etc/security/pwquality.conf , /etc/shadow, /etc/pam.d/, /etc/sudoers can bypass authentication or authorization checks,  gain access to user passwords, weaken password requirements and allow the attacker to run commands as root.  Using KubeArmor, Accuknox can do continuous auditing for every access.
 
-## Tags
+## Compliance
 - NIS, NIST-800-53-r5
 - NIST_SA
 - NIST_SA-20
 - NIST_SA-20-Customized Development of Critical Components
 - SA
 
-## Policy Templates
+## Policy
 ### Sensitive data Audit
 ```yaml
 apiVersion: security.kubearmor.com/v1

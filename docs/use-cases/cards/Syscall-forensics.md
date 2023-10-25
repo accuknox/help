@@ -1,18 +1,18 @@
 # Syscall forensics
 Get granular details of all the security sensitive system calls within the target workloads.
 
-## Description
+## Narrative
 KubeArmor can continuously monitor and alert on sensitive syscalls in real time, providing the necessary information to investigate and respond to potential attacks. This is done by auditing the syscalls that are executed on the system and looking for suspicious activity.
 
 ## Attack Scenario
 An attacker who can control the unlink, chown, and chroot syscalls can delete a large number of files, including system configuration files and user data. The unlink syscall deletes a file. The chown syscall changes the ownership of a file or directory. The chroot syscall changes the root directory for the current process and all of its child processes. This could be prevented by auditing these syscalls by KubeArmor.
 
-## Tags
+## Compliance
 - CIS-4.4
 - NIST-4.4
 - MITRE-T1602
 
-## Policy Templates
+## Policy
 ### Syscall Forensics
 ```yaml
 apiVersion: security.kubearmor.com/v1
