@@ -1,17 +1,17 @@
 # File forensics
 Get granular details of all the accessed files within the target workloads.
 
-## Description
+## Narrative
 Changes to system binary folders, configuration paths, and credentials paths need to be monitored for change.
 
 ## Attack Scenario
 An attacker might want to update the configuration so as to disable security controls or access logs.
 
-## Tags
+## Compliance
 - CISv1
 - Control-Id-Linux 4.1.12
 
-## Policy Templates
+## Policy
 ### File Forensics
 ```yaml
 apiVersion: security.kubearmor.com/v1

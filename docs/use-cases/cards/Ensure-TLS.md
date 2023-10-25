@@ -7,7 +7,7 @@ k8tls (pronounced cattles), to assess server port security by detecting its TLS 
 ## Attack Scenario
 An attacker may perform reconnaissance to identify protocol without TLS to exploit those parameters. TLS ensures all the traffic flows in an encrypted manner to avoid the risk of MITM attacks.
 
-[**Examples:** Man-in-the-middle(MITM)]
+**Attack Type** Man-in-the-middle(MITM)
 
 ## Tags
 - Ensuring TLS

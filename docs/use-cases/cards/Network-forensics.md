@@ -1,17 +1,17 @@
 # Network forensics
 Get granular details of all the network accesses within the target workloads.
 
-## Description
+## Narrative
 KubeArmor helps the organization to protect their Network level acceass from the attackers by  continuous Monitoring and Alerting the access when it's happening.
 
 ## Attack Scenario
 An attacker can scan the open ports on a system by sending connection requests to a wide range of ports. This can be detected by monitoring for a large number of connection attempts to a variety of ports in a short period of time.
 
-## Tags
+## Compliance
 - NIST-800
 - NIST_SA
 
-## Policy Templates
+## Policy
 ### Network Forensics
 ```yaml
 apiVersion: security.kubearmor.com/v1

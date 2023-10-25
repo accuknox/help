@@ -1,16 +1,16 @@
 # Process forensics
 Get granular details of all the executed processes within the target workloads.
 
-## Description
+## Narrative
 KubeArmor to audit the following process: /bin/ps, /usr/bin/ps, /usr/bin/pgrep, /usr/bin/top, and /usr/bin/htop. This will allow KubeArmor to detect and respond to suspicious activity involving these tools, such as attempts to enumerate or exploit running processes.
 
 ## Attack Scenario
 Attackers can use the ps, pgrep, and top commands to enumerate the running processes on a system. This information can then be used to identify critical processes that can be targeted for attack.
 
-## Tags
+## Compliance
 - MITRE-T1602
 
-## Policy Templates
+## Policy
 ### Process Forensics
 ```yaml
 apiVersion: security.kubearmor.com/v1

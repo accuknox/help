@@ -13,28 +13,42 @@ bash: /bin/ping: Permission denied
 
 #### Expected Alert
 ```
-ClusterName: default
-HostName: aditya
-NamespaceName: default
-PodName: dvwa-web-566855bc5b-cnvc2
-Labels: tier=frontend,app=dvwa-web
-ContainerName: dvwa
-ContainerID: be0d45c1bf0fc853c8fa39f19e0c0af0e495235eb27365629d5721c3c89c2cb5
-ContainerImage: docker.io/cytopia/dvwa:php-8.1@sha256:f7a9d03b1dfcec55757cc39ca2470bdec1618b11c4a51052bb4f5f5e7d78ca39
-Type: MatchedPolicy
-PolicyName: DefaultPosture
-Source: /bin/bash
-Resource: /bin/ping google.com
-Operation: Process
-Action: Block
-Data: syscall=SYS_EXECVE
-Enforcer: eBPF Monitor
-Result: Permission denied
-HostPID: 46090
-HostPPID: 43271
-Owner: map[Name:dvwa-web Namespace:default Ref:Deployment]
-PID: 64
-PPID: 55
-ParentProcessName: /bin/bash
-ProcessName: /bin/ping
+{
+  "Action": "Block",
+  "ClusterName": "0-trust",
+  "ContainerID": "20a6333c6a46e0da32b3062f0ba76e9aed4fc5ef51f5ee8aec5b980963cedea3",
+  "ContainerImage": "docker.io/library/nginx:latest@sha256:32da30332506740a2f7c34d5dc70467b7f14ec67d912703568daff790ab3f755",
+  "ContainerName": "nginx",
+  "Data": "syscall=SYS_SOCKET",
+  "Enforcer": "eBPF Monitor",
+  "HostName": "aditya",
+  "HostPID": 84245,
+  "HostPPID": 84127,
+  "Labels": "app=nginx",
+  "NamespaceName": "default",
+  "Operation": "Network",
+  "Owner": {
+    "Name": "nginx",
+    "Namespace": "default",
+    "Ref": "Deployment"
+  },
+  "PID": 1032,
+  "PPID": 1023,
+  "ParentProcessName": "/usr/bin/bash",
+  "PodName": "nginx-77b4fdf86c-x7sdm",
+  "PolicyName": "DefaultPosture",
+  "ProcessName": "/usr/bin/ping",
+  "Resource": "domain=AF_INET type=SOCK_DGRAM|SOCK_NONBLOCK|SOCK_CLOEXEC protocol=0",
+  "Result": "Permission denied",
+  "Source": "/usr/bin/ping www.google.com",
+  "Timestamp": 1696591999,
+  "Type": "MatchedPolicy",
+  "UpdatedTime": "2023-10-06T11:33:19.956684Z",
+  "cluster_id": "4291",
+  "component_name": "kubearmor",
+  "instanceGroup": "0",
+  "instanceID": "0",
+  "tenant_id": "167",
+  "workload": "1"
+}
 ```
