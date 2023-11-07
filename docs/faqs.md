@@ -38,13 +38,13 @@ hide:
 
     AccuKnox can integrate multiple Cloud Account, Registries, SIEM platform, Ticketing or Notifications Tools and the list is ever growing. AccuKnox is pretty flexible to support the progression of the list with the customer’s request as our roadmap item. Some of the supported today are as follows:
 
-    + Security Events/SIEM : Splunk, Rsyslog, AWS CloudWatch, Elastic Search, Webhooks
+    + Security Events/SIEM : Splunk, Rsyslog, AWS CloudWatch, Elastic Search, Webhooks, Azure Sentinel
 
     + Notification Tools: Slack, Jira, PagerDuty, Emails
 
-    + Ticketing Tools: Jira, FreshService, Connectwise, Zendesk,
+    + Ticketing Tools: Jira, FreshService, Connectwise, Zendesk
 
-    + Registries: Nexus, ECR, GCR, DockerHub 
+    + Registries: Nexus, ECR, GCR, DockerHub, ACR, Harbor
 
 ??? "**8. How AccuKnox helps in Policy Version Control for Runtime Security?**"
 
@@ -180,7 +180,7 @@ hide:
 
 ??? "**7. Is there a support for CIEM?**"
 
-    It is as part of the roadmap, like IOT edge, 5G Security
+    It is a part of the roadmap, like IOT edge, 5G Security
 
 ??? "**8. What will happen to my application running on a VM?**"
 
@@ -202,11 +202,13 @@ hide:
 
 ??? "**11. Current AccuKnox's marketplace listing?**"
 
-    Accuknox is currently listed on <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
+    Accuknox is currently listed on 
+    
+    - <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
+    - <a href="https://aws.amazon.com/marketplace/pp/prodview-lomtgayjmmmpi?sr=0-2&ref_=beagle&applicationId=AWSMPContessa" target="_blank">AWS</a>
     
     We are in the process of listing on
 
-    + AWS
     + Azure
     + GCP
     + Oracle
