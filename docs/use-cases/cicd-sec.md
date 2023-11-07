@@ -30,9 +30,9 @@ on:
 env:
   DOCKER_IMAGE: "accuknox/bootstrap:testimage"
   DOCKERFILE_CONTEXT: "Dockerfile"
-  CSPM_URL: cspm.demo.accuknox.com
-  CSPM_TOKEN: "t0k3n.F0r4uth3nt1c4t1n6-t0_Th3--p4rt1cUl4r.t3n4Nt1n..tH3-c5pMp4n3l_4nD.pu5h1n6Th3-r3suLt5"
-  TENANT_ID: "*11"
+  CSPM_URL: <url>
+  CSPM_TOKEN: "<token>"
+  TENANT_ID: "<id>"
 
 jobs:
   accuknox-cicd:
