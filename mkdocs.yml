@@ -260,6 +260,7 @@ nav:
         - "AWS Marketplace" :
           - "AccuKnox User Playbook": "integrations/aws-playbook.md"
           - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
+          - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
     - "Platform":
         - "OAuth": "integrations/oauth.md"
         - "Rafay": "integrations/rafay-accuknox.md"
@@ -281,6 +282,7 @@ nav:
       - "Runtime Application Behavior": "use-cases/app-behavior.md"
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+    - "CI/CD Pipeline Security" : "use-cases/cicd-sec.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 
