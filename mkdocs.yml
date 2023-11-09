@@ -266,23 +266,23 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
-    - "Workload Hardening": "use-cases/hardening.md"
-    - "Audit/Forensics": "use-cases/forensics.md"
-    - "Zero Trust Security": "use-cases/zero-trust.md"
-    - "Securing the Secrets Manager" :
-      - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
-      - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
-    - "CSPM":
+    - "ASPM":
       - "Vulnerability Management" : "use-cases/vulnerability.md"
-      - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-      - "Container Security" :
-        - "Image Scan": "use-cases/image-scan.md" 
+      - "CI/CD Pipeline Security" : "use-cases/cicd-sec.md"
+    - "CSPM":
       - "Asset Inventory" : "use-cases/asset-inventory.md"
+      - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
     - "CWPP":
+      - "Image Scan": "use-cases/image-scan.md"
+      - "Workload Hardening": "use-cases/hardening.md"
+      - "Audit/Forensics": "use-cases/forensics.md"
+      - "Zero Trust Security": "use-cases/zero-trust.md"
       - "Runtime Application Behavior": "use-cases/app-behavior.md"
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
-    - "CI/CD Pipeline Security" : "use-cases/cicd-sec.md"
+      - "Securing the Secrets Manager" :
+        - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
+        - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 
