@@ -98,8 +98,7 @@ Tags: NIST,NIST-800-53-r5,CA-9,File Rules,Internal System Connections,NIST_SA,NI
 ```
 
 ## References
-[NIST Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/ipd)
-[CSF Customized Development Of Critical Components](https://csf.tools/reference/nist-sp-800-53/r4/sa/sa-20/)
+[NIST Security and Privacy Controls for Information Systems and Organizations](https://csrc.nist.gov/pubs/sp/800/53/r5/ipd)<br />[CSF Customized Development Of Critical Components](https://csf.tools/reference/nist-sp-800-53/r4/sa/sa-20/)<br />
 
 
 

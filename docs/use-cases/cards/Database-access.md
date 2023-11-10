@@ -94,8 +94,7 @@ root@mysql-74775b4bf4-65nqf:/var/lib/mysql#
 ```
 
 ## References
-[MITRE Scan Databases](https://attack.mitre.org/techniques/T1596/005/)
-[Yahoo Service Hacked](https://arstechnica.com/information-technology/2012/07/yahoo-service-hacked/)
+[MITRE Scan Databases](https://attack.mitre.org/techniques/T1596/005/)<br />[Yahoo Service Hacked](https://arstechnica.com/information-technology/2012/07/yahoo-service-hacked/)<br />
 
 
 

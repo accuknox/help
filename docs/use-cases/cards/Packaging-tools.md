@@ -130,8 +130,7 @@ bash: /usr/bin/apt-get: Permission denied
 ```
 
 ## References
-[MITRE Installer Packages](https://attack.mitre.org/techniques/T1546/016/)
-[Codecov Incident - A Supply Chain Attack](https://blog.sonatype.com/what-you-need-to-know-about-the-codecov-incident-a-supply-chain-attack-gone-undetected-for-2-months)
+[MITRE Installer Packages](https://attack.mitre.org/techniques/T1546/016/)<br />[Codecov Incident - A Supply Chain Attack](https://blog.sonatype.com/what-you-need-to-know-about-the-codecov-incident-a-supply-chain-attack-gone-undetected-for-2-months)<br />
 
 
 

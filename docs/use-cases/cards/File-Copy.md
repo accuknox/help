@@ -99,9 +99,7 @@ root@wordpress-fb448db97-wj7n7:/usr/bin#
 ```
 
 ## References
-[MITRE Exfiltration](https://attack.mitre.org/tactics/TA0010/)
-[Darkbeams data breach](https://www.idstrong.com/sentinel/darkbeams-alarming-data-breach/)
-[Shields Healthcare Group Data Breach](https://www.idstrong.com/sentinel/shields-healthcare-group-data-breach/)
+[MITRE Exfiltration](https://attack.mitre.org/tactics/TA0010/)<br />[Darkbeams data breach](https://www.idstrong.com/sentinel/darkbeams-alarming-data-breach/)<br />[Shields Healthcare Group Data Breach](https://www.idstrong.com/sentinel/shields-healthcare-group-data-breach/)<br />
 
 
 

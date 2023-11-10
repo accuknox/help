@@ -121,9 +121,7 @@ root@mysql-74775b4bf4-65nqf:/sbin# cd ..
 ```
 
 ## References
-[Mitre-Techniques-T1565](https://attack.mitre.org/techniques/T1565/)
-[PCI DSS and FIM](https://pcidssguide.com/the-pci-dss-and-file-integrity-monitoring/)
-[The biggest ransomware attacks in history](https://www.techtarget.com/searchsecurity/tip/The-biggest-ransomware-attacks-in-history)
+[Mitre-Techniques-T1565](https://attack.mitre.org/techniques/T1565/)<br />[PCI DSS and FIM](https://pcidssguide.com/the-pci-dss-and-file-integrity-monitoring/)<br />[The biggest ransomware attacks in history](https://www.techtarget.com/searchsecurity/tip/The-biggest-ransomware-attacks-in-history)<br />
 
 
 

@@ -101,8 +101,7 @@ root@dvwa-web-566855bc5b-4j4vl:/var/www/html#
 ```
 
 ## References
-[MITRE ATT&CK execution in k8s](https://cloud.redhat.com/blog/protecting-kubernetes-against-mitre-attck-execution#:~:text='kubectl%20exec'%20allows%20a%20user,compromise%20resources%20within%20a%20cluster)
-[Target Data Breach](https://www.idstrong.com/sentinel/that-one-time-target-lost-everything/)
+[MITRE ATT&CK execution in k8s](https://cloud.redhat.com/blog/protecting-kubernetes-against-mitre-attck-execution#:~:text='kubectl%20exec'%20allows%20a%20user,compromise%20resources%20within%20a%20cluster)<br />[Target Data Breach](https://www.idstrong.com/sentinel/that-one-time-target-lost-everything/)<br />
 
 
 

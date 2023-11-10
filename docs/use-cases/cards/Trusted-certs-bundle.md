@@ -104,10 +104,7 @@ root@mysql-74775b4bf4-65nqf:/etc/ssl/certs#
 ```
 
 ## References
-[MITRE Subvert Trust Controls](https://attack.mitre.org/techniques/T1553/004/)
-[MITRE Unsecured credentials](https://attack.mitre.org/techniques/T1552/)
-[POODLE Attack](https://www.acunetix.com/blog/web-security-zone/what-is-poodle-attack/)
-[BEAST](https://docs.digicert.com/en/certcentral/certificate-tools/discovery-user-guide/tls-ssl-endpoint-vulnerabilities/beast.html#:~:text=In%20a%20BEAST%20attack%2C%20the,e.g.%2C%20HTTP%20authentication%20cookies).)
+[MITRE Subvert Trust Controls](https://attack.mitre.org/techniques/T1553/004/)<br />[MITRE Unsecured credentials](https://attack.mitre.org/techniques/T1552/)<br />[POODLE Attack](https://www.acunetix.com/blog/web-security-zone/what-is-poodle-attack/)<br />[BEAST](https://docs.digicert.com/en/certcentral/certificate-tools/discovery-user-guide/tls-ssl-endpoint-vulnerabilities/beast.html#:~:text=In%20a%20BEAST%20attack%2C%20the,e.g.%2C%20HTTP%20authentication%20cookies).)<br />
 
 
 
