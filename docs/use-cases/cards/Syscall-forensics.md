@@ -83,8 +83,7 @@ Tags: CIS-4.4,4.3,4.12,NIST-4.4,4.3,4.12,MITRE-T1602
 ```
 
 ## References
-[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)
-[MITRE Data from Configuration Repository](https://attack.mitre.org/techniques/T1602/)
+[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks)<br />[MITRE Data from Configuration Repository](https://attack.mitre.org/techniques/T1602/)<br />
 
 
 

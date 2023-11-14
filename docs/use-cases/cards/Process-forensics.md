@@ -81,7 +81,7 @@ Tags: MITRE,Discovery
 ```
 
 ## References
-[MITRE Data from Configuration Repository](https://attack.mitre.org/techniques/T1602/)
+[MITRE Data from Configuration Repository](https://attack.mitre.org/techniques/T1602/)<br />
 
 
 

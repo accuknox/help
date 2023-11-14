@@ -113,7 +113,7 @@ rm: cannot remove '/root/.bash_history': Permission denied
 ```
 
 ## References
-[MITRE Indicator Removal](https://attack.mitre.org/techniques/T1070/)
+[MITRE Indicator Removal](https://attack.mitre.org/techniques/T1070/)<br />
 
 
 

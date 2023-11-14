@@ -7,7 +7,7 @@ It's crucial to find and patch vulnerabilities early in the software development
 
 Consider the "Heartbleed" vulnerability (CVE-2014-0160) in OpenSSL. It allowed attackers to exploit a flaw, potentially accessing sensitive information. Similar vulnerabilities can affect different libraries or components used in applications. Regularly monitoring, updating dependencies, and applying security patches are crucial for mitigating risks and enhancing application security.
 
-In the Static Security solution, AccuKnox has the ability to integrate with your CI/CD pipeline to automatically scan the software in different phases i.e. code, container images and deployment for such vulnerabilities.
+As a part of ASPM, AccuKnox has the ability to integrate with your CI/CD pipeline to automatically scan the software in different phases i.e. code, container images and deployment for such vulnerabilities.
 
 
 Lets understand this by an example: **Automatically Scanning CI pipeline for vulnerabilities**
@@ -20,7 +20,7 @@ In software development, multiple engineers contribute to the same codebase. To 
 
 {% raw %}
 ```sh
-name: CICD CSPM Scan
+name: CICD ASPM Scan
 
 on:
   pull_request:
@@ -30,8 +30,8 @@ on:
 env:
   DOCKER_IMAGE: "accuknox/bootstrap:testimage"
   DOCKERFILE_CONTEXT: "Dockerfile"
-  CSPM_URL: <url>
-  CSPM_TOKEN: "<token>"
+  ASPM_URL: <url>
+  ASPM_TOKEN: "<token>"
   TENANT_ID: "<id>"
 
 jobs:
@@ -56,13 +56,13 @@ jobs:
       - name: Print Results
         run: cat results.json
 
-      - name: Push report to CSPM panel
+      - name: Push report to ASPM panel
         run: |
-          curl --location --request POST 'https://${{env.CSPM_URL}}/api/v1/artifact/?tenant_id=${{ env.TENANT_ID }}&data_type=TR&save_to_s3=false' --header 'Authorization: Bearer ${{ env.CSPM_TOKEN }}' --form 'file=@"./results.json"'
+          curl --location --request POST 'https://${{env.ASPM_URL}}/api/v1/artifact/?tenant_id=${{ env.TENANT_ID }}&data_type=TR&save_to_s3=false' --header 'Authorization: Bearer ${{ env.ASPM_TOKEN }}' --form 'file=@"./results.json"'
 ```
 {% endraw %}
 
-**Note:** In the above template user needs to change some variables including CSPM_URL, CSPM_TOKEN, TENANT_ID. Values for these variables can be fetched from AccuKnox SaaS. 
+**Note:** In the above template user needs to change some variables including ASPM_URL, ASPM_TOKEN, TENANT_ID. Values for these variables can be fetched from AccuKnox SaaS. 
 
 **Step 2:** Now when a user try to create a pull request from their repository, the workflow will run which will do the necessary steps for scanning and posting the results to Accuknox SaaS.
 

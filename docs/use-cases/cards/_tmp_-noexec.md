@@ -87,9 +87,7 @@ root@wordpress-fb448db97-wj7n7:/var/tmp#
 ```
 
 ## References
-[STIG no exec in /tmp](https://www.stigviewer.com/stig/red_hat_enterprise_linux_6/2016-12-16/finding/V-57569)
-[The biggest ransomeware attacks in history](https://www.techtarget.com/searchsecurity/tip/The-biggest-ransomware-attacks-in-history)
-[Shields Healthcare Group Data Breach](https://www.idstrong.com/sentinel/shields-healthcare-group-data-breach/)
+[STIG no exec in /tmp](https://www.stigviewer.com/stig/red_hat_enterprise_linux_6/2016-12-16/finding/V-57569)<br />[The biggest ransomeware attacks in history](https://www.techtarget.com/searchsecurity/tip/The-biggest-ransomware-attacks-in-history)<br />[Shields Healthcare Group Data Breach](https://www.idstrong.com/sentinel/shields-healthcare-group-data-breach/)<br />
 
 
 

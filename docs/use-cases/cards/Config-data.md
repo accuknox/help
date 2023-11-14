@@ -85,8 +85,7 @@ $
 ```
 
 ## References
-[MITRE Unsecured credentials in files](https://attack.mitre.org/techniques/T1552/001/)
-[Turla LightNeuron](https://www.welivesecurity.com/2019/05/07/turla-lightneuron-email-too-far/)
+[MITRE Unsecured credentials in files](https://attack.mitre.org/techniques/T1552/001/)<br />[Turla LightNeuron](https://www.welivesecurity.com/2019/05/07/turla-lightneuron-email-too-far/)<br />
 
 
 

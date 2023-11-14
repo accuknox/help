@@ -92,7 +92,7 @@ Tags: NIST,PCI-DSS
 ```
 
 ## References
-[MITRE Data Manipulation](https://attack.mitre.org/techniques/T1602/)
+[MITRE Data Manipulation](https://attack.mitre.org/techniques/T1602/)<br />
 
 
 

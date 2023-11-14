@@ -18,7 +18,7 @@ get_references()
 		r_url=$(get_field "details.references.[$rid].url")
 		[[ "$r_title" == "null" ]] || [[ "$r_url" == "null" ]] && break
 		[[ $rid -eq 0 ]] && echo "## References"
-		echo -en "[$r_title]($r_url)\n"
+		echo -en "[$r_title]($r_url)<br />"
 	done
 }
 
