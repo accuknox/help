@@ -291,6 +291,7 @@ nav:
       - "Count my Cloud Assets": "resources/count-assets.md"
       - "Count my Container Registries": "resources/count-registry.md"
       - "Count my K8s Cluster Worker Nodes": "resources/count-nodes.md"
+    - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Backup my Scan Data": "resources/scan-data-backup.md"
     - "Troubleshooting": "resources/troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
