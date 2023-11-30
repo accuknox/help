@@ -54,7 +54,36 @@ KubeArmor is installed using the following commands:
 >> curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
 >> karmor install
 ```
-![](images/cluster-onboarding-5.png)
+
+Sample Output:
+
+```sh
+vagrant@master-node:-$ curl -sfl http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
+kubearmor/kubearmor-client info checking GitHub for latest tag
+kubearmor/kubearmor-client info found version: 0.11.6 for v0.11.6/1inux/amd64
+kubearmor/kubearmor-client info installed /usr/local/bin/karmor
+vagrant@master-node:-$ karmor install
+• Auto Detected Environment : k3s
+• CRD kubearmorpolicies.security.kubearmor.com
+• CRD kubearmorhostpolicies.security.kubearmor.com
+• Service Account
+• Cluster Role Bindings
+• KubeArmor Relay Service
+• KubeArmor Relay Deployment
+• KubeArmor DaemonSetkubearmor/kubearmor:stable-gRPC.32767 -enablekubeArmorHostPolicy
+• KubeArmor Policy Manager Service
+• KubeArmor Policy Manager Deployment
+• KubeArmor Host Policy Manager Service
+• KubeArmor Host Policy Manager Deployment
+• KubeArmor Annotation Controller TLS certificates
+• KubeArmor Annotation Controller Deployment
+• KubeArmor Annotation Controller Service
+• KubeArmor Annotation Controller Mutation Admission Registration
+• Done Installing KubeArmor
+• Done Checking , ALL Services are running!
+• Execution Time : 17.934890329s
+vagrant@master-node:-$ 
+```
 
 **Step 5.2:** AccuKnox-Agents installation:
 
@@ -75,25 +104,39 @@ After installing KubeArmor we are going to install AccuKnox Agents in the cluste
 AccuKnox Agents can be installed using the following command: 
 
 ```bash
-helm repo add accuknox-agents-dev https://accuknox-agents-dev:h47Sh4taEs@agents.accuknox.com/repository/accuknox-agents-dev
-      helm repo update
-      helm upgrade --install agents-operator accuknox-agents-dev/agents-operator \
-      --set props.tenant_id="1354" \
-      --set props.workspace_id="1354" \
-      --set props.cluster_name="demotestk3" \
-      --set props.CLUSTER_NAME="demotestk3" \
-      --set props.cluster_id="********" \
-      --set props.helm_repo="accuknox-agents-dev" \
-      --set props.helm_repo_url="https://accuknox-agents-dev:**********@agents.accuknox.com/repository/accuknox-agents-dev" \
-      --set props.docker_repo_host="agents.accuknox.com" \
-      --set props.docker_repo_username="***********" \
-      --set props.docker_repo_password="***********" \
-      --create-namespace -n accuknox-agents
+    helm upgrade --install accuknox-agents oci://public.ecr.aws/k9v9d5v2/accuknox-agents \
+      --version "v0.2.6" \
+      --set joinToken="***********-***********-***********" \
+      --set spireHost="spire.demo.accuknox.com" \
+      --set ppsHost="pps.demo.accuknox.com" \
+      --set knoxGateway="knox-gw.demo.accuknox.com:3000" \
+      -n accuknox-agents --create-namespace
 ```
 
-![](images/cluster-onboarding-7.png)
+Sample Output:
 
-**Note:** In the above command **workspace_id,cluster_name,tenant_id**  are specific to this example and it will vary based on the cluster
+```sh
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/vagrant/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/vagrant/.kube/config
+"accuknox-agents-dev" already exists with the same configuration, skipping
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/vagrant/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/vagrant/.kube/config
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "accuknox-agents-dev" chart repository
+Update Complete. *Happy Helming!*
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/vagrant/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/vagrant/.kube/config
+Release "agents-operator" does not exist. Installing it now.
+NAME: agents-operator
+LAST DEPLOYED: Mon Jan 30 10:22:37 2023
+NAMESPACE: accuknox-agents S
+TATUS: deployed
+REVISION: 1
+TEST SUITE: None
+vagrant@master-node:-$ 
+```
+
+**Note:** In the above command **joinToken**  is specific to this example and it will vary based on the cluster
 
 **Step 6:** Onboarded Cluster: 
 

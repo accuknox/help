@@ -69,7 +69,34 @@ KubeArmor is installed using the following commands:
 >> karmor install
 ```
 
-![](images/gke-8.png)
+Sample Output:
+
+```sh
+***********@cloudshell:- (smooth-zenith-382113)$ curl -sfL http://get.kubearmor.io/ | sudo sh s b /usr/local/bin
+kubearmor/kubearmor-client info checking GitHub for latest tag
+kubearmor/kubearmor-client info found version: 0.12.4 for v0.12.4/linux/amd84
+kubearmor/kubearmor-client info installed /usr/local/bin/karmor
+***********@cloudshell:- (smooth-zenith-382113)$ karmor install
+Auto Detected Environment : gke 
+CRD kubearmorpolicies.security.kubearmor.com
+CRD kubearmorhostpolicies.security.kubearmor.com
+Service Account 
+Cluster Role Bindings 
+KubeArmor Relay Service
+KubeArmor Relay Deployment
+KubeArmor DaemonSet - Init kubearmor/kubearmor-init:stable, Container kubearmor/kubearmor:stable-gRPC=22767 
+KubeArmor Policy Manager Service
+KubeArmor Policy Manager Deployment 
+KubeArmorrHost Policy Manager Service 
+KubeArmor Host Policy Manager Deployment 
+KubeArmor Annotation Controller TLS certificates
+KubeArmorrAnnotationgcontroller Deployment 
+KubeArmorrAnnotationgcontroller Service
+KubeArmor Annotation Controller Mutation Admission Registration 
+Done Installing RubeArmor 
+Done Checking tALL Services are\running!
+Execution Time : 43.880558117s 
+```
 
 **Step 5.2:** AccuKnox-Agents installation:
 
@@ -91,26 +118,39 @@ AccuKnox Agents can be installed using the following command:
 
 
 ```sh
-      helm repo add accuknox-agents https://accuknox-agents-dev:h47Sh4taEs@artifactory.accuknox.com/repository/accuknox-agents
-      helm repo update
-      helm upgrade --install agents-operator accuknox-agents/agents-operator \
-            --set props.tenant_id="399" \
-            --set props.workspace_id="399" \
-            --set props.cluster_name="gke-cluster" \
-            --set props.CLUSTER_NAME="gke-cluster" \
-            --set props.cluster_id="1814" \
-            --set props.helm_repo="accuknox-agents" \
-            --set props.helm_repo_url="https://accuknox-agents-dev:h47Sh4taEs@artifactory.accuknox.com/repository/accuknox-agents" \
-            --set props.docker_repo_host="artifactory.accuknox.com" \
-            --set props.docker_repo_username="accuknox-agents-image" \
-            --set props.docker_repo_password="SjnnJxs3fk" \
-            --create-namespace -n accuknox-agents 
+    helm upgrade --install accuknox-agents oci://public.ecr.aws/k9v9d5v2/accuknox-agents \
+      --version "v0.2.6" \
+      --set joinToken="***********-***********-***********" \
+      --set spireHost="spire.demo.accuknox.com" \
+      --set ppsHost="pps.demo.accuknox.com" \
+      --set knoxGateway="knox-gw.demo.accuknox.com:3000" \
+      -n accuknox-agents --create-namespace
 ```
 
+Sample Output:
 
-![](images/gke-9.png)
+```sh
+***********@cloudshell:- (smooth-zenith-382113)$     helm upgrade --install accuknox-agents oci://public.ecr.aws/k9v9d5v2/accuknox-agents \
+      --version "v0.2.6" \
+      --set joinToken="***********-***********-***********" \
+      --set spireHost="spire.demo.accuknox.com" \
+      --set ppsHost="pps.demo.accuknox.com" \
+      --set knoxGateway="knox-gw.demo.accuknox.com:3000" \
+      -n accuknox-agents --create-namespace
+"accuknox-agents" has been added to your repositories
+Hang tight while we grab the latest from your chart repositories...
+...Succssfully got an update from the "accuknox-agents" chart repository
+Update Complete. *Happy Helming!*
+Release "agents-operator" does not exist. Installing it now.
+NAME: agents-operator
+LAST DEPLOYED: Wed Mar 29 14:41:20 2023
+NAMESPACE: accuknox-agents
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None 
+```
 
-**Note:** In the above command workspace_id,cluster_name,tenant_id are specific to this example and it will vary based on the cluster
+**Note:** In the above command joinToken is specific to this example and it will vary based on the cluster
 
 **Step 6:** After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory->cloud Workloads option
 
