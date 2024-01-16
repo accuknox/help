@@ -146,6 +146,10 @@ hide:
 
     Accuknox only requires an IAM role to be created with read only access to be able to get data from AWS. Security Hub and Macie can be optionally enabled for Accuknox to gather richer telemetry data with more context.
 
+??? "**22. What are the Hypervisors or Virtualized Environments that are supported by AccuKnox?**"
+
+    AccuKnox technology does not integrate at the VM virtualization layer. AccuKnox tech integrates at the operating system layer and ensures that the right hardening/enforcement for process executions, network access, and file access is in place. Thus AccuKnox can operate on any virtualization tech provided that the underlying VM uses Linux as its operating system.
+
 ## **Bonus Questions :**
 
 ??? "**1. What are all the compliance frameworks that AccuKnox is covering?**"
