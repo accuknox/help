@@ -306,3 +306,25 @@
       - name: ICMP Control
         path: res/icmp-con.yaml
         simulation: res/icmp-con.md
+
+- title: Restrict Capabilities
+  content: Do not allow capabilities that can be leveraged by the attacker.
+  image: images/uc/box-lock.png
+  details:
+    narrative: >
+      Containers run with a default set of capabilities as assigned by the Container Runtime. Capabilities are parts of the rights generally granted on a Linux system to the root user. In many cases applications running in containers do not require any capabilities to operate, so from the perspective of the principal of least privilege use of capabilities should be minimized.
+    attackscenario: >
+      Kubernetes by default connects all the containers running in the same node (even if they belong to different namespaces) down to Layer 2 (ethernet). Every pod running in the same node is going to be able to communicate with any other pod in the same node (independently of the namespace) at ethernet level (layer 2). This allows a malicious containers to perform an ARP spoofing attack to the containers on the same node and capture their traffic.<br />
+      **Attack Type** Reconnaissance, Spoofing<br />
+      **Actual Attack** Recon through P.A.S. Webshell, NBTscan
+    compliance:
+      - CIS Kubernetes 
+      - Control Id: 5.2.8 - Minimize the admission of containers with the NET_RAW capability
+      - Control Id: 5.2.9 - Minimize the admission of containers with capabilities assigned
+    references:
+      - title: MITRE Network Service Discovery
+        url: https://attack.mitre.org/techniques/T1046/
+    protectionpolicies:
+      - name: Restrict Capabilities
+        path: res/res-cap.yaml
+        simulation: res/res-cap.md

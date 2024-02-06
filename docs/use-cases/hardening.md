@@ -67,5 +67,10 @@
   image: images/uc/ip.png
   url: cards/ICMP-control.md
 
+- title: Restrict Capabilities
+  content: Do not allow capabilities that can be leveraged by the attacker.
+  image: images/uc/box-lock.png
+  url: cards/Restrict-Capabilities.md
+
 ::/cards::
 
