@@ -215,9 +215,7 @@ nav:
               - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
               - "Managed" : "getting-started/cluster-onboarding-managed.md"
               - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
-      - "On-prem" :
-          - "On-prem Prerequisites" : "getting-started/on-prem-prereq.md"
-          - "On-prem Installation Guide" : "getting-started/on-prem-installation-guide.md"
+      - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":

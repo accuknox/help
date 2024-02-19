@@ -26,8 +26,55 @@ K8s native horizontal and vertical pod autoscaling is enabled for most microserv
 
 Agents need to be deployed in target k8s clusters and virtual machines that have to be secured at runtime and to get workload forensics. Agents use Linux native technologies such as eBPF for workload telemetry and LSMs (Linux Security Modules) for preventing attacks/unknown execution in the target workloads. The security policies are orchestrated from the AccuKnox onprem control plane. AccuKnox leverages SPIFFE/SPIRE for workload/node attestation and certificate provisioning. This ensures that the credentials are not hardcoded and automatically rotated. This also ensures that if the cluster/virtual machine has to be deboarded then the control lies with the AccuKnox control plane.
 
+## **System Requirements**
 
-## Installation steps
+### Worker Node Requirements
+
+| Nodes | vCPUs | RAM (GB) | Disk (GB) |
+| ----- | ----- | -------- | --------- |
+| 4     | 8     | 32       | 256       |
+| 5     | 4     | 16       | 128       |
+
+### Kubernetes Requirements
+
+- Start a k8s cluster with the above worker node requirements
+
+- Ingress Controller (load balancers)
+    - For access to the application
+
+- Persistent Volumes (PV), provisioner/controller (block device/disks)
+    - Used as data storage for SQL, MongoDB, scanned artifacts
+    - Other internal app usages
+
+- DNS CNAME provisioning
+    - Needed for application access & communication
+    - Certs would use this CNAME so that address changes won’t impact the cert validation.
+
+- Email account configuration
+    - Need email username, password
+    - Used for user sign-in, password change, scan notification, sending reports
+
+### Jump Host
+
+![](images/on-prem-jump.png)
+
+### Jump Host Pre-requisites
+
+You need to have the following tools installed in the machine that you are going to use to follow the installation guide
+
+| Tool                                  | Version                       | Install command                                                                                                                                                                                  |
+| ------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| jq                                    | 1.6                           | `apt install jq`                                                                                                                                                                                   |
+| unzip                                 | x.x                           | `apt install unzip`                                                                                                                                                                                |
+| [yq](https://github.com/mikefarah/yq) | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - | tar xz && mv ${BINARY} /usr/bin/yq`                        |
+| helm                                  | v3.x.x                        | `curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \`| bash                                                                                                                  |
+| kubectl                               | Supported by your k8s cluster |                                                                                                                                                                                                  |
+| aws                                   | v2                            | `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update` |
+| docker                                | v20.xx                        | `apt install docker.io`                                                                                                                                                                            |
+
+Also the machine needs to have at least 80GB of storage
+
+## **Installation steps**
 
 ### Installation Package
 
