@@ -210,10 +210,10 @@ hide:
     
     - <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
     - <a href="https://aws.amazon.com/marketplace/pp/prodview-lomtgayjmmmpi?sr=0-2&ref_=beagle&applicationId=AWSMPContessa" target="_blank">AWS</a>
+    - <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/accuknoxinc1674553411688.accuknox_saas_ver1?tab=Overview" target="_blank">Azure</a>
     
     We are in the process of listing on
 
-    + Azure
     + GCP
     + Oracle
     + IBM/OpenShift
