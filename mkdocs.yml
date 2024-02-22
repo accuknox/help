@@ -227,7 +227,7 @@ nav:
         - "Private Cloud" : "getting-started/private-cloud.md"
         - "VMs" : "getting-started/vms.md"
         - "Supported Benchmarks" : "getting-started/supported-benchmarks.md"
-        - "Assets list" : "getting-started/assets-list.md" 
+        - "CSPM Assets Support" : "getting-started/assets-list.md" 
     - "Sample Workloads Protection" :
       - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md" 
       - "DVWA Protection": "getting-started/dvwa.md"  
