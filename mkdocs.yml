@@ -161,15 +161,15 @@ nav:
     - "Inventory" : 
           - "Assets": "saas/assets.md"
           - "Cloud Workloads" : "saas/cloud-workloads.md"
-          - "Imports" : "saas/imports.md"
-          - "Explorer" : "saas/explorer.md"
-          - "Baselines" : "saas/inventory-baseline.md"
+         # - "Imports" : "saas/imports.md"
+         # - "Explorer" : "saas/explorer.md"
+         # - "Baselines" : "saas/inventory-baseline.md"
     - "Issues" :
           - "Vulnerabilities" : "saas/vulnerabilities.md"
           - "Registry Scan" : "saas/registry-scan.md"
-          - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
+         # - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
     - "Compliance" : 
-          - "Baselines" : "saas/baselines.md"
+         # - "Baselines" : "saas/baselines.md"
           - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
     - "Runtime Protection" : 
           - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
@@ -180,7 +180,7 @@ nav:
     - "Monitors/Logging" : 
           - "Logs" : "saas/logs.md"
           - "Triggers" : "saas/triggers.md"
-          - "Monitors" : "saas/monitors.md"
+        #  - "Monitors" : "saas/monitors.md"
     - "Reports" : "saas/reports.md"
     - "Notification" : 
          - "Slack" : "saas/slack.md"
