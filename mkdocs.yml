@@ -219,7 +219,10 @@ nav:
       - "DevSecOps" : "getting-started/devsecops.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
-        - "AccuKnox" : "getting-started/accuknox-release.md"
+        - "AccuKnox" : 
+           - "V1.7 Release Notes" : "getting-started/1-7-release.md"
+           - "v1.6 Release Notes" : "getting-started/1-6-release.md"
+           - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Support Matrix":
         - "KubeArmor Support Matrix" : "getting-started/kubearmor-support-matrix.md"

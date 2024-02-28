@@ -96,19 +96,16 @@ hide:
 ??? "**17. What are the platforms and environments that Accuknox supports?**"
 
     Accuknox supports the following environments:
-
     + SaaS
     + PaaS
     + IaaS
 
     Accuknox supports the following cloud platforms:
-
     + AWS
     + GCP
     + Azure
 
     Accuknox support for the different platforms are as follows:
-
     + Kubernetes - Fully supported
     + Linux - [Supported distributions](/getting-started/kubearmor-support-matrix/#supported-linux-distributions)
     + Serverless - Fargate and ECS supported, others are on roadmap
@@ -150,17 +147,35 @@ hide:
 
     AccuKnox technology does not integrate at the VM virtualization layer. AccuKnox tech integrates at the operating system layer and ensures that the right hardening/enforcement for process executions, network access, and file access is in place. Thus AccuKnox can operate on any virtualization tech provided that the underlying VM uses Linux as its operating system.
 
+??? "**23. What is the differentiation of AccuKnox in ASPM Security?**"
+    
+     In the ASPM Security solution, unlike other tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. This is mainly done for the following two context:
+
+    + Remove dependencies and scoped results from one tool
+    + Bring in contextual understanding of vulnerabilities and prioritization based on that
+
+     Further on this, We also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
+
+
+
 ## **Bonus Questions :**
+??? "**1. What are the modules supported by AccuKnox CNAPP currently?**"
+       + CSPM
+       + ASPM 
+       + DevSecOps security in CI/CD pipeline
+       + CWPP
+       + Container Images Scanning
+       + CDR (Cloud Detection or Response) or CDM (Continuous Diagnostic & Mitigation)
 
-??? "**1. What are all the compliance frameworks that AccuKnox is covering?**"
+??? "**2. What are all the compliance frameworks that AccuKnox is covering?**"
 
-    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, CMMC, Fisma . 
+    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001. 
 
-??? "**2. Does Inline remediation slowdown the process?**"
+??? "**3. Does Inline remediation slowdown the process?**"
 
     LSMs are already enabled in the environment and use host based LSM security. Since the attacker usually has direct access to the pod, AccuKnox uses Inline remediation to stop the processes before executing. Therefore, inline remediation does not slow down the process
 
-??? "**3. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
+??? "**4. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
 
     + Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
     + Understanding the Application behaviour using LSMs enables creation of behavioural policies
@@ -168,57 +183,58 @@ hide:
     + Behavioural policies are allow based policies
     + An example of policies is FIM (File Integrity Monitoring) policy
 
-??? "**4. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
+??? "**5. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
 
     Yes, it can show up in terms of Application Behaviour & Logs
 
-??? "**5. What is the deployment architecture?**"
+??? "**6. What is the deployment architecture?**"
+     + Applications -
+        + For Kubernetes - Daemonset
+        + For Containers, VM - Systemd mode
+     + Infrastructure -
+        + Public Cloud - Agentless (API Scan) for SaaS based usage
+        + On-Prem or Datacenter - On-prem deployment using Helm-charts
 
-    When using AccuKnox SAAS enterprise, Agents like: KubeArmor, Policy Enforcement 
-    etc get deployed. If you would like to install on-prem and keep the telemetry 
-    unexposed, it can still be possible
 
-??? "**6. Where is AccuKnox SAAS is located?**"
+??? "**7. Where is AccuKnox SAAS is located?**"
 
     Currently it is located in US region
 
-??? "**7. Is there a support for CIEM?**"
+??? "**8. Is there a support for CIEM?**"
 
     It is a part of the roadmap, like IOT edge, 5G Security
 
-??? "**8. What will happen to my application running on a VM?**"
+??? "**9. What will happen to my application running on a VM?**"
 
     You get hardening policies via AccuKnox enforcement engine KubeArmor
 
-??? "**9. What is AccuKnox’s licensing model?**"
+??? "**10. What is AccuKnox’s licensing model?**"
 
     If it is an end customer - <a href="https://www.accuknox.com/sla" target="_blank">SLA</a>
     
     If it is a MSSP model, it is a revenue share
 
-??? "**10. How do you work with resellers and partnership models?**"
+??? "**11. How do you work with resellers and partnership models?**"
 
     We have a 100% partner aligned go to market approach. to this goal, we provide our partners the following
-
     + Free training, certification
     + Joint marketing
     + Lead sharing
 
-??? "**11. Current AccuKnox's marketplace listing?**"
+??? "**12. Current AccuKnox's marketplace listing?**"
 
     Accuknox is currently listed on 
     
     - <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
     - <a href="https://aws.amazon.com/marketplace/pp/prodview-lomtgayjmmmpi?sr=0-2&ref_=beagle&applicationId=AWSMPContessa" target="_blank">AWS</a>
     - <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/accuknoxinc1674553411688.accuknox_saas_ver1?tab=Overview" target="_blank">Azure</a>
+    - <a href="https://catalog.redhat.com/software/container-stacks/detail/65c70ea1e7719e8b23d8fd50" target="_blank">RedHat Openshift</a>
     
     We are in the process of listing on
-
-    + GCP
-    + Oracle
-    + IBM/OpenShift
-
-??? "**12. Who are current AccuKnox's partners and resellers?**"
+    
+      + GCP
+      + Oracle
+??? "**13. Who are current AccuKnox's partners and resellers?**"
 
     + We have a global partnership with TCS
     + We have a reseller partnership with Ambisure
