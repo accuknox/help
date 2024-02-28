@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 ## **High-Level Architecture Overview**
 
 ![](images/on-prem-deploy.png)
