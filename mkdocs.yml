@@ -263,6 +263,9 @@ nav:
           - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
           - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
     - "Platform":
+        - "Lens" :
+          - "KubeArmor": "integrations/lens-ka.md"
+          - "AccuKnox Agents": "integrations/lens-ak.md"
         - "OAuth": "integrations/oauth.md"
         - "Rafay": "integrations/rafay-accuknox.md"
 
