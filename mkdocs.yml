@@ -256,6 +256,7 @@ nav:
         - "Jira Server" : "integrations/jira-server-cspm.md"
         - "Freshservice" : "integrations/freshservice-cspm.md"
         - "Connectwise" : "integrations/connectwise-cspm.md"
+        - "ServiceNow" : "integrations/servicenow.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
     - "Marketplace Listing":
