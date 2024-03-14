@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Virtual Machine Onboarding
 
 ## Description
