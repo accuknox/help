@@ -1,7 +1,5 @@
 # Virtual Machine Onboarding
 
-![](images/vm/vm-on-0.png)
-
 ## Description
 
 In VM environments, currently, agents are run as docker containers. Thus making docker one of the prerequisites.
@@ -72,6 +70,7 @@ Connectivity between the control plane node and worker nodes is a must. They sho
 
 - The control plane should have public IP
 
+![](images/vm/vm-on-0.png)
 
 ## Steps to Onboard VM
 
