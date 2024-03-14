@@ -215,6 +215,7 @@ nav:
               - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
               - "Managed" : "getting-started/cluster-onboarding-managed.md"
               - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
+            - "VM" : "getting-started/vm-onboarding.md"
       - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
@@ -255,6 +256,7 @@ nav:
         - "Jira Server" : "integrations/jira-server-cspm.md"
         - "Freshservice" : "integrations/freshservice-cspm.md"
         - "Connectwise" : "integrations/connectwise-cspm.md"
+        - "ServiceNow" : "integrations/servicenow.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
     - "Marketplace Listing":

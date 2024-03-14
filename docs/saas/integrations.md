@@ -13,6 +13,8 @@ Under the CWPP subsection user can integrate with various SIEM and ticketing too
    + [Slack](./../saas/slack.md)
 
    + [Jira](./../integrations/jira-cloud-cwpp.md)
+
+   + [ServiceNow](./../integrations/servicenow.md)
    
    ![](images/Integration-1.jpg)
 
