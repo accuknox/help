@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 In the Ticket Template section users can create Jira ticket templates related to vulnerability findings, particular assets, and particular scan results. 
 
 
