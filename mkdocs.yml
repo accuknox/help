@@ -291,6 +291,9 @@ nav:
       - "Securing the Secrets Manager" :
         - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
         - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
+    - "DevSecOps":
+      - "IaC Scan": "use-cases/iac-scan.md"
+      - "Container Scan": "use-cases/container-scan.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 
