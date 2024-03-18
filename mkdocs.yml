@@ -259,6 +259,8 @@ nav:
         - "ServiceNow" : "integrations/servicenow.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
+        - "Email": "integrations/email.md"
+    - "Email Backend" : "integrations/email-backend.md"
     - "Marketplace Listing":
         - "AWS Marketplace" :
           - "AccuKnox User Playbook": "integrations/aws-playbook.md"

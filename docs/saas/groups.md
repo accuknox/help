@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 In the Groups section, users can group the assets and it findings by providing a unique group name. This grouping can be used for creating baselines and seeing other findings related to these grouped assets. 
 
 ![](images/groups-1.jpg)
