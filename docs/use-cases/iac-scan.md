@@ -126,7 +126,7 @@ The image below shows details, solutions, and other information about the miscon
 
 ![](images/iac-scan-images/13.png)
 
-### 5. Resolution: You update the Terraform code to address the Checkov findings:
+### 5. Resolution: You update the Terraform code to address the AccuKnox IaC Scan findings:
 
 {% raw %}
 ```terraform
