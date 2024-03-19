@@ -276,7 +276,6 @@ nav:
   - "Use-Cases":
     - "ASPM":
       - "Vulnerability Management" : "use-cases/vulnerability.md"
-      - "CI/CD Pipeline Security" : "use-cases/cicd-sec.md"
     - "CSPM":
       - "Asset Inventory" : "use-cases/asset-inventory.md"
       - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
