@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # AccuKnox Container Scan Usecase
 
 To show how incorporating AccuKnox into a CI/CD pipeline with GitHub Actions can improve security, let's look at a detailed example involving a Docker image that initially had known vulnerabilities. By running AccuKnox scanning in the pipeline, we can find and fix these vulnerabilities before deploying the image. The following narrative illustrates this process by comparing the situations before and after adding AccuKnox, as seen in the GitHub Actions logs.
@@ -31,7 +36,18 @@ Before using AccuKnox, our Docker image was sent to the registry without any vul
 
 **Updated GitHub Actions Workflow Snippet (Incorporating AccuKnox Scan):**
 
-![](images/container-scan-images/00.png)
+{% raw %}
+```yaml   
+      - name: Run AccuKnox CSPM Scan
+        uses: accuknox/container-scan-action@v0.0.1
+        with:
+          token: ${{ secrets.TOKEN }} 
+          tenant_id: ${{ secrets.TENANT_ID }}
+          repository_name: ${{ github.repository }}
+          exit_code: 1
+          dockerfile_context: Dockerfile
+```
+{% endraw %}
 
 **GitHub Actions Log - Post AccuKnox Integration:**
 
@@ -78,7 +94,33 @@ Once the vulnerabilities were resolved, the AccuKnox scan approved the updated i
 
 **Step 1:** User needs to create a GitHub workflow file inside their GitHub repository using the following workflow Template:
 
-![](images/container-scan-images/01.png)
+{% raw %}
+```yaml
+name: AccuKnox Scan Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  accuknox-cicd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@main  
+     
+      - name: Run AccuKnox CSPM Scan
+        uses: accuknox/container-scan-action@v0.0.1
+        with:
+          token: ${{ secrets.TOKEN }} 
+          tenant_id: ${{ secrets.TENANT_ID }}
+          repository_name: ${{ github.repository }}
+```
+{% endraw %}
 
 Note: In the above template, the user needs to change some variables, including `TOKEN` and `TENANT_ID`. Values for these variables can be viewed from AccuKnox SaaS. For other inputs, refer to [AccuKnox Container Scan - GitHub Marketplace](https://github.com/marketplace/actions/accuknox-container-scan) to get the other input details according to your use case.
 
