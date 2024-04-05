@@ -8,35 +8,79 @@ This document illustrates the process of subscribing to AccuKnox via AWS Marketp
 
 The following steps cater to users who:
 
-1. Desire to subscribe to existing public offers available in the marketplace.
+1. Desire to get a free trial from the marketplace.
 
-2. Need a private offer tailored to specific dimensions.
+2. Desire to subscribe to existing public offers available in the marketplace.
 
-3. Seek a recurring plan for public offers.
+3. Need a private offer tailored to specific dimensions.
 
-### **Case 1:**  User finds AccuKnox CNAPP on marketplace and wants to try out the SAAS for security. (For a month)
+4. Seek a recurring plan for public offers.
+
+### **Case 1:**  User finds AccuKnox CNAPP on marketplace and wants to try out the SAAS for security. (Free Trial for a month)
 
 **Step 1:** The user initiates the process by searching for AccuKnox CNAPP on the marketplace
 
 ![](images/aws-playbook/aws-playbook-0.png)
 
-**Step 2:** After reviewing our offerings, the user proceeds to locate the "View Purchase Options" section.
+**Step 2:** After reviewing our offerings, the user proceeds to locate the **Try for free** option.
 
 ![](images/aws-playbook/aws-playbook-1.png)
 
-**Step 3:** Within this section, they can choose one of the two-tiered offers currently available on the marketplace i.e Trial Pack and Starter Pack.
+**Step 3:** Within this section, they can choose one of the two available offers - Choose the Free trial
 
 ![](images/aws-playbook/aws-playbook-2.png)
 
-**Step 4:** If they desire a custom solution beyond the provided offers, they have the option to contact AccuKnox support to discuss alternative possibilities. Contact: support@accuknox.com
-
-**Step 5:** Upon selecting an offer, they will be prompted to accept the contract, which triggers the payment process and the amount is automatically billed to their AWS account.
+**Step 4:** The free trial lasts for 30 days and cannot be renewed. Click on **Subscribe to Free Trial**
 
 ![](images/aws-playbook/aws-playbook-3.png)
 
-**Step 6:** Once the contract is confirmed as completed, the user will receive a prompt to "Set Up Your Account" for SaaS access.
+**Step 5:** Once the contract is confirmed as completed, the user will receive a prompt to **Set Up Your Account** for SaaS access.
 
 ![](images/aws-playbook/aws-playbook-4.png)
+
+**Note:** If they desire a custom solution beyond the provided offers, they have the option to contact AccuKnox support to discuss alternative possibilities. Contact: support@accuknox.com
+
+**Step 6:** Clicking this button redirects the user to a registration page, where they provide their information, including their name, phone number, organization name, and email address.
+
+![](images/aws-playbook/aws-playbook-5.png)
+
+![](images/aws-playbook/aws-playbook-6.png)
+
+**Step 7:** This information is forwarded to AccuKnox Support, and after verification by our support team, a confirmation email is sent.
+
+**Step 8:** At this juncture, we strongly recommend scheduling a DEMO with AccuKnox to assist the customer with the onboarding steps and gain a deeper understanding of our features.
+
+**Step 9:** Shortly after configuring a tenant for the customer, we will send them an invitation to access the SaaS platform and leverage its security features.
+
+**Note:** The free trial subscription on the marketplace is only available to the user for a month. After one month, we will be revoking all access of the user to our Saas Platform. Hence, Before the end of the monthly subscription, we will notify the user. If user still wants to continue using the platform they can refer to case 3 & case 4.
+
+### **Case 2:** Customer wants to purchase AccuKnox through the marketplace (Paid Subscription)
+
+**Step 1:** The user initiates the process by searching for AccuKnox CNAPP on the marketplace
+
+![](images/aws-playbook/aws-playbook-0.png)
+
+**Step 2:** After reviewing our offerings, the user proceeds to locate the **View purchase options** button.
+
+![](images/aws-playbook/aws-playbook-9.png)
+
+**Step 3:** Within this section, they can choose one of the two available offers - Choose the Public Offer
+
+![](images/aws-playbook/aws-playbook-10.png)
+
+**Step 4:** Select one of the Contract options based on the Assets usage(Refer [How to count my Assets](../resources/count-assets.md)). The contract period is one month and the user can optionally select the auto-renew option.
+
+![](images/aws-playbook/aws-playbook-11.png)
+
+**Note:** If they desire a custom solution beyond the provided offers, they have the option to contact AccuKnox support to discuss alternative possibilities. Contact: support@accuknox.com
+
+**Step 5:** Upon selecting an offer, they will be prompted to accept the contract, which triggers the payment process and the amount is automatically billed to their AWS account.
+
+![](images/aws-playbook/aws-playbook-12.png)
+
+**Step 6:** Once the contract is confirmed as completed, the user will receive a prompt to **Set Up Your Account** for SaaS access.
+
+![](images/aws-playbook/aws-playbook-13.png)
 
 **Step 7:** Clicking this button redirects the user to a registration page, where they provide their information, including their name, phone number, organization name, and email address.
 
@@ -46,13 +90,13 @@ The following steps cater to users who:
 
 **Step 8:** This information is forwarded to AccuKnox Support, and after verification by our support team, a confirmation email is sent.
 
-**Step 9:** At this juncture, we strongly recommend scheduling a DEMO with AccuKnox to assist the customer with the onboarding steps and gain a deeper understanding of our features.
+**Step 9:** At this juncture, we strongly recommend scheduling a DEMO with AccuKnox to assist the customer with the onboarding steps and gain a deeper understanding of our features if not done yet.
 
 **Step 10:** Shortly after configuring a tenant for the customer, we will send them an invitation to access the SaaS platform and leverage its security features.
 
-**Note:** The subscription options present on the marketplace are only available to the user for a month. After one month, we will be revoking all access of the user to our Saas Platform. Hence, Before the end of the monthly subscription,  We ask the customer to Disable any recurring subscription they have with the contract. If User still wants to continue using the platform they can refer to case 3 & 4. 
+**Note:** The subscription is based on usage and you can upgrade your contract when usage increases. The contract is valid for a month and needs to be renewed after the one month period. The user can set up auto renew to automate the renewal process and continue using the platform.
 
-### **Case 2:** Customer gets to know about AccuKnox through Demo interaction and wants to purchase the subscription through AWS. 
+### **Case 3:** Customer gets to know about AccuKnox through Demo interaction and wants to purchase a custom subscription through AWS.
 
 To proceed in this process, the customer should have a good understanding of the platform since these initial steps should have already been completed:
 
@@ -72,7 +116,7 @@ To proceed in this process, the customer should have a good understanding of the
 
 ![](images/aws-playbook/aws-playbook-8.png)
 
-**Step 5:** Once the contract is confirmed and completed, the user will be prompted to "Set Up Your Account" for SaaS access.
+**Step 5:** Once the contract is confirmed and completed, the user will be prompted to **Set Up Your Account** for SaaS access.
 
 ![](images/aws-playbook/aws-playbook-4.png)
 
@@ -86,11 +130,17 @@ To proceed in this process, the customer should have a good understanding of the
 
 **Step 8:** Shortly after configuring a tenant specifically for the customer, we will send them an invitation to access the SaaS platform, enabling them to utilize its security features.
 
-### **Case 3:** User already has a Trial/Starter Pack subscription and wants to continue the contract.
+### **Case 4:** User already has a Trial subscription and wants to continue the contract.
 
-The Offers listed on the MarketPlace are one time (except Free Forever Plan) and available to a user only for a single month only. These offers are meant for trial purposes only. If the user wants to continue using the product they can contact the support team and we will create a Private Offer that adheres to our policies and works best for you.
+The Trial Offer listed on the MarketPlace is one time and available to a user only for a single month. This offer is meant for trial purposes only. 
 
-After the Private Offer is created, User can refer to “Case 2” to see the next steps. 
+**Option 1:** If the user wants to continue using the product they can contact the support team and we will create a Private Offer that adheres to our policies and works best for you.
+
+After the Private Offer is created, User can refer to **Case 3** to see the next steps.
+
+**Option 2:** The user also has the option to select one of the public offers available from the marketplace to continue the subscription.
+
+If the user is satisfied with the Public Offers, they can refer to **Case 2** for the next steps.
 
 ## **What to expect from AccuKnox after successful Subscription and Registration?**
 
