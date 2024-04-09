@@ -288,6 +288,7 @@ nav:
       - "Runtime Application Behavior": "use-cases/app-behavior.md"
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+      - "Jupyter Notebook" : "use-cases/jupyter-notebook.md"
       - "Securing the Secrets Manager" :
         - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
         - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
