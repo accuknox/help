@@ -254,6 +254,8 @@ Run the following script to generate the records you should add to your DNS zone
 - https://cspm.<your-domain.com\>/admin/ page should be available.
 - https://cwpp.<your-domain.com\>/cm/ page should be available.
 
+![](images/on-prem-verify.png)
+
 ## References
 
 1. AccuKnox Deployment and Operations [FAQs](https://help.accuknox.com/faqs/troubleshooting-and-faqs/)
@@ -263,6 +265,11 @@ Run the following script to generate the records you should add to your DNS zone
 5. [CWPP: Use-cases & Scenarios](https://help.accuknox.com/use-cases/app-behavior/)
 6. [Detailed Support Matrix](https://help.accuknox.com/getting-started/kubearmor-support-matrix/)
 
+## Appendix
+
+### Sample Deployment Model
+
+![](images/on-prem-sample.png)
 
 - - - 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -4,7 +4,7 @@ site_description: "Zero trust CNAPP"
 site_author: "AccuKnox"
 site_url: "https://www.accuknox.com/"
 # Copyright
-copyright: "&copy; 2023 AccuKnox. All Rights Reserved."
+copyright: "&copy; 2024 AccuKnox. All Rights Reserved."
 # Repository
 repo_name: "GitHub"
 repo_url: "https://github.com/kubearmor/KubeArmor"
@@ -250,7 +250,8 @@ nav:
         - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
         - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md" 
         - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
-    - "Registry": "integrations/registry.md"
+    - "Registry":
+        - "ECR": "integrations/ecr.md"
     - "Ticketing" :
         - "Jira cloud" : "integrations/jira-cloud-cwpp.md"
         - "Jira Server" : "integrations/jira-server-cspm.md"
@@ -287,6 +288,7 @@ nav:
       - "Runtime Application Behavior": "use-cases/app-behavior.md"
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+      - "Jupyter Notebook" : "use-cases/jupyter-notebook.md"
       - "Securing the Secrets Manager" :
         - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
         - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
