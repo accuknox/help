@@ -17,7 +17,7 @@
     compliance:
       - CIS_Kubernetes_Benchmark_v1.27, Control-Id-5.1.6
     references:
-      - title: MITRE Steal Application Access Token
+      - title: "MITRE T1528: Steal Application Access Token"
         url: https://attack.mitre.org/techniques/T1528/
     protectionpolicies:
       - name: Service account token
