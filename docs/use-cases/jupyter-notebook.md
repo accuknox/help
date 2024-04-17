@@ -92,7 +92,7 @@ The above KubeArmor policy
 
 ![](images/jupyter-notebook/jupyter-4.png)
 
-**Step 2**: In the policy, editor tool create/upload the above policy. Select the Cluster, namespace, save and then select **Save to workspace** option.
+**Step 2**: In the policy editor tool create/upload the above policy. Select the Cluster, namespace, save and then select **Save to workspace** option.
 
 ![](images/jupyter-notebook/jupyter-5.png)
 
