@@ -188,3 +188,13 @@ UID: 0
 ```
 
 The permission is denied for xmrig as a binary with that execname is not allowed to be executed. We have also set to prevent execution of binaries from the ```/tmp/``` directory to prevent any other cryptominers to be executed using the same methodology.
+
+## Key Takeaways
+
+- Most of the cryptominers deploy binaries in the ```/tmp/``` folder and execute from there - AccuKnox can prevent any executions from the ```/tmp/``` folder to protect against it.
+
+- Time synchronization is critical for mining software and attackers use pre-installed tools such as ```ntpdate``` for date/time sync - AccuKnox can prevent the attacker’s binary from accessing them.
+
+- Cryptominers use package management tools to install accessory tooling - AccuKnox can essentially disable the use of package managers.
+
+- Common way to prevent any current and future crypto mining attacks would be to use KubeArmor Zero Trust policies which essentially limits any unauthorized access by network primitives, process-exec primitives, file-access primitives by any unknown binaries.
