@@ -85,6 +85,3 @@ root@wordpress-7c966b5d85-42jwx:/run/secrets/kubernetes.io/serviceaccount#
 
 ## References
 [MITRE Steal Application Access Token](https://attack.mitre.org/techniques/T1528/)<br />
-
-
-
