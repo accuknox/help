@@ -216,6 +216,7 @@ nav:
               - "Managed" : "getting-started/cluster-onboarding-managed.md"
               - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
             - "Registry":
+              - "ACR": "getting-started/acr.md"
               - "ECR": "getting-started/ecr.md"
               - "GAR": "getting-started/gar.md"
             - "VM" : "getting-started/vm-onboarding.md"
@@ -276,30 +277,34 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
-    - "ASPM":
-      - "Vulnerability Management" : "use-cases/vulnerability.md"
-    - "CSPM":
-      - "Asset Inventory" : "use-cases/asset-inventory.md"
+    - "Cloud Security":
+      - "Asset Inventory": "use-cases/asset-inventory.md"
       - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-    - "CWPP":
-      - "Image Scan": "use-cases/image-scan.md"
+    - "Container Security":
+      - "Container Image Scan": "use-cases/image-scan.md"
+      - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Workload Hardening": "use-cases/hardening.md"
+      - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+      # - "Vulnerability Management" : "use-cases/vulnerability.md"
+    - "Least Permissive Posture Assessment":
+      - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
       - "Zero Trust Security": "use-cases/zero-trust.md"
-      - "Runtime Application Behavior": "use-cases/app-behavior.md"
-      - "Runtime Application Hardening" : "use-cases/app-hardening.md"
-      - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
-      - "Jupyter Notebook" : "use-cases/jupyter-notebook.md"
+    - "AI Workload Security":
+      - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
+    - "Advanced Persistent Threat":
       - "Cryptojacking" : "use-cases/crypto-mining.md"
-      - "Securing the Secrets Manager" :
-        - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
-        - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
+    - "Securing Secrets Managers" :
+      - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
+      - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
     - "DevSecOps":
       - "IaC Scan": "use-cases/iac-scan.md"
       - "Container Scan": "use-cases/container-scan.md"
+    - "Continuous Compliance":
+      - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-    - "Compliance": "use-cases/compliance.md"
+    
 
   - "Resources":
     - "Calculate Pricing":

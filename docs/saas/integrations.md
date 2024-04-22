@@ -28,7 +28,7 @@ Under the CSPM subsection users can integrate the [Jira server](./../integration
 
 ![](images/Integration-2.jpg)
 
-Under Registry, the user can add a container registry from Nexus, [ECR](./../getting-started/ecr.md), GCR, ACR, Quay, JFrog Artifactory, [GAR](./../getting-started/gar.md), Harbor and DockerHub that stores private container images.
+Under Registry, the user can add a container registry from Nexus, [ECR](./../getting-started/ecr.md), GCR, [ACR](./../getting-started/acr.md), Quay, JFrog Artifactory, [GAR](./../getting-started/gar.md), Harbor and DockerHub that stores private container images.
 
 ![](images/Integration-3.png)
 
