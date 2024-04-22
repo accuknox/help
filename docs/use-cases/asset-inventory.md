@@ -1,4 +1,7 @@
-
+---
+hide:
+  - toc
+---
 
 The users with multiple cloud accounts and workloads across various public clouds will find it difficult to get a comprehensive view of their cloud assets in a single place. They need to switch across various cloud providers console and monitor these assets. This becomes huge problem for the users. 
 
