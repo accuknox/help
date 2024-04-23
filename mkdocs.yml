@@ -156,45 +156,45 @@ nav:
     - "Accuknox Architecture" : "introduction/accuknox-architecture.md"
     - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
 
-  - "Enterprise SaaS":
-    - "Dashboard" : "saas/dashboard.md"
-    - "Inventory" : 
-          - "Assets": "saas/assets.md"
-          - "Cloud Workloads" : "saas/cloud-workloads.md"
-         # - "Imports" : "saas/imports.md"
-         # - "Explorer" : "saas/explorer.md"
-         # - "Baselines" : "saas/inventory-baseline.md"
-    - "Issues" :
-          - "Vulnerabilities" : "saas/vulnerabilities.md"
-          - "Registry Scan" : "saas/registry-scan.md"
-         # - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
-    - "Compliance" : 
-         # - "Baselines" : "saas/baselines.md"
-          - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
-    - "Runtime Protection" : 
-          - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
-          - "App Behavior" : "saas/app-behavior.md"
-          - "Policies" : "saas/policies.md"
-    - "Remediation" : 
-          - "Ticket Summary" : "saas/ticket-summary.md"
-    - "Monitors/Logging" : 
-          - "Logs" : "saas/logs.md"
-          - "Triggers" : "saas/triggers.md"
-        #  - "Monitors" : "saas/monitors.md"
-    - "Reports" : "saas/reports.md"
-    - "Notification" : 
-         - "Slack" : "saas/slack.md"
-         - "Email" : "saas/email.md" 
-    - "Settings" : 
-          - "Cloud Accounts" : "saas/cloud-accounts.md"
-          - "Manage Cluster" : "saas/manage-cluster.md"
-          - "User Management" : "saas/user-management.md"
-          - "RBAC" : "saas/rbac.md"
-          - "Integrations" : "saas/integrations.md"
-          - "Labels" : "saas/labels.md"
-          - "Tags" : "saas/tags.md"
-          - "Groups" : "saas/groups.md"
-          - "Ticket Template" : "saas/ticket-template.md"
+  # - "Enterprise SaaS":
+  #   - "Dashboard" : "saas/dashboard.md"
+  #   - "Inventory" : 
+  #         - "Assets": "saas/assets.md"
+  #         - "Cloud Workloads" : "saas/cloud-workloads.md"
+  #        # - "Imports" : "saas/imports.md"
+  #        # - "Explorer" : "saas/explorer.md"
+  #        # - "Baselines" : "saas/inventory-baseline.md"
+  #   - "Issues" :
+  #         - "Vulnerabilities" : "saas/vulnerabilities.md"
+  #         - "Registry Scan" : "saas/registry-scan.md"
+  #        # - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
+  #   - "Compliance" : 
+  #        # - "Baselines" : "saas/baselines.md"
+  #         - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
+  #   - "Runtime Protection" : 
+  #         - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
+  #         - "App Behavior" : "saas/app-behavior.md"
+  #         - "Policies" : "saas/policies.md"
+  #   - "Remediation" : 
+  #         - "Ticket Summary" : "saas/ticket-summary.md"
+  #   - "Monitors/Logging" : 
+  #         - "Logs" : "saas/logs.md"
+  #         - "Triggers" : "saas/triggers.md"
+  #       #  - "Monitors" : "saas/monitors.md"
+  #   - "Reports" : "saas/reports.md"
+  #   - "Notification" : 
+  #        - "Slack" : "saas/slack.md"
+  #        - "Email" : "saas/email.md" 
+  #   - "Settings" : 
+  #         - "Cloud Accounts" : "saas/cloud-accounts.md"
+  #         - "Manage Cluster" : "saas/manage-cluster.md"
+  #         - "User Management" : "saas/user-management.md"
+  #         - "RBAC" : "saas/rbac.md"
+  #         - "Integrations" : "saas/integrations.md"
+  #         - "Labels" : "saas/labels.md"
+  #         - "Tags" : "saas/tags.md"
+  #         - "Groups" : "saas/groups.md"
+  #         - "Ticket Template" : "saas/ticket-template.md"
 
   - "Getting Started":
     - "Open Source Installation": "getting-started/open-source.md"
@@ -229,13 +229,6 @@ nav:
            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
-    - "Support Matrix":
-        - "KubeArmor Support Matrix" : "getting-started/kubearmor-support-matrix.md"
-        - "Public Cloud" : "getting-started/public-cloud.md"
-        - "Private Cloud" : "getting-started/private-cloud.md"
-        - "VMs" : "getting-started/vms.md"
-        - "Supported Benchmarks" : "getting-started/supported-benchmarks.md"
-        - "CSPM Assets Support" : "getting-started/assets-list.md" 
     - "Sample Workloads Protection" :
       - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md" 
       - "DVWA Protection": "getting-started/dvwa.md"  
@@ -285,7 +278,6 @@ nav:
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Workload Hardening": "use-cases/hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
-      # - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "Least Permissive Posture Assessment":
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
@@ -302,9 +294,17 @@ nav:
       - "Container Scan": "use-cases/container-scan.md"
     - "Continuous Compliance":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
+    - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     
+  - "Support Matrix":
+    - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
+    - "Public Cloud" : "support-matrix/public-cloud.md"
+    - "Private Cloud" : "support-matrix/private-cloud.md"
+    - "VMs" : "support-matrix/vms.md"
+    - "Supported Benchmarks" : "support-matrix/supported-benchmarks.md"
+    - "CSPM Assets Support" : "support-matrix/assets-list.md"
 
   - "Resources":
     - "Calculate Pricing":
