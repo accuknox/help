@@ -256,7 +256,7 @@ nav:
     - "Notification":
         - "Slack": "integrations/slack.md"
         - "Email": "integrations/email.md"
-    - "Email Backend" : "integrations/email-backend.md"
+        - "Email Backend" : "integrations/email-backend.md"
     - "Marketplace Listing":
         - "AWS Marketplace" :
           - "AccuKnox User Playbook": "integrations/aws-playbook.md"
@@ -286,6 +286,7 @@ nav:
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
     - "Advanced Persistent Threat":
       - "Cryptojacking" : "use-cases/crypto-mining.md"
+      - "Hildegard" : "use-cases/hildegard.md"
     - "Securing Secrets Managers" :
       - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
       - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
@@ -294,6 +295,7 @@ nav:
       - "Container Scan": "use-cases/container-scan.md"
     - "Continuous Compliance":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
+    - "Host Security": "use-cases/host-sec.md"
     - "Vulnerability Management" : "use-cases/vulnerability.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
