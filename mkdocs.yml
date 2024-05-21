@@ -270,33 +270,35 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
-    - "Cloud Security":
+    - "Cloud Security (CSPM)":
       - "Asset Inventory": "use-cases/asset-inventory.md"
       - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-    - "Container Security":
+    - "Container Security (CWPP)":
       - "Container Image Scan": "use-cases/image-scan.md"
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Workload Hardening": "use-cases/hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
-    - "Least Permissive Posture Assessment":
+    - "Least Permissive Posture Assessment (CWPP)":
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
       - "Zero Trust Security": "use-cases/zero-trust.md"
-    - "AI Workload Security":
+    - "AI Workload Security (CWPP)":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
-    - "Advanced Persistent Threat":
+    - "Advanced Persistent Threat (CWPP)":
       - "Cryptojacking" : "use-cases/crypto-mining.md"
       - "Hildegard" : "use-cases/hildegard.md"
-    - "Securing Secrets Managers" :
+    - "Securing Secrets Managers (CWPP)" :
       - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
       - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
-    - "DevSecOps":
+    - "DevSecOps (ASPM)":
       - "IaC Scan": "use-cases/iac-scan.md"
       - "Container Scan": "use-cases/container-scan.md"
-    - "Continuous Compliance":
+    - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
-    - "Host Security": "use-cases/host-sec.md"
-    - "Vulnerability Management" : "use-cases/vulnerability.md"
+    - "Host Security (CWPP)": 
+      - "Host Scan": "use-cases/host-sec.md"
+      - "Malware Scan": "use-cases/malware-scan.md"
+    - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     

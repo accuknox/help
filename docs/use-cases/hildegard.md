@@ -3,6 +3,42 @@ hide:
   - toc
 ---
 
+## **Introduction**
+
+In a Kubernetes cluster, several attack vectors become possible through the combination of multiple vulnerabilities in the environment. These become the basis for the Hildegard attack to succeed:
+
++ **Vulnerabilities in Container Image**
+
+    - Malicious Container images pushed to registry which gets deployed on hosts
+
+    - Cryptomining [<a href="https://intezer.com/blog/malware-analysis/teamtnt-cryptomining-explosion/" target="_blank">Ref</a>]
+
+    - Embedded Secrets
+
+    - SSH Keys, AWS Credentials, Github Tokens, NPM tokens, etc.
+
+    - Proxy Avoidance, and many more..
+
++ **Difficulty of implementing Runtime Security**
+
+    - Rogue container reconnaissance
+
+    - Malicious RCE at runtime or Unknown process exec
+
+    - Lateral Movement (writable volume mount points on hosts, service account exploitation, etc.)
+
+    - Credential Theft (exposure of service account token, credential in config files, write into volume mount point)
+
+    - Execution (maliciousexec into containers, malicious container spin-up, etc.)
+
++ **Modern attack vectors are complex and could target Linux Kernel Exploits** 
+
+    - [<a href="https://attack.mitre.org/techniques/T1496/" target="_blank">Resource Hijacking</a>] [T1496] for cryptocurrency attacks
+
++ **Spaghetti of Access Controls**
+
+    - Privilege Escalation via unused service account token, write to root certificate bundles etc.
+
 ## **Exploit**
 
 ![](images/hildegard.png)

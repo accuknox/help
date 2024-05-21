@@ -70,7 +70,7 @@ Application security using Linux Security Modules (LSM) / [KubeArmor]
 
 + The Linux Security Module (LSM) framework provides a mechanism for various security checks to be hooked by new kernel extensions. It denies access to essential kernel objects, such as files, inodes, task structures, credentials, and inter-process communication objects.
 
-+ AccuKnox supports AppArmor and SELinux as of today for its enforcement engine at runtime.
++ AccuKnox supports AppArmor, SELinux and BPFLSM as of today for its enforcement engine at runtime.
 
 
 - - - 
