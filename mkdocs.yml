@@ -320,7 +320,7 @@ nav:
     - "Troubleshooting": "resources/troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
     - "Technical Support Guide": "resources/technical-support-guide.md"
-    - "Seeking Support: Ticketing Procedures": "resources/ticket-procedure.md"
+    - "Ticketing Procedures": "resources/ticket-procedure.md"
     - "Glossary": "resources/glossary.md"
     
   - "FAQs": "faqs.md"
