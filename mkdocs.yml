@@ -263,6 +263,7 @@ nav:
           - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
           - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
     - "Platform":
+        - "D2iQ": "integrations/d2iq.md"
         - "Lens" :
           - "KubeArmor": "integrations/lens-ka.md"
           - "AccuKnox Agents": "integrations/lens-ak.md"
