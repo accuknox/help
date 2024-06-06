@@ -308,7 +308,7 @@ nav:
     - "Public Cloud" : "support-matrix/public-cloud.md"
     - "Private Cloud" : "support-matrix/private-cloud.md"
     - "VMs" : "support-matrix/vms.md"
-    - "Supported Benchmarks" : "support-matrix/supported-benchmarks.md"
+    - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
 
   - "Resources":
