@@ -23,7 +23,7 @@ In a virtual machine, there can be 2 types of policies
 ### Host Policy
 Host policies secure the system on top of which all the processes and containers are running. Let’s look into the below attack scenario -
 
-- Block Execution of package management binaries
+#### **Block Execution of package management binaries**
 
 In an attack scenario, adversaries may use package managers to install packages for reconnaissance and escalate their privileges by downloading additional tooling from remote servers. These tools can help them gain valuable information about the system and its vulnerabilities, allowing them to carry out further attacks. It's important to be vigilant about such activities and implement security measures to prevent such attacks.
 
@@ -160,7 +160,7 @@ For each violation attempt, alerts are generated under the `Alerts` section
 ```
 ### Container Policy
 Container policies are applied to the container workloads running inside your host. Let’s take an example of container policy -
-- File Integrity Monitoring
+#### **File Integrity Monitoring**
 
 Changes to system binary folders, configuration paths, and credentials paths must be monitored for change. With KubeArmor, one can monitor for changes and block any write attempts in the sensitive files and folders. This can prevent attackers from injecting or modifying system binaries, configurations, and credentials. Compliance frameworks such as PCI-DSS, NIST, and CIS recommend FIM.
 ```
