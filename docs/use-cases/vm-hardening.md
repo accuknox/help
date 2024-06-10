@@ -231,7 +231,7 @@ touch: cannot touch '/usr/lib/test_file': Permission denied
 Below alerts were generated for the policy violation.
 
 ![](images/vm-hardening/violate-container-policy.png)
-Kubearmor logs -
+**Kubearmor logs** -
 ```
 {
 "Action":"Block"
