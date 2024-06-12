@@ -105,13 +105,13 @@ The following NEW packages will be installed:
 
 Policies can be applied using the policies section from the SaaS. Under Runtime Protection, select Create Policy
 
-![](images/vm-hardening/create-policy-1.png)
+![](images/vm-hardening/create-policy-1.jpg)
 Upload the yaml file and select the cluster name. The other fields will be auto-populated from the yaml. Now click on `Save` and `Save to Workspace`.
 
-![](images/vm-hardening/create-policy-2.png)
+![](images/vm-hardening/create-policy-2.jpg)
 Once it is created, go to the policy, and click on `Apply Policy`.
 
-![](images/vm-hardening/create-policy-3.png)
+![](images/vm-hardening/create-policy-3.jpg)
 **Violation** -
 
 After the policy is applied successfully, we get `Permission denied` when we try to violate it. Even if the attacker has root access, they can’t execute the blocked processes.
