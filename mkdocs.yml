@@ -235,6 +235,24 @@ nav:
       - "PHP-MySQL Protection": "getting-started/php-mysql.md"
 
   - "Integrations":
+    - "CI/CD":
+        - "Google Cloud Build": "integrations/google-build.md"
+    - "Container Platform":
+        - "D2iQ": "integrations/d2iq.md"
+        - "Lens" :
+          - "KubeArmor": "integrations/lens-ka.md"
+          - "AccuKnox Agents": "integrations/lens-ak.md"
+        - "Rafay": "integrations/rafay-accuknox.md"
+    - "Marketplace":
+        - "AWS Marketplace" :
+          - "AccuKnox User Playbook": "integrations/aws-playbook.md"
+          - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
+          - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
+    - "Notification":
+        - "Slack": "integrations/slack.md"
+        - "Email": "integrations/email.md"
+        - "Email Backend" : "integrations/email-backend.md"
+    - "OAuth": "integrations/oauth.md"
     - "SIEM/ Security Events" : 
         - "Telemetry (Sample)" : 
           - "Logs" : "integrations/telemetry-logs.md"
@@ -253,22 +271,6 @@ nav:
         - "Freshservice" : "integrations/freshservice-cspm.md"
         - "Connectwise" : "integrations/connectwise-cspm.md"
         - "ServiceNow" : "integrations/servicenow.md"
-    - "Notification":
-        - "Slack": "integrations/slack.md"
-        - "Email": "integrations/email.md"
-        - "Email Backend" : "integrations/email-backend.md"
-    - "Marketplace":
-        - "AWS Marketplace" :
-          - "AccuKnox User Playbook": "integrations/aws-playbook.md"
-          - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
-          - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
-    - "Container Platform":
-        - "D2iQ": "integrations/d2iq.md"
-        - "Lens" :
-          - "KubeArmor": "integrations/lens-ka.md"
-          - "AccuKnox Agents": "integrations/lens-ak.md"
-        - "OAuth": "integrations/oauth.md"
-        - "Rafay": "integrations/rafay-accuknox.md"
 
   - "Use-Cases":
     - "Cloud Security (CSPM)":
