@@ -257,12 +257,12 @@ nav:
         - "Slack": "integrations/slack.md"
         - "Email": "integrations/email.md"
         - "Email Backend" : "integrations/email-backend.md"
-    - "Marketplace Listing":
+    - "Marketplace":
         - "AWS Marketplace" :
           - "AccuKnox User Playbook": "integrations/aws-playbook.md"
           - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
           - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
-    - "Platform":
+    - "Container Platform":
         - "D2iQ": "integrations/d2iq.md"
         - "Lens" :
           - "KubeArmor": "integrations/lens-ka.md"
@@ -294,6 +294,7 @@ nav:
     - "DevSecOps (ASPM)":
       - "IaC Scan": "use-cases/iac-scan.md"
       - "Container Scan": "use-cases/container-scan.md"
+      - "SAST - SQL Injection": "use-cases/sast-sq.md"
     - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "Host Security (CWPP)": 
@@ -311,6 +312,7 @@ nav:
     - "VMs" : "support-matrix/vms.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
+    - "Container Registry" : "support-matrix/registry.md"
 
   - "Resources":
     - "Calculate Pricing":
