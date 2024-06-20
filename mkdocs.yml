@@ -238,8 +238,8 @@ nav:
     - "CI/CD":
         - "Google Cloud Build": "integrations/google-build.md"
     - "Container Platform":
-        - "D2iQ": "integrations/d2iq.md"
-        - "Lens" :
+        - "D2iQ/Nutanix": "integrations/d2iq.md"
+        - "Mirantis Lens" :
           - "KubeArmor": "integrations/lens-ka.md"
           - "AccuKnox Agents": "integrations/lens-ak.md"
         - "Rafay": "integrations/rafay-accuknox.md"
