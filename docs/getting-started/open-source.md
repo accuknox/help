@@ -263,7 +263,7 @@ The use-cases described in subsequent step uses this sample application.
 
 	**Port Forwarding:** We'll be using KubeArmor relay to forward logs to our local system
 	```sh
-	kubectl -n kube-system port-forward service/kubearmor --address 0.0.0.0 --address :: 32767:32767
+	kubectl -n kubearmor port-forward service/kubearmor --address 0.0.0.0 --address :: 32767:32767
 	```
 
 	**Realtime Logs Streaming:**
@@ -503,53 +503,7 @@ output report in out/report.txt ...
 
 	![Alt](images/after_rec.png) 
 
-
-## 5. Get Auto-Discovered Policies
-
-In the above [Demo Scenario](#3-demo-scenario--use-cases) _(last 3 use-cases)_, we had explicit **Deny** based policies. KubeArmor also supports **Allow** based policies i.e., allow only specific actions and audit/deny everything else. Also the allow-policies are auto-discovered by examining the workloads at runtime.
-
-To retrieve the auto discovered policies you can use:
-```sh
-karmor discover -n wordpress-mysql -l "app=wordpress" -f yaml
-```
-This discovers the policies for a workload in `wordpress-mysql` namespace having label `app=wordpress`.
-
-??? "Output from _karmor discover -n wordpress-mysql -l "app=wordpress" -f yaml_"
-	```yaml
-	apiVersion: security.kubearmor.com/v1
-	kind: KubeArmorPolicy
-	metadata:
-	  name: autopol-system-3960684242
-	  namespace: wordpress-mysql
-	spec:
-	  action: Allow
-	  file:
-		matchPaths:
-		- fromSource:
-		  - path: /usr/sbin/apache2
-		  path: /dev/urandom
-		- fromSource:
-		  - path: /usr/local/bin/php
-		  path: /etc/hosts
-	  network:
-		matchProtocols:
-		- fromSource:
-		  - path: /usr/local/bin/php
-		  protocol: tcp
-		- fromSource:
-		  - path: /usr/local/bin/php
-		  protocol: udp
-	  process:
-		matchPaths:
-		- path: /usr/sbin/apache2
-		- path: /usr/local/bin/php
-	  selector:
-		matchLabels:
-		  app: wordpress
-	  severity: 1
-	```
-
-## 6. Uninstall
+## 5. Uninstall
 
 ```sh
 karmor uninstall
