@@ -19,14 +19,19 @@ theme:
     - content.code.annotate
     - content.code.copy
     - navigation.indexes
+    - navigation.sections
     - navigation.tabs
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tabs.sticky
     - navigation.top
+    - navigation.path
     - navigation.tracking
     - navigation.footer
     - search.highlight
     - search.share
     - search.suggest
+    - toc.follow
   palette:
     - scheme: default
       primary: white
@@ -54,8 +59,8 @@ theme:
   logo_dark_mode: 'assets/images/logo-white.png'
   logo_light_mode: 'assets/images/logo-black.png'
   favicon: 'assets/images/favicon.ico'
-  hide:
-  - toc
+  # hide:
+  # - toc
 
 # Extensions
 markdown_extensions:
@@ -65,12 +70,14 @@ markdown_extensions:
   - pymdownx.snippets
   - admonition
   - abbr
+  - tables
   - attr_list
   - def_list
   - footnotes
   - meta
   - md_in_html
   - toc:
+      toc_depth: 6
       permalink: true
   - pymdownx.arithmatex:
       generic: true
@@ -153,12 +160,12 @@ pages:
 
 nav:
   - "Introduction":
-    - "Accuknox Architecture" : "introduction/accuknox-architecture.md"
+    - "Architecture" : "introduction/accuknox-architecture.md"
     - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
 
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
-  #   - "Inventory" : 
+  #   - "Inventory" :
   #         - "Assets": "saas/assets.md"
   #         - "Cloud Workloads" : "saas/cloud-workloads.md"
   #        # - "Imports" : "saas/imports.md"
@@ -168,24 +175,24 @@ nav:
   #         - "Vulnerabilities" : "saas/vulnerabilities.md"
   #         - "Registry Scan" : "saas/registry-scan.md"
   #        # - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
-  #   - "Compliance" : 
+  #   - "Compliance" :
   #        # - "Baselines" : "saas/baselines.md"
   #         - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
-  #   - "Runtime Protection" : 
+  #   - "Runtime Protection" :
   #         - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
   #         - "App Behavior" : "saas/app-behavior.md"
   #         - "Policies" : "saas/policies.md"
-  #   - "Remediation" : 
+  #   - "Remediation" :
   #         - "Ticket Summary" : "saas/ticket-summary.md"
-  #   - "Monitors/Logging" : 
+  #   - "Monitors/Logging" :
   #         - "Logs" : "saas/logs.md"
   #         - "Triggers" : "saas/triggers.md"
   #       #  - "Monitors" : "saas/monitors.md"
   #   - "Reports" : "saas/reports.md"
-  #   - "Notification" : 
+  #   - "Notification" :
   #        - "Slack" : "saas/slack.md"
-  #        - "Email" : "saas/email.md" 
-  #   - "Settings" : 
+  #        - "Email" : "saas/email.md"
+  #   - "Settings" :
   #         - "Cloud Accounts" : "saas/cloud-accounts.md"
   #         - "Manage Cluster" : "saas/manage-cluster.md"
   #         - "User Management" : "saas/user-management.md"
@@ -199,7 +206,7 @@ nav:
   - "Getting Started":
     - "Open Source Installation": "getting-started/open-source.md"
     - "Deployment Models" :
-      - "SaaS" : 
+      - "SaaS" :
           - "Prerequisites" :
             - "CSPM Prerequisites":
               - "AWS": "getting-started/cspm-prereq-aws.md"
@@ -224,14 +231,14 @@ nav:
       - "DevSecOps" : "getting-started/devsecops.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
-        - "AccuKnox" : 
+        - "AccuKnox" :
            - "V1.7 Release Notes" : "getting-started/1-7-release.md"
            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Sample Workloads Protection" :
-      - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md" 
-      - "DVWA Protection": "getting-started/dvwa.md"  
+      - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md"
+      - "DVWA Protection": "getting-started/dvwa.md"
       - "PHP-MySQL Protection": "getting-started/php-mysql.md"
 
   - "Integrations":
@@ -253,8 +260,8 @@ nav:
         - "Email": "integrations/email.md"
         - "Email Backend" : "integrations/email-backend.md"
     - "OAuth": "integrations/oauth.md"
-    - "SIEM/ Security Events" : 
-        - "Telemetry (Sample)" : 
+    - "SIEM/ Security Events" :
+        - "Telemetry (Sample)" :
           - "Logs" : "integrations/telemetry-logs.md"
           - "Alerts" : "integrations/telemetry-alerts.md"
         - "Splunk" : "integrations/splunk.md"
@@ -263,7 +270,7 @@ nav:
         - "Azure Sentinel" : "integrations/azure-sentinel.md"
         - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
         - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
-        - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md" 
+        - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
         - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
     - "Ticketing" :
         - "Jira cloud" : "integrations/jira-cloud-cwpp.md"
@@ -299,14 +306,14 @@ nav:
       - "SAST - SQL Injection": "use-cases/sast-sq.md"
     - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
-    - "Host Security (CWPP)": 
+    - "Host Security (CWPP)":
       - "Host Scan": "use-cases/host-sec.md"
       - "Malware Scan": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
     - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-    
+
   - "Support Matrix":
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
     - "Public Cloud" : "support-matrix/public-cloud.md"
@@ -328,6 +335,6 @@ nav:
     - "Technical Support Guide": "resources/technical-support-guide.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"
     - "Glossary": "resources/glossary.md"
-    
+
   - "FAQs": "faqs.md"
 
