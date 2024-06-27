@@ -38,7 +38,7 @@ Alright, the pod is created but we can’t access it despite having its IP, the 
 kubectl apply -f https://raw.githubusercontent.com/accuknox/samples/main/php-mysql-webapp/webserver-svc.yaml
 ```
 
-Check the status of the service
+**[Step 3]** Check the status of the service
 
 ```bash
 kubectl get svc
@@ -115,7 +115,7 @@ service/web-service      LoadBalancer   10.8.0.92    34.70.234.72   80:32209/TCP
 
 Now the application is deployed. You can insert data into the database in two ways. You can use a MySQL Client or directly execute to the MySQL server pod.
 
-Connect using a MySQL client:
+**Connect using a MySQL client**
 
 ```bash
 kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql8-service -p.sweetpwd.
@@ -201,15 +201,13 @@ Now check the external IP of the web service. If everything works well, you'll s
 
 ![](images/mysql-john.png)
 
-### **Working with Open-Source AccuKnox tools**
+## Working with Open-Source AccuKnox tools
 
 The [policy-templates](https://github.com/kubearmor/policy-templates) open-source repository provides policy templates based on KubeArmor and Cilium policies for known CVEs and attacks vectors, compliance frameworks such as PCI-DSS, MITRE, STIG, NIST, CIS, etc., popular workloads such as GoLang, Python, PostgreSQL, Cassandra, MySQL, WordPress, etc.
 
 We hope that you also contribute by sending policy templates via pull requests or Github issues to grow the list.
 
-Go to GitHub repository:  [https://github.com/kubearmor/policy-templates](https://github.com/kubearmor/policy-templates)
-
-[AccuKnox](https://www.accuknox.com/) provides a number of policy templates for your MySQL workloads.
+See [Polciy Templates](https://github.com/kubearmor/policy-templates). [AccuKnox](https://www.accuknox.com/) provides a number of policy templates for your MySQL workloads.
 
 Let's see a policy from the policy templates repo.
 
@@ -279,7 +277,7 @@ This command tells mysqldump to recreate the  **demodb**  database in SQL statem
 
 With the help of  **KubeArmor**  and Policy-templates, You can audit/restrict all these sensitive configuration files and processes that use these files easily.
 
-### **Following KubeArmor policy will Audit configuration files and block mysqldump command.**
+### **Policy to Audit configuration files and block mysqldump**
 
 ```yaml
 # KubeArmor is an open source software that enables you to protect your cloud workload at runtime.
@@ -323,9 +321,9 @@ spec:
 
 Apply KubeArmor Security Policy (KSP) from the  [Policy templates](https://github.com/kubearmor/policy-templates)  and perform following steps:
 
-1.  Go to Runtime Protection → Policies and create a Policy
+1. Go to Runtime Protection → Policies and create a Policy
 
-2.  Upload the above yaml file or create the Policy from the user interface.
+2. Upload the above yaml file or create the Policy from the user interface.
 
 ![](./images/mysql-createpolicy1.png)
 
@@ -425,7 +423,7 @@ b. You can easily watch these alerts at AccuKnox Saas → Monitors/Logging → l
 
 Securing configuration files are a necessity for any application. With KubeArmor you can effectively do that and with the options like readOnly , ownerOnly , recursive, matchDirectoriesetc you can fine-tune the policy enforcement. See more [KubeArmor Policy Specification](https://github.com/kubearmor/KubeArmor/blob/main/getting-started/security_policy_specification.md)
 
-### **Protect Using Auto Discovered Policies**
+### Protect Using Auto Discovered Policies
 
 AccuKnox policy auto-discovery engine leverages the pod visibility provided by KubeArmor and Kubernetes CNI to auto-generate network and system policies.
 
@@ -515,11 +513,9 @@ Auto-discovered policies are generated based on the network flow of the applicat
 
 It is allowing only minimum traffic that the application needed to operate. This will restrict all unwanted connections and provide runtime security. You can also handcraft your own security policies to secure your MySQL cluster.
 
-**KubeArmor Slack**:  [Join the KubeArmor community on Slack!](https://kubearmor.herokuapp.com/)
-
 Now you can protect your workloads in minutes using  [AccuKnox](https://www.accuknox.com/), it is available to protect your Kubernetes and other cloud workloads using Kernel Native Primitives such as AppArmor, SELinux, and eBPF.
 
-[Let us know](https://www.accuknox.com/contactus/)  if you are seeking additional guidance in planning your cloud security program.
+[Let us know](https://www.accuknox.com/contact-us/)  if you are seeking additional guidance in planning your cloud security program.
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

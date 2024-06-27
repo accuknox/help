@@ -160,7 +160,6 @@ pages:
 nav:
   - "Getting Started":
     - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
-    - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "SaaS" :
@@ -194,10 +193,11 @@ nav:
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Sample Workloads Protection" :
-      - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md"
-      - "DVWA Protection": "getting-started/dvwa.md"
-      - "PHP-MySQL Protection": "getting-started/php-mysql.md"
+      - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
+      - "DVWA": "getting-started/dvwa.md"
+      - "PHP-MySQL": "getting-started/php-mysql.md"
     - "Open Source":
+      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
       - "Open Source Installation": "getting-started/open-source.md"
 
   # - "Enterprise SaaS":

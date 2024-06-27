@@ -1,9 +1,9 @@
+# Damn Vulnerable Web Applications
 
-
-## **DVWA:**
 Damn Vulnerable Web Application (DVWA) is a PHP/MySQL web application that is damn vulnerable. Its main goal is to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications, and to aid both students & teachers to learn about web application security in a controlled classroom environment.
 
-### **DVWA Attack Points:**
+## DVWA Attack Points
+
 + Command Injection:
 Attacks on the insecure transmission of User data
 
@@ -15,7 +15,7 @@ Attacks on the insecure transmission of User data
 
 DVWA web Application is deployed in the cluster in the dvwa namespace. It has Web and MySQL pod running with 2 services.
 
-## **Observability:**
+## Observability
 
 Once the cluster with the DVWA application is onboarded we can see the application behavior by Navigating to the Runtime Security->App Behavior section. In the screen the select cluster name and namespace in which the DVWA  application is deployed.
 
@@ -23,37 +23,33 @@ Once the cluster with the DVWA application is onboarded we can see the applicati
 
 **1.Network Observability:** It gives data related to network connections happening in the pod
 
-
  ![](images/dvwa-2.png)
 
 **2.File Observability:** It gives information regarding files that are being accessed in the pod
 
 ![](images/dvwa-3.png)
 
-
 **3.Process Observability:** It shows the process that is being executed in the pod.
 
 ![](images/dvwa-4.png)
 
-## **Protection Using AccuKnox:**
+## Protection With AccuKnox
+
 According to the application behavior, the WordPress pod running in the DVWA uses 2 processes ping and apache2. So we are going to whitelist only these 2 processes and block other processes from execution in the WordPress pod.
 
-- **Before Applying policy:**
+### Before Applying policy
 
 Before applying our KubeArmor Security policy we can see that along with ping other processes are also can be executed.
 
 ![](images/dvwa-5.png)
 
-
-- **Applying the KubeArmor policy:**
+### Applying the KubeArmor policy
 
 **Step 1:** Navigate to the *Runtime Protection-> Policies* and select the cluster and namespace where the DVWA application is deployed.
 
 ![](images/dvwa-6.png)
 
-
 **Step 2:** In the screen select the discovered policies in the policy filter section to view the auto-discovered policies for the DVWA application.
-
 
  ![](images/dvwa-7.png)
 
@@ -63,7 +59,7 @@ Before applying our KubeArmor Security policy we can see that along with ping ot
 
 The policy allows the necessary processes like ping and apache2 to execute.
 
-```bash
+```yml
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
@@ -139,11 +135,9 @@ spec:
 
 **Step 4:** To apply this policy, select the policy checkbox and click Apply option
 
-
  ![](images/dvwa-9.png)
 
 **Step 5:** When we apply the policy, it goes into the pending state for approval.
-
 
  ![](images/dvwa-10.png)
 
@@ -151,14 +145,10 @@ spec:
 
 ![](images/dvwa-11.png)
 
-
 **Step 7:** After Approval policy becomes active
 ![](images/dvwa-12.png)
 
-
-
 **Step 8:** Now if we try to execute any other processes inside the dvwa pod it will be blocked.
-
 
  ![](images/dvwa-13.png)
 
@@ -166,10 +156,7 @@ spec:
 
 ![](images/dvwa-14.png)
 
-
 Thus DVWA application’s web pod is protected using AccuKnox CWPP Security solution.
-
-
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
