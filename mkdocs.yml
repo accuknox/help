@@ -163,12 +163,11 @@ nav:
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "SaaS" :
-          - "Prerequisites" :
-            - "CSPM Prerequisites":
-              - "AWS": "getting-started/cspm-prereq-aws.md"
-              - "Azure": "getting-started/cspm-prereq-azure.md"
-              - "GCP": "getting-started/cspm-prereq-gcp.md"
-            - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+          - "CSPM Prerequisites":
+            - "AWS": "getting-started/cspm-prereq-aws.md"
+            - "Azure": "getting-started/cspm-prereq-azure.md"
+            - "GCP": "getting-started/cspm-prereq-gcp.md"
+          - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
           - "Onboarding" :
             - "Cloud Account" :
               - "AWS" : "getting-started/aws-onboarding.md"

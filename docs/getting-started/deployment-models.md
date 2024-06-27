@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # Deployment Models
 
 AccuKnox has an expanded offering to cater to diverse deployment needs and preferences:
