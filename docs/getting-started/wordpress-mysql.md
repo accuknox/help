@@ -1,15 +1,12 @@
----
-hide:
-  - toc
----
 
-WordPress-MySQL Application has the WordPress front end connecting to the MySQL backend. When this application is deployed in the k8s environment, we have two pods one for WordPress and another for Mysql. We can onboard the cluster to our AccuKnox SaaS by following the steps here 
 
- 
+WordPress-MySQL Application has the WordPress front end connecting to the MySQL backend. When this application is deployed in the k8s environment, we have two pods one for WordPress and another for Mysql. We can onboard the cluster to our AccuKnox SaaS by following the steps here
 
-## **Observability:** 
 
-Once the cluster with the WordPress-MySQL application is onboarded we can see the application behavior by Navigating to the Runtime Security->App Behavior section. In the screen the select cluster name and namespace in which the WordPress-MySQL application is deployed. 
+
+## **Observability:**
+
+Once the cluster with the WordPress-MySQL application is onboarded we can see the application behavior by Navigating to the Runtime Security->App Behavior section. In the screen the select cluster name and namespace in which the WordPress-MySQL application is deployed.
 
 
 **1.Network Observability:**
@@ -19,37 +16,37 @@ Here we can get the details of the ingress and egress connections that are happe
 
 **2.File observability:**
 
-In file observability, the information related to the files that are being accessed in the pod will be shown 
+In file observability, the information related to the files that are being accessed in the pod will be shown
 ![](images/word-my-2.png)
 
-**3.Process Observability:** 
+**3.Process Observability:**
 
-In process observability, the information related to the process that is being executed in the pod will be shown. 
+In process observability, the information related to the process that is being executed in the pod will be shown.
 
 ![](images/word-my-3.png)
-## **Protecting WordPress-MySQL Application using AccuKnox:** 
+## **Protecting WordPress-MySQL Application using AccuKnox:**
 
-??? "**1. Preventing WordPress from Remote-code execution**" 
+??? "**1. Preventing WordPress from Remote-code execution**"
 
-    Based on the application behavior currently, in the WordPress pod, the attacker can easily get access to the bash and execute his remote code using the package management tools. The attacker can leverage this vulnerability to execute his code or download any binary into the pod. 
+    Based on the application behavior currently, in the WordPress pod, the attacker can easily get access to the bash and execute his remote code using the package management tools. The attacker can leverage this vulnerability to execute his code or download any binary into the pod.
 
     ![](images/word-my-5.png)
 
     we can protect this with help of hardening policies that kubearmor has discovered based on the application behavior of this WordPress-mysql application. To see and apply this hardening policy follow the below steps
 
-    
-    **Protection using Accuknox** 
-    
-    **Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed. 
+
+    **Protection using Accuknox**
+
+    **Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed.
     ![](images/word-my-5.png)
 
-    **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application. 
+    **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application.
     ![](images/word-my-6.png)
     **Step 3:** Click on the WordPress package manager execution hardening policy from the list of policies to see the policy
     ![](images/word-my-7.png)
 
-    The Hardening policy is blocking the execution of any package management tools inside the WordPress pod. 
-    ```bash 
+    The Hardening policy is blocking the execution of any package management tools inside the WordPress pod.
+    ```bash
         apiVersion: security.kubearmor.com/v1
         kind: KubeArmorPolicy
         metadata:
@@ -106,7 +103,7 @@ In process observability, the information related to the process that is being e
     **Step 4:** To apply this policy, select the policy checkbox and click Apply option
     ![](images/word-my-8.png)
 
-    **Step 5:** The policy goes into the pending state for approval. 
+    **Step 5:** The policy goes into the pending state for approval.
     ![](images/word-my-9.png)
 
     **Step 6:** To approve the policy click on the Pending icon, review changes and approve
@@ -114,36 +111,36 @@ In process observability, the information related to the process that is being e
     ![](images/word-my-10.png)
     **Step 7:** Now the policy is active and applied on the cluster
     ![](images/word-my-11.png)
-    **Step 8:** If any attacker tries to install any binary inside the WordPress pod it will be blocked and we will be getting alerts. 
+    **Step 8:** If any attacker tries to install any binary inside the WordPress pod it will be blocked and we will be getting alerts.
     ![](images/word-my-12.png)
-    **Step 9:** To see the logs Navigate to the Monitoring/logging->logs 
+    **Step 9:** To see the logs Navigate to the Monitoring/logging->logs
     ![](images/word-my-13.png)
 
     Thus we have prevented the remote code execution in the WordPress pod using AccuKnox’s CWPP protection.
 
 ??? "**2. File Integrity Monitoring**"
 
-    In the MySQL application, certain folders will be having certain critical data which can be allowed to access but not modified. So using our AccuKnox hardening policy we are going to prevent the modification of contents inside these critical folders. 
+    In the MySQL application, certain folders will be having certain critical data which can be allowed to access but not modified. So using our AccuKnox hardening policy we are going to prevent the modification of contents inside these critical folders.
 
-    **Before applying the policy:** 
+    **Before applying the policy:**
 
     Currently, any attacker who gets access to the bash or shell of the MySQL pod can modify the contents of the sbin folder by creating a new file and editing the old files.
 
     ![](images/word-my-14.png)
 
-    Now we are going to prevent this using AccuKnox CWPP Solution. 
+    Now we are going to prevent this using AccuKnox CWPP Solution.
 
-    **Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed. 
+    **Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed.
 
     ![](images/word-my-15.png)
-    **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application. 
+    **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application.
 
     ![](images/word-my-16.png)
     **Step 3:** Click on the MySQL file integrity hardening policy from the list of policies to see the policy
     ![](images/word-my-17.png)
 
-    The policy is allowing users to access the critical folders but it is blocking the write or modify access by whitelisting only read access. 
-    ```bash 
+    The policy is allowing users to access the critical folders but it is blocking the write or modify access by whitelisting only read access.
+    ```bash
         apiVersion: security.kubearmor.com/v1
         kind: KubeArmorPolicy
         metadata:
@@ -189,25 +186,25 @@ In process observability, the information related to the process that is being e
 
     ![](images/word-my-18.png)
 
-    **Step 5:** The policy goes into the pending state for approval. 
+    **Step 5:** The policy goes into the pending state for approval.
 
     ![](images/word-my-19.png)
 
-    **Step 6:** To approve the policy click on the Pending icon, review changes and approve 
+    **Step 6:** To approve the policy click on the Pending icon, review changes and approve
 
     ![](images/word-my-20.png)
     **Step 7:** Now the policy is active and applied on the cluster
 
     ![](images/word-my-21.png)
-    **Step 8:** If any attacker now tries to modify the content of the critical folders it will be blocked. 
+    **Step 8:** If any attacker now tries to modify the content of the critical folders it will be blocked.
 
     ![](images/word-my-22.png)
-    **Step 9:** To see the logs Navigate to the Monitoring/logging->logs 
+    **Step 9:** To see the logs Navigate to the Monitoring/logging->logs
 
     ![](images/word-my-23.png)
 
-    Thus the file integrity of the MySQL pod is maintained using the AccuKnox CWPP security solution. 
+    Thus the file integrity of the MySQL pod is maintained using the AccuKnox CWPP security solution.
 
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

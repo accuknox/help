@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 # AccuKnox Container Scan Usecase
 
@@ -37,11 +34,11 @@ Before using AccuKnox, our Docker image was sent to the registry without any vul
 **Updated GitHub Actions Workflow Snippet (Incorporating AccuKnox Scan):**
 
 {% raw %}
-```yaml   
+```yaml
       - name: Run AccuKnox CSPM Scan
         uses: accuknox/container-scan-action@v0.0.1
         with:
-          token: ${{ secrets.TOKEN }} 
+          token: ${{ secrets.TOKEN }}
           tenant_id: ${{ secrets.TENANT_ID }}
           repository_name: ${{ github.repository }}
           exit_code: 1
@@ -111,12 +108,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@main  
-     
+        uses: actions/checkout@main
+
       - name: Run AccuKnox CSPM Scan
         uses: accuknox/container-scan-action@v0.0.1
         with:
-          token: ${{ secrets.TOKEN }} 
+          token: ${{ secrets.TOKEN }}
           tenant_id: ${{ secrets.TENANT_ID }}
           repository_name: ${{ github.repository }}
 ```

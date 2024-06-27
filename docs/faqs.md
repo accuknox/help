@@ -1,9 +1,7 @@
----
-hide:
-  - toc
----
 
-## **AccuKnox FAQs:** 
+# FAQs
+
+## AccuKnox FAQs
 
 ??? "**1. Does AccuKnox CNAPP support only agent-based scanning or does it support agentless scanning ?**"
 
@@ -19,7 +17,7 @@ hide:
 ??? "**3. How does AccuKnox help to achieve static security?**"
 
     AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and containing the SLA. We also give comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
-	
+
 ??? "**4. How does AccuKnox help to achieve Runtime security?**"
 
     AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves runtime security by leveraging CNCF sandbox project, KubeArmor, which is a cloud-native runtime security enforcement system by AccuKnox that restricts and have more granular control over the application behavior such as process execution, file access, and networking operation of containers and nodes at the system level.
@@ -30,7 +28,7 @@ hide:
 
 ??? "**6. What does KubeArmor leverage for enforcement and what are its advantages?**"
 
-    KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux for inline mitigation to reduce the attack surface of the pod/container/VM.LSMs have several advantages over any other techniques. By using LSMs, KubeArmor does not have to disturb pods/containers and also doesn't require change at host or CRI level to apply security policies. 
+    KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux for inline mitigation to reduce the attack surface of the pod/container/VM.LSMs have several advantages over any other techniques. By using LSMs, KubeArmor does not have to disturb pods/containers and also doesn't require change at host or CRI level to apply security policies.
 
     KubeArmor deploys as a non-privileged daemonset with certain capabilities that allows it to monitor other pods/containers and host. A given cluster can have multiple nodes utilizing different LSMs so KubeArmor abstracts away the complexities of the LSMs and provides an easy way for policy enforcement.
 
@@ -54,7 +52,6 @@ hide:
 
     AccuKnox CWPP provides micro-segmentation at the lowest possible granularity level which is also a smallest execution unit in Kubernetes i.e. Pods. We will help you to identify process execution request from the pods, network connections the pods are trying to make internally or externally and files-system the pods are accessing. By observing the behavior of a particular pod and restricting that behavior so that it functions according  to the expected flow of process/events/traffic, one can develop a least permissive security posture from creating a whitelisting policies and auditing/denying everything else.
 
-
 ??? "**10. How AccuKnox helps to recommend Auto-Discovered Policies?**"
 
     AccuKnox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster  information that is relayed by Shared Informer Agent.
@@ -69,13 +66,12 @@ hide:
 
 ??? "**13. How AccuKnox helps to implement Zero Trust?**"
 
-
     By implementing a zero trust posture with KubeArmor, organizations can increase their security posture and reduce the risk of unauthorized access or activity within their Kubernetes clusters. This can help to protect sensitive data, prevent system breaches, and maintain the integrity of the cluster.
     KubeArmor supports allow-based policies which result in specific actions to be allowed and denying/auditing everything else. For example, a specific pod/container might only invoke a set of binaries at runtime. As part of allow-based rules you can specify the set of processes that are allowed and everything else is either audited or denied based on the default security posture.
 
 ??? "**14. Does KubeArmor only support Kubernetes or it can support on-prem deployments like legacy VM, pure containerized workload as well?**"
 
-    KubeArmor supports following types of workloads: 
+    KubeArmor supports following types of workloads:
 
     + K8s orchestrated workloads: Workloads deployed as k8s orchestrated containers. In this case, KubeArmor is deployed as a k8s daemonset. Note, KubeArmor supports policy enforcement on both k8s-pods (KubeArmorPolicy) as well as k8s-nodes (KubeArmorHostPolicy).
     + VM/Bare-Metals workloads: Workloads deployed on Virtual Machines or Bare Metal i.e. workloads directly operating as host processes. In this case, KubeArmor is deployed in systemd mode.
@@ -87,7 +83,7 @@ hide:
 
 ??? "**16. What is the difference between Post-attack mitigation and in-line mitigation and which is better?**"
 
-    Post-exploit Mitigation works by killing the suspicious process in response to an alert indicating malicious intent. In this case attacker will be allowed to is able to execute its binary and could possibly disable the security controls, access logs, etc to circumvent the attack detection. By the time the malicious process is killed, it might have already deleted, encrypted, or transmitted the sensitive contents. 
+    Post-exploit Mitigation works by killing the suspicious process in response to an alert indicating malicious intent. In this case attacker will be allowed to is able to execute its binary and could possibly disable the security controls, access logs, etc to circumvent the attack detection. By the time the malicious process is killed, it might have already deleted, encrypted, or transmitted the sensitive contents.
 
     ![](/faqs/images/post-attack-mitigation.png)
 
@@ -113,27 +109,27 @@ hide:
 
 ??? "**18.What role does AccuKnox Agents play in runtime-security?**"
 
-    AccuKnox Enterprise version consists of various agents such as 
+    AccuKnox Enterprise version consists of various agents such as
 
     **KubeArmor:**  KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. KubeArmor dynamically set the restrictions on the pod. KubeArmor leverages Linux Security Modules (LSMs) to enforce policies at runtime.
 
-    **Feeder Service:** It collects the feeds from kubeArmor and relays to the app. 
+    **Feeder Service:** It collects the feeds from kubeArmor and relays to the app.
 
-    **Shared Informer Agent:** It collects information about the cluster like pods, nodes, namespaces etc., 
+    **Shared Informer Agent:** It collects information about the cluster like pods, nodes, namespaces etc.,
 
-    **Policy Discovery Engine:** It discovers the policies using the workload and cluster information that is relayed by a shared informer Agent. 
+    **Policy Discovery Engine:** It discovers the policies using the workload and cluster information that is relayed by a shared informer Agent.
 
 ??? "**19. Does Accuknox provide auto discovery of assets and workloads?**"
 
-    Yes, Accuknox can auto discover assets in the cloud by leveraging the cloud native tools. 
-    
+    Yes, Accuknox can auto discover assets in the cloud by leveraging the cloud native tools.
+
     For workloads, Accuknox agents will provide the visibility data.
 
 ??? "**20. Can Accuknox help in Monitoring?**"
 
     + With Accuknox, you can create monitors for assets or group of assets to get alerts for changes observed in their Metadata (software version etc)
 
-    + Our Drift detection capability is inherently doing monitoring of the compliance checks (pass/fail) that have changed between scans. 
+    + Our Drift detection capability is inherently doing monitoring of the compliance checks (pass/fail) that have changed between scans.
 
     + We collect alerts and telemetry generated by Kubearmor and cillium. These alerts are part of our CWPP offering. These alerts are generated for the events that have violated/complied with a policy.
 
@@ -148,7 +144,7 @@ hide:
     AccuKnox technology does not integrate at the VM virtualization layer. AccuKnox tech integrates at the operating system layer and ensures that the right hardening/enforcement for process executions, network access, and file access is in place. Thus AccuKnox can operate on any virtualization tech provided that the underlying VM uses Linux as its operating system.
 
 ??? "**23. What is the differentiation of AccuKnox in ASPM Security?**"
-    
+
      In the ASPM Security solution, unlike other tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. This is mainly done for the following two context:
 
     + Remove dependencies and scoped results from one tool
@@ -156,12 +152,11 @@ hide:
 
      Further on this, We also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
 
+## **Bonus Questions**
 
-
-## **Bonus Questions :**
 ??? "**1. What are the modules supported by AccuKnox CNAPP currently?**"
        + CSPM
-       + ASPM 
+       + ASPM
        + DevSecOps security in CI/CD pipeline
        + CWPP
        + Container Images Scanning
@@ -169,7 +164,7 @@ hide:
 
 ??? "**2. What are all the compliance frameworks that AccuKnox is covering?**"
 
-    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001. 
+    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001.
 
 ??? "**3. Does Inline remediation slowdown the process?**"
 
@@ -195,7 +190,6 @@ hide:
         + Public Cloud - Agentless (API Scan) for SaaS based usage
         + On-Prem or Datacenter - On-prem deployment using Helm-charts
 
-
 ??? "**7. Where is AccuKnox SAAS is located?**"
 
     Currently it is located in US region
@@ -211,7 +205,7 @@ hide:
 ??? "**10. What is AccuKnox’s licensing model?**"
 
     If it is an end customer - <a href="https://www.accuknox.com/sla" target="_blank">SLA</a>
-    
+
     If it is a MSSP model, it is a revenue share
 
 ??? "**11. How do you work with resellers and partnership models?**"
@@ -223,20 +217,20 @@ hide:
 
 ??? "**12. Current AccuKnox's marketplace listing?**"
 
-    Accuknox is currently listed on 
-    
+    Accuknox is currently listed on
+
     - <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
     - <a href="https://aws.amazon.com/marketplace/pp/prodview-lomtgayjmmmpi?sr=0-2&ref_=beagle&applicationId=AWSMPContessa" target="_blank">AWS</a>
     - <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/accuknoxinc1674553411688.accuknox_saas_ver1?tab=Overview" target="_blank">Azure</a>
     - <a href="https://catalog.redhat.com/software/container-stacks/detail/65c70ea1e7719e8b23d8fd50" target="_blank">RedHat Openshift</a>
-    
+
     We are in the process of listing on
-    
+
       + GCP
       + Oracle
 ??? "**13. Who are current AccuKnox's partners and resellers?**"
 
     + We have a global partnership with TCS
     + We have a reseller partnership with Ambisure
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

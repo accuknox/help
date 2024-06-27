@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 <div>
   <iframe id="inlineFrameManual"

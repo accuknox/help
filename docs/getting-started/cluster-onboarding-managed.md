@@ -1,11 +1,8 @@
----
-hide:
-  - toc
----
+
 
 # **Managed Cluster Onboarding**
 
-Below shown image is the GKE cluster running with Google Container optimized Operating System. 
+Below shown image is the GKE cluster running with Google Container optimized Operating System.
 
 ![](images/gke-1.png)
 
@@ -16,7 +13,7 @@ Below shown image is the GKE cluster running with Google Container optimized Ope
 
 We can onboard this managed cluster by following the steps shown below:
 
-**Step 1:** After signing up, user will be taken to CNAPP dashboard. Since there is no cluster or cloud account onboarded widgets will not have any data. 
+**Step 1:** After signing up, user will be taken to CNAPP dashboard. Since there is no cluster or cloud account onboarded widgets will not have any data.
 
 ![](images/gke-3.png)
 
@@ -77,25 +74,25 @@ kubearmor/kubearmor-client info checking GitHub for latest tag
 kubearmor/kubearmor-client info found version: 0.12.4 for v0.12.4/linux/amd84
 kubearmor/kubearmor-client info installed /usr/local/bin/karmor
 ***********@cloudshell:- (smooth-zenith-382113)$ karmor install
-Auto Detected Environment : gke 
+Auto Detected Environment : gke
 CRD kubearmorpolicies.security.kubearmor.com
 CRD kubearmorhostpolicies.security.kubearmor.com
-Service Account 
-Cluster Role Bindings 
+Service Account
+Cluster Role Bindings
 KubeArmor Relay Service
 KubeArmor Relay Deployment
-KubeArmor DaemonSet - Init kubearmor/kubearmor-init:stable, Container kubearmor/kubearmor:stable-gRPC=22767 
+KubeArmor DaemonSet - Init kubearmor/kubearmor-init:stable, Container kubearmor/kubearmor:stable-gRPC=22767
 KubeArmor Policy Manager Service
-KubeArmor Policy Manager Deployment 
-KubeArmorrHost Policy Manager Service 
-KubeArmor Host Policy Manager Deployment 
+KubeArmor Policy Manager Deployment
+KubeArmorrHost Policy Manager Service
+KubeArmor Host Policy Manager Deployment
 KubeArmor Annotation Controller TLS certificates
-KubeArmorrAnnotationgcontroller Deployment 
+KubeArmorrAnnotationgcontroller Deployment
 KubeArmorrAnnotationgcontroller Service
-KubeArmor Annotation Controller Mutation Admission Registration 
-Done Installing RubeArmor 
+KubeArmor Annotation Controller Mutation Admission Registration
+Done Installing RubeArmor
 Done Checking tALL Services are\running!
-Execution Time : 43.880558117s 
+Execution Time : 43.880558117s
 ```
 
 **Step 5.2:** AccuKnox-Agents installation:
@@ -147,7 +144,7 @@ LAST DEPLOYED: Wed Mar 29 14:41:20 2023
 NAMESPACE: accuknox-agents
 STATUS: deployed
 REVISION: 1
-TEST SUITE: None 
+TEST SUITE: None
 ```
 
 **Note:** In the above command joinToken is specific to this example and it will vary based on the cluster
@@ -157,5 +154,5 @@ TEST SUITE: None
 ![](images/gke-10.png)
 
 
-  - - - 
+  - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

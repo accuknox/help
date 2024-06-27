@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## Jira Integration
 
@@ -44,5 +41,5 @@ Here Enter the following details:
 
 You can now configure Tickets to be created on JIRA.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

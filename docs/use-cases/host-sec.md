@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 AccuKnox provides host scanning capabilities through an integration with tools like Nessus, Masscan and Zeek.
 
@@ -55,7 +52,7 @@ The vulnerabilities found using Nessus are populated in the AccuKnox SaaS in add
 
 ![](images/host-sec/vuln-list.png)
 
-**Step 2**: To view only the findings from Nessus, choose **Nessus** from the **Data Type** filter. 
+**Step 2**: To view only the findings from Nessus, choose **Nessus** from the **Data Type** filter.
 
 This will list the issues identified by Nessus such as SSL certificate issues, vulnerable software versions in use, etc…
 

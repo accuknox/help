@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## **Introduction**
 
@@ -143,17 +140,17 @@ jobs:
 - Go to **Issues** > **Vulnerabilities** and select **Data Type** as **SonarQube** to view the identified vulnerabilities, including the SQL Injection vulnerability in ```VulnerableApp.java```.
 
 ![](images/sast/findings.png)
- 
+
 - Click on the Vulnerability to view more details
 
 ![](images/sast/details.png)
- 
+
 **Step 4**: Fix the Vulnerability
 
 To fix the SQL Injection vulnerability, use prepared statements instead of concatenating user input directly into the SQL query as seen in the Solutions tab.
 
 ![](images/sast/solution.png)
- 
+
 Secure Java Code Example (To be saved as ```SecureApp.java```)
 
 ```sh

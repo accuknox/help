@@ -1,14 +1,11 @@
----
-hide:
-  - toc
----
+
 
 # **Cluster Offboarding**
 
 In the below section you can find the detailed steps to be followed for Agent uninstallation from your cluster CLI and Deleting cluster from Accuknox SaaS.
 The given steps are common for all  AKS, EKS, GKE and unmanaged Clusters.
 
-**Agents Uninstallation** 
+**Agents Uninstallation**
 
 Uninstall Accuknox agents using the following commands:
 
@@ -35,9 +32,9 @@ Sample:
 
 ![](images/cluster-off-3.png)
 
- 
 
 
 
-  - - - 
+
+  - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

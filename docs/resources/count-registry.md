@@ -1,11 +1,8 @@
----
-hide:
-  - toc
----
+
 
 ??? "**DockerHub**"
 
-    To get the count of dockerhub images please use the following the command after connecting your dockerhub repository to the commandline using dockerdesktop application. 
+    To get the count of dockerhub images please use the following the command after connecting your dockerhub repository to the commandline using dockerdesktop application.
 
     ```sh
     docker images <repository-name>
@@ -35,7 +32,7 @@ hide:
 
 ??? "**ACR**"
 
-    To get the count of images stored in an Azure Container Registry (ACR) using Azure CLI use the following command 
+    To get the count of images stored in an Azure Container Registry (ACR) using Azure CLI use the following command
 
     ```sh
     az acr repository show-tags --name <ACR_NAME> --repository <REPOSITORY_NAME> --output json --query "length(@)"

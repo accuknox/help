@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 
 Database Management is an important part when you have a large amount of data around you. MySQL is one of the most famous open-source Relational Databases to store and handle your data. So securing the data is the main concern for any organization.
@@ -57,7 +54,7 @@ web-service      LoadBalancer   10.16.9.151    35.193.121.214   80:31533/TCP   2
 
 **[Step 4]** Create persistent volume and persistent volume claim to keep your data intact.
 
-Create a directory where the Volume will be stored 
+Create a directory where the Volume will be stored
 
 ```bash
 sudo mkdir /mnt/data
@@ -98,7 +95,7 @@ kubectl apply -f https://raw.githubusercontent.com/accuknox/samples/main/php-mys
 Check the status of the pod and service
 
 ```bash
-kubectl get po,svc	
+kubectl get po,svc
 ```
 
 You should be able to see the output like this
@@ -165,7 +162,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> 
+mysql>
 ```
 
 Now you are inside the MySQL terminal. First, you need to create a users table and add values to the table.
@@ -189,7 +186,7 @@ CREATE TABLE users
 (
 name varchar(20)
 );
-	
+
 ```
 
 You should be able to see the output like this
@@ -216,7 +213,7 @@ Go to GitHub repository:  [https://github.com/kubearmor/policy-templates](https:
 
 Let's see a policy from the policy templates repo.
 
-### **Audit your MySQL Server Sensitive Configuration files with KubeArmor**  
+### **Audit your MySQL Server Sensitive Configuration files with KubeArmor**
 
 > MySQL Server, also known as mysqld, is a single multithreaded program that does most of the work in a MySQL installation. It does not spawn additional processes. MySQL Server manages access to the MySQL data directory that contains databases and tables. The data directory is also the default location for other information such as log files and status files.
 
@@ -240,7 +237,7 @@ Starts the MySQL database server.
 Usage: mysqld [OPTIONS]
 
 Default options are read from the following files in the given order:
-/etc/my.cnf /etc/mysql/my.cnf ~/.my.cnf 
+/etc/my.cnf /etc/mysql/my.cnf ~/.my.cnf
 The following groups are read: mysqld server mysqld-8.0
 ```
 
@@ -286,8 +283,8 @@ With the help of  **KubeArmor**  and Policy-templates, You can audit/restrict al
 
 ```yaml
 # KubeArmor is an open source software that enables you to protect your cloud workload at runtime.
-# To learn more about KubeArmor visit: 
-# https://www.accuknox.com/kubearmor/ 
+# To learn more about KubeArmor visit:
+# https://www.accuknox.com/kubearmor/
 
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
@@ -319,7 +316,7 @@ spec:
     severity: 10
     matchPaths:
     - path: /usr/bin/mysqldump
-    action: Block 
+    action: Block
 
 
 ```
@@ -398,7 +395,7 @@ Tags: MySQL,config-files,mysqldump
 Accessing /etc/mysql/my.cnf config. file;
 
 ```bash
-root@mysql-7d9977c67d-7rcmb:/# cat /etc/mysql/my.cnf 
+root@mysql-7d9977c67d-7rcmb:/# cat /etc/mysql/my.cnf
 ```
 
 KubeArmor detects this event and you will receive logs like this: Check karmor log
@@ -516,13 +513,13 @@ It is allowing only minimum traffic that the application needed to operate. This
 
 Auto-discovered policies are generated based on the network flow of the application.
 
-It is allowing only minimum traffic that the application needed to operate. This will restrict all unwanted connections and provide runtime security. You can also handcraft your own security policies to secure your MySQL cluster.  
-  
+It is allowing only minimum traffic that the application needed to operate. This will restrict all unwanted connections and provide runtime security. You can also handcraft your own security policies to secure your MySQL cluster.
+
 **KubeArmor Slack**:  [Join the KubeArmor community on Slack!](https://kubearmor.herokuapp.com/)
 
 Now you can protect your workloads in minutes using  [AccuKnox](https://www.accuknox.com/), it is available to protect your Kubernetes and other cloud workloads using Kernel Native Primitives such as AppArmor, SELinux, and eBPF.
 
 [Let us know](https://www.accuknox.com/contactus/)  if you are seeking additional guidance in planning your cloud security program.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

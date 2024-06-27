@@ -1,11 +1,8 @@
----
-hide:
-  - toc
----
+
 
 ## GAR Onboarding
 
-When [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs) with images is onboarded into AccuKnox SaaS platform, the images are scanned continuously. The risks and vulnerabilities associated with these images are identified and shown in the scan results. The vulnerabilities are classified based on the CVSS Scores. 
+When [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs) with images is onboarded into AccuKnox SaaS platform, the images are scanned continuously. The risks and vulnerabilities associated with these images are identified and shown in the scan results. The vulnerabilities are classified based on the CVSS Scores.
 
 ### **Steps to create service account in GCP for onboarding GAR**
 
@@ -59,5 +56,5 @@ Click on **Test Connection** and then click on the enabled **Save** button
 
 ![](images/gar/gar-result.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

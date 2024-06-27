@@ -1,9 +1,6 @@
----
-hide:
-  - toc
----
 
-In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission. 
+
+In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
 
 ![](images/accuknox-architecture.png)
 
@@ -77,5 +74,5 @@ For GCP there is a requirement for IAM Service Account Access.
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

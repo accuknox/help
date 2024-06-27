@@ -1,4 +1,5 @@
 ![AccuKnox Logo](./docs/assets/images/web-logo-dark-back.png)
+
 # Cloud Native Application Protection Platform
 
 AccuKnox’s Cloud Native Application Protection platform is a single tool that provides both Static as well as dynamic Security. AccuKnox Enterprise Architecture consists of various Microservices like the vault for secret management, Mongo DB for database-related connections and it uses API gateway. AccuKnox CSPM tool scans the infrastructure and stores the scan data in the S3 bucket either created by AccuKnox or the S3 bucket created by the customer. AccuKnox can also be integrated with the CI/CD pipelines and SIEM tools like Jira, Slack, Splunk, and Rsyslog as well.

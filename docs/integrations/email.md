@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## Email Integration
 
@@ -27,5 +24,5 @@ To send an alert notification via mail you must first set up the Email notificat
 
 - Click **Save** to save the Integration. You can now [configure Alert Triggers](./../saas/triggers.md) for Email Notifications.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

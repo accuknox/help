@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ??? "**AccuKnox KubeArmor**"
 
@@ -22,7 +19,7 @@ hide:
 
     Once, DKP deployment is done, Activate the enterprise license from the UI
 
-    ## **DKP Application catalog**  
+    ## **DKP Application catalog**
 
     Catalog applications are any third-party or open-source applications that appear in the Catalog. These applications are deployed to be used for customer workloads.
 
@@ -195,7 +192,7 @@ hide:
     ![](images/d2iq/dkp-apps.png)
 
     ![](images/d2iq/dkp-custom-app.png)
-    
+
     Check the status of Kubearmor pods using
 
     ```sh
@@ -475,7 +472,7 @@ hide:
 
     **Note**: Once the KubeArmor is added to the DKP default application catalog a user can directly enable it from the UI
 
-??? "**AccuKnox Enterprise**" 
+??? "**AccuKnox Enterprise**"
 
     AccuKnox runtime security for Kubernetes aids in discovering the application behavior of your workload and offers the capability to enforce security policies. AccuKnox automatically detects and suggests Behavioral Policies based on application observability, such as file system access for processes and processes that are accessing the network.
 
@@ -655,5 +652,5 @@ hide:
 
     ![](images/d2iq/integ-screen.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

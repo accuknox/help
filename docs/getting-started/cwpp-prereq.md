@@ -1,19 +1,16 @@
----
-hide:
-  - toc
----
 
-In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS. 
+
+In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS.
 
 ![](images/accuknox-architecture.png)
 
 ## AccuKnox Agents
 
-| Deployments            | Deployment Type | 
+| Deployments            | Deployment Type |
 |------------------------|-----------------|
-| KubeArmor              | DaemonSet       | 
-| Shared Informer Agent  | Deployment      | 
-| Feeder Service         | Deployment      | 
+| KubeArmor              | DaemonSet       |
+| Shared Informer Agent  | Deployment      |
+| Feeder Service         | Deployment      |
 | Policy Enforcement     | Deployment      |
 | Discovery Engine Agent | Deployment      |
 
@@ -23,7 +20,7 @@ In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud envir
 
     1. [Kubectl](https://kubernetes.io/docs/tasks/tools/ "https://kubernetes.io/docs/tasks/tools/")
     2. [Helm](https://helm.sh/docs/intro/install/ "https://helm.sh/docs/intro/install/")
- 
+
 ## **Pre-requisites**
 ### Minimum Resource required
 
@@ -34,9 +31,9 @@ In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud envir
 |Discovery Engine       | CPU: 200 m, Memory: 200 Mi | -    | -			| -                                               |
 |Shared Informer Agent  | CPU: 20 m, Memory: 50 Mi   | 3000 | Outbound		| *.accuknox.com:3000 --> knox-gateway            |
 |Feeder Service         | CPU: 50 m, Memory: 100 Mi  | 3000 | Outbound		| *.accuknox.com:3000 --> knox-gateway            |
-|Policy Enforcement     | CPU: 10 m, Memory: 20 Mi   | 443  | Outbound		| *.accuknox.com:443  --> Policy Provider Service | 
+|Policy Enforcement     | CPU: 10 m, Memory: 20 Mi   | 443  | Outbound		| *.accuknox.com:443  --> Policy Provider Service |
 
 - These ports need to be allowed through firewall.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

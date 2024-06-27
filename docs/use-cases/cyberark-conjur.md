@@ -1,14 +1,11 @@
----
-hide:
-  - toc
----
+
 
 CyberArk Conjur manages the secrets required by applications and other non-human identities to gain access to critical infrastructure, data and other resources. Conjur secures this access by managing secrets with granular Role-Based Access Control (RBAC) and other security best practices and techniques.
 
 ??? "Installing CyberArk Conjur"
-    We can install CyberArk Conjur in the Kubernetes cluster by running the following shell script: 
-    ```sh 
-    #!/bin/bash 
+    We can install CyberArk Conjur in the Kubernetes cluster by running the following shell script:
+    ```sh
+    #!/bin/bash
 
     CONJUR_NAMESPACE=conjur
     kubectl create namespace "$CONJUR_NAMESPACE"
@@ -24,22 +21,22 @@ CyberArk Conjur manages the secrets required by applications and other non-human
 
     ```
     ![](images/conjur-1.png)
-    Now the CyberArK Conjur is installed in the Cluster and you can see the Conjur-oss and Conjur-postgres pods running in the Conjur Namespace. 
+    Now the CyberArK Conjur is installed in the Cluster and you can see the Conjur-oss and Conjur-postgres pods running in the Conjur Namespace.
 
     ![](images/conjur-2.png)
 
 **Attack points in Conjur:**
 
-CyberArk Conjur when deployed in the Kubernetes cluster stores sensitive information in the volume mount points. In the conjure-oss pod, the Conjur-nginx container stores the sensitive information in the etc/ssl and etc/nginx volume mount points.  Conjur-oss container has  /conjure-server volume mount point where the sensitive information is stored. In the Conjur-Postgres pod the sensitive information and secrets are stored in the /var/lib/postgresql/data and /etc/certs Volume mount points. 
+CyberArk Conjur when deployed in the Kubernetes cluster stores sensitive information in the volume mount points. In the conjure-oss pod, the Conjur-nginx container stores the sensitive information in the etc/ssl and etc/nginx volume mount points.  Conjur-oss container has  /conjure-server volume mount point where the sensitive information is stored. In the Conjur-Postgres pod the sensitive information and secrets are stored in the /var/lib/postgresql/data and /etc/certs Volume mount points.
 ![](images/conjur-3.png)
 
-So if any attacker who gets access to these Volume mount points through lateral movements might see this sensitive information and secrets. Also, they can do encryption of the data and ask for ransomware. We can prevent these types of attacks AccuKnox’s runtime security engine KubeArmor. With the help of KubeArmor policies we can protect the access to these volume mount points and deny such attacks.  
+So if any attacker who gets access to these Volume mount points through lateral movements might see this sensitive information and secrets. Also, they can do encryption of the data and ask for ransomware. We can prevent these types of attacks AccuKnox’s runtime security engine KubeArmor. With the help of KubeArmor policies we can protect the access to these volume mount points and deny such attacks.
 
-**Protecting Conjur-OSS Container:** 
+**Protecting Conjur-OSS Container:**
 
 **Before Applying policy:**
 
-Currently, any attacker who gets access into the Conjur-oss pod can access the sensitive information stored in the /opt/conjur-server.  
+Currently, any attacker who gets access into the Conjur-oss pod can access the sensitive information stored in the /opt/conjur-server.
 ```sh
 @LAPTOP-9Q1ERBHE:~$ kubectl exec -it -n conjur conjur-conjur-oss-698fbf6cd5-kb62v -c conjur-oss -- bash
 root@conjur-conjur-oss-698fbf6cd5-kb62v:/opt/conjur-server# ls
@@ -58,9 +55,9 @@ root@conjur-conjur-oss-698fbf6cd5-kb62v:/opt/conjur-server#
 ```
 
 
-**Policy:** 
+**Policy:**
 
-We can protect access to these volume mount points using the following policy: 
+We can protect access to these volume mount points using the following policy:
 
 ```sh
 apiVersion: security.kubearmor.com/v1
@@ -92,31 +89,31 @@ spec:
   message: Conjur-oss policy
 ```
 
-In the above policy we are only allowing 
+In the above policy we are only allowing
 
 + /var/lib/ruby/bin/ruby  to access  /opt/conjur-server/ volume Mount
 
 All the other process will be denied access to /opt/conjur-server/
 
-??? "**Applying policy:**" 
-    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtimeprotection->Policies section. 
+??? "**Applying policy:**"
+    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtimeprotection->Policies section.
     ![](images/conjur-4.png)
-    **Step 2:** Now select the create policy option from this screen. 
+    **Step 2:** Now select the create policy option from this screen.
     ![](images/conjur-5.png)
-    **Step 3:** Click on the upload YAML option to upload the policy. Then select the cluster name and namespace where Conjur is installed. 
+    **Step 3:** Click on the upload YAML option to upload the policy. Then select the cluster name and namespace where Conjur is installed.
     ![](images/conjur-6.png)
-    **Step 4:** Click on the Save and select the Save to Workspace option to save the policy to the workspace. 
+    **Step 4:** Click on the Save and select the Save to Workspace option to save the policy to the workspace.
     ![](images/conjur-7.png)
     **Step 5:** Now select the Conjur-oss policy from list and select the Apply Policy option to apply the policy.
     ![](images/conjur-8.png)
     **Step 6:** After applying the policy goes into the pending state for the administrator’s approval.
     ![](images/conjur-9.png)
-    **Step 7:** The administrator will review the policy and approves the policy. 
+    **Step 7:** The administrator will review the policy and approves the policy.
     ![](images/conjur-10.png)
-    **Step 8:** After approval policy goes into an active state. 
+    **Step 8:** After approval policy goes into an active state.
     ![](images/conjur-11.png)
 
-**After Applying Policy:** 
+**After Applying Policy:**
 
 Now with the KubeArmor policy in place, any attacker who gets access to the container will not be able to access the Conjur-server volume mount point that has the secret files stored in it.
 
@@ -135,11 +132,11 @@ We can view the log alerts by navigating to the Monitors/Logging-> logs
 
 ![](images/conjur-12.png)
 
-**Protecting Conjur-Nginx:** 
+**Protecting Conjur-Nginx:**
 
-**Before Applying policy:** 
+**Before Applying policy:**
 
-In the Conjur pod, if any attacker who gets access to the Conjur-nginx container can access the etc/nginx volume mount point 
+In the Conjur pod, if any attacker who gets access to the Conjur-nginx container can access the etc/nginx volume mount point
 
 ```sh
 @LAPTOP-9Q1ERBHE:~$ kubectl exec -it -n conjur conjur-conjur-oss-698fbf6cd5-kb62v -c conjur-nginx -- bash
@@ -160,7 +157,7 @@ root@conjur-conjur-oss-698fbf6cd5-kb62v:/etc/nginx#
 
 **Policy:**
 
-We can protect access to these volume mount points using the following policy: 
+We can protect access to these volume mount points using the following policy:
 
 ```sh
 apiVersion: security.kubearmor.com/v1
@@ -198,7 +195,7 @@ spec:
   message: Conjur-nginx-policy
 ```
 
-In the above policy, we are only allowing 
+In the above policy, we are only allowing
 
 + /usr/sbin/nginx to access  /opt/conjur/etc/ssl and /etc/nginx  volume Mount points
 
@@ -206,10 +203,10 @@ All the other processes will be denied access to  /opt/conjur/etc/ssl and /etc/n
 
 ??? "**Applying Policy :**"
     **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection->Policies section.
-    ![](images/conjur-13.png) 
-    **Step 2:** Now select the create policy option from this screen. 
+    ![](images/conjur-13.png)
+    **Step 2:** Now select the create policy option from this screen.
     ![](images/conjur-14.png)
-    **Step 3:** Click on the upload YAML option to upload the policy. Then select the cluster name and namespace where Conjur is installed. 
+    **Step 3:** Click on the upload YAML option to upload the policy. Then select the cluster name and namespace where Conjur is installed.
     ![](images/conjur-15.png)
     **Step 4:**  Click on the Save and select the Save to Workspace option to save the policy to the workspace.
     ![](images/conjur-16.png)
@@ -217,9 +214,9 @@ All the other processes will be denied access to  /opt/conjur/etc/ssl and /etc/n
     ![](images/conjur-17.png)
     **Step 6:**  After applying the policy goes into the pending state for the administrator’s approval.
     ![](images/conjur-18.png)
-    **Step 7:** The administrator will review the policy and approves the policy. 
+    **Step 7:** The administrator will review the policy and approves the policy.
     ![](images/conjur-19.png)
-    **Step 8:** After approval policy goes into an active state. 
+    **Step 8:** After approval policy goes into an active state.
     ![](images/conjur-20.png)
 
 **After Applying Policy:**
@@ -235,12 +232,12 @@ root@conjur-conjur-oss-698fbf6cd5-kb62v:/etc/nginx# cat dhparams.pem
 cat: dhparams.pem: Permission denied
 root@conjur-conjur-oss-698fbf6cd5-kb62v:/etc/nginx#
 ```
-**Karmor logs:** 
+**Karmor logs:**
 
 We can view the log alerts by navigating to the Monitors/Logging-> logs
 ![](images/conjur-21.png)
 
-**Protecting Conjur-Postgres:** 
+**Protecting Conjur-Postgres:**
 
 **Before Applying Policy:**
 
@@ -284,9 +281,9 @@ mT36DmCECP3zVYhO00PYBs+ImlGPgZpy3GoNkaPjy5noTEFLtJ7S5K4=
 -----END RSA PRIVATE KEY-----
 root@conjur-postgres-0:/etc/certs#
 ```
-**Policy:** 
+**Policy:**
 
-We can protect access to these volume mount points using the following policy: 
+We can protect access to these volume mount points using the following policy:
 
 ```sh
 apiVersion: security.kubearmor.com/v1
@@ -329,31 +326,31 @@ spec:
   message: Conjur-Postgres-policy
 
 ```
-In the above policy, we are only allowing 
+In the above policy, we are only allowing
 
 + ***/usr/lib/postgresql/10/bin/postgres*** to access  ***/var/lib/postgresql/data/***  and  ***/etc/certs/*** volume Mount points
 
 All the other processes will be denied access to  ***/var/lib/postgresql/data/***  and  ***/etc/certs/***  volume Mount points
 
 ??? "**Applying Policy:**"
-    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection->Policies section. 
+    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection->Policies section.
     ![](images/conjur-22.png)
     **Step 2:** Now select the create policy option from this screen.
     ![](images/conjur-23.png)
-    **Step 3:** Click on the upload YAML option to upload the policy. Then select the cluster name and namespace where Conjur is installed. 
+    **Step 3:** Click on the upload YAML option to upload the policy. Then select the cluster name and namespace where Conjur is installed.
     ![](images/conjur-24.png)
-    **Step 4:** Click on the Save and select the Save to Workspace option to save the policy to the workspace. 
+    **Step 4:** Click on the Save and select the Save to Workspace option to save the policy to the workspace.
     ![](images/conjur-25.png)
     **Step 5:** Now select the Conjur-oss policy from list and select the Apply Policy option to apply the policy.
     ![](images/conjur-26.png)
     **Step 6:** After applying the policy goes into the pending state for the administrator’s approval.
     ![](images/conjur-27.png)
-    **Step 7:** The administrator will review the policy and approves the policy. 
+    **Step 7:** The administrator will review the policy and approves the policy.
     ![](images/conjur-28.png)
-    **Step 8:** After approval policy goes into an active state. 
+    **Step 8:** After approval policy goes into an active state.
     ![](images/conjur-29.png)
 
-**After Applying Policy:** 
+**After Applying Policy:**
 
 With Kubearmor policy applied the attacker will not be able to access the Volume mount points /etc/certs and /var/lib/postgresql/data which contains the sensitive data.
 
@@ -371,7 +368,7 @@ root@conjur-postgres-0:/etc/certs#
 ```
 
 
-**Karmor Logs:** 
+**Karmor Logs:**
 
 We can view the log alerts by navigating to the Monitors/Logging-> logs
 
