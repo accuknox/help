@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 Follow the below steps to add the KubeArmor helm chart to Lens and deploy it,
 

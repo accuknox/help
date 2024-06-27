@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 Rich contextual alerts are provided by Accuknox CNAPP to give comprehensive visibility of the cloud assets along with a dashboard view. Policy related alerts can be forwarded from Accuknox's open-source KubeArmor to the SaaS platform. User can also forward the alerts from AccuKnox SaaS using the channel integration option to other SIEM tools like Splunk, ELK, Rsyslog, etc.., These alerts can also help accelerate troubleshooting by providing a single source of truth.
 
@@ -153,7 +150,7 @@ Rich contextual alerts are provided by Accuknox CNAPP to give comprehensive visi
 
 
 
-  
+
 
 
 

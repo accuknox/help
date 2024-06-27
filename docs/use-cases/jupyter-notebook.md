@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. While this is a great model, attackers, or unethical users might take undue advantage of this model. The very nature of the Jupyter notebook is to allow users to do remote command/code execution.
 
@@ -11,7 +8,7 @@ Remote Command Injection is just the start. Left unchecked, the attacker can gai
 
 ### **Insecure Shell**
 
-On a shell of jupyter notebook, any of the binaries are allowed to execute by default. If we try to execute some system binaries, it is observed that there is no restriction to do so. For example, consider the ```killall5``` system binary. 
+On a shell of jupyter notebook, any of the binaries are allowed to execute by default. If we try to execute some system binaries, it is observed that there is no restriction to do so. For example, consider the ```killall5``` system binary.
 
 ![](images/jupyter-notebook/jupyter-1.png)
 
@@ -100,7 +97,7 @@ The above KubeArmor policy
 
 ![](images/jupyter-notebook/jupyter-6.png)
 
-**Step 4**: Since this is an allow based policy, to effectively make use of it, we’ll need to set the default posture to block. 
+**Step 4**: Since this is an allow based policy, to effectively make use of it, we’ll need to set the default posture to block.
 
 - **Step 4.1**: Navigate to Inventory → Cloud Workloads. Select the cluster that has jupyterhub deployed and click on **View Workloads**
 

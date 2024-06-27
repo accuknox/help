@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 # **Release Notes v1.6**
 
@@ -25,7 +22,7 @@ hide:
 
 **User Experience:**
 
-+ Revamped Cloud Workloads 
++ Revamped Cloud Workloads
 + Enhanced new view in the Observability of Workloads
 + Performance of Accuknox Agents enhanced.
 
@@ -37,7 +34,7 @@ hide:
 
 
 **Upgrading AccuKnox-Agents:**
-Since we have done some major changes to the Cloud Workload Protection Platform the accuknox agents that are installed in your cluster need to be updated. Here is the link to upgrade the Accuknox-Agents 
+Since we have done some major changes to the Cloud Workload Protection Platform the accuknox agents that are installed in your cluster need to be updated. Here is the link to upgrade the Accuknox-Agents
 
 ## **Previous Release notes**
 + [v1.5 Release Notes](./../getting-started/1-5-release.md)

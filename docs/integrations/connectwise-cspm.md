@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## Connectwise Integration
 
@@ -47,6 +44,6 @@ Here Enter the following details:
 
 You can now configure Alert Triggers for Connectwise.
 
-- - - 
+- - -
 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

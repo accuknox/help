@@ -1,22 +1,19 @@
----
-hide:
-  - toc
----
+
 
 ## **Policies:**
 
-Policies section gives the user information about the runtime protection policies that are applied in the cluster. Policies are classified as Discovered, Active, inactive, Pending, Hardening and so on. We can see the policies based on the cluster, Namespace and policy type that we select in the filters shown in the page. We have option to see the policies related to particular namespace. Along with the discovered and Hardening policies users can also create custom policy by using the policy editor tool. 
+Policies section gives the user information about the runtime protection policies that are applied in the cluster. Policies are classified as Discovered, Active, inactive, Pending, Hardening and so on. We can see the policies based on the cluster, Namespace and policy type that we select in the filters shown in the page. We have option to see the policies related to particular namespace. Along with the discovered and Hardening policies users can also create custom policy by using the policy editor tool.
 
 ![](images/policies-dash.png)
 
 
-**Creating a custom Policy:** 
+**Creating a custom Policy:**
 
 **Step 1:** Users can create a custom policy by clicking the Create policy option the screen
 
 ![](images/custom-policy-1.png)
 
-**Step 2:** When user clicks the create policy option, user will be directed to the Policy editor screen 
+**Step 2:** When user clicks the create policy option, user will be directed to the Policy editor screen
 
 
 ![](images/custom-policy-2.png)
@@ -33,17 +30,17 @@ Policies section gives the user information about the runtime protection policie
 
 ![](images/custom-policy-5.png)
 
-**Step 6:** User needs to save the custom policy to the workspace by clicking save to workspace option. 
+**Step 6:** User needs to save the custom policy to the workspace by clicking save to workspace option.
 ![](images/custom-policy-6.png)
 
-**Step 7:**  Custom policy will be saved to the workspace. 
+**Step 7:**  Custom policy will be saved to the workspace.
 
 ![](images/custom-policy-7.png)
 
 **Applying Hardening policy:**
 
 
-Users can follow this section to apply the hardening policies that are generated based on the workloads in the cluster. 
+Users can follow this section to apply the hardening policies that are generated based on the workloads in the cluster.
 
 **Step 1:** Select your cluster and namespace from this Policies screen.
 
@@ -65,5 +62,5 @@ Users can follow this section to apply the hardening policies that are generated
 
 ![](images/Harden-policy-5.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

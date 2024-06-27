@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## **High-Level Architecture Overview**
 
@@ -169,14 +166,14 @@ To enabled this option, the ssl section the override values file should be set a
   ssl:
     selfsigned: true
     customcerts: false
-``` 
+```
 - **Certificate signed by a known authority**: The client provies a certificate signed by a known signing authority.
 To enabled this option, the ssl section the override values file should be set as follow:
 ```yaml
   ssl:
     selfsigned: false
     customcerts: true
-``` 
+```
 
 - **Self-signed certificates** (provided by the customer): The client provides a self signed certificate.
 To enabled this option, the ssl section the override values file should be set as follow:
@@ -184,11 +181,11 @@ To enabled this option, the ssl section the override values file should be set a
   ssl:
     selfsigned: true
     customcerts: true
-``` 
+```
 
 AccuKnox installation package will contain `override-values.yaml` file that contains installation-specific options to be configured.
 
-1. Override <your_domain.com\> to your domain 
+1. Override <your_domain.com\> to your domain
 2. Set your ssl preferences in the override values by changing the ssl block.
 
 
@@ -289,5 +286,5 @@ Run the following script to generate the records you should add to your DNS zone
 
 ![](images/on-prem-sample.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

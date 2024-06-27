@@ -19,7 +19,6 @@ theme:
     - content.code.annotate
     - content.code.copy
     - navigation.indexes
-    - navigation.sections
     - navigation.tabs
     - navigation.instant
     - navigation.instant.progress
@@ -159,9 +158,47 @@ pages:
 
 
 nav:
-  - "Introduction":
-    - "Architecture" : "introduction/accuknox-architecture.md"
-    - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
+  - "Getting Started":
+    - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
+    - "Deployment Models" :
+      - "Deployment Models": "getting-started/deployment-models.md"
+      - "SaaS" :
+          - "Prerequisites" :
+            - "CSPM Prerequisites":
+              - "AWS": "getting-started/cspm-prereq-aws.md"
+              - "Azure": "getting-started/cspm-prereq-azure.md"
+              - "GCP": "getting-started/cspm-prereq-gcp.md"
+            - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
+          - "Onboarding" :
+            - "Cloud Account" :
+              - "AWS" : "getting-started/aws-onboarding.md"
+              - "Azure" : "getting-started/azure-onboarding.md"
+              - "GCP" : "getting-started/gcp-onboarding.md"
+            - "Cluster" :
+              - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
+              - "Managed" : "getting-started/cluster-onboarding-managed.md"
+              - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
+            - "Registry":
+              - "ACR": "getting-started/acr.md"
+              - "ECR": "getting-started/ecr.md"
+              - "GAR": "getting-started/gar.md"
+            - "VM" : "getting-started/vm-onboarding.md"
+      - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
+      - "DevSecOps" : "getting-started/devsecops.md"
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+    - "Release Notes":
+        - "AccuKnox" :
+           - "V1.7 Release Notes" : "getting-started/1-7-release.md"
+           - "v1.6 Release Notes" : "getting-started/1-6-release.md"
+           - "v1.5 Release Notes" : "getting-started/1-5-release.md"
+        - "KubeArmor" : "getting-started/kubearmor-release.md"
+    - "Sample Workloads Protection" :
+      - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
+      - "DVWA": "getting-started/dvwa.md"
+      - "PHP-MySQL": "getting-started/php-mysql.md"
+    - "Open Source":
+      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
+      - "Open Source Installation": "getting-started/open-source.md"
 
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
@@ -203,44 +240,6 @@ nav:
   #         - "Groups" : "saas/groups.md"
   #         - "Ticket Template" : "saas/ticket-template.md"
 
-  - "Getting Started":
-    - "Open Source Installation": "getting-started/open-source.md"
-    - "Deployment Models" :
-      - "SaaS" :
-          - "Prerequisites" :
-            - "CSPM Prerequisites":
-              - "AWS": "getting-started/cspm-prereq-aws.md"
-              - "Azure": "getting-started/cspm-prereq-azure.md"
-              - "GCP": "getting-started/cspm-prereq-gcp.md"
-            - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
-          - "Onboarding" :
-            - "Cloud Account" :
-              - "AWS" : "getting-started/aws-onboarding.md"
-              - "Azure" : "getting-started/azure-onboarding.md"
-              - "GCP" : "getting-started/gcp-onboarding.md"
-            - "Cluster" :
-              - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
-              - "Managed" : "getting-started/cluster-onboarding-managed.md"
-              - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
-            - "Registry":
-              - "ACR": "getting-started/acr.md"
-              - "ECR": "getting-started/ecr.md"
-              - "GAR": "getting-started/gar.md"
-            - "VM" : "getting-started/vm-onboarding.md"
-      - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
-      - "DevSecOps" : "getting-started/devsecops.md"
-    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Release Notes":
-        - "AccuKnox" :
-           - "V1.7 Release Notes" : "getting-started/1-7-release.md"
-           - "v1.6 Release Notes" : "getting-started/1-6-release.md"
-           - "v1.5 Release Notes" : "getting-started/1-5-release.md"
-        - "KubeArmor" : "getting-started/kubearmor-release.md"
-    - "Sample Workloads Protection" :
-      - "WordPress-MySQL Protection": "getting-started/wordpress-mysql.md"
-      - "DVWA Protection": "getting-started/dvwa.md"
-      - "PHP-MySQL Protection": "getting-started/php-mysql.md"
-
   - "Integrations":
     - "CI/CD":
         - "Google Cloud Build": "integrations/google-build.md"
@@ -255,6 +254,12 @@ nav:
           - "AccuKnox User Playbook": "integrations/aws-playbook.md"
           - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
           - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
+        - "Azure Marketplace":
+          - "AccuKnox on Azure Marketplace": "integrations/azure-playbook.md"
+        - "Oracle Marketplace":
+          - "AccuKnox on Oracle Marketplace": "integrations/oracle-playbook.md"
+        - "RedHat Marketplace":
+          - "AccuKnox on RedHat Marketplace": "integrations/rh-playbook.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
         - "Email": "integrations/email.md"

@@ -1,11 +1,8 @@
----
-hide:
-  - toc
----
+
 
 ## **Monitors**
 
-Monitors section helps the users to monitor the assets that are present in the cloud account that is onboarded to the AccuKnox platform. 
+Monitors section helps the users to monitor the assets that are present in the cloud account that is onboarded to the AccuKnox platform.
 
 + In the Monitor dashboard, we can view the monitor list here, the Monitor list consists of columns such as Names, Assets, Groups, and Data types.
 
@@ -16,7 +13,7 @@ Monitors section helps the users to monitor the assets that are present in the c
 + The user has the ability to filter the list, user can filter through groups, assets, and data types.
 
 ![](images/monitors-1.png)
- 
+
 
 + The user can view Monitor Configuration after clicking on one of the Monitors in the Dashboard.
 
@@ -32,5 +29,5 @@ Monitors section helps the users to monitor the assets that are present in the c
 
 ![](images/monitors-3.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

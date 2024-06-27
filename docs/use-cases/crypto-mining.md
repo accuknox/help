@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 Cryptojacking, the unauthorized use of someone else’s computing resources for cryptocurrency mining, is a silent but rapidly growing menace. Cryptocurrency mining steals the resources of infected machines, significantly affecting their performance and increasing the wear and tear of hardware. The mining also leads to other costs, like increased power consumption or resource consumption on the cloud.
 
@@ -14,7 +11,7 @@ To exploit the command injection vulnerability and get started with mining, star
 ```sh
 $ uname -a
 ```
-For the health check deployment, the OS is ubuntu. 
+For the health check deployment, the OS is ubuntu.
 
 **Step 1**: Download the binary release of xmrig for linux-static from the <a href="https://github.com/xmrig/xmrig/releases", target="_blank">open source github page</a>. The attacker will use a version of the binary with the config file already populated with the required info.
 
@@ -63,36 +60,36 @@ spec:
   selector:
     matchLabels:
       app: health-check
-      
+
   action: Block
   process:
     # do not allow execution of binaries from /tmp/ directory
     matchDirectories:
     - dir: /tmp/
       recursive: true
-    
+
     matchPaths:
     # do not allow execution of xmrig (xmrig.com)
     - execname: xmrig
-    
+
     # prevent execution of Dero miner
     - execname: dero
     - execname: dero-miner-linux-amd64
     - execname: dero-wallet-cli-linux-amd64
     - execname: derod-linux-amd64
 
-    # do not allow execution of masscan/zgrab2/nmap used for recon 
+    # do not allow execution of masscan/zgrab2/nmap used for recon
     - execname: zgrab2
     - execname: masscan
     - execname: nmap
-    
+
     # do not allow package management tools execution
     - execname: apt
     - execname: apk
-    
+
     # time sync is important for miners. typically ntpdate is used.
     - execname: ntpdate
-  
+
   # Do not allow overwriting system binaries
   file:
     matchDirectories:
@@ -114,10 +111,10 @@ spec:
     - dir: /boot/
       readOnly: true
       recursive: true
-    
+
   message: cryptominer detected and blocked
   severity: 10
-  tags: 
+  tags:
     - cryptominer
 ```
 

@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## ACR Onboarding
 
@@ -18,7 +15,7 @@ Users will be getting a comprehensive view of these risks and vulnerabilities in
 
 ![](images/acr/reg-menu.png)
 
-**Step 3:** Click on the **Admin User** checkbox to activate Admin access. 
+**Step 3:** Click on the **Admin User** checkbox to activate Admin access.
 
 ![](images/acr/adm-user.png)
 
@@ -40,5 +37,5 @@ Click on **Test Connection** and then click on the enabled **Save** button
 
 ![](images/acr/results-acr.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

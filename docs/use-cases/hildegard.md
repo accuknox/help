@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## **Introduction**
 
@@ -31,7 +28,7 @@ In a Kubernetes cluster, several attack vectors become possible through the comb
 
     - Execution (maliciousexec into containers, malicious container spin-up, etc.)
 
-+ **Modern attack vectors are complex and could target Linux Kernel Exploits** 
++ **Modern attack vectors are complex and could target Linux Kernel Exploits**
 
     - [<a href="https://attack.mitre.org/techniques/T1496/" target="_blank">Resource Hijacking</a>] [T1496] for cryptocurrency attacks
 
@@ -88,7 +85,7 @@ The above policy makes sure that no process is allowed access to the serviceacco
 
 ### Layer 2
 
-The attacker downloaded ```tmate``` and issued a command to run it, for securing a reverse shell. 
+The attacker downloaded ```tmate``` and issued a command to run it, for securing a reverse shell.
 
 This can be completely prevented by using a whitelisting policy that allows only the necessary processes to make use of network protocols such as the following:
 
@@ -214,23 +211,23 @@ The above policy only allows a few processes to be executed - ```ping``` and ```
 
 ### **Key points**
 
-- **Initial Access**: Misconfigured kubelet allows anonymous access 
+- **Initial Access**: Misconfigured kubelet allows anonymous access
 
--  Malware attempted to spread over as many containers as possible using service account tokens(Kubelet API) and eventually launched cryptojacking operations. 
+-  Malware attempted to spread over as many containers as possible using service account tokens(Kubelet API) and eventually launched cryptojacking operations.
 
-    + Service account token access is strictly controlled. 
+    + Service account token access is strictly controlled.
 
     + Allow only specific processes to access the service account token.
 
-- **Two C&C conns**: Reverse ```tmate``` shell and IRC channel 
+- **Two C&C conns**: Reverse ```tmate``` shell and IRC channel
 
     + Network access is allowed for known binaries only
 
-- Uses a known Linux process name (bioset) to disguise the malicious process. 
+- Uses a known Linux process name (bioset) to disguise the malicious process.
 
     + FIM disallows modifications in systems binary folder
 
-- ```LD_PRELOAD``` to hide the malicious processes. 
+- ```LD_PRELOAD``` to hide the malicious processes.
 
     + Process execution is tapped in kernel space
 
@@ -240,6 +237,6 @@ The above policy only allows a few processes to be executed - ```ping``` and ```
 
 ## **Summary**
 
-Hildegard takes advantage of the different vulnerabilities caused by non-conformance with the best practices and understanding the loopholes behind the monitoring and security practices that are followed. 
+Hildegard takes advantage of the different vulnerabilities caused by non-conformance with the best practices and understanding the loopholes behind the monitoring and security practices that are followed.
 
 AccuKnox acts as an additional layer of protection helping protect against exploitation of these vulnerabilities. Operating at the kernel level also allows AccuKnox to cover the blindspots of the traditional solutions and provide a complete and layered security against the Hildegard attack.

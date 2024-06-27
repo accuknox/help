@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 # Virtual Machine Onboarding
 
@@ -41,7 +38,7 @@ There can be multiple worker nodes in a VM cluster. All of them will connect wit
 
 ## Prerequisites
 
-- Docker v19.0.3 and Docker compose v1.27.0+. Follow the latest <a href="https://docs.docker.com/engine/install/" target="_blank">Install Docker Engine</a> for downloading. 
+- Docker v19.0.3 and Docker compose v1.27.0+. Follow the latest <a href="https://docs.docker.com/engine/install/" target="_blank">Install Docker Engine</a> for downloading.
 
     + Make sure you also add your user to the docker user group - <a href="https://docs.docker.com/engine/install/linux-postinstall/" target="_blank"> Linux post-installation steps for Docker Engine</a> .
 
@@ -57,7 +54,7 @@ There can be multiple worker nodes in a VM cluster. All of them will connect wit
 
     - Memory: 4 GB
 
-    - Disk: 24 GB 
+    - Disk: 24 GB
 
 + Worker node (minimum):
 
@@ -111,7 +108,7 @@ knoxctl
 
 **Step 5**: Initialize control plane node
 
-The below command will initialize accuknox agents on your cluster's control plane node. **NOTE:** Control plane node has to be selected such that it is discoverable and accessible by all the worker nodes present in your VM cluster. 
+The below command will initialize accuknox agents on your cluster's control plane node. **NOTE:** Control plane node has to be selected such that it is discoverable and accessible by all the worker nodes present in your VM cluster.
 
 The following agents are installed:
 
@@ -127,7 +124,7 @@ knoxctl onboard vm cp-node \
 --join-token="28eb827c-cc08-4244-a393-027f34daacf3" \
 --spire-host="spire.demo.accuknox.com" \
 --pps-host="pps.demo.accuknox.com" \
---knox-gateway="knox-gw.demo.accuknox.com:3000" 
+--knox-gateway="knox-gw.demo.accuknox.com:3000"
 ```
 
 Sample Output:
@@ -206,7 +203,7 @@ docker logs kubearmor -f
 ```
 
 ## View Workloads
- 
+
 **Step 1**: Navigate to Inventory → Cloud Workloads
 
 ![](images/vm/vm-on-2.png)
@@ -251,11 +248,11 @@ spec:
 **Step 3**: Select the cluster Name
 
 ![](images/vm/vm-on-4.png)
- 
+
 **Step 4**: Save the policy to the workspace
 
 ![](images/vm/vm-on-5.png)
- 
+
 **Step 5**: Select the saved policy and activate it by clicking on Apply Policy → Confirm
 
 ![](images/vm/vm-on-6.png)

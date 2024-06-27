@@ -1,13 +1,10 @@
----
-hide:
-  - toc
----
+
 
 # AccuKnox Splunk App
-  
+
 
 ![](./images/splunk-accuknox.png)
- 
+
 
 ## **Introduction**
 The AccuKnox Splunk App is designed to deliver operational reporting as well as a simplified and configurable dashboard.
@@ -43,7 +40,7 @@ Splunk App can be installed on Splunk Enterprise Deployment done on K8s or VM.
  ```
 2. Log in to your **Splunk Deployment.**
     ![](./images/Login-Splunk.png)
-3. Click on the gear ![:gear:](https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net/standard/caa27a19-fc09-4452-b2b4-a301552fd69c/64x64/2699.png){:   style="height:15px;width:15px"} icon next to **Apps.**  
+3. Click on the gear ![:gear:](https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net/standard/caa27a19-fc09-4452-b2b4-a301552fd69c/64x64/2699.png){:   style="height:15px;width:15px"} icon next to **Apps.**
    ![](./images/manageapps.png)
 4. This will navigate you to the **Apps Dashboard.** On the top right, click on **Install app from file.**
    ![](./images/installappfromfile.png)
@@ -72,7 +69,7 @@ _*Note:*_
 
 Install the AccuKnox App by downloading it from the App homepage.
 
-![](./images/splunkbase_app_preview.png) 
+![](./images/splunkbase_app_preview.png)
 
 ## Option 3: Install from GitHub
 This App is available on [SplunkBase](https://apps.splunk.com/apps/id/SplunkforAccuKnox "https://apps.splunk.com/apps/id/SplunkforAccuKnox") and [Github](https://github.com/accuknox/splunk "https://github.com/accuknox/splunk"). Optionally, you can clone the GitHub repository to install the App. Please feel free to submit contributions to the App using pull requests on GitHub.
@@ -92,12 +89,12 @@ git clone https://github.com/accuknox/splunk.git AccuKnox
 -   KubeArmor Container Logs
 -   Cilium Alerts
 -   Cilium Logs
-    
+
 **Managing data sent to Splunk, What can be sent?**
 
 AccuKnox can forward the data to Splunk in two ways:
 
-1.  From feeder service running on client cluster 
+1.  From feeder service running on client cluster
 2.  From SAAS platform
 
 
@@ -110,7 +107,7 @@ AccuKnox can forward the data to Splunk in two ways:
 
 #### **Configuring feeder for the first time to forward the events:**
 1 . Assuming the user is inside their K8s Cluster, type the following command to edit the feeder deployment.
-```bash  
+```bash
 kubectl edit deployment feeder-service -n accuknox-agents
 ```
 2 . The below Configuration parameters needs be updated for Splunk configuration. _(Default params in code blocks need to be modified, line number 93 of feeder chart )_
@@ -120,7 +117,7 @@ kubectl edit deployment feeder-service -n accuknox-agents
 _**value:**_  `false`
 
 >  change value to `true` to enable the feed
-    
+
 _**name: SPLUNK_FEEDER_URL**_
 
 _**value:**_  `https://<splunk-host>`
@@ -138,7 +135,7 @@ _**name: SPLUNK_FEEDER_SOURCE_TYPE**_
 
 **value:**  `"http:kafka"`
 
-    
+
 >  change the value to `http:kafka` if not added
 
 
@@ -179,52 +176,52 @@ kubectl set env deploy/feeder-service SPLUNK_FEEDER_ENABLED="true" -n accuknox-a
 Set up Splunk HTTP Event Collector (HEC) to view alert notifications from AccuKnox in Splunk. Splunk HEC lets you send data and application events to a Splunk deployment over the HTTP and Secure HTTP (HTTPS) protocols.
 
 - To set up HEC, use instructions in [Splunk documentation](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector). For source type,_json is the default; if you specify a custom string on AccuKnox, that value will overwrite anything you set here.
-    
+
 - Select Settings > Data inputs > HTTP Event Collector and make sure you see HEC added in the list and that the status shows that it is Enabled .
-    
+
 
 ### 2. Steps to Integrate:
-    
+
 
 -   Go to [Channel Integration](https://app.accuknox.com/channel-integrations).
-    
+
 -   Click integrate now on Splunk.
-    
+
 -   Enter the following details to configure Splunk.
-    
+
 -   Select the Splunk App : From the dropdown, Select Splunk Enterprise.
-    
+
 
 	-   **Integration Name**: Enter the name for the integration. You can set any name. e.g., Test Splunk
-    
+
 	-   **Splunk HTTP event collector URL**: Enter your Splunk HEC URL generated earlier. e.g  https://splunk-xxxxxxxxxx.com/services/collector
-    
+
 	-   **Index**: Enter your Splunk Index, once created while creating HEC. e.g  main
-    
+
 	-   **Token**: Enter your Splunk Token, generated while creating HEC URL. e.g  `x000x0x0x-0xxx-0xxx-xxxx-xxxxx00000`
-    
+
 	-   **Source**: Enter the source as `http:kafka`
-    
+
 	-   **Source Type**: Enter your Source Type here, this can be anything and the same will be attach to the event type forwarded to splunk. e.g  `_json`
-    
+
 	-   Click **Test** to check the new functionality, You will receive the test message on configured slack channel. e.g `Test Message host = xxxxxx-deployment-xxxxxx-xxx00 source = http:kafka sourcetype = trials`
-    
+
 
 -   Click Save to save the Integration. You can now configure [Alert Triggers](/saas/triggers/) for Slack Notifications.
-    
+
 **How will AccuKnox manage the Splunk data—what will be sent & what will not be sent?**
 ## **Managing what type of data can be sent to Splunk?**
 
-From AccuKnox we can manage the type of data forwardered to integration using triggers. 
+From AccuKnox we can manage the type of data forwardered to integration using triggers.
 
 ### **How to create a new trigger?**
 
 1.  After choosing specific log filter from the Logs Screen, click on `Create Trigger` button. You can either click elements directly from the log events list, search for elements directly in the filter, or use Search Filters to choose a specific log filter
-    
+
 2.  Configure the required options:
-    
+
     ![](./images/create-trigger.png)
-    
+
 
 - **Name:** Define an alert trigger name.
 
@@ -241,5 +238,5 @@ From AccuKnox we can manage the type of data forwardered to integration using tr
 3. Click `Save` button to store the trigger in database.
 
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

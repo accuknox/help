@@ -1,13 +1,10 @@
----
-hide:
-  - toc
----
+
 
 ??? "**AccuKnox KubeArmor**"
 
     ![](images/rafay/rafay-ka.png)
 
-    **Step 1:** Creating Addon 
+    **Step 1:** Creating Addon
 
     To integrate with the Rafay platform first we have created an addon using KubeArmor <a href="https://github.com/kubearmor/KubeArmor/blob/main/deployments/helm/values.yaml" target="_blank">helm</a> repository
 
@@ -21,23 +18,23 @@ hide:
 
     **Step 3:** Connecting Cluster with Rafay
 
-    **3.1** Importing existing Cluster option 
+    **3.1** Importing existing Cluster option
 
     ![](images/rafay/rafay-ka-2.png)
 
-    **3.2** Selecting the Cluster Platform 
+    **3.2** Selecting the Cluster Platform
 
     ![](images/rafay/rafay-ka-3.png)
 
-    **3.3** Applying KubeArmor Blue Print to the Cluster 
+    **3.3** Applying KubeArmor Blue Print to the Cluster
 
     ![](images/rafay/rafay-ka-4.png)
 
-    **3.4** Connecting the Cluster to Rafay Platform 
+    **3.4** Connecting the Cluster to Rafay Platform
 
     ![](images/rafay/rafay-ka-5.png)
 
-    **3.5** Applying the Bootstrap.yaml file to the Cluster 
+    **3.5** Applying the Bootstrap.yaml file to the Cluster
 
     ```sh
     ➜  ~ kubectl apply -f solutions-aks-bootstrap.yaml
@@ -102,7 +99,7 @@ hide:
 
     **Step 4:** Applying KubeArmor Policy
 
-    **4.1** User needs to go the Cluster to apply the following KubeArmor policy. 
+    **4.1** User needs to go the Cluster to apply the following KubeArmor policy.
 
     ```sh
     apiVersion: security.kubearmor.com/v1
@@ -130,7 +127,7 @@ hide:
     kubearmorpolicy.security.kubearmor.com/wordpress-block-policy created
     ```
 
-    **Step 5:** Violating the Policy 
+    **Step 5:** Violating the Policy
 
     For Violating the Above policy users need to navigate to the Rafay kubectl Utility
 
@@ -146,7 +143,7 @@ hide:
     To see the Policy Logs the users must navigate to the Cluster CLI and give the following command and then violate the policy from Rafay Kubectl utility
 
     ```sh
-    karmor logs 
+    karmor logs
     ```
 
     Sample output:
@@ -188,11 +185,11 @@ hide:
 
 ??? "**AccuKnox Enterprise**"
 
-    AccuKnox runtime security for Kubernetes helps you to discover the application behavior of your workload and provide the ability to enforce security policies. AccuKnox auto-detects and recommends Behavioral Policies based on app observability i.e. File system access for processes Processes that are getting network access for certain processes. 
+    AccuKnox runtime security for Kubernetes helps you to discover the application behavior of your workload and provide the ability to enforce security policies. AccuKnox auto-detects and recommends Behavioral Policies based on app observability i.e. File system access for processes Processes that are getting network access for certain processes.
 
-    AccuKnox utilizes KubeArmor to enforce runtime security policies, employing eBPF and LSMs(SELinux, BPF LSM, AppArmor). Based on the policies that are applied, LSMs will act as a checkpoint and check all the events and system calls against these policies before they reach the kernel Objects. KubeArmor ensures that any event that is not compliant with the policies doesn’t get executed in the userspace, hence maintaining a secure space for your application to run.  
+    AccuKnox utilizes KubeArmor to enforce runtime security policies, employing eBPF and LSMs(SELinux, BPF LSM, AppArmor). Based on the policies that are applied, LSMs will act as a checkpoint and check all the events and system calls against these policies before they reach the kernel Objects. KubeArmor ensures that any event that is not compliant with the policies doesn’t get executed in the userspace, hence maintaining a secure space for your application to run.
 
-    AccuKnox offers the subsequent enterprise functionalities to enhance runtime security: 
+    AccuKnox offers the subsequent enterprise functionalities to enhance runtime security:
 
     - Auto-Discovered Behavioural Policies
     - Recommendation of Hardening Policies based on compliance framework - MITRE, NIST, PCI-DSS, CIS
@@ -203,7 +200,7 @@ hide:
     - GitOps based Version Control for Policy Lifecycle Management
     - Rollback of recently changed Policy governing App Behavior
     - On-the-fly detection of change in App Behavior through Policies
-    - Multi-Tenant, Multi-Cluster, RBAC for user-management 
+    - Multi-Tenant, Multi-Cluster, RBAC for user-management
     - Comprehensive Dashboard across workloads running in Managed/Unmanaged Cluster, Containerized environment, VM or Baremetal
     - Integration with Registries for Container Image Vuln Scan
     - Telemetry aggregation (Process executed, File accessed, Network connections made) and Alerts events (Audit, Block)
@@ -241,7 +238,7 @@ hide:
 
     ![](images/rafay/rafay-ak-4.png)
 
-    **Step 6:** Upload the VALUES.YAML that was downloaded in step 3 and click on the edit button to change some fields. 
+    **Step 6:** Upload the VALUES.YAML that was downloaded in step 3 and click on the edit button to change some fields.
 
     ![](images/rafay/rafay-ak-5.png)
 
@@ -250,7 +247,7 @@ hide:
     1. spireHost="spire.stage.accuknox.com"
     2. ppsHost="pps.stage.accuknox.com"
     3. knoxGateway="knox-gw.stage.accuknox.com:3000"
-    4. joinToken= Get the token from AccuKnox Saas Platform 
+    4. joinToken= Get the token from AccuKnox Saas Platform
 
     (To see how to get joinToken refer to this guide : https://help.accuknox.com/getting-started/cluster-onboarding/)
 
@@ -348,7 +345,7 @@ hide:
 
     ![](images/rafay/rafay-ex-1.png)
 
-    ### **Policy Dashboard** 
+    ### **Policy Dashboard**
 
     The AccuKnox CWPP Dashboard offers a comprehensive overview of runtime protection for clusters through various informative widgets. These widgets include:
 
@@ -386,5 +383,5 @@ hide:
 
     ![](images/rafay/rafay-ex-6.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

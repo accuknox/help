@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 KubeArmor is an open-source sandbox project of AccuKnox which was donated to [CNCF-Cloud Native Computing Foundation](https://www.cncf.io/projects/kubearmor/)
 
@@ -417,7 +414,7 @@ The use-cases described in subsequent step uses this sample application.
 
 ## 4. Get Recommended Policies
 
-In the above [Demo Scenario](#3-demo-scenario--use-cases), we had to explicitly write KubeArmor policies. But with the new KubeArmor recommendation it is easy to get a set of security best practice policies tailored to your environment. 
+In the above [Demo Scenario](#3-demo-scenario--use-cases), we had to explicitly write KubeArmor policies. But with the new KubeArmor recommendation it is easy to get a set of security best practice policies tailored to your environment.
 
 <details>
   <summary> <b><i>karmor recommend --namespace wordpress-mysql --labels app=wordpress</i></b> </summary>
@@ -429,7 +426,7 @@ Digest: sha256:6216f64ab88fc51d311e38c7f69ca3f9aaba621492b4f1fa93ddf63093768845
 Status: Image is up to date for wordpress:4.8-apache
 INFO[0015] dumped image to tar                           tar=/tmp/karmor4070582578/GwoIiuRV.tar
 Distribution debian
-INFO[0018] No runtime policy generated for wordpress-mysql/wordpress/wordpress:4.8-apache 
+INFO[0018] No runtime policy generated for wordpress-mysql/wordpress/wordpress:4.8-apache
 created policy out/wordpress-mysql-wordpress/wordpress-4-8-apache-maintenance-tool-access.yaml ...
 created policy out/wordpress-mysql-wordpress/wordpress-4-8-apache-cert-access.yaml ...
 created policy out/wordpress-mysql-wordpress/wordpress-4-8-apache-system-owner-discovery.yaml ...
@@ -449,7 +446,7 @@ output report in out/report.txt ...
 	kubectl exec -it wordpress-xxxxxxxxx-xxxxx -n wordpress-mysql -- bash
 	root@wordpress-cb9c668d4-zgczt:/var/www/html# cd /etc/ssl/
 	root@wordpress-cb9c668d4-zgczt:/etc/ssl# echo "new private key" > myssl.pem
-	root@wordpress-cb9c668d4-zgczt:/etc/ssl# cat myssl.pem 
+	root@wordpress-cb9c668d4-zgczt:/etc/ssl# cat myssl.pem
 	new private key
 	root@wordpress-cb9c668d4-zgczt:/etc/ssl#
 	```
@@ -494,14 +491,14 @@ output report in out/report.txt ...
 	```sh
 	kubectl exec -it wordpress-cb9c668d4-zgczt -n wordpress-mysql –- bash
 	root@wordpress-cb9c668d4-zgczt:/var/www/html# cd /etc/ssl/
-	root@wordpress-cb9c668d4-zgczt:/var/www/html# cat myssl.pem 
+	root@wordpress-cb9c668d4-zgczt:/var/www/html# cat myssl.pem
 	new private key
-	root@wordpress-cb9c668d4-zgczt:/var/www/html# echo "updated ssl key" >> myssl.pem 
+	root@wordpress-cb9c668d4-zgczt:/var/www/html# echo "updated ssl key" >> myssl.pem
 	bash: /etc/ssl/myssl.pem: Permission denied
 	root@wordpress-cb9c668d4-zgczt:/var/www/html#
 	```
 
-	![Alt](images/after_rec.png) 
+	![Alt](images/after_rec.png)
 
 ## 5. Uninstall
 
@@ -517,5 +514,5 @@ kubectl delete ns accuknox-agents
 2. [KubeArmor support matrix](https://github.com/kubearmor/KubeArmor/blob/main/getting-started/support_matrix.md)
 3. [Integrating KubeArmor with Prometheus and Grafana](https://github.com/kubearmor/kubearmor-prometheus-exporter)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

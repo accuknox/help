@@ -1,15 +1,12 @@
----
-hide:
-  - toc
----
 
-In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission. 
+
+In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
 
 ![](images/accuknox-architecture.png)
 
 AWS onboarding requires creation of an IAM user. Please follow the following steps to provide a user with appropriate read access:
 
-**Step 1:** Navigate to IAM -> Users and click on Add Users 
+**Step 1:** Navigate to IAM -> Users and click on Add Users
 
 ![](images/iam-user-0.png)
 
@@ -35,5 +32,5 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

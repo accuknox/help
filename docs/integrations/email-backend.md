@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## Email Backend Integration
 

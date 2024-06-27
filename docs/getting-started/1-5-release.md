@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 # **Release Notes v1.5**
 

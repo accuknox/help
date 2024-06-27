@@ -1,12 +1,9 @@
----
-hide:
-  - toc
----
+
 
 # **Azure Account onboarding**
 In this section we can find the steps to onboard an Azure cloud account to the AccuKnox SaaS platform
 
-## **Rapid Onboarding (via Azure)** 
+## **Rapid Onboarding (via Azure)**
 
 For Azure Onboarding it is required to register an App and giving Security read access to that App from the Azure portal.
 
@@ -60,7 +57,7 @@ For Azure Onboarding it is required to register an App and giving Security read 
 ![](images/azure7.png)
 
 
-**Step 12:** Navigate to Access control(IAM) and go to Roles , here select Add and Add role assignment 
+**Step 12:** Navigate to Access control(IAM) and go to Roles , here select Add and Add role assignment
 
 ![](images/azure8.png)
 
@@ -88,7 +85,7 @@ For Azure Onboarding it is required to register an App and giving Security read 
 ![](images/azure11-1.png)
 
 
-## **From AccuKnox SaaS UI** 
+## **From AccuKnox SaaS UI**
 
 Configuring your Azure cloud account is complete, now we need to onboard the cloud account onto Accuknox Saas Platform.
 
@@ -112,12 +109,12 @@ Configuring your Azure cloud account is complete, now we need to onboard the clo
 ![](images/azure15.png)
 
 
-**Step 5:** After successfully connecting your cloud account will show up in the list 
+**Step 5:** After successfully connecting your cloud account will show up in the list
 
 ![](images/azure16.png)
 
 
 <!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

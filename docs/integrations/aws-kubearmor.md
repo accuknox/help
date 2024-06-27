@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 **Step 1:** Get KubeArmor’s latest version from AWS Marketplace
 
@@ -21,13 +18,13 @@ Download EULA from: <a href="images/aws-kubearmor-eula.pdf" target="_blank">End 
 
 ![](images/aws-kubearmor-2.png)
 
-**Step 3:** Set Launch target to “Amazon Managed Kubernetes” 
+**Step 3:** Set Launch target to “Amazon Managed Kubernetes”
 
 ![](images/aws-kubearmor-3.png)
 
 **Step 4:** Select launch options
 
-1. If you have an EKS cluster ready, > Select "Launch on Existing Cluster" . 
+1. If you have an EKS cluster ready, > Select "Launch on Existing Cluster" .
 2. If you do not have an EKS cluster > Create an EKS cluster by following these steps: <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html" target="_blank">AWS User Guide to Create a Cluster</a>
 
 ![](images/aws-kubearmor-4.png)
@@ -58,7 +55,7 @@ Copy the command in Step 1 from the instruction and replace it with the RoleARN 
 
 ```sh
 kubectl create namespace <ENTER_NAMESPACE_HERE>
-            
+
 eksctl create iamserviceaccount \
     --name <ENTER_SERVICE_ACCOUNT_NAME_HERE> \
     --namespace <ENTER_NAMESPACE_HERE> \
@@ -85,7 +82,7 @@ namespace/ns1re1 created
 2023-08-02 05:20:58 [!]  metadata of serviceaccounts that exist in Kubernetes will be updated, as --override-existing-serviceaccounts was set
 2023-08-02 05:20:58 [ℹ]  1 task: { create serviceaccount "ns1re1/iamserviceaccountre123" }
 2023-08-02 05:20:58 [ℹ]  created serviceaccount "ns1re1/iamserviceaccountre123"
-[root@ip-172-31-15-181 ~]# 
+[root@ip-172-31-15-181 ~]#
 ```
 
 **Step 8:** Install KubeArmor via Helm Chart
@@ -94,7 +91,7 @@ namespace/ns1re1 created
 
 Follow this link to install Helm if not installed: <a href="https://docs.aws.amazon.com/eks/latest/userguide/helm.html" target="_blank">AWS User Guide to Install Helm</a>
 
-**Step 8.2:** Install kubearmor via Helm Chart 
+**Step 8.2:** Install kubearmor via Helm Chart
 
 Copy and run the command shown in Step 2 of the instructions. [Note: Remember to replace the namespace with the correct namespace as specified in the command of Step 1]
 
@@ -115,7 +112,7 @@ helm pull oci://709825985650.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor 
 tar xf $(pwd)/* && find $(pwd) -maxdepth 1 -type f -delete
 
 helm install kubearmor \
-    --namespace <ENTER_NAMESPACE_HERE> ./* 
+    --namespace <ENTER_NAMESPACE_HERE> ./*
 ```
 
 Example:
@@ -187,5 +184,5 @@ curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
 KubeArmor is an open-source sandbox project of AccuKnox which was donated to <a href="https://www.cncf.io/projects/kubearmor/" target="_blank">CNCF-Cloud Native Computing Foundation</a>
 To contribute to the project, access the <a href="https://github.com/kubearmor/KubeArmor" target="_blank">Github page</a>. Learn more about KubeArmor <a href="https://kubearmor.io/" target="_blank">here</a>
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

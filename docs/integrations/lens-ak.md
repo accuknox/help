@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 To deploy the AccuKnox agents through Lens and onboard to AccuKnox SaaS,
 
@@ -37,10 +34,10 @@ Click on Add
 **Step 7**: Copy the following values from the AccuKnox SaaS and paste in Helm Chart values in Lens:
 
 ```sh
-joinToken="<token-from-saas>" 
-spireHost="spire.demo.accuknox.com" 
-ppsHost="pps.demo.accuknox.com" 
-knoxGateway="knox-gw.demo.accuknox.com:3000" 
+joinToken="<token-from-saas>"
+spireHost="spire.demo.accuknox.com"
+ppsHost="pps.demo.accuknox.com"
+knoxGateway="knox-gw.demo.accuknox.com:3000"
 ```
 Click on Install
 

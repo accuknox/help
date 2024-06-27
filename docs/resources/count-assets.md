@@ -1,12 +1,9 @@
----
-hide:
-  - toc
----
+
 ??? "**AWS**"
 
     ## Prerequisites
 
-    Need an IAM Access key and Secret key with the entire account ReadOnly Access. 
+    Need an IAM Access key and Secret key with the entire account ReadOnly Access.
 
     ## Assets count
 

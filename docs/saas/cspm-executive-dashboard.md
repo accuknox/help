@@ -1,14 +1,11 @@
----
-hide:
-  - toc
----
+
 ## **CSPM Executive Dashboard**
 
 The Compliance Executive dashboard provides you a composite view of continuous conformances of cloud resources to technical benchmarks like CIS etc. and legal frameworks HIPAA, PCI-DSS etc. Below are the aspects we cover to provide a single pane of glass visibility into the security posture of your entire infrastructure.
 
 ![](images/cspm-exec-dashboard.png)
 
-+ We provide you an overall compliance score after evaluating individual compliance of cloud resources. 
++ We provide you an overall compliance score after evaluating individual compliance of cloud resources.
 
 + We also enable customers to customize a Pass/Fail criteria of their requirement based on overall scan with minimum compliance  conformance percentage.
 
@@ -20,5 +17,5 @@ The Compliance Executive dashboard provides you a composite view of continuous c
 
 + Visibility into categorized cloud resources/Asset across multi cloud environment becomes essential when we would like to see and manage compliance of specific resources. We cover that in Compliance summary based on Asset.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

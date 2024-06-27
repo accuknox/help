@@ -1,10 +1,7 @@
----
-hide:
-  - toc
----
-## **Logs:** 
 
-AccuKnox CNAPP Solution provides comprehensive visibility of the cloud assets with the help of Dashboards and logs/alerts. AccuKnox’s open source KubeArmor can forward policy related logs/alerts to the SaaS. Also it can forward the container logs that is present in the workloads. We can also use Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., User can also forward the logs from AccuKnox SaaS using the channel integration option to these SIEM tools. 
+## **Logs:**
+
+AccuKnox CNAPP Solution provides comprehensive visibility of the cloud assets with the help of Dashboards and logs/alerts. AccuKnox’s open source KubeArmor can forward policy related logs/alerts to the SaaS. Also it can forward the container logs that is present in the workloads. We can also use Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., User can also forward the logs from AccuKnox SaaS using the channel integration option to these SIEM tools.
 
 The Logs summary in AccuKnox displays a complete list of log events that have occurred within the infrastructure during a defined timeline.
 
@@ -23,7 +20,7 @@ Sent customized alerts to third-party SIEM (security information and event manag
 Logs are generated in real-time based on certain conditions/rules you configure on the security policies. You will get logs from four different components
 
 ![](images/logs-1.png)
- 
+
 
 **K8s-cluster/VM**
 To access all the logs from your Kubernetes clusters, select K8s-cluster from the first drop-down menu. Select VM to examine the logs for your virtual machines.
@@ -44,13 +41,13 @@ As in the rest of the platform interface, the time range can be set by date rang
 Click one or more elements in a log event to add them directly to the filter.
 
 ![](images/logs-filter.png)
- 
+
 
 Click Save button, to save the selected filter to Saved Filters
 
 ![](images/save-filter.png)
 
-When the user fills the details and clicks the create option the filter will be saved. 
+When the user fills the details and clicks the create option the filter will be saved.
 
 ![](images/logs-saved-filter.png)
 
@@ -66,7 +63,7 @@ Search Filters are categorized into three
 + Saved Filters: The saved filters will list all the filters that the user has saved.
 
 + Unsaved: A set of filters loaded from your cache. It will be available shortly.
- 
+
 
 **Log Detail Panel**
 Click one of the events in the log to view the details pane.
@@ -75,5 +72,5 @@ The Log Detail contents vary depending on the selected component type of the log
 
 ![](images/logs-panel.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

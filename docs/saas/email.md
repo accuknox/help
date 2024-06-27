@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 AccuKnox supports the following Email Integrations:
 
@@ -10,5 +7,5 @@ AccuKnox supports the following Email Integrations:
 - [Email Backend](./../integrations/email-backend.md): Integration of an SMTP server to be used to send Emails from the platform.
 
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

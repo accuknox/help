@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 # Secure AWS S3 Bucket Configuration
 To provide a practical demonstration of using AccuKnox for a CI/CD scan, let's go through a detailed use case involving a Terraform project. AccuKnox IaC Scanner is a tool designed to identify misconfigurations in Infrastructure as Code (IaC) files, such as those written for Terraform, Kubernetes and more. It helps in enforcing best practices and security guidelines.
@@ -61,11 +58,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main
-      
+
       - name: Run IaC scan
         uses: accuknox/iac-scan-action@v0.0.1
         with:
-          directory: ./  
+          directory: ./
           output_file_path: ./results
           token: ${{ secrets.TOKEN }}
           endpoint: "cspm.dev.accuknox.com"
@@ -151,4 +148,4 @@ In the next scan ensure the S3 bucket has access logging enabled will not shown 
 
 ![](images/iac-scan-images/15.png)
 ### 6. Final Outcome:
-After applying the updates and rerunning the CI/CD pipeline with the AccuKnox scan, the "Ensure the S3 bucket has access logging enabled" check is passed. Continue to address any other failed checks until your Infrastructure as Code (IaC) passes all checks. Once completed, your S3 bucket configuration will adhere to the best practices for security, ensuring that activity is logged. 
+After applying the updates and rerunning the CI/CD pipeline with the AccuKnox scan, the "Ensure the S3 bucket has access logging enabled" check is passed. Continue to address any other failed checks until your Infrastructure as Code (IaC) passes all checks. Once completed, your S3 bucket configuration will adhere to the best practices for security, ensuring that activity is logged.

@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 To demonstrate the benefits of integrating AccuKnox into a CI/CD pipeline using Google Cloud Build to enhance security, let's consider a specific case involving a container image with known vulnerabilities. By incorporating AccuKnox scanning into the pipeline, we can identify and resolve these vulnerabilities before deploying the image. The detailed example below outlines this process by comparing the scenarios before and after the inclusion of AccuKnox, as evidenced in the Cloud Build logs.
 
@@ -40,9 +37,9 @@ Before using AccuKnox, our container image was sent to the registry without any 
  # Step 1: Scan the container image with AccuKnox and save the report
   - name: 'accuknox/accuknox-container-scan'
     args: [
-      'image', 
-      '--format', 'json', 
-      '--output', '/workspace/accuknox-report.json', 
+      'image',
+      '--format', 'json',
+      '--output', '/workspace/accuknox-report.json',
       '${_IMAGE_URL}:${_IMAGE_TAG}'
     ]
     id: 'accuknox-container-scan'
@@ -58,9 +55,9 @@ Before using AccuKnox, our container image was sent to the registry without any 
   # Step 4: Access the secret using gcloud and save it to a file
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
-    args: [ 
-      '-c', 
-      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/decrypted-data.txt" 
+    args: [
+      '-c',
+      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/decrypted-data.txt"
     ]
     id: 'access-secret'
   # Step 5: Forward the logs to the SaaS platform using curl
@@ -186,9 +183,9 @@ We’ll follow a basic “image scanning for Google Cloud Build” example proje
  # Step 1: Scan the container image with AccuKnox and save the report
   - name: 'accuknox/accuknox-container-scan'
     args: [
-      'image', 
-      '--format', 'json', 
-      '--output', '/workspace/accuknox-report.json', 
+      'image',
+      '--format', 'json',
+      '--output', '/workspace/accuknox-report.json',
       '${_IMAGE_URL}:${_IMAGE_TAG}'
     ]
     id: 'accuknox-container-scan'
@@ -204,9 +201,9 @@ We’ll follow a basic “image scanning for Google Cloud Build” example proje
   # Step 4: Access the secret using gcloud and save it to a file
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
-    args: [ 
-      '-c', 
-      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/decrypted-data.txt" 
+    args: [
+      '-c',
+      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/decrypted-data.txt"
     ]
     id: 'access-secret'
   # Step 5: Forward the logs to the SaaS platform using curl
@@ -280,5 +277,5 @@ Google offers a complete ecosystem for CI/CD that includes Google Cloud Build, G
 
 AccuKnox container scanning also integrates seamlessly with most CI/CD pipeline tools, including Jenkins, GitHub, GitLab, Azure Pipelines, AWS CodePipelines, etc.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

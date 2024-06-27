@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 ## RSyslog Integration
 
@@ -35,5 +32,5 @@ To forward the events to RSyslog you must first set up the RSyslog Integration.
 + Click **Save** to save the Integration. You can now configure Alert Triggers for RSyslog Events
 
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

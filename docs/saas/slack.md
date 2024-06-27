@@ -1,7 +1,4 @@
----
-hide:
-  - toc
----
+
 
 
 ### Slack Integration:
@@ -36,5 +33,5 @@ After logging into your Slack channel, you must generate a Hook URL.
 
 + Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

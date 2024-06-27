@@ -1,19 +1,16 @@
----
-hide:
-  - toc
----
+
 
 ## **CNAPP Dashboard**
 
- 
+
 
 With CNAPP Dashboard, AccuKnox provides you a comprehensive view of the security posture from cloud native applications to the infrastructure where its hosted. We cover application or infrastructure inventory to have the visibility, Threat Intelligence using Vulnerability/Findings by Severity, Compliance Monitoring against standard frameworks (technical or legal), Risk Assessment with respect to Image/Repo scan and security issues, Pods exposed to Internet,  critical Runtime Events and policies assessment and Remediations to track for fixing/patching solution to known issues.
 
  ![](images/cnapp_dashboard.png)
 
-+ **Image Risk Assessment** is very crucial widget which show you the count of images by severity per assessment. It will inform you about the status of overall Images security posture and guide you to take necessary steps on the Images with high severity first. The total Images count can be clicked if you want to see the overall status of the Image scans as it  will send you to the Scan Queue in Registry Scan 
++ **Image Risk Assessment** is very crucial widget which show you the count of images by severity per assessment. It will inform you about the status of overall Images security posture and guide you to take necessary steps on the Images with high severity first. The total Images count can be clicked if you want to see the overall status of the Image scans as it  will send you to the Scan Queue in Registry Scan
 
-+ **Image Security Issues** is critical to identify issues such as vulnerabilities, malware or sensitive data from the scan assorted by severity to detect early issues in our application security landscape. 
++ **Image Security Issues** is critical to identify issues such as vulnerabilities, malware or sensitive data from the scan assorted by severity to detect early issues in our application security landscape.
 
 + **Runtime Policies Assessment** will provide you a view of overall policies status that are governing your runtime protection aspect of your application. You should be able to see following details regarding Policies -
 
@@ -41,5 +38,5 @@ With CNAPP Dashboard, AccuKnox provides you a comprehensive view of the security
 
 + **Compliance Alerts** will inform user of standard compliance framework related violation alert. AccuKnox helps you to identify violation with respect to technical compliance such as CIS, STIG etc. and governance compliance such as NIST, MITRE, HIPAA etc. This widget will give you compliance conformance assessed from all the clusters for that tenant.
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
