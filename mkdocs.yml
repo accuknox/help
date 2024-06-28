@@ -159,7 +159,7 @@ pages:
 
 nav:
   - "Getting Started":
-    - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "SaaS" :
@@ -184,20 +184,20 @@ nav:
             - "VM" : "getting-started/vm-onboarding.md"
       - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
-    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+    - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
     - "Release Notes":
         - "AccuKnox" :
            - "V1.7 Release Notes" : "getting-started/1-7-release.md"
            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
+    - "Open Source":
+      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
+      - "Open Source Installation": "getting-started/open-source.md"
     - "Sample Workloads Protection" :
       - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
       - "DVWA": "getting-started/dvwa.md"
       - "PHP-MySQL": "getting-started/php-mysql.md"
-    - "Open Source":
-      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
-      - "Open Source Installation": "getting-started/open-source.md"
 
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
@@ -341,4 +341,3 @@ nav:
     - "Glossary": "resources/glossary.md"
 
   - "FAQs": "faqs.md"
-
