@@ -1,7 +1,15 @@
 
-# **AccuKnox Agents**
+# AccuKnox Agents
 
-## **KubeArmor**
+We have the agent-based model for CWPP. This offers a balanced approach providing non-intrusive scanning for cloud accounts – not to mention the deep visibility for workloads using eBPF-based agents.
+
+![AccuKnox Agent Approach](images/accuknox-agent-appproach.png)
+
+Note that we also offer a agentless model for CSPM. This is a lightweight, non-intrusive approach that provides deep visibility into cloud accounts without the need for agents.  AccuKnox’s hybrid approach optimizes cloud security for diverse organizational needs.
+
+**Let us see the various agents that are part of the AccuKnox solution.**
+
+## KubeArmor
 
 KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operation) of containers and nodes at the system level. It operates with Linux security modules LSMs, meaning that it can work on top of any Linux platforms (such as Alpine, Ubuntu, and Container-optimized OS from Google) if Linux security modules (e.g., AppArmor, SELinux, or BPF-LSM) are enabled in the Linux Kernel. KubeArmor will use the appropriate LSMs to enforce the required policies.
 
@@ -9,7 +17,7 @@ KubeArmor is a cloud-native runtime security enforcement system that restricts t
 
 KubeArmor allows operators to define security policies and apply them to Kubernetes. Then, KubeArmor will automatically detect the changes in security policies from Kubernetes and enforce them on the corresponding containers and nodes. If there are any violations against security policies, KubeArmor immediately generates alerts with container identities. If operators have any logging systems, it automatically sends the alerts to their systems as well.
 
-## **Feeder Service**
+## Feeder Service
 
 The feeder service sends information from the Client Cluster to the AccuKnox SaaS Control Plane. Feeder Service is an agent which runs on every node, collects telemetry/alert events from source systems & messages, and emits them to Messaging Cluster for Storage & Analysis.
 Ways in which the Feeder service communicates to the central control plane:
@@ -22,7 +30,7 @@ Ways in which the Feeder service communicates to the central control plane:
 
 All communication between Feeder and Control plane (Kafka. etc) is encrypted using TLS. Feeder Service uses a secret key from Kubernetes secrets to be applied to it when connecting to the control plane. This secret key allows the feeder to talk to the control plane and exchange data for a particular tenant-id/workspace-id. This is an API key that is generated as part of the cluster onboarding. The feeder service will self-assess some metrics and logs and send that information to the Control plane for its own health assessment for one or more components including its own (running on nodes).The Feeder Service makes it simpler to monitor the detailed communication between each entity.
 
-## **Shared Informer Agent**
+## Shared Informer Agent
 
 Shared Informer Agent watches all the changes occurring in Kubernetes entities such as Pods, Nodes, Namespaces, Endpoints, and Services.
 
@@ -30,7 +38,7 @@ Shared Informer Agent watches all the changes occurring in Kubernetes entities s
 
 + The Shared Informant Agent makes it simpler to track and manage all of the entities that are present in Kubernetes as well as see changes in entities as they occur in real-time.
 
-## **Policy Enforcement Agent**
+## Policy Enforcement Agent
 
 AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeArmor and Cillium. Policy Enforcement Agent not only keeps the track of the policies but is capable of doing tasks such as applying policies, denying policies, updating policies, and deleting the policies.
 
@@ -38,7 +46,7 @@ AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeAr
 
 + All of the changes done to the policy can be tracked granularly with the help of the Policy Enforcement Agent and Policy Gitops Flow which helps with version control and robust management of the security policies.
 
-## **Discovery Engine**
+## Discovery Engine
 
 Accuknox policy enforcement engine based on KubeArmor is very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. Accuknox policy auto-discovery engine leverages the pod visibility provided by KubeArmor to auto-generate network and system policies.
 
@@ -58,13 +66,13 @@ For example, you could have a policy that states the following:
 
 This list can be as exhaustive as you like, and these policies are enforced within the kernel using kernel primitives and technologies as listed below:
 
-Network Security using eBPF
+**Network Security using eBPF**
 
 + Network runtime protection in the form of L3, L4, and L7 rules using identity (x509 certificates or K8s labels) for your K8s workloads. In K8s policies, this is implemented as a native K8s networkpolicy object.
 
 + For Virtual Machine workloads, labels are used to provide host-level network policies for L3, L4, and L7.
 
-Application security using Linux Security Modules (LSM) / KubeArmor
+**Application security using Linux Security Modules (LSM) / KubeArmor**
 
 + The Linux Security Module (LSM) framework provides a mechanism for various security checks to be hooked by new kernel extensions. It denies access to essential kernel objects, such as files, inodes, task structures, credentials, and inter-process communication objects.
 
