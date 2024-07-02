@@ -1,5 +1,4 @@
 
-
 ## **High-Level Architecture Overview**
 
 ![](images/on-prem-deploy.png)
@@ -155,7 +154,6 @@ kubectl create secret docker-registry airgapped-reg --docker-server=<registry.ad
 
 **[ONLY FOR air-gapped/private registry ENVIRONMENT]**: Set `global.onprem.airgapped` to true in `override-values.yaml` file.
 
-
 ### Before you start
 
 We offer three deployments models when it comes to SSL certificate to accomodate for client requirements.
@@ -187,7 +185,6 @@ AccuKnox installation package will contain `override-values.yaml` file that cont
 
 1. Override <your_domain.com\> to your domain
 2. Set your ssl preferences in the override values by changing the ssl block.
-
 
 ### Install AccuKnox base dependencies
 
