@@ -1,122 +1,278 @@
+# On-Prem Installation Guide
 
-## **High-Level Architecture Overview**
+## High-Level Architecture Overview
 
 ![](images/on-prem-deploy.png)
 
-AccuKnox onprem deployment is based on Kubernetes native architecture.
-
-### AccuKnox OnPrem k8s components
+### Accuknox Application Protection Platform (Control-Plane) Components
 
 #### Microservices
 
-Microservices implement the API logic and provide the corresponding service endpoints. AccuKnox uses Golang-based microservices for handling any streaming data (such as alerts and telemetry) and Python-based microservices for any other control-plane services.
+AccuKnox microservices implement the API logic and provide service endpoints. We use Golang for microservices handling streaming data (alerts, telemetry) and Python for other control-plane services.
 
-#### Databases
+#### Storage
 
-PostgreSQL is used as a relational database and MongoDB is used for storing JSON events such as alerts and telemetry. Ceph storage is used to keep periodic scanned reports and the Ceph storage is deployed and managed using the Rook storage operator.
+In our project, we use PostgreSQL for structured table data and MongoDB for JSON objects. For large-scale data storage, particularly periodic scan reports, we leverage Ceph storage solutions managed by the Rook operator on Kubernetes (K8s).
+
+**Why Ceph on Kubernetes?**
+
++ **Scalability:** Ceph scales horizontally, accommodating growing data needs efficiently.
+
++ **High Availability:** It ensures data redundancy and fault tolerance, critical in a distributed environment.
+
++ **Unified Management:** Rook simplifies the deployment and management of Ceph, integrating seamlessly with Kubernetes.
+
++ **Performance:** Ceph optimizes read and write operations, crucial for handling large-scale data.
+
++ **Cost Efficiency:** Ceph on commodity hardware is more cost-effective than proprietary solutions.
+By combining these technologies, we achieve a robust, scalable, and efficient storage system suitable for diverse data types and large-scale requirements.
 
 #### Secrets Management
 
-Within the onprem setup, there are several cases where sensitive data and credentials have to be stored. Hashicorp’s Vault is made use of to store internal (such as DB username/password) and user secrets (such as registry tokens). The authorization is managed purely using k8s native model of service accounts. Every microservice has its own service account and uses its own service account token automounted by k8s to authenticate and subsequently authorize accesses to the secrets.
+Hashicorp's Vault is used to store internal (DB usernames/passwords) and user (registry token) secrets. The authorization process are entirely managed using the Kubernetes natives model of service accounts.
 
 #### Scaling
 
-K8s native horizontal and vertical pod autoscaling is enabled for most microservices with upper limits for resource requirements.
+The Kubernetes native horizontal and vertical pod autoscaling is enabled for most of the microservices with upper limitis for resource requirements.
 
 #### AccuKnox-Agents
 
-Agents need to be deployed in target k8s clusters and virtual machines that have to be secured at runtime and to get workload forensics. Agents use Linux native technologies such as eBPF for workload telemetry and LSMs (Linux Security Modules) for preventing attacks/unknown execution in the target workloads. The security policies are orchestrated from the AccuKnox onprem control plane. AccuKnox leverages SPIFFE/SPIRE for workload/node attestation and certificate provisioning. This ensures that the credentials are not hardcoded and automatically rotated. This also ensures that if the cluster/virtual machine has to be deboarded then the control lies with the AccuKnox control plane.
+Agents are deployed in K8S clusters and virtual machines for runtime security and workload forensics, using Linux native technologies like eBPF for workload telemetry and LSMs for attack prevention. Security policies are orchestrated from the AccuKnox On-prem control plane, which uses SPIFFE/SPIRE for workload/node attestation and certificate provisioning.
 
-## **OnPrem Use cases**
+Read more about [AccuKnox Agents](../getting-started/accuknox-agents.md)
 
-### Container/VM Protection
+---
 
-Secure the workloads through KubeArmor and AccuKnox agents.
+## **On-prem Use cases**
 
-### Registry
++ **Container/VM Protection**: Secure the workloads through KubeArmor and AccuKnox agents.
 
-Container image registries scanning for vulnerabilities and secret data.
++ **Registry**: Container image registries scanning for vulnerabilities and secret data.
 
-### ASPM
++ **ASPM**: Code Scanning and integration with CI/CD Pipelines for automation of shift left security.
 
-Code Scanning and integration with CI/CD Pipelines for automation of shift left security.
++ **CSPM**: Scan the cloud infrastructure. Not applicable in air gapped deployment without connectivity to cloud accounts.
 
-### CSPM
+---
 
-Scan the cloud infrastructure. Not applicable in air gapped deployment without connectivity to cloud accounts.
+## Accuknox Application Protection Platform (Accuknox Control-Plane) Installation Requirements
 
-## **System Requirements**
+AccuKnox Control-Plane should use its own, separate Kubernetes cluster, with the following requirements:
 
-### Worker Node Requirements
+1. 4 worker nodes with 8vCPUs, 32 GB RAM, and 256 GB SSD disks, and 5 worker nodes with 4vCPUs, 16 GB RAM, and 128 GB SSD disks; it is advisable for SSD disk to have at least 3000 IOPs.
+2. External bare metal loadbalancer setup with a reserved pool of at least 5 IPs, eg. MetalLB.
+3. Default storage class configured, eg. Longhorn (or others that you have tested; Open-Jiva, in my opinion, cannot be trusted anymore).
+4. Additional helper apps installed, ie. jq (v1.6+), unzip (x.x), yq (v.4.40.x+), helm (v.3.x.x+).
 
-| Nodes | vCPUs | RAM (GB) | Disk (GB) |
-| ----- | ----- | -------- | --------- |
-| 4     | 8     | 32       | 256       |
-| 5     | 4     | 16       | 128       |
+In addition, for the installation to succeed, you need to make changes in your DNS, and if using custom certificates, have them available (certificate, private key, intermediate and root CA). Also, you will need to provide an email account (username, password) that will be used for sign-in onboarding and special notifications (scans, reports).
 
-### Kubernetes Requirements
+## Accuknox Application Protection Platform (Accuknox Control-Plane) Jump Host Installation
 
-- Start a k8s cluster with the above worker node requirements
+![](images/on-prem-jump.png)
 
-- Ingress Controller (load balancers)
-    - For access to the application
+If your workloads or architecture is air gapped and/or you would like to use a private container registry please:
 
-- Persistent Volumes (PV), provisioner/controller (block device/disks)
-    - Used as data storage for SQL, MongoDB, scanned artifacts
-    - Other internal app usages
+1. Install aws v2 CLI and docker client v.20.xx.
+2. Prepare your: private registry address, username, and password, as well as AccuKnox ECR username and password.
+3. Prepare your Accuknox installation folder on your Kubernetes control-plane node and copy there the AccuKnox TGZ package.
 
-- DNS CNAME provisioning
-    - Needed for application access & communication
-    - Certs would use this CNAME so that address changes won’t impact the cert validation.
+Then, follow the instructions below:
 
-- Email account configuration
-    - Need email username, password
-    - Used for user sign-in, password change, scan notification, sending reports
+```bash
+tar xvf accuknox-helm-charts.tgz
+cd Helm-charts
+cd airgapped-reg
+
+# configure aws cli with AccuKnox provided secrets
+aws configure
+
+# connect to docker Accuknox docker registry
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 956994857092.dkr.ecr.us-east-2.amazonaws.com
+
+# connect to airgapped registry
+docker login <registry_address>
+
+# upload images to private registry
+./upload_images.sh <registry_address>
+
+# create a namespace
+MGR_NS="accuknox-onprem-mgr"
+CERT_MGR_NS="cert-manager"
+kubectl create ns $MGR_NS
+kubectl create ns $CERT_MGR_NS
+kubectl create secret docker-registry airgapped-reg --docker-server=<registry.address> --docker username=<registry.username> --docker-password=<registry.password> -n $MGR_NS
+kubectl create secret docker-registry airgapped-reg --docker-server=<registry.address> --docker username=<registry.username> --docker-password=<registry.password> -n $CERT_MGR_NS
+
+# <registry_address> can include port as well
+./install-certmanager.sh <registry_address>
+./install-onprem-mgr.sh <registry_address>
+
+```
+
+4. In the file Helm-charts/override-values.yaml set the variable global.onprem.airgapped to true.
+
+## Accuknox Application Protection Platform (Accuknox Control-Plane) Installation Steps
+
+To install Accuknox Control-Plane you need to override the <your_domain.com> value in Helm-charts/override-values.yaml and set your SSL preferences.
+
+If you want to use the AccuKnox autogenerated certificates make sure that in the ssl section of the override-values, you read:
+
+```yaml
+ssl:
+  selfsigned: true
+  customcerts: false
+```
+
+If, on the other hand, you have your own certificates signed by a known certificate authority (CA), those values should look like this:
+
+```yaml
+ssl:
+  selfsigned: false
+  customcerts: true
+```
+
+The third option, is to provide your custom self-signed certificates; then the section should read:
+
+```yaml
+ssl:
+  selfsigned: true
+  customcerts: true
+```
+
+After finishing up with those preliminary configurations, you can proceed with the next installation steps:
+
+### 1. Install AccuKnox control-plane base dependencies
+
+!!! info "Instructions!"
+
+    The following scripts/steps have to be run from inside the Helm-charts folder.
+
+```bash
+kubectl create namespace accuknox-chart
+helm upgrade --install -n accuknox-chart accuknox-base accuknox-base-chart --create-namespace -f override-values.yaml
+```
+
+!!! info "Important!"
+
+    Some of the resources deployed in the above step require some time to provision. Wait at least 2-3 minutes and run the following script to check if you can proceed with the next step.
+
+```bash
+./check_initialization.sh
+```
+
+```bash
+while true
+do
+    status=$(kubectl get cephcluster -n accuknox-ceph  rook-ceph -o=jsonpath='{.status.phase}')
+    [[ $(echo $status | grep -v Ready | wc -l) -eq 0 ]] && echo "You can procceed" && break
+    echo "wait for initialization"
+    sleep 1
+done
+```
+
+### 2. Install Accuknox control-plane pre-chart
+
+```bash
+helm upgrade --install -n accuknox-chart accuknox-pre pre-chart --create-namespace -f override-values.yaml --set global.email.user="<email-username>" --set global.email.password="<email-password>" --set email.host="<email-host>" --set ecr.user="<provided by AccuKnox" --set
+ecr.password="<provided by Accuknox>"
+```
+
+### 3. Install Accuknox control-plane microservices
+
+```bash
+helm upgrade --install -n accuknox-chart accuknox-microservice accuknox-microservice-chart --set global.email.user="<email-username>" --set
+global.email.password="<email-password>" --set global.email.host="<email-host>" --create-namespace -f
+override-values.yaml
+```
+
+### 4. Check DNS Mapping
+
+Run the below script that will give you the names of records and their values you need to add to your DNS:
+
+```bash
+./generate_dns_entries.sh
+```
+
+### 5. Install SSL certificates
+
+!!! info "Important!"
+
+    This is an optional step, perform it only if you are NOT using autogenerated AccuKnox certificates.
+
+a) If using certificates signed by a known authority:
+
+```bash
+./install_certs.sh <certificate_path <certificate_key_path> <ca_path>
+```
+
+**OR**
+
+b) If using your own self-signed certificates:
+
+```bash
+./install_certs.sh <certificate_path> <certificate_key_path> <ca_path>
+```
+
+### 6. Verify the installation
+
+After the successful DNS update you should be able to access the following pages:
+
++ <https://frontend>.<your-domain.com<https://frontend.%3cyour-domain.com>> (sign-in main AccuKnox control-plane GUI page)
++ <https://cspm>.<your-domain.com>/admin/<https://cspm.%3cyour-domain.com%3e/admin/>
++ <https://cwpp>.<your-domain.com>/cm/<https://cwpp.%3cyour-domain.com%3e/cm/>
+![](images/on-prem-verify.png)
+
+## References
+
+1. AccuKnox Deployment and Operations [FAQs](https://help.accuknox.com/faqs/troubleshooting-and-faqs/)
+2. [AccuKnox Splunk Integration Guide](https://help.accuknox.com/integrations/splunk/)
+3. [KubeArmor Splunk Integration Guide](https://help.accuknox.com/integrations/splunk_feeder_kubearmor/)
+4. [CSPM: Use-cases & Scenarios](https://help.accuknox.com/use-cases/vulnerability/)
+5. [CWPP: Use-cases & Scenarios](https://help.accuknox.com/use-cases/app-behavior/)
+6. [Detailed Support Matrix](https://help.accuknox.com/getting-started/kubearmor-support-matrix/)
+
+## Appendix
+
+### Sample Deployment Model
+
+![](images/on-prem-sample.png)
+
+---
+
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary } -->
+
+<!--
 
 ### Jump Host
 
 ![](images/on-prem-jump.png)
 
-### Jump Host Pre-requisites
-
-You need to have the following tools installed in the machine that you are going to use to follow the installation guide
-
-| Tool                                  | Version                       | Install command                                                                                                                                                                                  |
-| ------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| jq                                    | 1.6                           | `apt install jq`                                                                                                                                                                                   |
-| unzip                                 | x.x                           | `apt install unzip`                                                                                                                                                                                |
-| [yq](https://github.com/mikefarah/yq) | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - | tar xz && mv ${BINARY} /usr/bin/yq`                        |
-| helm                                  | v3.x.x                        | `curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 \`| bash                                                                                                                  |
-| kubectl                               | Supported by your k8s cluster |                                                                                                                                                                                                  |
-| aws                                   | v2                            | `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update` |
-| docker                                | v20.xx                        | `apt install docker.io`                                                                                                                                                                            |
-
-Also the machine needs to have at least 80GB of storage
-
 ## **Installation steps**
 
 ### Installation Package
 
-- Onprem Deployment Installation Document (this document)
-- Helm charts archive <accuknox-helm-charts.tgz\>
-    + Kubectl and Helm tools are pre-requisite tools for using these helm charts
++ Onprem Deployment Installation Document (this document)
++ Helm charts archive <accuknox-helm-charts.tgz\>
+  + Kubectl and Helm tools are pre-requisite tools for using these helm charts
 
 Use the following command to extract
+
 ```sh
 tar xvf accuknox-helm-charts.tgz
 cd Helm-charts
 ```
+
 ### Use of Private/Local Container Registry (or air-gapped mode)
 
 If you want to use your private/local registry as the exclusive source of images in the ENTIRE cluster, please install the `accuknox-onmprem-mgr` component first.
 
-| Value | Description | Provider |
-|--|--|--|
-|registry.username| Registry user | Customer |
-|registry.password | Registry password | Customer |
-|registry.address| The registry server address| Customer |
-|ecr.user| Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | Accuknox |
-|ecr.password| Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | Accuknox|
+| Value             | Description                                                                                   | Provider |
+| ----------------- | --------------------------------------------------------------------------------------------- | -------- |
+| registry.username | Registry user                                                                                 | Customer |
+| registry.password | Registry password                                                                             | Customer |
+| registry.address  | The registry server address                                                                   | Customer |
+| ecr.user          | Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | Accuknox |
+| ecr.password      | Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | Accuknox |
 
 Execute the following commands:
 
@@ -158,23 +314,27 @@ kubectl create secret docker-registry airgapped-reg --docker-server=<registry.ad
 
 We offer three deployments models when it comes to SSL certificate to accomodate for client requirements.
 
-- **Auto-generated self-signed certificate**: We auto generate the needed self signed certificates for the client.
++ **Auto-generated self-signed certificate**: We auto generate the needed self signed certificates for the client.
 To enabled this option, the ssl section the override values file should be set as follow:
+
 ```yaml
   ssl:
     selfsigned: true
     customcerts: false
 ```
-- **Certificate signed by a known authority**: The client provies a certificate signed by a known signing authority.
+
++ **Certificate signed by a known authority**: The client provies a certificate signed by a known signing authority.
 To enabled this option, the ssl section the override values file should be set as follow:
+
 ```yaml
   ssl:
     selfsigned: false
     customcerts: true
 ```
 
-- **Self-signed certificates** (provided by the customer): The client provides a self signed certificate.
++ **Self-signed certificates** (provided by the customer): The client provides a self signed certificate.
 To enabled this option, the ssl section the override values file should be set as follow:
+
 ```yaml
   ssl:
     selfsigned: true
@@ -193,6 +353,7 @@ kubectl  create  namespace  accuknox-chart
 
 helm  upgrade  --install  -n  accuknox-chart  accuknox-base  accuknox-base-chart  --create-namespace -f  override-values.yaml
 ```
+
 **IMPORTANT**
 
 Some resources deployed in the above step require some time to provision. If the user executes the next command without waiting for the proper provisioning of the previous command the installation may break and will need to start over.
@@ -213,13 +374,13 @@ done
 
 The user needs to set the required values as folows:
 
-| Value | Description | Who provides it |
-|--|--|--|
-|email.user| The Email user that will send invitation, reports, etc. | Customer |
-|email.password| Email password | Customer |
-|email.host| The Email server address | Customer |
-|ecr.user| Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | AccuKnox |
-|ecr.password| Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | AccuKnox|
+| Value          | Description                                                                                   | Who provides it |
+| -------------- | --------------------------------------------------------------------------------------------- | --------------- |
+| email.user     | The Email user that will send invitation, reports, etc.                                       | Customer        |
+| email.password | Email password                                                                                | Customer        |
+| email.host     | The Email server address                                                                      | Customer        |
+| ecr.user       | Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | AccuKnox        |
+| ecr.password   | Credential required to pull images from Accuknox registry </br>Value: <provided-by-accuknox\> | AccuKnox        |
 
 ```bash
 helm  upgrade  --install  -n  accuknox-chart  accuknox-pre  pre-chart  --create-namespace -f  override-values.yaml --set email.user="" --set email.password="" --set email.host="" --set ecr.user="<provided-by-accuknox>" --set ecr.password="<provided-by-accuknox>"
@@ -254,7 +415,7 @@ Run the following script to generate the records you should add to your DNS zone
 ./istio-config.sh <ca_path>
 ```
 
-####  Self-signed certificates
+#### Self-signed certificates
 
 ```bash
 ./istio-config-local.sh
@@ -262,9 +423,9 @@ Run the following script to generate the records you should add to your DNS zone
 
 ### Verification of installation
 
-- After successful installation, you should be able to point to https://frontend.<your-domain.com\> URL and get the sign-in page.
-- https://cspm.<your-domain.com\>/admin/ page should be available.
-- https://cwpp.<your-domain.com\>/cm/ page should be available.
++ After successful installation, you should be able to point to <https://frontend>.<your-domain.com\> URL and get the sign-in page.
++ <https://cspm>.<your-domain.com\>/admin/ page should be available.
++ <https://cwpp>.<your-domain.com\>/cm/ page should be available.
 
 ![](images/on-prem-verify.png)
 
@@ -284,4 +445,4 @@ Run the following script to generate the records you should add to your DNS zone
 ![](images/on-prem-sample.png)
 
 - - -
-[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary } -->
