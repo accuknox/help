@@ -33,8 +33,8 @@ theme:
     - toc.follow
   palette:
     - scheme: default
-      primary: white
-      #accent: blue
+      primary: indigo
+      # accent: blue
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
@@ -56,7 +56,8 @@ theme:
   #icon:
   #logo: 'assets/images/logo-black.png'
   logo_dark_mode: 'assets/images/logo-white.png'
-  logo_light_mode: 'assets/images/logo-black.png'
+  logo_light_mode: 'assets/images/logo-white.png'
+  # logo_light_mode: 'assets/images/logo-black.png' [REVERT IF NEEDED]
   favicon: 'assets/images/favicon.ico'
   # hide:
   # - toc
