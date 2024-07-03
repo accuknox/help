@@ -52,7 +52,7 @@ theme:
     search: 83 # s
   font:
     text: 'Montserrat'
-    code: 'Montserrat'
+    code: 'Fira Code'
   #icon:
   #logo: 'assets/images/logo-black.png'
   logo_dark_mode: 'assets/images/logo-white.png'
