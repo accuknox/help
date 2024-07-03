@@ -51,8 +51,8 @@ theme:
     previous: 80 # p
     search: 83 # s
   font:
-    text: 'Montessarat'
-    code: 'Montessarat'
+    text: 'Montserrat'
+    code: 'Montserrat'
   #icon:
   #logo: 'assets/images/logo-black.png'
   logo_dark_mode: 'assets/images/logo-white.png'
