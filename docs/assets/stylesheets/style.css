@@ -37,3 +37,11 @@ header.md-header{
 nav.md-tabs{
 background-color: #000025;
 }
+
+h1{
+  font-weight: 800 !important;
+}
+
+div.md-search{
+  border-radius: 50%;
+}

@@ -56,7 +56,8 @@ theme:
   #icon:
   #logo: 'assets/images/logo-black.png'
   logo_dark_mode: 'assets/images/logo-white.png'
-  logo_light_mode: 'assets/images/logo-black.png'
+  logo_light_mode: 'assets/images/logo-white.png'
+  # logo_light_mode: 'assets/images/logo-black.png' [REVERT IF NEEDED]
   favicon: 'assets/images/favicon.ico'
   # hide:
   # - toc
