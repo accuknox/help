@@ -1,17 +1,15 @@
 # Kubernetes Identity and Entitlement Management (KIEM)
 
-KIEM is a cutting-edge solution designed to address security challenges in dynamic, auto-scaling virtual infrastructures. It offers continuous visibility, security event detection, centralized permissions management, and seamless integration with runtime environments. AccuKnox's stands out as the first CNAPP to provide out-of-the-box KIEM functionality. This is particularly crucial given that over 65% of Kubernetes administrators struggle with properly configuring and analyzing RBAC policies.
+KIEM is a cutting-edge solution designed to address security challenges in dynamic, auto-scaling kubernetes infrastructures. It offers continuous visibility, security event detection, centralized permissions management, and seamless integration with runtime environments. AccuKnox's stands out as one of the first CNAPP solutions to provide out-of-the-box KIEM functionality. This is particularly crucial given that over 65% of Kubernetes administrators struggle with properly configuring and analyzing RBAC policies.
 
 ## Key Features
 
-- Multi-cloud visibility
-- Enhanced identity and access management
-- Automatic detection and remediation
-- Audit-ready compliance and governance
-- Flexible and resilient decentralized architecture
-- 99.95% uptime SLA
-- Real-time visualization and detailed audit logs
-
+- **Full-text Search**: Search across all RBAC entities, including service accounts and role bindings.
+- **Interactive Graph Visualization**: Visualize connections between users, permissions, and resources with interactive graphs.
+- **Predefined Queries**: Handy built-in queries to identify critical issues like unnecessary privileges.
+- **Custom Filtering**: Continuously monitor and filter access configurations and changes.
+- **Simplified Access Control Management**: Streamline the complex task of managing Kubernetes access control and permissions.
+-
 ## Onboarding Process
 
 Follow these steps to set up and start using AccuKnox KIEM:
