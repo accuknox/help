@@ -63,7 +63,7 @@ Search across all RBAC entities:
 
 ### Entity Exploration
 
-- View connections and manifest for any entity.
+- View connections and manifest for select entities.
 - Discover excessive permissions.
 
 ![](./images/kiem/kiem-excessive-permission.png)
