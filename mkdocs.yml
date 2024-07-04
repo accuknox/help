@@ -285,6 +285,11 @@ nav:
         - "ServiceNow" : "integrations/servicenow.md"
 
   - "Use-Cases":
+    - "DevSecOps (ASPM)":
+      - "IaC Scan": "use-cases/iac-scan.md"
+      - "Container Scan": "use-cases/container-scan.md"
+      - "SAST - SQL Injection": "use-cases/sast-sq.md"
+    - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "Cloud Security (CSPM)":
       - "Asset Inventory": "use-cases/asset-inventory.md"
       - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
@@ -305,18 +310,13 @@ nav:
     - "Securing Secrets Managers (CWPP)" :
       - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
       - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
-    - "DevSecOps (ASPM)":
-      - "IaC Scan": "use-cases/iac-scan.md"
-      - "Container Scan": "use-cases/container-scan.md"
-      - "SAST - SQL Injection": "use-cases/sast-sq.md"
-    - "Continuous Compliance (GRC)":
-      - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "Host Security (CWPP)":
       - "Host Scan": "use-cases/host-sec.md"
       - "Malware Scan": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
-    - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+    - "Continuous Compliance (GRC)":
+      - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 

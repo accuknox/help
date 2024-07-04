@@ -23,30 +23,6 @@ Follow these steps to set up and start using AccuKnox KIEM:
 
 ![](./images/kiem/kiem-select-cluster.png)
 
-### Define Admin Users
-
-1. Access the KIEM console configuration.
-2. Set up administrative access credentials.
-3. Define roles and permissions for KIEM administrators.
-
-### Review Pre-built Dashboards
-
-1. Explore the default dashboards provided by KIEM.
-2. Familiarize yourself with relationship graphs and risk queries.
-3. Understand the overview of your cluster's security posture.
-
-### Customize Searches and Alerts
-
-1. Tailor search parameters to your specific deployment needs.
-2. Set up custom alerts based on your security policies.
-3. Define thresholds for various security metrics.
-
-### Configure Notifications
-
-1. Set up alert channels (email, Slack, etc.).
-2. Define notification rules for different severity levels.
-3. Establish escalation procedures for critical alerts.
-
 ## Post-Onboarding Steps
 
 After completing the onboarding process:
