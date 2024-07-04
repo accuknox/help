@@ -9,7 +9,7 @@ KIEM is a cutting-edge solution designed to address security challenges in dynam
 - **Predefined Queries**: Handy built-in queries to identify critical issues like unnecessary privileges.
 - **Custom Filtering**: Continuously monitor and filter access configurations and changes.
 - **Simplified Access Control Management**: Streamline the complex task of managing Kubernetes access control and permissions.
--
+
 ## Onboarding Process
 
 Follow these steps to set up and start using AccuKnox KIEM:
