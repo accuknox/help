@@ -48,6 +48,8 @@ The following steps cater to users who:
 
 **Step 7:** This information is forwarded to AccuKnox Support, and after verification by our support team, a confirmation email is sent.
 
+![](images/aws-playbook/aws-playbook-14.png)
+
 **Step 8:** At this juncture, we strongly recommend scheduling a DEMO with AccuKnox to assist the customer with the onboarding steps and gain a deeper understanding of our features.
 
 **Step 9:** Shortly after configuring a tenant for the customer, we will send them an invitation to access the SaaS platform and leverage its security features.
@@ -90,6 +92,8 @@ The following steps cater to users who:
 
 **Step 8:** This information is forwarded to AccuKnox Support, and after verification by our support team, a confirmation email is sent.
 
+![](images/aws-playbook/aws-playbook-14.png)
+
 **Step 9:** At this juncture, we strongly recommend scheduling a DEMO with AccuKnox to assist the customer with the onboarding steps and gain a deeper understanding of our features if not done yet.
 
 **Step 10:** Shortly after configuring a tenant for the customer, we will send them an invitation to access the SaaS platform and leverage its security features.
@@ -127,6 +131,8 @@ To proceed in this process, the customer should have a good understanding of the
 ![](images/aws-playbook/aws-playbook-6.png)
 
 **Step 7:** This collected information will be sent to AccuKnox Support for verification, and upon successful verification, a confirmation email will be sent.
+
+![](images/aws-playbook/aws-playbook-14.png)
 
 **Step 8:** Shortly after configuring a tenant specifically for the customer, we will send them an invitation to access the SaaS platform, enabling them to utilize its security features.
 
