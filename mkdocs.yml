@@ -257,15 +257,15 @@ nav:
         - "Rafay": "integrations/rafay-accuknox.md"
     - "Marketplace":
         - "AWS Marketplace" :
-          - "AccuKnox User Playbook": "integrations/aws-playbook.md"
-          - "KubeArmor User Playbook": "integrations/aws-kubearmor.md"
-          - "KubeArmor - Amazon EKS add-on": "integrations/ka-eks-add-on.md"
+          - "AWS Installation Guide": "integrations/aws-playbook.md"
+          - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
+          - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
         - "Azure Marketplace":
-          - "AccuKnox on Azure Marketplace": "integrations/azure-playbook.md"
+          - "Installation Guide": "integrations/azure-playbook.md"
         - "Oracle Marketplace":
-          - "AccuKnox on Oracle Marketplace": "integrations/oracle-playbook.md"
+          - "Installation Guide": "integrations/oracle-playbook.md"
         - "RedHat Marketplace":
-          - "AccuKnox on RedHat Marketplace": "integrations/rh-playbook.md"
+          - "Installation Guide": "integrations/rh-playbook.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
         - "Email": "integrations/email.md"
@@ -337,9 +337,9 @@ nav:
 
   - "Resources":
     - "Calculate Pricing":
-      - "Count my Cloud Assets": "resources/count-assets.md"
-      - "Count my Container Registries": "resources/count-registry.md"
-      - "Count my K8s Cluster Worker Nodes": "resources/count-nodes.md"
+      - "CSPM Cloud Assets": "resources/count-assets.md"
+      - "CWPP Container Images": "resources/count-registry.md"
+      - "CWPP Worker Nodes": "resources/count-nodes.md"
     - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Backup my Scan Data": "resources/scan-data-backup.md"
     - "Troubleshooting": "resources/troubleshooting.md"
