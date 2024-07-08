@@ -182,7 +182,9 @@ nav:
               - "ACR": "getting-started/acr.md"
               - "ECR": "getting-started/ecr.md"
               - "GAR": "getting-started/gar.md"
-            - "VM" : "getting-started/vm-onboarding.md"
+            - "VM" :
+              - "Onboarding" : "getting-started/vm-onboarding-getting-started.md"
+              - "Policy Demonstration": "getting-started/vm-onboarding.md"
       - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
     - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
@@ -242,7 +244,7 @@ nav:
 
   - "Integrations":
     - "CI/CD":
-        - "Google Cloud Build": 
+        - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
           - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
