@@ -21,7 +21,7 @@ Follow these steps to set up and start using AccuKnox KIEM:
 3. Install the KIEM job on the selected cluster.
 4. Set up and schedule the cron job for regular scans.
 
-![](./images/kiem/kiem-select-cluster.png)
+![KIEM Select Cluster](./images/kiem/kiem-select-cluster.png)
 
 ## Post-Onboarding Steps
 
@@ -36,20 +36,31 @@ After completing the onboarding process:
 ### Permissions Overview
 
 - Summarizes all permissions in a unified view.
-- Filter on constraints such as Role, Rule, Verbs, Service Accounts.
+- Rolebinding and workloads are connected to permissions.
+- Filter on constraints such as Role, Resource, ApiGroup, Verbs, Rolebinding, Service Accounts, Workload.
 - View distilled permission summary for filtered entities.
 
-![](./images/kiem/kiem-filter.png)
+![KIEM Filter](./images/kiem/kiem-filter.png)
 
-![](./images/kiem/kiem-filter-2.png)
+![KIEM Filter 2](./images/kiem/kiem-filter-2.png)
 
 ### Key Queries
 
-Pre-defined queries to examine critical entities and their connections:
+Our KIEM solution includes predefined queries that can detect security risks, misconfigurations, or compliance issues within Kubernetes RBAC configurations. With 15 built-in queries, you can better address common security concerns. These queries can detect dormant excess permissions, principals with excessive privileges, roles with permissions on workload resources modification, and list roles with read access to Kubernetes secrets, not in use. These prebuilt queries aid in maintaining Kubernetes RBAC configurations with security as a primary factor.
 
-- Example: Identify Service Accounts not connected to any workloads (indicator of dormant excessive permissions).
+**Examples:**
 
-![](./images/kiem/kiem-query.png)
+- **Identify Service Accounts not connected to any workloads** (indicator of dormant excessive permissions).
+
+- **Identify principals with excessive privileges**. Excessive privileges in Kubernetes can increase the risk of security breaches, as overprivileged users or processes can misuse their access, leading to data breaches, service disruptions, or unauthorized changes in the cluster.
+
+- **Find roles that have permissions to modify workload resources**. Excessive access rights to Kubernetes workload resources can lead to security vulnerabilities, allowing unauthorized access or modifications to critical applications and data, undermining the cluster's security posture.
+
+- **List roles that have read access to Kubernetes secrets**. Kubernetes secrets, often containing sensitive information like passwords, tokens, or encryption keys, can pose a significant security risk if read access to these roles is compromised, potentially leading to data leakage or unauthorized system access.
+
+- **Identify roles that are not in use**. Unused roles can pose security risks if not regularly audited and cleaned up, potentially accumulating unnecessary permissions or becoming a target for exploitation by attackers.
+
+![KIEM Query](./images/kiem/kiem-query.png)
 
 ### Full-text Search
 
@@ -59,32 +70,31 @@ Search across all RBAC entities:
 - RoleBindings
 - Roles And more
 
-![](./images/kiem/kiem-full-text-search.png)
+![KIEM Full-text Search](./images/kiem/kiem-full-text-search.png)
 
 ### Entity Exploration
 
 - View connections and manifest for select entities.
 - Discover excessive permissions.
 
-![](./images/kiem/kiem-excessive-permission.png)
+![KIEM Excessive Permission](./images/kiem/kiem-excessive-permissions.png)
 
-![](./images/kiem/kiem-cluster-role.png)
+![KIEM Cluster Role](./images/kiem/kiem-cluster-role.png)
 
 - Explore all RBAC entities:
   - Service Accounts
-  - Namespaces
   - Users
   - Groups
   - Roles
   - RoleBindings
 
-![](./images/kiem/kiem-rbac-entities.png)
+![KIEM RBAC Entities](./images/kiem/kiem-rbac-entities.png)
 
 ### Interactive Visualization
 
 Open any entity and view all its connections by clicking on the link.
 
-![](./images/kiem/kiem-connections.png)
+![KIEM Connections](./images/kiem/kiem-connections.png)
 
 ## Use Case: Navigating RBAC Complexities
 

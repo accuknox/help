@@ -1,10 +1,10 @@
 
-
 Accuknox CNAPP Solution provides comprehensive visibility of the assets with the help of logs. AccuKnox’s open-source KubeArmor can forward container-related logs to the SaaS. Also, it can forward the container logs that are present in the workloads. We can also use the Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., The information provided by the logs will be useful to understand the attack vector of any attempted attacks.
 
-### Sample Container Log:
+## Sample Container Log
 
 **Process Log**
+
 ```
 {
   "ClusterName": "default",
@@ -30,7 +30,9 @@ Accuknox CNAPP Solution provides comprehensive visibility of the assets with the
   "Result": "Passed"
 }
 ```
+
 **File log**
+
 ```
 {
   "ClusterName": "default",
@@ -55,7 +57,9 @@ Accuknox CNAPP Solution provides comprehensive visibility of the assets with the
   "Result": "Passed"
 }
 ```
+
 **Network log**
+
 ```
 {
   "ClusterName": "default",
@@ -80,7 +84,8 @@ Accuknox CNAPP Solution provides comprehensive visibility of the assets with the
   "Result": "Passed"
 }
 ```
-### Logs Format:
+
+## Logs Format
 
 | Log field              | Description                                                               | Example                                                                                                       |
 |------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -105,7 +110,3 @@ Accuknox CNAPP Solution provides comprehensive visibility of the assets with the
 | Result                 | shows whether the event was allowed or denied                             | Passed                                                                                                        |
 | Source                 | lists the source from where the operation request came                    | /knoxAutoPolicy                                                                                               |
 | Type                   | specifies it as container log                                             | ContainerLog                                                                                                  |
-
-
-
-
