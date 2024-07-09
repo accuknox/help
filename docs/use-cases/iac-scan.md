@@ -99,7 +99,7 @@ The image below shows the check for CKV_AWS_18:
 
 #### Under AccuKnox SaaS:
 
-Once the scan is complete, users will be able to go into the Accuknox SaaS platform and navigate to Issues -> Findings, where they can find misconfigurations in their Infrastructure as Code.
+Once the scan is complete, users will be able to go into the Accuknox SaaS platform and navigate to Issues → Findings, where they can find misconfigurations in their Infrastructure as Code.
 
 ![](images/iac-scan-images/7.png)
 

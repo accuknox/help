@@ -5,24 +5,24 @@ To forward the events to Azure Sentinel you must first set up the [Azure Sentine
 ###  Integration of Azure Sentinel:
 #### a. Prerequisites:
 - Azure Logic App - Webhook.
-- Azure Sentinel Subscription.  
+- Azure Sentinel Subscription.
 
 #### b. Steps to Integrate:
-- Go to Settings --> Integrations --> CWPP(Tab).
+- Go to Settings -→ Integrations -→ CWPP(Tab).
 - Click integrate now on Azure Sentinel.
 - Fill up the following fields:
   - <b>Integration Name:</b> Enter the name for the integration. You can set any name of your choice.
    e.g., `Container Security Alerts`
 
-  - <b>Webhook URL:</b> Enter your Azure Logic App's Webhook URL here. 
+  - <b>Webhook URL:</b> Enter your Azure Logic App's Webhook URL here.
    e.g., `https://xyz.xxxxx.log ic.azu re.com:443/workflows/xxxxxxxx`
-   
-  - <b>Group Name: </b>You can specify any group name based on your prefernece, this can be used to filter the events. This works as a key value pair, where key is Group Name and Group Value is the value for the Key Group Name. 
+
+  - <b>Group Name: </b>You can specify any group name based on your prefernece, this can be used to filter the events. This works as a key value pair, where key is Group Name and Group Value is the value for the Key Group Name.
     e.g., `K8s Cluster`
-    
-  - <b>Group Value: </b> You can add any value to this group value. 
+
+  - <b>Group Value: </b> You can add any value to this group value.
      e.g., `Dev Team Cluster`
--  Click  **Test**  to check the new functionality, You will receive the test message on configured Azure Sentinel. 
+-  Click  **Test**  to check the new functionality, You will receive the test message on configured Azure Sentinel.
 -`Test message Please ignore !!`
 - Click **Save** to save the Integration.
 You can now configure [Alert Triggers](./logs_summary/triggers.md) for Azure Sentinel Events

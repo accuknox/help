@@ -12,7 +12,7 @@ To set up this integration, you need to coordinate with your Freshservice admini
 + You need a Company domain , Email & API key (secret) for this integration.
 + You can find your API key in profile settings in the right side column.
 #### **b. Steps to Integrate:**
-+ Go to Channel Integration -> CSPM.
++ Go to Channel Integration → CSPM.
 + Click on add connector and select Freshservice
 
 ![](images/Freshw1.png)

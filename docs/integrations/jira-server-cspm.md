@@ -14,7 +14,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
 + To create JIRA token go to https://id.atlassian.com/manage-profile/security/api-tokens, and click on **create API token**.
 
 #### **Steps to Integrate:**
-+ Go to Channel Integration -> CSPM.
++ Go to Channel Integration → CSPM.
 + Click on add connector and select JIRA Server
 
 ![](images//jiraserver/jira-server-0.png)

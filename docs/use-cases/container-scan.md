@@ -125,7 +125,7 @@ Note: In the above template, the user needs to change some variables, including 
 
 Note: The user can configure the workflow according to their needs, setting it to trigger on events such as push, pull, etc.
 
-**Step 3:** Once the scan is complete, the user will be able to go into the AccuKnox SaaS and navigate to `Issues -> RegistryScan` where they can find their repository name and select it to see the findings associated with it.
+**Step 3:** Once the scan is complete, the user will be able to go into the AccuKnox SaaS and navigate to `Issues → RegistryScan` where they can find their repository name and select it to see the findings associated with it.
 
 ![](images/container-scan-images/02.png)
 
@@ -133,7 +133,7 @@ Note: The user can configure the workflow according to their needs, setting it t
 
 ![](images/container-scan-images/03.png)
 
-**Step 5:** In the `Vulnerabilities` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in `Issues -> Vulnerabilities` section where the user can manage these findings with others as well.
+**Step 5:** In the `Vulnerabilities` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in `Issues → Vulnerabilities` section where the user can manage these findings with others as well.
 
 ![](images/container-scan-images/04.png)
 

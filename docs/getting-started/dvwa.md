@@ -17,7 +17,7 @@ DVWA web Application is deployed in the cluster in the dvwa namespace. It has We
 
 ## Observability
 
-Once the cluster with the DVWA application is onboarded we can see the application behavior by Navigating to the Runtime Security->App Behavior section. In the screen the select cluster name and namespace in which the DVWA  application is deployed.
+Once the cluster with the DVWA application is onboarded we can see the application behavior by Navigating to the Runtime Security→App Behavior section. In the screen the select cluster name and namespace in which the DVWA  application is deployed.
 
 ![](images/dvwa-1.png)
 
@@ -45,7 +45,7 @@ Before applying our KubeArmor Security policy we can see that along with ping ot
 
 ### Applying the KubeArmor policy
 
-**Step 1:** Navigate to the *Runtime Protection-> Policies* and select the cluster and namespace where the DVWA application is deployed.
+**Step 1:** Navigate to the *Runtime Protection→ Policies* and select the cluster and namespace where the DVWA application is deployed.
 
 ![](images/dvwa-6.png)
 
@@ -152,7 +152,7 @@ spec:
 
  ![](images/dvwa-13.png)
 
-**Step 9:** We can view the logs alerts by navigating to the Monitors/Logs-> logs
+**Step 9:** We can view the logs alerts by navigating to the Monitors/Logs→ logs
 
 ![](images/dvwa-14.png)
 

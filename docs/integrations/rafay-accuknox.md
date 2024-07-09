@@ -261,7 +261,7 @@
 
     After creating Add-on we need to create blue print with both KubeArmor and Accuknox-Agents.
 
-    **Step 1:** To create a Blueprint user must navigate to the Infrastructure->Blueprint and select New Blueprint
+    **Step 1:** To create a Blueprint user must navigate to the Infrastructure→Blueprint and select New Blueprint
 
     ![](images/rafay/rafay-ak-8.png)
 

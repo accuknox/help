@@ -14,7 +14,7 @@ To set up this integration, you need to coordinate with your Connectwise adminis
 + To get public and private keys go to your Connectwise manage page → system → members → API keys and create new API keys , here you will receive a public and private key.
 
 #### **b. Steps to Integrate:**
-+ Go to Channel Integration -> CSPM.
++ Go to Channel Integration → CSPM.
 + Click on add connector and select Connectwise
 
 ![](images/connect1.png)

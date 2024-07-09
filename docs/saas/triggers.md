@@ -34,7 +34,7 @@ When to initiate this trigger: Set the frequency of the trigger. You have four o
 Triggers can be managed individually, or as a group, by using the checkboxes on the left side of the Trigger UI. Select individual/group of triggers and perform actions, such as enabling, disabling, or deleting.
 
 **View Trigger Details**
-Users need to navigate to Monitors/logging-> select Triggers to view the saved triggers
+Users need to navigate to Monitors/logging→ select Triggers to view the saved triggers
 
 ![](images/trigger-view.png)
 

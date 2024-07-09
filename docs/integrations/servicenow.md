@@ -16,7 +16,7 @@ To set up this integration, you need to coordinate with your ServiceNow administ
 
 ### Steps for integration
 
-- Navigate to Settings → Integrations -> CSPM tab
+- Navigate to Settings → Integrations → CSPM tab
 
 - Click on add connector and select ServiceNow
 

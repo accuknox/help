@@ -137,7 +137,7 @@ vagrant@master-node:-$
 
 **Step 6:** Onboarded Cluster:
 
-After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory->cloud Workloads option
+After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory→cloud Workloads option
 
 ![](images/cluster-onboarding-8.png)
 

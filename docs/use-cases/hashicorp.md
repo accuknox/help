@@ -97,7 +97,7 @@ Before Applying the kubeArmor Policy any ransomware attacker who gains access to
 
 **Applying the KubeArmorPolicy:**
 
-**Step 1:** To create the policy Navigate to *Runtime Protection->Policies*. Then select *Create Policy* option from the screen.
+**Step 1:** To create the policy Navigate to *Runtime Protection→Policies*. Then select *Create Policy* option from the screen.
 
 ![](images/vault-9.png)
 
@@ -122,7 +122,7 @@ Before Applying the kubeArmor Policy any ransomware attacker who gains access to
 
 ![](images/vault-14.png)
 
-**Step 7:** We can view the log alerts by navigating to the *Monitors/Logging-> logs*
+**Step 7:** We can view the log alerts by navigating to the *Monitors/Logging→ logs*
 
 ![](images/vault-15.png)
 

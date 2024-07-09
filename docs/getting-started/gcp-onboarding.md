@@ -70,7 +70,7 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ## From AccuKnox SaaS UI
 
-**Step 1:** Go to the Accuknox SaaS. Navigate to the “Settings” -> “Cloud Accounts” then “Add Account”.
+**Step 1:** Go to the Accuknox SaaS. Navigate to the “Settings” → “Cloud Accounts” then “Add Account”.
 
 ![](images/gcp/gcp-saas-0.png)
 
@@ -91,7 +91,7 @@ The cloud account has been onboarded successfully
 
 ![](images/gcp/gcp-saas-4.png)
 
-<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
+<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-→
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

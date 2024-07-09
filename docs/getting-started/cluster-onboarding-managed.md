@@ -149,7 +149,7 @@ TEST SUITE: None
 
 **Note:** In the above command joinToken is specific to this example and it will vary based on the cluster
 
-**Step 6:** After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory->cloud Workloads option
+**Step 6:** After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory→cloud Workloads option
 
 ![](images/gke-10.png)
 

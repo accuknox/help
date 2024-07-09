@@ -14,12 +14,12 @@
 + Enhancement in the filters for viewing the application behavior.
 
 **Virtual Machine Onboarding:**
-This release has introduced the option to onboard Virtual Machines to our SaaS portal. To use this option users need to navigate to Settings->Manage clusters-> onboard now-> give any name and Select Next-> In the next screen you need to select the VM for getting the instructions to onboard Virtual machines
+This release has introduced the option to onboard Virtual Machines to our SaaS portal. To use this option users need to navigate to Settings→Manage clusters→ onboard now→ give any name and Select Next→ In the next screen you need to select the VM for getting the instructions to onboard Virtual machines
 
 ![](images/v7-release-1.png)
 
 **CI/CD token:**
-AccuKnox has recently published two Github MarketPlace actions These MarketPlace Actions would require Tokens as one of the prerequisites. So users who are interested with this DevSecops model will need to generate these tokens. Users need to navigate to Settings->Tokens
+AccuKnox has recently published two Github MarketPlace actions These MarketPlace Actions would require Tokens as one of the prerequisites. So users who are interested with this DevSecops model will need to generate these tokens. Users need to navigate to Settings→Tokens
 
 ![](images/v7-release-2.png)
 
@@ -43,7 +43,7 @@ AccuKnox's new UI/UX enhancements have changed the logout option in the profile 
 
 **Asset Hierarchical View(Beta Version):**
 
-This feature is released as a beta version as it will be available based on the customer's request. This gives the hierarchical view of the cloud assets with diff. view based on the previous scan and current scan. To see this users need to toggle the asset hierarchical view in the Inventory-> Assets page.
+This feature is released as a beta version as it will be available based on the customer's request. This gives the hierarchical view of the cloud assets with diff. view based on the previous scan and current scan. To see this users need to toggle the asset hierarchical view in the Inventory→ Assets page.
 
 
 ![](images/v7-release-6.png)
