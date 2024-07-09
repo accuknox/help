@@ -2,14 +2,13 @@
 
 Welcome to the AccuKnox Enterprise CNAPP Suite, your comprehensive solution for cloud-native application protection. AccuKnox is designed to offer end-to-end security throughout the software development lifecycle, integrating various security measures to ensure robust defense across all deployment phases.
 
-
 ## Cloud-Native Deployment Challenges
 
 In cloud-native deployments, security challenges can arise at different stages -
 
-1. **Code-Building Phase**: Issues like vulnerable code, insecure configurations, and hardcoded secrets.
+1. **Code Build Phase**: Issues like vulnerable code, insecure configurations, and hardcoded secrets.
 
-2. **Deploying Phase**: Problems with malicious images, image poisoning, and insecure CI/CD pipelines.
+2. **Deployment Phase**: Problems with malicious images, image poisoning, and insecure CI/CD pipelines.
 
 3. **Final Phase**: Runtime security threats such as zero-day attacks, crypto-mining, data exfiltrations, and undetected malware.
 
@@ -54,14 +53,13 @@ Hardening of 5G control planes and secure microsegmentation of network and appli
 ## Security Layers
 
 * Identity Management
-    * Cloud Identity and Entitlement Management (CIEM)
-    * Kubernetes Identity and Entitlement Management (KIEM)
+  * Kubernetes Identity and Entitlement Management (KIEM)
 
 * Static Security
-    * Cloud Security Posture Management (CSPM)
+  * Cloud Security Posture Management (CSPM)
 
 * Run-time Security
-    * Cloud Workload Protection Platform (CWPP)
+  * Cloud Workload Protection Platform (CWPP)
 
 ## Unique Capabilities
 
