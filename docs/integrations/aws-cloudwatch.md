@@ -3,7 +3,7 @@
 
 ## AWS CloudWatch Integration
 
-Navigate to Settings->Integrations. Choose **"AWS CloudWatch"** services and click the **Integrate Now** button.
+Navigate to Settings→Integrations. Choose **"AWS CloudWatch"** services and click the **Integrate Now** button.
 
 ### Integration of Amazon CloudWatch:
 
@@ -16,7 +16,7 @@ Navigate to Settings->Integrations. Choose **"AWS CloudWatch"** services and cli
 #### b. Steps to Integrate:
 
 + Go to Channel Integration URL
-+ Click the Integrate Now button -> AWS CloudWatch
++ Click the Integrate Now button → AWS CloudWatch
 
 ![](images/aws-int.png)
 

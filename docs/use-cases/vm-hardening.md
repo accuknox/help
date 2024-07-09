@@ -1,7 +1,7 @@
----  
-hide:  
- - toc  
----  
+---
+hide:
+ - toc
+---
 
 ## VM Onboarding
 Onboarding your workloads to Accuknox is the initial step to monitor, strengthen, and secure your infrastructure. We have two requirements for onboarding VMs in our SaaS.
@@ -80,7 +80,7 @@ spec:
 metadata:
   name: block-pkg-mgmt-tools
 ```
-The above policy blocks the execution of the package manager in the host whose hostname is ubuntu-2gb-hel1-1. For this, we define `kubearmor.io/hostname: ubuntu-2gb-hel1-1` in nodeSelector -> matchLabels, and the specific paths ('/bin/apt-get', '/bin/apt-get', 'usr/bin/apt-get' and 'usr/bin/apt-get') in process -> matchPaths. Also, we put Block as the action for this policy.
+The above policy blocks the execution of the package manager in the host whose hostname is ubuntu-2gb-hel1-1. For this, we define `kubearmor.io/hostname: ubuntu-2gb-hel1-1` in nodeSelector → matchLabels, and the specific paths ('/bin/apt-get', '/bin/apt-get', 'usr/bin/apt-get' and 'usr/bin/apt-get') in process → matchPaths. Also, we put Block as the action for this policy.
 
 As you can see below, we can execute apt and install packages before applying the policy.
 
@@ -345,3 +345,5 @@ $ ps
 On the `Alerts` page, we can filter the logs using different parameters e.g. Message, ClusterName, Action, Severity, Operation, Pod Name, ContainerID, Enforcer, PID, HostName, etc and this can also be forwarded to the integrated SIEM tools for further analysis.
 
 ![](images/vm-hardening/alerts-filter.png)
+
+Performing IaC scans for GitHub using AccuKnox SaaS ensures your infrastructure code is secure, compliant, and free from vulnerabilities. This process not only helps in early detection and remediation of issues but also integrates seamlessly into your CI/CD pipeline, making security an integral part of your development workflow.

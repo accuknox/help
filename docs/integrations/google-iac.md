@@ -1,4 +1,4 @@
-To illustrate the advantages of integrating AccuKnox into a CI/CD pipeline using Google Cloud Build to improve security, let's take a specific scenario involving infrastructure-as-code (IaC) configurations with known misconfigurations. By adding AccuKnox scanning to the pipeline, we can detect and address these security issues before deploying the infrastructure. 
+To illustrate the advantages of integrating AccuKnox into a CI/CD pipeline using Google Cloud Build to improve security, let's take a specific scenario involving infrastructure-as-code (IaC) configurations with known misconfigurations. By adding AccuKnox scanning to the pipeline, we can detect and address these security issues before deploying the infrastructure.
 
 ## **Pre-requisite**
 
@@ -88,7 +88,7 @@ steps:
 artifacts:
   objects:
     location: 'gs://{bucket-name}/checkov-reports/'
-    paths: 
+    paths:
       - 'checkov_report.json'
       - 'results.json'  # Ensure results.json is included as an artifact
 # Define substitutions
@@ -189,7 +189,7 @@ Under Google Codebuild History
 
 ### **View Results Under AccuKnox SaaS**
 
-**Step 1**: Once the scan is complete, users can go into the Accuknox SaaS platform and navigate to **Issues** -> **Vulnerabilities**, where they can find misconfigurations in their Infrastructure as Code.
+**Step 1**: Once the scan is complete, users can go into the Accuknox SaaS platform and navigate to **Issues** → **Vulnerabilities**, where they can find misconfigurations in their Infrastructure as Code.
 
 ![](images/google-build/iac-page.png)
 
@@ -210,7 +210,7 @@ Under Google Codebuild History
 **Step 6**: After remediating the issue, rescan the Terraform script to ensure the misconfiguration has been fixed. Then, navigate to AccuKnox SaaS to view the updated findings.
 
 ![](images/google-build/iac-rescan.png)
- 
+
 ## **Conclusion**
 
 Google offers a complete ecosystem for CI/CD that includes Google Cloud Build, Google Cloud Registry, Google Cloud Repository, and Google Secret Manager. AccuKnox IaC scanning brings several benefits to the mix:

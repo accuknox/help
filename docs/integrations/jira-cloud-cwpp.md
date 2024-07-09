@@ -36,7 +36,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
 ??? "JIRA integration for CSPM"
     #### **Steps to Integrate:**
-    + Go to Channel Integration -> CSPM.
+    + Go to Channel Integration → CSPM.
     + Click on add connector and select JIRA Cloud
 
     ![](images/jiracspm1.png)

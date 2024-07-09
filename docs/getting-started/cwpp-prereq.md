@@ -27,11 +27,11 @@ In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud envir
 | Deployments           | Resource Usage             | Port | Connection Type  	| AccuKnox Endpoint                               |
 |-----------------------|----------------------------|------|-------------------|-------------------------------------------------|
 |KubeArmor              | CPU: 200 m, Memory: 200 Mi | -    | -			| -                                               |
-|Agents Operator        | CPU: 50 m, Memory: 50 Mi   | 8081 | Outbound		| *.accuknox.com:8081 --> SPIRE Access            |
+|Agents Operator        | CPU: 50 m, Memory: 50 Mi   | 8081 | Outbound		| *.accuknox.com:8081 -→ SPIRE Access            |
 |Discovery Engine       | CPU: 200 m, Memory: 200 Mi | -    | -			| -                                               |
-|Shared Informer Agent  | CPU: 20 m, Memory: 50 Mi   | 3000 | Outbound		| *.accuknox.com:3000 --> knox-gateway            |
-|Feeder Service         | CPU: 50 m, Memory: 100 Mi  | 3000 | Outbound		| *.accuknox.com:3000 --> knox-gateway            |
-|Policy Enforcement     | CPU: 10 m, Memory: 20 Mi   | 443  | Outbound		| *.accuknox.com:443  --> Policy Provider Service |
+|Shared Informer Agent  | CPU: 20 m, Memory: 50 Mi   | 3000 | Outbound		| *.accuknox.com:3000 -→ knox-gateway            |
+|Feeder Service         | CPU: 50 m, Memory: 100 Mi  | 3000 | Outbound		| *.accuknox.com:3000 -→ knox-gateway            |
+|Policy Enforcement     | CPU: 10 m, Memory: 20 Mi   | 443  | Outbound		| *.accuknox.com:443  -→ Policy Provider Service |
 
 - These ports need to be allowed through firewall.
 

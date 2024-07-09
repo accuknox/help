@@ -239,7 +239,7 @@ After the successful DNS update you should be able to access the following pages
 
 ---
 
-[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary } -->
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary } -→
 
 <!--
 
@@ -445,4 +445,4 @@ Run the following script to generate the records you should add to your DNS zone
 ![](images/on-prem-sample.png)
 
 - - -
-[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary } -->
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary } -→

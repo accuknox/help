@@ -16,7 +16,7 @@ To set up **HEC**, use instructions in [Splunk documentation](https://docs.splun
 Select **Settings > Data inputs > HTTP Event Collector** and make sure you see HEC added in the list and that the status shows that it is **Enabled** .
 
 #### b. Steps to Integrate:
-+ Go to Settings->Integration.
++ Go to Settings→Integration.
 + Click integrate now on Splunk.
 
 ![](images/splunk-int.png)

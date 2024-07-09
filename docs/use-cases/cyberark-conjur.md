@@ -96,7 +96,7 @@ In the above policy we are only allowing
 All the other process will be denied access to /opt/conjur-server/
 
 ??? "**Applying policy:**"
-    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtimeprotection->Policies section.
+    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtimeprotection→Policies section.
     ![](images/conjur-4.png)
     **Step 2:** Now select the create policy option from this screen.
     ![](images/conjur-5.png)
@@ -128,7 +128,7 @@ root@conjur-conjur-oss-698fbf6cd5-kb62v:/opt/conjur-server#
 
 **KubeArmor logs:**
 
-We can view the log alerts by navigating to the Monitors/Logging-> logs
+We can view the log alerts by navigating to the Monitors/Logging→ logs
 
 ![](images/conjur-12.png)
 
@@ -202,7 +202,7 @@ In the above policy, we are only allowing
 All the other processes will be denied access to  /opt/conjur/etc/ssl and /etc/nginx  volume Mount points
 
 ??? "**Applying Policy :**"
-    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection->Policies section.
+    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection→Policies section.
     ![](images/conjur-13.png)
     **Step 2:** Now select the create policy option from this screen.
     ![](images/conjur-14.png)
@@ -234,7 +234,7 @@ root@conjur-conjur-oss-698fbf6cd5-kb62v:/etc/nginx#
 ```
 **Karmor logs:**
 
-We can view the log alerts by navigating to the Monitors/Logging-> logs
+We can view the log alerts by navigating to the Monitors/Logging→ logs
 ![](images/conjur-21.png)
 
 **Protecting Conjur-Postgres:**
@@ -333,7 +333,7 @@ In the above policy, we are only allowing
 All the other processes will be denied access to  ***/var/lib/postgresql/data/***  and  ***/etc/certs/***  volume Mount points
 
 ??? "**Applying Policy:**"
-    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection->Policies section.
+    **Step 1:** We can apply this policy using AccuKnox SaaS portal by navigating to the Runtime Protection→Policies section.
     ![](images/conjur-22.png)
     **Step 2:** Now select the create policy option from this screen.
     ![](images/conjur-23.png)
@@ -370,7 +370,7 @@ root@conjur-postgres-0:/etc/certs#
 
 **Karmor Logs:**
 
-We can view the log alerts by navigating to the Monitors/Logging-> logs
+We can view the log alerts by navigating to the Monitors/Logging→ logs
 
 ![](images/conjur-30.png)
 

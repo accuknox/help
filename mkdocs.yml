@@ -246,11 +246,12 @@ nav:
     - "CI/CD":
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
-        - "Google Cloud Build": 
+        - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
           - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
           - "SAST": "integrations/google-sast.md"
+        - "Github IaC Scan": "integrations/github-iac-scan.md"
     - "Container Platform":
         - "D2iQ/Nutanix": "integrations/d2iq.md"
         - "Mirantis Lens" :

@@ -2,7 +2,7 @@ WordPress-MySQL Application has the WordPress front end connecting to the MySQL 
 
 ## Observability
 
-Once the cluster with the WordPress-MySQL application is onboarded we can see the application behavior by Navigating to the Runtime Security->App Behavior section. In the screen the select cluster name and namespace in which the WordPress-MySQL application is deployed.
+Once the cluster with the WordPress-MySQL application is onboarded we can see the application behavior by Navigating to the Runtime Security→App Behavior section. In the screen the select cluster name and namespace in which the WordPress-MySQL application is deployed.
 
 **1.Network Observability**
 
@@ -29,7 +29,7 @@ Based on the application behavior currently, in the WordPress pod, the attacker 
 
 we can protect this with help of hardening policies that kubearmor has discovered based on the application behavior of this WordPress-mysql application. To see and apply this hardening policy follow the below steps:
 
-**Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed.
+**Step 1:**  Navigate to the Runtime Protection→ Policies and select the cluster and namespace where the WordPress-MySQL application is deployed.
 ![](images/word-my-5.png)
 
 **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application.
@@ -105,7 +105,7 @@ The Hardening policy is blocking the execution of any package management tools i
 ![](images/word-my-11.png)
 **Step 8:** If any attacker tries to install any binary inside the WordPress pod it will be blocked and we will be getting alerts.
 ![](images/word-my-12.png)
-**Step 9:** To see the logs Navigate to the Monitoring/logging->logs
+**Step 9:** To see the logs Navigate to the Monitoring/logging→logs
 ![](images/word-my-13.png)
 
 Thus we have prevented the remote code execution in the WordPress pod using AccuKnox’s CWPP protection.
@@ -121,7 +121,7 @@ Currently, any attacker who gets access to the bash or shell of the MySQL pod ca
 
 Now we are going to prevent this using AccuKnox CWPP Solution.
 
-**Step 1:**  Navigate to the Runtime Protection-> Policies and select the cluster and namespace where the WordPress-MySQL application is deployed.
+**Step 1:**  Navigate to the Runtime Protection→ Policies and select the cluster and namespace where the WordPress-MySQL application is deployed.
 
 ![](images/word-my-15.png)
 **Step 2:** In the screen select the hardening policies in the policy filter section to view the hardening policies related to the WordPress-MySQL application.
@@ -190,7 +190,7 @@ The policy is allowing users to access the critical folders but it is blocking t
 **Step 8:** If any attacker now tries to modify the content of the critical folders it will be blocked.
 
 ![](images/word-my-22.png)
-**Step 9:** To see the logs Navigate to the Monitoring/logging->logs
+**Step 9:** To see the logs Navigate to the Monitoring/logging→logs
 
 ![](images/word-my-23.png)
 

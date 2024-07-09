@@ -8,7 +8,7 @@ AccuKnox SaaS platform will have the details of following assets
 | Network | 1. Virtual Private Cloud (VPC)<br>2. VPC Subnet<br>3. EC2 Network Interface<br>4. EC2 Network Load Balancer<br>5. VPC Elastic IP (EIP)<br>6. VPC Security Group<br>7. VPC Security Group Rule<br>8. VPC Network ACL (Access Control List)<br>9. VPC Route Table<br>10. VPC Route<br>11. VPC Peering Connection | 1. Virtual Private Cloud (VPC)<br>2. Subnet<br>3. Network Interface<br>4. Load Balancer<br>5. Route<br>6. IAM Policy<br>7. IAM Role<br>8. Service Account<br>9. Compute Region, Compute Zone | 1. Virtual Network<br>2. Subnet<br>3. Network Interface<br>4. Load Balancer<br>5. Application Security Group<br>6. Network Security Group<br>7. Route Table<br>8. Public IP<br>9. VPC Peering Connection |
 
 
-<!--Made use of https://www.tablesgenerator.com/markdown_tables for generating the table :)-->
+<!--Made use of https://www.tablesgenerator.com/markdown_tables for generating the table :)-→
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

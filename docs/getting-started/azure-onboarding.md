@@ -89,7 +89,7 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 Configuring your Azure cloud account is complete, now we need to onboard the cloud account onto Accuknox Saas Platform.
 
-**Step 1:** Go to settings-> Cloud Account and click on Add Account
+**Step 1:** Go to settings→ Cloud Account and click on Add Account
 
 ![](images/azure12.png)
 
@@ -114,7 +114,7 @@ Configuring your Azure cloud account is complete, now we need to onboard the clo
 ![](images/azure16.png)
 
 
-<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-->
+<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-→
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
