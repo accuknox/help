@@ -64,7 +64,6 @@ In this example we are onboarding AWS account using the Access Keys method.
 
 ![](images/cloud-onboarding-7.png)
 
-<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-→
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

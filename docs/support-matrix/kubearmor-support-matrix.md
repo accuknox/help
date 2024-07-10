@@ -4,7 +4,6 @@ KubeArmor supports following types of workloads:
 
 2.VM/Bare-Metals workloads: Workloads deployed on Virtual Machines or Bare Metal i.e. workloads directly operating as host processes. In this case, KubeArmor is deployed in systemd mode.
 
-<!--[KubeArmor Support Matrix](https://docs.kubearmor.io/kubearmor/quick-links/support_matrix)-→
 
 ## Kubernetes Support Matrix
 {{ external_markdown('https://raw.githubusercontent.com/kubearmor/KubeArmor/main/getting-started/support_matrix.md', '## Kubernetes Support Matrix') }}

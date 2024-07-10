@@ -84,7 +84,5 @@ For Azure Onboarding it is required to register an App and giving Security read 
 ![](images/azure11-1.png)
 
 
-<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-→
-
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

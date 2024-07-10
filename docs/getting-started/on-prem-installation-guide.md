@@ -217,9 +217,9 @@ b) If using your own self-signed certificates:
 
 After the successful DNS update you should be able to access the following pages:
 
-+ <https://frontend>.<your-domain.com><https://frontend.%3cyour-domain.com> (sign-in main AccuKnox control-plane GUI page)
-+ <https://cspm>.<your-domain.com>/admin/<https://cspm.%3cyour-domain.com%3e/admin/>
-+ <https://cwpp>.<your-domain.com>/cm/<https://cwpp.%3cyour-domain.com%3e/cm/>
++ <https://frontend>.<your-domain.com\> (sign-in main AccuKnox control-plane GUI page)
++ <https://cspm>.<your-domain.com\>/admin/
++ <https://cwpp>.<your-domain.com\>/cm/
 
 ![](images/on-prem-verify.png)
 

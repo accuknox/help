@@ -43,6 +43,3 @@ AccuKnox can scan images present in the onboarded [JFrog](https://jfrog.com/) re
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
-
-- - -
-[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
