@@ -30,7 +30,6 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 ![](images/iam-user-4.png)
 
-<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-→
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -114,7 +114,6 @@ Configuring your Azure cloud account is complete, now we need to onboard the clo
 ![](images/azure16.png)
 
 
-<!---Similarly, for Azure or GCP, follow guidelines on AccuKnox SaaS infrastructure in Cloud Onboarding Screen.-→
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
