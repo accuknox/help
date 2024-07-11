@@ -1,0 +1,33 @@
+{% import "partials/tabs-item.html" as item with context %}
+
+<!-- Navigation tabs -->
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+
+        <!-- Adds tab on right side of header -->
+        <!-- {% if "<file_name>.md" %} -->
+        <ul class="md-tabs__list ticket_tab">
+            <li class="md-tabs__item">
+                <a href="https://accu-knox.atlassian.net/servicedesk/customer/portal/1" class="md-tabs__link">
+                    Open Support Ticket
+                </a>
+            </li>
+        </ul>
+        <ul class="md-tabs__list contact_tab">
+            <li class="md-tabs__item">
+                <a href="https://www.accuknox.com/contact-us" class="md-tabs__link">
+                    Contact Us
+                </a>
+            </li>
+        </ul>
+
+        <!-- {% endif %} -->
+
+        <!-- Original tabbed sections -->
+        <ul class="md-tabs__list">
+            {% for nav_item in nav %}
+            {{ item.render(nav_item) }}
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

@@ -7,11 +7,48 @@
 }
 
 [data-md-color-scheme="default"] {
-    --md-header-logo-dark-mode:         none;
-    --md-header-logo-light-mode:         block;
+    --md-header-logo-dark-mode: none;
+    --md-header-logo-light-mode: block;
+
+    .ticket_tab {
+        background: white;
+        color: black;
+    }
+
+    .contact_tab {
+        background: white;
+        color: black;
+    }
 }
 
 [data-md-color-scheme="slate"] {
-    --md-header-logo-dark-mode:         block;
-    --md-header-logo-light-mode:         none;
+    --md-header-logo-dark-mode: block;
+    --md-header-logo-light-mode: none;
+
+    .ticket_tab {
+        background: black;
+        color: white;
+    }
+
+    .contact_tab {
+        background: black;
+        color: white;
+
+    }
+}
+
+.contact_tab {
+    float: right;
+    margin-right: 0.3rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 700;
+}
+
+.ticket_tab {
+    float: right;
+    margin-right: 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 700;
 }
