@@ -379,7 +379,7 @@
 
     ### **SIEM/Notification Integration**
 
-    Users can use Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., Users can also forward the logs from AccuKnox SaaS using the channel integration option to these SIEM tools. User can integrate with various SIEM and ticketing tools like [Splunk](https://help.accuknox.com/integrations/splunk/), [Rsyslog](https://help.accuknox.com/integrations/rsyslog/), [AWS CloudWatch](https://help.accuknox.com/integrations/aws-cloudwatch/), Elastic Search, [Slack](https://help.accuknox.com/saas/slack/) and [Jira](https://help.accuknox.com/integrations/jira-cloud-cwpp/).
+    Users can use Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., Users can also forward the logs from AccuKnox SaaS using the channel integration option to these SIEM tools. User can integrate with various SIEM and ticketing tools like [Splunk](https://help.accuknox.com/integrations/splunk/), [Rsyslog](https://help.accuknox.com/integrations/rsyslog/), [AWS CloudWatch](https://help.accuknox.com/integrations/aws-cloudwatch/), Elastic Search, [Slack](https://help.accuknox.com/saas/slack/) and [Jira](https://help.accuknox.com/integrations/jira-cloud).
 
     ![](images/rafay/rafay-ex-6.png)
 
