@@ -14,14 +14,14 @@ Under the CWPP subsection user can integrate with various SIEM and ticketing too
 
    + [Slack](./../saas/slack.md)
 
-   + [Jira](./../integrations/jira-cloud-cwpp.md)
+   + [Jira](./../integrations/jira-cloud.md)
 
    + [Email](./../integrations/email.md)
 
    ![](images/Integration-1.jpg)
 
 
-Under the CSPM subsection users can integrate the [Jira server](./../integrations/jira-server-cspm.md), [Jira cloud](./../integrations/jira-cloud-cwpp.md), [FreshService](./../integrations/freshservice-cspm.md), [ConnectWise](./../integrations/connectwise-cspm.md), [ServiceNow](./../integrations/servicenow.md) and Email Backend.
+Under the CSPM subsection users can integrate the [Jira server](./../integrations/jira-server-cspm.md), [Jira cloud](./../integrations/jira-cloud.md), [FreshService](./../integrations/freshservice-cspm.md), [ConnectWise](./../integrations/connectwise-cspm.md), [ServiceNow](./../integrations/servicenow.md) and Email Backend.
 
 ![](images/Integration-2.jpg)
 
