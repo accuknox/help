@@ -190,6 +190,7 @@ nav:
     - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
     - "Release Notes":
         - "AccuKnox" :
+           - "V2.0 Release Notes" : "getting-started/2.0-release.md"
            - "V1.7 Release Notes" : "getting-started/1-7-release.md"
            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
