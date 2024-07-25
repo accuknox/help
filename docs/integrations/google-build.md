@@ -147,7 +147,7 @@ After addressing the vulnerabilities, the AccuKnox scan approved the updated ima
 
 ![](images/google-build/suces-img-build.png)
 
-## **AccuKnox Container scan integration with Google Code Build Pipeline**
+## **AccuKnox Container scan integration with Google Cloud Build Pipeline**
 
 ### **Pre-requisites**
 
