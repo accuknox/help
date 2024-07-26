@@ -191,8 +191,9 @@ nav:
       - "Azure" : "getting-started/azure-onboarding.md"
       - "GCP" : "getting-started/gcp-onboarding.md"
     - "Onboard Cluster" :
-      - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
-      - "Managed" : "getting-started/cluster-onboarding-managed.md"
+      # - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
+      # - "Managed" : "getting-started/cluster-onboarding-managed.md"
+      - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
       - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
     - "Onboard Registry":
       - "ACR": "getting-started/acr.md"
