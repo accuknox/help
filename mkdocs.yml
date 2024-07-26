@@ -203,7 +203,7 @@ nav:
       - "Onboarding" : "getting-started/vm-onboarding-getting-started.md"
       - "Policy Demonstration": "getting-started/vm-onboarding.md"
     # - "Create Tokens" : "getting-started/how-to-create-tokens.md"
-    # - "Create Labels" : "getting-started/how-to-create-labels.md"
+    - "Create Labels" : "getting-started/how-to-create-labels.md"
 
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
