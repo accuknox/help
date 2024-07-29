@@ -1,40 +1,50 @@
+# Cluster Offboarding
 
+This guide outlines the steps for offboarding a cluster from Accuknox SaaS. The process involves uninstalling the agents from the cluster and deleting the cluster from Accuknox SaaS.
 
-# **Cluster Offboarding**
+Below, you will find detailed instructions for agent uninstallation from your cluster CLI and deleting the cluster from Accuknox SaaS. These steps apply to all clusters.
 
-In the below section you can find the detailed steps to be followed for Agent uninstallation from your cluster CLI and Deleting cluster from Accuknox SaaS.
-The given steps are common for all  AKS, EKS, GKE and unmanaged Clusters.
-
-**Agents Uninstallation**
+## Agents Uninstallation
 
 Uninstall Accuknox agents using the following commands:
 
-```sh
-      helm uninstall -n accuknox-agents  accuknox-agents
-      kubectl delete ns accuknox-agents
-```
-Sample:
+```bash
+helm uninstall agents -n agents && kubectl delete ns agents;
 
-```sh
-      cloudshell:~ (centering-study-396808)$  helm uninstall -n accuknox-agents  accuknox-agents
-      release "accuknox-agents" uninstalled
-      cloudshell:~ (centering-study-396808)$ kubectl delete ns accuknox-agents
-      namespace "accuknox-agents" deleted
+helm uninstall cis-k8s-job;
+
+helm uninstall kiem-job;
+
+helm uninstall k8s-risk-assessment-job
 ```
 
-**Cluster Deletion**
+### Sample for Uninstalling Runtime Visibility & Protection agents
 
-**Step 1:** Login to Accuknox SaaS and Go to Manage Cluster under Settings
+```bash
+ (Accuknox㉿kali)-[~]
 
-![](images/cluster-off-2.png)
+└─$ helm uninstall agents -n agents && kubectl delete ns agents
 
-**Step 2:** Select the cluster and click Delete to delete the cluster from SaaS.
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /etc/rancher/k3s/k3s.yaml
 
-![](images/cluster-off-3.png)
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /etc/rancher/k3s/k3s.yaml
 
+release "agents" uninstalled
 
+namespace "agents" deleted
+```
 
+## Cluster Deletion
 
+**Step 1**: Login to Accuknox SaaS and Go to Manage Cluster under Settings
+
+![Cluster Offboarding](images/cluster-offboarding/image2.png)
+
+**Step 2**: Select the cluster and click Delete to delete the cluster from SaaS.
+
+![Cluster Offboarding](images/cluster-offboarding/image1.png)
+
+This will delete the cluster from Accuknox SaaS.
 
   - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

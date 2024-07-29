@@ -163,28 +163,7 @@ nav:
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
-      - "SaaS" :
-          - "CSPM Prerequisites":
-            - "AWS": "getting-started/cspm-prereq-aws.md"
-            - "Azure": "getting-started/cspm-prereq-azure.md"
-            - "GCP": "getting-started/cspm-prereq-gcp.md"
-          - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
-          - "Onboarding" :
-            - "Cloud Account" :
-              - "AWS" : "getting-started/aws-onboarding.md"
-              - "Azure" : "getting-started/azure-onboarding.md"
-              - "GCP" : "getting-started/gcp-onboarding.md"
-            - "Cluster" :
-              - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
-              - "Managed" : "getting-started/cluster-onboarding-managed.md"
-              - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
-            - "Registry":
-              - "ACR": "getting-started/acr.md"
-              - "ECR": "getting-started/ecr.md"
-              - "GAR": "getting-started/gar.md"
-            - "VM" :
-              - "Onboarding" : "getting-started/vm-onboarding-getting-started.md"
-              - "Policy Demonstration": "getting-started/vm-onboarding.md"
+      - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
       - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
     - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
@@ -202,6 +181,30 @@ nav:
       - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
       - "DVWA": "getting-started/dvwa.md"
       - "PHP-MySQL": "getting-started/php-mysql.md"
+  - "How To":
+    - "CSPM Prerequisites":
+          - "AWS": "getting-started/cspm-prereq-aws.md"
+          - "Azure": "getting-started/cspm-prereq-azure.md"
+          - "GCP": "getting-started/cspm-prereq-gcp.md"
+    - "Onboard Cloud Account" :
+      - "AWS" : "getting-started/aws-onboarding.md"
+      - "Azure" : "getting-started/azure-onboarding.md"
+      - "GCP" : "getting-started/gcp-onboarding.md"
+    - "Onboard Cluster" :
+      # - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
+      # - "Managed" : "getting-started/cluster-onboarding-managed.md"
+      - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
+      - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
+    - "Onboard Registry":
+      - "ACR": "getting-started/acr.md"
+      - "ECR": "getting-started/ecr.md"
+      - "GAR": "getting-started/gar.md"
+    - "Onboard VM" :
+      - "Onboarding" : "getting-started/vm-onboarding-getting-started.md"
+      - "Policy Demonstration": "getting-started/vm-onboarding.md"
+    - "Create Tokens" : "getting-started/how-to-create-tokens.md"
+    - "Create Labels" : "getting-started/how-to-create-labels.md"
+    - "Generate CWPP Reports": "getting-started/cwpp-reports-generation.md"
 
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"

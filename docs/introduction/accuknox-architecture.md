@@ -12,7 +12,7 @@ In cloud-native deployments, security challenges can arise at different stages -
 
 3. **Final Phase**: Runtime security threats such as zero-day attacks, crypto-mining, data exfiltrations, and undetected malware.
 
-![Code to Cloud](https://lh7-us.googleusercontent.com/docsz/AD_4nXeSIRdj2E2dlJ3LhIsY8_IYcOTopZUHU82u1ylfwW3ox5bP0_MVaE234HjjMzBRLUwylKuLGX4-ZqEYLYB3RLXy2nDoH2xOqX6PcwyEpK4kX8TFf8i1A4m_ZBtNGmZSaBwW1-nXvNf9aaNq_C-bO3YbDirF?key=pfdZ2-A2YEK09WaRLhfqlg)
+![Code to Cloud](/getting-started/images/code-to-cloud.png)
 
 ## AccuKnox Solution
 
