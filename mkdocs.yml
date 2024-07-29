@@ -205,7 +205,7 @@ nav:
     - "Create Tokens" : "getting-started/how-to-create-tokens.md"
     - "Create Labels" : "getting-started/how-to-create-labels.md"
     - "Generate CWPP Reports": "getting-started/cwpp-reports-generation.md"
-
+    - "Github IaC Scan": "integrations/github-iac-scan.md"
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
   #   - "Inventory" :
@@ -255,7 +255,6 @@ nav:
           - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
           - "SAST": "integrations/google-sast.md"
-        - "Github IaC Scan": "integrations/github-iac-scan.md"
     - "Container Platform":
         - "D2iQ/Nutanix": "integrations/d2iq.md"
         - "Mirantis Lens" :
