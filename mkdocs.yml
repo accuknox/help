@@ -204,6 +204,7 @@ nav:
       - "Policy Demonstration": "getting-started/vm-onboarding.md"
     - "Create Tokens" : "getting-started/how-to-create-tokens.md"
     - "Create Labels" : "getting-started/how-to-create-labels.md"
+    - "Generate CWPP Reports": "getting-started/cwpp-reports-generation.md"
 
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
