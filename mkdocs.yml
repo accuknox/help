@@ -199,13 +199,12 @@ nav:
       - "ACR": "getting-started/acr.md"
       - "ECR": "getting-started/ecr.md"
       - "GAR": "getting-started/gar.md"
-    - "Onboard VM" :
-      - "Onboarding" : "getting-started/vm-onboarding-getting-started.md"
-      - "Policy Demonstration": "getting-started/vm-onboarding.md"
+    - "Onboard VM" : "getting-started/vm-onboarding-getting-started.md"
+      # - "Policy Demonstration": "getting-started/vm-onboarding.md"
     - "Create Tokens" : "getting-started/how-to-create-tokens.md"
     - "Create Labels" : "getting-started/how-to-create-labels.md"
     - "Generate CWPP Reports": "getting-started/cwpp-reports-generation.md"
-
+    - "Github IaC Scan": "integrations/github-iac-scan.md"
   # - "Enterprise SaaS":
   #   - "Dashboard" : "saas/dashboard.md"
   #   - "Inventory" :
@@ -255,7 +254,7 @@ nav:
           - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
           - "SAST": "integrations/google-sast.md"
-        - "Github IaC Scan": "integrations/github-iac-scan.md"
+        - "IaC Scan - Jenkins Plugin"
     - "Container Platform":
         - "D2iQ/Nutanix": "integrations/d2iq.md"
         - "Mirantis Lens" :
