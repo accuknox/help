@@ -1,6 +1,6 @@
 
+# Azure Account onboarding
 
-# **Azure Account onboarding**
 In this section we can find the steps to onboard an Azure cloud account to the AccuKnox SaaS platform
 
 ## **Rapid Onboarding (via Azure)**
@@ -9,81 +9,71 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 **Step 1:** Go to your Azure Portal and search for *App registrations* and open it
 
-![](images/azure1.png)
+![image](images/azure1.png)
 
 **Step 2:** Here click on *New registration*
 
-![](images/azure2.png)
-
+![image](images/azure2.png)
 
 **Step 3:** Give your application a name, remember this name as it will be used again later, For the rest keep the default settings
 
-![](images/azure3.png)
-
+![image](images/azure3.png)
 
 **Step 4:** Now your application is created,  save *Application ID* and *Directory ID* as they will be needed to for onboarding on Accuknox Saas and then click on ‘Add a certificate or secret’
 
-![](images/azure4.png)
-
+![image](images/azure4.png)
 
 **Step 5:** Click on new client secret and enter the name and expiration date to get *secret id* and *secret value*, save this secret value as this will also be needed for onboarding.
 
-![](images/azure5.png)
+![image](images/azure5.png)
 
 **Step 6:** Next, go to *API permissions* tab and click on 'Add  permission'
 
-![](images/azure5-0.png)
+![image](images/azure5-0.png)
 
 **Step 7:** On the screen that appears, click on 'Microsoft Graph'
 
-![](images/azure5-1.png)
+![image](images/azure5-1.png)
 
 **Step 8:** Next, select Application Permissions and then search for Directory.Read.All and click on Add permissions
 
-![](images/azure5-2.png)
+![image](images/azure5-2.png)
 
 **Step 9:** Select ‘Grant Admin Consent’ for Default Directory and click on ‘Yes’
 
-![](images/azure5-3.png)
-
+![image](images/azure5-3.png)
 
 **Step 10:** Now we need to give Security read permissions to this registered Application , to do that go to subscriptions
 
-![](images/azure6.png)
-
+![image](images/azure6.png)
 
 **Step 11:** First save the subscription ID and click on the subscription name , here it is “Microsoft Azure Sponsorship“
 
-![](images/azure7.png)
-
+![image](images/azure7.png)
 
 **Step 12:** Navigate to Access control(IAM) and go to Roles , here select Add and Add role assignment
 
-![](images/azure8.png)
-
+![image](images/azure8.png)
 
 **Step 13:** Search for “Security Reader” Job function Role, select it and press *next*
 
-![](images/azure9.png)
-
+![image](images/azure9.png)
 
 **Step 14:** In the member section click on Select *members* it will open a dropdown menu on the right hand side
 
-![](images/azure10.png)
-
+![image](images/azure10.png)
 
 **Step 15:** Here search for the Application that you registered in the beginning , select the application and click on *review and assign*.
 
-![](images/azure11.png)
+![image](images/azure11.png)
 
 **Step 16:** Similarly, we have to add another role. This time, search for *Log Analytics Reader*. Select it and click *next*
 
-![](images/azure11-0.png)
+![image](images/azure11-0.png)
 
 **Step 17:** Now, click on *Select members*, select the application that was created similar to the previous role. Finally, click on *Review and Assign*.
 
-![](images/azure11-1.png)
-
+![image](images/azure11-1.png)
 
 ## **From AccuKnox SaaS UI**
 
@@ -91,29 +81,23 @@ Configuring your Azure cloud account is complete, now we need to onboard the clo
 
 **Step 1:** Go to settings→ Cloud Account and click on Add Account
 
-![](images/azure12.png)
-
+![image](images/azure12.png)
 
 **Step 2:** Select Microsoft Azure as Cloud Account Type
 
-![](images/azure13.png)
-
+![image](images/azure13.png)
 
 **Step 3:** Select or create label and Tags that will be associated with this Cloud Account
 
-![](images/azure14.png)
-
+![image](images/azure14.png)
 
 **Step 4:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect
 
-![](images/azure15.png)
-
+![image](images/azure15.png)
 
 **Step 5:** After successfully connecting your cloud account will show up in the list
 
-![](images/azure16.png)
-
-
+![image](images/azure16.png)
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
