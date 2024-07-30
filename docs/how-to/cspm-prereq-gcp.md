@@ -1,8 +1,8 @@
-
+# CSPM Pre-requisite for GCP
 
 In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
 
-![](images/accuknox-architecture.png)
+![image](images/accuknox-architecture.png)
 
 **Note:**
 Make sure the Below API Library is enabled in your GCP Account for onboarding into Accuknox SaaS:
@@ -19,59 +19,55 @@ For GCP there is a requirement for IAM Service Account Access.
 
 **Step 1:**  Log into your Google Cloud console and navigate to  IAM & Admin choose “Roles“ and Click “Create Role“
 
-![](images/gcp/gcp-0.png)
+![image](images/gcp/gcp-0.png)
 
 **Step 2:**  Name the “Role” and Click “Add Permission”
 
-![](images/gcp/gcp-1.png)
+![image](images/gcp/gcp-1.png)
 
 **Step 3:**  Use the Service: storage filter then value as “storage.buckets.getIamPolicy“
 
-![](images/gcp/gcp-2.png)
+![image](images/gcp/gcp-2.png)
 
 **Step 4:** Choose the permission and Click “Add“ then Click Create in the same page.
 
-![](images/gcp/gcp-3.png)
+![image](images/gcp/gcp-3.png)
 
 **Step 5:**  In the Navigation Panel, navigate to IAM Admin > Service Accounts.
 
-![](images/gcp/gcp-4.png)
+![image](images/gcp/gcp-4.png)
 
 **Step 6:** Click on "Create Service Account"
 
-![](images/gcp/gcp-5.png)
+![image](images/gcp/gcp-5.png)
 
 **Step 7:** Enter any name that you want on Service Account Name.
 
 **Step 8:** Click on Continue.
 
-![](images/gcp/gcp-6.png)
+![image](images/gcp/gcp-6.png)
 
 **Step 9:** Select the role: Project > Viewer and click Add another Role.
 
-![](images/gcp/gcp-7.png)
+![image](images/gcp/gcp-7.png)
 
 **Step 10:** Click “Add Another Role” Choose “Custom“ Select the created Custom Role.
 
-![](images/gcp/gcp-8.png)
+![image](images/gcp/gcp-8.png)
 
 **Step 11:** Click on “Continue“ and ”Done”
 
-![](images/gcp/gcp-9.png)
+![image](images/gcp/gcp-9.png)
 
 **Step 12:** Go to the created Service Account, click on that Service Account navigate to the “Keys“ section.
 
-![](images/gcp/gcp-10.png)
+![image](images/gcp/gcp-10.png)
 
 **Step 13:** Click the “Add key“ button and “Create new key “ . Chosen Key type should be JSON format.
 
-![](images/gcp/gcp-11.png)
+![image](images/gcp/gcp-11.png)
 
 **Step 14:** Click the “Create“ button it will automatically download the JSON key.
-
-
-
-
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

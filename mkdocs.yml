@@ -181,69 +181,31 @@ nav:
       - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
       - "DVWA": "getting-started/dvwa.md"
       - "PHP-MySQL": "getting-started/php-mysql.md"
+
   - "How To":
     - "CSPM Prerequisites":
-          - "AWS": "getting-started/cspm-prereq-aws.md"
-          - "Azure": "getting-started/cspm-prereq-azure.md"
-          - "GCP": "getting-started/cspm-prereq-gcp.md"
+          - "AWS": "how-to/cspm-prereq-aws.md"
+          - "Azure": "how-to/cspm-prereq-azure.md"
+          - "GCP": "how-to/cspm-prereq-gcp.md"
     - "Onboard Cloud Account" :
-      - "AWS" : "getting-started/aws-onboarding.md"
-      - "Azure" : "getting-started/azure-onboarding.md"
-      - "GCP" : "getting-started/gcp-onboarding.md"
+      - "AWS" : "how-to/aws-onboarding.md"
+      - "Azure" : "how-to/azure-onboarding.md"
+      - "GCP" : "how-to/gcp-onboarding.md"
     - "Onboard Cluster" :
+      - "Cluster Onboarding" : "how-to/cluster-onboarding.md"
+      - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
       # - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
       # - "Managed" : "getting-started/cluster-onboarding-managed.md"
-      - "Cluster Onboarding" : "getting-started/cluster-onboarding.md"
-      - "Cluster Offboarding" : "getting-started/cluster-offboarding.md"
     - "Onboard Registry":
-      - "ACR": "getting-started/acr.md"
-      - "ECR": "getting-started/ecr.md"
-      - "GAR": "getting-started/gar.md"
-    - "Onboard VM" : "getting-started/vm-onboarding-getting-started.md"
+      - "ACR": "how-to/acr.md"
+      - "ECR": "how-to/ecr.md"
+      - "GAR": "how-to/gar.md"
+    - "Onboard VM" : "how-to/vm-onboarding-getting-started.md"
       # - "Policy Demonstration": "getting-started/vm-onboarding.md"
-    - "Create Tokens" : "getting-started/how-to-create-tokens.md"
-    - "Create Labels" : "getting-started/how-to-create-labels.md"
-    - "Generate CWPP Reports": "getting-started/cwpp-reports-generation.md"
-    - "Github IaC Scan": "integrations/github-iac-scan.md"
-  # - "Enterprise SaaS":
-  #   - "Dashboard" : "saas/dashboard.md"
-  #   - "Inventory" :
-  #         - "Assets": "saas/assets.md"
-  #         - "Cloud Workloads" : "saas/cloud-workloads.md"
-  #        # - "Imports" : "saas/imports.md"
-  #        # - "Explorer" : "saas/explorer.md"
-  #        # - "Baselines" : "saas/inventory-baseline.md"
-  #   - "Issues" :
-  #         - "Vulnerabilities" : "saas/vulnerabilities.md"
-  #         - "Registry Scan" : "saas/registry-scan.md"
-  #        # - "Risk-based Prioritization" : "saas/risk-based-prioritization.md"
-  #   - "Compliance" :
-  #        # - "Baselines" : "saas/baselines.md"
-  #         - "CSPM Executive Dashboard" : "saas/cspm-executive-dashboard.md"
-  #   - "Runtime Protection" :
-  #         - "CWPP Dashboard" : "saas/cwpp-dashboard.md"
-  #         - "App Behavior" : "saas/app-behavior.md"
-  #         - "Policies" : "saas/policies.md"
-  #   - "Remediation" :
-  #         - "Ticket Summary" : "saas/ticket-summary.md"
-  #   - "Monitors/Logging" :
-  #         - "Logs" : "saas/logs.md"
-  #         - "Triggers" : "saas/triggers.md"
-  #       #  - "Monitors" : "saas/monitors.md"
-  #   - "Reports" : "saas/reports.md"
-  #   - "Notification" :
-  #        - "Slack" : "saas/slack.md"
-  #        - "Email" : "saas/email.md"
-  #   - "Settings" :
-  #         - "Cloud Accounts" : "saas/cloud-accounts.md"
-  #         - "Manage Cluster" : "saas/manage-cluster.md"
-  #         - "User Management" : "saas/user-management.md"
-  #         - "RBAC" : "saas/rbac.md"
-  #         - "Integrations" : "saas/integrations.md"
-  #         - "Labels" : "saas/labels.md"
-  #         - "Tags" : "saas/tags.md"
-  #         - "Groups" : "saas/groups.md"
-  #         - "Ticket Template" : "saas/ticket-template.md"
+    - "Create Tokens" : "how-to/how-to-create-tokens.md"
+    - "Create Labels" : "how-to/how-to-create-labels.md"
+    - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
+    - "Github IaC Scan": "how-to/github-iac-scan.md"
 
   - "Integrations":
     - "CI/CD":
@@ -254,7 +216,7 @@ nav:
           - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
           - "SAST": "integrations/google-sast.md"
-        - "IaC Scan - Jenkins Plugin"
+        - "Jenkins IaC Scan Plugin": "integrations/jenkins-iac-scan.md"
     - "Container Platform":
         - "D2iQ/Nutanix": "integrations/d2iq.md"
         - "Mirantis Lens" :
