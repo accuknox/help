@@ -228,12 +228,9 @@ nav:
           - "AWS Installation Guide": "integrations/aws-playbook.md"
           - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
           - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
-        - "Azure Marketplace":
-          - "Installation Guide": "integrations/azure-playbook.md"
-        - "Oracle Marketplace":
-          - "Installation Guide": "integrations/oracle-playbook.md"
-        - "RedHat Marketplace":
-          - "Installation Guide": "integrations/rh-playbook.md"
+        - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
+        - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
+        - "RedHat Marketplace Installation Guide": "integrations/rh-playbook.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
         - "Email": "integrations/email.md"
