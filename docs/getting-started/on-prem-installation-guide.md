@@ -80,8 +80,8 @@ Start a k8s cluster with the above worker node requirements**
 
 ### Installation Package
 
-- Helm charts archive <accuknox-helm-charts.tgz>
-- Kubectl and Helm tools are pre-requisite tools for using these helm charts
+- Helm charts archive [accuknox-helm-charts.tgz]
+  - Kubectl and Helm tools are pre-requisite tools for using these helm charts
 
 Use the following command to
 
@@ -98,16 +98,46 @@ If you want to use your private/local registry as the exclusive source of images
 | registry.username | Registry User                                                                                    | Customer |
 | registry.password | Registry Password                                                                                | Customer |
 | registry.address  | The registry server address                                                                      | Customer |
-| ecr.user          | Credential to pull images from AccuKnox registry Value: AKIA55UKWVCCBZ2YEFIY                     | AccuKnox |
-| ecr.password      | Credential to pull images from AccuKnox registry Value: 0c5UL9oHkftDRBfnrQV4Jmic/5eei4agpyxNtAkV | AccuKnox |
+| ecr.user          | Credential to pull images from AccuKnox registry Value: `AKIA55xxxxxxxxxxEFIY`                     | AccuKnox |
+| ecr.password      | Credential to pull images from AccuKnox registry Value: `0c5xxxxHkftxxxxnrQV4Jmic/5eei4agxxxxxxxx` | AccuKnox |
 
-![on-prem](images/on-prem/image3.png)
+```bash
+cd airgapped-reg
 
-![on-prem](images/on-prem/image14.png)
+# configure aws cli with AccuKnox  provided secrets
+aws configure
+
+# connect to docker Accuknox docker registry
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 9569xxxxxxxx.dkr.ecr.us-xxxx-2.amazonaws.com
+
+# connect to airgapped registry
+docker login <registry_address>
+
+# upload images to private registry
+./upload_images.sh <registry_address>
+
+# create a namespace
+MGR_NS="accuknox-onprem-mgr"
+CERT_MGR_NS="cert-manager"
+kubectl create ns $MGR_NS
+kubectl create ns $CERT_MGR_NS
+
+kubectl create secret docker-registry airgapped-reg     --docker-server=<registry.address> --docker-username=<registry.username> --docker-password=<registry.password> -n $MGR_NS
+
+kubectl create secret docker-registry airgapped-reg --docker-server=<registry.address> --docker-username=<registry.username> --docker-password=<registry.password> -n $CERT_MGR_NS
+
+# <registry_address> can include port as well
+./install-certmanager.sh <registry_address>
+
+./install-onprem-mgr.sh <registry_address>
+```
+<!-- ![on-prem](images/on-prem/image3.png)
+
+![on-prem](images/on-prem/image14.png) -->
 
 ### Update the override-values.yaml
 
-[ONLY FOR air-gapped/private registry ENVIRONMENT]: Set global.onprem.airgapped to true in override-values.yaml file.
+[ONLY FOR air-gapped/private registry ENVIRONMENT]: Set `global.onprem.airgapped` to `true` in `override-values.yaml` file.
 
 ### Before you start
 
@@ -117,34 +147,59 @@ We offer three deployments models when it comes to SSL certificate to accomodate
 
 We auto generate the needed self signed certificates for the client. To enabled this option, the ssl section the override values file should be set as follow:
 
-![on-prem](images/on-prem/image12.png)
+```yaml
+  ssl:
+    selfsigned: true
+    customcerts: false
+```
 
 #### Certificate signed by a known authority
 
 The client provides a certificate signed by a known signing authority To enable this option, the ssl section the override values file should be set as follow:
 
-![on-prem](images/on-prem/image9.png)
+```yaml
+  ssl:
+    selfsigned: false
+    customcerts: true
+```
 
 #### Self-signed certificates (provided by the customer)
 
 The client provides a self signed certificate. To enabled this option, the ssl section the override values file should be set as follow:
 
-![on-prem](images/on-prem/image7.png)
+```yaml
+  ssl:
+    selfsigned: true
+    customcerts: true
+```
 
 AccuKnox installation package will contain override-values.yaml file that contains installation-specific options to be configured.
 
-1. override <your_domain.com> to your domain
+1. override `your_domain.com` to your domain
 2. set your ssl preferences in the override values by changing the ssl block.
 
 ## Install AccuKnox base dependencies
 
-![on-prem](images/on-prem/image16.png)
+```bash
+kubectl create namespace accuknox-chart
+
+helm upgrade --install -n accuknox-chart accuknox-base accuknox-base-chart  --create-namespace -f override-values.yaml
+```
 
 !!! note "IMPORTANT"
-  Some resources deployed in the above step require some time to provision. If the user executes the next command without waiting for the proper provisioning of the previous command the installation may break and will need to start over.
-  Run the below script to make sure that the provisioning was done succesfully.
+    Some resources deployed in the above step require some time to provision. If the user executes the next command without waiting for the proper provisioning of the previous command the installation may break and will need to start over.
 
-![on-prem](images/on-prem/image2.png)
+Run the below script to make sure that the provisioning was done succesfully.
+
+```bash
+while true
+do
+    status=$(kubectl get cephcluster -n accuknox-ceph  rook-ceph -o=jsonpath='{.status.phase}')
+    [[ $(echo $status | grep -v Ready | wc -l) -eq 0 ]] && echo "You can proceed" && break
+    echo "wait for initialization"
+    sleep 1
+done
+```
 
 ## Install AccuKnox pre-chart
 
@@ -153,10 +208,12 @@ AccuKnox installation package will contain override-values.yaml file that cont
 | email.user     | Email user will send signup invites, reports etc                                                 | Customer |
 | email.password | Email Password                                                                                   | Customer |
 | email.host     | The Email server address                                                                         | Customer |
-| ecr.user       | Credential to pull images from AccuKnox registry Value: AKIA55UKWVCCBZ2YEFIY                     | AccuKnox |
-| ecr.password   | Credential to pull images from AccuKnox registry Value: 0c5UL9oHkftDRBfnrQV4Jmic/5eei4agpyxNtAkV | AccuKnox |
+| ecr.user       | Credential to pull images from AccuKnox registry Value: xxxA55UKWVxxxxxxxxxx                     | AccuKnox |
+| ecr.password   | Credential to pull images from AccuKnox registry Value: xxxxxxxHkftDRBfnxxxxJmic/xxxxxxxxxxNtAkV | AccuKnox |
 
-![on-prem](images/on-prem/image4.png)
+```bash
+helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="xxxA55UKWVxxxxxxxxxx" --set ecr.password="xxxxxxxHkftDRBfnxxxxJmic/xxxxxxxxxxNtAkV"
+```
 
 ## Install AccuKnox microservices chart
 
@@ -166,22 +223,38 @@ AccuKnox installation package will contain override-values.yaml file that cont
 | email.password | Email Password                                   | Customer |
 | email.host     | The Email server address                         | Customer |
 
-![on-prem](images/on-prem/image6.png)
+```bash
+helm  upgrade  --install  -n  accuknox-chart  accuknox-microservice  accuknox-microservice-chart  --set global.email.user="" --set global.email.password="" --set global.email.host="" --create-namespace -f  override-values.yaml
+```
 
 ### DNS Mapping
 
-Run the following script to generate the records you should add to your DNS zone.![on-prem](images/on-prem/image15.png)
+Run the following script to generate the records you should add to your DNS zone.
+
+```bash
+./generate_dns_entries.sh
+```
 
 ### Installing certificates
 
-#### Certificates signed by known authority![on-prem](images/on-prem/image5.png)
+#### Certificates signed by known authority
 
-#### Self-signed certificates (provided by customer)![on-prem](images/on-prem/image11.png)
+```bash
+./install_certs.sh <certificate_path> <certificate_key_path> <ca_path>
+```
+
+#### Self-signed certificates (provided by customer)
+
+```bash
+./install_certs.sh <certificate_path> <certificate_key_path> <ca_path>
+```
 
 ## Verification of installation
 
 After successful installation, you should be able to point to
 
-- <https://frontend>.<your-domain.com> URL and get the sign-in page.
-- <https://cspm>.<your-domain.com>/admin/ page should be available.
-- <https://cwpp>.<your-domain.com>/cm/ page should be available.![on-prem](images/on-prem/image10.jpg)
+- <https://frontend>.`your-domain.com` URL and get the sign-in page.
+- <https://cspm>.`your-domain.com`/admin/ page should be available.
+- <https://cwpp>.`your-domain.com`/cm/ page should be available.
+
+![on-prem](images/on-prem/image10.jpg)
