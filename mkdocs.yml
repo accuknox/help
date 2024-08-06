@@ -160,13 +160,13 @@ pages:
 
 nav:
   - "Getting Started":
-    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+    - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
       - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
-    - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
         - "AccuKnox" :
            - "V2.0 Release Notes" : "getting-started/2.0-release.md"
@@ -181,7 +181,6 @@ nav:
       - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
       - "DVWA": "getting-started/dvwa.md"
       - "PHP-MySQL": "getting-started/php-mysql.md"
-
   - "How To":
     - "CSPM Prerequisites":
           - "AWS": "how-to/cspm-prereq-aws.md"
