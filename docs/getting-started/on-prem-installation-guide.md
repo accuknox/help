@@ -69,7 +69,8 @@ Start a k8s cluster with the above worker node requirements**
 |---------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
 | jq      | 1.6                           | apt install jq                                                                                                                                                                                    |   |
 | unzip   | x.x                           | apt install unzip                                                                                                                                                                                 |   |
-| yq      | v4.40.x                       | VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget <https://github.com/mikefarah/yq/releases/download/$> {VERSION}/${BINARY}.tar.gz -O - \| tar xz && mv ${BINARY} /usr/bin/yq                        |   |
+| yq      | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - | tar xz && mv ${BINARY} /usr/bin/yq`
+                        |   |
 | helm    | v3.x.x                        | curl <https://raw.githubusercontent.com/helm/helm/ma> in/scripts/get-helm-3 \| bash                                                                                                                 |   |
 | kubectl | Supported by your k8s cluster |                                                                                                                                                                                                   |   |
 | aws     | v2                            | curl "<https://awscli.amazonaws.com/awscli-exe-linux> -x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update |   |
@@ -98,8 +99,12 @@ If you want to use your private/local registry as the exclusive source of images
 | registry.username | Registry User                                                                                    | Customer |
 | registry.password | Registry Password                                                                                | Customer |
 | registry.address  | The registry server address                                                                      | Customer |
-| ecr.user          | Credential to pull images from AccuKnox registry Value: `AKIA55xxxxxxxxxxEFIY`                     | AccuKnox |
-| ecr.password      | Credential to pull images from AccuKnox registry Value: `0c5xxxxHkftxxxxnrQV4Jmic/5eei4agxxxxxxxx` | AccuKnox |
+| ecr.user          | Credential to pull images from AccuKnox registry                      | AccuKnox |
+| ecr.password      | Credential to pull images from AccuKnox registry                      | AccuKnox |
+
+
+!!! note "IMPORTANT"
+    Contact your AccuKnox representative to acquire the keys.
 
 ```bash
 cd airgapped-reg
@@ -108,7 +113,7 @@ cd airgapped-reg
 aws configure
 
 # connect to docker Accuknox docker registry
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 9569xxxxxxxx.dkr.ecr.us-xxxx-2.amazonaws.com
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin `<password>`
 
 # connect to airgapped registry
 docker login <registry_address>
@@ -208,11 +213,11 @@ done
 | email.user     | Email user will send signup invites, reports etc                                                 | Customer |
 | email.password | Email Password                                                                                   | Customer |
 | email.host     | The Email server address                                                                         | Customer |
-| ecr.user       | Credential to pull images from AccuKnox registry Value: xxxA55UKWVxxxxxxxxxx                     | AccuKnox |
-| ecr.password   | Credential to pull images from AccuKnox registry Value: xxxxxxxHkftDRBfnxxxxJmic/xxxxxxxxxxNtAkV | AccuKnox |
+| ecr.user       | Credential to pull images from AccuKnox registry                                                 | AccuKnox |
+| ecr.password   | Credential to pull images from AccuKnox registry                                                 | AccuKnox |
 
 ```bash
-helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="xxxA55UKWVxxxxxxxxxx" --set ecr.password="xxxxxxxHkftDRBfnxxxxJmic/xxxxxxxxxxNtAkV"
+helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="`<user>`" --set ecr.password="`<pass>`"
 ```
 
 ## Install AccuKnox microservices chart
