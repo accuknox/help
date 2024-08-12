@@ -18,4 +18,14 @@ AccuKnox has an expanded offering to cater to diverse deployment needs and prefe
 
 4. **Full On-prem/Air-Gapped**-  For environments requiring maximum security and isolation, we offer full on-premises or air-gapped deployments. This ensures that all data and operations remain within the customer's premises, providing the highest level of control and security, suitable for sensitive and regulated industries.
 
+| Feature | SaaS | On-Prem |
+| --- | --- | --- |
+| **Upgrade and Maintenance to AccuKnox Control Plane** | Managed by AccuKnox | Customer managed with AccuKnox support. |
+| **Technical Support** | Users can choose | AccuKnox Premium support needed |
+| **Air Gapped?** | No | Optionally yes |
+| **Raw Data Retention Period** | AccuKnox Managed (default 60 days) | Customer managed |
+| **Velocity of Feature Updates** | Fast. New features are available much faster. | Customer needs to decide. For security updates, AccuKnox will provide upgrade patches. The patches are applied by the customer DevOps team with AccuKnox support. Typically the release cadence is once per month. |
+| **Security/Isolation** | Shared resources with other customers | No sharing of resources. Except customer DevOps team, no one has direct access to the deployment. |
+| **What Features are Supported?** | All | Except AI CoPilot (AskADA), everything else. |
+
 By offering these diverse deployment options, you can choose the model that best fits your operational needs and security requirements.
