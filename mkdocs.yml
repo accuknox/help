@@ -217,7 +217,9 @@ nav:
           - "SAST": "integrations/google-sast.md"
         - "Jenkins IaC Scan Plugin": "integrations/jenkins-iac-scan.md"
     - "Container Platform":
-        - "D2iQ/Nutanix": "integrations/d2iq.md"
+        - "Nutanix":
+          - "AccuKnox": "integrations/nutanix-accuknox.md"
+          - "KubeArmor": "integrations/nutanix-kubearmor.md"
         - "Mirantis Lens" :
           - "KubeArmor": "integrations/lens-ka.md"
           - "AccuKnox Agents": "integrations/lens-ak.md"
@@ -253,7 +255,6 @@ nav:
         - "Freshservice" : "integrations/freshservice-cspm.md"
         - "Connectwise" : "integrations/connectwise-cspm.md"
         - "ServiceNow" : "integrations/servicenow.md"
-
   - "Use-Cases":
     - "DevSecOps (ASPM)":
       - "IaC Scan": "use-cases/iac-scan.md"
