@@ -110,7 +110,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Run AccuKnox CSPM Scan
+      - name: Run AccuKnox container scan
         uses: accuknox/container-scan-action@v0.0.1
         with:
           token: ${{ secrets.TOKEN }}
