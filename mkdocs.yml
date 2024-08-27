@@ -216,6 +216,8 @@ nav:
           - "IaC Scan": "integrations/google-iac.md"
           - "SAST": "integrations/google-sast.md"
         - "Jenkins IaC Scan Plugin": "integrations/jenkins-iac-scan.md"
+        - "AWS Code Pipeline":
+          - "Container Scan": "integrations/aws-container-scan.md"
     - "Container Platform":
         - "Nutanix":
           - "AccuKnox": "integrations/nutanix-accuknox.md"
