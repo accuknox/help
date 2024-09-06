@@ -203,6 +203,7 @@ nav:
       # - "Policy Demonstration": "getting-started/vm-onboarding.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
+    - "Signup/Login via SSO": "how-to/sso.md"
     - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
     - "Github IaC Scan": "how-to/github-iac-scan.md"
 
