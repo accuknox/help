@@ -203,8 +203,9 @@ nav:
       # - "Policy Demonstration": "getting-started/vm-onboarding.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
+    - "Signup/Login via SSO": "how-to/sso.md"
     - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
-    - "Github IaC Scan": "how-to/github-iac-scan.md"
+    - "Perform Github IaC Scan": "how-to/github-iac-scan.md"
 
   - "Integrations":
     - "CI/CD":
@@ -263,8 +264,8 @@ nav:
         - "ServiceNow" : "integrations/servicenow.md"
   - "Use-Cases":
     - "DevSecOps (ASPM)":
-      - "IaC Scan": "use-cases/iac-scan.md"
-      - "Container Scan": "use-cases/container-scan.md"
+      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
+      - " ASPM Container Scan": "use-cases/container-scan.md"
       - "SAST - SQL Injection": "use-cases/sast-sq.md"
     - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "Cloud Security (CSPM)":

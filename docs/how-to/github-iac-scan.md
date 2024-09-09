@@ -1,4 +1,4 @@
-# Github IaC Scanning
+# How to Perform Github IaC Scans
 
 IaC scans for GitHub are essential for identifying security vulnerabilities in your infrastructure code. By scanning your IaC, you can detect misconfigurations early, ensure compliance with security standards, and prevent potential security breaches. Integrating these scans into your CI/CD pipeline enhances your overall security posture by providing continuous monitoring and assessment.
 

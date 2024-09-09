@@ -1,6 +1,6 @@
 
 
-# AccuKnox Container Scan Usecase
+# How to do ASPM Container Scan
 
 To show how incorporating AccuKnox into a CI/CD pipeline with GitHub Actions can improve security, let's look at a detailed example involving a Docker image that initially had known vulnerabilities. By running AccuKnox scanning in the pipeline, we can find and fix these vulnerabilities before deploying the image. The following narrative illustrates this process by comparing the situations before and after adding AccuKnox, as seen in the GitHub Actions logs.
 
