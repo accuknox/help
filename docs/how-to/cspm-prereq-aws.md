@@ -1,6 +1,6 @@
 # CSPM Pre-requisite for AWS
 
-In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
+In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
 
 ![image](images/accuknox-architecture.png)
 
@@ -26,7 +26,7 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 ![image](images/iam-user-3.png)
 
-**Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the Accuknox panel
+**Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the AccuKnox panel
 
 ![image](images/iam-user-4.png)
 

@@ -112,7 +112,7 @@ cd airgapped-reg
 # configure aws cli with AccuKnox  provided secrets
 aws configure
 
-# connect to docker Accuknox docker registry
+# connect to docker AccuKnox docker registry
 aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin `<password>`
 
 # connect to airgapped registry

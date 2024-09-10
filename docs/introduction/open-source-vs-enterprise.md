@@ -3,7 +3,7 @@
 ### KubeArmor (Opensource)
 <a href="https://github.com/kubearmor/KubeArmor" target="_blank">KubeArmor</a> is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operations) of pods, containers, and nodes (VMs) at the system level.
 
-### Accuknox (Enterprise)
+### AccuKnox (Enterprise)
 <a href="https://www.accuknox.com/contact-us" target="_blank">AccuKnox</a> is one of the industry’s most comprehensive and integrated CNAPP solutions which brings together multiple disparate security modules to deliver comprehensive Zero Trust security for Networks, Applications (K8s, VM), and Data across Cloud.
 
 | Features                                                                                                                  | Open Source      | Enterprise       |

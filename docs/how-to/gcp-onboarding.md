@@ -69,7 +69,7 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ## From AccuKnox SaaS UI
 
-**Step 1:** Go to the Accuknox SaaS. Navigate to the “Settings” → “Cloud Accounts” then “Add Account”.
+**Step 1:** Go to the AccuKnox SaaS. Navigate to the “Settings” → “Cloud Accounts” then “Add Account”.
 
 ![image](images/gcp/gcp-saas-0.png)
 

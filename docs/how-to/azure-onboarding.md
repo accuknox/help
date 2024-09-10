@@ -19,7 +19,7 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 ![image](images/azure3.png)
 
-**Step 4:** Now your application is created,  save *Application ID* and *Directory ID* as they will be needed to for onboarding on Accuknox Saas and then click on ‘Add a certificate or secret’
+**Step 4:** Now your application is created,  save *Application ID* and *Directory ID* as they will be needed to for onboarding on AccuKnox Saas and then click on ‘Add a certificate or secret’
 
 ![image](images/azure4.png)
 
@@ -77,7 +77,7 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 ## **From AccuKnox SaaS UI**
 
-Configuring your Azure cloud account is complete, now we need to onboard the cloud account onto Accuknox Saas Platform.
+Configuring your Azure cloud account is complete, now we need to onboard the cloud account onto AccuKnox Saas Platform.
 
 **Step 1:** Go to settings→ Cloud Account and click on Add Account
 

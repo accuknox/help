@@ -68,7 +68,7 @@ This will redirect to the below screen that confirms that the request has been s
 
 As a next step, you can expect an email from the support team and can further schedule a demo call to understand and try the platform.
 
-## Case 3: Onboard Openshift clusters to the Accuknox platform
+## Case 3: Onboard Openshift clusters to the AccuKnox platform
 
 **Step 1**: Go to [https://catalog.redhat.com](https://catalog.redhat.com/). From the drop-down select "Software" and search "Accuknox". From the search results, select the below one.
 
@@ -85,6 +85,6 @@ As a next step, you can expect an email from the support team and can further sc
 
 ![Redhat Marketplace](images/redhat-marketplace/image13.png)
 
-**Step 4**: From the below two options, click on the preferred one to see operator installation instructions. Replace Accuknox and Kubearmor operator names wherever needed.
+**Step 4**: From the below two options, click on the preferred one to see operator installation instructions. Replace AccuKnox and Kubearmor operator names wherever needed.
 
 ![Redhat Marketplace](images/redhat-marketplace/image14.png)

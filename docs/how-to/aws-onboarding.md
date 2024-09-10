@@ -27,7 +27,7 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 ![image](images/iam-user-3.png)
 
-**Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the Accuknox panel
+**Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the AccuKnox panel
 
 ![image](images/iam-user-4.png)
 

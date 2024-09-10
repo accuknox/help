@@ -4,7 +4,7 @@ AccuKnox Zero Trust CNAPP supports onboarding the following container registries
 
 ## Amazon Elastic Container Registry
 
-Accuknox CSPM security tool scans images that are present in the onboarded [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/) and identifies any known vulnerabilities and risks associated with those images. These are then categorized based on their severity. User will be getting comprehensive view of these risks and vulnerabilities in the dashboard which can be remediated.
+AccuKnox CSPM security tool scans images that are present in the onboarded [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/) and identifies any known vulnerabilities and risks associated with those images. These are then categorized based on their severity. User will be getting comprehensive view of these risks and vulnerabilities in the dashboard which can be remediated.
 
 [**Steps to Onboard**](./../getting-started/ecr.md)
 
@@ -24,14 +24,14 @@ AccuKnox CSPM Security leverages various open source scanning tools to scan the 
 
 ## Azure Container Registry(ACR)
 
-Accuknox CSPM security tool scans images that are present in the onboarded [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/) and has the capability to find the risks and vulnerabilities associated with these images. The risks are identified and shown in the scan results.
+AccuKnox CSPM security tool scans images that are present in the onboarded [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/) and has the capability to find the risks and vulnerabilities associated with these images. The risks are identified and shown in the scan results.
 Users will be getting a comprehensive view of these risks and vulnerabilities in the dashboard which can be remediated.
 
 [**Steps to Onboard**](./../getting-started/acr.md)
 
 ## Harbor Registry
 
-Once [Harbor Registry](https://goharbor.io/docs/2.9.0/install-config/) is onboarded in Accuknox SaaS, Scan will be initiated for that registry and come up with images and vulnerabilities. These Vulnerabilities and risks are classified based on their severity according to CVSS Scores. Here user can easily get to know about the image in detail such as security issues, Layers of the images, Sensitive data and Vulnerabilities present in their images.
+Once [Harbor Registry](https://goharbor.io/docs/2.9.0/install-config/) is onboarded in AccuKnox SaaS, Scan will be initiated for that registry and come up with images and vulnerabilities. These Vulnerabilities and risks are classified based on their severity according to CVSS Scores. Here user can easily get to know about the image in detail such as security issues, Layers of the images, Sensitive data and Vulnerabilities present in their images.
 
 ## Quay
 

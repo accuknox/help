@@ -2,7 +2,7 @@
 
 ## ACR Onboarding
 
-Accuknox CSPM security tool scans images that are present in the onboarded [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/) and has the capability to find the risks and vulnerabilities associated with these images. The risks are identified and shown in the scan results.
+AccuKnox CSPM security tool scans images that are present in the onboarded [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/) and has the capability to find the risks and vulnerabilities associated with these images. The risks are identified and shown in the scan results.
 Users will be getting a comprehensive view of these risks and vulnerabilities in the dashboard along with their remediation.
 
 ### **Steps to generate credentials for onboarding ACR**
