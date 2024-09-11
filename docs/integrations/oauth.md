@@ -1,7 +1,7 @@
 
 The OAuth integration with AccuKnox encompasses authorization (token generation, validation, and expiry) as well as third-party app integration. Our implementation adheres to industry standards and best practices for OAuth. It also ensures seamless integration of AccuKnox APIs.
 
-AccuKnox provides Oauth flow that will enable the client to access the AccuKnox APIs securely. Accuknox APIs request an internal query and provide JWT tokens for the third-party apps without any hassle of MFA.
+AccuKnox provides Oauth flow that will enable the client to access the AccuKnox APIs securely. AccuKnox APIs request an internal query and provide JWT tokens for the third-party apps without any hassle of MFA.
 
 ## **1. AccuKnox OAuth Features and Use-cases**
 

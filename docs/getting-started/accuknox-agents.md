@@ -48,13 +48,13 @@ AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeAr
 
 ## Discovery Engine
 
-Accuknox policy enforcement engine based on KubeArmor is very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. Accuknox policy auto-discovery engine leverages the pod visibility provided by KubeArmor to auto-generate network and system policies.
+AccuKnox policy enforcement engine based on KubeArmor is very flexible and powerful. However, these policy engines must be fed with policies. With 10s or 100s of pods and workloads running in a cluster, it is insanely difficult to handcraft such policies. AccuKnox policy auto-discovery engine leverages the pod visibility provided by KubeArmor to auto-generate network and system policies.
 
 ![Discovery Engine](images/discovery-engine.png)
 
 AccuKnox’s Runtime security solution is able to provide full visibility into all of these application interactions with the host kernel and provide the ability to filter or restrict specific actions at runtime.
 
-With Accuknox you can automatically discover the application interaction and network interaction (as described below) in the form of policy as code subsequently these policies can be audited or enforced at runtime giving you the ability to restrict specific behaviors of the application.
+With AccuKnox you can automatically discover the application interaction and network interaction (as described below) in the form of policy as code subsequently these policies can be audited or enforced at runtime giving you the ability to restrict specific behaviors of the application.
 
 For example, you could have a policy that states the following:
 

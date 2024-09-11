@@ -222,7 +222,7 @@
 
     ![](images/rafay/rafay-ak-0.png)
 
-    **Step 2:** In the catalog search for Accuknox and select accuknox-agents.
+    **Step 2:** In the catalog search for AccuKnox and select accuknox-agents.
 
     ![](images/rafay/rafay-ak-1.png)
 
@@ -275,7 +275,7 @@
 
     ### **3.Deploying the Blueprint in Cluster**
 
-    **Step 1:** Attaching the blueprint to the cluster by selecting the accuknox blueprint
+    **Step 1:** Attaching the blueprint to the cluster by selecting the AccuKnox blueprint
 
     ![](images/rafay/rafay-ak-11.png)
 

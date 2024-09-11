@@ -95,7 +95,7 @@ After integrating AccuKnox into your CI/CD pipeline, the next push triggers the 
 
 #### Under Github Actions
 
-Go into Actions; under "All Workflows," you will be able to see all the instances when the workflow ran and the results that were sent over to the Accuknox SaaS platform.
+Go into Actions; under "All Workflows," you will be able to see all the instances when the workflow ran and the results that were sent over to the AccuKnox SaaS platform.
 
 ![](images/iac-scan-images/4.png)
 
@@ -113,7 +113,7 @@ The image below shows the check for CKV_AWS_18:
 
 #### Under AccuKnox SaaS
 
-Once the scan is complete, users will be able to go into the Accuknox SaaS platform and navigate to Issues → Findings, where they can find misconfigurations in their Infrastructure as Code.
+Once the scan is complete, users will be able to go into the AccuKnox SaaS platform and navigate to Issues → Findings, where they can find misconfigurations in their Infrastructure as Code.
 
 ![](images/iac-scan-images/7.png)
 

@@ -89,19 +89,19 @@
 
     Inline Mitigation on the other hand prevents the malicious attack at the time of happening itself. It doesn’t allow the attack to happen by protecting the environment with security policy or firewall. AccuKnox’s open source tool KubeArmor provides Inline Mitigation. KubeArmor uses inline mitigation to reduce the attack surface of pod/container/VM. KubeArmor leverages best of breed Linux Security Modules (LSMs) such as AppArmor, BPF-LSM, and SELinux (only for host protection) for inline mitigation
 
-??? "**17. What are the platforms and environments that Accuknox supports?**"
+??? "**17. What are the platforms and environments that AccuKnox supports?**"
 
-    Accuknox supports the following environments:
+    AccuKnox supports the following environments:
     + SaaS
     + PaaS
     + IaaS
 
-    Accuknox supports the following cloud platforms:
+    AccuKnox supports the following cloud platforms:
     + AWS
     + GCP
     + Azure
 
-    Accuknox support for the different platforms are as follows:
+    AccuKnox support for the different platforms are as follows:
     + Kubernetes - Fully supported
     + Linux - [Supported distributions](/getting-started/kubearmor-support-matrix/#supported-linux-distributions)
     + Serverless - Fargate and ECS supported, others are on roadmap
@@ -119,13 +119,13 @@
 
     **Policy Discovery Engine:** It discovers the policies using the workload and cluster information that is relayed by a shared informer Agent.
 
-??? "**19. Does Accuknox provide auto discovery of assets and workloads?**"
+??? "**19. Does AccuKnox provide auto discovery of assets and workloads?**"
 
-    Yes, Accuknox can auto discover assets in the cloud by leveraging the cloud native tools.
+    Yes, AccuKnox can auto discover assets in the cloud by leveraging the cloud native tools.
 
-    For workloads, Accuknox agents will provide the visibility data.
+    For workloads, AccuKnox agents will provide the visibility data.
 
-??? "**20. Can Accuknox help in Monitoring?**"
+??? "**20. Can AccuKnox help in Monitoring?**"
 
     + With Accuknox, you can create monitors for assets or group of assets to get alerts for changes observed in their Metadata (software version etc)
 
@@ -137,7 +137,7 @@
 
 ??? "**21. Do I need to enable native security services for AWS to get data into Accuknox?**"
 
-    Accuknox only requires an IAM role to be created with read only access to be able to get data from AWS. Security Hub and Macie can be optionally enabled for Accuknox to gather richer telemetry data with more context.
+    AccuKnox only requires an IAM role to be created with read only access to be able to get data from AWS. Security Hub and Macie can be optionally enabled for AccuKnox to gather richer telemetry data with more context.
 
 ??? "**22. What are the Hypervisors or Virtualized Environments that are supported by AccuKnox?**"
 
@@ -217,7 +217,7 @@
 
 ??? "**12. Current AccuKnox's marketplace listing?**"
 
-    Accuknox is currently listed on
+    AccuKnox is currently listed on
 
     - <a href="https://marketplace.cloud.vmware.com/services/details/accuknox-runtime-security-1?slug=true" target="_blank">VMWare</a>
     - <a href="https://aws.amazon.com/marketplace/pp/prodview-lomtgayjmmmpi?sr=0-2&ref_=beagle&applicationId=AWSMPContessa" target="_blank">AWS</a>

@@ -5,7 +5,7 @@ Audit any (read/write) accesses to sensitive assets.
 KubeArmor helps the organization to protect their confidential files and directories  by continuous Monitoring and Alerting the access to that particular file or directory regarding the policy that we define.
 
 ## Attack Scenario
-By modifying the file such as /etc/security/pwquality.conf , /etc/shadow, /etc/pam.d/, /etc/sudoers can bypass authentication or authorization checks,  gain access to user passwords, weaken password requirements and allow the attacker to run commands as root.  Using KubeArmor, Accuknox can do continuous auditing for every access.
+By modifying the file such as /etc/security/pwquality.conf , /etc/shadow, /etc/pam.d/, /etc/sudoers can bypass authentication or authorization checks,  gain access to user passwords, weaken password requirements and allow the attacker to run commands as root.  Using KubeArmor, AccuKnox can do continuous auditing for every access.
 
 ## Compliance
 - NIS, NIST-800-53-r5
@@ -33,7 +33,7 @@ spec:
     - dir: /etc/sudoers.d/
       ownerOnly: true
       recursive: true
-    - dir: /etc/pam.d/ 
+    - dir: /etc/pam.d/
       ownerOnly: true
       recursive: true
     - dir: /etc/

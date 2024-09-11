@@ -1,6 +1,6 @@
 # CSPM Pre-requisite for Azure
 
-In SaaS model of deployment the Accuknox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
+In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
 
 ![image](images/accuknox-architecture.png)
 
@@ -20,7 +20,7 @@ For Azure Onboarding it is required to register an App and giving Security read 
 ![image](images/azure3.png)
 
 
-**Step 4:** Now your application is created,  save *Application ID* and *Directory ID* as they will be needed to for onboarding on Accuknox Saas and then click on ‘Add a certificate or secret’
+**Step 4:** Now your application is created,  save *Application ID* and *Directory ID* as they will be needed to for onboarding on AccuKnox Saas and then click on ‘Add a certificate or secret’
 
 ![image](images/azure4.png)
 

@@ -81,7 +81,7 @@ The plugin provides the following parameters:
 
 - **Branch:** Branch name of the repository.
 
-**Token Generation from Accuknox SaaS and Viewing Tenant ID which will be used in the AccuKnox IaC Scan Plugin**
+**Token Generation from AccuKnox SaaS and Viewing Tenant ID which will be used in the AccuKnox IaC Scan Plugin**
 
 Navigate to Tokens within the Settings section in the sidebar:
 

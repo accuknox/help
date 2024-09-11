@@ -189,7 +189,7 @@ Under Google Codebuild History
 
 ### **View Results Under AccuKnox SaaS**
 
-**Step 1**: Once the scan is complete, users can go into the Accuknox SaaS platform and navigate to **Issues** → **Vulnerabilities**, where they can find misconfigurations in their Infrastructure as Code.
+**Step 1**: Once the scan is complete, users can go into the AccuKnox SaaS platform and navigate to **Issues** → **Vulnerabilities**, where they can find misconfigurations in their Infrastructure as Code.
 
 ![](images/google-build/iac-page.png)
 

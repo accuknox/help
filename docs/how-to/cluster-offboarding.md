@@ -1,12 +1,12 @@
 # Cluster Offboarding
 
-This guide outlines the steps for offboarding a cluster from Accuknox SaaS. The process involves uninstalling the agents from the cluster and deleting the cluster from Accuknox SaaS.
+This guide outlines the steps for offboarding a cluster from AccuKnox SaaS. The process involves uninstalling the agents from the cluster and deleting the cluster from AccuKnox SaaS.
 
-Below, you will find detailed instructions for agent uninstallation from your cluster CLI and deleting the cluster from Accuknox SaaS. These steps apply to all clusters.
+Below, you will find detailed instructions for agent uninstallation from your cluster CLI and deleting the cluster from AccuKnox SaaS. These steps apply to all clusters.
 
 ## Agents Uninstallation
 
-Uninstall Accuknox agents using the following commands:
+Uninstall AccuKnox agents using the following commands:
 
 ```bash
 helm uninstall agents -n agents && kubectl delete ns agents;
@@ -36,7 +36,7 @@ namespace "agents" deleted
 
 ## Cluster Deletion
 
-**Step 1**: Login to Accuknox SaaS and Go to Manage Cluster under Settings
+**Step 1**: Login to AccuKnox SaaS and Go to Manage Cluster under Settings
 
 ![Cluster Offboarding](images/cluster-offboarding/image2.png)
 
@@ -44,7 +44,7 @@ namespace "agents" deleted
 
 ![Cluster Offboarding](images/cluster-offboarding/image1.png)
 
-This will delete the cluster from Accuknox SaaS.
+This will delete the cluster from AccuKnox SaaS.
 
   - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

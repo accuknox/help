@@ -160,7 +160,7 @@ pages:
 
 nav:
   - "Getting Started":
-    - "Enterprise CNAPP Suite" : "introduction/accuknox-architecture.md"
+    - "AccuKnox Architecture (Enterprise CNAPP Suite)" : "introduction/accuknox-architecture.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"

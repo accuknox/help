@@ -4,15 +4,15 @@ hide:
 ---
 
 ## VM Onboarding
-Onboarding your workloads to Accuknox is the initial step to monitor, strengthen, and secure your infrastructure. We have two requirements for onboarding VMs in our SaaS.
+Onboarding your workloads to AccuKnox is the initial step to monitor, strengthen, and secure your infrastructure. We have two requirements for onboarding VMs in our SaaS.
 
 1. Kubearmor
 2. Accuknox-agents
 
-Kuberarmor is our runtime security enforcement tool to apply the policies at runtime. On top of that, Accuknox agents are used to extend the functionality into our SaaS. Both can run as containers and systemd services. They can be installed using the knoxctl CLI command from the onboarding page. For more details on onboarding, see the [VM onboarding guide](https://help.accuknox.com/getting-started/vm-onboarding/).
+Kuberarmor is our runtime security enforcement tool to apply the policies at runtime. On top of that, AccuKnox agents are used to extend the functionality into our SaaS. Both can run as containers and systemd services. They can be installed using the knoxctl CLI command from the onboarding page. For more details on onboarding, see the [VM onboarding guide](https://help.accuknox.com/getting-started/vm-onboarding/).
 
 ## VM Hardening
-VM hardening reduces the system's attack surface by limiting potential weaknesses, e.g. unneeded packages and dependencies, misconfiguration, etc. Based on the standard security compliances, Accuknox recommends hardening policies and further enforcing them using our open-source tool Kubearmor. This helps organizations to harden their infrastructure and become more compliant with the frameworks they care about.
+VM hardening reduces the system's attack surface by limiting potential weaknesses, e.g. unneeded packages and dependencies, misconfiguration, etc. Based on the standard security compliances, AccuKnox recommends hardening policies and further enforcing them using our open-source tool Kubearmor. This helps organizations to harden their infrastructure and become more compliant with the frameworks they care about.
 
 ## VM Enforcement & Diagnostic
 In a virtual machine, there can be 2 types of policies
@@ -272,7 +272,7 @@ Below alerts were generated for the policy violation.
 }
 ```
 ## VM Forensics
-Accuknox shows Kubearmor logs under the alerts tab in our SaaS which can help to visualize the granular details to investigate an attack scenario. Let’s take the below example -
+AccuKnox shows Kubearmor logs under the alerts tab in our SaaS which can help to visualize the granular details to investigate an attack scenario. Let’s take the below example -
 
 Attackers can use the `ps`, `pgrep`, `top`, and other commands to enumerate the running processes on a system. Then, using that data, they can filter and pinpoint crucial processes that could be the focus of an attack. KubeArmor can be set to audit the following process: `/bin/ps`, `/usr/bin/ps`, `/usr/bin/pgrep`, `/usr/bin/top`, and `/usr/bin/htop` by using the below policy.
 ```

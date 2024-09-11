@@ -8,7 +8,7 @@
 + CSPM Report Enhancements
 + CSPM Database Enhancements
 + Discovery Engine V2
-+ Accuknox CLI Integrations (Install, Discover, Recommend)
++ AccuKnox CLI Integrations (Install, Discover, Recommend)
 + GAR Support for Registry Scan
 + Sorting of Alerts based on Timestamp
 + Search Registry option in Registry Scan
@@ -24,7 +24,7 @@
 
 + Revamped Cloud Workloads
 + Enhanced new view in the Observability of Workloads
-+ Performance of Accuknox Agents enhanced.
++ Performance of AccuKnox Agents enhanced.
 
 **What to Expect Next?**
 
@@ -34,7 +34,7 @@
 
 
 **Upgrading AccuKnox-Agents:**
-Since we have done some major changes to the Cloud Workload Protection Platform the accuknox agents that are installed in your cluster need to be updated. Here is the link to upgrade the Accuknox-Agents
+Since we have done some major changes to the Cloud Workload Protection Platform the AccuKnox agents that are installed in your cluster need to be updated. Here is the link to upgrade the Accuknox-Agents
 
 ## **Previous Release notes**
 + [v1.5 Release Notes](./../getting-started/1-5-release.md)

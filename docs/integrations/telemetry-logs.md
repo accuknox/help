@@ -1,5 +1,5 @@
 
-Accuknox CNAPP Solution provides comprehensive visibility of the assets with the help of logs. AccuKnox’s open-source KubeArmor can forward container-related logs to the SaaS. Also, it can forward the container logs that are present in the workloads. We can also use the Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., The information provided by the logs will be useful to understand the attack vector of any attempted attacks.
+AccuKnox CNAPP Solution provides comprehensive visibility of the assets with the help of logs. AccuKnox’s open-source KubeArmor can forward container-related logs to the SaaS. Also, it can forward the container logs that are present in the workloads. We can also use the Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., The information provided by the logs will be useful to understand the attack vector of any attempted attacks.
 
 ## Sample Container Log
 
