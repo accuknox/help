@@ -1,14 +1,14 @@
+# SQL Injection Scanning with SonarQube
 
-
-## **Introduction**
+## Introduction
 
 SQL Injection is a common security vulnerability found in web applications. It occurs when an attacker can manipulate a SQL query by injecting malicious input into the query string. This use case demonstrates how to identify and fix an SQL Injection vulnerability using SonarQube integrated with GitHub Actions and pushing the results to AccuKnox SaaS.
 
-## **Step-by-Step Guide**
+## Step-by-Step Guide
 
 Example Vulnerable Code (```VulnerableApp.java```) for Demonstration:
 
-```sh
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -64,22 +64,23 @@ sonar.login=your_project_token
 
 - Add the following secrets:
 
-    - ```SONAR_TOKEN```: Your SonarQube project token.
+  - ```SONAR_TOKEN```: Your SonarQube project token.
 
-    - ```SQ_URL```: Your SonarQube URL.
+  - ```SQ_URL```: Your SonarQube URL.
 
-    - ```AK_URL```: The AccuKnox URL (```cspm.accuknox.com```).
+  - ```AK_URL```: The AccuKnox URL (```cspm.accuknox.com```).
 
-    - ```TENANT_ID```: Your AccuKnox Tenant ID.
+  - ```TENANT_ID```: Your AccuKnox Tenant ID.
 
-    - ```AK_TOK```: The artifact token received from AccuKnox management plane.
+  - ```AK_TOK```: The artifact token received from AccuKnox management plane.
 
 3.Create GitHub Actions Workflow:
 
 - Add a new file ```.github/workflows/sonarqube.yml```:
 
 {% raw %}
-```sh
+
+```yaml
 name: SonarQube and AccuKnox SAST Integration
 on:
   push:
@@ -125,6 +126,7 @@ jobs:
               --form "file=@\"$file\""
           done
 ```
+
 {% endraw %}
 
 **Step 2**: Push Changes and Trigger Scan
@@ -139,21 +141,21 @@ jobs:
 
 - Go to **Issues** > **Vulnerabilities** and select **Data Type** as **SonarQube** to view the identified vulnerabilities, including the SQL Injection vulnerability in ```VulnerableApp.java```.
 
-![](images/sast/findings.png)
+![alt](images/sast/findings.png)
 
 - Click on the Vulnerability to view more details
 
-![](images/sast/details.png)
+![alt](images/sast/details.png)
 
 **Step 4**: Fix the Vulnerability
 
 To fix the SQL Injection vulnerability, use prepared statements instead of concatenating user input directly into the SQL query as seen in the Solutions tab.
 
-![](images/sast/solution.png)
+![alt](images/sast/solution.png)
 
 Secure Java Code Example (To be saved as ```SecureApp.java```)
 
-```sh
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -197,7 +199,7 @@ public class SecureApp {
 
 - Go to **Issues** > **Vulnerabilities** and select **Data Type** as **SonarQube** to verify that the SQL Injection vulnerability has been resolved.
 
-## **Conclusion**
+## Conclusion
 
 By following these steps, you can leverage SonarQube integrated with GitHub Actions and AccuKnox SaaS to identify and fix security vulnerabilities in your codebase. This process ensures that your code maintains high quality and security standards, and any potential vulnerabilities are promptly addressed.
 

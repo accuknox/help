@@ -264,37 +264,37 @@ nav:
         - "ServiceNow" : "integrations/servicenow.md"
   - "Use-Cases":
     - "DevSecOps (ASPM)":
-      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
-      - " ASPM Container Scan": "use-cases/container-scan.md"
-      - "SAST - SQL Injection": "use-cases/sast-sq.md"
+      - "Secure AWS S3,Terraform in CI/CD": "use-cases/iac-scan.md"
+      - "Securing Docker Images in CI/CD": "use-cases/container-scan.md"
+      - "SQL Injection Scanning with SonarQube": "use-cases/sast-sq.md"
     - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "Cloud Security (CSPM)":
       - "Asset Inventory": "use-cases/asset-inventory.md"
-      - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
+      - "Proactive Security for Public Cloud Assets" : "use-cases/cloud-misconfigurations.md"
     - "Container Security (CWPP)":
-      - "Container Image Scan": "use-cases/image-scan.md"
-      - "Runtime Application Hardening" : "use-cases/app-hardening.md"
-      - "Workload Hardening": "use-cases/hardening.md"
-      - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+      - "Container Security and Hardening": "use-cases/image-scan.md"
+      - "RCE Prevention with Hardening Policies" : "use-cases/app-hardening.md"
+      - "Workload Hardening: Key Security Controls": "use-cases/hardening.md"
+      - "Microsegmentation for Kubernetes" : "use-cases/network-segmentation.md"
     - "Least Permissive Posture Assessment (CWPP)":
-      - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
+      - "Auto-generated policies for Kubernetes Security": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
       - "Zero Trust Security": "use-cases/zero-trust.md"
     - "AI Workload Security (CWPP)":
-      - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
+      - "Zero-Trust Policies for JupyterHub Security": "use-cases/jupyter-notebook.md"
     - "Advanced Persistent Threat (CWPP)":
-      - "Cryptojacking" : "use-cases/crypto-mining.md"
-      - "Hildegard" : "use-cases/hildegard.md"
+      - "Defend K8S Workloads from Cryptojacking Attacks" : "use-cases/crypto-mining.md"
+      - "Defending Kubernetes Against Hildegard Attacks" : "use-cases/hildegard.md"
     - "Securing Secrets Managers (CWPP)" :
-      - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
-      - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
+      - "Harshicorp Vault protection via Runtime Security" : "use-cases/hashicorp.md"
+      - "Protecting Conjur with Hardening Policies" : "use-cases/cyberark-conjur.md"
     - "Host Security (CWPP)":
-      - "Host Scan": "use-cases/host-sec.md"
-      - "Malware Scan": "use-cases/malware-scan.md"
+      - "Host Scanning with Nessus, Masscan, and Zeek": "use-cases/host-sec.md"
+      - "Malware Scanning for Windows/Linux": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
     - "Continuous Compliance (GRC)":
-      - "Multi-cloud Compliance": "use-cases/compliance.md"
+      - "Compliance Management with CSPM": "use-cases/compliance.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 

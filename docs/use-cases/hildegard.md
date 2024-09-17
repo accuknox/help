@@ -1,4 +1,4 @@
-
+# Defending Kubernetes Against Hildegard Attacks
 
 ## **Introduction**
 
@@ -6,39 +6,39 @@ In a Kubernetes cluster, several attack vectors become possible through the comb
 
 + **Vulnerabilities in Container Image**
 
-    - Malicious Container images pushed to registry which gets deployed on hosts
+  + Malicious Container images pushed to registry which gets deployed on hosts
 
-    - Cryptomining [<a href="https://intezer.com/blog/malware-analysis/teamtnt-cryptomining-explosion/" target="_blank">Ref</a>]
+  + Cryptomining [<a href="https://intezer.com/blog/malware-analysis/teamtnt-cryptomining-explosion/" target="_blank">Ref</a>]
 
-    - Embedded Secrets
+  + Embedded Secrets
 
-    - SSH Keys, AWS Credentials, Github Tokens, NPM tokens, etc.
+  + SSH Keys, AWS Credentials, Github Tokens, NPM tokens, etc.
 
-    - Proxy Avoidance, and many more..
+  + Proxy Avoidance, and many more..
 
 + **Difficulty of implementing Runtime Security**
 
-    - Rogue container reconnaissance
+  + Rogue container reconnaissance
 
-    - Malicious RCE at runtime or Unknown process exec
+  + Malicious RCE at runtime or Unknown process exec
 
-    - Lateral Movement (writable volume mount points on hosts, service account exploitation, etc.)
+  + Lateral Movement (writable volume mount points on hosts, service account exploitation, etc.)
 
-    - Credential Theft (exposure of service account token, credential in config files, write into volume mount point)
+  + Credential Theft (exposure of service account token, credential in config files, write into volume mount point)
 
-    - Execution (maliciousexec into containers, malicious container spin-up, etc.)
+  + Execution (maliciousexec into containers, malicious container spin-up, etc.)
 
 + **Modern attack vectors are complex and could target Linux Kernel Exploits**
 
-    - [<a href="https://attack.mitre.org/techniques/T1496/" target="_blank">Resource Hijacking</a>] [T1496] for cryptocurrency attacks
+  + [<a href="https://attack.mitre.org/techniques/T1496/" target="_blank">Resource Hijacking</a>] [T1496] for cryptocurrency attacks
 
 + **Spaghetti of Access Controls**
 
-    - Privilege Escalation via unused service account token, write to root certificate bundles etc.
+  + Privilege Escalation via unused service account token, write to root certificate bundles etc.
 
 ## **Exploit**
 
-![](images/hildegard.png)
+![alt](images/hildegard.png)
 
 1. The attacker started by exploiting an unsecured Kubelet on the internet and searched for containers running inside the Kubernetes nodes. After finding container 1 in Node A, the attacker attempted to perform remote code execution (RCE) in container 1.
 2. The attacker downloaded tmate and issued a command to run it and establish a reverse shell to tmate • Instant terminal sharing from container 1. The attacker then continued the attack with this tmate session.
@@ -62,7 +62,7 @@ The attacker gains access to the misconfigured kubelet that has anonymous access
 
 To prevent this, AccuKnox can restrict access to the service account tokens to only the processes that require them using the below policy:
 
-```sh
+```yaml
 apiVersion: security.accuknox.com/v1
 kind: KubeArmorPolicy
 metadata:
@@ -89,7 +89,7 @@ The attacker downloaded ```tmate``` and issued a command to run it, for securing
 
 This can be completely prevented by using a whitelisting policy that allows only the necessary processes to make use of network protocols such as the following:
 
-```sh
+```yaml
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
@@ -122,7 +122,7 @@ After identifying the target, the attacker executes the malicious binaries using
 
 A FIM policy can be used by AccuKnox to make sure the binary files do not get modified.
 
-```sh
+```yaml
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
@@ -178,7 +178,7 @@ Hildegard encrypts the malicious payload for IRC (ziggystartux ELF) to avoid bei
 
 AccuKnox can whitelist only the required processes in a container. A sample policy that can be used:
 
-```sh
+```yaml
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
@@ -211,29 +211,29 @@ The above policy only allows a few processes to be executed - ```ping``` and ```
 
 ### **Key points**
 
-- **Initial Access**: Misconfigured kubelet allows anonymous access
++ **Initial Access**: Misconfigured kubelet allows anonymous access
 
--  Malware attempted to spread over as many containers as possible using service account tokens(Kubelet API) and eventually launched cryptojacking operations.
++ Malware attempted to spread over as many containers as possible using service account tokens(Kubelet API) and eventually launched cryptojacking operations.
 
-    + Service account token access is strictly controlled.
+  + Service account token access is strictly controlled.
 
-    + Allow only specific processes to access the service account token.
+  + Allow only specific processes to access the service account token.
 
-- **Two C&C conns**: Reverse ```tmate``` shell and IRC channel
++ **Two C&C conns**: Reverse ```tmate``` shell and IRC channel
 
-    + Network access is allowed for known binaries only
+  + Network access is allowed for known binaries only
 
-- Uses a known Linux process name (bioset) to disguise the malicious process.
++ Uses a known Linux process name (bioset) to disguise the malicious process.
 
-    + FIM disallows modifications in systems binary folder
+  + FIM disallows modifications in systems binary folder
 
-- ```LD_PRELOAD``` to hide the malicious processes.
++ ```LD_PRELOAD``` to hide the malicious processes.
 
-    + Process execution is tapped in kernel space
+  + Process execution is tapped in kernel space
 
-- Encrypts the malicious payload inside a binary to make automated static analysis more difficult
++ Encrypts the malicious payload inside a binary to make automated static analysis more difficult
 
-    + Process whitelisting and binary tracking audits all the events.
+  + Process whitelisting and binary tracking audits all the events.
 
 ## **Summary**
 

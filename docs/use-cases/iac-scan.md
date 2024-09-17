@@ -1,5 +1,5 @@
 
-# Integrating IaC Scanning for AWS S3 Buckets into Your CI/CD Pipeline
+# Secure AWS S3,Terraform in CI/CD
 
 To provide a practical demonstration of using AccuKnox for a CI/CD scan, let's go through a detailed use case involving a Terraform project. AccuKnox IaC Scanner is a tool designed to identify misconfigurations in Infrastructure as Code (IaC) files, such as those written for Terraform, Kubernetes and more. It helps in enforcing best practices and security guidelines.
 

