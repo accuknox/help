@@ -1,4 +1,4 @@
-# Host Scanning with Nessus, Masscan, and Zeek
+# Host scanning for Windows/Linux
 
 AccuKnox provides host scanning capabilities through an integration with tools like Nessus, Masscan and Zeek.
 
@@ -62,6 +62,6 @@ To learn more about how AccuKnox’s advanced Vulnerability Management can be le
 
 AccuKnox can also leverage other tools such as Masscan and Zeek to provide host scanning. By integrating these tools, AccuKnox will be able to scan the on-premise environment and help in identifying issues on the hosts.
 
-**Masscan** helps red teamers doing offensive research (penetration testing) as well as blue teamers and IT managers doing defensive research (to find attack vectors within the network).
+<!-- Masscan helps red teamers doing offensive research (penetration testing) as well as blue teamers and IT managers doing defensive research (to find attack vectors within the network).
 
-**Zeek** is a Network Security Monitor (NSM) to support detection and investigations of suspicious or malicious activity. Zeek also supports a wide range of traffic analysis tasks beyond the security domain, including performance measurement and troubleshooting.
+Zeek is a Network Security Monitor (NSM) to support detection and investigations of suspicious or malicious activity. Zeek also supports a wide range of traffic analysis tasks beyond the security domain, including performance measurement and troubleshooting. -->

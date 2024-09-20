@@ -1,4 +1,4 @@
-# Proactive Security for Public Cloud Assets
+# Misconfiguration and Drift detection for Public cloud Assets
 
 **Securing your most critical assets in Public Cloud**
 

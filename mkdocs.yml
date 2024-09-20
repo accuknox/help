@@ -266,18 +266,18 @@ nav:
     - "DevSecOps (ASPM)":
       - "Secure AWS S3,Terraform in CI/CD": "use-cases/iac-scan.md"
       - "Securing Docker Images in CI/CD": "use-cases/container-scan.md"
-      - "SQL Injection Scanning with SonarQube": "use-cases/sast-sq.md"
+      - "SQL Injection Scanning with SAST Scan": "use-cases/sast-sq.md"
     - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "Cloud Security (CSPM)":
       - "Asset Inventory": "use-cases/asset-inventory.md"
-      - "Proactive Security for Public Cloud Assets" : "use-cases/cloud-misconfigurations.md"
+      - "Misconfiguration and Drift detection for Public cloud Assets" : "use-cases/cloud-misconfigurations.md"
     - "Container Security (CWPP)":
-      - "Container Security and Hardening": "use-cases/image-scan.md"
+      - "Container Image Security": "use-cases/image-scan.md"
       - "RCE Prevention with Hardening Policies" : "use-cases/app-hardening.md"
       - "Workload Hardening: Key Security Controls": "use-cases/hardening.md"
       - "Microsegmentation for Kubernetes" : "use-cases/network-segmentation.md"
     - "Least Permissive Posture Assessment (CWPP)":
-      - "Auto-generated policies for Kubernetes Security": "use-cases/app-behavior.md"
+      - "Runtime Application Behavior Modelling": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
       - "Zero Trust Security": "use-cases/zero-trust.md"
     - "AI Workload Security (CWPP)":
@@ -289,12 +289,12 @@ nav:
       - "Harshicorp Vault protection via Runtime Security" : "use-cases/hashicorp.md"
       - "Protecting Conjur with Hardening Policies" : "use-cases/cyberark-conjur.md"
     - "Host Security (CWPP)":
-      - "Host Scanning with Nessus, Masscan, and Zeek": "use-cases/host-sec.md"
+      - "Host scanning for Windows/Linux": "use-cases/host-sec.md"
       - "Malware Scanning for Windows/Linux": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
     - "Continuous Compliance (GRC)":
-      - "Compliance Management with CSPM": "use-cases/compliance.md"
+      - "Compliance posture with AccuKnox CSPM": "use-cases/compliance.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 

@@ -1,4 +1,4 @@
-# SQL Injection Scanning with SonarQube
+# SQL Injection Scanning with SAST Scan
 
 ## Introduction
 

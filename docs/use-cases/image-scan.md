@@ -1,4 +1,4 @@
-# Container Security and Hardening
+# Container Image Security
 
 **Need for securing containers for Application Hardening**
 
