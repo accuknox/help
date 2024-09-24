@@ -66,7 +66,7 @@ On the Plugin Step configuration,
 
 - In the **Image** field enter the following: `accuknox/harness-iac-plugin:v1`
 
-![image-20240918-113611.png](images/harness-iac-scan/.png)
+![image-20240918-113611.png](images/harness-iac-scan/7.png)
 
 - Click on **Optional Configuration** and add the following Keys and Values:
 
@@ -82,7 +82,7 @@ On the Plugin Step configuration,
 
   - **token:** The secret used to store the token referred by format `<+secrets.getValue("Secret_Name")>`
 
-![image-20240918-113825.png](images/harness-iac-scan/7.png)
+![image-20240918-113825.png](images/harness-iac-scan/8.png)
 
 **Optional Variables:**
 
@@ -109,17 +109,17 @@ After specifying the required variables, click on **Apply Changes.**
 
 Consider a scenario where the resources are being provisioned in the production environment. To make sure that there are no secuity issues in production, we would like to stop the deployment if any issues are detected in the IaC files. In this scenario, the IaC scanner will be integrated into the pipeline before the deployment phase with the `hard_fail` value set to 1.
 
-![image-20240913-105628.png](images/harness-iac-scan/8.png)
+![image-20240913-105628.png](images/harness-iac-scan/9.png)
 
 Now, when the pipeline runs, the scanner checks for issues in the IaC file and is any issues are identified, it stops the pipeline with the message:
 
 `Failed checks identified, pipeline hard fail is initiated`
 
-![image-20240913-134026.png](images/harness-iac-scan/9.png)
+![image-20240913-134026.png](images/harness-iac-scan/10.png)
 
 To view the failed checks that need to be resolved, navigate to Issues → Findings on the AccuKnox platform and select the IaC Findings filter.
 
-![image-20240913-134315.png](images/harness-iac-scan/10.png)
+![image-20240913-134315.png](images/harness-iac-scan/11.png)
 
 ### Conclusion
 
