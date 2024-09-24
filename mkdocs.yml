@@ -216,6 +216,9 @@ nav:
           - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
           - "SAST": "integrations/google-sast.md"
+        - "Harness":
+          - "Container Image Scan": "integrations/harness-container-scan.md"
+          - "IaC Scan": "integrations/harness-iac-scan.md"
         - "Jenkins IaC Scan Plugin": "integrations/jenkins-iac-scan.md"
         - "AWS Code Pipeline":
           - "Container Scan": "integrations/aws-container-scan.md"
