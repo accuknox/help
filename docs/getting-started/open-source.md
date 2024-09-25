@@ -224,6 +224,12 @@ The use-cases described in subsequent step uses this sample application.
 
 ??? "Use-case 1: Audit access to sensitive data paths"
 
+	> **_NOTE 01:_** As of v1.1 KubeArmor has disabled file visbillity by default. This use case requires enabling file visibility by annotating the namespace using below command:
+
+	```sh
+	kubectl annotate ns wordpress-mysql kubearmor-visibility="process, file, network" --overwrite
+	```
+	
 	MySQL keeps all its database tables as part of `/var/lib/mysql` folder path. **Audit** access to this folder path recursively (sub-folders inclusive).
 
 	```yaml
@@ -249,7 +255,7 @@ The use-cases described in subsequent step uses this sample application.
 	kubectl exec -it mysql-xxxxxxxxx-xxxxx -n wordpress-mysql -- bash
 	root@mysql-58cdf6ccf-kzbp8:/# touch /var/lib/mysql/test
 	```
-	> **_NOTE 01:_** Replace `mysql-xxxxxxxxx-xxxxx` with pod name from Step [#2](#2-install-sample-application)
+	> **_NOTE 02:_** Replace `mysql-xxxxxxxxx-xxxxx` with pod name from Step [#2](#2-install-sample-application)
 
 	![Alt](images/7.png)
 
@@ -267,7 +273,7 @@ The use-cases described in subsequent step uses this sample application.
 	```sh
 	karmor logs
 	```
-	> **_NOTE 02:_** Above 2 commands will be common for all use cases, keep this open in separate terminals (_right section of screenshot_)
+	> **_NOTE 03:_** Above 2 commands will be common for all use cases, keep this open in separate terminals (_right section of screenshot_)
 
 	**Executing inside MySQL pod:** After applying policy
 	```sh
