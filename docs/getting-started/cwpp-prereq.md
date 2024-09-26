@@ -24,10 +24,10 @@ In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud envir
 ## **Pre-requisites**
 ### Minimum Resource required
 
-| Deployments           | Resource Usage             | Port | Connection Type  	| AccuKnox Endpoint                               |
+| Deployments           | Resource Usage             | Ports | Connection Type  	| AccuKnox Endpoint                               |
 |-----------------------|----------------------------|------|-------------------|-------------------------------------------------|
 |KubeArmor              | CPU: 200 m, Memory: 200 Mi | -    | -			| -                                               |
-|Agents Operator        | CPU: 50 m, Memory: 50 Mi   | 8081 | Outbound		| *.accuknox.com:8081 -→ SPIRE Access            |
+|Agents Operator        | CPU: 50 m, Memory: 50 Mi   | 8081,</br> 9090 | Outbound		| *.accuknox.com:8081 -→ SPIRE Access</br> *.accuknox.com:9090 -→ SPIRE Health Check           |
 |Discovery Engine       | CPU: 200 m, Memory: 200 Mi | -    | -			| -                                               |
 |Shared Informer Agent  | CPU: 20 m, Memory: 50 Mi   | 3000 | Outbound		| *.accuknox.com:3000 -→ knox-gateway            |
 |Feeder Service         | CPU: 50 m, Memory: 100 Mi  | 3000 | Outbound		| *.accuknox.com:3000 -→ knox-gateway            |
