@@ -206,6 +206,8 @@ nav:
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
     - "Perform Github IaC Scan": "how-to/github-iac-scan.md"
+    - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
+    - "Onboard Private Github Repositories" : "how-to/private-github-repo-onboarding.md"
 
   - "Integrations":
     - "CI/CD":
@@ -279,6 +281,7 @@ nav:
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Workload Hardening": "use-cases/hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
+      - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
     - "Least Permissive Posture Assessment (CWPP)":
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
