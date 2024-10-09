@@ -12,6 +12,13 @@ To set up this integration, you need to coordinate with your Jira administrator 
 + You need a Jira Site URL , Email, UserID & API token, Project key for this integration.
 + To create JIRA token go to https://id.atlassian.com/manage-profile/security/api-tokens, and click on **create API token**.
 
+![](images/jira-api1.png)
+
++ Add a label to identify the token.
++ Click Create to generate token.
+
+![](images/jira-api2.png)
+
 ??? "JIRA integration for CWPP"
 
     #### **Steps to Integrate:**
@@ -36,32 +43,49 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
 ??? "JIRA integration for CSPM"
     #### **Steps to Integrate:**
-    + Go to Channel Integration → CSPM.
-    + Click on add connector and select JIRA Cloud
+    + Navigate to the **Integration** section under the **Settings** tab.
+    + Select **CSPM** from the available options.
 
-    ![](images/jiracspm1.png)
-    ![](images/jiracspm2.png)
+    ![](images/jira-cspm/j-cspm1.png)
+
+    + Click **Add Connection**, then choose **Jira Cloud** from the dropdown under **Type**.
+
+    ![](images/jira-cspm/j-cspm2.png)
+
+    ![](images/jira-cspm/j-cspm3.png)
+
+    + Click **Next**.
 
     Enter the following details to configure JIRA.
 
-    + **Integration Name:** Enter the name for the integration. You can set any name. e.g.,``` Test JIRA ```
-    + **Site:** Enter the site name of your organisation. e.g., ``` https://jiratest.atlassian.net/ ```
-    + **User Email:** Enter your Jira account email address here.e.g., ``` jira@organisation.com ```
-    + **Token:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
+    + **Integration Name**: Provide a name for the integration (customize as desired). e.g.,``` Test JIRA ```
+    + **Service Desk URL**: Enter your organization’s Jira site URL. e.g., ``` https://jiratest.atlassian.net/ ```
+    + **User Email**: Enter the email address associated with your Jira account. e.g., ``` jira@organisation.com ```
+    + **Secret:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
 
-    ![](images/jiracspm3.png)
+    ![](images/jira-cspm/j-cspm6.png)
 
-    Click on the Jira ticketing backend to add configuration.
+    **Now Setup Ticket Configuration**
+
+    + Click on the Jira ticketing backend to add configuration.
+
+    ![](images/jira-cspm/j-cspm4.png)
 
     Here Enter the following details:
 
-      + **Configuration name:** this name will be displayed under ticket configuration while creating tickets.
-      + **Default template:** to specify the of data that this configuration will be used for making tickets.
-      + **Project name:** From the list of project select the project where you want your tickets to be created.
-      + **Issue Type:** You can choose from the dropdown.
-      + Fill the priority mapping according to your choice and press **save**.
+      + **Configuration Name**: Provide a name for this configuration. This name will be visible while creating tickets.
+      + **Default Template**: Choose a predefined template based on your requirements, or create a custom template tailored to your needs.
+      + **Project Name**: From the list, select the Jira project where tickets will be created.
+      + **Issue Type**: Select an issue type that categorizes the work (e.g., task, sub-task, bug, story).
+      + **Priority**: Assign a priority level based on your preferences.
+      + Click **Save**.
 
-You can now configure Alert Triggers for JIRA .
+      ![](images/jiracspm3.png)
+
+      <!-- + For More Ticketing Templates
+      [Refer this](ticket-template.md) -->
+
+Your Jira Cloud is now integrated, and you can now configure Alert Triggers for JIRA .
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
