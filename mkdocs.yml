@@ -282,6 +282,7 @@ nav:
       - "Workload Hardening": "use-cases/hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
+      - "Pod Security Admission Control" : "use-cases/pod-security-admission-controller.md"
     - "Least Permissive Posture Assessment (CWPP)":
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
