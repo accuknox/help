@@ -82,8 +82,8 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
       ![](images/jiracspm3.png)
 
-      <!-- + For More Ticketing Templates
-      [Refer this](ticket-template.md) -->
+      + For More Ticketing Templates
+      [Refer this](ticket-template.md)
 
 Your Jira Cloud is now integrated, and you can now configure Alert Triggers for JIRA .
 
