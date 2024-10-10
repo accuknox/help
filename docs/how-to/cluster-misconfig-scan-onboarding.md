@@ -2,12 +2,10 @@
 
 This guide outlines the steps for onboarding a cluster to AccuKnox SaaS for scanning cluster misconfigurations.
 
-For onboarding a cluster and for scanning for misconfigurations you need to create a token first. For creating follow these steps
+For onboarding a cluster and for scanning for misconfigurations you need to create a token first. For creating follow these steps:
 
-1. Go to `Settings > Tokens`.
-2. Click on the create button.
-3. Give your token a name.
-4. Click on generate button.
+Go to `Settings > Tokens` and click on the create button.
+Give your token a name and click on generate button.
 
 ![image-20240930-120702.png](images/cluster-misconfig-onboarding/1.png)
 

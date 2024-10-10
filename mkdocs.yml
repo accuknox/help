@@ -192,6 +192,7 @@ nav:
       - "GCP" : "how-to/gcp-onboarding.md"
     - "Onboard Cluster" :
       - "Cluster Onboarding" : "how-to/cluster-onboarding.md"
+      - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
       - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
       # - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
       # - "Managed" : "getting-started/cluster-onboarding-managed.md"
@@ -206,7 +207,6 @@ nav:
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
     - "Perform Github IaC Scan": "how-to/github-iac-scan.md"
-    - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
     - "Onboard Private Github Repositories" : "how-to/private-github-repo-onboarding.md"
 
   - "Integrations":
