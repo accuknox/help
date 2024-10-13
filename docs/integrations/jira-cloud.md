@@ -56,12 +56,12 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
     + Click **Next**.
 
-    Enter the following details to configure JIRA.
+    Enter the following details to configure JIRA:
 
-    + **Integration Name**: Provide a name for the integration (customize as desired). e.g.,``` Test JIRA ```
-    + **Service Desk URL**: Enter your organization’s Jira site URL. e.g., ``` https://jiratest.atlassian.net/ ```
-    + **User Email**: Enter the email address associated with your Jira account. e.g., ``` jira@organisation.com ```
-    + **Secret:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens. .e.g., kRVxxxxxxxxxxxxx39 ```
+    + **Integration Name**: Provide a name for the integration (customize as desired). e.g., `Test JIRA`
+    + **Service Desk URL**: Enter your organization’s Jira site URL. e.g., `https://jiratest.atlassian.net/`
+    + **User Email**: Enter the email address associated with your Jira account. e.g., `jira@organisation.com`
+    + **Secret**: Enter the generated Token from [here](https://id.atlassian.com/manage-profile/security/api-tokens). e.g., `kRVxxxxxxxxxxxxx39`
 
     ![](images/jira-cspm/j-cspm6.png)
 
@@ -71,21 +71,60 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
     ![](images/jira-cspm/j-cspm4.png)
 
-    Here Enter the following details:
+    Here, enter the following details:
 
       + **Configuration Name**: Provide a name for this configuration. This name will be visible while creating tickets.
       + **Default Template**: Choose a predefined template based on your requirements, or create a custom template tailored to your needs.
       + **Project Name**: From the list, select the Jira project where tickets will be created.
       + **Issue Type**: Select an issue type that categorizes the work (e.g., task, sub-task, bug, story).
-      + **Priority**: Assign a priority level based on your preferences.
-      + Click **Save**.
 
-      ![](images/jiracspm3.png)
+    **Mandatory/Custom Fields**
 
-      + For More Ticketing Templates
-      [Refer this](ticket-template.md)
+      Each issue type includes various mandatory or custom fields that are critical to the overall management of issues within a project.
+      
+      + **Issue Type**: Task
+      + **Components**: Defines the component(s) involved in the task, e.g., UI, Backend, Database.
+      + **Project**: The project to which the task is assigned (e.g., CNAPP, CSPM).
+      + **Fix Versions**: Indicates the version(s) in which the task is planned to be completed.
+      + **Priority**: Determines the urgency of the task (e.g., Low, Medium, High, Critical).
+      + **Affects Versions**: Specifies the versions impacted by the task.
 
-Your Jira Cloud is now integrated, and you can now configure Alert Triggers for JIRA .
+    ![](images/jiracspm_customFields.png)
+
+    + **Auto Maintain Tickets**: Automatically manages ticket statuses to keep them updated without manual intervention.
+    + **Keep Syncing Closed Tickets**: Ensures closed tickets are continuously synced for real-time accuracy across systems.
+
+    + **Remap Priority**: Assign a priority level based on your preferences.
+
+    **Comment Analysis**
+
+    + **Comment Analysis Overview** It helps automatically categorize comments to track issue progress and manage exceptions. **Regex (Regular Expressions)** can be used to identify patterns within comments.
+    + **Key Fields**
+        + **Regex**: A regular expression used to filter comments.
+            + **Example**: `waiting for approval|needs revision`
+        + **Status Options**
+            - **Active**: Issue is currently being worked on.
+            - **Fixed**: Issue has been resolved.
+            - **In-Progress**: Ongoing work is noted in comments.
+            - **Exception Request**: Flags comments requesting special handling.
+            - **Potential**: Indicates a potential issue for further review.
+            - **Wait for 3rd Party**: Delays due to external dependencies.
+            - **Duplicate**: Marks comments indicating the issue is a duplicate.
+    + **Use Cases**
+        - **Progress Tracking**: Automatically update status to **In-Progress** for relevant comments.
+        - **Duplicate Issues**: Flag duplicates based on comments like "duplicate of issue #123".
+        - **Exceptions**: Identify special requests through comments.
+    
+    + Implementing **Comment Analysis** provides streamlines issue management and enhances visibility into project status.
+
+    ![](images/jiracspm_commentAnalysis.png)
+    + Click **Save**.
+
+    ![](images/jiracspm3.png)
+
+    + For more ticketing templates, [refer to this](ticket-template.md).
+
+Your Jira Cloud is now integrated, and you can configure alert triggers for JIRA.
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
