@@ -69,6 +69,15 @@ The ticket template system offers both dynamic and static templates, allowing fo
 
 In security scanning workflows, various tools are used to detect vulnerabilities, compliance violations, misconfigurations, and infrastructure issues. Each of these tools produces reports containing specific fields such as the name, description, location, and remediation steps for the identified issues. These fields need to be correctly extracted and placed into ticket templates for further action.
 
+#### Steps to extract the field for more information
+
++ Right-click and Inspect: Right-click and choose Inspect to open the Developer Tools
+![](images/ticketing-template/ticket_template_custom1.png)
++ Go to the Network Tab: In the Developer Tools, click on the Network tab. This tab records all network requests made by the web page, including data fetched from the server.
++ Extract the Data: In the Response section of the selected request, you should see the data. You can use this information to identify the fields you need.
+![](images/ticketing-template/ticket_template_fields.png)
+
+Here are some examples
 #### A. Vulnerability Scan Data
 Vulnerability scans detect asset security flaws (e.g., servers, applications, containers). The following fields should be retrieved from a vulnerability scan report:
 
