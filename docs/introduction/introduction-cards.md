@@ -5,7 +5,7 @@ hide:
 
 # AccuKnox Enterprise CNAPP
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: Cloud Security (CSPM)
   content: Visibility and orchestration of multi-cloud resources with continuous compliance and auditing.
@@ -27,7 +27,19 @@ hide:
   image: cards/devsecops.svg
   url: devsecops.md
 
+- title: AI/ML Security
+  content: AI/ML powered by ModelKnox based security analytics for threat detection and response.
+  image: cards/aiml-security.svg
+  url: devsecops.md
+
+
+- title: Open Source (KubeArmor)
+  content: KubeArmor is a security system that blocks malicious activities in Kubernetes.
+  image: cards/open-source.svg
+  url: devsecops.md
+
 ::/cards::
+
 
 <!--
 
