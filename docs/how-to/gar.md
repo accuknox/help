@@ -30,37 +30,20 @@ If you like, refer to what the permissions granted by the two roles:
 - [Cloud IAM Apigee Registry Viewer Role](https://cloud.google.com/iam/docs/understanding-roles#apigeeregistry.viewer)
 - [Cloud IAM Artifact Registry Reader Role](https://cloud.google.com/iam/docs/understanding-roles#artifactregistry.reader)
 
-Here is the updated version with the new instructions replacing the old ones:
-
----
-
-## Steps to create a service account token by adding the above-predefined permission
-
-1. Navigate to the GCP Console and click on the **Service Accounts** tab, go to the created service account.
-
-2. Click on the **Service Account Token** on the left-side panel.
-
-3. Click on **Create Service Account Token**.
-
-4. Fill in the **Service Account details**.
-
-5. In the **Grant this SA to project** tab, provide the two predefined roles mentioned above (Note: For reference, see the screenshot below).
-
-6. Click on **Done** to create the service account.
-
 ## To generate a token for that service account
 
-1. Click on the **Service Account name** you want to generate the token for.
+**Step 1:** Click on the **Service Account name** you want to generate the token for.
 
 ![gar-onboarding](images/gar/sa-click.png)
 
 ![gar-onboarding](images/gar/add-key.png)
 
-2. Go to the **Keys** tab, click on **Add Key**, and select the **Key Type** as **JSON**. This will download the JSON file to your system.
+**Step 2:** Go to the **Keys** tab, click on **Add Key**, and select the **Key Type** as **JSON**. This will download the JSON file to your system.
 
 ![gar-onboarding](images/gar/select-json.png)
 
-**Note:** The Private Key will be saved to your system automatically. We will require it for onboarding the GAR registry in AccuKnox SaaS.
+!!!note info
+    The Private Key will be saved to your system automatically. We will require it for onboarding the GAR registry in AccuKnox SaaS.
 
 ## Steps to onboard the registry on AccuKnox SaaS
 
