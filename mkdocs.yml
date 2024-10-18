@@ -229,6 +229,8 @@ nav:
             - "Container Scan": "integrations/gitlab-container-scan.md"
             - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
+        - "CheckMarx":
+            - "SAST": "integrations/checkmarx-sast.md"
     - "Container Platform":
         - "Nutanix":
           - "AccuKnox": "integrations/nutanix-accuknox.md"

@@ -52,3 +52,7 @@
     border-top-right-radius: 5px;
     font-weight: 700;
 }
+
+body .gist .gist-meta {
+    display: none;
+  }
