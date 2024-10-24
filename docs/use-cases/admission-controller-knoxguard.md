@@ -49,14 +49,18 @@ shared-informer-agent-77569db588-c944p    1/1     Running   1090 (2m36s ago)   4
 First, you need to deploy Kyverno, a policy engine for Kubernetes, which Knoxguard utilizes for policy enforcement.
 
 ```bash
-helm upgrade --install knoxguard oci://public.ecr.aws/k9v9d5v2/knoxguard-chart --version=v0.2.0 -n knoxguard --create-namespace
+helm repo add kyverno https://kyverno.github.io/kyverno/
+helm repo update
+helm install kyverno kyverno/kyverno -n kyverno --create-namespace
 ```
 
 ### **Step 2: Deploy Knoxguard:**
 
 Next, deploy Knoxguard in your Kubernetes cluster. Knoxguard will work in tandem with Kyverno to enforce the defined policies.
 
-`helm upgrade --install knoxguard oci://public.ecr.aws/k9v9d5v2/knoxguard-chart --version=v0.2.0 -n knoxguard --create-namespace`
+```bash
+helm upgrade --install knoxguard oci://public.ecr.aws/k9v9d5v2/knoxguard-chart --version=v0.2.0 -n knoxguard --create-namespace
+```
 
 Verify the deployments:
 
@@ -114,7 +118,6 @@ userx@fedora:~$ kubectl get admissionpolicy
 NAME                   READY   MESSAGE                                       OWNED_PPLICIES
 test-priv-pod-policy   True    clusterpolicy has been updated successfully   ["knoxguard-privilege-pod-test-priv-pod-policy"]
 ```
-
 
 ## Policy Violation and Alerts
 
