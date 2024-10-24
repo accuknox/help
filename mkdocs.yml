@@ -202,7 +202,6 @@ nav:
       - "GAR": "how-to/gar.md"
       - "Harbor": "how-to/harbor.md"
     - "Onboard VM" : "how-to/vm-onboarding-getting-started.md"
-      # - "Policy Demonstration": "getting-started/vm-onboarding.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
     - "Signup/Login via SSO": "how-to/sso.md"
@@ -214,6 +213,7 @@ nav:
     - "CI/CD":
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
+          - "Container Image Scan": "integrations/azure-container-scan.md"
         - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
           - "DAST": "integrations/google-dast.md"
@@ -323,6 +323,7 @@ nav:
       - "CSPM Cloud Assets": "resources/count-assets.md"
       - "CWPP Container Images": "resources/count-registry.md"
       - "CWPP Worker Nodes": "resources/count-nodes.md"
+    - "SystemD Based Non-BTF Environments": "resources/systemd-nonbtf.md"
     - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Backup my Scan Data": "resources/scan-data-backup.md"
     - "Troubleshooting": "resources/troubleshooting.md"
