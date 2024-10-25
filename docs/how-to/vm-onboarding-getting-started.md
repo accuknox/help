@@ -1,4 +1,4 @@
-# Onboarding VMs
+# Onboarding VMs with Systemd/Docker Mode
 
 ## Systemd
 
@@ -28,7 +28,7 @@ else
 fi
 ```
 
-If the script returns "BTF info not present," BTF support is not available, and you should run the script below to build the required files on your system:
+If the script returns "BTF info not present," [BTF support is not available](../how-to/systemd-nonbtf.md), and you should run the script below to build the required files on your system:
 
 ```bash
 # Download KubeArmor
@@ -63,6 +63,8 @@ Ports required on the control plane VM:
 - kubearmor-relay-server: 32768
 - shared-informer-agent: 32769
 - policy-enforcement-agent: 32770
+
+Check the CWPP documentation for more details on the [network requirements](../getting-started/cwpp-prereq.md#minimum-resource-required).
 
 You can check the connectivity between nodes using curl. Upon a successful connection, the message returned by curl will be:
 
@@ -230,5 +232,3 @@ After that cleanup the ~/.accuknox-config directory
 ```sh
 rm -rf ~/.accuknox-config
 ```
-
-
