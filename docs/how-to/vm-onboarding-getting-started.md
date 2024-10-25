@@ -1,4 +1,4 @@
-# Onboarding VMs
+# Onboarding VMs with Systemd/Docker Mode
 
 ## Systemd
 
@@ -28,7 +28,7 @@ else
 fi
 ```
 
-If the script returns "BTF info not present," [BTF support is not available](../resources/systemd-nonbtf.md), and you should run the script below to build the required files on your system:
+If the script returns "BTF info not present," [BTF support is not available](../how-to/systemd-nonbtf.md), and you should run the script below to build the required files on your system:
 
 ```bash
 # Download KubeArmor
