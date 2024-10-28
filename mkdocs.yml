@@ -194,15 +194,14 @@ nav:
       - "Cluster Onboarding" : "how-to/cluster-onboarding.md"
       - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
       - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
-      # - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
-      # - "Managed" : "getting-started/cluster-onboarding-managed.md"
     - "Onboard Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
       - "GAR": "how-to/gar.md"
       - "Harbor": "how-to/harbor.md"
-    - "Onboard VM" : "how-to/vm-onboarding-getting-started.md"
-      # - "Policy Demonstration": "getting-started/vm-onboarding.md"
+    - "Onboard VM" :
+      - "SystemD/Docker Mode" : "how-to/vm-onboarding-getting-started.md"
+      - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
     - "Signup/Login via SSO": "how-to/sso.md"
@@ -215,6 +214,8 @@ nav:
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
           - "SAST": "integrations/azure-sast.md"
+          - "Container Image Scan": "integrations/azure-container-scan.md"
+          - "Azure IaC": "integrations/azure-iac.md"
         - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
           - "DAST": "integrations/google-dast.md"
@@ -287,6 +288,7 @@ nav:
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
       - "Pod Security Admission Control" : "use-cases/pod-security-admission-controller.md"
+      - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
     - "Least Permissive Posture Assessment (CWPP)":
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"
