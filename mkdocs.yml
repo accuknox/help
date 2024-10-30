@@ -271,6 +271,7 @@ nav:
         - "Connectwise" : "integrations/connectwise-cspm.md"
         - "ServiceNow" : "integrations/servicenow.md"
   - "Use-Cases":
+    - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
     - "DevSecOps (ASPM)":
       - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
       - " ASPM Container Scan": "use-cases/container-scan.md"
