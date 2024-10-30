@@ -90,7 +90,7 @@ Trend analysis showing the status of findings and their changes over time in the
 
 ![alt](images/cnapp-security-overview/20.png)
 
-This widget shows the number of cloud accounts on boarded on the AccuKnox platform and the status of their connection, i.e: Active/Inactive. It also shows the status of their connection
+This widget shows the number of cloud accounts on boarded on the AccuKnox platform and the status of their connection, i.e: Active/Inactive.
 
 ### **5. Findings Widget**
 
