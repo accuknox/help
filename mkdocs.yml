@@ -223,12 +223,13 @@ nav:
           - "Container Image Scan": "integrations/harness-container-scan.md"
           - "IaC Scan": "integrations/harness-iac-scan.md"
         - "Jenkins":
-            "IaC Scan": "integrations/jenkins-iac-scan.md"
             "Container Scan": "integrations/jenkins-container-scan.md"
+            "IaC Scan": "integrations/jenkins-iac-scan.md"
             # "SAST": "integrations/jenkins-sast.md"
             # "DAST": "integrations/jenkins-dast.md"
         - "AWS Code Pipeline":
           - "Container Scan": "integrations/aws-container-scan.md"
+          - "DAST": "integrations/aws-dast.md"
           - "SAST": "integrations/aws-sast.md"
         - "Gitlab":
             - "Container Scan": "integrations/gitlab-container-scan.md"
