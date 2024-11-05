@@ -216,23 +216,24 @@ nav:
           - "Container Image Scan": "integrations/azure-container-scan.md"
         - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
-          - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
+          - "DAST": "integrations/google-dast.md"
           - "SAST": "integrations/google-sast.md"
         - "Harness":
           - "Container Image Scan": "integrations/harness-container-scan.md"
           - "IaC Scan": "integrations/harness-iac-scan.md"
         - "Jenkins":
-            "Container Scan": "integrations/jenkins-container-scan.md"
-            "IaC Scan": "integrations/jenkins-iac-scan.md"
-            # "SAST": "integrations/jenkins-sast.md"
-            # "DAST": "integrations/jenkins-dast.md"
+          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "IaC Scan": "integrations/jenkins-iac-scan.md"
+          - "DAST": "integrations/jenkins-dast.md"
+          - "SAST": "integrations/jenkins-sast.md"
         - "AWS Code Pipeline":
           - "Container Scan": "integrations/aws-container-scan.md"
           - "DAST": "integrations/aws-dast.md"
           - "SAST": "integrations/aws-sast.md"
         - "Gitlab":
             - "Container Scan": "integrations/gitlab-container-scan.md"
+            - "IaC Scan": "integrations/gitlab-iac-scan.md"
             - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
         - "CheckMarx":
