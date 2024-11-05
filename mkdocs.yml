@@ -214,6 +214,7 @@ nav:
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
           - "Container Image Scan": "integrations/azure-container-scan.md"
+          - "Iac Scan": "integrations/azure-iac.md"
         - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
