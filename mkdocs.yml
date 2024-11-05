@@ -235,7 +235,7 @@ nav:
           - "SAST": "integrations/aws-sast.md"
         - "Gitlab":
             - "Container Scan": "integrations/gitlab-container-scan.md"
-            - "IaC Scan": "integrations/gitlab-iac-scan.md"
+            - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
         - "CheckMarx":

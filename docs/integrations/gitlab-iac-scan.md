@@ -1,4 +1,4 @@
-# GitLab IaC Scan
+# GitLab IaC Scan via Accuknox
 
 This guide demonstrates how to secure a CI/CD pipeline in GitLab using Accuknox to enhance security for Infrastructure as Code (IaC). We will identify code vulnerabilities and send the results to AccuKnox for analysis and remediation.
 
@@ -17,7 +17,7 @@ This guide demonstrates how to secure a CI/CD pipeline in GitLab using Accuknox 
 ## **Configuring Code Source in Accuknox**
 
 1. Go to `Settings > Integration > Code Source Configuration` on the Accuknox platform.
-![alt](images/gitlab-iac-scan/.3png)
+![alt](images/gitlab-iac-scan/3.png)
 
 2. Enter the repository path:
 
@@ -49,13 +49,13 @@ This guide demonstrates how to secure a CI/CD pipeline in GitLab using Accuknox 
 
 2. Select the repository from the dropdown menu that you previously added.
 
-![alt](images/gitlab-iac-scan/5.png)
+![alt](images/gitlab-iac-scan/6.png)
 
 1. Under the conditions which is an Optional field, you can **include** or **exclude** specific files from the scan.
 
 2. Save the configuration.
 
-![alt](images/gitlab-iac-scan/6.png)
+![alt](images/gitlab-iac-scan/7.png)
 
 ## **Viewing and Managing IaC Findings on Accuknox**
 
@@ -65,4 +65,4 @@ This guide demonstrates how to secure a CI/CD pipeline in GitLab using Accuknox 
 
 3. Add the appropriate labels to filter and view the specific IaC findings.
 
-![alt](images/gitlab-iac-scan/7.png)
+![alt](images/gitlab-iac-scan/8.png)
