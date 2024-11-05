@@ -50,17 +50,17 @@ Navigate to the Azure DevOps > Pipelines > Library and click on the add variable
 
 Name your variable group as `AccuKnox`. And configure the following variables.
 
--   `TENANT_ID`
+-   `TENANT_ID`- Your AccuKnox tenant id.
 
--   `ACCUKNOX_TOKEN`
+-   `ACCUKNOX_TOKEN`- AccuKnox API token.
 
--   `LABEL`
+-   `LABEL`- Used to group findings together.
 
--   `SQ_TOKEN`
+-   `SQ_TOKEN`- SonarQube API token.
 
--   `SQ_URL`
+-   `SQ_URL`- URL of the SonarQube app
 
--   `SQ_PROJECT`
+-   `SQ_PROJECT`- Name of your SonarQube project
 
 ![](images/azure/def7.png)
 
