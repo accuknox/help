@@ -107,18 +107,15 @@ After integrating AccuKnox into the pipeline, pushing changes triggers the Sonar
 1. **Access the Dashboard:** After the pipeline completes, navigate to the AccuKnox SaaS dashboard.
 
 2. **View Findings:** Go to **Issues > Findings** and select **SAST Findings** to see identified vulnerabilities.
-
 ![image-20240822-102607.png](images/gitlab-sast/4.png)
 
-1. **Analyze and Fix Vulnerabilities:** Click on a vulnerability to view more details and follow the instructions in the **Solutions** tab.
-
+3. **Analyze and Fix Vulnerabilities:** Click on a vulnerability to view more details and follow the instructions in the **Solutions** tab.
 ![image-20240822-102653.png](images/gitlab-sast/5.png)
 
-1. **Create a Ticket:** For unresolved vulnerabilities, create a ticket in your issue tracking system.
-
+4. **Create a Ticket:** For unresolved vulnerabilities, create a ticket in your issue tracking system.
 ![image-20240822-102743.png](images/gitlab-sast/6.png)
 
-1. **Re-run the Pipeline:** After fixing the vulnerabilities, rerun the GitLab CI/CD pipeline and verify that the issues have been resolved in the AccuKnox dashboard.
+5. **Re-run the Pipeline:** After fixing the vulnerabilities, rerun the GitLab CI/CD pipeline and verify that the issues have been resolved in the AccuKnox dashboard.
 
 ## Conclusion
 
