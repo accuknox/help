@@ -116,7 +116,7 @@ plugins:
         - en
   - redirects:
         redirect_maps:
-            'index.md': 'introduction/introduction-cards.md'
+            'index.md': 'introduction/welcome.md'
 # Customization
 #extra_javascript:
 # - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
@@ -160,7 +160,7 @@ pages:
 
 nav:
   - "Getting Started":
-    - "Introduction": "introduction/introduction-cards.md"
+    - "Introduction": "introduction/welcome.md"
     - "AccuKnox Architecture (Enterprise CNAPP Suite)" : "introduction/accuknox-architecture.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
