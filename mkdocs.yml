@@ -195,14 +195,14 @@ nav:
       - "Cluster Onboarding" : "how-to/cluster-onboarding.md"
       - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
       - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
-      # - "Unmanaged" : "getting-started/cluster-onboarding-unmanaged.md"
-      # - "Managed" : "getting-started/cluster-onboarding-managed.md"
     - "Onboard Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
       - "GAR": "how-to/gar.md"
-    - "Onboard VM" : "how-to/vm-onboarding-getting-started.md"
-      # - "Policy Demonstration": "getting-started/vm-onboarding.md"
+      - "Harbor": "how-to/harbor.md"
+    - "Onboard VM" :
+      - "SystemD/Docker Mode" : "how-to/vm-onboarding-getting-started.md"
+      - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
     - "Signup/Login via SSO": "how-to/sso.md"
@@ -214,23 +214,35 @@ nav:
     - "CI/CD":
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
+          - "SAST": "integrations/azure-sast.md"
+          - "Container Image Scan": "integrations/azure-container-scan.md"
+          - "Iac Scan": "integrations/azure-iac.md"
         - "Google Cloud Build":
           - "Container Image Scan": "integrations/google-build.md"
-          - "DAST": "integrations/google-dast.md"
           - "IaC Scan": "integrations/google-iac.md"
+          - "DAST": "integrations/google-dast.md"
           - "SAST": "integrations/google-sast.md"
         - "Harness":
           - "Container Image Scan": "integrations/harness-container-scan.md"
           - "IaC Scan": "integrations/harness-iac-scan.md"
-        - "Jenkins IaC Scan Plugin": "integrations/jenkins-iac-scan.md"
+        - "Jenkins":
+          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "IaC Scan": "integrations/jenkins-iac-scan.md"
+          - "DAST": "integrations/jenkins-dast.md"
+          - "SAST": "integrations/jenkins-sast.md"
         - "AWS Code Pipeline":
           - "Container Scan": "integrations/aws-container-scan.md"
+          - "IaC Scan": "integrations/aws-iac-scan.md"
+          - "DAST": "integrations/aws-dast.md"
+          - "SAST": "integrations/aws-sast.md"
         - "Gitlab":
             - "Container Scan": "integrations/gitlab-container-scan.md"
-            - "IaC Scan": "integrations/gitlab-iac-scan.md"
+            - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
             - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
+        - "CheckMarx":
+            - "SAST": "integrations/checkmarx-sast.md"
     - "Container Platform":
         - "Nutanix":
           - "AccuKnox": "integrations/nutanix-accuknox.md"
@@ -271,6 +283,7 @@ nav:
         - "Connectwise" : "integrations/connectwise-cspm.md"
         - "ServiceNow" : "integrations/servicenow.md"
   - "Use-Cases":
+    - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
     - "DevSecOps (ASPM)":
       - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
       - " ASPM Container Scan": "use-cases/container-scan.md"
@@ -286,6 +299,7 @@ nav:
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
       - "Pod Security Admission Control" : "use-cases/pod-security-admission-controller.md"
+      - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
     - "Least Permissive Posture Assessment (CWPP)":
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
       - "Audit/Forensics": "use-cases/forensics.md"

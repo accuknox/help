@@ -17,8 +17,7 @@ To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline usin
 
 ![image-20240819-074716.png](images/gitlab-dast/2.png)
 
-**Step 3**: Create a label
-Go to AccuKnox > Settings > Labels and create a label, and configure it as a GitLab CI/CD variable.
+**Step 3**: To create a label, navigate to AccuKnox > Settings > Labels, assign a name to your label, click the save button, and then configure it as a GitLab CI/CD variable
 
 ![image-20240822-105803.png](images/gitlab-dast/3.png)
 

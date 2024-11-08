@@ -6,6 +6,10 @@
 
 }
 
+body .gist .gist-meta {
+  display: none;
+}
+
 
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
 

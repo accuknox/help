@@ -59,3 +59,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+body .gist .gist-meta {
+    display: none;
+  }
