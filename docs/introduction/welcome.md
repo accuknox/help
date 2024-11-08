@@ -320,6 +320,148 @@ max-width: 30%;
   }
 }
 
+
+/* SECTION 5 CSS */
+
+  .section5-container {
+        background-color: #f9f9fc;
+        padding: 20px;
+    }
+
+    .section5-title {
+        text-align: center;
+        color: #030372;
+        font-size: 36px !important;
+        font-weight: 900 !important;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .section5-description {
+        text-align: center;
+        color: #1a1a1a;
+        font-size: 18px;
+        margin-bottom: 40px;
+        margin-top: -20px;
+    }
+
+    .section5-card-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .section5-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 450px;
+    }
+
+    .section5-card img {
+        width: 4rem;
+        /* margin-bottom: 20px; */
+        margin-top: -20px;
+    }
+
+    .section5-card-title {
+        color: #1a1a1a;
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .section5-card-text {
+        color: #1a1a1a;
+        font-size: 14px;
+        margin-bottom: 20px;
+        padding-left: 50px;
+    padding-right: 50px;
+    }
+
+    .section5-card-link {
+        color: #1a73e8;
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+
+  /* section 6 CSS*/
+ .section6-container {
+        padding: 150px;
+    }
+
+    .section6-title {
+        color: #1b0b72;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+  .section6-card-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 60px;
+      justify-items: center;
+  }
+    .section6-card {
+        width: 280px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: left;
+    }
+
+    .section6-card-image {
+        width: 100%;
+        height: 160px;
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section6-card-content {
+        padding: 15px;
+    }
+
+    .section6-card-title {
+        color: #1a1a1a;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .section6-card-duration {
+        color: #888888;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .section6-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .section6-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #1a73e8;
+        border: 2px solid #1a73e8;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .section6-button:hover {
+        background-color: #1a73e8;
+        color: #ffffff;
+    }
 </style>
 
 <!-- SECTION 1 - TOP CONTAINER -->
@@ -477,7 +619,6 @@ max-width: 30%;
 </div>
 </section>
 
-
 <!-- SECTION 4 - INTEGRATION -->
 <section>
 <div class="integrations-container">
@@ -492,5 +633,113 @@ max-width: 30%;
    <a href="#">GET STARTED</a>
    </button>
  </div>
+</div>
+</section>
+
+<!-- SECTION 5 - TECHINCAL SUPPORT -->
+<section>
+  <div class="section5-container">
+    <h2 class="section5-title">Technical Support</h2>
+    <p class="section5-description">Empower your security team with the product knowledge they need to maximize the value of your solution.</p>
+        <div class="section5-card-container">
+            <div class="section5-card">
+            <img src="../cards/badge1.svg" alt="Tech Support Icon">
+            <h3 class="section5-card-title">Tech Support</h3>
+            <p class="section5-card-text">Contact our Support Team to quickly resolve any issues.</p>
+            <a href="#" class="section5-card-link">CONNECT WITH US &rarr;</a>
+            </div>
+          <div class="section5-card">
+            <img src="../cards/badge2.svg" alt="Certification Icon">
+            <h3 class="section5-card-title">AccuKnox Certifications</h3>
+            <p class="section5-card-text">AccuKnox certifications ensure compliance with industry security standards.</p>
+            <a href="#" class="section5-card-link">GET CERTIFIED &rarr;</a>
+          </div>
+          <div class="section5-card">
+            <img src="../cards/badge3.svg" alt="Downloads Icon">
+            <h3 class="section5-card-title">Downloads</h3>
+            <p class="section5-card-text">Download and make the most of AccuKnox guides and manuals.</p>
+            <a href="#" class="section5-card-link">DOWNLOAD NOW &rarr;</a>
+          </div>
+        </div>
+  </div>
+</section>
+
+
+<!-- SECTION 6 -->
+<section>
+<div class="section6-container">
+    <h2 class="section6-title">Product Videos & Demos</h2>
+
+    <div class="section6-card-container">
+        <!-- Card 1 -->
+        <div class="section6-card">
+            <div class="section6-card-image">
+                <img src="placeholder-image.png" alt="Video Thumbnail">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to subscribe to AccuKnox from AWS Marketplace</p>
+                <p class="section6-card-duration">05:24 mins</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="section6-card">
+            <div class="section6-card-image">
+                <img src="placeholder-image.png" alt="Video Thumbnail">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Product Tour | Agentless Cloud Security | Release v2.0</p>
+                <p class="section6-card-duration">05:24 mins</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="section6-card">
+            <div class="section6-card-image">
+                <img src="placeholder-image.png" alt="Video Thumbnail">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">AccuKnox Zero Trust Secrets Management 101</p>
+                <p class="section6-card-duration">03:07 mins</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="section6-card">
+            <div class="section6-card-image">
+                <img src="placeholder-image.png" alt="Video Thumbnail">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure</p>
+                <p class="section6-card-duration">Interactive Product Demo</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="section6-card">
+            <div class="section6-card-image">
+                <img src="placeholder-image.png" alt="Video Thumbnail">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to scan GitHub IaC</p>
+                <p class="section6-card-duration">Interactive Product Demo</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="section6-card">
+            <div class="section6-card-image">
+                <img src="placeholder-image.png" alt="Video Thumbnail">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to Prevent execution of malicious code in Jupyter Notebook</p>
+                <p class="section6-card-duration">Interactive Product Demo</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section6-button-container">
+        <a href="#" class="section6-button">MORE VIDEOS &rarr;</a>
+    </div>
 </div>
 </section>
