@@ -392,7 +392,8 @@ max-width: 30%;
 
   /* section 6 CSS*/
  .section6-container {
-        padding: 150px;
+        padding-left: 150px;
+        padding-right: 150px;
     }
 
     .section6-title {
@@ -551,7 +552,7 @@ max-width: 30%;
 <!-- SECTION 3 - POPULAR USE CASES -->
 <section>
 <div class="use-cases-container">
-  <h2 class="header2" style="font-size: 36px; margin-top: 1rem;">Popular Use-Cases</h2>
+  <h2 class="section5-title" style="font-size: 36px; margin-top: 1rem;">Popular Use-Cases</h2>
   <div class="use-cases-grid">
     <div class="use-cases-category">
       <p class="use-cases-category-title">DevSecOps (ASPM)</p>
@@ -668,7 +669,7 @@ max-width: 30%;
 <!-- SECTION 6 -->
 <section>
 <div class="section6-container">
-    <h2 class="section6-title">Product Videos & Demos</h2>
+    <h2 class="section5-title">Product Videos & Demos</h2>
 
     <div class="section6-card-container">
         <!-- Card 1 -->
