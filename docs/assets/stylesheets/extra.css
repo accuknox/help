@@ -53,7 +53,7 @@
     font-weight: 700;
 }
 
-.home-cards{
+.home-cards {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,4 +62,5 @@
 
 body .gist .gist-meta {
     display: none;
-  }
+}
+
