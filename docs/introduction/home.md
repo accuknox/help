@@ -17,10 +17,21 @@ hide:
     display: none;
   }
 
+
+    .section-heading {
+        text-align: center;
+        color: #030372;
+        font-size: 36px !important;
+        font-weight: 900 !important;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
 /* SECTION 1 CSS */
 .main-container {
   background-color: #000080;
   padding: 40px;
+  margin-top: -0.5rem;
 }
 
 .content-container {
@@ -328,14 +339,6 @@ max-width: 30%;
         padding: 20px;
     }
 
-    .section5-title {
-        text-align: center;
-        color: #030372;
-        font-size: 36px !important;
-        font-weight: 900 !important;
-        text-align: center;
-        margin-bottom: 10px;
-    }
 
     .section5-description {
         text-align: center;
@@ -463,6 +466,122 @@ max-width: 30%;
         background-color: #1a73e8;
         color: #ffffff;
     }
+
+    .play-icon{
+        width: 30px;
+        height: 30px;
+        margin-top: 80px;
+        margin-right: -20px; */
+        z-index: 2;
+    }
+
+    /* SECTION 7 CSS*/
+    .section7-container {
+        padding: 20px;
+    }
+
+    .section7-nav {
+        display: flex;
+        gap: 5rem; /* Space between each link */
+        justify-content: center; /* Center the links horizontally */
+
+    }
+
+    .section7-link {
+        color: #0066FF; /* Blue color for text */
+        text-decoration: none; /* Remove underline */
+        font-weight: bold; /* Bold font style */
+        font-size: 16px; /* Font size */
+        padding-right: 5rem;
+        border-right: 1px solid black;
+    }
+
+    .section7-link:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
+
+    /* SECTION 8 CSS */
+.section8-container {
+    background-color: #f4f8fb;
+    padding: 2rem;
+}
+
+.section8-card{
+    background: white;
+    padding: 2rem;
+    margin: 2rem 10rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.section8-left,
+.section8-right {
+    flex: 1;
+}
+
+.section8-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section8-left-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.section8-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section8-right-content {
+    text-align: center;
+}
+
+.section8-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+.section8-subtitle {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.section8-cost {
+    font-size: 1.25em;
+    color: #e53935; /* Red color for emphasis */
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.section8-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.section8-button:hover {
+    background-color: #0056b3;
+}
+
+
 </style>
 
 <!-- SECTION 1 - TOP CONTAINER -->
@@ -552,7 +671,7 @@ max-width: 30%;
 <!-- SECTION 3 - POPULAR USE CASES -->
 <section>
 <div class="use-cases-container">
-  <h2 class="section5-title" style="font-size: 36px; margin-top: 1rem;">Popular Use-Cases</h2>
+  <h2 class="section-heading" style="font-size: 36px; margin-top: 1rem;">Popular Use-Cases</h2>
   <div class="use-cases-grid">
     <div class="use-cases-category">
       <p class="use-cases-category-title">DevSecOps (ASPM)</p>
@@ -640,7 +759,7 @@ max-width: 30%;
 <!-- SECTION 5 - TECHINCAL SUPPORT -->
 <section>
   <div class="section5-container">
-    <h2 class="section5-title">Technical Support</h2>
+    <h2 class="section-heading">Technical Support</h2>
     <p class="section5-description">Empower your security team with the product knowledge they need to maximize the value of your solution.</p>
         <div class="section5-card-container">
             <div class="section5-card">
@@ -669,13 +788,14 @@ max-width: 30%;
 <!-- SECTION 6 -->
 <section>
 <div class="section6-container">
-    <h2 class="section5-title">Product Videos & Demos</h2>
+    <h2 class="section-heading">Product Videos & Demos</h2>
 
     <div class="section6-card-container">
         <!-- Card 1 -->
         <div class="section6-card">
             <div class="section6-card-image">
                 <img src="placeholder-image.png" alt="Video Thumbnail">
+                 <img src="../cards/play.svg" class="play-icon">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">How to subscribe to AccuKnox from AWS Marketplace</p>
@@ -687,6 +807,7 @@ max-width: 30%;
         <div class="section6-card">
             <div class="section6-card-image">
                 <img src="placeholder-image.png" alt="Video Thumbnail">
+                 <img src="../cards/play.svg" class="play-icon">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">Product Tour | Agentless Cloud Security | Release v2.0</p>
@@ -698,6 +819,7 @@ max-width: 30%;
         <div class="section6-card">
             <div class="section6-card-image">
                 <img src="placeholder-image.png" alt="Video Thumbnail">
+                 <img src="../cards/play.svg" class="play-icon">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">AccuKnox Zero Trust Secrets Management 101</p>
@@ -709,6 +831,7 @@ max-width: 30%;
         <div class="section6-card">
             <div class="section6-card-image">
                 <img src="placeholder-image.png" alt="Video Thumbnail">
+                <img src="../cards/play.svg" class="play-icon">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure</p>
@@ -720,6 +843,7 @@ max-width: 30%;
         <div class="section6-card">
             <div class="section6-card-image">
                 <img src="placeholder-image.png" alt="Video Thumbnail">
+                 <img src="../cards/play.svg" class="play-icon">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">How to scan GitHub IaC</p>
@@ -731,6 +855,7 @@ max-width: 30%;
         <div class="section6-card">
             <div class="section6-card-image">
                 <img src="placeholder-image.png" alt="Video Thumbnail">
+                 <img src="../cards/play.svg" class="play-icon">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">How to Prevent execution of malicious code in Jupyter Notebook</p>
@@ -739,8 +864,36 @@ max-width: 30%;
         </div>
     </div>
 
-    <div class="section6-button-container">
-        <a href="#" class="section6-button">MORE VIDEOS &rarr;</a>
-    </div>
+<button class="all-use-cases">
+  <a href="https://www.youtube.com/@accuknox">MORE VIDEOS <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a></a>
+</button>
 </div>
+</section>
+
+
+<!-- SECTION 7  - -->
+<section style="margin-top: 2rem; margin-bottom: 2rem;">
+<h2 class="section-heading" style="margin-bottom: 1.6em;">Useful Links</h2>
+<div class="section7-nav">
+    <a href="#" class="section7-link">RESOURCES</a>
+    <a href="#" class="section7-link">SUPPORT MATRIX</a>
+    <a href="#" class="section7-link">GLOSSARY</a>
+    <a href="#" class="section7-link" style="border-right: 0px">FAQ</a>
+</div>
+</section>
+
+
+<!-- SECTION 8  -->
+<section class="section8-container" style="margin-bottom: -1rem">
+    <div class="section8-card">
+    <div class="section8-left">
+        <img src="../cards/s8-image-left.png" alt="Why AccuKnox?" class="section8-left-image">
+    </div>
+    <div class="section8-right">
+        <div class="section8-right-content">
+            <img src="../cards/s8-image-right.png" alt="Why AccuKnox?" class="section8-left-image"><br><br>
+            <button class="section8-button">SCHEDULE A DEMO</button>
+        </div>
+    </div>
+    </div>
 </section>
