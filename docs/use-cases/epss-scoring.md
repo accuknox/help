@@ -48,7 +48,7 @@ The Common Weakness Enumeration (CWE) is an essential resource for categorizing 
 
 With CWEs, you not only understand the nature of a vulnerability but also have a framework for managing risks in web applications and other software systems. When time and resources are limited, prioritizing these weaknesses effectively becomes essential for targeted, high-impact risk mitigation.
 
-## Key CWE Resources for Prioritization
+### Key CWE Resources for Prioritization
 
 - **CWE Top 25 Most Dangerous Software Weaknesses**
     A community-ranked list of the most common, high-impact software weaknesses, based on severity and exploitation potential. It's ideal for quickly identifying critical vulnerabilities when time is limited, prioritizing those with serious potential impact.
@@ -56,7 +56,7 @@ With CWEs, you not only understand the nature of a vulnerability but also have a
 - **CWE Top 10 KEV (Known Exploited Vulnerabilities)**
     Highlights the most actively exploited CWEs from CISA's KEV Catalog, representing urgent risks. Prioritize these vulnerabilities to address known, real-world threats effectively.
 
-### Integrating CWE, CVSS, and EPSS for Comprehensive Risk Assessment
+## Integrating CWE, CVSS, and EPSS for Comprehensive Risk Assessment
 
 For a holistic approach to vulnerability management, integrating CWE with CVSS and EPSS allows teams to assess vulnerabilities by severity, exploit likelihood, and underlying weakness. Prioritizing CWE weaknesses from the **CWE Top 25** and **CWE Top 10 KEV** lists provides additional weight to the most critical weaknesses:
 

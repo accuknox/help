@@ -16,8 +16,7 @@ In this section we can find the steps to create a ticket using Rule Engine in th
 
 ![alt](images/rules-engine-ticket-creation/3.png)
 
-**Step 4:** Provide the necessary details, including the rule name, rule description, condition type (true or false), and click on "Action" to add the specific action.\
-Clicking on the condition type will trigger the action that is required, it is crucial to to select the condition type as per the rule created and the description of it.
+**Step 4:** Provide the necessary details, including the rule name, rule description, condition type (true or false), and click on "Action" to add the specific action. When the conditions specified here are matched by a finding, the rule will trigger the specified action.
 
 ![alt](images/rules-engine-ticket-creation/4.png)
 
@@ -30,22 +29,6 @@ Clicking on the condition type will trigger the action that is required, it is c
 ![alt](images/rules-engine-ticket-creation/6.png)
 
 **Step 7:** User needs to create the ticketing configuration via [Fresh Service Integration](https://help.accuknox.com/integrations/freshservice-cspm/ "https://help.accuknox.com/integrations/freshservice-cspm/"), which helps in automating the process of generating Freshservice "Problem alerts" with the existing security workflow.
-
-## Integration of Freshservice
-
-### **a. Prerequisites**
-
-- You need a Company domain , Email & API key (secret) for this integration.
-
-- You can find your API key in profile settings in the right side column.
-
-### **b. Steps to Integrate:**
-
-- Go to Channel Integration → CSPM.
-
-- Click on add connector and select Freshservice
-
-![alt](images/rules-engine-ticket-creation/7.png)
 
 Make sure to follow the link [Freshservice](https://help.accuknox.com/integrations/freshservice-cspm/) to configure the fresh service integration.
 
