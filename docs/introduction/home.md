@@ -421,8 +421,7 @@ border-top: 4px solid #0867EC;
     }
 
     .section6-card-image {
-        width: 350px;
-        height: 150px;
+
         background-color: #e0e0e0;
         display: flex;
         align-items: center;
@@ -793,74 +792,85 @@ border-top: 4px solid #0867EC;
     <div class="section6-card-container">
         <!-- Card 1 -->
         <div class="section6-card">
+            <a href="https://www.accuknox.com/product-tour/cis-benchmarking">
             <div class="section6-card-image">
-                <img src="" alt="">
-                 <img src="../cards/play.svg" class="play-icon">
+                <img src="../cards/1.webp" alt="">
+
             </div>
             <div class="section6-card-content">
-                <p class="section6-card-title">How to subscribe to AccuKnox from AWS Marketplace</p>
-                <p class="section6-card-duration">05:24 mins</p>
+                <p class="section6-card-title">CIS Benchmarking (KSPM)</p>
+
             </div>
+            </a>
         </div>
 
         <!-- Card 2 -->
         <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/how-to-scan-github-iac">
             <div class="section6-card-image">
-                <img src="" alt="">
-                 <img src="../cards/play.svg" class="play-icon">
+                <img src="../cards/2.webp" alt="">
+
             </div>
             <div class="section6-card-content">
-                <p class="section6-card-title">Product Tour | Agentless Cloud Security | Release v2.0</p>
-                <p class="section6-card-duration">05:24 mins</p>
+                <p class="section6-card-title">How to scan GitHub IaC (ASPM)</p>
+
             </div>
+            </a>
         </div>
 
         <!-- Card 3 -->
         <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/check-and-manage-cloud-findings-for-aws-gcp-and-azure">
             <div class="section6-card-image">
-                <img src="" alt="">
-                 <img src="../cards/play.svg" class="play-icon">
+                <img src="../cards/3.webp" alt="">
+
             </div>
             <div class="section6-card-content">
-                <p class="section6-card-title">AccuKnox Zero Trust Secrets Management 101</p>
-                <p class="section6-card-duration">03:07 mins</p>
+                <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure (CSPM)</p>
+
             </div>
+            </a>
         </div>
 
         <!-- Card 4 -->
         <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/protect-cve-2024-3094-xz-liblzma-backdoor-attacks">
             <div class="section6-card-image">
-                <img src="" alt="">
-                <img src="../cards/play.svg" class="play-icon">
+                <img src="../cards/4.webp" alt="">
+
             </div>
             <div class="section6-card-content">
-                <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure</p>
-                <p class="section6-card-duration">Interactive Product Demo</p>
+                <p class="section6-card-title">Protect CVE-2024-3094 XZ/liblzma Backdoor Attacks (CWPP)</p>
+
             </div>
+            </a>
         </div>
 
         <!-- Card 5 -->
         <div class="section6-card">
+           <a href="https://www.accuknox.com/product-tour/how-to-prevent-execution-of-malicious-code-in-jupyter-notebook">
             <div class="section6-card-image">
-                <img src="" alt="">
-                 <img src="../cards/play.svg" class="play-icon">
+                <img src="../cards/5.webp" alt="">
+
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">How to scan GitHub IaC</p>
-                <p class="section6-card-duration">Interactive Product Demo</p>
+
             </div>
+            </a>
         </div>
 
         <!-- Card 6 -->
         <div class="section6-card">
+            <a href="https://www.accuknox.com/product-tour/how-to-create-a-remediation-ticket-using-jira">
             <div class="section6-card-image">
-                <img src="" alt="">
-                 <img src="../cards/play.svg" class="play-icon">
+                <img src="../cards/6.webp" alt="">
             </div>
             <div class="section6-card-content">
                 <p class="section6-card-title">How to Prevent execution of malicious code in Jupyter Notebook</p>
-                <p class="section6-card-duration">Interactive Product Demo</p>
+
             </div>
+            </a>
         </div>
     </div>
 
