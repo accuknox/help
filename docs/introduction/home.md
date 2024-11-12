@@ -138,7 +138,7 @@ hide:
 
   .card a {
     display: inline-block;
-    color: #0066FF;
+    color: #030372;
     text-decoration: none;
     padding: 8px 16px;
     font-size: 16px;
@@ -602,66 +602,66 @@ border-top: 4px solid #0867EC;
 <article class="header2" style="margin-bottom: 1rem;">Enterprise CNAPP Suite</article>
 <div class="container">
   <div class="card">
-    <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)">
+    <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)" style="color: #000025">
     <h3>Cloud Security (CSPM)</h3>
     <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across multi-cloud environments.</p>
-    <a href="cspm.md">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/use-cases/cnapp-security-overview/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/cwpp.svg" alt="Workload Protection (CWPP)">
+    <img src="../cards/cwpp.svg" alt="Workload Protection (CWPP)" style="color: #000025">
     <h3>Workload Protection (CWPP)</h3>
     <p>Provides security for cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real-time.</p>
-    <a href="/getting-started/cwpp-prereq/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/getting-started/cwpp-prereq/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/aspm.svg" alt="Application Security (ASPM)">
+    <img src="../cards/aspm.svg" alt="Application Security (ASPM)" style="color: #000025">
     <h3>Application Security (ASPM)</h3>
     <p>Manages application security risks by monitoring code, configurations, and deployment pipelines for vulnerabilities.</p>
-    <a href="/integrations/azure-dast/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/integrations/azure-dast/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/devsecops.svg" alt="DevSecOps">
+    <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
     <h3>DevSecOps</h3>
     <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
-    <a href="/getting-started/devsecops/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/getting-started/devsecops/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/aiml-security.svg" alt="AI/ML Security">
+    <img src="../cards/aiml-security.svg" alt="AI/ML Security" style="color: #000025">
     <h3>AI/ML Security</h3>
     <p>The Ask Ada AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence.</p>
-    <a href="/use-cases/jupyter-notebook/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/use-cases/jupyter-notebook/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)">
+    <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
     <h3>Open Source (KubeArmor)</h3>
     <p>Enforces security policies in Kubernetes clusters, offering real-time protection for containers and microservices.</p>
-    <a href="https://docs.kubearmor.io/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="https://docs.kubearmor.io/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/kiem.svg" alt="">
+    <img src="../cards/kiem.svg" alt="" style="color: #000025">
     <h3>K8s Identity & Entitlements Management (KIEM)</h3>
     <p>Enforces IAM controls and entitlements across K8s clusters for secure authorization and to prevent privilege escalation.</p>
-    <a href="/use-cases/kiem/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/use-cases/kiem/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/grc.svg" style="width: 4rem;" alt="">
+    <img src="../cards/grc.svg" style="width: 4rem;" alt="" style="color: #000025">
     <h3>Governance, Risk, and Compliance (GRC)</h3>
     <p>Provides a unified view of security posture, risk analysis, and compliance across multi-cloud and K8s environments.</p>
-    <a href="/use-cases/compliance/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="/use-cases/compliance/">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
   <div class="card">
-    <img src="../cards/kspm.svg" alt="">
+    <img src="../cards/kspm.svg" alt="" style="color: #000025">
     <h3>Kubernetes Security Posture Management (KSPM)</h3>
     <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities, and threats in real-time.</p>
-    <a href="kspm.md">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;"></a>
+    <a href="kspm.md">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 </div>
 
