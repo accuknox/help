@@ -1,24 +1,25 @@
----  
-hide:  
- - toc  
----  
-  
-# Compliance  
+---
+hide:
+ - toc
+---
+
+# GRC (Governance, Risk Management, and Compliance)
+
 CSPM Misconfigurations comes with more than 1,000 out-of-the-box compliance cheks that evaluate the configuration of your cloud resources and identify potential misconfigurations. Each compliance rule maps to one or more compliance programs and there sub-controls within a compliance standard or industry benchmarks.
 Cloud security is a dynamic landscape, with ever-evolving threats and regulatory requirements. Compliance with various industry standards such as PCI DSS, HIPAA, GDPR, SOC, ISO, CIS, and many more are crucial for businesses across sectors. However, keeping track of these requirements and ensuring your cloud infrastructure aligns with them can be a daunting task.
 
-This is where AccuKnox’s CSPM shines. There are over 30 new compliance programs, From healthcare to finance, retail to government, CSPM covers a wide range of industry-specific regulations, ensuring that your cloud environment meets the necessary security standards. 
+This is where AccuKnox’s CSPM shines. There are over 30 new compliance programs, From healthcare to finance, retail to government, CSPM covers a wide range of industry-specific regulations, ensuring that your cloud environment meets the necessary security standards.
 
 ## View your compliance posture
 
 View a high-level overview of your compliance posture for each framework on the Cloud Asset Summary page.
 
-As soon as user onboards the cloud account and scan is done, User can navigate to the Compliance Section in Nav Bar and see the list of all compliance programs against which scan were done. 
-Each Compliance Program are divided into there Sub Controls and for each sub control user can see the percentage of compliance. 
+As soon as user onboards the cloud account and scan is done, User can navigate to the Compliance Section in Nav Bar and see the list of all compliance programs against which scan were done.
+Each Compliance Program are divided into there Sub Controls and for each sub control user can see the percentage of compliance.
 
-The percentage is calculated by the number of Passed Checks/Rules against the Total number of Passed, Failed, Warning and Not Available checks. 
+The percentage is calculated by the number of Passed Checks/Rules against the Total number of Passed, Failed, Warning and Not Available checks.
 
-User can click on any Compliance Program or there Sub-control which will navigate to the list of misconfiguration. Further user can filter based on Cloud Account, Region, Severity, Checks, and many more on the **Detailed View** Tab. 
+User can click on any Compliance Program or there Sub-control which will navigate to the list of misconfiguration. Further user can filter based on Cloud Account, Region, Severity, Checks, and many more on the **Detailed View** Tab.
 
 -   **Compliance**: A  detailed report  that gives you insight into how you score against a framework’s requirements and rules.
 ![](images/compliance-summary.png)
