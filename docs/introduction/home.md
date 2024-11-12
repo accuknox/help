@@ -261,7 +261,7 @@ border-top: 4px solid #0867EC;
 .integrations-container {
   display: flex;
   align-items: center;
-  background-color: #030372;
+  background-color: #000025;
   padding: 100px;
 }
 
