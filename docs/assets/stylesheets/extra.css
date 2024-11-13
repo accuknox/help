@@ -35,6 +35,20 @@
         color: white;
 
     }
+
+    .home-card-heading{
+        color: black;
+    }
+
+    .use-cases-container {
+        background-color: white;
+      }
+
+      .home-section-7 {
+        background-color: white;
+      }
+
+
 }
 
 .contact_tab {
