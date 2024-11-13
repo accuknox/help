@@ -99,7 +99,7 @@ hide:
       text-align: center;
       color: #030372;
       font-weight: 900 !important;
-      font-size: xxx-large;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
@@ -734,19 +734,19 @@ line-height: normal;
     <div class="use-cases-category">
       <p class="use-cases-category-title">Automation</p>
       <ul class="use-cases-list">
-        <li><a href="/resources/ticket-procedure/" target="_blank">Ticketing</a></li>
+        <li><a href="/integrations/freshservice-cspm/" target="_blank">Ticketing</a></li>
         <li><a href="/use-cases/" target="_blank">Rules Engine</a></li>
       </ul>
     </div>
     <div class="use-cases-category">
       <p class="use-cases-category-title">Prioritization</p>
       <ul class="use-cases-list">
-        <li><a href="/use-cases/" target="_blank">EPSS Scoring</a></li>
+        <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
       </ul>
     </div>
   </div>
   <button class="btn-style">
-  <a href="/use-cases/cnapp-security-overview"  target="_blank">VIEW ALL USE CASES <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
+  <a href="/use-cases/cnapp-security-overview" target="_blank">VIEW ALL USE CASES <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
 </button>
 </div>
 </section>
