@@ -11,7 +11,7 @@ To send an alert notification via Slack you must first set up the Slack notifica
 You need a valid and active account in Slack.
 After logging into your Slack channel, you must generate a Hook URL.
 
-**Note :** To generate Hook URL follow the steps, [Webhooks-for-Slack](https://slack.com/intl/en-in/help/articles/115005265063-Incoming-webhooks-for-Slack) .
+**Note :** To generate Hook URL follow the steps, [Webhooks-for-Slack](https://api.slack.com/messaging/webhooks) .
 
 #### **b. Steps to Integrate:**
 + Go to Channel Integration.
