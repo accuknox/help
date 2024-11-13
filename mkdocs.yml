@@ -318,6 +318,10 @@ nav:
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
     - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
+    # - "Automation":
+    #   - "Automated Ticket Creation Using Rules Engine": "use-cases/rules-engine-ticket-creation.md"
+    - "Prioritization":
+      - "EPSS Scoring": "use-cases/epss-scoring.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 
