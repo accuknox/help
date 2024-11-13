@@ -671,7 +671,7 @@ line-height: normal;
   <div class="card" style="position: relative;">
     <div class="status-badge">Agentless</div>
     <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
-    <h3 class="home-card-heading">DevSecOps</h3>
+    <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
     <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
     <a href="/getting-started/devsecops/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
@@ -800,7 +800,7 @@ line-height: normal;
    <img src="../cards/integrations-circle.svg" alt="Integrations" class="integrations-image">
  </div>
  <div class="text-container">
-   <article class="integrations-title">Seamless Integration In Your Technology Ecosystem</article>
+   <article class="integrations-title">Integrate Seamlessly In Your Technology Ecosystem</article>
    <!-- <b class="integrations-description"></b> -->
    <p class="integrations-description">Check out integrations for Azure, Google Cloud Build, AWS, Jenkins, Gitlab, CheckMarkx and more. We also support Container Platforms like Nutanix, Rafay and Mirantis and Notification platforms like Slack. AccuKnox integrates with major SIEM and security event tools, including Splunk, AWS CloudWatch, Azure Sentinel, and leading ticketing systems like Jira, ServiceNow, and Freshservice.</p>
    <button class="btn-style" style="margin-left: 0px">
@@ -840,6 +840,76 @@ line-height: normal;
 
 
 <!-- SECTION 6 -->
+<!-- <section>
+<div class="section6-container">
+    <h2 class="section-heading">Product Demos</h2>
+    <div class="section6-card-container">
+        <div class="section6-card">
+            <a href="https://www.accuknox.com/product-tour/cis-benchmarking" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/1.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">CIS Benchmarking (KSPM)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/how-to-scan-github-iac" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/2.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to scan GitHub IaC (ASPM)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/check-and-manage-cloud-findings-for-aws-gcp-and-azure" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/3.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure (CSPM)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/protect-cve-2024-3094-xz-liblzma-backdoor-attacks" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/4.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Protect CVE-2024-3094 XZ/liblzma Backdoor Attacks (CWPP)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+           <a href="https://www.accuknox.com/product-tour/how-to-prevent-execution-of-malicious-code-in-jupyter-notebook" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/5.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Prevent execution of malicious code in Jupyter Notebook (AI/ML Security)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+            <a href="https://www.accuknox.com/product-tour/how-to-create-a-remediation-ticket-using-jira" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/6.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to Create a Remediation Ticket Using JIRA</p>
+            </div>
+            </a>
+        </div>
+    </div>
+<button class="btn-style">
+  <a href="https://www.youtube.com/@accuknox" target="_blank">MORE VIDEOS <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a></a>
+</button>
+</div>
+</section> -->
 
 
 <!-- SECTION 7  - -->
