@@ -885,10 +885,10 @@ border-top: 4px solid #0867EC;
 <section style="margin-top: 2rem; margin-bottom: 2rem;">
 <h2 class="section-heading" style="margin-bottom: 1.6em;">Find Out More</h2>
 <div class="section7-nav">
-    <a href="#" class="section7-link">RESOURCES</a>
-    <a href="#" class="section7-link">SUPPORT MATRIX</a>
-    <a href="#" class="section7-link">GLOSSARY</a>
-    <a href="#" class="section7-link" style="border-right: 0px">FAQ</a>
+    <a href="/resources/accuknox-manual/" class="section7-link">RESOURCES</a>
+    <a href="/support-matrix/kubearmor-support-matrix/" class="section7-link">SUPPORT MATRIX</a>
+    <a href="/resources/glossary/" class="section7-link">GLOSSARY</a>
+    <a href="/faqs/" class="section7-link" style="border-right: 0px">FAQ</a>
 </div>
 </section>
 
