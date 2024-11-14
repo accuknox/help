@@ -776,7 +776,7 @@ line-height: normal;
       <p class="use-cases-category-title">Automation</p>
       <ul class="use-cases-list">
         <li><a href="/integrations/freshservice-cspm/" target="_blank">Ticketing</a></li>
-        <li><a href="/use-cases/" target="_blank">Rules Engine</a></li>
+        <li><a href="/use-cases/rules-engine-ticket-creation/" target="_blank">Rules Engine</a></li>
       </ul>
     </div>
     <div class="use-cases-category">

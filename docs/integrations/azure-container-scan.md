@@ -72,6 +72,8 @@ steps:
 
 - script: |
     docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+    -e "TRIVY_DB_REPOSITORY=public.ecr.aws/aquasecurity/trivy-db" \
+    -e "TRIVY_JAVA_DB_REPOSITORY=public.ecr.aws/aquasecurity/trivy-java-db" \
     accuknox/accuknox-container-scan:latest image $(IMAGE_NAME) \
     --format json  >> /tmp/report.json
   displayName: AccuKnox Container Scan
