@@ -196,6 +196,7 @@ hide:
   @media (max-width: 767px) {
     .container {
       grid-template-columns: 1fr;
+      padding: 20px;
     }
   }
 
@@ -295,6 +296,7 @@ border-top: 4px solid #0867EC;
 @media (max-width: 767px) {
   .use-cases-grid {
     grid-template-columns: 1fr;
+    padding: 15px;
   }
 }
 
@@ -366,6 +368,7 @@ line-height: normal;
 @media (max-width: 991px) {
   .integrations-container {
     flex-direction: column;
+    padding: 40px;
   }
 
   .text-container {
@@ -435,6 +438,14 @@ line-height: normal;
         font-weight: 600;
     }
 
+@media (max-width: 767px) {
+  .section5-card-container {
+    flex-direction: column;
+  }
+  .section5-card {
+    width: 100%;
+  }
+}
 
   /* section 6 CSS*/
  .section6-container {
@@ -516,6 +527,22 @@ line-height: normal;
         margin-top: 80px;
         margin-left: 120px;
     }
+    @media (max-width: 991px) {
+      .section6-container {
+        padding: 40px;
+      }
+      .section6-card-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .section6-container {
+        padding: 40px;
+      }
+      .section6-card-container {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* SECTION 7 CSS*/
     .section7-container {
@@ -540,6 +567,25 @@ line-height: normal;
 
     .section7-link:hover {
         text-decoration: underline; /* Underline on hover */
+    }
+
+    @media (max-width: 991px) {
+      .section7-nav {
+        gap: 10px;
+        align-items: center;
+        padding: 20px;
+      }
+      .section7-link {
+        padding-right: 20px;
+      }
+    }
+    @media (max-width: 767px) {
+      .section7-nav {
+        padding: 0 30px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: normal;
+      }
     }
 
     /* SECTION 8 CSS */
@@ -803,7 +849,7 @@ line-height: normal;
    <article class="integrations-title">Integrate Seamlessly In Your Technology Ecosystem</article>
    <!-- <b class="integrations-description"></b> -->
    <p class="integrations-description">Check out integrations for Azure, Google Cloud Build, AWS, Jenkins, Gitlab, CheckMarkx and more. We also support Container Platforms like Nutanix, Rafay and Mirantis and Notification platforms like Slack. AccuKnox integrates with major SIEM and security event tools, including Splunk, AWS CloudWatch, Azure Sentinel, and leading ticketing systems like Jira, ServiceNow, and Freshservice.</p>
-   <button class="btn-style" style="margin-left: 0px">
+   <button class="btn-style">
    <a href="/integrations/jira-cloud/" target="_blank">GET STARTED <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
    </button>
  </div>
@@ -837,7 +883,6 @@ line-height: normal;
         </div>
   </div>
 </section>
-
 
 <!-- SECTION 6 -->
 <!-- <section>
