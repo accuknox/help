@@ -34,7 +34,7 @@ hide:
 /* SECTION 1 CSS */
 .main-container {
   background-color: #000025;
-  padding: 40px;
+  padding: 20px 40px;
   margin-top: -0.5rem;
 }
 
@@ -43,7 +43,7 @@ hide:
   justify-content: space-between;
   align-items: center;
   max-height: 18rem;
-  padding: 50px;
+  padding: 0px 50px;
 }
 
 .text-container {
@@ -55,7 +55,7 @@ hide:
   font-size: 30px;
   font-weight: 900;
   text-align: left;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-left: 2rem;
   line-height: normal;
 }
@@ -114,13 +114,24 @@ hide:
     {
       display: none;
     }
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #000025; /* Tomato color for contrast */
+  color: white;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 .header2{
       text-align: center;
       color: #030372;
       font-weight: 900 !important;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
 
   .container {
@@ -624,78 +635,89 @@ line-height: normal;
       <article class="header1">Welcome to AccuKnox Help Center</article>
     </div>
     <div class="image-container">
-      <img src="../cards/header-img-new.png" alt="Help Center" style="width: 75%">
+      <img src="../cards/header-img-new.png" alt="Help Center" height="300" width="300">
     </div>
   </div>
 </div>
 </section>
 
 <!-- SECTION 2 -- SUBPRODUCT CARDS -->
-<section style="background-color: #eef5fc; padding-top: 3rem;">
-<article class="header2" style="margin-bottom: 1rem;">Enterprise CNAPP Suite</article>
+<section style="background-color: #eef5fc; padding-top: 2rem;">
+<article class="section-heading" style="margin-bottom: 1rem;">Enterprise CNAPP Suite</article>
 <div class="container">
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)" style="color: #000025">
-    <h3>Cloud Security (CSPM)</h3>
+    <h3 class="home-card-heading">Cloud Security (CSPM)</h3>
     <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across multi-cloud environments.</p>
     <a href="/use-cases/cnapp-security-overview/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
-  <div class="card">
-    <img src="../cards/cwpp.svg" alt="Workload Protection (CWPP)" style="color: #000025">
-    <h3>Workload Protection (CWPP)</h3>
+  <div class="card" style="position: relative;">
+    <img src="../cards/cwpp.svg" alt="Runtime Protection" style="color: #000025">
+    <h3 class="home-card-heading">Runtime Protection</h3>
     <p>Provides security for cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real-time.</p>
     <a href="/getting-started/cwpp-prereq/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
-  <div class="card">
+ <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/aspm.svg" alt="Application Security (ASPM)" style="color: #000025">
-    <h3>Application Security (ASPM)</h3>
+    <h3 class="home-card-heading">Application Security (ASPM)</h3>
     <p>Manages application security risks by monitoring code, configurations, and deployment pipelines for vulnerabilities.</p>
     <a href=" /use-cases/vulnerability/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
-    <h3>DevSecOps</h3>
+    <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
     <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
     <a href="/getting-started/devsecops/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/aiml-security.svg" alt="AI/ML Security" style="color: #000025">
-    <h3>AI/ML Security</h3>
-    <p>The Ask Ada AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence.</p>
+    <h3 class="home-card-heading">AI/ML Security</h3>
+    <p>The AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence.</p>
     <a href="/use-cases/jupyter-notebook/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
-  <div class="card">
-    <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
-    <h3>Open Source (KubeArmor)</h3>
-    <p>Enforces security policies in Kubernetes clusters, offering real-time protection for containers and microservices.</p>
-    <a href="https://docs.kubearmor.io/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
 
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/kiem.svg" alt="" style="color: #000025">
-    <h3>K8s Identity & Entitlements Management (KIEM)</h3>
+    <h3 class="home-card-heading">K8s Identity & Entitlements Management (KIEM)</h3>
     <p>Enforces IAM controls and entitlements across K8s clusters for secure authorization and to prevent privilege escalation.</p>
     <a href="/use-cases/kiem/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/grc.svg" style="width: 2.5rem;" alt="" style="color: #000025">
-    <h3>Governance, Risk, and Compliance (GRC)</h3>
+    <h3 class="home-card-heading">Governance, Risk, and Compliance (GRC)</h3>
     <p>Provides a unified view of security posture, risk analysis, and compliance across multi-cloud and K8s environments.</p>
     <a href="/use-cases/compliance/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/kspm.svg" alt="" style="color: #000025">
-    <h3>Kubernetes Security Posture Management (KSPM)</h3>
+    <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
     <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities, and threats in real-time.</p>
     <a href="/use-cases/cluster-misconfiguration-scanning/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
+
+
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
+    <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
+    <h3 class="home-card-heading">Open Source -<br>KubeArmor</h3>
+    <p>Enforces security policies in Kubernetes clusters, offering real-time protection for containers and microservices.</p>
+    <a href="https://docs.kubearmor.io/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
+  </div>
+
 </div>
 
 </section>
@@ -778,7 +800,7 @@ line-height: normal;
    <img src="../cards/integrations-circle.svg" alt="Integrations" class="integrations-image">
  </div>
  <div class="text-container">
-   <article class="integrations-title">Seamless Integration In Your Technology Ecosystem</article>
+   <article class="integrations-title">Integrate Seamlessly In Your Technology Ecosystem</article>
    <!-- <b class="integrations-description"></b> -->
    <p class="integrations-description">Check out integrations for Azure, Google Cloud Build, AWS, Jenkins, Gitlab, CheckMarkx and more. We also support Container Platforms like Nutanix, Rafay and Mirantis and Notification platforms like Slack. AccuKnox integrates with major SIEM and security event tools, including Splunk, AWS CloudWatch, Azure Sentinel, and leading ticketing systems like Jira, ServiceNow, and Freshservice.</p>
    <button class="btn-style" style="margin-left: 0px">
@@ -796,7 +818,7 @@ line-height: normal;
         <div class="section5-card-container">
             <div class="section5-card">
             <img src="../cards/badge1.svg" alt="Tech Support Icon">
-            <h3 class="section5-card-title">Tech Support</h3>
+            <h3 class="section5-card-title">Raise Ticket</h3>
             <p class="section5-card-text">Contact our Support Team to quickly resolve any issues.</p>
             <a href="https://accu-knox.atlassian.net/servicedesk/customer/portal/1" target="_blank" class="section5-card-link">CONNECT WITH US &rarr;</a>
             </div>
@@ -818,10 +840,80 @@ line-height: normal;
 
 
 <!-- SECTION 6 -->
+<!-- <section>
+<div class="section6-container">
+    <h2 class="section-heading">Product Demos</h2>
+    <div class="section6-card-container">
+        <div class="section6-card">
+            <a href="https://www.accuknox.com/product-tour/cis-benchmarking" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/1.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">CIS Benchmarking (KSPM)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/how-to-scan-github-iac" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/2.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to scan GitHub IaC (ASPM)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/check-and-manage-cloud-findings-for-aws-gcp-and-azure" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/3.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure (CSPM)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+        <a href="https://www.accuknox.com/product-tour/protect-cve-2024-3094-xz-liblzma-backdoor-attacks" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/4.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Protect CVE-2024-3094 XZ/liblzma Backdoor Attacks (CWPP)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+           <a href="https://www.accuknox.com/product-tour/how-to-prevent-execution-of-malicious-code-in-jupyter-notebook" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/5.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">Prevent execution of malicious code in Jupyter Notebook (AI/ML Security)</p>
+            </div>
+            </a>
+        </div>
+        <div class="section6-card">
+            <a href="https://www.accuknox.com/product-tour/how-to-create-a-remediation-ticket-using-jira" target="_blank">
+            <div class="section6-card-image">
+                <img src="../cards/6.webp" alt="">
+            </div>
+            <div class="section6-card-content">
+                <p class="section6-card-title">How to Create a Remediation Ticket Using JIRA</p>
+            </div>
+            </a>
+        </div>
+    </div>
+<button class="btn-style">
+  <a href="https://www.youtube.com/@accuknox" target="_blank">MORE VIDEOS <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a></a>
+</button>
+</div>
+</section> -->
 
 
 <!-- SECTION 7  - -->
-<section style="margin-top: 2rem; margin-bottom: 2rem;">
+<section style="padding-top: 2rem; padding-bottom: 2rem;" class="home-section-7">
 <h2 class="section-heading" style="margin-bottom: 1.6em;">Find Out More</h2>
 <div class="section7-nav">
     <a href="/resources/accuknox-manual/" class="section7-link" target="_blank">RESOURCES</a>
