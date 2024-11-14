@@ -662,8 +662,8 @@ line-height: normal;
 
  <div class="card" style="position: relative;">
     <div class="status-badge">Agentless</div>
-    <img src="../cards/aspm.svg" alt="Application Security (ASPM)" style="color: #000025">
-    <h3 class="home-card-heading">On-Prem Deployment for Federal Workloads</h3>
+    <img src="../cards/aspm.svg" alt="Federal Security" style="color: #000025">
+    <h3 class="home-card-heading">On-Prem Deployment for Govt/Fed Org</h3>
     <p>Secure air-gapped deployment with our CNAPP security suite to achieve federal regulatory standards. </p>
     <a href="/getting-started/on-prem-installation-guide/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
