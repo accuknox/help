@@ -662,10 +662,10 @@ line-height: normal;
 
  <div class="card" style="position: relative;">
     <div class="status-badge">Agentless</div>
-    <img src="../cards/aspm.svg" alt="Application Security (ASPM)" style="color: #000025">
-    <h3 class="home-card-heading">Application Security (ASPM)</h3>
-    <p>Manages application security risks by monitoring code, configurations, and deployment pipelines for vulnerabilities.</p>
-    <a href=" /use-cases/vulnerability/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
+    <img src="../cards/aspm.svg" alt="Federal Security" style="color: #000025">
+    <h3 class="home-card-heading">On-Prem Deployment for Govt/Fed Org</h3>
+    <p>Secure air-gapped deployment with our CNAPP security suite to achieve federal regulatory standards. </p>
+    <a href="/getting-started/on-prem-installation-guide/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
@@ -673,7 +673,7 @@ line-height: normal;
     <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
     <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
     <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
-    <a href="/getting-started/devsecops/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+    <a href="/integrations/azure-dast/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
@@ -711,7 +711,6 @@ line-height: normal;
 
 
   <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
     <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
     <h3 class="home-card-heading">Open Source -<br>KubeArmor</h3>
     <p>Enforces security policies in Kubernetes clusters, offering real-time protection for containers and microservices.</p>
@@ -777,7 +776,7 @@ line-height: normal;
       <p class="use-cases-category-title">Automation</p>
       <ul class="use-cases-list">
         <li><a href="/integrations/freshservice-cspm/" target="_blank">Ticketing</a></li>
-        <li><a href="/use-cases/" target="_blank">Rules Engine</a></li>
+        <li><a href="/use-cases/rules-engine-ticket-creation/" target="_blank">Rules Engine</a></li>
       </ul>
     </div>
     <div class="use-cases-category">

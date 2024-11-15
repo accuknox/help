@@ -1,45 +1,48 @@
 # Automated Ticket Creation using Rules Engine
 
-The Rules Engine allows users to customize and automate ticket creation by selecting the data type, defining the criticality, and configuring specific ticket settings. This ensures that tickets are created based on the selected criteria, providing more control over the ticketing process.
+The Rules Engine allows users to customize and automate ticket creation by selecting the data type, defining the criticality, and configuring specific ticket settings. This ensures that customized tickets are created whenever the selected criteria is met, providing more control over the ticketing process.
 
-In this section we can find the steps to create a ticket using Rule Engine in the AccuKnox SaaS platform:
+In this section we can find the steps to create a ticket using Rule Engine in the AccuKnox platform.
 
-**Step 1:** Log in to [app.demo.accuknox.com](https://app.demo.accuknox.com/ "https://app.demo.accuknox.com") and navigate to the CNAPP dashboard.
+## Prerequisites
 
-![alt](images/rules-engine-ticket-creation/1.png)
+A ticketing platform integrated to AccuKnox with a ticketing configuration created
+
+**Note:** If the ticketing platform is not integrated yet, please follow the steps specified in the [Ticketing section](https://help.accuknox.com/integrations/jira-cloud/ "https://help.accuknox.com/integrations/jira-cloud/") for the platform you are using.
+
+## Steps to set up Automated Ticket Creation
+
+**Step 1:** Log in to the AccuKnox platform and navigate to Issues → Findings
+![](./images/rules-engine-ticket-creation/1.png)
 
 **Step 2:** Hover over to **Rule Engine** in Findings (Issues>Findings>Rule Engine)
-
-![alt](images/rules-engine-ticket-creation/2.png)
+![image-20241001-182655.png](./images/rules-engine-ticket-creation/2.png)
 
 **Step 3:** Click on **Create Rule** to create an automated rule.
+![image-20241014-043258.png](./images/rules-engine-ticket-creation/3.png)
 
-![alt](images/rules-engine-ticket-creation/3.png)
+**Step 4:** Provide the necessary details
 
-**Step 4:** Provide the necessary details, including the rule name, rule description, condition type (true or false), and click on "Action" to add the specific action. When the conditions specified here are matched by a finding, the rule will trigger the specified action.
+- **Name**: A name to uniquely identify the rule
 
-![alt](images/rules-engine-ticket-creation/4.png)
+- **Description**: A few words to help understand the functionality of the rule
 
-**Step 5:** Click on **Create Ticket** to initiate creation of ticket when a finding with a matching the is found.
+- **Condition**: The criteria to be checked against findings to apply the rule. Multiple conditions can be specified in a single rule and all the conditions must match for the rule to be applicable.
 
-![alt](images/rules-engine-ticket-creation/5.png)
+- **Expiration**: The time when this rule will become inactive, can be set to custom date. The rule will need to be updated after expiration.
 
-**Step 6:** After finalizing the condition, select the ticketing template from the drop down and save it to execute.
+![image-20241001-184952.png](./images/rules-engine-ticket-creation/4.png)
 
-![alt](images/rules-engine-ticket-creation/6.png)
+**Step 5:** Click on **Add Action.** In the Action tab, select **Create Ticket** and close.
 
-**Step 7:** User needs to create the ticketing configuration via [Fresh Service Integration](https://help.accuknox.com/integrations/freshservice-cspm/ "https://help.accuknox.com/integrations/freshservice-cspm/"), which helps in automating the process of generating Freshservice "Problem alerts" with the existing security workflow.
+![image-20241113-043101.png](./images/rules-engine-ticket-creation/5.png)
 
-Make sure to follow the link [Freshservice](https://help.accuknox.com/integrations/freshservice-cspm/) to configure the fresh service integration.
+**Step 6:** After confirming the action, select the ticket configuration to be used to create the ticket from the dropdown.
 
-**Step 8:** To view the ticketing integrations, hover over to CSPM in integrations and select the respective integration.**(Home>Settings>Integrations>CSPM)**
+![image-20241113-043309.png](./images/rules-engine-ticket-creation/6.png)
 
-![alt](images/rules-engine-ticket-creation/8.png)
+**Step 7:** The Save button is enabled after all the fields have been filled. Click on Save
 
-**Step 9:** Click on the desired integration, fill in the required details, and hit **add configuration** to create the ticket.
+![image-20241113-043802.png](./images/rules-engine-ticket-creation/7.png)
 
-![alt](images/rules-engine-ticket-creation/9.png)
-
-**Step 10:** Review the ticket configuration and save the details. The ticket will be created automatically, and the rule will be applied.
-
-![alt](images/rules-engine-ticket-creation/10.png)
+The rule has been created successfully and will create tickets for all findings that match the condition.
