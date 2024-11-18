@@ -6,7 +6,7 @@ As the leading independent Kubernetes Management Platform in production, the D2i
 
 ![Nutanix Installation with KubeArmor](images/d2iq/d2iq-intro.png)
 
-## Deploying D2iQ Kubernetes Platform on AWS Cloud**
+## Deploying D2iQ Kubernetes Platform on AWS Cloud
 
 ### Pre-requisites
 
@@ -27,7 +27,7 @@ D2iQ provides <a hred="https://docs.d2iq.com/dkp/2.7/workspace-dkp-applications"
 
 We will be adding KubeArmor to the DKP application catalog.
 
-## Introducing KubeArmor** - An Open-Source policy enforcement engine
+## Introducing KubeArmor - An Open-Source policy enforcement engine
 
 KubeArmor is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operations) of pods, containers, and nodes (VMs) at the system level.
 
