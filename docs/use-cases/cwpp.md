@@ -54,31 +54,31 @@ Accuknox CWPP serves as a **last layer of defense** in your security architectur
 ::cards:: cols=3
 
 - title: Container Image Scan
-  image: images/uc/container-scan.png
+  image: images/uc/fim.png
   url: /use-cases/image-scan/
 
 - title: Runtime Application Hardening
-  image: images/uc/runtime-hardening.png
+  image: images/uc/fim.png
   url: /use-cases/app-hardening/
 
 - title: Workload Hardening
-  image: images/uc/workload-hardening.png
+  image: images/uc/fim.png
   url: /use-cases/hardening/
 
 - title: Network Micro-segmentation
-  image: images/uc/network-microsegmentation.png
+  image: images/uc/fim.png
   url: /use-cases/network-segmentation/
 
 - title: Cluster Misconfiguration Scan
-  image: images/uc/cluster-misconfig.png
+  image: images/uc/fim.png
   url: /use-cases/cluster-misconfiguration-scanning/
 
 - title: Pod Security Admission Control
-  image: images/uc/pod-security.png
+  image: images/uc/fim.png
   url: /use-cases/pod-security-admission-controller/
 
 - title: Admission Controller
-  image: images/uc/admission-controller.png
+  image: images/uc/fim.png
   url: /use-cases/admission-controller-knoxguard/
 
 ::/cards::
@@ -88,15 +88,15 @@ Accuknox CWPP serves as a **last layer of defense** in your security architectur
 ::cards:: cols=3
 
 - title: Runtime Application Behavior Discovery
-  image: images/uc/behavior-discovery.png
+  image: images/uc/fim.png
   url: /use-cases/app-behavior/
 
 - title: Audit/Forensics
-  image: images/uc/audit-forensics.png
+  image: images/uc/fim.png
   url: /use-cases/forensics/
 
 - title: Zero Trust Security
-  image: images/uc/zero-trust.png
+  image: images/uc/fim.png
   url: /use-cases/zero-trust/
 
 ::/cards::
@@ -106,15 +106,15 @@ Accuknox CWPP serves as a **last layer of defense** in your security architectur
 ::cards:: cols=3
 
 - title: Jupyter Notebook
-  image: images/uc/jupyter-notebook.png
+  image: images/uc/fim.png
   url: /use-cases/jupyter-notebook/
 
 - title: Cryptojacking
-  image: images/uc/cryptojacking.png
+  image: images/uc/fim.png
   url: /use-cases/crypto-mining/
 
 - title: Hildegard
-  image: images/uc/hildegard.png
+  image: images/uc/fim.pngpng
   url: /use-cases/hildegard/
 
 ::/cards::
@@ -124,15 +124,15 @@ Accuknox CWPP serves as a **last layer of defense** in your security architectur
 ::cards:: cols=3
 
 - title: Host Scan
-  image: images/uc/host-scan.png
+  image: images/uc/fim.png
   url: /use-cases/host-sec/
 
 - title: Malware Scan
-  image: images/uc/malware-scan.png
+  image: images/uc/fim.png
   url: /use-cases/malware-scan/
 
 - title: VM Hardening
-  image: images/uc/vm-hardening.png
+  image: images/uc/fim.png
   url: /use-cases/vm-hardening/
 
 ::/cards::
@@ -142,11 +142,11 @@ Accuknox CWPP serves as a **last layer of defense** in your security architectur
 ::cards:: cols=3
 
 - title: HashiCorp Vault Hardening
-  image: images/uc/hashicorp-vault.png
+  image: images/uc/fim.png
   url: /use-cases/hashicorp/
 
 - title: CyberArk Conjur Hardening
-  image: images/uc/cyberark-conjur.png
+  image: images/uc/fim.png
   url: /use-cases/cyberark-conjur/
 
 ::/cards::
