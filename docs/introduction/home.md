@@ -962,7 +962,7 @@ line-height: normal;
 <div class="section7-nav">
     <a href="/resources/accuknox-manual/" class="section7-link" target="_blank">RESOURCES</a>
     <a href="/support-matrix/kubearmor-support-matrix/" target="_blank" class="section7-link">SUPPORT MATRIX</a>
-    <a href="/resources/glossary/" target="_blank" class="section7-link">GLOSSARY</a>
+    <a href="/getting-started/2.0-release/" target="_blank" class="section7-link">RELEASE NOTES</a>
     <a href="/faqs/" target="_blank" class="section7-link" style="border-right: 0px">FAQ</a>
 </div>
 </section>
