@@ -170,8 +170,9 @@ nav:
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
         - "AccuKnox" :
-           - "V2.0 Release Notes" : "getting-started/2.0-release.md"
-           - "V1.7 Release Notes" : "getting-started/1-7-release.md"
+           - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
+           - "v2.0 Release Notes" : "getting-started/2.0-release.md"
+           - "v1.7 Release Notes" : "getting-started/1-7-release.md"
            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
