@@ -320,6 +320,7 @@ nav:
       - "Malware Scan": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+    - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
     - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "Automation":

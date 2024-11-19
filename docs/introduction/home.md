@@ -701,9 +701,9 @@ line-height: normal;
 
   <div class="card" style="position: relative;">
     <img src="../cards/cwpp.svg" alt="Runtime Protection" style="color: #000025">
-    <h3 class="home-card-heading">Runtime Protection</h3>
+    <h3 class="home-card-heading">Runtime Protection (CWPP)</h3>
     <p>Provides security for cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real-time.</p>
-    <a href="/getting-started/cwpp-prereq/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+    <a href="/use-cases/cwpp/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
  <div class="card" style="position: relative;">
@@ -719,7 +719,7 @@ line-height: normal;
     <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
     <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
     <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
-    <a href="/integrations/azure-dast/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+    <a href="/use-cases/aspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
@@ -752,7 +752,7 @@ line-height: normal;
     <img src="../cards/kspm.svg" alt="" style="color: #000025">
     <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
     <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities, and threats in real-time.</p>
-    <a href="/use-cases/cluster-misconfiguration-scanning/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
+    <a href="/use-cases/kspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
 
