@@ -4,6 +4,16 @@ hide:
   - toc
 ---
 
+<style>
+  .nt-card-title{
+    text-align: center;
+  }
+
+  .nt-card-img img{
+    color: #00025;
+  }
+</style>
+
 # ASPM (Application Security Posture Management)
 
 **ASPM** provides a continuous and integrated security framework, enabling organizations to gain real-time insights into their application landscape. Unlike traditional siloed approaches, **ASPM** embeds visibility, assessment, and risk mitigation into every phase of the development lifecycle, fostering seamless collaboration between security and development teams.
@@ -33,22 +43,22 @@ hide:
 
 - title: IaC Scanning
   content:
-  image: images/uc/cert-file.png
+  image: ./icons/cluster-misconfig-scan.svg
   url: /use-cases/iac-scan/
 
 - title: Container Scanning
   content:
-  image: images/uc/fim.png
+  image: ./icons/container-image-scan.svg
   url: /use-cases/container-scan/
 
 - title: Static Application Security Testing (SAST)
   content:
-  image: images/uc/pkg-deny.png
+  image: ./icons/sql-injection.svg
   url: /use-cases/sast-sq/
 
 - title: Vulnerability Management
   content:
-  image: images/uc/cert-file.png
+  image: ./icons/vuln-mgmt.svg
   url: /use-cases/vulnerability/
 
 ::/cards::

@@ -4,6 +4,16 @@ hide:
   - toc
 ---
 
+<style>
+  .nt-card-title{
+    text-align: center;
+  }
+
+  .nt-card-img img{
+    color: #00025;
+  }
+</style>
+
 # KSPM (Kubernetes Security Posture Management)
 
 - KSPM provides a robust security framework for managing and mitigating risks in Kubernetes environments. As Kubernetes becomes the backbone of modern containerized applications, securing it is critical for maintaining compliance and preventing security breaches. KSPM tools integrate seamlessly into Kubernetes clusters, continuously assessing configurations, detecting misconfigurations, and ensuring alignment with security best practices.
@@ -18,17 +28,17 @@ hide:
 
 - title: Cluster Misconfiguration
   content: Accuknox identifies and flags misconfigurations in your clusters, ensuring that components like RBAC, namespaces, and container security settings follow best practices and remain secure.
-  image: images/uc/cert-file.png
+  image: ./icons/cluster-misconfig-scan.svg
   url: /use-cases/cluster-misconfiguration-scanning/
 
 - title: CIS Benchmarking
   content: KSPM aligns with the CIS Kubernetes Benchmark, offering automated compliance checks against industry standards to ensure your clusters meet security requirements.
-  image: images/uc/fim.png
+  image: ./icons/workload-hardening.svg
   url: /how-to/cis-benchmarking
 
 - title: KIEM
   content: K8s Identity and Entitlement Management controls access to Kubernetes resources by managing identities and entitlements. It ensures appropriate permissions, secure access, and auditability for users, services, and applications.
-  image: images/uc/pkg-deny.png
+  image: ./icons/pod-security-admission-controller.svg
   url: /use-cases/kiem/
 
 ::/cards::

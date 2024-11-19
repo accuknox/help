@@ -3,6 +3,18 @@ hide:
   - navigation
   - toc
 ---
+
+
+<style>
+  .nt-card-title{
+    text-align: center;
+  }
+
+  .nt-card-img img{
+    color: #00025;
+  }
+</style>
+
 # CWPP (Cloud Workload Protection Platform)
 
 According to **Gartner**, CWPPs are workload-centric security solutions that protect server workloads in hybrid and multi-cloud data center environments. CWPPs deliver consistent security across:
@@ -49,105 +61,112 @@ Accuknox CWPP serves as a **last layer of defense** in your security architectur
 
 ## **CWPP Use Cases**
 
-### Container Security
+### **Container Security**
 
 ::cards:: cols=3
 
 - title: Container Image Scan
-  image: images/uc/fim.png
+  image: ./icons/container-image-scan.svg
   url: /use-cases/image-scan/
 
 - title: Runtime Application Hardening
-  image: images/uc/fim.png
+  image: ./icons/runtime-app-hardening.svg
   url: /use-cases/app-hardening/
 
 - title: Workload Hardening
-  image: images/uc/fim.png
+  image: ./icons/workload-hardening.svg
   url: /use-cases/hardening/
 
 - title: Network Micro-segmentation
-  image: images/uc/fim.png
+  image: ./icons/network-segmentation.svg
   url: /use-cases/network-segmentation/
 
 - title: Cluster Misconfiguration Scan
-  image: images/uc/fim.png
+  image: ./icons/cluster-misconfig-scan.svg
   url: /use-cases/cluster-misconfiguration-scanning/
 
 - title: Pod Security Admission Control
-  image: images/uc/fim.png
+  image: ./icons/pod-security-admission-controller.svg
   url: /use-cases/pod-security-admission-controller/
 
 - title: Admission Controller
-  image: images/uc/fim.png
+  image: ./icons/admission-controller.svg
   url: /use-cases/admission-controller-knoxguard/
 
 ::/cards::
 
-### Least Permissive Posture Assessment
+---
+
+### **Least Permissive Posture Assessment**
 
 ::cards:: cols=3
 
 - title: Runtime Application Behavior Discovery
-  image: images/uc/fim.png
+  image: ./icons/runtime-application-behaviour-discovery.svg
   url: /use-cases/app-behavior/
 
 - title: Audit/Forensics
-  image: images/uc/fim.png
+  image: ./icons/audit-forensics.svg
   url: /use-cases/forensics/
 
 - title: Zero Trust Security
-  image: images/uc/fim.png
+  image: ./icons/zt-security.svg
   url: /use-cases/zero-trust/
 
 ::/cards::
 
-### AI Workload Security & Advanced Persistent Threat
+---
+
+### **AI Workload Security & Advanced Persistent Threat**
 
 ::cards:: cols=3
 
 - title: Jupyter Notebook
-  image: images/uc/fim.png
+  image: ./icons/jupyter-nb.svg
   url: /use-cases/jupyter-notebook/
 
 - title: Cryptojacking
-  image: images/uc/fim.png
+  image: ./icons/cryptojacking.svg
   url: /use-cases/crypto-mining/
 
 - title: Hildegard
-  image: images/uc/fim.pngpng
+  image: ./icons/hildegard.svg
   url: /use-cases/hildegard/
 
 ::/cards::
 
-### Host Security
+---
+
+### **Host Security**
 
 ::cards:: cols=3
 
 - title: Host Scan
-  image: images/uc/fim.png
+  image: ./icons/host-scan.svg
   url: /use-cases/host-sec/
 
 - title: Malware Scan
-  image: images/uc/fim.png
+  image: ./icons/malware-scan.svg
   url: /use-cases/malware-scan/
 
 - title: VM Hardening
-  image: images/uc/fim.png
+  image: ./icons/vm-hardening.svg
   url: /use-cases/vm-hardening/
 
 ::/cards::
 
-### Securing Secrets Manager
+---
+
+### **Securing Secrets Manager**
 
 ::cards:: cols=3
 
 - title: HashiCorp Vault Hardening
-  image: images/uc/fim.png
+  image: ./icons/hashicorp.svg
   url: /use-cases/hashicorp/
 
 - title: CyberArk Conjur Hardening
-  image: images/uc/fim.png
+  image: ./icons/cyberark.svg
   url: /use-cases/cyberark-conjur/
 
 ::/cards::
-
