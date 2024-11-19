@@ -170,8 +170,9 @@ nav:
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
         - "AccuKnox" :
-           - "V2.0 Release Notes" : "getting-started/2.0-release.md"
-           - "V1.7 Release Notes" : "getting-started/1-7-release.md"
+           - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
+           - "v2.0 Release Notes" : "getting-started/2.0-release.md"
+           - "v1.7 Release Notes" : "getting-started/1-7-release.md"
            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
         - "KubeArmor" : "getting-started/kubearmor-release.md"
@@ -210,6 +211,7 @@ nav:
     - "CIS Benchmarking": "how-to/cis-benchmarking.md"
     - "Perform Github IaC Scan": "how-to/github-iac-scan.md"
     - "Onboard Private Github Repositories" : "how-to/private-github-repo-onboarding.md"
+    - "Configure Custom Report": "how-to/custom-reports.md"
 
   - "Integrations":
     - "CI/CD":
@@ -318,6 +320,7 @@ nav:
       - "Malware Scan": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+    - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
     - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "Automation":

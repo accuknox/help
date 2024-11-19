@@ -196,6 +196,7 @@ hide:
   @media (max-width: 767px) {
     .container {
       grid-template-columns: 1fr;
+      padding: 20px;
     }
   }
 
@@ -295,6 +296,7 @@ border-top: 4px solid #0867EC;
 @media (max-width: 767px) {
   .use-cases-grid {
     grid-template-columns: 1fr;
+    padding: 15px;
   }
 }
 
@@ -366,6 +368,7 @@ line-height: normal;
 @media (max-width: 991px) {
   .integrations-container {
     flex-direction: column;
+    padding: 40px;
   }
 
   .text-container {
@@ -435,6 +438,14 @@ line-height: normal;
         font-weight: 600;
     }
 
+@media (max-width: 767px) {
+  .section5-card-container {
+    flex-direction: column;
+  }
+  .section5-card {
+    width: 100%;
+  }
+}
 
   /* section 6 CSS*/
  .section6-container {
@@ -516,6 +527,22 @@ line-height: normal;
         margin-top: 80px;
         margin-left: 120px;
     }
+    @media (max-width: 991px) {
+      .section6-container {
+        padding: 40px;
+      }
+      .section6-card-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .section6-container {
+        padding: 40px;
+      }
+      .section6-card-container {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* SECTION 7 CSS*/
     .section7-container {
@@ -540,6 +567,25 @@ line-height: normal;
 
     .section7-link:hover {
         text-decoration: underline; /* Underline on hover */
+    }
+
+    @media (max-width: 991px) {
+      .section7-nav {
+        gap: 10px;
+        align-items: center;
+        padding: 20px;
+      }
+      .section7-link {
+        padding-right: 20px;
+      }
+    }
+    @media (max-width: 767px) {
+      .section7-nav {
+        padding: 0 30px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: normal;
+      }
     }
 
     /* SECTION 8 CSS */
@@ -655,9 +701,9 @@ line-height: normal;
 
   <div class="card" style="position: relative;">
     <img src="../cards/cwpp.svg" alt="Runtime Protection" style="color: #000025">
-    <h3 class="home-card-heading">Runtime Protection</h3>
+    <h3 class="home-card-heading">Runtime Protection (CWPP)</h3>
     <p>Provides security for cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real-time.</p>
-    <a href="/getting-started/cwpp-prereq/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+    <a href="/use-cases/cwpp/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
  <div class="card" style="position: relative;">
@@ -673,7 +719,7 @@ line-height: normal;
     <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
     <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
     <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
-    <a href="/integrations/azure-dast/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+    <a href="/use-cases/aspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
@@ -706,7 +752,7 @@ line-height: normal;
     <img src="../cards/kspm.svg" alt="" style="color: #000025">
     <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
     <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities, and threats in real-time.</p>
-    <a href="/use-cases/cluster-misconfiguration-scanning/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
+    <a href="/use-cases/kspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
 
@@ -802,7 +848,7 @@ line-height: normal;
    <article class="integrations-title">Integrate Seamlessly In Your Technology Ecosystem</article>
    <!-- <b class="integrations-description"></b> -->
    <p class="integrations-description">Check out integrations for Azure, Google Cloud Build, AWS, Jenkins, Gitlab, CheckMarkx and more. We also support Container Platforms like Nutanix, Rafay and Mirantis and Notification platforms like Slack. AccuKnox integrates with major SIEM and security event tools, including Splunk, AWS CloudWatch, Azure Sentinel, and leading ticketing systems like Jira, ServiceNow, and Freshservice.</p>
-   <button class="btn-style" style="margin-left: 0px">
+   <button class="btn-style">
    <a href="/integrations/jira-cloud/" target="_blank">GET STARTED <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
    </button>
  </div>
@@ -836,7 +882,6 @@ line-height: normal;
         </div>
   </div>
 </section>
-
 
 <!-- SECTION 6 -->
 <!-- <section>
@@ -917,7 +962,7 @@ line-height: normal;
 <div class="section7-nav">
     <a href="/resources/accuknox-manual/" class="section7-link" target="_blank">RESOURCES</a>
     <a href="/support-matrix/kubearmor-support-matrix/" target="_blank" class="section7-link">SUPPORT MATRIX</a>
-    <a href="/resources/glossary/" target="_blank" class="section7-link">GLOSSARY</a>
+    <a href="/getting-started/2.1-2.2-release/" target="_blank" class="section7-link">LATEST RELEASE NOTES</a>
     <a href="/faqs/" target="_blank" class="section7-link" style="border-right: 0px">FAQ</a>
 </div>
 </section>
