@@ -34,7 +34,7 @@ hide:
 
 -   **Built-in scanners with Advanced Capabilities:** Our **IaC Scanning** and **Container Scanning** are purpose-built to detect misconfigurations and vulnerabilities within your infrastructure. Support for **self-hosted and isolated registries** ensures your data remains secure and within your control, aligning with enterprise-grade compliance needs
 
--   **Seamless Integrations:** AccuKnox supports [**Integrations**](https://help.accuknox.com/integrations/azure-dast/ "https://help.accuknox.com/integrations/azure-dast/") with a wide range of tools for streamlined workflows.
+-   **Seamless Integrations:** AccuKnox supports [**Integrations**](https://help.accuknox.com/integrations/jenkins-dast/ "https://help.accuknox.com/integrations/jenkins-dast/") with a wide range of tools for streamlined workflows.
 
 
 ## **ASPM Use Cases**
