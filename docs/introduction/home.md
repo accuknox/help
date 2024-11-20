@@ -842,7 +842,7 @@ line-height: normal;
 <section>
 <div class="integrations-container">
  <div class="image-container2">
-   <img src="../cards/integrations-circle.svg" alt="Integrations" class="integrations-image">
+   <img src="../cards/integrations-updated.png" alt="Integrations" class="integrations-image">
  </div>
  <div class="text-container">
    <article class="integrations-title">Integrate Seamlessly In Your Technology Ecosystem</article>
