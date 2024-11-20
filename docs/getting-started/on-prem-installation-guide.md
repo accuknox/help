@@ -113,7 +113,7 @@ cd airgapped-reg
 aws configure
 
 # connect to docker AccuKnox docker registry
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin `<password>`
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 956994857092.dkr.ecr.us-east-2.amazonaws.com
 
 # connect to airgapped registry
 docker login <registry_address>
