@@ -696,7 +696,7 @@ line-height: normal;
     <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)" style="color: #000025">
     <h3 class="home-card-heading">Cloud Security (CSPM)</h3>
     <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across multi-cloud environments.</p>
-    <a href="/use-cases/cnapp-security-overview/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+    <a href="/use-cases/cspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
