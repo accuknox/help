@@ -289,6 +289,11 @@ nav:
         - "ServiceNow" : "integrations/servicenow.md"
   - "Use-Cases":
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
+    - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
+    - "Cloud Workload Protection Platform (CWPP)": "use-cases/cwpp.md"
+    - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
+    - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+    - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
     - "DevSecOps (ASPM)":
       - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
       - " ASPM Container Scan": "use-cases/container-scan.md"
@@ -321,8 +326,6 @@ nav:
       - "Host Scan": "use-cases/host-sec.md"
       - "Malware Scan": "use-cases/malware-scan.md"
       - "VM Hardening": "use-cases/vm-hardening.md"
-    - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
-    - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
     - "Continuous Compliance (GRC)":
       - "Multi-cloud Compliance": "use-cases/compliance.md"
     - "Automation":
