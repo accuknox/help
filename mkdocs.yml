@@ -221,11 +221,13 @@ nav:
           - "Container Image Scan": "integrations/azure-container-scan.md"
           - "Iac Scan": "integrations/azure-iac.md"
         - "Google Cloud Build":
-          - "Container Image Scan": "integrations/google-build.md"
-          - "IaC Scan": "integrations/google-iac.md"
           - "DAST": "integrations/google-dast.md"
           - "SAST": "integrations/google-sast.md"
+          - "Container Image Scan": "integrations/google-build.md"
+          - "IaC Scan": "integrations/google-iac.md"
         - "Harness":
+          - "DAST" : "integrations/harness-dast.md"
+          - "SAST" : "integrations/harness-sast.md"
           - "Container Image Scan": "integrations/harness-container-scan.md"
           - "IaC Scan": "integrations/harness-iac-scan.md"
         - "Jenkins":
