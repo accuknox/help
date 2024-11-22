@@ -31,13 +31,11 @@ Accuknox helps users by providing continuous compliance, asset inventory, miscon
 
 - **Risk Assessment:** Risk assessment evaluates misconfigurations and compliance gaps across cloud assets, highlighting their impact on security posture. AccuKnox provides actionable insights, prioritizing risks to help organizations maintain a robust and compliant cloud environment.
 
-- **CSPM Executive Dashboard:** Here, the user gets a comprehensive view of the following:
+- **CSPM Executive Dashboard:** Get a comprehensive view of the Onboarded Cloud Accounts, Cloud Account Risk Assessment by Severity, Compliance Programs,  Asset Type, Region, and SLA with Remediation Ticket Summary.
 
-    - Onboarded Cloud Accounts, Cloud Account Risk Assessment by Severity, Compliance Programs,  Asset Type, Region, and SLA - Remediation Ticket Summary.
+- **Assistive Remediation**: Assistive remediation simplifies addressing misconfigurations and compliance issues in cloud environments. AccuKnox provides guided steps and automation options, enabling faster resolution and minimizing security risks.
 
-    - Assistive Remediation: Assistive remediation simplifies addressing misconfigurations and compliance issues in cloud environments. AccuKnox provides guided steps and automation options, enabling faster resolution and minimizing security risks.
-
-    - Multi-Cloud Platform: AccuKnox enables comprehensive visibility and control across multi-cloud environments, including AWS, GCP, and Azure. It streamlines asset, compliance, and security management, ensuring consistent governance and risk assessment across all cloud providers.
+- **Multi-Cloud Platform**: AccuKnox enables comprehensive visibility and control across multi-cloud environments, including AWS, GCP, and Azure. It streamlines asset, compliance, and security management, ensuring consistent governance and risk assessment across all cloud providers.
 
 
 ## **CSPM Use Cases**
