@@ -12,7 +12,7 @@ AccuKnox CSPM security tool scans images that are present in the onboarded [Amaz
 
 [Google Container Registry](https://cloud.google.com/container-registry/docs) with images once onboarded into AccuKnox SaaS platform, the images are scanned. The risks and vulnerabilities associated with these images are identified and shown in the scan results. The vulnerabilities are classified based on the CVSS Scores.
 
-[**Steps to Onboard**](./../getting-started/gar.md)
+[**Steps to Onboard**](./../how-to/gar.md)
 
 ## Nexus Registry
 

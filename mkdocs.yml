@@ -160,6 +160,9 @@ pages:
 
 nav:
   - "Home": "introduction/home.md"
+
+
+
   - "Getting Started":
     - "AccuKnox Architecture (Enterprise CNAPP Suite)" : "introduction/accuknox-architecture.md"
     - "Deployment Models" :
@@ -167,7 +170,6 @@ nav:
       - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
       - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
       - "DevSecOps" : "getting-started/devsecops.md"
-    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Release Notes":
         - "AccuKnox" :
            - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
@@ -183,6 +185,10 @@ nav:
       - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
       - "DVWA": "getting-started/dvwa.md"
       - "PHP-MySQL": "getting-started/php-mysql.md"
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+
+
+
   - "How To":
     - "CSPM Prerequisites":
           - "AWS": "how-to/cspm-prereq-aws.md"
@@ -212,6 +218,10 @@ nav:
     - "Perform Github IaC Scan": "how-to/github-iac-scan.md"
     - "Onboard Private Github Repositories" : "how-to/private-github-repo-onboarding.md"
     - "Configure Custom Report": "how-to/custom-reports.md"
+
+
+
+
 
   - "Integrations":
     - "CI/CD":
@@ -248,7 +258,7 @@ nav:
             - "SAST": "integrations/gitlab-sast.md"
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
-    - "Container Platform":
+    - "Private Cloud":
         - "Nutanix":
           - "AccuKnox": "integrations/nutanix-accuknox.md"
           - "KubeArmor": "integrations/nutanix-kubearmor.md"
@@ -257,12 +267,12 @@ nav:
           - "AccuKnox Agents": "integrations/lens-ak.md"
         - "Rafay": "integrations/rafay-accuknox.md"
     - "Marketplace":
+        - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
+        - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
         - "AWS Marketplace" :
           - "AWS Installation Guide": "integrations/aws-playbook.md"
           - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
           - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
-        - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
-        - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
         - "RedHat Marketplace Installation Guide": "integrations/rh-playbook.md"
     - "Notification":
         - "Slack": "integrations/slack.md"
@@ -277,7 +287,7 @@ nav:
         - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
         - "Rsyslog" : "integrations/rsyslog.md"
         - "Azure Sentinel" : "integrations/azure-sentinel.md"
-        - "Forwarding events to AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+        - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
         - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
         - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
         - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
@@ -287,6 +297,11 @@ nav:
         - "Freshservice" : "integrations/freshservice-cspm.md"
         - "Connectwise" : "integrations/connectwise-cspm.md"
         - "ServiceNow" : "integrations/servicenow.md"
+
+
+
+
+
   - "Use-Cases":
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
     - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
@@ -295,9 +310,9 @@ nav:
     - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
     - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
     - "DevSecOps (ASPM)":
-      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
-      - " ASPM Container Scan": "use-cases/container-scan.md"
       - "SAST - SQL Injection": "use-cases/sast-sq.md"
+      - "ASPM Container Scan": "use-cases/container-scan.md"
+      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
     - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
     - "Cloud Security (CSPM)":
       - "Asset Inventory": "use-cases/asset-inventory.md"
@@ -311,9 +326,9 @@ nav:
       - "Pod Security Admission Control" : "use-cases/pod-security-admission-controller.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
     - "Least Permissive Posture Assessment (CWPP)":
-      - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
-      - "Audit/Forensics": "use-cases/forensics.md"
       - "Zero Trust Security": "use-cases/zero-trust.md"
+      - "Audit/Forensics": "use-cases/forensics.md"
+      - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
     - "AI Workload Security (CWPP)":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
     - "Advanced Persistent Threat (CWPP)":
@@ -335,6 +350,8 @@ nav:
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
 
+
+
   - "Support Matrix":
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
     - "Public Cloud" : "support-matrix/public-cloud.md"
@@ -343,6 +360,9 @@ nav:
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
     - "Container Registry" : "support-matrix/registry.md"
+
+
+
 
   - "Resources":
     - "Calculate Pricing":
@@ -353,7 +373,7 @@ nav:
     - "Backup my Scan Data": "resources/scan-data-backup.md"
     - "Troubleshooting": "resources/troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
-    - "Technical Support Guide": "resources/technical-support-guide.md"
+    - "Technical Guide": "resources/technical-support-guide.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"
     - "Glossary": "resources/glossary.md"
 
