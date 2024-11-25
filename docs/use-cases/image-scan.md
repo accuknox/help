@@ -15,9 +15,9 @@ Lets understand this by an example use-case - **Container Image scanning**
 
 + If you have an existing registry give the necessary details of your registry to scan. For step by step onboarding instructions, refer:
 
-    - [ECR onboarding](../getting-started/ecr.md)
-    - [GAR onboarding](../getting-started/gar.md)
-    - [ACR onboarding](../getting-started/acr.md)
+    - [ECR onboarding](../how-to/ecr.md)
+    - [GAR onboarding](../how-to/gar.md)
+    - [ACR onboarding](../how-to/acr.md)
 
 ![](images/image-scan-2.png)
 

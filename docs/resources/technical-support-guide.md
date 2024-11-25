@@ -9,4 +9,4 @@
   </iframe>
 </div>
 
-[DOWNLOAD TECHNICAL SUPPORT GUIDE](images/technical_support_guide.pdf){ .md-button .md-button--primary }
+[DOWNLOAD TECHNICAL GUIDE](images/technical_support_guide.pdf){ .md-button .md-button--primary }
