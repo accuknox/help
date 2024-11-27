@@ -215,8 +215,6 @@ nav:
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
     - "CIS Benchmarking": "how-to/cis-benchmarking.md"
-    - "Perform Github IaC Scan": "how-to/github-iac-scan.md"
-    - "Onboard Private Github Repositories" : "how-to/private-github-repo-onboarding.md"
     - "Configure Custom Report": "how-to/custom-reports.md"
 
 
@@ -241,21 +239,29 @@ nav:
           - "Container Image Scan": "integrations/harness-container-scan.md"
           - "IaC Scan": "integrations/harness-iac-scan.md"
         - "Jenkins":
-          - "Container Scan": "integrations/jenkins-container-scan.md"
-          - "IaC Scan": "integrations/jenkins-iac-scan.md"
           - "DAST": "integrations/jenkins-dast.md"
           - "SAST": "integrations/jenkins-sast.md"
+          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "IaC Scan": "integrations/jenkins-iac-scan.md"
         - "AWS Code Pipeline":
-          - "Container Scan": "integrations/aws-container-scan.md"
-          - "IaC Scan": "integrations/aws-iac-scan.md"
           - "DAST": "integrations/aws-dast.md"
           - "SAST": "integrations/aws-sast.md"
+          - "Container Scan": "integrations/aws-container-scan.md"
+          - "IaC Scan": "integrations/aws-iac-scan.md"
+        - "GitHub":
+            - "IaC Scan": "how-to/github-iac-scan.md"
+            - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
         - "Gitlab":
+            - "DAST": "integrations/gitlab-dast.md"
+            - "SAST": "integrations/gitlab-sast.md"
             - "Container Scan": "integrations/gitlab-container-scan.md"
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
-            - "DAST": "integrations/gitlab-dast.md"
-            - "SAST": "integrations/gitlab-sast.md"
+        - "Bitbucket":
+            - "DAST": "integrations/bitbucket-dast.md"
+            - "SAST": "integrations/bitbucket-sast.md"
+            - "Container Scan": "integrations/bitbucket-container-scan.md"
+            - "IaC Scan": "integrations/bitbucket-iac-scan.md"
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
     - "Private Cloud":
