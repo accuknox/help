@@ -16,6 +16,20 @@ hide:
 
 # Cloud Security Posture Management (CSPM)
 
+## **CSPM Use Cases**
+
+::cards:: cols=3
+
+- title: Asset Inventory
+  image: ./icons/asset-inventory.svg
+  url: /use-cases/asset-inventory/
+
+- title: Cloud Misconfiguration & Drift Detection
+  image: ./icons/cloud-misconfig-drift-detection.svg
+  url: /use-cases/cloud-misconfigurations/
+
+::/cards::
+
 CSPM refers to a category of tools and practices used to manage and improve the security posture of cloud environments, such as AWS, Azure, or Google Cloud. CSPM helps organizations ensure their cloud resources and configurations comply with security best practices, industry standards, and regulatory requirements.
 
 Accuknox helps users by providing continuous compliance, asset inventory, misconfiguration findings, Governance, Risk, and Compliance (GRC).
@@ -37,16 +51,3 @@ Accuknox helps users by providing continuous compliance, asset inventory, miscon
 - **Multi-Cloud Platform**: AccuKnox enables comprehensive visibility and control across multi-cloud environments, including AWS, GCP, and Azure. It streamlines asset, compliance, and security management, ensuring consistent governance and risk assessment across all cloud providers.
 
 
-## **CSPM Use Cases**
-
-::cards:: cols=3
-
-- title: Asset Inventory
-  image: ./icons/asset-inventory.svg
-  url: /use-cases/asset-inventory/
-
-- title: Cloud Misconfiguration & Drift Detection
-  image: ./icons/cloud-misconfig-drift-detection.svg
-  url: /use-cases/cloud-misconfigurations/
-
-::/cards::
