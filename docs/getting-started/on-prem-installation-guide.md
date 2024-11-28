@@ -4,6 +4,36 @@
 
 ![on-prem](images/on-prem/image8.png)
 
+The onboarding process for AccuKnox's on-prem security solution consists of four key steps that the user must complete. Let's go through each step in a thorough, step-by-step manner:
+
+### Onboarding Steps for AccuKnox
+
+![on-prem](images/on-prem/onprem_journey.png)
+
+#### **Step 1: Hardware & Prerequisites**
+
+- Verify hardware, email user, and domain configurations.
+- Ensure your environment meets all requirements.
+- Time estimate: **Varies**, allocate sufficient time for review and adjustments.
+
+#### **Step 2: Staging AccuKnox Container Images** *(For airgapped environments only)*
+
+- Stage AccuKnox container images in the airgapped setup.
+- Reconfirm hardware, email user, and domain requirements.
+- Time estimate: **~1 hour**.
+
+#### **Step 3: Installation**
+
+- Install the AccuKnox system within your environment.
+- Ensure all prerequisites remain satisfied.
+- Time estimate: **~45 minutes**.
+
+#### **Step 4: Verification/Validation**
+
+- Confirm all previous steps were completed successfully.
+- Validate hardware, email user, and domain configurations.
+- Time estimate: **~1 hour**.
+
 AccuKnox onprem deployment is based on Kubernetes native architecture.
 
 ## AccuKnox OnPrem k8s components
@@ -69,7 +99,8 @@ Start a k8s cluster with the above worker node requirements**
 |---------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
 | jq      | 1.6                           | apt install jq                                                                                                                                                                                    |   |
 | unzip   | x.x                           | apt install unzip                                                                                                                                                                                 |   |
-| yq      | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - | tar xz && mv ${BINARY} /usr/bin/yq`
+| yq      | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget <https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz> -O - | tar xz && mv ${BINARY} /usr/bin/yq`
+
                         |   |
 | helm    | v3.x.x                        | curl <https://raw.githubusercontent.com/helm/helm/ma> in/scripts/get-helm-3 \| bash                                                                                                                 |   |
 | kubectl | Supported by your k8s cluster |                                                                                                                                                                                                   |   |
@@ -82,7 +113,7 @@ Start a k8s cluster with the above worker node requirements**
 ### Installation Package
 
 - Helm charts archive [accuknox-helm-charts.tgz]
-  - Kubectl and Helm tools are pre-requisite tools for using these helm charts
+    - Kubectl and Helm tools are pre-requisite tools for using these helm charts
 
 Use the following command to
 
@@ -101,7 +132,6 @@ If you want to use your private/local registry as the exclusive source of images
 | registry.address  | The registry server address                                                                      | Customer |
 | ecr.user          | Credential to pull images from AccuKnox registry                      | AccuKnox |
 | ecr.password      | Credential to pull images from AccuKnox registry                      | AccuKnox |
-
 
 !!! note "IMPORTANT"
     Contact your AccuKnox representative to acquire the keys.
