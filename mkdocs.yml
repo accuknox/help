@@ -359,7 +359,11 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-    - "ModelArmor": "use-cases/modelarmor.md"
+    - "ModelArmor":
+      - "Overview": "use-cases/modelarmor.md"
+      - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
+      - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
+      - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
 
 
   - "Support Matrix":
