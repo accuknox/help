@@ -1,34 +1,30 @@
 # On-prem Deployment Guide
 
-## High-Level Architecture Overview
-
-![on-prem](images/on-prem/image8.png)
+## Onboarding Steps for AccuKnox
 
 The onboarding process for AccuKnox's on-prem security solution consists of four key steps that the user must complete. Let's go through each step in a thorough, step-by-step manner:
 
-### Onboarding Steps for AccuKnox
-
 ![on-prem](images/on-prem/onprem_journey.png)
 
-#### **Step 1: Hardware & Prerequisites**
+### **Step 1: Hardware & Prerequisites**
 
 - Verify hardware, email user, and domain configurations.
 - Ensure your environment meets all requirements.
 - Time estimate: **Varies**, allocate sufficient time for review and adjustments.
 
-#### **Step 2: Staging AccuKnox Container Images** *(For airgapped environments only)*
+### **Step 2: Staging AccuKnox Container Images** *(For airgapped environments only)*
 
 - Stage AccuKnox container images in the airgapped setup.
 - Reconfirm hardware, email user, and domain requirements.
 - Time estimate: **~1 hour**.
 
-#### **Step 3: Installation**
+### **Step 3: Installation**
 
 - Install the AccuKnox system within your environment.
 - Ensure all prerequisites remain satisfied.
 - Time estimate: **~45 minutes**.
 
-#### **Step 4: Verification/Validation**
+### **Step 4: Verification/Validation**
 
 - Confirm all previous steps were completed successfully.
 - Validate hardware, email user, and domain configurations.
@@ -37,6 +33,10 @@ The onboarding process for AccuKnox's on-prem security solution consists of four
 AccuKnox onprem deployment is based on Kubernetes native architecture.
 
 ## AccuKnox OnPrem k8s components
+
+### High-Level Architecture Overview
+
+![on-prem](images/on-prem/image8.png)
 
 ### Microservices
 
