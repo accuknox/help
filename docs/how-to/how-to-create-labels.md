@@ -4,7 +4,7 @@ This guide on how to create labels in AccuKnox SaaS platform helps you to organi
 
 Labels are key-value pairs that are used to organize components like Policies, Cloud Accounts, and User Profiles. In the Labels section, users can create labels and can see the assets, findings, tickets, and baseline for the labels.
 
-**Step 1:** Login to AccuKnox SaaS and navigate to Manage Cluster under Settings.
+**Step 1:** Login to AccuKnox SaaS and navigate to Labels under Settings.
 
 ![Label](images/label-creation/image1.png)
 

@@ -124,6 +124,8 @@ extra_css:
 - "assets/stylesheets/style.css"
 - "assets/stylesheets/extra.css"
 - "assets/stylesheets/neoteroi-mkdocs.css"
+extra_javascript:
+  - javascripts/extra.js
 extra:
   analytics:
     provider: google
@@ -198,6 +200,7 @@ nav:
       - "AWS" : "how-to/aws-onboarding.md"
       - "Azure" : "how-to/azure-onboarding.md"
       - "GCP" : "how-to/gcp-onboarding.md"
+      - "Offboard Clound Account": "how-to/cloud-offboarding.md"
     - "Onboard Cluster" :
       - "Cluster Onboarding" : "how-to/cluster-onboarding.md"
       - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
@@ -309,6 +312,7 @@ nav:
 
 
   - "Use-Cases":
+    - "Use Cases By Categories": "use-cases/use-cases-home.md"
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
     - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
     - "Cloud Workload Protection Platform (CWPP)": "use-cases/cwpp.md"
@@ -355,7 +359,7 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-
+    - "ModelArmor": "use-cases/modelarmor.md"
 
 
   - "Support Matrix":
