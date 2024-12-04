@@ -373,7 +373,7 @@ nav:
     - "VMs" : "support-matrix/vms.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
-    - "Container Registry" : "support-matrix/registry.md"
+    - "Registry" : "support-matrix/registry.md"
 
 
 
