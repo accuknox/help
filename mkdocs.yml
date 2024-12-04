@@ -267,6 +267,7 @@ nav:
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
+            - "SCA": "integrations/checkmarx-sca.md"
     - "Private Cloud":
         - "Nutanix":
           - "AccuKnox": "integrations/nutanix-accuknox.md"
