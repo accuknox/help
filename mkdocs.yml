@@ -275,6 +275,7 @@ nav:
           - "KubeArmor": "integrations/lens-ka.md"
           - "AccuKnox Agents": "integrations/lens-ak.md"
         - "Rafay": "integrations/rafay-accuknox.md"
+        - "SpectroCloud": "integrations/spectrocloud.md"
     - "Marketplace":
         - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
         - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
