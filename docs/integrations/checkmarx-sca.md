@@ -41,7 +41,7 @@ name: Checkmarx Sarif Integration for SCA
 
 on:
   push:
-    branches: [ "sca" ]
+    branches: [ "cmx-sca" ]
 
 permissions:
   security-events: write
@@ -192,7 +192,7 @@ jobs:
 
       - name: Push SARIF file to AccuKnox
         run: |
-          curl --location 'https://${{ secrets.ACCUKNOX_ENDPOINT }}/api/v1/artifact/?tenant_id=${{ secrets.ACCUKNOX_TENANT }}&data_type=CMX&save_to_s3=true&label_id=${{ secrets.ACCUKNOX_LABEL }}' \
+          curl --location 'https://${{ secrets.ACCUKNOX_ENDPOINT }}/api/v1/artifact/?tenant_id=${{ secrets.ACCUKNOX_TENANT }}&data_type=CX&save_to_s3=true&label_id=${{ secrets.ACCUKNOX_LABEL }}' \
             --header 'Tenant-Id: ${{ secrets.ACCUKNOX_TENANT }}' \
             --header 'Authorization: Bearer ${{ secrets.ACCUKNOX_TOKEN }}' \
             --form 'file=@./tmp_sarif_with_snippets.sarif'
