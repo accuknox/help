@@ -376,6 +376,7 @@ nav:
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
     - "Registry" : "support-matrix/registry.md"
+    - "IaC": "support-matrix/iac.md"
 
 
 
