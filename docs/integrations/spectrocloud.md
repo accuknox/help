@@ -48,7 +48,6 @@ Click on **Generate** and copy the access key.
 
 ## Configuration
 
-![image-20241029-142425.png](./images/spectrocloud/5.png)
 
 ### Create a Cluster Profile
 
@@ -88,7 +87,7 @@ In the values file, enter the namespace and set the following variables with reg
 
 - `clusterName`: A name to uniquely identify the cluster on AccuKnox
 
-- `tokenURL:`Value will be `cwpp.<env-name>.accuknox.com` where <env name> could be demo or other depending on the AccuKnox platform URL.
+- `tokenURL:` Value will be `cwpp.<env-name>.accuknox.com` where <env name> could be demo or other depending on the AccuKnox platform URL.
 
 - `accessKey`: The Access Key that was generated from AccuKnox
 

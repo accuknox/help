@@ -56,7 +56,6 @@ Accuknox is designed to scale seamlessly as your infrastructure grows, adapting 
 |-----------------------|---------------------------------------------------------------|
 | **Horizontal Scaling** | Scale by adding more nodes to the environment.                |
 | **Vertical Scaling**   | Scale by upgrading resources (CPU, memory) of existing nodes. |
-| **Auto-scaling**       | Automatically adjusts resources based on workload demands.    |
 
 ---
 
