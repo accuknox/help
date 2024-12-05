@@ -95,18 +95,16 @@ Start a k8s cluster with the above worker node requirements**
 
 ### Jump Host Pre-requisites
 
-| Tool    | Version                       | Install command                                                                                                                                                                                   |   |
-|---------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| jq      | 1.6                           | apt install jq                                                                                                                                                                                    |   |
-| unzip   | x.x                           | apt install unzip                                                                                                                                                                                 |   |
-| yq      | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget <https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz> -O - | tar xz && mv ${BINARY} /usr/bin/yq`
-
-                        |   |
-| helm    | v3.x.x                        | curl <https://raw.githubusercontent.com/helm/helm/ma> in/scripts/get-helm-3 \| bash                                                                                                                 |   |
-| kubectl | Supported by your k8s cluster |                                                                                                                                                                                                   |   |
-| aws     | v2                            | curl "<https://awscli.amazonaws.com/awscli-exe-linux> -x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update |   |
-| docker  | v20.xx                        | apt install docker.io                                                                                                                                                                             |   |
-| Storage | 80GB                          |                                                                                                                                                                                                   |   |
+| Tool      | Version               | Install Command                                                                                                      |
+|-----------|-----------------------|----------------------------------------------------------------------------------------------------------------------|
+| jq        | 1.6                   | `apt install jq`                                                                                                    |
+| unzip     | x.x                   | `apt install unzip`                                                                                                 |
+| yq        | v4.40.x               | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - tar xz && mv ${BINARY} /usr/bin/yq` |
+| helm      | v3.x.x                | `curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash`                                   |
+| kubectl   | Supported by your k8s cluster |                                                                                                              |
+| aws       | v2                    | `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update` |
+| docker    | v20.xx                | `apt install docker.io`                                                                                            |
+| Storage   | 80GB                  |                                                                                                                     |
 
 ## Installation Steps
 
