@@ -267,6 +267,7 @@ nav:
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
+            - "SCA": "integrations/checkmarx-sca.md"
     - "Private Cloud":
         - "Nutanix":
           - "AccuKnox": "integrations/nutanix-accuknox.md"
@@ -275,6 +276,7 @@ nav:
           - "KubeArmor": "integrations/lens-ka.md"
           - "AccuKnox Agents": "integrations/lens-ak.md"
         - "Rafay": "integrations/rafay-accuknox.md"
+        - "SpectroCloud": "integrations/spectrocloud.md"
     - "Marketplace":
         - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
         - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
@@ -374,7 +376,8 @@ nav:
     - "VMs" : "support-matrix/vms.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
-    - "Container Registry" : "support-matrix/registry.md"
+    - "Registry" : "support-matrix/registry.md"
+    - "IaC": "support-matrix/iac.md"
 
 
 
