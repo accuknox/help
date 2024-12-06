@@ -5,98 +5,72 @@ description: Integrate SonarQube SAST scanning with AccuKnox in a GitLab CI/CD p
 
 # Integrating SonarQube SAST with AccuKnox in a GitLab CI/CD Pipeline
 
-## Introduction
-
 This guide demonstrates how to incorporate AccuKnox into a CI/CD pipeline using GitLab to enhance security. We'll use SonarQube SAST scanning to identify code vulnerabilities and send the results to AccuKnox for further analysis and remediation.
 
 ## Pre-requisites
 
-- **GitLab Access**
-- **AccuKnox UI Access**
-- **SonarQube Access**
+- GitLab Access
+
+- AccuKnox Platform Access
+
+- SonarQube Access
 
 ## Steps for Integration
 
-### Step 1: Log in to AccuKnox
+**Step 1**: Log in to AccuKnox Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
 
-- Navigate to **Settings** and select **Tokens** to create an AccuKnox token for forwarding scan results to SaaS.
+**Step 2:** Configure GitLab CI/CD Variables. For details on configuring variables, refer to [How to Create CI/CD Variables in GitLab](https://docs.gitlab.com/ee/ci/variables/ "https://docs.gitlab.com/ee/ci/variables/").
 
-![image-20240822-102150.png](images/gitlab-sast/1.png)
+1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
 
-- Go to **AccuKnox > Settings > Labels** and create a label. This label will be used in the GitLab pipeline YAML file.
+2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
 
-![image-20240822-102308.png](images/gitlab-sast/2.png)
+3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
 
-### Step 2: Create GitLab CI/CD Variables
+4. **ACCUKNOX_LABEL**: The label for your scan.
 
-- Copy the AccuKnox token and create a GitLab CI/CD masked variable for it.
+5. **SONAR_TOKEN**: Your SonarQube API token.
 
-- Additionally, create variables for the **tenant ID**, **AccuKnox URL**, **SonarQube token**, and the **SonarQube project URL**.
+6. **SONAR_HOST_URL**: The URL of your SonarQube server.
 
-![image-20240822-102417.png](images/gitlab-sast/3.png)
+7. **SONAR_PROJECT_KEY**: The project key for your SonarQube project.
 
-### Step 3: Set Up GitLab CI/CD Pipeline
+**Step 3:** Set Up GitLab CI/CD Pipeline
 
 Create a new pipeline in your GitLab project with the following YAML configuration:
 
 ```yaml
-stages:
-  - sonarqube-check
-  - fetch-report
-  - upload-report
-
 sonarqube-check:
-  stage: sonarqube-check
   image:
     name: sonarsource/sonar-scanner-cli:latest
     entrypoint: [""]
   variables:
-    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-    GIT_DEPTH: "0"  # Ensures all branches are fetched, required by the analysis task
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+    SONAR_TOKEN: ${SONAR_TOKEN}
+    SONAR_HOST_URL: ${SONAR_HOST_URL}
+    SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
   cache:
     key: "${CI_JOB_NAME}"
     paths:
       - .sonar/cache
   script:
-    - sonar-scanner -Dsonar.qualitygate.wait=true || true
+    - sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.token=$SONAR_TOKEN -Dsonar.sources=. \
   allow_failure: true
-  rules:
-    - if: $CI_COMMIT_REF_NAME == 'main' || $CI_PIPELINE_SOURCE == 'merge_request_event'
 
-fetch-report:
-  stage: fetch-report
-  image: docker:latest
-  services:
-  - docker:dind
-  dependencies:
-    - sonarqube-check
-  script:
-    - |
-      docker run --rm \
-        -e SQ_URL=$SQ_URL \
-        -e SQ_AUTH_TOKEN=$SONAR_TOKEN \
-        -e REPORT_PATH=/app/data/ \
-        -e SQ_PROJECTS="^gitlab-sast-testing$" \
-        -v $PWD:/app/data/ \
-        accuknox/sastjob:latest
-  artifacts:
-    paths:
-      - SQ-*.json
-    expire_in: 1 hour  # Optional: Set expiration time for artifacts
-
-upload-report:
-  stage: upload-report
-  image: curlimages/curl:latest
-  dependencies:
-    - fetch-report
-  script:
-    - |
-      for file in `ls -1 SQ-*.json`; do
-        curl --location --request POST "<https://$AK_URL/api/v1/artifact/?tenant_id=$TENANT_ID&data_type=SQ&save_to_s3=false>" \
-          --header "Tenant-Id: $TENANT_ID" \
-          --header "Authorization: Bearer $TOKEN" \
-          --form "file=@\"$file\""
-      done
+include:
+  - component: $CI_SERVER_FQDN/accu-knox/scan/sast-scan@1.1
+    inputs:
+      STAGE: test
+      SONAR_TOKEN: ${SONAR_TOKEN}
+      SONAR_HOST_URL: ${SONAR_HOST_URL}
+      SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
+      ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+      ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+      ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
+    needs:
+      - job: sonarqube-check
 ```
 
 ## Initial CI/CD Pipeline Without AccuKnox Scan
@@ -107,20 +81,39 @@ Initially, the CI/CD pipeline does not include the AccuKnox scan. Vulnerabilitie
 
 After integrating AccuKnox into the pipeline, pushing changes triggers the SonarQube scan, and results are sent to AccuKnox. AccuKnox helps identify potential code vulnerabilities.
 
+![image-20241206-101827.png](./images/gitlab-sast/1.png)
+
+![image-20241206-101803.png](./images/gitlab-sast/2.png)
+
 ## View Results in AccuKnox SaaS
 
-1. **Access the Dashboard:** After the pipeline completes, navigate to the AccuKnox SaaS dashboard.
+**Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
 
-2. **View Findings:** Go to **Issues > Findings** and select **SAST Findings** to see identified vulnerabilities.
-![image-20240822-102607.png](images/gitlab-sast/4.png)
+**Step 2**: Go to **Issues** > **Findings** and select **SAST Findings** to see identified vulnerabilities.
 
-3. **Analyze and Fix Vulnerabilities:** Click on a vulnerability to view more details and follow the instructions in the **Solutions** tab.
-![image-20240822-102653.png](images/gitlab-sast/5.png)
+![image-20241122-035925.png](./images/gitlab-sast/3.png)
 
-4. **Create a Ticket:** For unresolved vulnerabilities, create a ticket in your issue tracking system.
-![image-20240822-102743.png](images/gitlab-sast/6.png)
+**Step 3**: Click on a vulnerability to view more details.
 
-5. **Re-run the Pipeline:** After fixing the vulnerabilities, rerun the GitLab CI/CD pipeline and verify that the issues have been resolved in the AccuKnox dashboard.
+![image-20241122-040016.png](./images/gitlab-sast/4.png)
+
+**Step 4**: Fix the Vulnerability
+
+Follow the instructions in the Solutions tab to fix the vulnerability
+
+![image-20241122-040110.png](./images/gitlab-sast/5.png)
+
+**Step 5**: Create a Ticket for Fixing the Vulnerability
+
+Create a ticket in your issue-tracking system to address the identified vulnerability.
+
+![image-20241122-040305.png](./images/gitlab-sast/6.png)
+
+**Step 6**: Review Updated Results
+
+- After fixing the vulnerability, rerun the GitLab CI/CD pipeline.
+
+- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
 
 ## Conclusion
 
