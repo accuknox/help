@@ -16,4 +16,3 @@ The Static Application Security Testing (SAST) scanning section of the GitLab CI
 | ACCUKNOX_TENANT   | The ID of the tenant associated with the CSPM panel.       | N/A (Required)             |
 | ACCUKNOX_ENDPOINT | The URL of the CSPM panel to push the scan results to.     | cspm.demo.accuknox.com     |
 | ACCUKNOX_LABEL    | Label created in AccuKnox SaaS for associating scan results. | N/A (Required)             |
-```
