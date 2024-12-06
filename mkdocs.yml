@@ -262,6 +262,11 @@ nav:
             - "Container Scan": "integrations/gitlab-container-scan.md"
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
+            - "Scan Variables":
+              - "Container Scaning Variables": "integrations/gitlab-container-variables.md"
+              - "IaC Scanning Variables": "integrations/gitlab-iac-variables.md"
+              - "DAST Scanning Variables": "integrations/gitlab-dast-variables.md"
+              - "SAST Scanning variables": "integrations/gitlab-sast-variables.md"
         - "Bitbucket":
             - "DAST": "integrations/bitbucket-dast.md"
             - "SAST": "integrations/bitbucket-sast.md"
