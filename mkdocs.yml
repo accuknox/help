@@ -2,16 +2,23 @@
 site_name: ""
 site_description: "Zero trust CNAPP"
 site_author: "AccuKnox"
+
+#Sitemap: https://help.accuknox.com/sitemap.xml
 site_url: "https://help.accuknox.com/"
+
 # Copyright
 copyright: "&copy; 2024 AccuKnox. All Rights Reserved."
+
 # Repository
 repo_name: "GitHub"
 repo_url: "https://github.com/kubearmor/KubeArmor"
 edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
+
 # Configuration
 docs_dir: "docs"
 dev_addr: '127.0.0.1:8000'
+
+# Theme
 theme:
   name: "material"
   custom_dir: overrides
@@ -53,11 +60,8 @@ theme:
   font:
     text: 'Montserrat'
     code: 'Fira Code'
-  #icon:
-  #logo: 'assets/images/logo-black.png'
   logo_dark_mode: 'assets/images/logo-white.png'
   logo_light_mode: 'assets/images/logo-white.png'
-  # logo_light_mode: 'assets/images/logo-black.png' [REVERT IF NEEDED]
   favicon: 'assets/images/favicon.ico'
   # hide:
   # - toc
@@ -118,8 +122,6 @@ plugins:
         redirect_maps:
             'index.md': 'introduction/home.md'
 # Customization
-#extra_javascript:
-# - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"
 extra_css:
 - "assets/stylesheets/style.css"
 - "assets/stylesheets/extra.css"
@@ -156,14 +158,14 @@ extra:
       link: "https://www.linkedin.com/company/accuknox/?original_referer=https%3A%2F%2Fwww.accuknox.com%2F"
     - icon: "fontawesome/brands/youtube"
       link: "https://www.youtube.com/channel/UCLqK0vGQTa2ctjnbNzvP52Q"
+    - icon: "fontawesome/brands/wordpress"
+      link: "https://www.accuknox.com/"
 # Page tree
 pages:
 
 
 nav:
   - "Home": "introduction/home.md"
-
-
 
   - "Getting Started":
     - "AccuKnox Architecture (Enterprise CNAPP Suite)" : "introduction/accuknox-architecture.md"
