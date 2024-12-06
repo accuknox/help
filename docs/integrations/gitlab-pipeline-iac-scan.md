@@ -29,7 +29,20 @@ This guide demonstrates how to integrate Infrastructure as Code (IaC) security i
 
 Create a new pipeline in your GitLab project with the following YAML configuration:
 
-`include: - component: $CI_SERVER_FQDN/accu-knox/scan/iac-scan@1.0 inputs: STAGE: test INPUT_DIRECTORY: "." INPUT_COMPACT: true INPUT_QUIET: true INPUT_SOFT_FAIL: false ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN} ACCUKNOX_TENANT: ${ACCUKNOX_TENANT} ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT} ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}`
+```yaml
+include:
+  - component: $CI_SERVER_FQDN/accu-knox/scan/iac-scan@1.0
+    inputs:
+      STAGE: test
+      INPUT_DIRECTORY: "."
+      INPUT_COMPACT: true
+      INPUT_QUIET: true
+      INPUT_SOFT_FAIL: false
+      ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+      ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+      ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
+```
 
 ## **Initial CI/CD Pipeline Without AccuKnox IaC Scan**
 
