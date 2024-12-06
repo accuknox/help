@@ -1,4 +1,7 @@
-
+---
+title: PHP MySQL Web Application
+description: Protecting the PHP MySQL Web Application using AccuKnox CWPP Security solution.
+---
 
 
 Database Management is an important part when you have a large amount of data around you. MySQL is one of the most famous open-source Relational Databases to store and handle your data. So securing the data is the main concern for any organization.

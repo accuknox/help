@@ -6,10 +6,16 @@
     display: var(--md-header-logo-dark-mode);
 }
 
+/* LIGHT MODE */
 [data-md-color-scheme="default"] {
     --md-header-logo-dark-mode: none;
     --md-header-logo-light-mode: block;
 
+
+    .md-typeset h1 {
+        color: #000000 !important;
+    }
+
     .ticket_tab {
         background: white;
         color: black;
@@ -19,12 +25,19 @@
         background: white;
         color: black;
     }
+
 }
 
+
+/* DARK MODE */
 [data-md-color-scheme="slate"] {
     --md-header-logo-dark-mode: block;
     --md-header-logo-light-mode: none;
 
+    .md-typeset h1 {
+        color: #ffffff !important;
+    }
+
     .ticket_tab {
         background: black;
         color: white;
@@ -36,17 +49,17 @@
 
     }
 
-    .home-card-heading{
+    .home-card-heading {
         color: black;
     }
 
     .use-cases-container {
         background-color: white;
-      }
+    }
 
-      .home-section-7 {
+    .home-section-7 {
         background-color: white;
-      }
+    }
 
 
 }
@@ -77,4 +90,3 @@
 body .gist .gist-meta {
     display: none;
 }
-

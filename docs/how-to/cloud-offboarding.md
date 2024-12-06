@@ -1,3 +1,8 @@
+---
+title: Cloud Account Offboarding
+description: Offboarding a cloud account from AccuKnox SaaS.
+---
+
 # How to Deboard a Cloud Account
 
 This guide outlines the steps for offboarding a cloud account from AccuKnox SaaS.

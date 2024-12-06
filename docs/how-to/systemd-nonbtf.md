@@ -1,3 +1,8 @@
+---
+title: SystemD Based Non-BTF Environments
+description: This document provides the steps to onboard a node/control plane in a SystemD based non-BTF environment to the AccuKnox SaaS platform.
+---
+
 # SystemD Based Non-BTF Environments
 
 ## Compiling system monitor

@@ -25,13 +25,13 @@ theme:
   features:
     - content.code.annotate
     - content.code.copy
+    - navigation.path
     - navigation.indexes
     - navigation.tabs
     - navigation.instant
     - navigation.instant.progress
     - navigation.tabs.sticky
     - navigation.top
-    - navigation.path
     - navigation.tracking
     - navigation.footer
     - search.highlight
@@ -58,7 +58,7 @@ theme:
     previous: 80 # p
     search: 83 # s
   font:
-    text: 'Montserrat'
+    text: 'Open Sans'
     code: 'Fira Code'
   logo_dark_mode: 'assets/images/logo-white.png'
   logo_light_mode: 'assets/images/logo-white.png'

@@ -1,3 +1,7 @@
+---
+title: Harbor Registry Onboarding
+description: This document provides the steps to onboard Harbor Registry on AccuKnox SaaS.
+---
 
 # Harbor Registry Onboarding
 

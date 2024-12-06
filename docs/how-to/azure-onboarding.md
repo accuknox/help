@@ -1,3 +1,7 @@
+---
+title: Azure Account onboarding
+description: Onboarding an Azure cloud account to the AccuKnox SaaS platform.
+---
 
 # Azure Account onboarding
 

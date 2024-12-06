@@ -1,4 +1,7 @@
-
+---
+title: CWPP Pre-requisites
+description: AccuKnox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS.
+---
 
 In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS.
 

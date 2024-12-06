@@ -1,7 +1,8 @@
 ---
-hide:
-  - toc
+title: Deployment Models
+description: AccuKnox has an expanded offering to cater to diverse deployment needs such as SaaS, Managed OEM/MSSP, AWS On-prem, and Full On-prem/Air-Gapped deployments.
 ---
+
 # Deployment Models
 
 AccuKnox has an expanded offering to cater to diverse deployment needs and preferences:

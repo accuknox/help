@@ -17,6 +17,6 @@ AccuKnox’s Cloud Native Application Protection platform is a single tool that 
 
 ```sh
 sudo apt install python3-pip
-pip3 install mkdocs-material-extensions pymdown-extensions mkdocs-material mkdocs-macros-plugin mkdocs-embed-external-markdown mkdocs-redirects neoteroi-mkdocs
+pip3 install mkdocs-material-extensions pymdown-extensions mkdocs-material mkdocs-macros-plugin mkdocs-embed-external-markdown mkdocs-redirects neoteroi-mkdocs mkdocs-breadcrumbs-plugin
 mkdocs serve
 ```

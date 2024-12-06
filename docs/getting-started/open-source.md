@@ -1,4 +1,7 @@
-
+---
+title: Open Source
+description: KubeArmor is an open-source sandbox project of AccuKnox which was donated to CNCF-Cloud Native Computing Foundation
+---
 
 KubeArmor is an open-source sandbox project of AccuKnox which was donated to [CNCF-Cloud Native Computing Foundation](https://www.cncf.io/projects/kubearmor/)
 
@@ -229,7 +232,7 @@ The use-cases described in subsequent step uses this sample application.
 	```sh
 	kubectl annotate ns wordpress-mysql kubearmor-visibility="process, file, network" --overwrite
 	```
-	
+
 	MySQL keeps all its database tables as part of `/var/lib/mysql` folder path. **Audit** access to this folder path recursively (sub-folders inclusive).
 
 	```yaml

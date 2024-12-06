@@ -1,4 +1,9 @@
-# On-prem Deployment Guide
+---
+title: On-prem Deployment Guide
+description: Onboarding Steps for AccuKnox's on-prem security solution.
+---
+
+# **On-prem Deployment Guide**
 
 ## Onboarding Steps for AccuKnox
 

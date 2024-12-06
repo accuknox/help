@@ -1,4 +1,7 @@
-
+---
+title: AccuKnox Release Notes v1.5
+description: A summary log of the new features, enhancements, and bug fixes in AccuKnox v1.5 release.
+---
 
 # **Release Notes v1.5**
 

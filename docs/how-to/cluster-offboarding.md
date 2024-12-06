@@ -1,3 +1,8 @@
+---
+title: Cluster Offboarding
+description: This guide outlines the steps for offboarding a cluster from AccuKnox SaaS.
+---
+
 # Cluster Offboarding
 
 This guide outlines the steps for offboarding a cluster from AccuKnox SaaS. The process involves uninstalling the agents from the cluster and deleting the cluster from AccuKnox SaaS.
