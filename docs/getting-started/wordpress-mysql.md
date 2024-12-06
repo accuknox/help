@@ -1,3 +1,10 @@
+---
+title: WordPress-MySQL Application
+description: Protecting the WordPress-MySQL application using AccuKnox CWPP Security solution.
+---
+
+# WordPress-MySQL Application
+
 WordPress-MySQL Application has the WordPress front end connecting to the MySQL backend. When this application is deployed in the k8s environment, we have two pods one for WordPress and another for Mysql. We can onboard the cluster to our AccuKnox SaaS by following the steps here.
 
 ## Observability

@@ -1,6 +1,9 @@
+---
+title: Email Integration
+description: This document explains how to integrate Email with AccuKnox to receive alert notifications via mail.
+---
 
-
-## Email Integration
+# Email Integration
 
 To send an alert notification via mail you must first set up the Email notification Channel.
 

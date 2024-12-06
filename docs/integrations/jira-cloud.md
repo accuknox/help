@@ -1,3 +1,7 @@
+---
+title: Jira Cloud Integration
+description: Integrate AccuKnox with Jira Cloud to automate the process of generating Jira tickets with your existing security workflow.
+---
 
 
 ## Jira Integration
@@ -81,7 +85,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
     **Mandatory/Custom Fields**
 
       Each issue type includes various mandatory or custom fields that are critical to the overall management of issues within a project.
-      
+
       + **Issue Type**: Task
       + **Components**: Defines the component(s) involved in the task, e.g., UI, Backend, Database.
       + **Project**: The project to which the task is assigned (e.g., CNAPP, CSPM).
@@ -114,7 +118,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
         - **Progress Tracking**: Automatically update status to **In-Progress** for relevant comments.
         - **Duplicate Issues**: Flag duplicates based on comments like "duplicate of issue #123".
         - **Exceptions**: Identify special requests through comments.
-    
+
     + Implementing **Comment Analysis** provides streamlines issue management and enhances visibility into project status.
 
     ![](images/jiracspm_commentAnalysis.png)

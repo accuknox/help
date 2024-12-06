@@ -1,16 +1,19 @@
+---
+title: Azure DevOps IaC Scan Integration
+description: A step by step guide for integrating AccuKnox IaC scan with Azure DevOps. IaC scan helps you to find the vulnerabilities in you IaC code like Terraform, AWS Cloud Formation, Azure ARM templates etc. By using AccuKnox IaC, you can find the vulnerabilities in your infrastructure proactively.
+---
+
 ## Azure DevOps IaC Scan Integration
 
 This is a step by step guide for integrating AccuKnox IaC scan with Azure DevOps. IaC scan helps you to find the vulnerabilities in you IaC code like Terraform, AWS Cloud Formation, Azure ARM templates etc. By using AccuKnox IaC, you can find the vulnerabilities in your infrastructure proactively.
 
-## Prerequisites:
---------------
+## Prerequisites
 
--   Access to AccuKnox UI
+- Access to AccuKnox UI
 
--   Access to Azure DevOps
+- Access to Azure DevOps
 
 ### Step 1: Generate the AccuKnox token
------------------------------------
 
 The first step is to generate an AccuKnox token. For generating the AccuKnox token, open up the AccuKnox, Go to Settings > Tokens then click on the create button.
 
@@ -25,7 +28,6 @@ Once you have generated the the token, click on the copy button and take a note 
 ![](images/azure-devops/azure-iac3.png)
 
 ### Step 2: Create a label
-----------------------
 
 In AccuKnox, labels are used for grouping the similar types of assets together. For creating a label navigate to the Settings > Labels and click on the create label button.
 
@@ -36,7 +38,6 @@ Give your label a name and a filename prefix. Take a note of the label and click
 ![](images/azure-devops/azure-iac5.png)
 
 ### Step 3: Configure secrets and variables in Azure DevOps
--------------------------------------------------------
 
 Navigate to the Azure DevOps > Pipelines > Library and click on the add variable group button.
 
@@ -44,13 +45,13 @@ Navigate to the Azure DevOps > Pipelines > Library and click on the add variable
 
 Name your variable group as `AccuKnox`. And configure the following variables.
 
--   `TENANT_ID`- Your AccuKnox tenant id.
+- `TENANT_ID`- Your AccuKnox tenant id.
 
--   `ACCUKNOX_TOKEN`- AccuKnox API token, used to upload the reports to AccuKnox.
+- `ACCUKNOX_TOKEN`- AccuKnox API token, used to upload the reports to AccuKnox.
 
--   `LABEL`- Used to group findings together.
+- `LABEL`- Used to group findings together.
 
--   `REPO_LINK`- Your git repository URL.
+- `REPO_LINK`- Your git repository URL.
 
 ![](images/azure-devops/azure-iac7.png)
 
@@ -63,7 +64,6 @@ Go to pipeline permissions, click on add button and select your pipeline.
 ![](images/azure-devops/azure-iac9.png)
 
 ### Step 4: Configure CI/CD pipeline
---------------------------------
 
 Add this `azure-pipelines.yml` file to the root of your repository. And push it to main branch, it will trigger a pipeline run.
 
@@ -89,12 +89,12 @@ variables:
       --form "file=@./result.json"
   displayName: 'IaC Scan'
 ```
+
 Navigate to the pipelines and you will see a successful IaC scan like this.
 
 ![](images/azure-devops/azure-iac10.png)
 
 ### Step 5: View findings in AccuKnox
----------------------------------
 
 To see your findings navigate to AccuKnox > Issues > Findings and select the IaC Findings.
 

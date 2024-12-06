@@ -1,3 +1,7 @@
+---
+title: GAR Onboarding
+description: This document provides the steps to onboard Google Artifact Registry (GAR) on AccuKnox SaaS.
+---
 
 # GAR Onboarding
 

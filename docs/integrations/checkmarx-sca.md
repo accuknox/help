@@ -1,3 +1,8 @@
+---
+title: Checkmarx SCA Integration
+description: Integrate Checkmarx Software Composition Analysis (SCA) scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
+---
+
 # Checkmarx SCA Integration
 
 ## **Introduction**

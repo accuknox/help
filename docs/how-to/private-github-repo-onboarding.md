@@ -1,3 +1,8 @@
+---
+title: Onboarding a Private Github Repo
+description: This document provides the steps to onboard a private Github repository on AccuKnox SaaS.
+---
+
 # Onboarding a Private Github Repo
 
 ## Configuration

@@ -1,3 +1,8 @@
+---
+title: GCP Account onboarding
+description: This document provides the steps to onboard a GCP cloud account to the AccuKnox SaaS platform.
+---
+
 # GCP Account onboarding
 
 Here, we will see the steps to onboard a GCP cloud account to the AccuKnox SaaS platform

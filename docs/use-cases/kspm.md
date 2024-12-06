@@ -24,10 +24,10 @@ hide:
   image: ./icons/cluster-misconfig-scan.svg
   url: /use-cases/cluster-misconfiguration-scanning/
 
-- title: CIS Benchmarking
+- title: CIS K8s Benchmark findings
   content: KSPM aligns with the CIS Kubernetes Benchmark, offering automated compliance checks against industry standards to ensure your clusters meet security requirements.
   image: ./icons/workload-hardening.svg
-  url: /how-to/cis-benchmarking
+  url: /use-cases/cis-benchmarking/
 
 - title: KIEM
   content: K8s Identity and Entitlement Management controls access to Kubernetes resources by managing identities and entitlements. It ensures appropriate permissions, secure access, and auditability for users, services, and applications.

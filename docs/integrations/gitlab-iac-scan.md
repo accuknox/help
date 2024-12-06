@@ -1,3 +1,8 @@
+---
+title: GitLab IaC Scan
+description: Learn how to secure a CI/CD pipeline in GitLab using Accuknox to enhance security for Infrastructure as Code (IaC). We will identify code vulnerabilities and send the results to AccuKnox for analysis and remediation.
+---
+
 # GitLab IaC Scan via Accuknox
 
 This guide demonstrates how to secure a CI/CD pipeline in GitLab using Accuknox to enhance security for Infrastructure as Code (IaC). We will identify code vulnerabilities and send the results to AccuKnox for analysis and remediation.

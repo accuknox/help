@@ -1,3 +1,8 @@
+---
+title: Onboard Cluster for Misconfiguration Scanning
+description: This guide outlines the steps for onboarding a cluster to AccuKnox SaaS for scanning cluster misconfigurations.
+---
+
 # Onboard Cluster for Misconfiguration Scanning
 
 This guide outlines the steps for onboarding a cluster to AccuKnox SaaS for scanning cluster misconfigurations.

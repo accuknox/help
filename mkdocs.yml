@@ -25,13 +25,13 @@ theme:
   features:
     - content.code.annotate
     - content.code.copy
+    - navigation.path
     - navigation.indexes
     - navigation.tabs
     - navigation.instant
     - navigation.instant.progress
     - navigation.tabs.sticky
     - navigation.top
-    - navigation.path
     - navigation.tracking
     - navigation.footer
     - search.highlight
@@ -58,7 +58,7 @@ theme:
     previous: 80 # p
     search: 83 # s
   font:
-    text: 'Montserrat'
+    text: 'Open Sans'
     code: 'Fira Code'
   logo_dark_mode: 'assets/images/logo-white.png'
   logo_light_mode: 'assets/images/logo-white.png'
@@ -168,7 +168,7 @@ nav:
   - "Home": "introduction/home.md"
 
   - "Getting Started":
-    - "AccuKnox Architecture (Enterprise CNAPP Suite)" : "introduction/accuknox-architecture.md"
+    - "AccuKnox Enterprise Architecture" : "introduction/accuknox-architecture.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
@@ -262,6 +262,11 @@ nav:
             - "Container Scan": "integrations/gitlab-container-scan.md"
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
+            - "Scan Variables":
+              - "Container Scaning Variables": "integrations/gitlab-container-variables.md"
+              - "IaC Scanning Variables": "integrations/gitlab-iac-variables.md"
+              - "DAST Scanning Variables": "integrations/gitlab-dast-variables.md"
+              - "SAST Scanning variables": "integrations/gitlab-sast-variables.md"
         - "Bitbucket":
             - "DAST": "integrations/bitbucket-dast.md"
             - "SAST": "integrations/bitbucket-sast.md"
@@ -322,8 +327,11 @@ nav:
     - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
     - "Cloud Workload Protection Platform (CWPP)": "use-cases/cwpp.md"
     - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
-    - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
-    - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
+
+    - "Kubernetes Security Posture Management (KSPM)":
+      - "Overview": "use-cases/kspm.md"
+      - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+      - "CIS K8s Benchmark Findings": "use-cases/cis-benchmarking.md"
     - "DevSecOps (ASPM)":
       - "SAST - SQL Injection": "use-cases/sast-sq.md"
       - "ASPM Container Scan": "use-cases/container-scan.md"
@@ -392,6 +400,7 @@ nav:
     - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Backup my Scan Data": "resources/scan-data-backup.md"
     - "Troubleshooting": "resources/troubleshooting.md"
+    - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
     - "Technical Guide": "resources/technical-support-guide.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"

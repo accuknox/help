@@ -1,3 +1,7 @@
+---
+title: AccuKnox Agents
+description: AccuKnox Agents are the agents that are part of the AccuKnox solution. These agents are responsible for enforcing the security policies and providing deep visibility into cloud accounts.
+---
 
 # AccuKnox Agents
 

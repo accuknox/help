@@ -1,3 +1,8 @@
+---
+title: AccuKnox SAST Integration with Azure DevOps
+description: This document contains the process of integrating AccuKnox SAST with Azure DevOps. By integrating AccuKnox SAST into CI/CD pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
+---
+
 ## AccuKnox SAST Integration with Azure DevOps
 
 This document contains the process of integrating AccuKnox SAST with Azure DevOps. By integrating AccuKnox SAST into CI/CD pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
@@ -119,13 +124,13 @@ steps:
   displayName: Upload SAST reports to AccuKnox
 
 - script: |
-    sleep 10 
+    sleep 10
     response=$(curl -s -u "$(SQ_TOKEN):" "$(SQ_URL)/api/qualitygates/project_status?projectKey=$(SQ_PROJECT)")
     echo "Quality Gate API Response: $response"
     qualityGateStatus=$(echo "$response" | jq -r '.projectStatus.status')
     if [ "$qualityGateStatus" != "OK" ]; then
       echo "Quality Gate failed: $qualityGateStatus"
-      exit 1  
+      exit 1
     else
       echo "Quality Gate passed"
     fi

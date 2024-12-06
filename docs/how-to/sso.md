@@ -1,3 +1,8 @@
+---
+title: SSO Login Guide
+description: This guide covers the complete process from inviting a new user to logging in with SSO.
+---
+
 # SSO Login Guide
 
 This guide covers the complete process from inviting a new user to logging in with SSO.

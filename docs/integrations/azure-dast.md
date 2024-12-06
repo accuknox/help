@@ -1,3 +1,8 @@
+---
+title: AccuKnox DAST with Azure DevOps
+description: Understand the process of integrating AccuKnox DAST with Azure DevOps. By integrating AccuKnox DAST into the pipeline, you can identify and resolve security vulnerabilities for your applications.
+---
+
 To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using Azure DevOps to enhance security, consider a specific scenario involving a domain with known vulnerabilities. By integrating AccuKnox scanning into the pipeline, we can identify and resolve these security issues.
 
 ## **Pre-requisites**
@@ -23,18 +28,18 @@ Navigate to Settings and select Tokens to create an AccuKnox token for forwardin
 
 Navigate to your Azure DevOps project and go to **Pipelines** > **Library** > **Variables or Secure files** to add the following secrets and Variables:
 
-    + ```TOKEN```: The artifact token received from the AccuKnox management plane 
+    + ```TOKEN```: The artifact token received from the AccuKnox management plane
 
-    + ```TENANT_ID```: The Tenant ID received from the AccuKnox management plane 
+    + ```TENANT_ID```: The Tenant ID received from the AccuKnox management plane
 
     + ```TARGET_URL```: Domain URL to test for vulnerabilities.
 
 ![](images/azure-devops/dast-vars.png)
- 
+
 Add the ```TOKEN``` as a secure file
 
 ![](images/azure-devops/dast-token.png)
- 
+
 **Step 3**: Set Up Azure DevOps Pipeline
 
 Create a new pipeline in your Azure DevOps project with the following YAML configuration:
@@ -101,7 +106,7 @@ Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push 
 After integrating AccuKnox into your CI/CD pipeline, the next push triggers the Azure DevOps pipeline. The AccuKnox scan identifies potential vulnerabilities in the domain URL.
 
 ![](images/azure-devops/dast-scan.png)
- 
+
 ### **View Results in AccuKnox SaaS**
 
 **Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
@@ -113,19 +118,19 @@ After integrating AccuKnox into your CI/CD pipeline, the next push triggers the 
 **Step 3**: Click on a vulnerability to view more details.
 
 ![](images/azure-devops/dast-misconf.png)
- 
+
 **Step 4**: Fix the Vulnerability
 
 Follow the instructions in the Solutions tab to fix the vulnerability (e.g., Cross-Domain Misconfiguration).
 
 ![](images/azure-devops/dast-sol.png)
- 
+
 **Step 5**: Create a Ticket for Fixing the Vulnerability
 
 Create a ticket in your issue tracking system to address the identified vulnerability.
 
 ![](images/azure-devops/dast-ticket.png)
- 
+
 **Step 6**: Review Updated Results
 
 - After fixing the vulnerability, rerun the Azure DevOps pipeline.

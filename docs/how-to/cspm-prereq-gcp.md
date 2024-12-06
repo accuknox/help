@@ -1,3 +1,8 @@
+---
+title: CSPM Pre-requisite for GCP
+description: Pre-requisite for onboarding GCP cloud account to AccuKnox SaaS platform.
+---
+
 # CSPM Pre-requisite for GCP
 
 In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.

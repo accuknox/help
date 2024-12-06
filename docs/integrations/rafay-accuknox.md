@@ -1,4 +1,9 @@
+---
+title: Rafay Integration with AccuKnox
+description: The Rafay integration with AccuKnox enables users to deploy the AccuKnox agents through Rafay and onboard to AccuKnox SaaS to get visibility into your Kubernetes clusters.
+---
 
+# Rafay Integration with AccuKnox
 
 ??? "**AccuKnox KubeArmor**"
 

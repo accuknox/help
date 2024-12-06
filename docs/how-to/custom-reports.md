@@ -1,3 +1,8 @@
+---
+title: How to Configure Custom Reports
+description: AccuKnox's latest feature update provides new custom reporting feature capabilities that can help users get the reports customized as per their requirements.
+---
+
 # How to Configure Custom Reports
 
 AccuKnox's latest feature update provides new custom reporting feature capabilities that can help users get the reports customized as per their requirements.

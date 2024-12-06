@@ -1,4 +1,7 @@
-
+---
+title: Managed Cluster Onboarding
+description: Onboarding a managed cluster into the AccuKnox SaaS application.
+---
 
 # **Managed Cluster Onboarding**
 

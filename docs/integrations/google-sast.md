@@ -1,3 +1,8 @@
+---
+title: Google Cloud Build Integration
+description: Integrate AccuKnox into a Google Cloud Build pipeline to identify and remediate vulnerabilities in Java applications. Below, we compare the state of the pipeline before and after integrating AccuKnox, highlighting the security improvements.
+---
+
 To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using Google Cloud Build to enhance security, consider a specific scenario involving a Java application with known vulnerabilities. By integrating AccuKnox scanning into the pipeline, we can identify and resolve these security issues before deployment.
 
 ## **Pre-requisite**
@@ -50,9 +55,9 @@ steps:
         usermod -aG docker $(whoami) || true && chmod -R 777 /workspace # Add user to docker group (ignore if already added)
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
-    args: [ 
-      '-c', 
-      "gcloud secrets versions access latest --secret=sonarqube-token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/sonar-token.txt" 
+    args: [
+      '-c',
+      "gcloud secrets versions access latest --secret=sonarqube-token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/sonar-token.txt"
     ]
     id: 'access-sonar-secret'
   - name: 'docker.io/sonarsource/sonar-scanner-cli'
@@ -80,9 +85,9 @@ steps:
   # Step 5: Access the secret using gcloud and save it to a file
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
-    args: [ 
-      '-c', 
-      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/ak-token.txt" 
+    args: [
+      '-c',
+      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/ak-token.txt"
     ]
     id: 'access-ak-secret'
   - name: 'gcr.io/cloud-builders/curl'

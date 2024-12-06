@@ -1,3 +1,7 @@
+---
+title: AWS Account onboarding
+description: Onboarding an AWS cloud account to the AccuKnox SaaS platform.
+---
 
 # AWS Account onboarding
 

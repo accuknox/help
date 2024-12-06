@@ -1,5 +1,9 @@
+---
+title: Lens Integration with KubeArmor
+description: Deploy the KubeArmor agents through Lens and onboard to KubeArmor to enforce security policies at the pod and node level.
+---
 
-
+# Lens Integration with KubeArmor
 Follow the below steps to add the KubeArmor helm chart to Lens and deploy it,
 
 **Step 1**: Navigate to File → Preferences or press Ctrl+Comma to open the Preferences menu and select the Kubernetes tab.

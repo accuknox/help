@@ -1,4 +1,7 @@
-
+---
+title: Open Source vs Enterprise
+description:  A comparison between KubeArmor (Opensource) and AccuKnox (Enterprise) CNAPP solutions and how AccuKnox provides a comprehensive security solution for cloud-native applications.
+---
 
 ### KubeArmor (Opensource)
 <a href="https://github.com/kubearmor/KubeArmor" target="_blank">KubeArmor</a> is a cloud-native runtime security enforcement system that restricts the behavior (such as process execution, file access, and networking operations) of pods, containers, and nodes (VMs) at the system level.

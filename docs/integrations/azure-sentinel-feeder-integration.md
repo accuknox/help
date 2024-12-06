@@ -1,3 +1,8 @@
+---
+title: Azure Sentinel Feeder Integration
+description: This document contains the process of integrating AccuKnox Feeder Service with Azure Sentinel. By integrating AccuKnox Feeder Service with Azure Sentinel, you can forward the alerts based on policy violation to Azure Sentinel.
+---
+
 ## **Overview**
 Azure Sentinel is a cloud-native SIEM solution by Microsoft that helps organizations detect, investigate, and respond to security threats. It collects data from various sources, applies AI and ML for intelligent analytics, and offers real-time insights. Key features include comprehensive data ingestion, threat detection with customizable rules, interactive investigation and hunting capabilities, automation through playbooks, and seamless integration with Microsoft and third-party security solutions. Azure Sentinel enables organizations to enhance security operations, improve threat detection and response, and protect their digital assets across hybrid and multi-cloud environments.
 
@@ -9,7 +14,7 @@ Azure Sentinel is a cloud-native SIEM solution by Microsoft that helps organizat
 ## Configuration
 To forward the Alerts based on Policy Violation to Azure sentinel set the following environment variables `AZURE_SENTINEL_ENABLED` and `AZURE_SENTINEL_ALERTS_ENABLED` to true and to forward Logs `AZURE_SENTINEL_LOGS_ENABLED` to true in your Feeder Agent manifest.
 
-Also set the environment variables `AZURE_SENTINEL_GROUP_NAME`, `AZURE_SENTINEL_GROUP_VALUE`, `AZURE_SENTINEL_URL` of the Azure Logic App Deployed. 
+Also set the environment variables `AZURE_SENTINEL_GROUP_NAME`, `AZURE_SENTINEL_GROUP_VALUE`, `AZURE_SENTINEL_URL` of the Azure Logic App Deployed.
 To start editing the chart:
 ``` sh
  kubectl edit configmap azuresentinel-vars -n accuknox-agents
@@ -21,7 +26,7 @@ AZURE_SENTINEL_ALERTS_ENABLED: "true"
 AZURE_SENTINEL_ENABLED: "true"
 AZURE_SENTINEL_GROUP_NAME: "Preferred Name"
 AZURE_SENTINEL_GROUP_VALUE: "Preffered Value"
-AZURE_SENTINEL_LOGS_ENABLED: "true"  
+AZURE_SENTINEL_LOGS_ENABLED: "true"
 AZURE_SENTINEL_URL: "https://xyz.xxxxx.log ic.azu re.com:443/workflows/xxxxxxxx"
 ```
 

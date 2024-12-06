@@ -1,4 +1,7 @@
-
+---
+title: RSyslog Integration with AccuKnox
+description: The RSyslog integration with AccuKnox enables forwarding logs and alerts to a centralized RSyslog server. This integration ensures that all logs and alerts are securely stored and managed in a centralized location, enhancing visibility and security monitoring capabilities.
+---
 
 ![](./images/rsyslog-accuknox.png)
 ## **Overview**
@@ -48,7 +51,6 @@ kubectl set env deploy/feeder-service -n accuknox-agents RSYSLOG_ALERTS_ENABLED=
 
 The following is the list of environment variables available for the Feeder-Service-Agent
 
-
 | Env Variable                                   | Description                                                                                                                                                         |
 |------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `RSYSLOG_FEEDER_ENABLED`                       | Setting this to `true` forward the Logs and Alerts to RSyslog Server                                                                                                   |
@@ -59,11 +61,8 @@ The following is the list of environment variables available for the Feeder-Serv
 | `RSYSLOG_TRANSPORT`                            | Add `udp`,`tcp` or `tcp+tls`as the method of communication with the RSyslog server. <br>***Note****: *The methods here are case sensitive, add as mentioned and to enable tls users need to pass the path to .pem file*
 | `RSYSLOG_TLS_CERTIFICATES_PATH`                 | Add the `path/to/certificate.pem` , <br>***Note****: Create the secret manually and mount it on feeder service by specifying the mounts in feederService.volumeMounts[] and feederService.volumes[]
 
-
-
 Once the enviornment variables are passed and deployment is updated, the feeder service pod restarts and Logs and Alerts are forwarded to Integrated RSyslog Server from Feeder Service.
 To view the same check the `/var/log` folder inside the RSyslog Server. A directory with name `feeder-service` is created and all the logs are stored inside the same directory as a log file.
-
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

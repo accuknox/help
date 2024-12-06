@@ -1,3 +1,8 @@
+---
+title: CIS Benchmarking Compliance Scan Onboarding
+description: This guide details the steps to onboard a Kubernetes cluster to Accuknox SaaS for CIS Benchmarking compliance scanning, enabling you to monitor and improve cluster security in line with CIS standards.
+---
+
 # CIS Benchmarking Compliance Scan Onboarding
 
 This guide details the steps to onboard a Kubernetes cluster to Accuknox SaaS for CIS Benchmarking compliance scanning, enabling you to monitor and improve cluster security in line with CIS standards.
