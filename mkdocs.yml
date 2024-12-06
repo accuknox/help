@@ -327,8 +327,11 @@ nav:
     - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
     - "Cloud Workload Protection Platform (CWPP)": "use-cases/cwpp.md"
     - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
-    - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
-    - "Kubernetes Security Posture Management (KSPM)": "use-cases/kspm.md"
+
+    - "Kubernetes Security Posture Management (KSPM)":
+      - "Overview": "use-cases/kspm.md"
+      - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+      - "CIS K8s Benchmark Findings": "use-cases/cis-benchmarking.md"
     - "DevSecOps (ASPM)":
       - "SAST - SQL Injection": "use-cases/sast-sq.md"
       - "ASPM Container Scan": "use-cases/container-scan.md"

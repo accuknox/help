@@ -1,6 +1,6 @@
 ---
 title: CSPM Troubleshooting Guide
-description: This guide helps troubleshoot onboarding and scanning issues for the Accuknox CNAPP SaaS deployment across AWS, Azure, and GCP.
+description: This guide helps troubleshoot onboarding and scanning issues for the Accuknox CNAPP SaaS deployment across AWS, Azure, and GCP clouds.
 ---
 
 # CSPM Troubleshooting Guide
