@@ -397,6 +397,7 @@ nav:
     - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Backup my Scan Data": "resources/scan-data-backup.md"
     - "Troubleshooting": "resources/troubleshooting.md"
+    - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
     - "Technical Guide": "resources/technical-support-guide.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"
