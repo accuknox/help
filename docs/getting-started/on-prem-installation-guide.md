@@ -9,7 +9,7 @@ description: Onboarding Steps for AccuKnox's on-prem security solution.
 
 The onboarding process for AccuKnox's on-prem security solution consists of four key steps that the user must complete. Let's go through each step in a thorough, step-by-step manner:
 
-![on-prem](images/on-prem/onprem_journey.png)
+![on-prem](images/on-prem/onprem_journey_image.png)
 
 ### **Step 1: Hardware & Prerequisites**
 
