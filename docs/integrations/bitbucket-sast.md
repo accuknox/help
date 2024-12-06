@@ -1,3 +1,8 @@
+---
+title: Integrating SAST in BitBucket CI/CD Pipeline
+description:  Integrate AccuKnox into your Bitbucket Pipelines to enhance code security using SonarQube for SAST scanning. It identifies potential vulnerabilities and sends the results to AccuKnox for further analysis and remediation.
+---
+
 
 # Integrating SAST in BitBucket CI/CD Pipeline
 

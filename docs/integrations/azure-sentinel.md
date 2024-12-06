@@ -1,3 +1,8 @@
+---
+title: Azure Sentinel Integration
+description: This document contains the process of integrating AccuKnox Feeder Service with Azure Sentinel. By integrating AccuKnox Feeder Service with Azure Sentinel, you can forward the alerts based on policy violation to Azure Sentinel.
+---
+
 ## Azure Sentinel Integration
 
 To forward the events to Azure Sentinel you must first set up the [Azure Sentinel Integration](https://app.accuknox.com/settings/integrations/azure).

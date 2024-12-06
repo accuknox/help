@@ -1,11 +1,17 @@
+---
+title: RSyslog Integration
+description: This document provides the steps to integrate RSyslog with AccuKnox Container Security Platform to forward the events to RSyslog.
+---
 
 
-## RSyslog Integration
+# RSyslog Integration
 
 To forward the events to RSyslog you must first set up the RSyslog Integration.
 
-### Integration of RSyslog:
+### Integration of RSyslog
+
 #### **a. Prerequisites:**
+
 + A running RSyslog server.
 + Host name/IP, Port number, Transport type(TCP or UDP)
 
@@ -27,10 +33,9 @@ To forward the events to RSyslog you must first set up the RSyslog Integration.
 
     + **Transport:** Select UDP, or TCP as the method of communication with the RSyslog server
 
-+ Click **Test** to check the new functionality, You will receive the test message on configured RSyslog Server. ``` -Test message Please ignore !!```
++ Click **Test** to check the new functionality, You will receive the test message on configured RSyslog Server. ```-Test message Please ignore !!```
 
 + Click **Save** to save the Integration. You can now configure Alert Triggers for RSyslog Events
-
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

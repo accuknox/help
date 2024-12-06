@@ -1,3 +1,8 @@
+---
+title: GitLab SAST Integration
+description: Integrate SonarQube SAST scanning with AccuKnox in a GitLab CI/CD pipeline to enhance security. Identify code vulnerabilities and send the results to AccuKnox for further analysis and remediation.
+---
+
 # Integrating SonarQube SAST with AccuKnox in a GitLab CI/CD Pipeline
 
 ## Introduction

@@ -1,6 +1,9 @@
+---
+title: Connectwise CSPM Integration
+description: Integrate AccuKnox with Connectwise and receive AccuKnox alert notifications in your Connectwise account. With this integration, you can automate the process of generating Connectwise tickets with your existing security workflow.
+---
 
-
-## Connectwise Integration
+# Connectwise CSPM Integration
 
 Integrate AccuKnox with Connectwise and receive AccuKnox alert notifications in your Connectwise account. With this integration, you can automate the process of generating Connectwise tickets with your existing security workflow.
 

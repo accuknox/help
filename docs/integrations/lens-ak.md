@@ -1,4 +1,9 @@
+---
+title: Mirantis Lens Integration with AccuKnox
+description: Deploy the AccuKnox agents through Lens and onboard to AccuKnox SaaS to get visibility into your Kubernetes clusters.
+---
 
+# Mirantis Lens Integration with AccuKnox
 
 To deploy the AccuKnox agents through Lens and onboard to AccuKnox SaaS,
 

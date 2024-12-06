@@ -1,5 +1,9 @@
+---
+title: KubeArmor EKS Add-on
+description: Install KubeArmor on your EKS cluster using Amazon EKS add-on method for enforcing security policies at the pod and node level.
+---
 
-
+# KubeArmor EKS Add-on
 Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service provided by Amazon Web Services (AWS) which simplifies the process of running Kubernetes clusters by handling the underlying infrastructure and operational aspects. KubeArmor’s integration with EKS can provide a user with a tool that can enforce security policies for them at the pod level as well as at the node level. Users can restrict all events related to network, process and file using these policies.
 
 In this article you will understand how to install KubeArmor on your EKS cluster using Amazon EKS add-on method.

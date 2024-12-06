@@ -1,3 +1,8 @@
+---
+title: Jenkins SAST
+description: Integrate AccuKnox SAST with Jenkins CI/CD pipeline to detect security vulnerabilities in source code.
+---
+
 # Jenkins SAST
 
 By integrating AccuKnox SAST with Jenkins, you can identify and resolve security vulnerabilities proactively during the CI/CD process. This guide provides step-by-step instructions for configuring the integration.

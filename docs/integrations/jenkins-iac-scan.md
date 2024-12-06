@@ -1,3 +1,8 @@
+---
+title: Jenkins IaC Scan
+description: Integrate AccuKnox IaC Scan with Jenkins CI/CD pipeline to detect misconfigurations in infrastructure as code.
+---
+
 # Jenkins IaC Scan Plugin
 
 The AccuKnox IaC Scan Jenkins Plugin is designed to integrate AccuKnox's Infrastructure as Code (IaC) scanning capabilities into your Jenkins pipelines. This plugin allows you to perform IaC scans using Checkov and automatically upload the results to AccuKnox SaaS.

@@ -1,19 +1,21 @@
+---
+title: Slack Integration
+description: This document provides the steps to integrate Slack with AccuKnox Container Security Platform to send alert notifications to your Slack channel.
+---
 
-
-
-### Slack Integration:
+# Slack Integration
 
 To send an alert notification via Slack you must first set up the Slack notification Channel.
 
-##Integration of Slack:
+## Integration of Slack:
 
-#### **a. Prerequisites:**
+### **a. Prerequisites:**
 You need a valid and active account in Slack.
 After logging into your Slack channel, you must generate a Hook URL.
 
 **Note :** To generate Hook URL follow the steps, [Webhooks-for-Slack](https://api.slack.com/messaging/webhooks) .
 
-#### **b. Steps to Integrate:**
+### **b. Steps to Integrate:**
 + Go to Channel Integration.
 + Click integrate now on Slack.
 

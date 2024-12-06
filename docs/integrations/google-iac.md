@@ -1,3 +1,8 @@
+---
+title: Google Cloud IaC Scan
+description: Integrate AccuKnox into a Google Cloud Build pipeline to identify and remediate vulnerabilities in Infrastructure as Code (IaC). This guide demonstrates how to identify configuration vulnerabilities in your IaC templates and send the results to AccuKnox for analysis and remediation.
+---
+
 To illustrate the advantages of integrating AccuKnox into a CI/CD pipeline using Google Cloud Build to improve security, let's take a specific scenario involving infrastructure-as-code (IaC) configurations with known misconfigurations. By adding AccuKnox scanning to the pipeline, we can detect and address these security issues before deploying the infrastructure.
 
 ## **Pre-requisite**

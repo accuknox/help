@@ -14,7 +14,14 @@
 
     .md-typeset h1 {
         color: #000000 !important;
+        font-weight: bolder;
     }
+
+    .md-typeset h2 {
+        color: #000000 !important;
+        font-weight: bolder;
+    }
+
 
     .ticket_tab {
         background: white;
@@ -36,6 +43,12 @@
 
     .md-typeset h1 {
         color: #ffffff !important;
+        font-weight: bolder;
+    }
+
+    .md-typeset h2 {
+        color: #ffffff !important;
+        font-weight: bolder;
     }
 
     .ticket_tab {

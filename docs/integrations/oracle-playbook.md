@@ -1,3 +1,8 @@
+---
+title: Oracle Marketplace Installation Guide
+description: This step-by-step process will help you subscribe to AccuKnox via the Oracle Marketplace. It details the actions within the marketplace, the workflow for subscription and access, post-registration access acquisition, and the subsequent steps.
+---
+
 # Oracle Marketplace Installation Guide
 
 A step-by-step process is needed to subscribe to AccuKnox via the Oracle Marketplace. It details the actions within the marketplace, the workflow for subscription and access, post-registration access acquisition, and the subsequent steps.

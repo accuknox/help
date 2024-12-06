@@ -1,3 +1,8 @@
+---
+title: GitLab Pipeline IaC Scan
+description:  Integrate Infrastructure as Code (IaC) security into a GitLab CI/CD pipeline using AccuKnox. This guide demonstrates how to identify configuration vulnerabilities in your IaC templates and send the results to AccuKnox for analysis and remediation.
+---
+
 # Integrating IaC with AccuKnox in a GitLab CI/CD Pipeline
 
 This guide demonstrates how to integrate Infrastructure as Code (IaC) security into a GitLab CI/CD pipeline using AccuKnox. We will implement automated checks to identify configuration vulnerabilities in your IaC templates and send the results to AccuKnox for thorough analysis and remediation. This approach ensures your infrastructure is resilient and aligns with security best practices, effectively minimizing deployment risks.

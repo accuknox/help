@@ -1,3 +1,7 @@
+---
+title: Google Cloud Build Integration
+description: Integrate AccuKnox with Google Cloud Build to enhance security in CI/CD pipelines. By integrating AccuKnox into the pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
+---
 
 
 To demonstrate the benefits of integrating AccuKnox into a CI/CD pipeline using Google Cloud Build to enhance security, let's consider a specific case involving a container image with known vulnerabilities. By incorporating AccuKnox scanning into the pipeline, we can identify and resolve these vulnerabilities before deploying the image. The detailed example below outlines this process by comparing the scenarios before and after the inclusion of AccuKnox, as evidenced in the Cloud Build logs.

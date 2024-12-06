@@ -1,3 +1,8 @@
+---
+title: Jenkins DAST
+description: Integrate AccuKnox DAST with Jenkins CI/CD pipeline to detect vulnerabilities in web applications.
+---
+
 # Jenkins DAST
 
 This document provides the steps to integrate AccuKnox DAST (Dynamic Application Security Testing) with a Jenkins CI/CD pipeline. By incorporating AccuKnox DAST into the pipeline, you can detect vulnerabilities and security issues in web applications before they reach production.

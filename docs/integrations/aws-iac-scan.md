@@ -1,3 +1,8 @@
+---
+title: AWS IaC Scanning
+description:  A step-by-step guide to integrate AccuKnox IaC scanning with AWS CodePipeline. By integrating AccuKnox IaC scanning into the pipeline, you can identify and resolve security vulnerabilities in your Infrastructure as Code (IaC) templates.
+---
+
 # AWS IaC Scanning
 
 ## Prerequisites

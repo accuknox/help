@@ -1,3 +1,8 @@
+---
+title: Harness DAST
+description: Steps to integrate AccuKnox DAST scanning into the Harness Pipeline. This will allow automating the scan to be triggered on events. The results from the scan will then be visible on the AccuKnox platform for management and resolution.
+---
+
 # Harness DAST
 
 This document outlines the steps to integrate AccuKnox DAST scanning into the Harness Pipeline. This will allow automating the scan to be triggered on events. The results from the scan will then be visible on the AccuKnox platform for management and resolution.

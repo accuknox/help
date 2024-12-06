@@ -1,3 +1,8 @@
+---
+title: Harness IaC Scan
+description: Integrate AccuKnox IaC scanning into the Harness Pipeline to perform a scan of the IaC files before the infrastructure is deployed. This guide demonstrates how to add the AccuKnox scan stage to the pipeline and configure it to fail the pipeline in case a security misconfiguration is identified.
+---
+
 # IaC Scan in Harness CI
 
 ## Scenario

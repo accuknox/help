@@ -1,3 +1,9 @@
+---
+title: Enhancing IaC Security in Bitbucket Pipelines
+description: Integrate IaC security into a Bitbucket pipeline using AccuKnox. Automated checks will identify vulnerabilities in IaC templates, and results will be forwarded to AccuKnox for detailed analysis and remediation.
+---
+
+
 # Enhancing IaC Security in Bitbucket Pipelines
 
 This guide explains how to integrate Infrastructure as Code (IaC) security into a Bitbucket pipeline using AccuKnox. Automated checks will identify vulnerabilities in IaC templates, and results will be forwarded to AccuKnox for detailed analysis and remediation. This ensures your infrastructure adheres to security best practices, reducing deployment risks.

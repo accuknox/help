@@ -1,6 +1,10 @@
+---
+title: Email Backend Integration
+description: The Email Backend Integration allows making use of your own SMTP server to send all Emails that originate from the AccuKnox platform.
+---
 
 
-## Email Backend Integration
+# Email Backend Integration
 
 The Email Backend Integration allows making use of your own SMTP server to send all Emails that originate from the AccuKnox platform.
 

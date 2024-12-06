@@ -1,4 +1,9 @@
-# AccuKnox Architecture (Enterprise CNAPP Suite)
+---
+title: AccuKnox Enterprise Architecture
+description: AccuKnox Enterprise CNAPP Suite is a comprehensive solution for cloud-native application protection. AccuKnox is designed to offer end-to-end security throughout the software development lifecycle, integrating various security measures to ensure robust defense across all deployment phases.
+---
+
+# AccuKnox Enterprise Architecture
 
 Welcome to the AccuKnox Enterprise CNAPP Suite, your comprehensive solution for cloud-native application protection. AccuKnox is designed to offer end-to-end security throughout the software development lifecycle, integrating various security measures to ensure robust defense across all deployment phases.
 

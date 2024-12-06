@@ -1,3 +1,8 @@
+---
+title: Ticket Template System
+description: A ticket template is a predefined structure used for creating tickets, typically integrated with third-party platforms. It serves as a standardized format for logging, tracking, and resolving issues, enabling teams to maintain consistency and efficiency in issue management.
+---
+
 # Ticket Template System
 
 A ticket template is a predefined structure used for creating tickets, typically integrated with third-party platforms. It serves as a standardized format for logging, tracking, and resolving issues, enabling teams to maintain consistency and efficiency in issue management.
@@ -11,45 +16,46 @@ The ticket template system offers both dynamic and static templates, allowing fo
 + **Go to Settings**. Click **Ticket Template**.
     ![](images/ticketing-template/ticketing_template1.png)
 
-+ **Viewing a Template**:  
++ **Viewing a Template**:
    Click the desired ticket template from the list to view its details.
 
-+ **Editing a Template**:  
++ **Editing a Template**:
    Click on the ticket template to open its details. You can make edits directly from this screen.
        ![](images/ticketing-template/ticketing_edit.png)
 
-+ **Deleting a Template**:  
++ **Deleting a Template**:
    Select the template you wish to remove, then click **Delete**.
     ![](images/ticketing-template/ticketing_delete.png)
 
-+ **Duplicating a Template**:  
++ **Duplicating a Template**:
    To create a copy of an existing template, select the template and click **Duplicate Template**.
     ![](images/ticketing-template/ticketing_duplicate.png)
 
-+ **Creating a Custom Template**:  
-    + Click on **Add Template** to create a new custom template.  
++ **Creating a Custom Template**:
+    + Click on **Add Template** to create a new custom template.
     + Fill in the required fields and save your changes.
     ![](images/ticketing-template/ticketing_addTemplate.png)
 
 ## Template Fields
+
 ![](images/ticketing-template/ticketing_fields.png)
 
-+ **Name**:  
-   This field specifies the name of the ticket or the item being referenced. It is critical to identify the issue at a glance.  
++ **Name**:
+   This field specifies the name of the ticket or the item being referenced. It is critical to identify the issue at a glance.
    _Example_: "High-Risk Vulnerability"
 
-+ **Data Type**:  
++ **Data Type**:
    Defines the type of data the ticket will address. The options include: Finding, Control, Data List, Check
 
-+ **Title Template**:  
-   This field is used to generate the ticket title in the ticketing system by inserting specific variables into a pre-defined format. After filling in the relevant variables with actual data, the title will provide clear identification of the issue being logged.  
-   _Example Template_: `Vulnerability-Container-{asset}`  
++ **Title Template**:
+   This field is used to generate the ticket title in the ticketing system by inserting specific variables into a pre-defined format. After filling in the relevant variables with actual data, the title will provide clear identification of the issue being logged.
+   _Example Template_: `Vulnerability-Container-{asset}`
    If the asset is "Web Server," the resulting title will be: `Vulnerability-Container-Web Server`
 
-+ **Dynamic Template**:  
-   The dynamic template is useful when the selected vulnerability or control affects multiple objects in a group. In this case, the template will loop through each object and dynamically generate the description for each one, combining all relevant data.  
++ **Dynamic Template**:
+   The dynamic template is useful when the selected vulnerability or control affects multiple objects in a group. In this case, the template will loop through each object and dynamically generate the description for each one, combining all relevant data.
    _Dynamic Template Example_: ```| { asset } | { location } | { vulnerability.name } | { vulnerability.description } | { vulnerability.solution } |```
-    
+
     If you have three objects (assets), this template will dynamically generate a separate row for each object in the group:
 
     **Example:**
@@ -78,7 +84,9 @@ In security scanning workflows, various tools are used to detect vulnerabilities
 ![](images/ticketing-template/ticket_template_fields.png)
 
 Here are some examples
+
 #### A. Vulnerability Scan Data
+
 Vulnerability scans detect asset security flaws (e.g., servers, applications, containers). The following fields should be retrieved from a vulnerability scan report:
 
 | **Field**                 | **Data Type**            | **Description**                                                                 |
@@ -91,8 +99,8 @@ Vulnerability scans detect asset security flaws (e.g., servers, applications, co
 | Tool Output                | Raw Data                 | Output from the scanning tool, often including severity, detection method, and any associated evidence. |
 | Risk Factor/Severity       | Enum (Low/Medium/High)    | The risk level or severity of the vulnerability as assigned by the scanning tool.|
 
-
 #### B. Compliance Data
+
 Compliance scans assess the adherence of systems to established security controls (e.g., CIS Benchmarks, NIST, ISO). The following fields should be retrieved from a compliance scan report:
 
 | **Field**         | **Data Type**  | **Description**                                                                 |
@@ -103,8 +111,8 @@ Compliance scans assess the adherence of systems to established security control
 | Expected Result   | String         | Expected outcome for passing compliance (e.g., "Ensure logging is enabled").    |
 | Comments          | String         | Any additional notes or comments regarding the control.                         |
 
-
 #### C. Registry and Cloud Misconfiguration Data
+
 Registry scans (for container images) and cloud misconfiguration scans (for cloud services) identify issues such as insecure configurations or vulnerable image layers. The following fields should be retrieved:
 
 | **Field**         | **Data Type**  | **Description**                                                                 |
@@ -115,12 +123,10 @@ Registry scans (for container images) and cloud misconfiguration scans (for clou
 | Description       | String         | Detailed description of the misconfiguration or vulnerability.                  |
 | Solution          | String         | Recommended steps to remediate or mitigate the misconfiguration.                |
 
-
 ### Ticket Creation and Population
+
 Once the fields are extracted, follow these steps to populate the ticket template:
 
 + **Open the Template**: Select the appropriate template for the type of scan (e.g., vulnerability, compliance, cloud).
 + **Insert Extracted Data**: For each placeholder in the template, insert the corresponding data extracted from the scan report.
 + **Submit Ticket**: Once the template is fully populated, submit the ticket into your issue tracking system (e.g., Jira, Slack).
-
-
