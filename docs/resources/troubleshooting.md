@@ -1,3 +1,5 @@
+# CWPP Troubleshooting
+
 If the user faces any issue related to clusters, then they should provide the logs information of their clusters for troubleshooting purposes.
 
 ## Requirements
@@ -7,7 +9,7 @@ If the user faces any issue related to clusters, then they should provide the lo
 Users can get the kubeArmor sysdump by using the following command:
 
 ```sh
-karmor sysdump 
+karmor sysdump
 ```
 
 ### Getting logs from AccuKnox Agents
@@ -23,7 +25,7 @@ kubectl logs -n accuknox-agents shared-informer-agent-XXX-XXx > SIA-logs.txt
 
 **Note:** In the above command replace the xxx-xxxx with your respective pod name that is running in accuknox-agents namespace.
 
-The users will have to send this Karmor sysdump file and AccuKnox Agents logs to AccuKnox Solutions team for debugging the issue. 
+The users will have to send this Karmor sysdump file and AccuKnox Agents logs to AccuKnox Solutions team for debugging the issue.
 
 ## Script To automate this process
 
@@ -86,7 +88,7 @@ echo "karmor sysdump executed."
 Users can now send the zip files generated for troubleshooting.
 
 **Note:** Need to install zip as a pre-requisite in linux before running the above script.
-    
+
 ```sh
 sudo apt install zip
 ```
@@ -95,5 +97,5 @@ sudo apt install zip
 
 ![](images/tbshoot-0.png)
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

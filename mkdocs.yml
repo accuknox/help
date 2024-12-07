@@ -399,7 +399,7 @@ nav:
       - "CWPP Worker Nodes": "resources/count-nodes.md"
     - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Backup my Scan Data": "resources/scan-data-backup.md"
-    - "Troubleshooting": "resources/troubleshooting.md"
+    - "CWPP Troubleshooting": "resources/troubleshooting.md"
     - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
     - "Technical Guide": "resources/technical-support-guide.md"
