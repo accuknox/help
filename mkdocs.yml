@@ -168,7 +168,7 @@ nav:
   - "Home": "introduction/home.md"
 
   - "Getting Started":
-    - "AccuKnox Enterprise Architecture" : "introduction/accuknox-architecture.md"
+    - "AccuKnox Enterprise Architecture" : "getting-started.md"
     - "Deployment Models" :
       - "Deployment Models": "getting-started/deployment-models.md"
       - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
