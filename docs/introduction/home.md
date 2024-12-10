@@ -833,6 +833,13 @@ line-height: normal;
         <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
       </ul>
     </div>
+    <div class="use-cases-category">
+      <p class="use-cases-category-title">AI/ML Security</p>
+      <ul class="use-cases-list">
+        <li><a href="/use-cases/modelarmor/" target="_blank">ModelArmor (Open Source)</a></li>
+        <li><a href="https://www.accuknox.com/platform/modelknox" target="_blank">ModelKnox (Coming Soon)</a></li>
+      </ul>
+    </div>
   </div>
   <button class="btn-style">
   <a href="/use-cases/cnapp-security-overview" target="_blank">VIEW ALL USE CASES <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
