@@ -323,7 +323,14 @@ nav:
 
   - "Use-Cases":
     - "Use Cases By Categories": "use-cases/use-cases-home.md"
-    - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
+    - "CNAPP Dashboard Widgets": "use-cases/cnapp-security-overview.md"
+    - "AI/ML Security":
+      - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
+      - "ModelArmor":
+        - "Overview": "use-cases/modelarmor.md"
+        - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
+        - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
+        - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
     - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
     - "Cloud Workload Protection Platform (CWPP)": "use-cases/cwpp.md"
     - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
@@ -352,8 +359,6 @@ nav:
       - "Zero Trust Security": "use-cases/zero-trust.md"
       - "Audit/Forensics": "use-cases/forensics.md"
       - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
-    - "AI Workload Security (CWPP)":
-      - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
     - "Advanced Persistent Threat (CWPP)":
       - "Cryptojacking" : "use-cases/crypto-mining.md"
       - "Hildegard" : "use-cases/hildegard.md"
@@ -372,11 +377,7 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
     - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-    - "ModelArmor":
-      - "Overview": "use-cases/modelarmor.md"
-      - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
-      - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
-      - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
+
 
 
   - "Support Matrix":
