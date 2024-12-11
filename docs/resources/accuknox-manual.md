@@ -1,4 +1,7 @@
-
+---
+title: AccuKnox User Manual
+description: AccuKnox User Manual has detailed information on how to use AccuKnox to secure your cloud-native applications.
+---
 
 <div>
   <iframe id="inlineFrameManual"

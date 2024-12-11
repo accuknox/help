@@ -1,10 +1,15 @@
+---
+title: Raise a Jira ITSM Support Ticket
+description: Follow these steps to raise a Jira ITSM support ticket for major platform issues.
+---
+
 By following these steps, you can quickly and effectively raise a Jira ITSM support ticket for major platform issues, ensuring that your problem is addressed promptly and efficiently.
 
-## How to raise an AccuKnox support ticket? 
+## How to raise an AccuKnox support ticket?
 
-**Step 1:** Please click the following URL for raising the ticket: https://accu-knox.atlassian.net/servicedesk/customer/portal/1 
+**Step 1:** Please click the following URL for raising the ticket: <https://accu-knox.atlassian.net/servicedesk/customer/portal/1>
 
-**Step 2:** The page will ask for you to input the mail ID for signup 
+**Step 2:** The page will ask for you to input the mail ID for signup
 
 ![](images/ticket-procedure/tick-proc-0.png)
 
@@ -16,7 +21,7 @@ By following these steps, you can quickly and effectively raise a Jira ITSM supp
 
 ![](images/ticket-procedure/tick-proc-2.png)
 
-**Step 5:** After clicking the link and setting up the password and username login into the customer portal again https://accu-knox.atlassian.net/servicedesk/customer/portal/1 
+**Step 5:** After clicking the link and setting up the password and username login into the customer portal again <https://accu-knox.atlassian.net/servicedesk/customer/portal/1>
 
 ![](images/ticket-procedure/tick-proc-3.png)
 
@@ -24,15 +29,15 @@ By following these steps, you can quickly and effectively raise a Jira ITSM supp
 
 ![](images/ticket-procedure/tick-proc-4.png)
 
-**Step 7:** To create an issue fill out this form and click send. Once it is clicked, the issue is created, and you will get a confirmation email to your registered email ID. 
+**Step 7:** To create an issue fill out this form and click send. Once it is clicked, the issue is created, and you will get a confirmation email to your registered email ID.
 
 ![](images/ticket-procedure/tick-proc-5.png)
 
-## How to track the issue resolution status? 
+## How to track the issue resolution status?
 
-To track the issue raised by the user they can log into the customer service portal using the link https://accu-knox.atlassian.net/servicedesk/customer/portal/1 
+To track the issue raised by the user they can log into the customer service portal using the link <https://accu-knox.atlassian.net/servicedesk/customer/portal/1>
 
-**Step 1:** Click on the requests section in the top left corner of the screen 
+**Step 1:** Click on the requests section in the top left corner of the screen
 
 ![](images/ticket-procedure/tick-track-0.png)
 
@@ -40,6 +45,5 @@ To track the issue raised by the user they can log into the customer service por
 
 ![](images/ticket-procedure/tick-track-1.png)
 
-
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

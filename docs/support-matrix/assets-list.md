@@ -1,3 +1,8 @@
+---
+title: CSPM Assets Support
+description:  This document provides a list of assets supported by Accuknox Cloud Security Posture Management (CSPM) across AWS, Azure, and GCP clouds.
+---
+
 <style>
     .md-typeset__scrollwrap{
         width: 140%;

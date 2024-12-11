@@ -1,3 +1,8 @@
+---
+title: Cluster Misconfiguration Scanning
+description: AccuKnox empowers you to identify and remediate security misconfigurations within your Kubernetes clusters, ensuring that your applications and infrastructure are fully protected from potential threats.
+---
+
 # Cluster Misconfiguration Scanning
 
 Cyber attacks frequently occur due to security misconfigurations in applications and infrastructure. Preventing these vulnerabilities is crucial for maintaining a secure environment. AccuKnox empowers you to identify and remediate security misconfigurations within your Kubernetes clusters, ensuring that your applications and infrastructure are fully protected from potential threats.

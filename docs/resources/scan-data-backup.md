@@ -1,3 +1,8 @@
+---
+title: Customer Data Backup Guide
+description: This guide provides steps to backup scan results, logs, and alerts from the AccuKnox SaaS platform.
+---
+
 # Customer Data Backup Guide
 
 Accuknox, as a CNAPP, conducts vulnerability scans across Cloud environments, software development lifecycles, and runtime security assessments. These scans are securely saved through AccuKnox as an integral part of their SAAS package. The data is stored via AccuKnox-managed S3 buckets, which have a predefined retention policy of one month.

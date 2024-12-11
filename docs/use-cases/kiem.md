@@ -1,3 +1,8 @@
+---
+title: Kubernetes Identity and Entitlement Management (KIEM)
+description: AccuKnox's Kubernetes Identity and Entitlement Management (KIEM) solution provides continuous visibility, event detection, and centralized permissions management to address Kubernetes identity and entitlement security challenges.
+---
+
 # Kubernetes Identity and Entitlement Management (KIEM)
 
 KIEM addresses Kubernetes identity and entitlement security challenges by providing continuous visibility, event detection, and centralized permissions management. Designed for dynamic, auto-scaling infrastructures, it offers deep RBAC policy analysis and visualization. AccuKnox's solution is critical given that 65% of Kubernetes administrators struggle with policy configuration, enabling robust security in complex Kubernetes environments. By offering deep visibility, powerful analysis tools, and intuitive visualizations, KIEM empowers administrators to maintain robust security postures in even the most complex Kubernetes environments.

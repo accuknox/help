@@ -1,3 +1,8 @@
+---
+title: ModelArmor
+description: ModelArmor is a security solution that helps you secure your machine learning models by enforcing security policies and best practices.
+---
+
 # ModelArmor Use Cases
 
 **ModelArmor** uses KubeArmor as a sandboxing engine to ensure that the untrusted models execution is constrained and within required checks. AI/ML Models are essentially processes and allowing untrusted models to execute in AI environments have significant risks such as possibility of cryptomining attacks leveraging GPUs, remote command injections, etc. KubeArmor's preemptive mitigation mechanism provides a suitable framework for constraining the execution environment of models.

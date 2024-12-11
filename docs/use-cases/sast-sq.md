@@ -1,4 +1,9 @@
+---
+title: SAST with SonarQube and AccuKnox SaaS
+description: Identify and fix an SQL Injection vulnerability using SonarQube integrated with GitHub Actions and pushing the results to AccuKnox SaaS.
+---
 
+# **SAST with SonarQube and AccuKnox SaaS**
 
 ## **Introduction**
 

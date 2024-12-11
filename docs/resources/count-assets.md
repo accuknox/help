@@ -1,3 +1,7 @@
+---
+title: AWS Assets Count
+description: Get the count of AWS assets like EC2 instances, EBS volumes, S3 buckets, RDS, VPCs, Load Balancers, Lambda functions, EKS clusters, IAM roles, ECS clusters, AWS Subnets, Security groups, KMS Key, RDS Clusters, Network ACL, IAM Users, IAM Groups, VPC Peering Connections, EIP, VPC Route table, Elastic Cache Clusters.
+---
 
 ??? "**AWS**"
 

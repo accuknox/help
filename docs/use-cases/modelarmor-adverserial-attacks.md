@@ -1,3 +1,8 @@
+---
+title: Adversarial Attacks on Deep Learning Models
+description: Adversarial attacks exploit vulnerabilities in AI systems by subtly altering input data to mislead the model into incorrect predictions or decisions. These perturbations are often imperceptible to humans but can significantly degrade the system's performance.
+---
+
 # **ModelArmor Use Case: Adversarial Attacks on Deep Learning Models**
 
 Adversarial attacks exploit vulnerabilities in AI systems by subtly altering input data to mislead the model into incorrect predictions or decisions. These perturbations are often imperceptible to humans but can significantly degrade the system's performance.
