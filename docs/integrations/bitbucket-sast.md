@@ -41,8 +41,6 @@ This guide explains how to integrate AccuKnox into your Bitbucket Pipelines to e
 Use the following YAML configuration for your `bitbucket-pipelines.yml` file:
 
 ```yaml
-image: maven:3.3.9
-
 pipelines:
   branches:
     main:
@@ -55,17 +53,19 @@ pipelines:
               SONAR_TOKEN: ${SONAR_TOKEN}
               EXTRA_ARGS: '-Dsonar.projectKey=${SONAR_PROJECT_KEY}'
     - step:
-        name: Accuknox SAST
+        name: AccuKnox SAST
         script:
-          - echo "Starting SAST scan..."
-          - |
-            docker run --rm -e SQ_PROJECTS="${SONAR_PROJECT_KEY}" -e SQ_URL=${SONAR_HOST_URL} -e SQ_AUTH_TOKEN=${SONAR_TOKEN} -e REPORT_PATH=/app/data/ -v $PWD:/app/data/ accuknox/sastjob:latest
-          - echo "Uploading results..."
-          - apk update && apk add jq curl git
-          - |
-            for file in `ls -1 SQ-*.json`; do
-              curl --location --request POST "https://${ACCUKNOX_ENDPOINT}/api/v1/artifact/?tenant_id=${ACCUKNOX_TENANT}&data_type=SQ&label_id=${ACCUKNOX_LABEL}&save_to_s3=false" --header "Tenant-Id: ${ACCUKNOX_TENANT}" --header "Authorization: Bearer ${ACCUKNOX_TOKEN}" --form "file=@\"$file\""
-            done
+          - pipe: accu-knox/scan:1.0.0
+            variables:
+              SCAN_TYPE: SAST
+              INPUT_SOFT_FAIL: "true"
+              SONAR_TOKEN: ${SONAR_TOKEN}
+              SONAR_HOST_URL: ${SONAR_HOST_URL}
+              SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
+              ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+              ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+              ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+              ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
         services:
           - docker
 ```
@@ -78,7 +78,9 @@ Initially, the CI/CD pipeline does not include the AccuKnox scan. Vulnerabilitie
 
 After integrating AccuKnox into the pipeline, pushing changes triggers the SonarQube scan, which sends its results to AccuKnox. AccuKnox helps identify potential code vulnerabilities.
 
-![alt](./images/bitbucket-sast/1.png)
+![image-20241209-123435.png](./images/bitbucket-sast/1.png)
+
+![image-20241209-123500.png](./images/bitbucket-sast/2.png)
 
 ## View Results in AccuKnox SaaS
 
@@ -86,23 +88,23 @@ After integrating AccuKnox into the pipeline, pushing changes triggers the Sonar
 
 **Step 2**: Go to **Issues** > **Findings** and select **SAST Findings** to see identified vulnerabilities.
 
-![alt](./images/bitbucket-sast/2.png)
+![image-20241126-033109.png](./images/bitbucket-sast/3.png)
 
 **Step 3**: Click on a vulnerability to view more details.
 
-![alt](./images/bitbucket-sast/3.png)
+![image-20241126-033149.png](./images/bitbucket-sast/4.png)
 
 **Step 4**: Fix the Vulnerability
 
 Follow the instructions in the Solutions tab to fix the vulnerability
 
-![alt](./images/bitbucket-sast/4.png)
+![image-20241126-033211.png](./images/bitbucket-sast/5.png)
 
 **Step 5**: Create a Ticket for Fixing the Vulnerability
 
 Create a ticket in your issue-tracking system to address the identified vulnerability.
 
-![alt](./images/bitbucket-sast/5.png)
+![image-20241126-033237.png](./images/bitbucket-sast/6.png)
 
 **Step 6**: Review Updated Results
 

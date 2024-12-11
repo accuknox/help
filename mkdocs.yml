@@ -263,15 +263,20 @@ nav:
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
             - "Scan Variables":
-              - "Container Scaning Variables": "integrations/gitlab-container-variables.md"
-              - "IaC Scanning Variables": "integrations/gitlab-iac-variables.md"
-              - "DAST Scanning Variables": "integrations/gitlab-dast-variables.md"
-              - "SAST Scanning variables": "integrations/gitlab-sast-variables.md"
+              - "Container Scan Variables": "integrations/gitlab-container-variables.md"
+              - "IaC Scan Variables": "integrations/gitlab-iac-variables.md"
+              - "DAST Scan Variables": "integrations/gitlab-dast-variables.md"
+              - "SAST Scan variables": "integrations/gitlab-sast-variables.md"
         - "Bitbucket":
             - "DAST": "integrations/bitbucket-dast.md"
             - "SAST": "integrations/bitbucket-sast.md"
             - "Container Scan": "integrations/bitbucket-container-scan.md"
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
+            - "Scan Variables":
+              - "Container Scan Variables": "integrations/bitbucket-container-variables.md"
+              - "IaC Scan Variables": "integrations/bitbucket-iac-variables.md"
+              - "DAST Scan Variables": "integrations/bitbucket-dast-variables.md"
+              - "SAST Scan variables": "integrations/bitbucket-sast-variables.md"
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
             - "SCA": "integrations/checkmarx-sca.md"

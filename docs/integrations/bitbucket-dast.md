@@ -13,7 +13,7 @@ This guide demonstrates how to integrate AccuKnox and Dynamic Application Securi
 
 - AccuKnox Platform Access
 
-## Steps for Integration
+Steps for Integration[¶](https://help.accuknox.com/integrations/gitlab-dast/#steps-for-integration "https://help.accuknox.com/integrations/gitlab-dast/#steps-for-integration")
 
 **Step 1**: Log in to AccuKnox Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
 
@@ -37,15 +37,20 @@ pipelines:
     dast:
     - step:
         name: Accuknox DAST
-        services:
-          - docker
         script:
-          - echo "Starting DAST scan..."
-          - |
-            docker run --rm -v $(pwd):/zap/wrk -t zaproxy/zap-stable zap-baseline.py -t https://juice-shop.herokuapp.com/ -J results.json -I
-          - echo "Uploading results..."
-          - |
-            curl --location --request POST "https://${ACCUKNOX_ENDPOINT}/api/v1/artifact/?tenant_id=${ACCUKNOX_TENANT}&data_type=ZAP&label_id=${ACCUKNOX_LABEL}&save_to_s3=false" --header "Tenant-Id: ${ACCUKNOX_TENANT}" --header "Authorization: Bearer ${ACCUKNOX_TOKEN}" --form 'file=@"results.json"'
+          - pipe: accu-knox/scan:1.0.0
+            variables:
+              SCAN_TYPE: DAST
+              INPUT_SOFT_FAIL: "true"
+              TARGET_URL: "http://testaspnet.vulnweb.com/login.aspx"
+              SEVERITY_THRESHOLD: High
+              DAST_SCAN_TYPE: baseline
+              ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+              ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+              ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+              ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
+        services:
+        - docker
 ```
 
 ## Initial CI/CD Pipeline Without AccuKnox Scan
@@ -56,7 +61,7 @@ Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push 
 
 After integrating AccuKnox into your CI/CD pipeline, the next push triggers the CI/CD pipeline. The AccuKnox scan identifies potential vulnerabilities in the application.
 
-![alt](./images/bitbucket-dast/1.png)
+![image-20241209-123715.png](./images/bitbucket-dast/1.png)
 
 ## View Results in AccuKnox SaaS
 
@@ -64,23 +69,23 @@ After integrating AccuKnox into your CI/CD pipeline, the next push triggers the 
 
 **Step 2**: Go to **Issues** > **Findings** and select **DAST Findings** to see identified vulnerabilities.
 
-![alt](./images/bitbucket-dast/2.png)
+![image-20241126-044450.png](./images/bitbucket-dast/2.png)
 
 **Step 3**: Click on a vulnerability to view more details.
 
-![alt](./images/bitbucket-dast/3.png)
+![image-20241126-044522.png](./images/bitbucket-dast/3.png)
 
 **Step 4**: Fix the Vulnerability
 
 Follow the instructions in the Solutions tab to fix the vulnerability
 
-![alt](./images/bitbucket-dast/4.png)
+![image-20241126-044544.png](./images/bitbucket-dast/4.png)
 
 **Step 5**: Create a Ticket for Fixing the Vulnerability
 
 Create a ticket in your issue-tracking system to address the identified vulnerability.
 
-![alt](./images/bitbucket-dast/5.png)
+![image-20241126-044608.png](./images/bitbucket-dast/5.png)
 
 **Step 6**: Review Updated Results
 
