@@ -1,3 +1,8 @@
+---
+title: Accuknox IaC Security Support Matrix
+description: Accuknox provides comprehensive support for Infrastructure as Code (IaC) security scanning, enabling users to analyze their IaC files for misconfigurations, vulnerabilities, and compliance issues. Below is a detailed support matrix outlining the supported formats, file types, and additional features.
+---
+
 # Accuknox IaC Security Support Matrix
 
 Accuknox provides comprehensive support for Infrastructure as Code (IaC) security scanning, enabling users to analyze their IaC files for misconfigurations, vulnerabilities, and compliance issues. Below is a detailed support matrix outlining the supported formats, file types, and additional features.

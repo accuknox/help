@@ -1,3 +1,8 @@
+---
+title: AccuKnox CNAPP Dashboard Widgets
+description: AccuKnox CNAPP Dashboard Widgets provide a comprehensive view of your cloud-native environment, enabling you to monitor and manage security risks effectively.
+---
+
 # AccuKnox CNAPP Dashboard Widgets
 
 ## **CWPP Widgets**

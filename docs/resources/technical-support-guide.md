@@ -1,4 +1,7 @@
-
+---
+title: Technical Support Guide
+description: This guide provides technical support for the Accuknox CNAPP SaaS deployment across AWS, Azure, and GCP clouds.
+---
 
 <div>
   <iframe id="inlineFrameManual"

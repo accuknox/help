@@ -1,4 +1,6 @@
 ---
+title: KSPM
+description: KSPM provides a security framework for Kubernetes, continuously assessing configurations and detecting misconfigurations to prevent security breaches.
 hide:
   - toc
 ---

@@ -1,3 +1,7 @@
+---
+title: FAQs
+description: Frequently Asked Questions about AccuKnox CNAPP SaaS deployment across AWS, Azure, and GCP clouds and its features.
+---
 
 # FAQs
 

@@ -1,4 +1,6 @@
 ---
+title: Application Security Posture Management (ASPM)
+description: ASPM provides a continuous and integrated security framework, enabling organizations to gain real-time insights into their application landscape. Unlike traditional siloed approaches, ASPM embeds visibility, assessment, and risk mitigation into every phase of the development lifecycle, fostering seamless collaboration between security and development teams.
 hide:
   - toc
 ---

@@ -1,4 +1,7 @@
-
+---
+title: Count Images in Registry
+description: Get the count of images stored in the DockerHub, AWS ECR, GCR, and ACR registries using the command line.
+---
 
 ??? "**DockerHub**"
 

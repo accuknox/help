@@ -1,4 +1,7 @@
-
+---
+title: Container Image Scanning
+description: AccuKnox provides a comprehensive container image scanning solution that helps you identify and remediate vulnerabilities in your container images, ensuring that your applications are secure and protected from potential threats.
+---
 
 **Need for securing containers for Application Hardening**
 

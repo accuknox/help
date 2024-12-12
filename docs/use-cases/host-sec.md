@@ -1,4 +1,7 @@
-
+---
+title: Host Scan
+description: AccuKnox provides host scanning capabilities through an integration with tools like Nessus, Masscan and Zeek. This helps in identifying issues on the hosts in the on-premise environment.
+---
 
 AccuKnox provides host scanning capabilities through an integration with tools like Nessus, Masscan and Zeek.
 

@@ -1,3 +1,8 @@
+---
+title: Automated Ticket Creation using Rules Engine
+description: The Rules Engine allows users to customize and automate ticket creation by selecting the data type, defining the criticality, and configuring specific ticket settings. This ensures that customized tickets are created whenever the selected criteria is met, providing more control over the ticketing process.
+---
+
 # Automated Ticket Creation using Rules Engine
 
 The Rules Engine allows users to customize and automate ticket creation by selecting the data type, defining the criticality, and configuring specific ticket settings. This ensures that customized tickets are created whenever the selected criteria is met, providing more control over the ticketing process.

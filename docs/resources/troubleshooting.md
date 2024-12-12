@@ -1,3 +1,8 @@
+---
+title: CWPP Troubleshooting
+description: Troubleshooting guide for AccuKnox Cloud Workload Protection Platform (CWPP) to resolve issues related to clusters.
+---
+
 # CWPP Troubleshooting
 
 If the user faces any issue related to clusters, then they should provide the logs information of their clusters for troubleshooting purposes.

@@ -1,4 +1,7 @@
-
+---
+title: HashiCorp Vault Hardening
+description: AccuKnox helps organizations secure HashiCorp Vault by preventing ransomware attacks and unauthorized access to secrets stored in the Vault.
+---
 
 HashiCorp Vault helps organizations reduce the risk of breaches and data exposure with identity-based security automation and encryption as a service. When HashiCorp Vault is deployed in the Kubernetes cluster, Customer secrets are kept in a persistent volume mounted in a vault-* stateful sets/pods
 

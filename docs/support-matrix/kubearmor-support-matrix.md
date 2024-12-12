@@ -1,3 +1,10 @@
+---
+title: KubeArmor Support Matrix
+description: KubeArmor Support Matrix provides detailed information on the supported workloads and Linux distributions.
+---
+
+# KubeArmor Support Matrix
+
 KubeArmor supports following types of workloads:
 
 1.K8s orchestrated workloads: Workloads deployed as k8s orchestrated containers. In this case, KubeArmor is deployed as a k8s daemonset. Note, KubeArmor supports policy enforcement on both k8s-pods (KubeArmorPolicy) as well as k8s-nodes (KubeArmorHostPolicy).

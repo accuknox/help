@@ -1,12 +1,17 @@
+---
+title: Public Cloud
+description: AccuKnox Zero Trust Cloud Native Application Protection for Multi-Cloud Environments provides support to the various public cloud platforms like Amazon Web Services, Google Cloud Platform, and Microsoft Azure.
+---
 
-AccuKnox  Zero Trust Cloud Native Application Protection for Multi-Cloud Environments provides support to the various public cloud platforms like 
+# Public Cloud
 
-   + Amazon Web Services
+AccuKnox  Zero Trust Cloud Native Application Protection for Multi-Cloud Environments provides support to the various public cloud platforms like
 
-   + Google Cloud Platform
++ Amazon Web Services
 
-   +  Microsoft Azure
++ Google Cloud Platform
 
++ Microsoft Azure
 
-- - - 
+- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

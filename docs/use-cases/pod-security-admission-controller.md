@@ -1,3 +1,8 @@
+---
+title: Pod Security Admission Controller
+description: Pod Security Admission (PSA) enforces security standards on a Pod's Security Context and related fields based on three levels defined by the Pod Security Standards.
+---
+
 # Pod Security Admission Controller
 
 Pod Security Admission (PSA) enforces security standards on a Pod's Security Context and related fields based on three levels defined by the Pod Security Standards:

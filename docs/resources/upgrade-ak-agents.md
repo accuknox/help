@@ -1,4 +1,7 @@
-
+---
+title: Upgrading AccuKnox Agents
+description:  This guide provides instructions on how to upgrade the AccuKnox agents to the latest version.
+---
 
 # **Upgrading AccuKnox Agents**
 

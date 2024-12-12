@@ -1,4 +1,6 @@
 ---
+title: VM Hardening
+description: AccuKnox provides a comprehensive hardening solution that helps you secure your VM workloads by enforcing security policies and best practices.
 hide:
  - toc
 ---

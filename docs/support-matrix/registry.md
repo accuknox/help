@@ -1,3 +1,8 @@
+---
+title: Registry Scanning Support Matrix
+description: Check out our integration with various container registries, enabling users to onboard their registries. Once onboarded, scanning begins automatically in the background. Upon completion, the findings are populated in the Registry Scan Dashboard.
+---
+
 # Registry Scanning Support Matrix
 
 Accuknox offers seamless integration with various container registries, enabling users to onboard their registries. Once onboarded, scanning begins automatically in the background. Upon completion, the findings are populated in the **Registry Scan Dashboard**.

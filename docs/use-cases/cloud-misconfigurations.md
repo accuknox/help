@@ -1,4 +1,7 @@
-
+---
+title: Cloud Misconfigurations & Drift Detection
+description: Securing your most critical assets in Public Cloud by detecting misconfigurations and drift detection on onboarded Cloud Account.
+---
 
 **Securing your most critical assets in Public Cloud**
 
