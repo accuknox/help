@@ -9,9 +9,13 @@ h2 {
   color: #000025;
   font-size: 1.5rem !important;
 }
+.nt-card .nt-card-image{
+  color: #005BFF;
+
+}
+
+
 </style>
-
-
 
 # Use Cases By Categories
 
