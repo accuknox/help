@@ -5,8 +5,6 @@ description: Frequently Asked Questions about AccuKnox CNAPP SaaS deployment acr
 
 # FAQs
 
-## AccuKnox FAQs
-
 ??? "**1. Does AccuKnox CNAPP support only agent-based scanning or does it support agentless scanning ?**"
 
      For CSPM, AccuKnox supports agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnoxCSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
