@@ -81,7 +81,7 @@ markdown_extensions:
   - meta
   - md_in_html
   - toc:
-      toc_depth: "1-1"
+      toc_depth: "0-0"
       permalink: true
   - pymdownx.arithmatex:
       generic: true
@@ -167,7 +167,7 @@ pages:
 nav:
   - "Home": "introduction/home.md"
 
-  - "Introduction":
+  - "Overview":
     - "AccuKnox Enterprise Architecture" : "getting-started.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models": "getting-started/deployment-models.md"
@@ -240,14 +240,6 @@ nav:
       - "Slack": "integrations/slack.md"
       - "Email": "integrations/email.md"
     - "OAuth": "integrations/oauth.md"
-    - "Marketplace":
-      - "RedHat Marketplace Installation Guide": "integrations/rh-playbook.md"
-      - "AWS Marketplace" :
-        - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
-        - "AWS Installation Guide": "integrations/aws-playbook.md"
-        - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
-      - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
-      - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
     - "Email Backend" : "integrations/email-backend.md"
     - "K8s Management":
       - "Rafay": "integrations/rafay-accuknox.md"
@@ -316,8 +308,6 @@ nav:
   - "Use-Cases":
     - "Use Cases By Categories": "use-cases.md"
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
-    - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-    - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "ModelArmor":
@@ -325,6 +315,12 @@ nav:
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
         - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
         - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
+    - "Cloud Security Posture Management (CSPM)":
+      - "Overview" : "use-cases/cspm.md"
+      - "Asset Inventory": "use-cases/asset-inventory.md"
+      - "GRC":
+        - "Multi-cloud Compliance": "use-cases/compliance.md"
+        - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
     - "Cloud Workload Protection Platform (CWPP)":
       - "CWPP Overview": "use-cases/cwpp.md"
       - "Least Permissive Posture Assessment (CWPP)":
@@ -342,6 +338,11 @@ nav:
         - "Cryptojacking" : "use-cases/crypto-mining.md"
         - "Hildegard" : "use-cases/hildegard.md"
       - "Container Image Scan": "use-cases/image-scan.md"
+    - "DevSecOps (ASPM)":
+        - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
+        - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
+        - "ASPM Container Scan": "use-cases/container-scan.md"
+        - "SAST - SQL Injection": "use-cases/sast-sq.md"
     - "Kubernetes Security Posture Management (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
@@ -356,17 +357,9 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
-    - "DevSecOps (ASPM)":
-      - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
-      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
-      - "ASPM Container Scan": "use-cases/container-scan.md"
-      - "SAST - SQL Injection": "use-cases/sast-sq.md"
-    - "Cloud Security Posture Management (CSPM)":
-      - "Overview" : "use-cases/cspm.md"
-      - "Asset Inventory": "use-cases/asset-inventory.md"
-      - "GRC":
-        - "Multi-cloud Compliance": "use-cases/compliance.md"
-        - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
+    - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
+    - "5G Control Plane Security" : "use-cases/5g-security.md"
+
 
   - "Support Matrix":
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
@@ -382,6 +375,14 @@ nav:
     - "CWPP Troubleshooting": "resources/troubleshooting.md"
     - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
+    - "Marketplace":
+      - "RedHat Marketplace Installation Guide": "integrations/rh-playbook.md"
+      - "AWS Marketplace" :
+        - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
+        - "AWS Installation Guide": "integrations/aws-playbook.md"
+        - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
+      - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
+      - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
     - "Customer Data Backup Guide": "resources/scan-data-backup.md"
     - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Calculate Pricing":
