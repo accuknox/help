@@ -326,7 +326,7 @@ nav:
         - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
         - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
     - "Cloud Workload Protection Platform (CWPP)":
-      - "CWPP Overview": use-cases/cwpp.md"
+      - "CWPP Overview": "use-cases/cwpp.md"
       - "Least Permissive Posture Assessment (CWPP)":
         - "Zero Trust Security": "use-cases/zero-trust.md"
         - "Audit/Forensics": "use-cases/forensics.md"
