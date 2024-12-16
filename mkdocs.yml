@@ -167,66 +167,98 @@ pages:
 nav:
   - "Home": "introduction/home.md"
 
-  - "Getting Started":
+  - "Introduction":
     - "AccuKnox Enterprise Architecture" : "getting-started.md"
-    - "Deployment Models" :
-      - "Deployment Models": "getting-started/deployment-models.md"
-      - "CWPP Prerequisites": "getting-started/cwpp-prereq.md"
-      - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
-      - "DevSecOps" : "getting-started/devsecops.md"
-    - "Release Notes":
-        - "AccuKnox" :
-           - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
-           - "v2.0 Release Notes" : "getting-started/2.0-release.md"
-           - "v1.7 Release Notes" : "getting-started/1-7-release.md"
-           - "v1.6 Release Notes" : "getting-started/1-6-release.md"
-           - "v1.5 Release Notes" : "getting-started/1-5-release.md"
-        - "KubeArmor" : "getting-started/kubearmor-release.md"
-    - "Open Source":
-      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
-      - "Open Source Installation": "getting-started/open-source.md"
-    - "Sample Workloads Protection" :
-      - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
-      - "DVWA": "getting-started/dvwa.md"
-      - "PHP-MySQL": "getting-started/php-mysql.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-
-
+    - "Deployment Models": "getting-started/deployment-models.md"
+    - "DevSecOps" : "getting-started/devsecops.md"
 
   - "How To":
-    - "CSPM Prerequisites":
-          - "AWS": "how-to/cspm-prereq-aws.md"
-          - "Azure": "how-to/cspm-prereq-azure.md"
-          - "GCP": "how-to/cspm-prereq-gcp.md"
-    - "Onboard Cloud Account" :
-      - "AWS" : "how-to/aws-onboarding.md"
-      - "Azure" : "how-to/azure-onboarding.md"
-      - "GCP" : "how-to/gcp-onboarding.md"
-      - "Offboard Clound Account": "how-to/cloud-offboarding.md"
-    - "Onboard Cluster" :
-      - "Cluster Onboarding" : "how-to/cluster-onboarding.md"
-      - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
-      - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
-    - "Onboard Registry":
+    - "Container Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
       - "GAR": "how-to/gar.md"
       - "Harbor": "how-to/harbor.md"
-    - "Onboard VM" :
-      - "SystemD/Docker Mode" : "how-to/vm-onboarding-getting-started.md"
-      - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
+    - "Open Source":
+      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
+      - "Open Source Installation": "getting-started/open-source.md"
+    - "Application/Code":
+      - "Github IaC Scan": "how-to/github-iac-scan.md"
+    - "Cloud Accounts":
+      - "Prerequisites":
+            - "AWS": "how-to/cspm-prereq-aws.md"
+            - "Azure": "how-to/cspm-prereq-azure.md"
+            - "GCP": "how-to/cspm-prereq-gcp.md"
+      - "Onboarding":
+        - "AWS" : "how-to/aws-onboarding.md"
+        - "Azure" : "how-to/azure-onboarding.md"
+        - "GCP" : "how-to/gcp-onboarding.md"
+        - "Offboard Clound Account": "how-to/cloud-offboarding.md"
+    - "Workloads":
+      - "Kubernetes":
+        - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
+        - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"
+        - "CIS Benchmarking": "how-to/cis-benchmarking.md"
+        - "Runtime Security Onboarding" : "how-to/cluster-onboarding.md"
+        - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
+      - "Sample Workloads Protection" :
+        - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
+        - "DVWA": "getting-started/dvwa.md"
+        - "PHP-MySQL": "getting-started/php-mysql.md"
+      - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
+      - "VM/Bare Metal" :
+        - "SystemD/Docker Mode" : "how-to/vm-onboarding-getting-started.md"
+        - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
+    - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
-    - "Signup/Login via SSO": "how-to/sso.md"
-    - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
-    - "CIS Benchmarking": "how-to/cis-benchmarking.md"
     - "Configure Custom Report": "how-to/custom-reports.md"
 
 
 
-
-
   - "Integrations":
+    - "Ticketing" :
+      - "Ticket Templates" : "integrations/ticket-template.md"
+      - "Jira Cloud" : "integrations/jira-cloud.md"
+      - "Jira Server" : "integrations/jira-server-cspm.md"
+      - "Freshservice" : "integrations/freshservice-cspm.md"
+      - "Connectwise" : "integrations/connectwise-cspm.md"
+      - "ServiceNow" : "integrations/servicenow.md"
+    - "SIEM/ Security Events" :
+      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
+      - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+      - "Azure Sentinel" : "integrations/azure-sentinel.md"
+      - "Rsyslog" : "integrations/rsyslog.md"
+      - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+      - "Splunk" : "integrations/splunk.md"
+      - "Telemetry (Sample)" :
+        - "Logs" : "integrations/telemetry-logs.md"
+        - "Alerts" : "integrations/telemetry-alerts.md"
+      - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
+      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
+    - "Notification":
+      - "Slack": "integrations/slack.md"
+      - "Email": "integrations/email.md"
+    - "OAuth": "integrations/oauth.md"
+    - "Marketplace":
+      - "RedHat Marketplace Installation Guide": "integrations/rh-playbook.md"
+      - "AWS Marketplace" :
+        - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
+        - "AWS Installation Guide": "integrations/aws-playbook.md"
+        - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
+      - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
+      - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
+    - "Email Backend" : "integrations/email-backend.md"
+    - "K8s Management":
+      - "Rafay": "integrations/rafay-accuknox.md"
+      - "Mirantis Lens" :
+        - "KubeArmor": "integrations/lens-ka.md"
+        - "AccuKnox Agents": "integrations/lens-ak.md"
+      - "Nutanix":
+        - "AccuKnox": "integrations/nutanix-accuknox.md"
+        - "KubeArmor": "integrations/nutanix-kubearmor.md"
+      - "SpectroCloud": "integrations/spectrocloud.md"
+
     - "CI/CD":
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
@@ -254,7 +286,6 @@ nav:
           - "Container Scan": "integrations/aws-container-scan.md"
           - "IaC Scan": "integrations/aws-iac-scan.md"
         - "GitHub":
-            - "IaC Scan": "how-to/github-iac-scan.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
         - "Gitlab":
             - "DAST": "integrations/gitlab-dast.md"
@@ -280,55 +311,13 @@ nav:
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
             - "SCA": "integrations/checkmarx-sca.md"
-    - "Private Cloud":
-        - "Nutanix":
-          - "AccuKnox": "integrations/nutanix-accuknox.md"
-          - "KubeArmor": "integrations/nutanix-kubearmor.md"
-        - "Mirantis Lens" :
-          - "KubeArmor": "integrations/lens-ka.md"
-          - "AccuKnox Agents": "integrations/lens-ak.md"
-        - "Rafay": "integrations/rafay-accuknox.md"
-        - "SpectroCloud": "integrations/spectrocloud.md"
-    - "Marketplace":
-        - "Azure Marketplace Installation Guide": "integrations/azure-playbook.md"
-        - "Oracle Marketplace Installation Guide": "integrations/oracle-playbook.md"
-        - "AWS Marketplace" :
-          - "AWS Installation Guide": "integrations/aws-playbook.md"
-          - "KubeArmor Installation Guide": "integrations/aws-kubearmor.md"
-          - "KubeArmor EKS add-on": "integrations/ka-eks-add-on.md"
-        - "RedHat Marketplace Installation Guide": "integrations/rh-playbook.md"
-    - "Notification":
-        - "Slack": "integrations/slack.md"
-        - "Email": "integrations/email.md"
-        - "Email Backend" : "integrations/email-backend.md"
-    - "OAuth": "integrations/oauth.md"
-    - "SIEM/ Security Events" :
-        - "Telemetry (Sample)" :
-          - "Logs" : "integrations/telemetry-logs.md"
-          - "Alerts" : "integrations/telemetry-alerts.md"
-        - "Splunk" : "integrations/splunk.md"
-        - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
-        - "Rsyslog" : "integrations/rsyslog.md"
-        - "Azure Sentinel" : "integrations/azure-sentinel.md"
-        - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
-        - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
-        - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
-        - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
-    - "Ticketing" :
-        - "Ticket Templates" : "integrations/ticket-template.md"
-        - "Jira Cloud" : "integrations/jira-cloud.md"
-        - "Jira Server" : "integrations/jira-server-cspm.md"
-        - "Freshservice" : "integrations/freshservice-cspm.md"
-        - "Connectwise" : "integrations/connectwise-cspm.md"
-        - "ServiceNow" : "integrations/servicenow.md"
-
-
-
 
 
   - "Use-Cases":
     - "Use Cases By Categories": "use-cases.md"
-    - "CNAPP Dashboard Widgets": "use-cases/cnapp-security-overview.md"
+    - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
+    - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
+    - "5G Control Plane Security" : "use-cases/5g-security.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "ModelArmor":
@@ -336,80 +325,81 @@ nav:
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
         - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
         - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
-    - "Cloud Security Posture Management (CSPM)": "use-cases/cspm.md"
-    - "Cloud Workload Protection Platform (CWPP)": "use-cases/cwpp.md"
-    - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
-
+    - "Cloud Workload Protection Platform (CWPP)":
+      - "CWPP Overview": use-cases/cwpp.md"
+      - "Least Permissive Posture Assessment (CWPP)":
+        - "Zero Trust Security": "use-cases/zero-trust.md"
+        - "Audit/Forensics": "use-cases/forensics.md"
+        - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
+      - "Securing Secrets Managers (CWPP)" :
+        - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
+        - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
+      - "Host Security (CWPP)":
+        - "Host Scan": "use-cases/host-sec.md"
+        - "Malware Scan": "use-cases/malware-scan.md"
+        - "VM Hardening": "use-cases/vm-hardening.md"
+      - "Advanced Persistent Threat (CWPP)":
+        - "Cryptojacking" : "use-cases/crypto-mining.md"
+        - "Hildegard" : "use-cases/hildegard.md"
+      - "Container Image Scan": "use-cases/image-scan.md"
     - "Kubernetes Security Posture Management (KSPM)":
       - "Overview": "use-cases/kspm.md"
+      - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
       - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"
+      - "Pod Security Admission Control" : "use-cases/pod-security-admission-controller.md"
       - "CIS K8s Benchmark Findings": "use-cases/cis-benchmarking.md"
-    - "DevSecOps (ASPM)":
-      - "SAST - SQL Injection": "use-cases/sast-sq.md"
-      - "ASPM Container Scan": "use-cases/container-scan.md"
-      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
-    - "Vulnerability Management (ASPM)" : "use-cases/vulnerability.md"
-    - "Cloud Security (CSPM)":
-      - "Asset Inventory": "use-cases/asset-inventory.md"
-      - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-    - "Container Security (CWPP)":
-      - "Container Image Scan": "use-cases/image-scan.md"
-      - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Workload Hardening": "use-cases/hardening.md"
+      - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
-      - "Pod Security Admission Control" : "use-cases/pod-security-admission-controller.md"
-      - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
-    - "Least Permissive Posture Assessment (CWPP)":
-      - "Zero Trust Security": "use-cases/zero-trust.md"
-      - "Audit/Forensics": "use-cases/forensics.md"
-      - "Runtime Application Behavior Discovery": "use-cases/app-behavior.md"
-    - "Advanced Persistent Threat (CWPP)":
-      - "Cryptojacking" : "use-cases/crypto-mining.md"
-      - "Hildegard" : "use-cases/hildegard.md"
-    - "Securing Secrets Managers (CWPP)" :
-      - "HashiCorp Vault Hardening" : "use-cases/hashicorp.md"
-      - "CyberArk Conjur Hardening" : "use-cases/cyberark-conjur.md"
-    - "Host Security (CWPP)":
-      - "Host Scan": "use-cases/host-sec.md"
-      - "Malware Scan": "use-cases/malware-scan.md"
-      - "VM Hardening": "use-cases/vm-hardening.md"
-    - "Continuous Compliance (GRC)":
-      - "Multi-cloud Compliance": "use-cases/compliance.md"
-    - "Automation":
-      - "Automated Ticket Creation Using Rules Engine": "use-cases/rules-engine-ticket-creation.md"
-    - "Prioritization":
+    - "Vulnerability Management (CNAPP)" :
       - "EPSS Scoring": "use-cases/epss-scoring.md"
-    - "5G Control Plane Security" : "use-cases/5g-security.md"
-    - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-
-
+      - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
+      - "Vulnerability Management": "use-cases/vulnerability.md"
+    - "DevSecOps (ASPM)":
+      - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
+      - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
+      - "ASPM Container Scan": "use-cases/container-scan.md"
+      - "SAST - SQL Injection": "use-cases/sast-sq.md"
+    - "Cloud Security Posture Management (CSPM)":
+      - "Overview" : "use-cases/cspm.md"
+      - "Asset Inventory": "use-cases/asset-inventory.md"
+      - "GRC":
+        - "Multi-cloud Compliance": "use-cases/compliance.md"
+        - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
 
   - "Support Matrix":
-    - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
-    - "Public Cloud" : "support-matrix/public-cloud.md"
-    - "Private Cloud" : "support-matrix/private-cloud.md"
-    - "VMs" : "support-matrix/vms.md"
-    - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
+    - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
+    - "VMs" : "support-matrix/vms.md"
+    - "Private Cloud" : "support-matrix/private-cloud.md"
+    - "Public Cloud" : "support-matrix/public-cloud.md"
     - "Registry" : "support-matrix/registry.md"
     - "IaC": "support-matrix/iac.md"
-
-
-
+    - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
 
   - "Resources":
+    - "CWPP Troubleshooting": "resources/troubleshooting.md"
+    - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
+    - "User Manual": "resources/accuknox-manual.md"
+    - "Customer Data Backup Guide": "resources/scan-data-backup.md"
+    - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
     - "Calculate Pricing":
       - "CSPM Cloud Assets": "resources/count-assets.md"
       - "CWPP Container Images": "resources/count-registry.md"
       - "CWPP Worker Nodes": "resources/count-nodes.md"
-    - "Upgrading AccuKnox Agents": "resources/upgrade-ak-agents.md"
-    - "Backup my Scan Data": "resources/scan-data-backup.md"
-    - "CWPP Troubleshooting": "resources/troubleshooting.md"
-    - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
-    - "User Manual": "resources/accuknox-manual.md"
-    - "Technical Guide": "resources/technical-support-guide.md"
+    - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"
+    - "Technical Guide": "resources/technical-support-guide.md"
+    - "Release Notes":
+          - "AccuKnox" :
+            - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
+            - "v2.0 Release Notes" : "getting-started/2.0-release.md"
+            - "v1.7 Release Notes" : "getting-started/1-7-release.md"
+            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
+            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
+          - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Glossary": "resources/glossary.md"
+
 
   - "FAQs": "faqs.md"
