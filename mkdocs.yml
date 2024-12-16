@@ -172,13 +172,14 @@ nav:
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models": "getting-started/deployment-models.md"
     - "DevSecOps" : "getting-started/devsecops.md"
-
   - "How To":
     - "Container Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
       - "GAR": "how-to/gar.md"
       - "Harbor": "how-to/harbor.md"
+      - "Dockerhub Registry": "how-to/dockerhub.md"
+      - "Docker Trusted Registry": "how-to/docker-trusted.md"
     - "Open Source":
       - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
       - "Open Source Installation": "getting-started/open-source.md"
