@@ -217,8 +217,9 @@ nav:
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
-    - "Configure Custom Report": "how-to/custom-reports.md"
-
+    - "Reports":
+      - "Configure Custom Report": "how-to/custom-reports.md"
+      - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
 
 
   - "Integrations":
@@ -308,6 +309,7 @@ nav:
         - "CheckMarx":
             - "SAST": "integrations/checkmarx-sast.md"
             - "SCA": "integrations/checkmarx-sca.md"
+            - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
 
 
   - "Use-Cases":
