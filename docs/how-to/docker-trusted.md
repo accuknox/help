@@ -1,6 +1,6 @@
 ---
 title: Docker Trusted Registry Onboarding
-description:
+description: Learn how to onboard Docker Trusted Registry for continuous vulnerability scanning with AccuKnox to enhance the security of container images.
 ---
 
 # Docker Trusted Registry Onboarding
