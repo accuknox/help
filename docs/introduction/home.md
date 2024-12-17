@@ -1,5 +1,5 @@
 ---
-title: AccuKnox Help Center
+title:
 description: AccuKnox Help Center is a one-stop destination for all your queries related to AccuKnox products. Get started with our product documentation, FAQs, and more.
 hide:
   - navigation

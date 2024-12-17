@@ -1,11 +1,9 @@
 ---
-title: Onboarding Sonatype Nexus Registry for Continuous Vulnerability Scanning
+title: Sonatype Nexus Registry Onboarding
 description: Learn how to onboard Sonatype Nexus Registry for continuous vulnerability scanning with AccuKnox to enhance the security of container images.
 ---
 
-# Onboard Sonatype Nexus Registry for Continuous Vulnerability Scanning
-
-## **Introduction**
+# Sonatype Nexus Registry Onboarding
 
 Sonatype Nexus Registry is a robust and secure platform designed for managing and storing container images. It supports various formats, such as Docker and Helm, and is tailored to meet the needs of DevOps teams and software developers.
 

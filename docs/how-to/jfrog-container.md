@@ -1,11 +1,9 @@
 ---
-title: Onboard and Scan a JFrog Container Registry
+title: JFrog Container Registry Onboarding
 description: Learn how to onboard and scan a JFrog Container Registry with AccuKnox for continuous vulnerability scanning to enhance the security of container images.
 ---
 
-# Onboard and Scan a JFrog Container Registry
-
-## **Introduction to JFrog Container Registry**
+# JFrog Container Registry Onboarding
 
 JFrog Container Registry is a secure, universal repository manager specifically optimized for storing and managing container images. Widely adopted by DevOps and software teams, it supports Docker and Helm images, offering seamless integration with CI/CD pipelines to enhance workflows and ensure image security and traceability.
 

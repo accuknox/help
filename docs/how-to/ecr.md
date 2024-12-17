@@ -1,9 +1,9 @@
 ---
-title: ECR Onboarding
+title: Elastic Container Registry (ECR) Onboarding
 description:  This document provides the steps to onboard Amazon Elastic Container Registry (ECR) on AccuKnox SaaS.
 ---
 
-## ECR Onboarding
+# Elastic Container Registry (ECR) Onboarding
 
 AccuKnox CSPM security tool scans images that are present in the onboarded [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/) and identifies any known vulnerabilities and risks associated with those images. These are then categorized based on their severity. User will be getting comprehensive view of these risks and vulnerabilities in the dashboard which can be remediated.
 
