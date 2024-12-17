@@ -8,8 +8,8 @@ description: AccuKnox User Manual has detailed information on how to use AccuKno
       title="Inline Frame Manual"
       width="100%"
       height="850"
-      src="/resources/images/AccuKnox_User_Manual_July-2023.pdf">
+      src="/resources/images/AccuKnox_User_Manual_2025.pdf">
   </iframe>
 </div>
 
-[DOWNLOAD USER MANUAL](images/AccuKnox_User_Manual_July-2023.pdf){ .md-button .md-button--primary }
+[DOWNLOAD USER MANUAL](images/AccuKnox_User_Manual_2025.pdf){ .md-button .md-button--primary }
