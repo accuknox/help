@@ -1,9 +1,9 @@
 ---
-title: GAR Onboarding
+title: Google Artifact Registry (GAR) Onboarding
 description: This document provides the steps to onboard Google Artifact Registry (GAR) on AccuKnox SaaS.
 ---
 
-# GAR Onboarding
+# Google Artifact Registry (GAR) Onboarding
 
 When [Google Artifact Registry](https://cloud.google.com/artifact-registry/docs) with images is onboarded into AccuKnox SaaS platform, the images are scanned continuously. The risks and vulnerabilities associated with these images are identified and shown in the scan results. The vulnerabilities are classified based on the CVSS Scores.
 
