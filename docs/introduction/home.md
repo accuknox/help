@@ -725,7 +725,6 @@ line-height: normal;
   </div>
 
   <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
     <img src="../cards/aiml-security.svg" alt="AI/ML Security" style="color: #000025">
     <h3 class="home-card-heading">AI/ML Security</h3>
     <p>The AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence.</p>
@@ -734,7 +733,6 @@ line-height: normal;
 
 
   <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
     <img src="../cards/kiem.svg" alt="" style="color: #000025">
     <h3 class="home-card-heading">K8s Identity & Entitlements Management (KIEM)</h3>
     <p>Enforces IAM controls and entitlements across K8s clusters for secure authorization and to prevent privilege escalation.</p>
@@ -750,7 +748,6 @@ line-height: normal;
   </div>
 
   <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
     <img src="../cards/kspm.svg" alt="" style="color: #000025">
     <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
     <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities, and threats in real-time.</p>
