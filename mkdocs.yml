@@ -181,6 +181,7 @@ nav:
       - "Dockerhub Registry": "how-to/dockerhub.md"
       - "Docker Trusted Registry": "how-to/docker-trusted.md"
       - "Sonatype Nexus": "how-to/sonatype-nexus.md"
+      - "JFrog Container" : "how-to/jfrog-container.md"
     - "Open Source":
       - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
       - "Open Source Installation": "getting-started/open-source.md"

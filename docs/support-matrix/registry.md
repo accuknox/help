@@ -91,13 +91,23 @@ Users will be getting a comprehensive view of these risks and vulnerabilities in
 
 AccuKnox CSPM Security leverages various open source scanning tools to scan the images present in the onboarded Nexus Repository. It identifies the common vulnerabilities and exploits associated with those images and risks. These Vulnerabilities and risks are classified based on their severity.
 
+
+[Steps To Onboard Sonatype Nexus Registry](../how-to/sonatype-nexus.md){ .md-button .md-button--primary }
+
 ## DockerHub Registry
 
 [DockerHub](https://hub.docker.com/) Repositories can be integrated with AccuKnox SaaS. Once these registries are onboarded, the images are scanned for vulnerabilities and risks. These findings are populated in the dashboard with Critical, High, low vulnerabilities.
 
+
+[Steps To Dockerhub Registry](../how-to/dockerhub.md){ .md-button .md-button--primary }
+
+[Steps To Docker Trusted Registry](../how-to/docker-trusted.md){ .md-button .md-button--primary }
+
 ## Harbor Registry
 
 Once [Harbor Registry](https://goharbor.io/docs/2.9.0/install-config/) is onboarded in AccuKnox SaaS, Scan will be initiated for that registry and come up with images and vulnerabilities. These Vulnerabilities and risks are classified based on their severity according to CVSS Scores. Here user can easily get to know about the image in detail such as security issues, Layers of the images, Sensitive data and Vulnerabilities present in their images.
+
+[Steps To Onboard Harbor Registry](../how-to/harbor.md){ .md-button .md-button--primary }
 
 ## Quay
 
@@ -106,6 +116,9 @@ We support registry onboarding and scanning for [Quay](https://www.redhat.com/en
 ## JFrog Registry
 
 AccuKnox can scan images present in the onboarded [JFrog](https://jfrog.com/) registry. The images are scanned for vulnerabilities and risks. The vulnerabilities are classified based on their severity.
+
+[Steps To Onboard JFrog Container Registry](../how-to/jfrog-container.md){ .md-button .md-button--primary }
+
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
