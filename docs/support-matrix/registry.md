@@ -5,9 +5,53 @@ description: Check out our integration with various container registries, enabli
 
 # Registry Scanning Support Matrix
 
-Accuknox offers seamless integration with various container registries, enabling users to onboard their registries. Once onboarded, scanning begins automatically in the background. Upon completion, the findings are populated in the **Registry Scan Dashboard**.
+::cards:: cols=2
 
-The detailed view of the registry scan on the Accuknox dashboard provides a comprehensive overview of the scan results, with prioritization for easy remediation. Users can explore different tabs—**Vulnerabilities**, **Resources**, **Sensitive Data**, and **Layers**—to gain deeper insights into the scan findings.
+- title: Amazon Elastic Container Registry
+  content: AccuKnox CSPM scans images in Amazon ECR, identifies vulnerabilities, and categorizes them by severity for easy remediation via the dashboard.
+  image: ./registry-icons/ecr.png
+  url: /how-to/ecr/
+
+- title: Google Artifact Registry
+  content: Once Google Artifact Registry images are onboarded into AccuKnox SaaS, they are scanned for risks and vulnerabilities. Results are categorized based on CVSS scores and displayed in the dashboard.
+  image: ./registry-icons/gar.png
+  url: /how-to/gar/
+
+- title: Azure Container Registry (ACR)
+  content: AccuKnox CSPM scans images in the onboarded Azure Container Registry, identifies associated risks and vulnerabilities, and provides a detailed view on the dashboard for remediation.
+  image: ./registry-icons/acr.png
+  url: /how-to/acr/
+
+- title: Nexus Registry
+  content: AccuKnox CSPM leverages open-source scanning tools to identify vulnerabilities and risks in onboarded Nexus Registry images. Findings are classified based on severity.
+  image: ./registry-icons/nexus.png
+  url: /how-to/sonatype-nexus/
+
+- title: DockerHub Registry
+  content: Integrated DockerHub registries are scanned for vulnerabilities and risks, with results categorized into Critical, High, and Low severity on the AccuKnox dashboard.
+  image: ./registry-icons/docker.png
+  url: /how-to/dockerhub/
+
+- title: Harbor Registry
+  content: Once onboarded, Harbor Registry images are scanned for vulnerabilities and risks. Users get detailed insights, including security issues, image layers, sensitive data, and vulnerabilities, classified by CVSS scores.
+  image: ./registry-icons/harbor.png
+  url: /how-to/harbor/
+
+- title: Quay
+  content: AccuKnox supports Quay registry onboarding and scanning. Images are analyzed for vulnerabilities and risks, with results categorized by severity.
+  image: ./registry-icons/quay.png
+  url: /how-to/quay/
+
+- title: JFrog Registry
+  content: AccuKnox scans images in onboarded JFrog registries, identifying risks and vulnerabilities. Findings are classified based on their severity.
+  image: ./registry-icons/jfrog.png
+  url: /how-to/jfrog-container/
+
+::/cards::
+
+AccuKnox seamlessly integrates with popular container registries like Docker Hub, Nexus, GCR, and ECR, enabling users to onboard and scan their registries automatically. Once scanning completes, results are displayed on the Registry Scan Dashboard with prioritized findings for quick remediation.
+
+The detailed view provides insights across four tabs—Vulnerabilities, Resources, Sensitive Data, and Layers—to help users analyze and address issues effectively. The scanning process runs in the background, ensuring a smooth experience while delivering comprehensive visibility into vulnerabilities and sensitive data within container registries.
 
 ---
 
@@ -19,7 +63,7 @@ Accuknox CSPM supports a variety of container registries to ensure seamless vuln
 |----------------------------|------------------------------|----------------------------------------------------------|
 | **Docker Hub Registry**    | Basic Authentication         | Supports Personal, Organization, Docker Trusted Registry |
 | **AWS ECR**                | IAM-based Authentication     | Full integration with AWS Elastic Container Registry     |
-| **Google Container Registry (GCR)** | Service Account Authentication | Compatible with GCR for container storage               |
+| **Google Artifact Registry (GAR)** | Service Account Authentication | Compatible with GCR for container storage               |
 | **Azure Container Registry (ACR)** | Basic Authentication         | Supports integration with Azure-based registries         |
 | **Harbor Registry**        | Basic Authentication         | Open-source registry for cloud-native applications       |
 | **Quay Registry**          | Basic Authentication         | Red Hat's container registry solution                    |
@@ -62,50 +106,5 @@ Accuknox is designed to scale seamlessly as your infrastructure grows, adapting 
 | **Horizontal Scaling** | Scale by adding more nodes to the environment.                |
 | **Vertical Scaling**   | Scale by upgrading resources (CPU, memory) of existing nodes. |
 
----
-
-AccuKnox CSPM tool provides with registry scan where the user can onboard their Docker Hub, Nexus, GCR, and ECR registries. Once the registry is onboarded, the scanning of the registry starts automatically in the background. After the scanning is completed, the findings will be populated in the registry scan dashboard.The detailed view of the registry scan on the AccuKnox dashboard gives you scan results and prioritization. In the detailed view that opens, you can click on the tabs - Vulnerabilities, Resources, Sensitive data, Layers for further information.
-
-AccuKnox Zero Trust CNAPP supports onboarding the following container registries to scan for vulnerabilities and sensitive data.
-
-## Amazon Elastic Container Registry
-
-AccuKnox CSPM security tool scans images that are present in the onboarded [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/) and identifies any known vulnerabilities and risks associated with those images. These are then categorized based on their severity. User will be getting comprehensive view of these risks and vulnerabilities in the dashboard which can be remediated.
-
-[Steps To Onboard ECR](../how-to/ecr.md){ .md-button .md-button--primary }
-
-## Google Container Registry
-
-[Google Container Registry](https://cloud.google.com/container-registry/docs) with images once onboarded into AccuKnox SaaS platform, the images are scanned. The risks and vulnerabilities associated with these images are identified and shown in the scan results. The vulnerabilities are classified based on the CVSS Scores.
-
-[Steps To Onboard GAR](../how-to/gar.md){ .md-button .md-button--primary }
-
-## Azure Container Registry(ACR)
-
-AccuKnox CSPM security tool scans images that are present in the onboarded [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/) and has the capability to find the risks and vulnerabilities associated with these images. The risks are identified and shown in the scan results.
-Users will be getting a comprehensive view of these risks and vulnerabilities in the dashboard which can be remediated.
-
-[Steps To Onboard ACR](../how-to/acr.md){ .md-button .md-button--primary }
-
-## Nexus Registry
-
-AccuKnox CSPM Security leverages various open source scanning tools to scan the images present in the onboarded Nexus Repository. It identifies the common vulnerabilities and exploits associated with those images and risks. These Vulnerabilities and risks are classified based on their severity.
-
-## DockerHub Registry
-
-[DockerHub](https://hub.docker.com/) Repositories can be integrated with AccuKnox SaaS. Once these registries are onboarded, the images are scanned for vulnerabilities and risks. These findings are populated in the dashboard with Critical, High, low vulnerabilities.
-
-## Harbor Registry
-
-Once [Harbor Registry](https://goharbor.io/docs/2.9.0/install-config/) is onboarded in AccuKnox SaaS, Scan will be initiated for that registry and come up with images and vulnerabilities. These Vulnerabilities and risks are classified based on their severity according to CVSS Scores. Here user can easily get to know about the image in detail such as security issues, Layers of the images, Sensitive data and Vulnerabilities present in their images.
-
-## Quay
-
-We support registry onboarding and scanning for [Quay](https://www.redhat.com/en/technologies/cloud-computing/quay) registry. Once the registry is onboarded, the images are scanned for vulnerabilities and risks. The vulnerabilities are classified based on their severity.
-
-## JFrog Registry
-
-AccuKnox can scan images present in the onboarded [JFrog](https://jfrog.com/) registry. The images are scanned for vulnerabilities and risks. The vulnerabilities are classified based on their severity.
-
 - - -
-[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ /-button /-button--primary }

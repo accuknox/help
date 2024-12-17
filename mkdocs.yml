@@ -181,6 +181,8 @@ nav:
       - "Dockerhub Registry": "how-to/dockerhub.md"
       - "Docker Trusted Registry": "how-to/docker-trusted.md"
       - "Sonatype Nexus": "how-to/sonatype-nexus.md"
+      - "JFrog Container" : "how-to/jfrog-container.md"
+      - "Quay": "how-to/quay.md"
     - "Open Source":
       - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
       - "Open Source Installation": "getting-started/open-source.md"
@@ -209,7 +211,8 @@ nav:
         - "PHP-MySQL": "getting-started/php-mysql.md"
       - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
       - "VM/Bare Metal" :
-        - "SystemD/Docker Mode" : "how-to/vm-onboarding-getting-started.md"
+        - "VM Onboard/Deboard with Docker" : "how-to/vm-onboard-deboard-docker.md"
+        - "VM Onboard/Deboard with SystemD" : "how-to/vm-onboard-deboard-systemd.md"
         - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"

@@ -3,7 +3,7 @@ title: Onboarding Sonatype Nexus Registry for Continuous Vulnerability Scanning
 description: Learn how to onboard Sonatype Nexus Registry for continuous vulnerability scanning with AccuKnox to enhance the security of container images.
 ---
 
-# Onboarding Sonatype Nexus Registry for Continuous Vulnerability Scanning with AccuKnox
+# Onboard Sonatype Nexus Registry for Continuous Vulnerability Scanning
 
 ## **Introduction**
 
