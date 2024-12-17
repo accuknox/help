@@ -12,8 +12,8 @@ description: Check out our integration with various container registries, enabli
   image: ./registry-icons/ecr.png
   url: /how-to/ecr/
 
-- title: Google Container Registry
-  content: Once Google Container Registry images are onboarded into AccuKnox SaaS, they are scanned for risks and vulnerabilities. Results are categorized based on CVSS scores and displayed in the dashboard.
+- title: Google Artifact Registry
+  content: Once Google Artifact Registry images are onboarded into AccuKnox SaaS, they are scanned for risks and vulnerabilities. Results are categorized based on CVSS scores and displayed in the dashboard.
   image: ./registry-icons/gar.png
   url: /how-to/gar/
 
@@ -63,7 +63,7 @@ Accuknox CSPM supports a variety of container registries to ensure seamless vuln
 |----------------------------|------------------------------|----------------------------------------------------------|
 | **Docker Hub Registry**    | Basic Authentication         | Supports Personal, Organization, Docker Trusted Registry |
 | **AWS ECR**                | IAM-based Authentication     | Full integration with AWS Elastic Container Registry     |
-| **Google Container Registry (GCR)** | Service Account Authentication | Compatible with GCR for container storage               |
+| **Google Artifact Registry (GAR)** | Service Account Authentication | Compatible with GCR for container storage               |
 | **Azure Container Registry (ACR)** | Basic Authentication         | Supports integration with Azure-based registries         |
 | **Harbor Registry**        | Basic Authentication         | Open-source registry for cloud-native applications       |
 | **Quay Registry**          | Basic Authentication         | Red Hat's container registry solution                    |
