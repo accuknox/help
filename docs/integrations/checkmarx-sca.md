@@ -236,7 +236,7 @@ Ensure the following secrets are configured in your GitHub repository under **Se
 
 ## **Step 5: View Findings in AccuKnox**
 
-To see your findings navigate to AccuKnox > Issues > Findings and select the **CMX SCA** findings.
+To see your findings navigate to AccuKnox > Issues > Findings and select the **CX SCA** findings.
 
 ![image-20241203-045831.png](./images/checkmarx-sca/3.png)
 
