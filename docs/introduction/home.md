@@ -128,6 +128,20 @@ hide:
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.blog-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #FFA500; /* Tomato color for contrast */
+  color: white;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: normal;
+  cursor: pointer;
+}
+
 .header2{
       text-align: center;
       color: #030372;
@@ -697,11 +711,12 @@ line-height: normal;
     <div class="status-badge">Agentless</div>
     <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)" style="color: #000025">
     <h3 class="home-card-heading">Cloud Security (CSPM)</h3>
-    <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across multi-cloud environments.</p>
+    <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across clouds.</p>
     <a href="/use-cases/cspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
+  <div class="blog-badge" onClick="window.open('https://www.accuknox.com/blog/runtime-security-ebpf-bpf-lsm');">Read Blog</div>
     <img src="../cards/cwpp.svg" alt="Runtime Protection" style="color: #000025">
     <h3 class="home-card-heading">Runtime Protection (CWPP)</h3>
     <p>Provides security for cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real-time.</p>
@@ -725,9 +740,10 @@ line-height: normal;
   </div>
 
   <div class="card" style="position: relative;">
+  <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/modelknox');">See Features</div>
     <img src="../cards/aiml-security.svg" alt="AI/ML Security" style="color: #000025">
     <h3 class="home-card-heading">AI/ML Security</h3>
-    <p>The AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence.</p>
+    <p>The AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence for AI/ML models.</p>
     <a href="/use-cases/jupyter-notebook/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
@@ -748,9 +764,10 @@ line-height: normal;
   </div>
 
   <div class="card" style="position: relative;">
+  <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/kspm');">See Features</div>
     <img src="../cards/kspm.svg" alt="" style="color: #000025">
     <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
-    <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities, and threats in real-time.</p>
+    <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities in real-time.</p>
     <a href="/use-cases/kspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
@@ -839,7 +856,7 @@ line-height: normal;
     </div>
   </div>
   <button class="btn-style">
-  <a href="/use-cases/cnapp-security-overview" target="_blank">VIEW ALL USE CASES <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
+  <a href="/use-cases/" target="_blank">VIEW ALL USE CASES <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
 </button>
 </div>
 </section>
