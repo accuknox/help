@@ -10,6 +10,17 @@ body .gist .gist-meta {
   display: none;
 }
 
+body > header > nav.md-tabs > div > ul:nth-child(2) > li:nth-child(5) > a::after
+{
+  background-color: #28a745; /* Green color */
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  content: "New";
+}
 
 .md-header__button.md-logo img, .md-header__button.md-logo svg {
 
