@@ -98,7 +98,7 @@ Ensure the following secrets are configured in your GitHub repository under **Se
 
 ## Step 5: View findings in AccuKnox
 
-To see your findings navigate to AccuKnox > Issues > Findings and select the CMX SAST findings.
+To see your findings navigate to AccuKnox > Issues > Findings and select the CX SAST findings.
 
 ![image-20241018-051139.png](images/checkmarx-sast/11.png)
 
