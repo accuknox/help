@@ -20,7 +20,7 @@ description: A list of use cases for AWS cloud security with AccuKnox CSPM to en
   url: /use-cases/cloud/aws-network/
 - title: Compute Security
   image: ./logos/aws-compute.png
-  url: /use-cases/cloud/aws-compute
+  url: /use-cases/cloud/aws-compute/
 - title: Storage Security
   image: ./logos/aws-storage.png
   url: /use-cases/cloud/aws-storage/

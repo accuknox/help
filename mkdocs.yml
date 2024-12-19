@@ -317,7 +317,7 @@ nav:
 
 
   - "Use-Cases":
-    - "Use Cases By Categories": "use-cases.md"
+    - "Use Cases": "use-cases/index.md"
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
