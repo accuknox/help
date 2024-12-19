@@ -400,6 +400,7 @@ nav:
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
 
   - "Resources":
+    - "Resources": "resources/index.md"
     - "CWPP Troubleshooting": "resources/troubleshooting.md"
     - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
