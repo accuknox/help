@@ -1,27 +1,27 @@
 ---
-title: Checkmarx SCA Integration
-description: Integrate Checkmarx Software Composition Analysis (SCA) scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
+title: Checkmarx Container Integration with AccuKnox
+description: Integrate Checkmarx Container scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
 ---
 
-# Checkmarx SCA Integration
+# Checkmarx Container Integration
 
 ## **Introduction**
 
-This guide walks you through integrating Checkmarx Software Composition Analysis (SCA) scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
+This guide walks you through integrating Checkmarx Container scan with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
 
 **Pre-requisites**
 
-- GitHub repository with the appropriate permissions.
+- Repository with the appropriate permissions.
 
-- Checkmarx SCA API credentials (Client ID, Client Secret, Tenant ID).
+- Checkmarx API credentials (Client ID, Client Secret, Tenant ID).
 
 - AccuKnox CSPM credentials (Tenant ID, CSPM URL, Token).
 
 ## **Step 1: Obtain Checkmarx and AccuKnox Credentials**
 
-**Getting Checkmarx SCA Credentials**
+**Getting Checkmarx Credentials**
 
-1. Log in to the Checkmarx SCA Platform.
+1. Log in to the Checkmarx Platform.
 
 2. Follow [Checkmarx API Authentication Documentation](https://docs.checkmarx.com/en/34965-118315-authentication-for-checkmarx-one-cli.html#UUID-a4e31a96-1f36-6293-e95a-97b4b9189060_orderedlist-idm33324220678908 "https://docs.checkmarx.com/en/34965-118315-authentication-for-checkmarx-one-cli.html#UUID-a4e31a96-1f36-6293-e95a-97b4b9189060_orderedlist-idm33324220678908") to create a new API client.
 
@@ -36,17 +36,45 @@ Open AccuKnox and go to **Settings > Tokens**. Click **Create**, give your token
 Navigate to **Settings > Labels**, click **Create Label**, provide a name, and set the filename prefix. Click **Save** and note down the Label ID.
 For details, refer to [How to Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/?h=label "https://help.accuknox.com/how-to/how-to-create-labels/?h=label").
 
-## **Step 2: Configure GitHub Workflow**
+## **Step 2: Pull the Container Image**
+You will need to pull the container image from a registry (e.g., Docker Hub, Amazon ECR, etc.) before performing the Checkmarx scan. In this example, we will pull a Docker image.
 
-In your GitHub repository, create a workflow file (e.g., `.github/workflows/checkmarx-sca-accuknox.yml`) with the following content:
+Add the following step to pull a container image before performing the scan:
 
 {% raw %}
 ```yaml
-name: Checkmarx Sarif Integration for SCA
+      - name: Log in to Docker Hub
+        run: |
+          echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Pull container image
+        run: |
+          docker pull your-container-image:latest
+```
+{% endraw %}
+
+- Docker login: This step authenticates to Docker Hub using the credentials stored as GitHub secrets (DOCKER_USERNAME and DOCKER_PASSWORD).
+- Pull container image: Replace your-container-image:latest with the appropriate image name and tag.
+- If you're using a different container registry (e.g., Amazon ECR), you will need to use the specific login command for that registry. For Amazon ECR, you can authenticate using AWS CLI:
+
+{% raw %}
+```yaml
+      - name: Log in to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+```
+{% endraw %}
+## **Step 3: Configure the Workflow**
+
+In your repository, create a workflow file (e.g., `.github/workflows/checkmarx-container-accuknox.yml`) with the following content:
+
+{% raw %}
+```yaml
+name: Checkmarx Sarif Integration for Container
 
 on:
   push:
-    branches: [ "cmx-sca" ]
+    branches: [ "cmx-container" ]
 
 permissions:
   security-events: write
@@ -67,7 +95,7 @@ jobs:
           cx_client_id: ${{ secrets.CX_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
           cx_tenant: ${{ secrets.CX_TENANT }}
-          additional_params: --scan-types sca --report-format sarif --output-path .
+          additional_params: --scan-types container-security --report-format sarif --output-path .
 
       - name: Fix SARIF file levels
         run: |
@@ -204,9 +232,9 @@ jobs:
 ```
 {% endraw %}
 
-## **Step 3: Set Up GitHub Secrets**
+## **Step 3: Set Up Secrets**
 
-Ensure the following secrets are configured in your GitHub repository under **Settings > Secrets and Variables**:
+Ensure the following secrets are configured in your repository under **Settings > Secrets and Variables**:
 
 - `CX_CLIENT_ID`: Checkmarx Client ID
 
@@ -222,28 +250,28 @@ Ensure the following secrets are configured in your GitHub repository under **Se
 
 - `ACCUKNOX_TOKEN`: AccuKnox CSPM API Token
 
-![image-20241203-045123.png](./images/checkmarx-sca/1.png)
+![image-20241203-045123.png](./images/checkmarx-container/1.png)
 
 ## **Step 4: Running the Workflow**
 
 1. Push changes to the repository's main branch or open a pull request.
 
-2. The Checkmarx SCA scan will run, generating a SARIF file.
+2. The Checkmarx Container scan will run, generating a SARIF file.
 
 3. The workflow will enrich the SARIF file with metadata and code snippets, and then upload it to AccuKnox for analysis.
 
-![image-20241203-050255.png](./images/checkmarx-sca/2.png)
+![image-20241203-050255.png](./images/checkmarx-container/2.png)
 
 ## **Step 5: View Findings in AccuKnox**
 
-To see your findings navigate to AccuKnox > Issues > Findings and select the **CX SCA** findings.
+To see your findings navigate to AccuKnox > Issues > Findings and select the **CX Container** findings.
 
-![image-20241203-045831.png](./images/checkmarx-sca/3.png)
+![image-20241203-045831.png](./images/checkmarx-container/3.png)
 
 Click on any finding to get more details. You can also click on **Create Ticket** to create a ticket for further resolution.
 
-![image-20241203-050026.png](./images/checkmarx-sca/4.png)
+![image-20241203-050026.png](./images/checkmarx-container/4.png)
 
 ## **Conclusion**
 
-By following this guide, you've successfully integrated Checkmarx SCA scans into your CI/CD pipeline and connected them with AccuKnox for further insights. You can now analyze and prioritize vulnerabilities within the AccuKnox dashboard.
+By following this guide, you've successfully integrated Checkmarx Container scans into your CI/CD pipeline and connected them with AccuKnox for further insights. You can now analyze and prioritize vulnerabilities within the AccuKnox dashboard.
