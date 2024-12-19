@@ -313,6 +313,7 @@ nav:
             - "SAST": "integrations/checkmarx-sast.md"
             - "SCA": "integrations/checkmarx-sca.md"
             - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
+            - "Container Scan": "integrations/checkmarx-container.md"
 
 
   - "Use-Cases":
