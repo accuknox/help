@@ -53,7 +53,7 @@ h2 {
   image: ./icons/vm-hardening.svg
   url: /use-cases/cloud/azure/
 - title: IoT/Edge Security
-  image: ./icons/IOT.svg
+  image: ./icons/IoT.svg
   url: /use-cases/iot-edge-security/
 - title: 5G Control Plane Security
   image: ./icons/5G.svg
