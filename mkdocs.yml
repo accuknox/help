@@ -168,11 +168,13 @@ nav:
   - "Home": "introduction/home.md"
 
   - "Overview":
-    - "AccuKnox Enterprise Architecture" : "getting-started.md"
+    - "Overview": "getting-started/index.md"
+    - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models": "getting-started/deployment-models.md"
     - "DevSecOps" : "getting-started/devsecops.md"
   - "Getting Started":
+    - "Getting Started": "how-to/index.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
@@ -223,6 +225,7 @@ nav:
 
 
   - "Integrations":
+    - "Integrations": "integrations/index.md"
     - "Ticketing" :
       - "Ticket Templates" : "integrations/ticket-template.md"
       - "Jira Cloud" : "integrations/jira-cloud.md"
@@ -230,7 +233,7 @@ nav:
       - "Freshservice" : "integrations/freshservice-cspm.md"
       - "Connectwise" : "integrations/connectwise-cspm.md"
       - "ServiceNow" : "integrations/servicenow.md"
-    - "SIEM/ Security Events" :
+    - "SIEM Events" :
       - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
       - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
       - "Azure Sentinel" : "integrations/azure-sentinel.md"
@@ -314,7 +317,7 @@ nav:
 
 
   - "Use-Cases":
-    - "Use Cases By Categories": "use-cases.md"
+    - "Use Cases": "use-cases/index.md"
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
@@ -361,15 +364,35 @@ nav:
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
+      - "Mitigate Supply Chain Attacks with KnoxGuard" : "use-cases/knoxguard-supply-chain.md"
     - "Vulnerability Management (CNAPP)" :
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
+    - "Cloud":
+      - "Azure":
+        - "Overview": "use-cases/cloud/azure.md"
+        - "Network Security": "use-cases/cloud/azure-network.md"
+        - "Compute Security": "use-cases/cloud/azure-compute.md"
+        - "Database Security": "use-cases/cloud/azure-database.md"
+      - "AWS":
+        - "Overview": "use-cases/cloud/aws.md"
+        - "IAM Security": "use-cases/cloud/aws-iam.md"
+        - "Network Security": "use-cases/cloud/aws-network.md"
+        - "Compute Security": "use-cases/cloud/aws-compute.md"
+        - "Storage Security": "use-cases/cloud/aws-storage.md"
+      - "GCP":
+        - "Overview": "use-cases/cloud/gcp.md"
+        - "IAM Security": "use-cases/cloud/gcp-iam.md"
+        - "Network Security": "use-cases/cloud/gcp-network.md"
+        - "Compute Security": "use-cases/cloud/gcp-compute.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
-    - "5G Control Plane Security" : "use-cases/5g-security.md"
+    - "5G Security" : "use-cases/5g-security.md"
 
 
   - "Support Matrix":
+    - "Support Matrix": "support-matrix/index.md"
+    - "CI/CD Support Matrix": "support-matrix/cicd-support-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "VMs" : "support-matrix/vms.md"
@@ -380,6 +403,7 @@ nav:
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
 
   - "Resources":
+    - "Resources": "resources/index.md"
     - "CWPP Troubleshooting": "resources/troubleshooting.md"
     - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"

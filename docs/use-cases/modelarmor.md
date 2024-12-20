@@ -16,7 +16,7 @@ The below examples show some of the important use-cases.
 - title: Pickle Code Injection PoC
   content:
   image: ./icons/sql-injection.svg
-  url: /use-cases/modelarmor-deploy-pytorch/
+  url: /use-cases/modelarmor-pickle-code/
 
 - title: Adversarial Attacks on Deep Learning Models
   content:
@@ -26,7 +26,7 @@ The below examples show some of the important use-cases.
 - title: PyTorch App Deployment with KubeArmor
   content:
   image: ./icons/cluster-misconfig-scan.svg
-  url: /use-cases/modelarmor-pickle-code/
+  url: /use-cases/modelarmor-deploy-pytorch/
 
 ::/cards::
 
