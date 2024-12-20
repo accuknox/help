@@ -364,6 +364,7 @@ nav:
       - "Runtime Application Hardening" : "use-cases/app-hardening.md"
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
+      - "Mitigate Supply Chain Attacks with KnoxGuard" : "use-cases/knoxguard-supply-chain.md"
     - "Vulnerability Management (CNAPP)" :
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
@@ -391,6 +392,7 @@ nav:
 
   - "Support Matrix":
     - "Support Matrix": "support-matrix/index.md"
+    - "CI/CD Support Matrix": "support-matrix/cicd-support-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "VMs" : "support-matrix/vms.md"
