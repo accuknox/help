@@ -94,6 +94,7 @@ These are the three supported methods for integrating CI/CD tools with AccuKnox 
 | ![Bitbucket](./cicd-icons/bitbucket.png) **Bitbucket**         | Available     | Available      | Available                |
 | ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | Available     | WIP            | WIP                      |
 | ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | Available     | WIP            | WIP                      |
+| ![Harness](./cicd-icons/harness.png) **Harness**               | Available     | WIP            | WIP                      |
 
 ---
 
@@ -109,3 +110,4 @@ These are the three supported methods for integrating CI/CD tools with AccuKnox 
 | ![Bitbucket](./cicd-icons/bitbucket.png) **Bitbucket**         | Available | Available | Available    | Available          | WIP              | WIP                       |
 | ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
 | ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
+| ![Harness](./cicd-icons/harness.png) **Harness**               | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
