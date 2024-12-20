@@ -52,9 +52,6 @@ hide:
   image: ./cicd-icons/bitbucket.png
   url: /integrations/bitbucket-dast/
 
-- title: CheckMarx
-  image: ./cicd-icons/checkmarx.png
-  url: /integrations/checkmarx-sast/
 
 ::/cards::
 
