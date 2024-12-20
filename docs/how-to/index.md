@@ -1,37 +1,42 @@
+---
+hide:
+  - toc
+---
+
 <style>
     .nt-card-title {
     text-align: -webkit-center;
 }
 </style>
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: Container Registry
-  image: ./logos/change.png
+  image: ./icons/container-reg.svg
   url: /how-to/acr/
 - title: Open Source
-  image: ./logos/change.png
+  image: ./icons/open-source.svg
   url: /introduction/open-source-vs-enterprise/
 - title: Application/Code
-  image: ./logos/change.png
+  image: ./icons/app-code.svg
   url: /how-to/github-iac-scan/
 - title: Cloud Accounts
-  image: ./logos/change.png
+  image: ./icons/cloud-account.svg
   url: /how-to/cspm-prereq-aws/
 - title: Workloads
-  image: ./logos/change.png
+  image: ./icons/workload.svg
   url: /how-to/cluster-misconfig-scan-onboarding/
 - title: Signup/Login via SSO
-  image: ./logos/change.png
+  image: ./icons/sso.svg
   url: /how-to/sso/
 - title: Create Tokens
-  image: ./logos/change.png
+  image: ./icons/tokens.svg
   url: /how-to/how-to-create-tokens/
 - title: Create Labels
-  image: ./logos/change.png
+  image: ./icons/labels.svg
   url: /how-to/how-to-create-labels/
 - title: Reports
-  image: ./logos/change.png
+  image: ./icons/reports.svg
   url: /how-to/custom-reports/
 
 ::/cards::

@@ -1,31 +1,35 @@
+---
+hide:
+  - toc
+---
 <style>
     .nt-card-title {
     text-align: -webkit-center;
 }
 </style>
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: Ticketing
-  image: ./logos/change.png
+  image: ./icons/ticketing.svg
   url: /integrations/ticket-template/
 - title: SIEM/ Security Events
-  image: ./logos/change.png
+  image: ./icons/siem.svg
   url: /integrations/splunk_feeder_kubearmor/
 - title: Notification
-  image: ./logos/change.png
+  image: ./icons/notif.svg
   url: /integrations/slack/
 - title: OAuth
-  image: ./logos/change.png
+  image: ./icons/oauth.svg
   url: /integrations/oauth/
 - title: Email Backend
-  image: ./logos/change.png
+  image: ./icons/email-back.svg
   url: /integrations/email-backend/
 - title: K8s Management
-  image: ./logos/change.png
+  image: ./icons/k8s-mgmt.svg
   url: /integrations/rafay-accuknox/
 - title: CI/CD
-  image: ./logos/change.png
+  image: ./icons/cicd.svg
   url: /integrations/azure-dast/
 
 ::/cards::

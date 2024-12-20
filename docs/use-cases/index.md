@@ -1,6 +1,8 @@
 ---
 title: Use Cases By Categories
 description: Explore Accuknox's use cases by categories - ASPM, CSPM, CWPP, KSPM.
+hide:
+  - toc
 ---
 
 
@@ -24,37 +26,37 @@ h2 {
 # Use Cases By Categories
 
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: CNAPP Security Overview
-  image: ./logos/change.png
+  image: ./icons/CNAPP.svg
   url: /use-cases/cnapp-security-overview/
 - title: AI/ML Security
-  image: ./logos/change.png
+  image: ./icons/AIML.svg
   url: /use-cases/jupyter-notebook/
 - title: Cloud Security Posture Management (CSPM)
-  image: ./logos/change.png
+  image: ./icons/CSPM.svg
   url: /use-cases/cspm/
 - title: Cloud Workload Protection Platform (CWPP)
-  image: ./logos/change.png
+  image: ./icons/CWPP.svg
   url: /use-cases/cwpp/
 - title: DevSecOps (ASPM)
-  image: ./logos/change.png
+  image: ./icons/ASPM.svg
   url: /use-cases/aspm/
 - title: Kubernetes Security Posture Management (KSPM)
-  image: ./logos/change.png
+  image: ./icons/KSPM.svg
   url: /use-cases/kspm/
 - title: Vulnerability Management (CNAPP)
-  image: ./logos/change.png
+  image: ./icons/VULN.svg
   url: /use-cases/epss-scoring/
 - title: Cloud
-  image: ./logos/change.png
+  image: ./icons/vm-hardening.svg
   url: /use-cases/cloud/azure/
 - title: IoT/Edge Security
-  image: ./logos/change.png
+  image: ./icons/IOT.svg
   url: /use-cases/iot-edge-security/
 - title: 5G Control Plane Security
-  image: ./logos/change.png
+  image: ./icons/5G.svg
   url: /use-cases/5g-security/
 
 ::/cards::

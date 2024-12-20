@@ -1,4 +1,7 @@
-
+---
+hide:
+  - toc
+---
 
 <style>
     .nt-card-title {
@@ -6,43 +9,43 @@
 }
 </style>
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: CWPP Troubleshooting
-  image: ./logos/change.png
+  image: ./icons/cwpp-troubleshoot.svg
   url: /resources/troubleshooting/
 - title: CSPM Troubleshooting
-  image: ./logos/change.png
+  image: ./icons/cspm-troubleshoot.svg
   url: /resources/cspm-troubleshooting/
 - title: User Manual
-  image: ./logos/change.png
+  image: ./icons/user-manual.svg
   url: /resources/accuknox-manual/
 - title: Marketplace
-  image: ./logos/change.png
+  image: ./icons/marketplace.svg
   url: /integrations/rh-playbook/
 - title: Customer Data Backup Guide
-  image: ./logos/change.png
+  image: ./icons/user-guide.svg
   url: /resources/scan-data-backup/
 - title: Upgrading AccuKnox Agents
-  image: ./logos/change.png
+  image: ./icons/upgrade-ak-agents.svg
   url: /resources/upgrade-ak-agents/
 - title: Calculate Pricing
-  image: ./logos/change.png
+  image: ./icons/calc-pricing.svg
   url: /resources/count-assets/
 - title: On-prem Installation
-  image: ./logos/change.png
+  image: ./icons/onprem.svg
   url: /getting-started/on-prem-installation-guide/
 - title: Ticketing Procedures
-  image: ./logos/change.png
+  image: ./icons/ticketing-procedures.svg
   url: /resources/ticket-procedure/
 - title: Technical Guide
-  image: ./logos/change.png
+  image: ./icons/technical-guide.svg
   url: /resources/technical-support-guide/
 - title: Release Notes
-  image: ./logos/change.png
+  image: ./icons/release-notes.svg
   url: /getting-started/2.1-2.2-release/
 - title: Glossary
-  image: ./logos/change.png
+  image: ./icons/glossary.svg
   url: /resources/glossary/
 
 ::/cards::

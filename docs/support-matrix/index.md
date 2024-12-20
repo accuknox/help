@@ -1,34 +1,39 @@
+---
+hide:
+  - toc
+---
+
 <style>
     .nt-card-title {
     text-align: -webkit-center;
 }
 </style>
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: CSPM Assets Support
-  image: ./logos/change.png
+  image: ./icons/cspm.svg
   url: /support-matrix/assets-list/
 - title: Compliance Matrix
-  image: ./logos/change.png
+  image: ./icons/compliance.svg
   url: /support-matrix/compliance-matrix/
 - title: VMs
-  image: ./logos/change.png
+  image: ./icons/vms.svg
   url: /support-matrix/vms/
 - title: Private Cloud
-  image: ./logos/change.png
+  image: ./icons/private.svg
   url: /support-matrix/private-cloud/
 - title: Public Cloud
-  image: ./logos/change.png
+  image: ./icons/public.svg
   url: /support-matrix/public-cloud/
 - title: Registry
-  image: ./logos/change.png
+  image: ./icons/registry.svg
   url: /support-matrix/registry/
 - title: IaC
-  image: ./logos/change.png
+  image: ./icons/iac.svg
   url: /support-matrix/iac/
 - title: KubeArmor Support Matrix
-  image: ./logos/change.png
+  image: ./icons/kubearmor.svg
   url: /support-matrix/kubearmor-support-matrix/
 
 ::/cards::

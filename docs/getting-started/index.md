@@ -8,16 +8,16 @@
 ::cards:: cols=2
 
 - title: AccuKnox Enterprise Architecture
-  image: ./logos/change.png
+  image: ./icons/ak-arch.svg
   url: /getting-started/accuknox-arch/
 - title: AccuKnox Agents
-  image: ./logos/change.png
+  image: ./icons/ak-agents.svg
   url: /getting-started/accuknox-agents/
 - title: Deployment Models
-  image: ./logos/change.png
+  image: ./icons/deployment-models.svg
   url: /getting-started/deployment-models/
 - title: DevSecOps
-  image: ./logos/change.png
+  image: ./icons/devsecops.svg
   url: /getting-started/devsecops/
 
 ::/cards::
