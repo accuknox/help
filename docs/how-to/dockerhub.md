@@ -83,17 +83,17 @@ Requires your **Organization Name**, **Username**, and **Password**.
 
 Choose one of the following options:
 
-    - **X Days**: Scans only images updated within the last X days.
+- **X Days**: Scans only images updated within the last X days.
 
-    - **All**: Scans all images, regardless of the update time.
+- **All**: Scans all images, regardless of the update time.
 
 #### Image Pulled Within Last
 
 Choose one of the following options:
 
-    - **X Days**: Scans only images pulled within the last X days.
+- **X Days**: Scans only images pulled within the last X days.
 
-    - **All**: Scans all images, regardless of the pull time.
+- **All**: Scans all images, regardless of the pull time.
 
 ![image-20241216-105846.png](./images/dockerhub/8.png)
 
