@@ -259,6 +259,7 @@ nav:
         - "AccuKnox": "integrations/nutanix-accuknox.md"
         - "KubeArmor": "integrations/nutanix-kubearmor.md"
       - "SpectroCloud": "integrations/spectrocloud.md"
+    - "Container Platforms" : "support-matrix/registry.md"
 
     - "CI/CD":
         - "Azure DevOps":
