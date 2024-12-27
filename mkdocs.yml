@@ -357,6 +357,7 @@ nav:
         - "ASPM Container Scan": "use-cases/container-scan.md"
         - "SAST - SQL Injection": "use-cases/sast-sq.md"
         - "MFA-enabled DAST Scans": "use-cases/mfa-dast.md"
+        - "DAST-Driven XSS Mitigation": "use-cases/dast-xss.md"
     - "Kubernetes Security Posture Management (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
