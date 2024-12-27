@@ -219,6 +219,7 @@ nav:
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
+    - "Create Access Keys": "how-to/create-access-keys.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
@@ -355,6 +356,8 @@ nav:
         - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
         - "ASPM Container Scan": "use-cases/container-scan.md"
         - "SAST - SQL Injection": "use-cases/sast-sq.md"
+        - "MFA-enabled DAST Scans": "use-cases/mfa-dast.md"
+        - "DAST-Driven XSS Mitigation": "use-cases/dast-xss.md"
     - "Kubernetes Security Posture Management (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
