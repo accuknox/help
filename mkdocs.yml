@@ -171,7 +171,10 @@ nav:
     - "Overview": "getting-started/index.md"
     - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Deployment Models": "getting-started/deployment-models.md"
+    - "Deployment Models":
+      - "Overview": getting-started/deployment-models.md"
+      - "OnPrem":
+        - "Security on OpenShift": "getting-started/security-on-openshift.md"
     - "DevSecOps" : "getting-started/devsecops.md"
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
