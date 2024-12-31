@@ -393,7 +393,26 @@ nav:
         - "IAM Security": "use-cases/cloud/gcp-iam.md"
         - "Network Security": "use-cases/cloud/gcp-network.md"
         - "Compute Security": "use-cases/cloud/gcp-compute.md"
-    - "Virtual Machines (VMs)": "use-cases/vms.md"
+    - "VM Security":
+        - "Introduction" : "use-cases/vm-overview.md"
+        - "Agentless Risk Assessment":
+          - "Misconfiguration of Cloud Hosted VMs":
+            - "Overview" : "use-cases/vm-misconfigurations.md"
+            - "AWS Misconfigurations": "use-cases/vm-aws.md"
+            - "GCP Misconfigurations": "use-cases/vm-gcp.md"
+            - "Azure Misconfigurations": "use-cases/vm-azure.md"
+          - "Host Security Scan": "use-cases/vm-host-scan.md"
+          - "Malware Scan": "use-cases/vm-malware-scan.md"
+          - "Compliance Benchmarking & Risk Assessment": "use-cases/vm-compliance-benchmarking.md"
+        - "Agent-based Detection & Remediation":
+          - "Audit & Log Management": "use-cases/vm-audit-log.md"
+          - "Workload Hardening":
+            - "Blocking Execution of Package Managers":  "use-cases/vm-blocking-package-managers.md"
+            - "File Integrity Monitoring": "use-cases/vm-file-integrity.md"
+        - "Advanced Threat Protection":
+            - "Preventing Cryptominers Attack": "use-cases/vm-crypto-miners.md"
+            - "Defending against Log4Shell": "use-cases/vm-log4shell.md"
+        - "Reporting": "use-cases/vm-reporting.md"
     - "Access Keys": "use-cases/access-keys.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     - "5G Security" : "use-cases/5g-security.md"

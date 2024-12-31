@@ -1,3 +1,9 @@
+---
+title: Querying information using access keys
+description: Learn how to query information using access keys in AccuKnox Cloud Workload Protection Platform (CWPP) and Cloud Security Posture Management (CSPM) systems programmatically.
+---
+
+
 # Querying information using access keys
 
 Access keys allow users to interact with **Cloud Workload Protection Platform (CWPP)** and **Cloud Security Posture Management (CSPM)** systems programmatically, replicating most operations available in the user interface (UI). Below are key aspects and best practices for using access keys effectively and securely
