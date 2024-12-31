@@ -5,8 +5,27 @@ description: Learn about the key objectives, components, and benefits of VM secu
 
 # Introduction to AccuKnox VM Security
 
-
 **VM Security** refers to the practices and technologies used to protect virtual machines (VMs) from threats, vulnerabilities, and unauthorized access. Virtual machines are software-based emulations of physical computers that run an operating system and applications. Since VMs share physical resources and are often part of dynamic, cloud-based environments, securing them is critical to maintaining the integrity of systems and data.
+
+::cards:: cols=2
+
+- title: Agentless Risk Assessment
+  image: ./images/vm-overview/agentless-risk-assessment.svg
+  url: /use-cases/vm-misconfigurations/
+
+- title: Agent Based Detection & Remediation
+  image: ./images/vm-overview/agent-based-detection.svg
+  url: /use-cases/vm-audit-log/
+
+- title: Advanced Threat Protection
+  image: ./images/vm-overview/advanced-threat-protection.svg
+  url: /use-cases/vm-crypto-miners/
+
+- title: Reporting
+  image: ./images/vm-overview/reporting.svg
+  url: /use-cases/vm-reporting/
+
+::/cards::
 
 ### Key Objectives of VM Security
 
