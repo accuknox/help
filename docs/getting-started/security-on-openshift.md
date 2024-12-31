@@ -13,9 +13,20 @@ In the OpenShift console, install KubeArmor operator by following the instructio
 - Search for the word "kubearmor" (3) and select "KubeArmor Operator" (4).
 - Install KubeArmor version "1.4.9" with default configurations (5, 6, 7).
 
-![](./images/security-on-openshift/1.png)
-![](./images/security-on-openshift/2.png)
-![](./images/security-on-openshift/3.png)
+<figure markdown="span">
+  ![](./images/security-on-openshift/1.png)
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown="span">
+  ![](./images/security-on-openshift/2.png)
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown="span">
+  ![](./images/security-on-openshift/3.png)
+  <figcaption></figcaption>
+</figure>
 
 ---
 
@@ -30,6 +41,7 @@ To integrate KubeArmor with Elasticsearch, the following inputs are required:
 ### Steps to Install
 
 #### Username/Password Installation
+
 If the server does not require authentication, you can skip this step.
 To use username/password authentication with Elasticsearch, a Kubernetes secret called `elastic-secret` needs to be created in the `kubearmor` namespace.
 
@@ -40,6 +52,7 @@ kubectl create secret generic elastic-secret -n kubearmor --from-literal usernam
 ```
 
 #### CA Certificate Installation
+
 To use HTTPS communication between the agents and Elasticsearch, a Kubernetes secret called `elastic-ca` needs to be created in the `kubearmor` namespace.
 
 - Acquire the CA certificate used by Elasticsearch. If acquiring the certificate is not possible, set the `allowInsecureTLS` flag to `true` in the next steps.
@@ -78,10 +91,25 @@ Once the steps in the previous chapter are completed, proceed with the agent ins
 
 4. Create the instance. The `KubeArmorConfig` Instance controls the installation of the agents in the entire cluster, and only one instance should be created per cluster.
 
-![](./images/security-on-openshift/4.png)
-![](./images/security-on-openshift/5.png)
-![](./images/security-on-openshift/6.png)
-![](./images/security-on-openshift/7.png)
+<figure markdown="span">
+  ![](./images/security-on-openshift/4.png)
+  <figcaption></figcaption>
+</figure>
+<figure markdown="span">
+  ![](./images/security-on-openshift/5.png)
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown="span">
+  ![](./images/security-on-openshift/6.png)
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown="span">
+  ![](./images/security-on-openshift/7.png)
+  <figcaption></figcaption>
+</figure>
+
 ---
 
 ## Kibana Dashboard Setup
