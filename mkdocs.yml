@@ -294,6 +294,10 @@ nav:
           - "IaC Scan": "integrations/aws-iac-scan.md"
         - "GitHub":
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
+            - "Github DAST": "integrations/github-dast.md"
+            - "Github SAST": "integrations/github-sast.md"
+            - "Github Container Scan": "integrations/github-container-scan.md"
+            - "Github IaC Scan": "integrations/github-iac.md"
         - "Gitlab":
             - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
