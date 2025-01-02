@@ -52,6 +52,12 @@ h2 {
 - title: Cloud
   image: ./icons/vm-hardening.svg
   url: /use-cases/cloud/azure/
+- title: VM Security
+  image: ./icons/vm-security.svg
+  url: /use-cases/vm-overview/
+- title: Access Keys
+  image: ./icons/access-keys.svg
+  url: /use-cases/access-keys/
 - title: IoT/Edge Security
   image: ./icons/IoT.svg
   url: /use-cases/iot-edge-security/

@@ -1,6 +1,6 @@
 ---
-title:
-description:
+title: Onboarding and Deboarding VMs with Systemd
+description: Learn how to onboard and deboard VMs with Systemd using AccuKnox to protect your cloud-hosted virtual machines.
 ---
 
 # Onboarding and Deboarding VMs with Systemd
@@ -46,6 +46,7 @@ git clone https://github.com/kubearmor/KubeArmor/
 cd KubeArmor/KubeArmor/packaging
 ./post-install.sh
 ```
+
 !!! note
     For detailed instructions specific to SystemD Based Non-BTF Environments, please refer to this [guide](https://help.accuknox.com/how-to/systemd-nonbtf/ "https://help.accuknox.com/how-to/systemd-nonbtf/").
 
@@ -57,16 +58,21 @@ If BPF LSM is not available, AppArmor should still work out of the box for host 
 
 ### Resource Requirements
 
-| Component                       | Type                           | Ports          | Endpoint                          | Purpose                                           |
-|---------------------------------|--------------------------------|----------------|----------------------------------|--------------------------------------------------|
-| Knox-Gateway                    | Outbound to SaaS               | 3000           | knox-gw.<env>.accuknox.com:3000  | For Knox-Gateway service                         |
-| PPS                             | Outbound to SaaS               | 443            | pps.<env>.accuknox.com           | For PPS (Policy Provisioning Service)            |
-| Spire-Server                    | Outbound to SaaS               | 8081, 9090     | spire.<env>.accuknox.com         | For Spire-Server communication                   |
-| KubeArmor Relay Server          | Inbound in Control Plane       | 32768          | -                                | For KubeArmor relay server on control plane      |
-| Shared Informer Agent           | Inbound in Control Plane       | 32769          | -                                | For Shared Informer agent on control plane       |
-| Policy Enforcement Agent (PEA)  | Inbound in Control Plane       | 32770          | -                                | For Policy Enforcement Agent on control plane    |
-| Hardening Module                | Inbound in Control Plane       | 32771          | -                                | For Discovery Engine Hardening Module            |
-| VM Worker Nodes                 | Outbound from worker node to Control Plane | 32768-32771   | -                                | For VM worker nodes to connect to the control plane |
+#### Control Plane Node (Minimum)
+
+| Resource | Requirement |
+|----------|-------------|
+| CPU      | 2 vCPU      |
+| Memory   | 4 GB        |
+| Disk     | 1 GB        |
+
+#### Worker Node (Minimum)
+
+| Resource | Requirement |
+|----------|-------------|
+| CPU      | 2 vCPU      |
+| Memory   | 2 GB        |
+| Disk     | 500 MB      |
 
 ## Network Requirements
 
@@ -88,7 +94,6 @@ Ports required on the control plane VM:
 | Policy Enforcement Agent (PEA) | Inbound in Control Plane             | 32770            | -                                 | For Policy Enforcement Agent on control plane     |
 | Hardening Module               | Inbound in Control Plane             | 32771            | -                                 | For Discovery Engine Hardening Module             |
 | VM Worker Nodes                | Outbound from worker node to Control Plane | 32768-32771     | -                                 | For VM worker nodes to connect to the control plane |
-
 
 Check the CWPP documentation for more details on the [network requirements](https://help.accuknox.com/getting-started/cwpp-prereq/#minimum-resource-required "https://help.accuknox.com/getting-started/cwpp-prereq/#minimum-resource-required").
 
@@ -127,6 +132,7 @@ $ knoxctl onboard vm cp-node \
   --pps-host="pps.dev.accuknox.com" \
   --knox-gateway="knox-gw.dev.accuknox.com:3000"
 ```
+
 !!! note
     By default, if Docker is not found, systemd mode of installation would be used. If you want to explicitly onboard using systemd services, add the `--vm-mode=systemd` flag to the above command.
 

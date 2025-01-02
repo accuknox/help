@@ -219,6 +219,7 @@ nav:
         - "VM Onboard/Deboard with Docker" : "how-to/vm-onboard-deboard-docker.md"
         - "VM Onboard/Deboard with SystemD" : "how-to/vm-onboard-deboard-systemd.md"
         - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
+        - "VM Onboarding with Access Keys": "how-to/vm-onboard-access-keys.md"
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
