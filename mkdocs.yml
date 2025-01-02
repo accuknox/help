@@ -206,6 +206,7 @@ nav:
     - "Workloads":
       - "Kubernetes":
         - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
+        - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"
         - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"
         - "CIS Benchmarking": "how-to/cis-benchmarking.md"
         - "Runtime Security Onboarding" : "how-to/cluster-onboarding.md"
