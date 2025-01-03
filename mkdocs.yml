@@ -343,6 +343,23 @@ nav:
       - "GRC":
         - "Multi-cloud Compliance": "use-cases/compliance.md"
         - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
+      - "Security":
+        - "Azure Security":
+          - "Overview": "use-cases/cloud/azure.md"
+          - "Network Security": "use-cases/cloud/azure-network.md"
+          - "Compute Security": "use-cases/cloud/azure-compute.md"
+          - "Database Security": "use-cases/cloud/azure-database.md"
+        - "AWS Security":
+          - "Overview": "use-cases/cloud/aws.md"
+          - "IAM Security": "use-cases/cloud/aws-iam.md"
+          - "Network Security": "use-cases/cloud/aws-network.md"
+          - "Compute Security": "use-cases/cloud/aws-compute.md"
+          - "Storage Security": "use-cases/cloud/aws-storage.md"
+        - "GCP Security":
+          - "Overview": "use-cases/cloud/gcp.md"
+          - "IAM Security": "use-cases/cloud/gcp-iam.md"
+          - "Network Security": "use-cases/cloud/gcp-network.md"
+          - "Compute Security": "use-cases/cloud/gcp-compute.md"
     - "Cloud Workload Protection Platform (CWPP)":
       - "CWPP Overview": "use-cases/cwpp.md"
       - "Least Permissive Posture Assessment (CWPP)":
@@ -378,23 +395,6 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
-    - "Cloud":
-      - "Azure":
-        - "Overview": "use-cases/cloud/azure.md"
-        - "Network Security": "use-cases/cloud/azure-network.md"
-        - "Compute Security": "use-cases/cloud/azure-compute.md"
-        - "Database Security": "use-cases/cloud/azure-database.md"
-      - "AWS":
-        - "Overview": "use-cases/cloud/aws.md"
-        - "IAM Security": "use-cases/cloud/aws-iam.md"
-        - "Network Security": "use-cases/cloud/aws-network.md"
-        - "Compute Security": "use-cases/cloud/aws-compute.md"
-        - "Storage Security": "use-cases/cloud/aws-storage.md"
-      - "GCP":
-        - "Overview": "use-cases/cloud/gcp.md"
-        - "IAM Security": "use-cases/cloud/gcp-iam.md"
-        - "Network Security": "use-cases/cloud/gcp-network.md"
-        - "Compute Security": "use-cases/cloud/gcp-compute.md"
     - "VM Security":
         - "Introduction" : "use-cases/vm-overview.md"
         - "Agentless Risk Assessment":
