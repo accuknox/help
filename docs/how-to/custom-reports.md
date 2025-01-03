@@ -7,7 +7,8 @@ description: AccuKnox's latest feature update provides new custom reporting feat
 
 AccuKnox's latest feature update provides new custom reporting feature capabilities that can help users get the reports customized as per their requirements.
 
-Note: For this feature to be enabled the customers need to inform the Support team(<support@accuknox.com>) regarding their requirements for custom reporting. Then the AccuKnox Support team can configure the report template from the backend. After which the users can generate an on-demand report or configure a scheduled report.
+!!!info "NOTE"
+    For this feature to be enabled the customers need to inform the Support team(<support@accuknox.com>) regarding their requirements for custom reporting. Then the AccuKnox Support team can configure the report template from the backend. After which the users can generate an on-demand report or configure a scheduled report.
 
 To generate an on-demand or scheduled report, users must follow the steps below.
 

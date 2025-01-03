@@ -340,26 +340,27 @@ nav:
     - "Cloud Security Posture Management (CSPM)":
       - "Overview" : "use-cases/cspm.md"
       - "Asset Inventory": "use-cases/asset-inventory.md"
+      - "Azure Security":
+        - "Overview": "use-cases/cloud/azure.md"
+        - "Network Security": "use-cases/cloud/azure-network.md"
+        - "Compute Security": "use-cases/cloud/azure-compute.md"
+        - "Database Security": "use-cases/cloud/azure-database.md"
+      - "AWS Security":
+        - "Overview": "use-cases/cloud/aws.md"
+        - "IAM Security": "use-cases/cloud/aws-iam.md"
+        - "Network Security": "use-cases/cloud/aws-network.md"
+        - "Compute Security": "use-cases/cloud/aws-compute.md"
+        - "Storage Security": "use-cases/cloud/aws-storage.md"
+      - "GCP Security":
+        - "Overview": "use-cases/cloud/gcp.md"
+        - "IAM Security": "use-cases/cloud/gcp-iam.md"
+        - "Network Security": "use-cases/cloud/gcp-network.md"
+        - "Compute Security": "use-cases/cloud/gcp-compute.md"
       - "GRC":
         - "Multi-cloud Compliance": "use-cases/compliance.md"
         - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-      - "Security":
-        - "Azure Security":
-          - "Overview": "use-cases/cloud/azure.md"
-          - "Network Security": "use-cases/cloud/azure-network.md"
-          - "Compute Security": "use-cases/cloud/azure-compute.md"
-          - "Database Security": "use-cases/cloud/azure-database.md"
-        - "AWS Security":
-          - "Overview": "use-cases/cloud/aws.md"
-          - "IAM Security": "use-cases/cloud/aws-iam.md"
-          - "Network Security": "use-cases/cloud/aws-network.md"
-          - "Compute Security": "use-cases/cloud/aws-compute.md"
-          - "Storage Security": "use-cases/cloud/aws-storage.md"
-        - "GCP Security":
-          - "Overview": "use-cases/cloud/gcp.md"
-          - "IAM Security": "use-cases/cloud/gcp-iam.md"
-          - "Network Security": "use-cases/cloud/gcp-network.md"
-          - "Compute Security": "use-cases/cloud/gcp-compute.md"
+
+
     - "Cloud Workload Protection Platform (CWPP)":
       - "CWPP Overview": "use-cases/cwpp.md"
       - "Least Permissive Posture Assessment (CWPP)":
