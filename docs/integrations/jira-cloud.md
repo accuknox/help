@@ -4,14 +4,13 @@ description: Integrate AccuKnox with Jira Cloud to automate the process of gener
 ---
 
 
-## Jira Integration
+# Jira Cloud Integration
 
 Integrate AccuKnox with Jira and receive AccuKnox alert notifications in your Jira accounts. With this integration, you can automate the process of generating Jira tickets with your existing security workflow.
 
 To set up this integration, you need to coordinate with your Jira administrator and gather the inputs needed to enable communication between AccuKnox and Jira.
 
-### Integration of JIRA:
-#### **Prerequisites**
+## **Prerequisites**
 
 + You need a Jira Site URL , Email, UserID & API token, Project key for this integration.
 + To create JIRA token go to https://id.atlassian.com/manage-profile/security/api-tokens, and click on **create API token**.
@@ -130,5 +129,22 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
 Your Jira Cloud is now integrated, and you can configure alert triggers for JIRA.
 
+## Jira Assignee Support
+
+Users can now add Jira ticket Assignee as well when they create the ticket for any particular vulnerability or misconfiguration from the AccuKnox SaaS itself. To do this the users must follow the following steps:
+
+**Step 1:** Users first need to integrate their jira cloud using the instructions [here ](https://help.accuknox.com/integrations/jira-cloud/#integration-of-jira)
+
+**Step 2:** After the integration the Users need to create the Configuration for the integration. For this users need to select the Integration->CSPM->jira Integration-> Add configuration
+
+![](./images/jira-cloud/1.png)
+
+**Step 3:** Now when the users select the project name in the Ticket configuration the assignee users will be listed. The users can select any name and save the ticket configuration after filling all other necessary fields. 
+
+![](./images/jira-cloud/2.png)
+
+From now on the users can create the ticket with this particular configuration so that the ticket will be created with the assignee set to the name that  was selected during the configuration.
+
+If the users want to change the assignee during the ticket creation that can also be done by clicking on the assignee section as shown below
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -123,3 +123,9 @@ Along with this document, a file called `kubearmor-dashboard.ndjson` has been sh
 1. Under the **Management** tab, select **Stack Management**.
 2. Navigate to **Saved Objects** under Kibana.
 3. Click **Import** and select `kubearmor-dashboard.ndjson`.
+
+![](./images/security-on-openshift/kibana1.png)
+
+![](./images/security-on-openshift/kibana2.png)
+
+![](./images/security-on-openshift/kibana3.png)
