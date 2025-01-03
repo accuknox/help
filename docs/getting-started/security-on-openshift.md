@@ -68,6 +68,8 @@ kubectl create secret generic elastic-ca -n kubearmor --from-file ca.crt=<cacert
 
 Once the steps in the previous chapter are completed, proceed with the agent installation from the OpenShift console.
 
+### Steps to Install
+
 1. Install the required SCC using the following command:
 
    ```bash
@@ -113,6 +115,8 @@ Once the steps in the previous chapter are completed, proceed with the agent ins
 ---
 
 ## Kibana Dashboard Setup
+
+### Steps to Install
 
 Along with this document, a file called `kubearmor-dashboard.ndjson` has been shared. Follow these steps to import the dashboard:
 

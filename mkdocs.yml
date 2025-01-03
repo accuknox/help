@@ -171,13 +171,13 @@ nav:
     - "Overview": "getting-started/index.md"
     - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Deployment Models":
-      - "Overview": "getting-started/deployment-models.md"
-      - "OnPrem":
-        - "Security on OpenShift": "getting-started/security-on-openshift.md"
+    - "Deployment Models": "getting-started/deployment-models.md"
     - "DevSecOps" : "getting-started/devsecops.md"
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
+    - "OnPrem":
+        - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
+        - "Security on OpenShift": "getting-started/security-on-openshift.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
@@ -206,6 +206,7 @@ nav:
     - "Workloads":
       - "Kubernetes":
         - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
+        - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"
         - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"
         - "CIS Benchmarking": "how-to/cis-benchmarking.md"
         - "Runtime Security Onboarding" : "how-to/cluster-onboarding.md"
@@ -219,6 +220,7 @@ nav:
         - "VM Onboard/Deboard with Docker" : "how-to/vm-onboard-deboard-docker.md"
         - "VM Onboard/Deboard with SystemD" : "how-to/vm-onboard-deboard-systemd.md"
         - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
+        - "VM Onboarding with Access Keys": "how-to/vm-onboard-access-keys.md"
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
@@ -293,6 +295,10 @@ nav:
           - "IaC Scan": "integrations/aws-iac-scan.md"
         - "GitHub":
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
+            - "Github DAST": "integrations/github-dast.md"
+            - "Github SAST": "integrations/github-sast.md"
+            - "Github Container Scan": "integrations/github-container-scan.md"
+            - "Github IaC Scan": "integrations/github-iac.md"
         - "Gitlab":
             - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
@@ -393,6 +399,27 @@ nav:
         - "IAM Security": "use-cases/cloud/gcp-iam.md"
         - "Network Security": "use-cases/cloud/gcp-network.md"
         - "Compute Security": "use-cases/cloud/gcp-compute.md"
+    - "VM Security":
+        - "Introduction" : "use-cases/vm-overview.md"
+        - "Agentless Risk Assessment":
+          - "Misconfiguration of Cloud Hosted VMs":
+            - "Overview" : "use-cases/vm-misconfigurations.md"
+            - "AWS Misconfigurations": "use-cases/vm-aws.md"
+            - "GCP Misconfigurations": "use-cases/vm-gcp.md"
+            - "Azure Misconfigurations": "use-cases/vm-azure.md"
+          - "Host Security Scan": "use-cases/vm-host-scan.md"
+          - "Malware Scan": "use-cases/vm-malware-scan.md"
+          - "Compliance Benchmarking & Risk Assessment": "use-cases/vm-compliance-benchmarking.md"
+        - "Agent-based Detection & Remediation":
+          - "Audit & Log Management": "use-cases/vm-audit-log.md"
+          - "Workload Hardening":
+            - "Blocking Execution of Package Managers":  "use-cases/vm-blocking-package-managers.md"
+            - "File Integrity Monitoring": "use-cases/vm-file-integrity.md"
+        - "Advanced Threat Protection":
+            - "Preventing Cryptominers Attack": "use-cases/vm-crypto-miners.md"
+            - "Defending against Log4Shell": "use-cases/vm-log4shell.md"
+        - "Reporting": "use-cases/vm-reporting.md"
+    - "Access Keys": "use-cases/access-keys.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     - "5G Security" : "use-cases/5g-security.md"
 
@@ -428,7 +455,6 @@ nav:
       - "CSPM Cloud Assets": "resources/count-assets.md"
       - "CWPP Container Images": "resources/count-registry.md"
       - "CWPP Worker Nodes": "resources/count-nodes.md"
-    - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"
     - "Technical Guide": "resources/technical-support-guide.md"
     - "Release Notes":
