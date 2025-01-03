@@ -171,14 +171,13 @@ nav:
     - "Overview": "getting-started/index.md"
     - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Deployment Models":
-      - "Overview": "getting-started/deployment-models.md"
-      - "OnPrem":
-        - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
-        - "Security on OpenShift": "getting-started/security-on-openshift.md"
+    - "Deployment Models": "getting-started/deployment-models.md"
     - "DevSecOps" : "getting-started/devsecops.md"
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
+    - "OnPrem":
+        - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
+        - "Security on OpenShift": "getting-started/security-on-openshift.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
