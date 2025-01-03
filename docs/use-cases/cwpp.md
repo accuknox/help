@@ -98,26 +98,6 @@ CWPP is a Workload-centric security solution protecting server workloads across 
 
 ---
 
-### **Host Security**
-
-::cards:: cols=3
-
-- title: Host Scan
-  image: ./icons/host-scan.svg
-  url: /use-cases/host-sec/
-
-- title: Malware Scan
-  image: ./icons/malware-scan.svg
-  url: /use-cases/malware-scan/
-
-- title: VM Hardening
-  image: ./icons/vm-hardening.svg
-  url: /use-cases/vm-hardening/
-
-::/cards::
-
----
-
 ### **Securing Secrets Manager**
 
 ::cards:: cols=3

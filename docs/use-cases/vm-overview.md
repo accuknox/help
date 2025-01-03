@@ -111,7 +111,6 @@ AccuKnox enhances **VM security** by combining **CSPM**, **Host Scanning**, **Ma
 6. **Compliance Benchmarking (STIGs & CIS)**:
     Ensures VMs and hosts comply with security standards like STIGs and CIS, aligning with regulatory and security best practices.
 
-Open image (11)-20241230-093622.png
 
 ![image (11)-20241230-093622.png](./images/vm-overview/1.png)
 
