@@ -68,7 +68,7 @@ By integrating these modules, AccuKnox ensures comprehensive coverage of code, c
 - **Software Composition Analysis (SCA)** for open-source vulnerabilities.
 - **Infrastructure as Code (IaC)** scanning for configuration issues.
 
-![Code to Cloud](/getting-started/images/accuknox-arch/3.png)
+![Code to Cloud](/getting-started/images/accuknox-arch/1-aspm.png)
 
 ### Cloud Security Posture Management (CSPM)
 
@@ -77,7 +77,7 @@ By integrating these modules, AccuKnox ensures comprehensive coverage of code, c
 - Continuous Detection and Response (CDR).
 - Agentless vulnerability management.
 
-![Code to Cloud](/getting-started/images/accuknox-arch/4.png)
+![Code to Cloud](/getting-started/images/accuknox-arch/2-cspm.png)
 
 ### Cloud Workload Protection Platform (CWPP)
 
@@ -85,7 +85,7 @@ By integrating these modules, AccuKnox ensures comprehensive coverage of code, c
 - Preemptive mitigation through Zero Trust policies.
 - Inline defense against advanced threats and lateral movement.
 
-![Code to Cloud](/getting-started/images/accuknox-arch/5.png)
+![Code to Cloud](/getting-started/images/accuknox-arch/3-cwpp.png)
 
 ### Kubernetes Identity and Entitlement Management (KIEM)
 
