@@ -415,7 +415,9 @@ nav:
         - "Advanced Threat Protection":
             - "Preventing Cryptominers Attack": "use-cases/vm-crypto-miners.md"
             - "Defending against Log4Shell": "use-cases/vm-log4shell.md"
-        - "Reporting": "use-cases/vm-reporting.md"
+        - "Reporting":
+            - "OnDemand and Scheduled" : "use-cases/vm-reporting.md"
+            - "Host Scan Report" : "use-cases/vm-host-scan-report.md"
     - "Access Keys": "use-cases/access-keys.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     - "5G Security" : "use-cases/5g-security.md"
