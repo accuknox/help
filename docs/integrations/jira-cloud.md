@@ -146,5 +146,10 @@ Users can now add Jira ticket Assignee as well when they create the ticket for a
 From now on the users can create the ticket with this particular configuration so that the ticket will be created with the assignee set to the name that  was selected during the configuration.
 
 If the users want to change the assignee during the ticket creation that can also be done by clicking on the assignee section as shown below
+
+![](./images/jira-cloud/3.png)
+
+!!!info "NOTE"
+    If the user wants to set the tickets for multiple people then they will have to create multiple ticket configurations. Each configuration can be assigned to only one Assignee.
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
