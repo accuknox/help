@@ -5,78 +5,144 @@ description: AccuKnox Enterprise CNAPP Suite is a comprehensive solution for clo
 
 # AccuKnox Enterprise Architecture
 
-Welcome to the AccuKnox Enterprise CNAPP Suite, your comprehensive solution for cloud-native application protection. AccuKnox is designed to offer end-to-end security throughout the software development lifecycle, integrating various security measures to ensure robust defense across all deployment phases.
+## Introduction
 
-## Cloud-Native Deployment Challenges
+Welcome to the **AccuKnox Enterprise CNAPP Suite**, a unified **AppSec + CloudSec** platform designed to protect cloud-native applications across their entire lifecycle. AccuKnox combines cutting-edge technology, a unified architecture, and seamless integrations to address the most critical security challenges in modern DevSecOps environments.
 
-In cloud-native deployments, security challenges can arise at different stages -
-
-1. **Code Build Phase**: Issues like vulnerable code, insecure configurations, and hardcoded secrets.
-
-2. **Deployment Phase**: Problems with malicious images, image poisoning, and insecure CI/CD pipelines.
-
-3. **Final Phase**: Runtime security threats such as zero-day attacks, crypto-mining, data exfiltrations, and undetected malware.
-
-![Code to Cloud](/getting-started/images/code-to-cloud.png)
-
-## **AccuKnox Solution**
-
-AccuKnox CNAPP Unified cloud-native security platform addressing security across software development lifecycle
-
-### **Key Security Phases**
-
-- Development: Vulnerable code, insecure configs, hardcoded secrets
-- Deployment: Malicious images, CI/CD pipeline risks
-- Runtime: Zero-day attacks, crypto mining, data exfiltration
-
-### **Core CNAPP Challenges**
-
-- Fragmented security tools
-- Lack of integrated reporting
-- Disconnected security findings
-
-### **Technical Capabilities**
-
-- Static and dynamic security measures
-- CI/CD pipeline integration
-- SIEM tool compatibility (Jira, Slack, Splunk, Rsyslog)
-- Normalized security findings correlation
+In a rapidly evolving cloud-native landscape, maintaining robust security requires solutions that adapt and scale. AccuKnox delivers end-to-end protection, ensuring that your cloud workloads, clusters, and code remain secure, compliant, and operationally efficient.
 
 ![AccuKnox Enterprise Architecture](/introduction/images/accuknox-architecture.png)
 
-## **AccuKnox Product Set**
+---
+
+## Cloud-Native Deployment Challenges
+
+Cloud-native environments bring innovation but also introduce unique security challenges at each stage:
+
+### Code Build Phase
+
+- Hardcoded secrets.
+- Insecure configurations.
+- Vulnerable dependencies in open-source code.
+
+### Deployment Phase
+
+- Image poisoning.
+- Insecure CI/CD pipelines.
+- Exploitable vulnerabilities.
+
+### Runtime Phase
+
+- Zero-day attacks.
+- Crypto-mining and lateral movement.
+- Data exfiltration and undetected malware.
+
+![Code to Cloud](/getting-started/images/code-to-cloud.png)
+
+---
+
+## AccuKnox AppSec + CloudSec CNAPP
+
+AccuKnox’s **Cloud-Native Application Protection Platform (CNAPP)** simplifies cloud security by addressing threats holistically:
+
+- **ASPM**: Application Shift-Left Security.
+- **CSPM**: Cloud Infrastructure Security.
+- **CWPP**: Runtime Workload Protection.
+- **KIEM**: Kubernetes Identity Management.
+- **GRC**: Governance, Risk, and Compliance.
+
+By integrating these modules, AccuKnox ensures comprehensive coverage of code, cloud, container, and cluster (4C) assets.
+
+![Code to Cloud](/getting-started/images/accuknox-arch/1.png)
+
+---
+
+## Enterprise CNAPP Offerings
 
 ![AccuKnox Product Set](/introduction/images/gartner-cnapp-site.png)
 
-## **Security Layers**
+### Application Security Posture Management (ASPM)
 
-- **Identity Management**: Kubernetes Identity and Entitlement Management (KIEM)
+- **Static Application Security Testing (SAST)** for identifying insecure code.
+- **Dynamic Application Security Testing (DAST)** to simulate real-world attacks.
+- **Software Composition Analysis (SCA)** for open-source vulnerabilities.
+- **Infrastructure as Code (IaC)** scanning for configuration issues.
 
-- **Static Security**: Cloud Security Posture Management (CSPM)
+![Code to Cloud](/getting-started/images/accuknox-arch/3.png)
 
-- **Run-time Security**: Cloud Workload Protection Platform (CWPP)
+### Cloud Security Posture Management (CSPM)
 
-## **Unique Differentiators**
+- Multi-cloud compliance enforcement.
+- Automated detection of misconfigurations.
+- Continuous Detection and Response (CDR).
+- Agentless vulnerability management.
 
-- Zero-Trust Security implements allow-based policies to ensure that only specific actions are permitted, following the principle of "never trust, always verify."
+![Code to Cloud](/getting-started/images/accuknox-arch/4.png)
 
-- Multi-Cloud Coverage for a consolidated dashboard and asset inventory across multiple cloud accounts.
+### Cloud Workload Protection Platform (CWPP)
 
-- Multi-tool integration for a unified risk assessment view across cloud, container, cluster, and code assets (4C coverage).
+- Real-time runtime protection using **eBPF sensors**.
+- Preemptive mitigation through Zero Trust policies.
+- Inline defense against advanced threats and lateral movement.
 
-- Inline Mitigation prevents attacks in real-time using advanced Linux Security Modules (LSMs) like AppArmor, BPF-LSM, and SELinux.
+![Code to Cloud](/getting-started/images/accuknox-arch/5.png)
 
-- Agent-Based and Agentless Scanning supports both methods for comprehensive infrastructure security.
+### Kubernetes Identity and Entitlement Management (KIEM)
 
-- Shift Left Defense allows proactive thwarting of advanced "Zero Day" attacks by addressing security issues early in the development phase.
+- Flagging excessive permissions and dormant identities.
+- Detecting toxic combinations and privilege escalations.
+- Ensuring compliance with Kubernetes best practices.
 
-- Real-Time Protection with real-time defense mechanisms against zero-day attacks.
+### Governance, Risk, and Compliance (GRC)
 
-- Integrated Testing to incorporate Static Application Security Testing (SAST), Software Composition Analysis (SCA), and Dynamic Application Security Testing (DAST).
+- Continuous monitoring and reporting.
+- Audit-ready outputs for 30+ frameworks, including **HIPAA**, **GDPR**, and **SOC2**.
+- Policy orchestration for consistent enforcement.
 
-## Compliance
+---
 
-AccuKnox's CNAPP supports over 30 compliance frameworks, including HIPAA, GDPR, SOC2, ISO 27001, and more, ensuring adherence to a wide range of industry standards and regulations. We guarantee a robust, unified approach to cloud security that spans all stages of the development lifecycle, providing peace of mind and comprehensive protection against emerging threats.
+## Key Differentiators
 
-- - -
+- **Zero Trust Security**: Policies ensure only authorized actions are permitted.
+- **Multi-Cloud Integrations**: Unified dashboards for diverse environments.
+- **AI-Driven Insights**: Advanced analytics powered by AI (e.g., AskAda CoPilot).
+- **Agentless and Agent-Based Scanning**: Flexible deployment options for any infrastructure.
+- **Shift-Left Security**: Proactively detect and fix vulnerabilities in early development phases.
+
+![Code to Cloud](/getting-started/images/accuknox-arch/6.png)
+
+---
+
+## Deployment and Integrations
+
+- **Deployment Options**: SaaS, On-Premises, or hybrid.
+- **Integrations**: SIEM (Splunk, Rsyslog), SOAR, EDR, and ticketing tools (JIRA, Slack).
+- **Lifecycle Management**: Streamlined workflows for findings, ticketing, and compliance.
+
+![Code to Cloud](/getting-started/images/accuknox-arch/2.png)
+
+---
+
+## Compliance Frameworks
+
+AccuKnox supports 30+ regulatory standards, including:
+
+- **ISO 27001**, **PCI DSS**, and **SOC2**.
+- Industry-specific frameworks like **HIPAA** and **GDPR**.
+
+This ensures your infrastructure remains secure and audit-ready across regions and industries.
+
+![Code to Cloud](/getting-started/images/accuknox-arch/7.png)
+
+---
+
+## Conclusion
+
+AccuKnox redefines cloud-native security by delivering comprehensive protection and operational simplicity. With an integrated approach to compliance, runtime security, and DevSecOps, AccuKnox empowers your teams to focus on innovation while staying secure.
+
+---
+
+!!!info NOTE
+    You can protect your workloads in minutes using AccuKnox, it is available to protect your Kubernetes and other cloud workloads using Kernel Native Primitives such as AppArmor, SELinux, and eBPF. Let us know if you are seeking additional guidance in planning your cloud security program.
+
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
