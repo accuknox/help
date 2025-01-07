@@ -173,26 +173,9 @@ nav:
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models": "getting-started/deployment-models.md"
     - "DevSecOps" : "getting-started/devsecops.md"
+
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
-    - "OnPrem":
-        - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
-        - "Security on OpenShift": "getting-started/security-on-openshift.md"
-    - "Container Registry":
-      - "ACR": "how-to/acr.md"
-      - "ECR": "how-to/ecr.md"
-      - "GAR": "how-to/gar.md"
-      - "Harbor": "how-to/harbor.md"
-      - "Dockerhub Registry": "how-to/dockerhub.md"
-      - "Docker Trusted Registry": "how-to/docker-trusted.md"
-      - "Sonatype Nexus": "how-to/sonatype-nexus.md"
-      - "JFrog Container" : "how-to/jfrog-container.md"
-      - "Quay": "how-to/quay.md"
-    - "Open Source":
-      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
-      - "Open Source Installation": "getting-started/open-source.md"
-    - "Application/Code":
-      - "Github IaC Scan": "how-to/github-iac-scan.md"
     - "Cloud Accounts":
       - "Prerequisites":
             - "AWS": "how-to/cspm-prereq-aws.md"
@@ -221,6 +204,24 @@ nav:
         - "VM Onboard/Deboard with SystemD" : "how-to/vm-onboard-deboard-systemd.md"
         - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
         - "VM Onboarding with Access Keys": "how-to/vm-onboard-access-keys.md"
+    - "Application/Code":
+      - "Github IaC Scan": "how-to/github-iac-scan.md"
+    - "Container Registry":
+      - "ACR": "how-to/acr.md"
+      - "ECR": "how-to/ecr.md"
+      - "GAR": "how-to/gar.md"
+      - "Harbor": "how-to/harbor.md"
+      - "Dockerhub Registry": "how-to/dockerhub.md"
+      - "Docker Trusted Registry": "how-to/docker-trusted.md"
+      - "Sonatype Nexus": "how-to/sonatype-nexus.md"
+      - "JFrog Container" : "how-to/jfrog-container.md"
+      - "Quay": "how-to/quay.md"
+    - "OnPrem":
+        - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
+        - "Security on OpenShift": "getting-started/security-on-openshift.md"
+    - "Open Source":
+      - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
+      - "Open Source Installation": "getting-started/open-source.md"
     - "Signup/Login via SSO": "how-to/sso.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
@@ -232,41 +233,6 @@ nav:
 
   - "Integrations":
     - "Integrations": "integrations/index.md"
-    - "Ticketing" :
-      - "Ticket Templates" : "integrations/ticket-template.md"
-      - "Jira Cloud" : "integrations/jira-cloud.md"
-      - "Jira Server" : "integrations/jira-server-cspm.md"
-      - "Freshservice" : "integrations/freshservice-cspm.md"
-      - "Connectwise" : "integrations/connectwise-cspm.md"
-      - "ServiceNow" : "integrations/servicenow.md"
-    - "SIEM Events" :
-      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
-      - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
-      - "Azure Sentinel" : "integrations/azure-sentinel.md"
-      - "Rsyslog" : "integrations/rsyslog.md"
-      - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
-      - "Splunk" : "integrations/splunk.md"
-      - "Telemetry (Sample)" :
-        - "Logs" : "integrations/telemetry-logs.md"
-        - "Alerts" : "integrations/telemetry-alerts.md"
-      - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
-      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
-    - "Notification":
-      - "Slack": "integrations/slack.md"
-      - "Email": "integrations/email.md"
-    - "OAuth": "integrations/oauth.md"
-    - "Email Backend" : "integrations/email-backend.md"
-    - "K8s Management":
-      - "Rafay": "integrations/rafay-accuknox.md"
-      - "Mirantis Lens" :
-        - "KubeArmor": "integrations/lens-ka.md"
-        - "AccuKnox Agents": "integrations/lens-ak.md"
-      - "Nutanix":
-        - "AccuKnox": "integrations/nutanix-accuknox.md"
-        - "KubeArmor": "integrations/nutanix-kubearmor.md"
-      - "SpectroCloud": "integrations/spectrocloud.md"
-    - "Registry Support Matrix" : "support-matrix/registry.md"
-
     - "CI/CD":
         - "Azure DevOps":
           - "DAST": "integrations/azure-dast.md"
@@ -325,8 +291,40 @@ nav:
             - "SCA": "integrations/checkmarx-sca.md"
             - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
             - "Container Scan": "integrations/checkmarx-container.md"
-
-
+    - "Container Platform" : "support-matrix/registry.md"
+    - "K8s Management":
+      - "Rafay": "integrations/rafay-accuknox.md"
+      - "Mirantis Lens" :
+        - "KubeArmor": "integrations/lens-ka.md"
+        - "AccuKnox Agents": "integrations/lens-ak.md"
+      - "Nutanix":
+        - "AccuKnox": "integrations/nutanix-accuknox.md"
+        - "KubeArmor": "integrations/nutanix-kubearmor.md"
+      - "SpectroCloud": "integrations/spectrocloud.md"
+    - "Ticketing" :
+      - "Ticket Templates" : "integrations/ticket-template.md"
+      - "Jira Cloud" : "integrations/jira-cloud.md"
+      - "Jira Server" : "integrations/jira-server-cspm.md"
+      - "Freshservice" : "integrations/freshservice-cspm.md"
+      - "Connectwise" : "integrations/connectwise-cspm.md"
+      - "ServiceNow" : "integrations/servicenow.md"
+    - "SIEM Events" :
+      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
+      - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+      - "Azure Sentinel" : "integrations/azure-sentinel.md"
+      - "Rsyslog" : "integrations/rsyslog.md"
+      - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+      - "Splunk" : "integrations/splunk.md"
+      - "Telemetry (Sample)" :
+        - "Logs" : "integrations/telemetry-logs.md"
+        - "Alerts" : "integrations/telemetry-alerts.md"
+      - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
+      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
+    - "Notification":
+      - "Slack": "integrations/slack.md"
+      - "Email": "integrations/email.md"
+    - "OAuth": "integrations/oauth.md"
+    - "Email Backend" : "integrations/email-backend.md"
   - "Use-Cases":
     - "Use Cases": "use-cases/index.md"
     - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"

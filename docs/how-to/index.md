@@ -11,21 +11,21 @@ hide:
 
 ::cards:: cols=3
 
-- title: Container Registry
-  image: ./icons/container-reg.svg
-  url: /how-to/acr/
-- title: Open Source
-  image: ./icons/open-source.svg
-  url: /introduction/open-source-vs-enterprise/
-- title: Application/Code
-  image: ./icons/app-code.svg
-  url: /how-to/github-iac-scan/
 - title: Cloud Accounts
   image: ./icons/cloud-account.svg
   url: /how-to/cspm-prereq-aws/
 - title: Workloads
   image: ./icons/workload.svg
   url: /how-to/cluster-misconfig-scan-onboarding/
+- title: Application/Code
+  image: ./icons/app-code.svg
+  url: /how-to/github-iac-scan/
+- title: Container Registry
+  image: ./icons/container-reg.svg
+  url: /how-to/acr/
+- title: Open Source
+  image: ./icons/open-source.svg
+  url: /introduction/open-source-vs-enterprise/
 - title: Signup/Login via SSO
   image: ./icons/sso.svg
   url: /how-to/sso/
