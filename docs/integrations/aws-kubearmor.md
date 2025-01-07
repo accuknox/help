@@ -106,11 +106,11 @@ export HELM_EXPERIMENTAL_OCI=1
 aws ecr get-login-password \
     --region us-east-1 | helm registry login \
     --username AWS \
-    --password-stdin 709825985650.dkr.ecr.us-east-1.amazonaws.com
+    --password-stdin *************.dkr.ecr.us-east-1.amazonaws.com
 
 mkdir awsmp-chart && cd awsmp-chart
 
-helm pull oci://709825985650.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor --version 0.10.3
+helm pull oci://*************.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor --version 0.10.3
 
 tar xf $(pwd)/* && find $(pwd) -maxdepth 1 -type f -delete
 
@@ -126,18 +126,18 @@ Example:
 aws ecr get-login-password \
     --region us-east-1 | helm registry login \
     --username AWS \
-    --password-stdin 709825985650.dkr.ecr.us-east-1.amazonaws.com
+    --password-stdin *************.dkr.ecr.us-east-1.amazonaws.com
 
 mkdir awsmp-chart && cd awsmp-chart
 
-helm pull oci://709825985650.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor --version 0.10.3
+helm pull oci://*************.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor --version 0.10.3
 
 tar xf $(pwd)/* && find $(pwd) -maxdepth 1 -type f -delete
 
 helm install kubearmor \
     --namespace ns1re1 ./*
 Login Succeeded
-Pulled: 709825985650.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor:0.10.3
+Pulled: *************.dkr.ecr.us-east-1.amazonaws.com/accuknox/kubearmor:0.10.3
 Digest: sha256:3aab82a89f1302f7a8b91e2c138806593d5c4e4e8695a19204c388d3ce2e87b7
 NAME: kubearmor
 LAST DEPLOYED: Wed Aug  2 05:27:10 2023
