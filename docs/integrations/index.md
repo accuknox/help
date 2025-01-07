@@ -9,7 +9,15 @@ hide:
 </style>
 
 ::cards:: cols=3
-
+- title: CI/CD
+  image: ./icons/cicd.svg
+  url: /integrations/azure-dast/
+- title: Container Platform
+  image: ./icons/vms.svg
+  url: /support-matrix/registry/
+- title: K8s Management
+  image: ./icons/k8s-mgmt.svg
+  url: /integrations/rafay-accuknox/
 - title: Ticketing
   image: ./icons/ticketing.svg
   url: /integrations/ticket-template/
@@ -25,11 +33,4 @@ hide:
 - title: Email Backend
   image: ./icons/email-back.svg
   url: /integrations/email-backend/
-- title: K8s Management
-  image: ./icons/k8s-mgmt.svg
-  url: /integrations/rafay-accuknox/
-- title: CI/CD
-  image: ./icons/cicd.svg
-  url: /integrations/azure-dast/
-
 ::/cards::
