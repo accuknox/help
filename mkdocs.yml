@@ -188,22 +188,23 @@ nav:
         - "Offboard Clound Account": "how-to/cloud-offboarding.md"
     - "Workloads":
       - "Kubernetes":
-        - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
-        - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"
         - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"
-        - "CIS Benchmarking": "how-to/cis-benchmarking.md"
         - "Runtime Security Onboarding" : "how-to/cluster-onboarding.md"
+        - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"
+        - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
+        - "CIS Benchmarking": "how-to/cis-benchmarking.md"
         - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
-      - "Sample Workloads Protection" :
-        - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
-        - "DVWA": "getting-started/dvwa.md"
-        - "PHP-MySQL": "getting-started/php-mysql.md"
-      - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
       - "VM/Bare Metal" :
         - "VM Onboard/Deboard with Docker" : "how-to/vm-onboard-deboard-docker.md"
         - "VM Onboard/Deboard with SystemD" : "how-to/vm-onboard-deboard-systemd.md"
         - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
         - "VM Onboarding with Access Keys": "how-to/vm-onboard-access-keys.md"
+      - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
+      - "Sample Workloads Protection" :
+        - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
+        - "DVWA": "getting-started/dvwa.md"
+        - "PHP-MySQL": "getting-started/php-mysql.md"
+
     - "Application/Code":
       - "Github IaC Scan": "how-to/github-iac-scan.md"
     - "Container Registry":
@@ -309,17 +310,17 @@ nav:
       - "Connectwise" : "integrations/connectwise-cspm.md"
       - "ServiceNow" : "integrations/servicenow.md"
     - "SIEM Events" :
-      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
-      - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
-      - "Azure Sentinel" : "integrations/azure-sentinel.md"
-      - "Rsyslog" : "integrations/rsyslog.md"
-      - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
-      - "Splunk" : "integrations/splunk.md"
       - "Telemetry (Sample)" :
         - "Logs" : "integrations/telemetry-logs.md"
         - "Alerts" : "integrations/telemetry-alerts.md"
-      - "Azure Sentinel feeder integration" : "integrations/azure-sentinel-feeder-integration.md"
-      - "Rsyslog feeder integration" : "integrations/rsyslog_feeder_integration.md"
+      - "Splunk" : "integrations/splunk.md"
+      - "AccuKnox SplunkApp" : "integrations/accuKnox-splunk-app-installation-configuration.md"
+      - "KubeArmor Splunk Integration" : "integrations/splunk_feeder_kubearmor.md"
+      - "Azure Sentinel" : "integrations/azure-sentinel.md"
+      - "Azure Sentinel Feeder Integration" : "integrations/azure-sentinel-feeder-integration.md"
+      - "Rsyslog" : "integrations/rsyslog.md"
+      - "Rsyslog Feeder Integration" : "integrations/rsyslog_feeder_integration.md"
+      - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
     - "Notification":
       - "Slack": "integrations/slack.md"
       - "Email": "integrations/email.md"
