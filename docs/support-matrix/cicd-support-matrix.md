@@ -81,17 +81,17 @@ These are the three supported methods for integrating CI/CD tools with AccuKnox 
 
 ---
 
-| CI/CD Tool                                                     | Workflow File | Plugin Support | Native Integration (IaC) |
+| CI/CD Tool                                                     | Workflow file (Direct Steps) | Plugin Support | Native Integration (IaC) |
 | -------------------------------------------------------------- | ------------- | -------------- | ------------------------ |
 | ![GitHub Actions](./cicd-icons/github.png) **GitHub Actions**  | Available     | Available      | Available                |
 | ![GitLab CI/CD](./cicd-icons/gitlab.png) **GitLab CI/CD**      | Available     | Available      | Available                |
-| ![Jenkins](./cicd-icons/jenkins.png) **Jenkins**               | Available     | Available      | WIP                      |
-| ![Azure DevOps](./cicd-icons/azure.png) **Azure DevOps**       | Available     | WIP            | WIP                      |
-| ![AWS CodePipeline](./cicd-icons/aws.png) **AWS CodePipeline** | Available     | WIP            | WIP                      |
+| ![Jenkins](./cicd-icons/jenkins.png) **Jenkins**               | Available     | Available      | Coming Soon                      |
+| ![Azure DevOps](./cicd-icons/azure.png) **Azure DevOps**       | Available     | Available            | Coming Soon                      |
+| ![AWS CodePipeline](./cicd-icons/aws.png) **AWS CodePipeline** | Available     | Coming Soon            | Coming Soon                      |
 | ![Bitbucket](./cicd-icons/bitbucket.png) **Bitbucket**         | Available     | Available      | Available                |
-| ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | Available     | WIP            | WIP                      |
-| ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | Available     | WIP            | WIP                      |
-| ![Harness](./cicd-icons/harness.png) **Harness**               | Available     | WIP            | WIP                      |
+| ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | Available     | Coming Soon            | Coming Soon                      |
+| ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | Available     | Coming Soon            | Coming Soon                      |
+| ![Harness](./cicd-icons/harness.png) **Harness**               | Available     | Coming Soon            | Coming Soon                      |
 
 ---
 
@@ -99,12 +99,12 @@ These are the three supported methods for integrating CI/CD tools with AccuKnox 
 
 | CI/CD Tool                                                     | SAST      | DAST      | IaC Scanning | Container Scanning | Secrets Scanning | CI/CD Pipeline Monitoring |
 | -------------------------------------------------------------- | --------- | --------- | ------------ | ------------------ | ---------------- | ------------------------- |
-| ![GitHub Actions](./cicd-icons/github.png) **GitHub Actions**  | Available | Available | Available    | Available          | Available        | Available                 |
-| ![GitLab CI/CD](./cicd-icons/gitlab.png) **GitLab CI/CD**      | Available | Available | Available    | Available          | WIP              | WIP                       |
-| ![Jenkins](./cicd-icons/jenkins.png) **Jenkins**               | WIP       | WIP       | Available    | Available          | WIP              | WIP                       |
-| ![Azure DevOps](./cicd-icons/azure.png) **Azure DevOps**       | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
-| ![AWS CodePipeline](./cicd-icons/aws.png) **AWS CodePipeline** | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
-| ![Bitbucket](./cicd-icons/bitbucket.png) **Bitbucket**         | Available | Available | Available    | Available          | WIP              | WIP                       |
-| ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
-| ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
-| ![Harness](./cicd-icons/harness.png) **Harness**               | WIP       | WIP       | WIP          | WIP                | WIP              | WIP                       |
+| ![GitHub Actions](./cicd-icons/github.png) **GitHub Actions**  | Available       | Available       | Available    | Available                    | Available        | Available                 |
+| ![GitLab CI/CD](./cicd-icons/gitlab.png) **GitLab CI/CD**      | [Available](http://gitlab.com/accu-knox/scan) | [Available](http://gitlab.com/accu-knox/scan) | [Available](http://gitlab.com/accu-knox/scan)    | [Available](http://gitlab.com/accu-knox/scan)         | Coming Soon              | Coming Soon                       |
+| ![Jenkins](./cicd-icons/jenkins.png) **Jenkins**               | Available       | Available       | Available    | Available          | Coming Soon              | Coming Soon                       |
+| ![Azure DevOps](./cicd-icons/azure.png) **Azure DevOps**       | Available       | [Available](https://marketplace.visualstudio.com/items?itemName=AccuKnox.accuknox-dast&ssr=false#overview)       | Available          | Available                 | Coming Soon              | Coming Soon                       |
+| ![AWS CodePipeline](./cicd-icons/aws.png) **AWS CodePipeline** | Coming Soon       | Coming Soon       | Coming Soon          | Coming Soon                | Coming Soon              | Coming Soon                       |
+| ![Bitbucket](./cicd-icons/bitbucket.png) **Bitbucket**         | [Available](https://bitbucket.org/accu-knox/scan/) | Available | Available    | Available          | Coming Soon              | Coming Soon                       |
+| ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | Coming Soon       | Coming Soon       | Coming Soon          | Coming Soon                | Coming Soon              | Coming Soon                       |
+| ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | Coming Soon       | Coming Soon       | Coming Soon          | Coming Soon                | Coming Soon              | Coming Soon                       |
+| ![Harness](./cicd-icons/harness.png) **Harness**               | Coming Soon       | Coming Soon       | Coming Soon          | Coming Soon                | Coming Soon              | Coming Soon                       |
