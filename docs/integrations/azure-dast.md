@@ -3,143 +3,115 @@ title: AccuKnox DAST with Azure DevOps
 description: Understand the process of integrating AccuKnox DAST with Azure DevOps. By integrating AccuKnox DAST into the pipeline, you can identify and resolve security vulnerabilities for your applications.
 ---
 
-To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using Azure DevOps to enhance security, consider a specific scenario involving a domain with known vulnerabilities. By integrating AccuKnox scanning into the pipeline, we can identify and resolve these security issues.
+# AccuKnox DAST with Azure DevOps
 
-## **Pre-requisites**
+To demonstrate the benefits of incorporating AccuKnox DAST into an Azure DevOps CI/CD pipeline for enhanced security, this document outlines the steps to configure the integration, run DAST scans, and view results in the AccuKnox SaaS platform.
 
-- Azure DevOps access
+## **Prerequisites**
 
-- AccuKnox UI access
+- Access to an Azure DevOps project.
 
-- Azure DevOps pipeline
+- Access to the AccuKnox platform.
 
-- GitHub/Azure Repos
+- A configured Azure DevOps agent for pipeline execution.
 
-## **Steps for Integratiion**
+## **Steps for Integration**
 
-**Step 1**: Log in to AccuKnox SaaS
-Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS.
+### **Step 1: Install the AccuKnox DAST Extension**
 
-![](images/azure-devops/dast-gen-token.png)
+1.  Navigate to the Azure DevOps Marketplace.
 
-**Note**: Copy the token and create an Azure DevOps secret for the token to be used in the pipeline. Also, copy the tenant ID value to be used in the pipeline YAML file.
+2.  Search for **AccuKnox DAST** and click **Get it free** to install the extension in your Azure DevOps organization.
+![image-20250108-110253.png](./images/azure-devops/1.png)
 
-**Step 2**: Add Variables and Secrets to Azure DevOps Secret Manager
+3.  Select an Azure organization and click on **Install**.
+![image-20250108-110409.png](./images/azure-devops/2.png)
 
-Navigate to your Azure DevOps project and go to **Pipelines** > **Library** > **Variables or Secure files** to add the following secrets and Variables:
+4.  Once installed, the AccuKnox DAST extension will be ready to use in your pipelines.
 
-    + ```TOKEN```: The artifact token received from the AccuKnox management plane
+![image-20250108-110441.png](./images/azure-devops/3.png)
 
-    + ```TENANT_ID```: The Tenant ID received from the AccuKnox management plane
+### **Step 2: Generate AccuKnox Token**
 
-    + ```TARGET_URL```: Domain URL to test for vulnerabilities.
+1.  Log in to AccuKnox.
 
-![](images/azure-devops/dast-vars.png)
+2.  Navigate to **Settings** > **Tokens** and create an AccuKnox token.
 
-Add the ```TOKEN``` as a secure file
+3.  Copy the generated token and store it securely for later use. For detailed steps, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/ "https://help.accuknox.com/how-to/how-to-create-tokens/").
 
-![](images/azure-devops/dast-token.png)
+### **Step 3: Configure Variables in Azure DevOps**
 
-**Step 3**: Set Up Azure DevOps Pipeline
+1.  Navigate to your Azure DevOps project.
 
-Create a new pipeline in your Azure DevOps project with the following YAML configuration:
+2.  Go to **Project Settings** > **Pipelines** > **Library** > **+ Variable Group**.
 
-```yaml
-name: OWASP ZAP Scanning Workflow
-trigger:
-  branches:
-    include:
-      - main
-pr:
-  branches:
-    include:
-      - main
-jobs:
-  - job: zap_scan
-    displayName: 'OWASP ZAP Scan'
-    pool:
-      vmImage: 'ubuntu-latest'
-    variables:
-      - group: AccuKnoxSecrets
-    steps:
-      - checkout: self
-        displayName: 'Checkout code'
-      - script: |
-          sudo chmod -R 777 $(System.DefaultWorkingDirectory)
-        displayName: 'Set full permissions on working directory'
-      - script: |
-          sudo chmod -R 777 $(Build.SourcesDirectory)
-          echo "TARGET_URL=$(TARGET_URL)" >> $(Build.SourcesDirectory)/env.sh
-        displayName: 'Set up Docker Environment and Environment Variables'
-      - script: |
-          source $(Build.SourcesDirectory)/env.sh
-          docker run --rm -v $(Build.SourcesDirectory):/zap/wrk/:rw -t zaproxy/zap-stable zap-baseline.py \
-            -t $TARGET_URL \
-            -r scanreport.html \
-            -x scanreport.xml \
-            -J scanreport.json \
-            -I
-        displayName: 'Run OWASP ZAP Scan'
-      - script: |
-          echo "Listing generated reports..."
-          ls -l $(Build.SourcesDirectory)
-        displayName: 'List reports'
-      - task: DownloadSecureFile@1
-        name: token
-        inputs:
-          secureFile: 'TOKEN'
-        displayName: 'Download AccuKnox Token'
-      - script: |
-          curl --location --request POST "https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$(TENANT_ID)&data_type=ZAP&save_to_s3=false" \
-            --header "Tenant-Id: $(TENANT_ID)" \
-            --header "Authorization: Bearer $(cat $(token.secureFilePath))" \
-            --form "file=@$(Build.SourcesDirectory)/scanreport.json"
-        displayName: 'Upload ZAP Scan Report'
+3.  Add the following variables:
+
+| **Secret Name**    | **Description**                      |
+| ------------------ | ------------------------------------ |
+| `targetUrl`        | URL of the web application to scan.  |
+| `accuknoxEndpoint` | URL of the AccuKnox CSPM API.        |
+| `accuknoxTenantId` | AccuKnox Tenant ID.                  |
+| `accuknoxToken`    | AccuKnox API token.                  |
+| `accuknoxLabel`    | Label to group findings in AccuKnox. |
+
+### **Step 4: Add AccuKnox DAST Task to the Pipeline**
+
+1.  Open your Azure DevOps pipeline YAML file or create a new one.
+
+2.  Add the following task under the `steps` block:
+
+```
+steps:
+  - task: accuknox-dast@0
+    inputs:
+      targetURL: $(TARGET_URL)
+      accuknoxEndpoint: $(ACCUKNOX_ENDPOINT)
+      accuknoxTenantId: $(ACCUKNOX_TENANT_ID)
+      accuknoxToken: $(ACCUKNOX_TOKEN)
+      accuknoxLabel: $(ACCUKNOX_LABEL)
+      scanType: $(SCAN_TYPE)
+      qualityGate: $(QUALITY_GATE)
+
 ```
 
-## **Initial CI/CD Pipeline Without AccuKnox Scan**
+### **Step 5: Run the Pipeline**
 
-Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push changes to the repository, no security checks are performed, potentially allowing security issues in the application.
+1.  Trigger the pipeline manually or through a code change.
 
-## **CI/CD Pipeline After AccuKnox Scan Integration**
+2.  Monitor the pipeline logs to verify that the AccuKnox DAST task is running successfully.
+![image-20250108-114305.png](./images/azure-devops/4.png)
 
-After integrating AccuKnox into your CI/CD pipeline, the next push triggers the Azure DevOps pipeline. The AccuKnox scan identifies potential vulnerabilities in the domain URL.
-
-![](images/azure-devops/dast-scan.png)
-
-### **View Results in AccuKnox SaaS**
+## View Results in AccuKnox SaaS
 
 **Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
 
-**Step 2**: Go to **Issues** > **Vulnerabilities** and select **Data Type** as **ZAP** to view identified vulnerabilities.
-
-![](images/azure-devops/dast-results.png)
+**Step 2**: Go to Issues > Findings and select DAST Findings to see identified vulnerabilities.
+![image-20250108-114539.png](./images/azure-devops/5.png)
 
 **Step 3**: Click on a vulnerability to view more details.
-
-![](images/azure-devops/dast-misconf.png)
+![image-20250108-114612.png](./images/azure-devops/6.png)
 
 **Step 4**: Fix the Vulnerability
 
-Follow the instructions in the Solutions tab to fix the vulnerability (e.g., Cross-Domain Misconfiguration).
-
-![](images/azure-devops/dast-sol.png)
+Follow the instructions in the Solutions tab to fix the vulnerability.
+![image-20250108-114659.png](./images/azure-devops/7.png)
 
 **Step 5**: Create a Ticket for Fixing the Vulnerability
 
 Create a ticket in your issue tracking system to address the identified vulnerability.
+![image-20250108-114752.png](./images/azure-devops/8.png)
 
-![](images/azure-devops/dast-ticket.png)
+**Step 6:** Review Updated Results
 
-**Step 6**: Review Updated Results
-
-- After fixing the vulnerability, rerun the Azure DevOps pipeline.
+- After fixing the vulnerability, rerun the Azure pipeline.
 
 - Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
 
-## **Conclusion**
+### **Conclusion**
 
-Azure DevOps, combined with AccuKnox scanning, provides enhanced security by identifying and mitigating vulnerabilities during the CI/CD process. This integration offers visibility into potential security issues and helps ensure a secure deployment environment. AccuKnox DAST integrates seamlessly with various CI/CD tools, including Jenkins, GitHub, GitLab, Azure Pipelines, and AWS CodePipelines.
+Integrating AccuKnox DAST with Azure DevOps pipelines ensures continuous security by identifying vulnerabilities during the build process. It provides visibility into security issues and enhances deployment safety. AccuKnox DAST supports a wide range of CI/CD tools, making it a versatile choice for secure DevOps practices.
 
-- - -
+---
+
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

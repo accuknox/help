@@ -3,153 +3,212 @@ title: AccuKnox SAST Integration with Azure DevOps
 description: This document contains the process of integrating AccuKnox SAST with Azure DevOps. By integrating AccuKnox SAST into CI/CD pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
 ---
 
-## AccuKnox SAST Integration with Azure DevOps
+# AccuKnox SAST Integration with Azure DevOps
 
-This document contains the process of integrating AccuKnox SAST with Azure DevOps. By integrating AccuKnox SAST into CI/CD pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
+## Overview
 
-## **Prerequisites**
--------------
--   AccuKnox UI access
+This guide explains how to use the **AccuKnox SAST Azure DevOps Extension** to integrate Static Application Security Testing (SAST) into an Azure DevOps pipeline. The process uses SonarQube for scanning source code and uploads the results to AccuKnox CSPM for centralized analysis and vulnerability remediation.
 
--   Azure DevOps Access
+## Prerequisites
 
--   SonarQube access
+1.  **Azure DevOps Access**: Access to your Azure DevOps project where the pipeline will be implemented.
 
-### **Step 1: Create the AccuKnox Token**
----------------------------------
+2.  **SonarQube Access**: API tokens and project details for performing SAST scans.
 
-The first step is to generate an AccuKnox token. For generating the AccuKnox token, navigate to the AccuKnox > Settings > Tokens then click on the create button.
+3.  **AccuKnox Platform Access**: Generate an API token and Tenant ID for integrations.
 
-![](images/azure/def.png)
+## Steps for Integration
 
-Give your token a name, and click on the **Generate** button.
+### Step 1: Install the AccuKnox SAST Extension
 
-![](images/azure/def2.png)
+- Navigate to the [Azure DevOps Marketplace](https://marketplace.visualstudio.com/items?itemName=AccuKnox.accuknox-SAST "https://marketplace.visualstudio.com/items?itemName=AccuKnox.accuknox-SAST").
 
-Once you have generated the the token, click on the **copy** button and take a note of it. It will be required to configured as a secret in the pipeline. Also copy the Tenant Id and take a note of it.
+- Search for **AccuKnox SAST** and click **Get it free** to install the extension in your Azure DevOps organization.
 
-![](images/azure/def3.png)
+![image-20250108-091154.png](./images/azure-sast/1.png)
 
-### **Step 2: Create a label**
-----------------------
+- Select an Azure organization & click on install.
 
-In AccuKnox, labels are used for grouping the similar types of assets together. For creating a label navigate to the Settings > Labels and click on the **Create Label** button.
+![Screenshot from 2025-01-08 14-18-27-20250108-084827.png](./images/azure-sast/2.png)
 
-![](images/azure/def4.png)
+- AccuKnox SAST extension is now successfully installed & ready to use.
 
-Give your label a name and a filename prefix. Take a note of the label and click on the save button.
+![Screenshot from 2025-01-08 14-18-42-20250108-084842.png](./images/azure-sast/3.png)
 
-![](images/azure/def5.png)
+## **Step 2: Generate AccuKnox Token & Configure SonarQube Variables**
 
-### **Step 3: Create SonarQube token**
-------------------------------
+### **Generate an AccuKnox Token**
 
-Create a SonarQube user with permissions to administer quality gates, quality profiles then generate an access token for that user. Take a note of that token.
+1.  **Log in to AccuKnox SaaS**:
+    Access your AccuKnox instance using your credentials.
 
-### **Step 4: Configure secrets and variables in Azure DevOps**
--------------------------------------------------------
+2.  **Navigate to Token Settings**:
 
-Navigate to the Azure DevOps > Pipelines > Library and click on the add variable group button.
+    - Go to **Settings** in the dashboard.
 
-![](images/azure/def6.png)
+    - Select **Tokens** from the menu.
 
-Name your variable group as `AccuKnox`. And configure the following variables.
+3.  **Create a Token**:
 
--   `TENANT_ID`- Your AccuKnox tenant id.
+    - Click **+ Create Token**.
 
--   `ACCUKNOX_TOKEN`- AccuKnox API token.
+    - Provide a name for the token (e.g., `Azure-Pipeline-Token`).
 
--   `LABEL`- Used to group findings together.
+    - Set an expiration period or select a default lifetime (if applicable).
 
--   `SQ_TOKEN`- SonarQube API token.
+4.  **Copy and Store Securely**:
 
--   `SQ_URL`- URL of the SonarQube app
+    - Copy the token immediately after generation.
 
--   `SQ_PROJECT`- Name of your SonarQube project
+    - **Store the token as a secret** in your Azure DevOps project:
 
-![](images/azure/def7.png)
+      - Navigate to **Pipelines > Library**.
 
-Click on the lock icon and make those variables a secret. Then save it.
+      - Click **+ Variable group** and create a group to hold secrets.
 
-![](images/azure/def9.png)
+      - Add the AccuKnox token under a variable name (e.g., `accuknoxToken`).
 
-Go to pipeline permissions, click on **Add** button and select your pipeline.
+      - Mark the token as **Secret** to ensure its security.
 
-![](images/azure/def-8.png)
+For more details, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/ "https://help.accuknox.com/how-to/how-to-create-tokens/").
 
-### **Step 5: Configure CI/CD pipeline**
---------------------------------
+### **Generate a User Token in SonarQube**
 
-Add this content to your `azure-pipelines.yml` file.
+1.  **Log in to SonarQube**:
+    Access your SonarQube instance using your credentials.
+
+2.  **Navigate to the Security Section**:
+
+    - Click your **user profile icon** in the top-right corner.
+
+    - Go to **My Account > Security**.
+
+3.  **Generate a New Token**:
+
+    - Under the **Generate Tokens** section, enter a name for the token (e.g., `AzureDevOpsIntegration`).
+
+    - ![image-20250108-114047.png](./images/azure-sast/4.png)
+
+    - Click **Generate**.
+
+4.  **Copy and Store Securely**:
+
+    - Copy the token immediately.
+
+    - **Store it as a secret** in Azure DevOps under a variable name (e.g., `sonarQubeToken`).
+
+### **Find the SonarQube Project Key**
+
+1.  **Log in to SonarQube**:
+    Use your credentials to access the SonarQube dashboard.
+
+2.  **Locate the Project Key**:
+
+    - Navigate to the **Projects** tab.
+
+    - Select the relevant project from the list.
+
+    - The **project key** is displayed on the **Project Information** page.
+![image-20250108-114235.png](./images/azure-sast/5.png)
+
+3.  **Store in Azure DevOps**:
+    Add the project key to your Azure DevOps variable group as `sonarQubeProjectKey`.
+
+### **Find the SonarQube URL**
+
+1.  **Access SonarQube**:
+    Open your SonarQube instance in a web browser.
+
+2.  **Copy the URL**:
+
+    - The URL will look similar to:
+      `https://sonarqube.example.com`.
+
+3.  **Store in Azure DevOps**:
+    Add the URL to your Azure DevOps variable group as `sonarQubeUrl`.
+
+## Step 3: Configure Azure DevOps Secrets
+
+In Azure DevOps, add the following secrets in your project settings under **Pipelines > Library > Variable Groups**:
+
+| **Secret Name**       | **Description**                              |
+| --------------------- | -------------------------------------------- |
+| `sonarQubeUrl`        | URL of the SonarQube server.                 |
+| `sonarQubeToken`      | API token for SonarQube authentication.      |
+| `sonarQubeProjectKey` | SonarQube project key.                       |
+| `accuknoxEndpoint`    | URL of the AccuKnox CSPM API.                |
+| `accuknoxTenantId`    | AccuKnox Tenant ID.                          |
+| `accuknoxToken`       | AccuKnox API token.                          |
+| `accuknoxLabel`       | Label to group similar findings in AccuKnox. |
+
+## Step 4: Add AccuKnox SAST Task to Pipeline
+
+In your Azure DevOps pipeline YAML file, add the following task:
 
 ```yaml
-trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-
-variables:
-  - group: AccuKnox # Name of the variable group created in the Azure DevOps
-
-steps:
-- checkout: self
-  fetchDepth: 0
-
-- script: |
-    docker run --rm \
-    -e SONAR_HOST_URL=$(SQ_URL)  \
-    -e SONAR_TOKEN=$(SQ_TOKEN) \
-    -v "$(pwd):/usr/src" \
-    sonarsource/sonar-scanner-cli
-  displayName: SonarQube Scan
-
-- script: |
-    docker run --rm \
-    -e SQ_URL=$(SQ_URL) \
-    -e SQ_AUTH_TOKEN=$(SQ_TOKEN) \
-    -e SQ_PROJECTS="$(SQ_PROJECT)" \
-    -e REPORT_PATH=/app/data \
-    -v $(pwd):/app/data \
-    accuknox/sastjob:latest
-  displayName: AccuKnox SAST
-
-- script: |
-    for file in `ls -1 SQ-*.json`; do
-      curl --location --request POST "https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$(TENANT_ID)&data_type=SQ&save_to_s3=true&label_id=$(LABEL)" \
-        --header "Tenant-Id: $(TENANT_ID)" \
-        --header "Authorization: Bearer $(ACCUKNOX_TOKEN)" \
-        --form "file=@\"$file\""
-    done
-  displayName: Upload SAST reports to AccuKnox
-
-- script: |
-    sleep 10
-    response=$(curl -s -u "$(SQ_TOKEN):" "$(SQ_URL)/api/qualitygates/project_status?projectKey=$(SQ_PROJECT)")
-    echo "Quality Gate API Response: $response"
-    qualityGateStatus=$(echo "$response" | jq -r '.projectStatus.status')
-    if [ "$qualityGateStatus" != "OK" ]; then
-      echo "Quality Gate failed: $qualityGateStatus"
-      exit 1
-    else
-      echo "Quality Gate passed"
-    fi
-  displayName: Quality Gate Check
+- task: AccuKnox-SAST@0
+  inputs:
+    sonarQubeUrl: $(sonarQubeUrl)
+    sonarQubeToken: $(sonarQubeToken)
+    sonarQubeProjectKey: $(sonarQubeProjectKey)
+    accuknoxEndpoint: $(accuknoxEndpoint)
+    accuknoxTenantId: $(accuknoxTenantId)
+    accuknoxToken: $(accuknoxToken)
+    accuknoxLabel: $(accuknoxLabel)
+    qualityGate: false # Set to true to enforce SonarQube quality gate
+    skipSonarQubeScan: false # Set to true to skip SonarQube scan
 ```
 
-Once you have added the above file and pushed it to repository, it will trigger the CI/CD pipeline. And you will see a screen like this.
+![image-20250108-091026.png](./images/azure-sast/6.png)
 
-![](images/azure/def11.png)
+## How It Works
 
-### **Step 6: View the findings**
--------------------------
+1.  **SonarQube SAST Scan**: The extension runs a SAST scan on the specified project using SonarQube.
 
-To see all of your SAST findings, navigate to AccuKnox > Issues > Findings and select the **Static Code Analysis Findings.**
+2.  **Generate Report**: A report is generated based on the scan results.
 
-![](images/azure/def12.png)
+3.  **Upload to AccuKnox**: The generated report is uploaded to AccuKnox SaaS for centralized monitoring and detailed analysis.
 
-Click on any finding to get more details. You can also click on the **Create Ticket** button to create a ticket.
+4.  **Quality Gate Check**: The pipeline checks if the project meets the quality standards defined in SonarQube.
 
-![](images/azure/def13.png)
+## **Viewing Results in AccuKnox SaaS**
 
+**Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
 
+**Step 2**: Go to **Issues** > **Findings** and select **SAST Findings** to see identified vulnerabilities.
+
+![image-20241122-035925.png](./images/azure-sast/7.png)
+
+**Step 3**: Click on a vulnerability to view more details.
+
+![image-20241122-040016.png](./images/azure-sast/8.png)
+
+**Step 4**: Fix the Vulnerability
+
+Follow the instructions in the Solutions tab to fix the vulnerability
+
+![image-20241122-040110.png](./images/azure-sast/9.png)
+
+**Step 5**: Create a Ticket for Fixing the Vulnerability
+
+Create a ticket in your issue-tracking system to address the identified vulnerability.
+
+![image-20241122-040305.png](./images/azure-sast/10.png)
+
+**Step 6**: Review Updated Results
+
+- After fixing the vulnerability, rerun the Azure pipeline.
+
+- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
+
+## Benefits of Integration
+
+- **Centralized Monitoring**: All vulnerabilities across projects are visible in the AccuKnox dashboard.
+
+- **Early Detection**: Identify security issues early in the development lifecycle.
+
+- **Remediation Guidance**: Leverage actionable remediation insights provided by AccuKnox.
+
+- **Seamless Integration**: Easily integrates into Azure DevOps pipelines.
+
+By using the **AccuKnox SAST Azure DevOps Extension**, you can ensure secure code practices in your CI/CD pipelines while leveraging the power of centralized vulnerability management with AccuKnox CSPM.

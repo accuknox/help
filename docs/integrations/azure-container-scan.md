@@ -5,107 +5,137 @@ description: A step-by-step guide for integrating AccuKnox container image scan 
 
 # Container Image Scan with Azure DevOps
 
-This is a step by step guide for integrating AccuKnox container image scan with Azure DevOps. Container image scanning helps you to find vulnerabilities in your container images. By integrating with AccuKnox container image scan you can secure your containers and container images.
+## Scenario Before Integration
 
-## Prerequisites
+**Context**: The Docker image was built using an outdated base image (node:15-slim), which had known vulnerabilities. This could introduce security risks into the deployment pipeline. Previously, vulnerabilities in the base image were not detected, and the image was pushed to the registry without any security validation.
 
-- Access to AccuKnox UI
-- Access to Azure DevOps
+## **Steps for Integrating AccuKnox Container Scan into Azure DevOps Pipeline**
 
-### Step 1: Generate the AccuKnox token
+### **Step 1: Install AccuKnox Container Scan Azure DevOps Extension**
 
-The first step is to generate an AccuKnox token. For generating the AccuKnox token, open up the AccuKnox, Go to Settings > Tokens then click on the create button.
+To use the AccuKnox container scan task in your Azure DevOps pipeline, you need to install the extension from the Azure Marketplace:
 
-![image-20241017-062538.png](images/azure-container-scan/1.png)
+1.  Go to the [**AccuKnox Container Scan Extension**](https://marketplace.visualstudio.com/items?itemName=AccuKnox.accuknox-container-scan "https://marketplace.visualstudio.com/items?itemName=AccuKnox.accuknox-container-scan") page on the Azure Marketplace.
 
-Give your token a name and click on the Generate button.
+![image-20250108-121745.png](./images/azure-container-scan/1.png)
 
-![image-20241024-051022.png](images/azure-container-scan/2.png)
+1.  Click on **Get it free** to add the extension to your Azure DevOps organization.
 
-Once you have generated the the token, click on the copy button and take a note of it. It will be required to configured as a variable in the pipeline. Also copy the Tenant Id and take a note of it.
+2.  Select the **Azure DevOps Organization** where you want to install the extension and follow the installation instructions.
 
-![image-20241017-062925.png](images/azure-container-scan/3.png)
+![image-20250108-121831.png](./images/azure-container-scan/2.png)
 
-### Step 2: Create a label
+Once installed, you can use the `AccuKnox-container-scan` task in your pipeline YAML.
 
-In AccuKnox, labels are used for grouping the similar types of assets together. For creating a label navigate to the Settings > Labels and click on the create label button.
+![image-20250108-122056.png](./images/azure-container-scan/3.png)
 
-![image-20241017-063446.png](images/azure-container-scan/4.png)
+### **Step 2: Generate AccuKnox Token**
 
-Give your label a name and a filename prefix. Take a note of the label and click on the save button.
+Log in to AccuKnox Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
 
-![image-20241024-051335.png](images/azure-container-scan/5.png)
+### **Step 3: Configure Azure DevOps Secrets**
 
-### Step 3: Configure secrets and variables in Azure DevOps
+1.  Go to **Azure DevOps** > **Pipelines** > **Library**.
 
-Navigate to the Azure DevOps > Pipelines > Library and click on the add variable group button.
+2.  Create a **Variable Group** or add **Pipeline Secrets**.
 
-![](images/azure-container-scan/6.png)
+3.  Store the following values:
 
-Name your variable group as `AccuKnox`. And configure the following variables.
-- `TENANT_ID`
-- `ACCUKNOX_TOKEN`
-- `LABEL`
+    - **AccuKnox API Token** (`accuknoxToken`)
 
-Click on the lock icon and make those variables a secret. Then save it.
+    - **AccuKnox Tenant ID** (`accuknoxTenantId`)
 
-![image-20241024-060016.png](images/azure-container-scan/7.png)
+    - **AccuKnox Label** (`accuknoxLabel`) -- Custom label for grouping scan results.
 
-Go to pipeline permissions, click on add button and select your pipeline.
+    - **AccuKnox Endpoint** (`accuknoxEndpoint`) -- Optional (default: `cspm.demo.accuknox.com`).
 
-![image-20241024-105451.png](images/azure-container-scan/8.png)
+### **Step 4: Set Up Azure DevOps Pipeline**
 
-### Step 4: Configure CI/CD pipeline
+1.  Open your Azure DevOps project and navigate to **Pipelines** > **Create Pipeline**.
 
-Add this `azure-pipelines.yml` file to the root of your repository. And push it to main branch, it will trigger a pipeline run.
+2.  Select your repository and choose to configure the pipeline using YAML.
+
+3.  Add the following task to your pipeline YAML configuration file (`azure-pipelines.yml`):
 
 ```yaml
 trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
-
-variables:
-  - group: AccuKnox
-  - name: IMAGE_NAME
-    value: test-image:latest
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: docker build . -t $(IMAGE_NAME)
-  displayName: Build
-
-- script: |
-    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-    -e "TRIVY_DB_REPOSITORY=public.ecr.aws/aquasecurity/trivy-db" \
-    -e "TRIVY_JAVA_DB_REPOSITORY=public.ecr.aws/aquasecurity/trivy-java-db" \
-    accuknox/accuknox-container-scan:latest image $(IMAGE_NAME) \
-    --format json  >> /tmp/report.json
-  displayName: AccuKnox Container Scan
-
-- script: |
-    ls -l /tmp
-    cat /tmp/report.json
-  displayName: Display Report
-
-- script: |
-    curl --location --request POST "https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$(TENANT_ID)&data_type=TR&save_to_s3=true&label_id=$(LABEL)" \
-    --header "Tenant-Id: $(TENANT_ID)" \
-    --header "Authorization: Bearer $(ACCUKNOX_TOKEN)" \
-    --form "file=@/tmp/report.json"
-  displayName: Upload Report to AccuKnox
+- task: AccuKnox-container-scan@0
+  inputs:
+    dockerfile: $(Build.SourcesDirectory)/Dockerfile
+    imageName: $(imageName)
+    accuknoxEndpoint: $(accuknoxEndpoint)
+    accuknoxTenantId: $(accuknoxTenantId)
+    accuknoxToken: $(accuknoxToken)
+    accuknoxLabel: $(accuknoxLabel)
+    qualityGate: CRITICAL
 ```
 
-Navigate to the pipelines and you will see a successful container image scan like this.
+In this YAML:
 
-![image-20241024-113143.png](images/azure-container-scan/9.png)
+- **dockerfile**: Path to the Dockerfile. Adjust if your Dockerfile is located elsewhere.
 
-### Step 5: View findings in AccuKnox
+- **accuknoxEndpoint**: AccuKnox API endpoint (default is `cspm.demo.accuknox.com`).
 
-To see your findings navigate to AccuKnox > Issues > Findings and select the container image findings.
+- **accuknoxTenantId**: The AccuKnox Tenant ID.
 
-![image-20241024-113305.png](images/azure-container-scan/10.png)
+- **accuknoxToken**: The AccuKnox API token stored as a secret.
 
-Click on any finding to get more details. You can also click on the Create Ticket button to create a ticket.
+- **accuknoxLabel**: A custom label for grouping scan results.
 
-![image-20241024-113339.png](images/azure-container-scan/11.png)
+- **qualityGate**: Specify the severity level (`CRITICAL`, `HIGH`, etc.) to fail the pipeline when vulnerabilities exceed the severity.
+
+### **Step 5: Run the Pipeline**
+
+Trigger the pipeline by pushing changes to the `main` branch or manually running the pipeline. The AccuKnox container scan will run as part of the build process.
+
+![image-20250108-124903.png](./images/azure-container-scan/4.png)
+
+## **Scenario After Integration**
+
+### **Pipeline Enhancements**:
+
+- The pipeline scans Docker images during the build process.
+
+- If any critical vulnerabilities are found, the pipeline will fail, ensuring that insecure images are not pushed to the registry.
+
+- Only secure images are deployed to production.
+
+### **Viewing Results in AccuKnox SaaS**
+
+**Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
+
+**Step 2**: Go to **Issues** > **Findings** and select **Container Image Findings** to see identified vulnerabilities.
+
+![image-20250108-125048.png](./images/azure-container-scan/5.png)
+
+**Step 3**: Click on a vulnerability to view more details.
+
+![image-20250108-125115.png](./images/azure-container-scan/6.png)
+
+**Step 4**: Fix the Vulnerability
+
+Follow the instructions in the Solutions tab to fix the vulnerability
+
+![image-20250108-125140.png](./images/azure-container-scan/7.png)
+
+**Step 5**: Create a Ticket for Fixing the Vulnerability
+
+Create a ticket in your issue-tracking system to address the identified vulnerability.
+
+![image-20250108-125222.png](./images/azure-container-scan/8.png)
+
+**Step 6**: Review Updated Results
+
+- After fixing the vulnerability, rerun the Azure pipeline.
+
+- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
+
+## **Conclusion**
+
+By integrating AccuKnox into your Azure DevOps CI/CD pipeline, you can automatically scan Docker images for vulnerabilities before they are pushed to the registry. This ensures that only secure images are deployed, significantly improving the security posture of your pipeline.

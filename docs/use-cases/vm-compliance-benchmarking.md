@@ -42,7 +42,7 @@ AccuKnox provides CIS and STIG benchmark checks for VMs to assist users in maint
 
 ![image-20241230-082819.png](./images/vm-compliance-benchmarking/1.png)
 
-Once the VM Scanner is installed, It will perform the checks based on the crown schedule and Users can see the findings on AccuKnox Saas
+Once the VM Scanner is installed, It will perform the checks based on the cron schedule and Users can see the findings on AccuKnox Saas
 
 ### **Findings**
 
