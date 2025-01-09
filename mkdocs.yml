@@ -292,7 +292,7 @@ nav:
             - "SCA": "integrations/checkmarx-sca.md"
             - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
             - "Container Scan": "integrations/checkmarx-container.md"
-    - "Container Platform" : "support-matrix/registry.md"
+    - "Registry Scan" : "support-matrix/registry.md"
     - "K8s Management":
       - "Rafay": "integrations/rafay-accuknox.md"
       - "Mirantis Lens" :
@@ -430,7 +430,7 @@ nav:
     - "VMs" : "support-matrix/vms.md"
     - "Private Cloud" : "support-matrix/private-cloud.md"
     - "Public Cloud" : "support-matrix/public-cloud.md"
-    - "Registry" : "support-matrix/registry.md"
+    - "Registry Scan" : "support-matrix/registry.md"
     - "IaC": "support-matrix/iac.md"
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
 
