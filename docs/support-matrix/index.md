@@ -11,6 +11,9 @@ hide:
 
 ::cards:: cols=3
 
+- title: CI/CD Support Matrix
+  image: ./icons/cicd.svg
+  url: /support-matrix/cicd-support-matrix/
 - title: CSPM Assets Support
   image: ./icons/cspm.svg
   url: /support-matrix/assets-list/

@@ -176,6 +176,14 @@ nav:
 
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
+    - "Onboarding Playbooks":
+      - "Overview" : "how-to/playbook-overview.md"
+      - "ASPM Playbook": "how-to/playbook-aspm.md"
+      - "CSPM Playbook": "how-to/playbook-cspm.md"
+      - "CWPP Playbook": "how-to/playbook-cwpp.md"
+      - "KSPM Playbook": "how-to/playbook-kspm.md"
+      - "Host Security Playbook": "how-to/playbook-hostsec.md"
+      - "Integrations Playbook" : "how-to/playbook-integrations.md"
     - "Cloud Accounts":
       - "Prerequisites":
             - "AWS": "how-to/cspm-prereq-aws.md"
@@ -204,8 +212,7 @@ nav:
         - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
         - "DVWA": "getting-started/dvwa.md"
         - "PHP-MySQL": "getting-started/php-mysql.md"
-
-    - "Application/Code":
+    - "ASPM Overview":
       - "Github IaC Scan": "how-to/github-iac-scan.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
