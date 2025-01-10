@@ -9,6 +9,8 @@ hide:
 }
 </style>
 
+[![AccuKnox Playbook](./icons/playbook.png)](/how-to/playbook-overview/)
+
 ::cards:: cols=3
 
 - title: Cloud Accounts
