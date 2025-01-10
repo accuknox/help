@@ -1,9 +1,9 @@
 ---
-title: Crypto Mining
+title: Cryptojacking
 description: AccuKnox can help protect against cryptominers by blocking specific executables used for mining and thwarting the other generally used techniques for deploying cryptominers.
 ---
 
-# Crypto Mining
+# Cryptojacking
 
 Cryptojacking, the unauthorized use of someone else’s computing resources for cryptocurrency mining, is a silent but rapidly growing menace. Cryptocurrency mining steals the resources of infected machines, significantly affecting their performance and increasing the wear and tear of hardware. The mining also leads to other costs, like increased power consumption or resource consumption on the cloud.
 
