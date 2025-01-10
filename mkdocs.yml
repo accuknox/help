@@ -212,8 +212,7 @@ nav:
         - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
         - "DVWA": "getting-started/dvwa.md"
         - "PHP-MySQL": "getting-started/php-mysql.md"
-
-    - "Application/Code":
+    - "ASPM Overview":
       - "Github IaC Scan": "how-to/github-iac-scan.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
