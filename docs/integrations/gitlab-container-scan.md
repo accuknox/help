@@ -13,7 +13,9 @@ The Docker image was built from a Dockerfile using an outdated base image (`node
 
 **Dockerfile Example:**
 
-`FROM node:15-slim`
+```Dockerfile
+FROM node:15-slim
+```
 
 ### **Issues**
 
@@ -21,7 +23,7 @@ The Docker image was built from a Dockerfile using an outdated base image (`node
 
 - The Docker image was being pushed to the registry without any security validation.
 
-Steps for Integrating AccuKnox
+## Steps for Integrating AccuKnox
 
 **Step 1**: Log in to AccuKnox Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
 
@@ -44,7 +46,7 @@ include:
   - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@1.0
     inputs:
       STAGE: test
-      TAG: "v1"
+      TAG: "v2"
       DOCKERFILE_CONTEXT: Dockerfile
       REPOSITORY_NAME: gitlab-ci-testing
       INPUT_SOFT_FAIL: false
@@ -64,30 +66,30 @@ include:
 
 - If no critical vulnerabilities were found, the image was approved and successfully pushed.
 
-![alt](./images/gitlab-container-scan/1.png)
+![image-20250113-053137.png](./images/gitlab-container-scan/1.png)
 
-View Results in AccuKnox SaaS
+## View Results in AccuKnox SaaS
 
-**Step 1:** Once the scan is complete, the user can go into the AccuKnox SaaS and navigate to Issues → RegistryScan where they can find their repository name and select it to see the associated findings
+**Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
 
-![alt](./images/gitlab-container-scan/2.png)
+**Step 2**: Go to Issues > Findings and select Container Image Findings to see identified vulnerabilities.
 
-**Step 2:** After clicking on the image name, the user will be able to see the metadata for the image that was built during the workflow execution.
+![image-20250113-053332.png](./images/gitlab-container-scan/2.png)
 
-![alt](./images/gitlab-container-scan/3.png)
+**Step 3**: Click on a vulnerability to view more details.
 
-**Step 3:** In the `Vulnerabilities` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in the `Issues → Vulnerabilities` section where the user can manage these findings with others.
+![image-20250113-053452.png](./images/gitlab-container-scan/3.png)
 
-![alt](./images/gitlab-container-scan/4.png)
+**Step 4**: Fix the Vulnerability: Create a ticket in your issue-tracking system to address the identified vulnerability.
 
-**Step 4:** The `Resources` section contains information about packages and modules that were used to build the code base into a container image.
+![image-20250113-054209.png](./images/gitlab-container-scan/4.png)
 
-![alt](./images/gitlab-container-scan/5.png)
+**Step 6**: Review Updated Results
 
-**Step 5:** The user can see the scan history of every scan that happened while triggering the workflow.
+- After fixing the vulnerability, rerun the pipeline.
 
-![alt](./images/gitlab-container-scan/6.png)
+- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
 
-### **Conclusion**
+## **Conclusion**
 
 By integrating AccuKnox into the GitLab CI/CD pipeline, the security of Docker images is significantly improved. Vulnerabilities are detected early, preventing insecure images from being deployed to production. The workflow allows teams to automatically remediate issues and ensure only secure images make it to the registry.
