@@ -68,7 +68,6 @@ jobs:
           tag: ${{ github.run_id }}
           severity: CRITICAL
           exit_code: 1
-
 ```
 {% endraw %}
 
@@ -86,29 +85,31 @@ jobs:
 
     - Secure images are pushed to the registry with confidence.
 
-## **Viewing Results in AccuKnox SaaS**
+## Viewing Results in AccuKnox SaaS
 
-1. Navigate to **Issues > RegistryScan** to view scan results.
+**Step 1:** After the workflow completes, navigate to the AccuKnox SaaS dashboard.
 
-![image-20250102-092212.png](./images/github-container-scan/1.png)
+**Step 2:** Go to Issues > Findings and select Container Image Findings to see identified vulnerabilities.
+![image-20250108-125048.png](./images/github-container-scan/1.png)
 
-1. Click on the repository name to see detailed findings, including:
+**Step 3:** Click on a vulnerability to view more details.
+![image-20250108-125115.png](./images/github-container-scan/2.png)
 
-    - **Metadata**: Information about the scanned image.
+**Step 4:** Fix the Vulnerability
 
-    - **Vulnerabilities**: A list of detected issues with severity and actionable insights.
+Follow the instructions in the Solutions tab to fix the vulnerability
+![image-20250108-125140.png](./images/github-container-scan/3.png)
 
-    - **Resources**: Packages and modules included in the image.
+**Step 5:** Create a Ticket for Fixing the Vulnerability
 
-    - **Scan History**: Logs of all triggered scans.
+Create a ticket in your issue-tracking system to address the identified vulnerability.
+![image-20250108-125222.png](./images/github-container-scan/4.png)
 
-![image-20250102-092240.png](./images/github-container-scan/2.png)
+**Step 6:** Review Updated Results
 
-![](./images/github-container-scan/3.png)
+- After fixing the vulnerability, rerun the Github pipeline.
 
-![](./images/github-container-scan/4.png)
-
-![image-20250102-092449.png](./images/github-container-scan/5.png)
+- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
 
 ## **Conclusion**
 
