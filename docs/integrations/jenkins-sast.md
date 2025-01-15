@@ -5,172 +5,139 @@ description: Integrate AccuKnox SAST with Jenkins CI/CD pipeline to detect secur
 
 # Jenkins SAST
 
-By integrating AccuKnox SAST with Jenkins, you can identify and resolve security vulnerabilities proactively during the CI/CD process. This guide provides step-by-step instructions for configuring the integration.
+The **AccuKnox SAST Jenkins Plugin** simplifies integrating SonarQube-based Static Application Security Testing (SAST) with Jenkins pipelines. This plugin facilitates fetching project-specific reports from SonarQube and sending the results to AccuKnox SaaS for centralized investigation and analysis.
 
-## **Prerequisites**
+## Key Features
 
-- **AccuKnox Account:** Ensure you have access to the AccuKnox UI.
+- **Fetch SonarQube Reports**: Retrieve detailed SAST reports for specific projects from SonarQube within Jenkins.
 
-- **Jenkins Access:** Ensure Jenkins is installed and configured.
+- **Seamless Integration with AccuKnox**: Upload fetched results to AccuKnox SaaS, a centralized dashboard for SAST, DAST, and other findings.
 
-- **SonarQube Access:** Access to SonarQube for scanning.
+- **Customizable Build Parameters**: Define parameters such as SonarQube URL, project keys, and AccuKnox tokens.
 
-### **Step 1: Generate AccuKnox API Token**
+## Installation
 
-1. Log into your AccuKnox account.
+### Current Installation Method
 
-2. Go to **Settings > Tokens** and click on the **Create** button.
-![alt](images/jenkins-sast/1.png)
+1. Download the plugin in `.hpi` format from [here](https://drive.google.com/file/d/1H6yLOanoQ6RyHTGdGn_Ah2w4CGhKuOsD/view?usp=drive_link "https://drive.google.com/file/d/1H6yLOanoQ6RyHTGdGn_Ah2w4CGhKuOsD/view?usp=drive_link").
 
-3. Provide a name for the token and click **Generate**.
-![finalfinal.png](images/jenkins-sast/2.png)
+2. Navigate to the Jenkins dashboard.
 
-4. Copy the generated token and the **Tenant ID**.
-![alt](images/jenkins-sast/3.png)
+3. Go to **Manage Jenkins > Manage Plugins**.
+   ![image-20250114-184710.png](./images/jenkins-sast/1.png)
 
-### **Step 2: Create a Label in AccuKnox**
+4. In the **Advanced** tab, click **Choose File** and select the downloaded `.hpi` file.
+   ![image-20250114-184732.png](./images/jenkins-sast/2.png)
 
-Labels in AccuKnox help group similar findings together.
+![image-20250114-184844.png](./images/jenkins-sast/3.png)
 
-1. Navigate to **Settings > Labels** and click **Create Label**.
-![alt](images/jenkins-sast/4.png)
+5. Click **Deploy** to install the plugin.
+   ![image-20250114-184945.png](./images/jenkins-sast/4.png)
 
-2. Save the label and note it down.
+6. Restart Jenkins if required.
 
-### **Step 3: Generate SonarQube Token**
+### Future Availability
 
-1. In SonarQube, Under Administrator > Security > Generate Tokens.
+The plugin will be available in the Jenkins Marketplace post-release. After this date, users can install it directly from the Jenkins Plugin Manager.
 
-2. Generate user token and copy it.
-![alt](images/jenkins-sast/5.png)
+## Configuration
 
-### **Step 4: Configure Secrets in Jenkins**
+### Job Configuration
 
-1. Go to **Jenkins > Manage Jenkins > Manage Credentials**.
-![alt](images/jenkins-sast/6.png)
+1. Open the configuration page of your Jenkins job.
 
-2. Add the following credentials as secrets:
+2. Under the **Build** section, click on **Add build step** and select **Run AccuKnox SAST Scan**.
 
-    - **TENANT_ID:** Your AccuKnox tenant ID.
+![image-20250114-184646.png](./images/jenkins-sast/5.png)
 
-    - **ACCUKNOX_TOKEN:** The AccuKnox API token was created from AccuKnox SaaS.
+### Plugin Parameters
 
-    - **LABEL:** The label name was created in AccuKnox.
+The plugin provides the following configuration options:
 
-    - **SQ_AUTH_TOKEN:** SonarQube token.
-![alt](images/jenkins-sast/7.png)
+- **SonarQube Token**: The authentication token for SonarQube.
 
-### **Step 5: Configure Jenkins Pipeline**
+- **SonarQube Host URL**: The URL of your SonarQube server.
 
-Create a Jenkins pipeline with the following stages to run a SAST scan and upload findings to AccuKnox.
+- **SonarQube Project Key**: The key for the SonarQube project to scan.
 
-```groovy
-pipeline {
-    agent any
-    environment {
-        MAVEN_HOME = '/var/lib/jenkins/workspace/SAST-AccuKnox-Demo/apache-maven-3.9.4'
-        WORKSPACE_DIR = '/var/lib/jenkins/workspace/SAST-AccuKnox-Demo'
-        PROJECT_DIR = "$WORKSPACE_DIR/addressbook/addressbook_main"
-    }
-    stages {
-        stage('CHECKOUT') {
-            steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: '<https://github.com/udit-uniyal/Devops.git']])>
-            }
-        }
-        stage('Install Maven Build Tool') {
-            steps {
-                sh 'wget <https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz'>
-                sh 'tar -xzvf $WORKSPACE_DIR/apache-maven-3.9.4-bin.tar.gz'
-            }
-        }
-        stage('Compile Application') {
-            steps {
-                dir(PROJECT_DIR) {
-                    sh '$MAVEN_HOME/bin/mvn compile'
-                }
-            }
-        }
-        stage('Test Application') {
-            steps {
-                dir(PROJECT_DIR) {
-                    sh '$MAVEN_HOME/bin/mvn test'
-                }
-            }
-        }
-        stage('SonarQube Analysis') {
-            steps {
-                dir(PROJECT_DIR) {
-                    withSonarQubeEnv(credentialsId: 'sq-auth-latest', installationName: 'sonarqube-scan') {
-                        sh "$MAVEN_HOME/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=vulnerable-project"
-                    }
-                }
-            }
-        }
-        stage('Run Docker Container') {
-            steps {
-                dir(WORKSPACE_DIR) {
-                    withCredentials([string(credentialsId: 'sq-token', variable: 'SQ_AUTH_TOKEN')]) {
-                        sh '''
-                            docker run --rm \
-                              -e SQ_URL=<https://sq.accuknox.com/> \
-                              -e SQ_AUTH_TOKEN=$SQ_AUTH_TOKEN \
-                              -e REPORT_PATH=/app/data/ \
-                              -e SQ_PROJECTS="^vulnerable-project$" \
-                              -v $PWD:/app/data/ \
-                             accuknox/sastjob:latest
-                        '''
-                    }
-                }
-            }
-        }
-        stage('Pushing results to AccuKnox') {
-            steps {
-                dir(WORKSPACE_DIR) {
-                    withCredentials([
-                        string(credentialsId: 'accuknox-token', variable: 'ACCUKNOX_TOKEN'),
-                        string(credentialsId: 'tenant-id', variable: 'TENANT_ID'),
-                        string(credentialsId: 'label', variable: 'LABEL')
-                    ]) {
-                        sh '''
-                            for file in SQ-*.json; do
-                                curl --location --request POST "<https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$TENANT_ID&data_type=SQ&label_id=$LABEL&save_to_s3=false>" \
-                                     --header "Tenant-Id: $TENANT_ID" \
-                                     --header "Authorization: Bearer $ACCUKNOX_TOKEN" \
-                                     --form "file=@$file"
-                            done
-                        '''
-                    }
-                }
-            }
-        }
-    }
-}
+- **AccuKnox Endpoint**: The AccuKnox API endpoint.
+
+- **Tenant ID**: The tenant ID associated with your AccuKnox account.
+
+- **AccuKnox Token**: The access token used to authenticate with AccuKnox.
+
+- **Label**: A label for the scan to associate the scan results with a particular context or feature.
+
+#### Example Configuration
+
+```
+SonarQube Token: my-sonar-token
+SonarQube Host URL: https://sonarqube.example.com
+SonarQube Project Key: example-project
+AccuKnox Endpoint: https://api.accuknox.com
+Tenant ID: my-tenant-id
+AccuKnox Token: my-accuknox-token
+Label: build-123
 ```
 
-### **Pipeline Explanation**
+![image-20250114-184437.png](./images/jenkins-sast/6.png)
 
-- **CHECKOUT**: Fetches code from the Git repository.
+### Token Generation for AccuKnox
 
-- **Install Maven Build Tool**: Installs Maven for building the project.
+To generate the **AccuKnox Token** and obtain the **Tenant ID**:
 
-- **Compile Application**: Compiles the application source code.
+1. Log in to AccuKnox.
 
-- **Test Application**: Runs tests on the application code.
+2. Navigate to **Settings** > **Tokens** and create an AccuKnox token.
 
-- **SonarQube Analysis**: Analyzes the code with SonarQube.
+3. Copy the generated token and store it securely for later use. For detailed steps, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/ "https://help.accuknox.com/how-to/how-to-create-tokens/").
 
-- **Pushing results to AccuKnox**: Uploads SAST findings to AccuKnox.
+## Running the Scan
 
-**Jenkins console output after successful execution:**
-![alt](images/jenkins-sast/8.png)
+Once configured, when you run the Jenkins job, the plugin will:
 
-### **Step 6: View Findings in AccuKnox**
+1. Validate the provided **SonarQube Token** and **SonarQube Host URL**.
 
-1. Go to **AccuKnox > Issues > Findings**.
+2. Fetch the results from sonarqube using the specified project key.
 
-2. Select **Static Code Analysis Findings** to see your results.
-![alt](images/jenkins-sast/9.png)
+3. Upload the results to AccuKnox SaaS for further processing and visibility.
 
-3. Click on a finding for more details and use the **Create Ticket** button to create a ticket.
-![alt](images/jenkins-sast/10.png)
+### Sample Console Output
+
+![image-20250114-185147.png](./images/jenkins-sast/7.png)
+
+## Troubleshooting
+
+### 1. **Missing SonarQube Token or Host URL**
+
+- Ensure both the **SonarQube Token** and **SonarQube Host URL** are provided in the Jenkins job configuration.
+
+- Verify the accuracy of the provided credentials.
+
+### 2. **Scan Failure**
+
+- Check the Jenkins console output for error details.
+
+- Ensure the SonarQube server is reachable from Jenkins and the project key is correct.
+
+### 3. **Upload Failure**
+
+- Verify network connectivity to the AccuKnox SaaS endpoint.
+
+- Double-check the **Tenant ID** and **AccuKnox Token** to ensure they are accurate.
+
+- Ensure the scan results are generated properly before attempting to upload.
+
+## SonarQube Setup
+
+Before running the **AccuKnox SAST Jenkins Plugin**, ensure your SonarQube is correctly configured. Follow the instructions from the [SonarQube Jenkins integration documentation](https://docs.sonarsource.com/sonarqube-server/9.7/analyzing-source-code/scanners/jenkins-extension-sonarqube/ "https://docs.sonarsource.com/sonarqube-server/9.7/analyzing-source-code/scanners/jenkins-extension-sonarqube/") for setting up SonarQube in Jenkins. This includes:
+
+1. Installing the SonarQube Scanner Plugin for Jenkins.
+
+2. Configuring SonarQube server details in **Manage Jenkins > Configure System**.
+
+3. Adding the **SonarQube Scanner** as a build step in your Jenkins pipeline.
+
+## Conclusion
+
+Once the **AccuKnox SAST Jenkins Plugin** is set up, it seamlessly integrates SonarQube scans into Jenkins pipelines and sends the results to AccuKnox SaaS for centralized management. This ensures that security issues are captured and addressed during the CI/CD pipeline, enhancing the security posture of your application.

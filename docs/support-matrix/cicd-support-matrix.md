@@ -22,37 +22,31 @@ hide:
 
 - title: Azure DevOps
   image: ./cicd-icons/azure.png
-  url: /integrations/azure-dast/
-
+  url: /integrations/azure-overview/
 - title: Google Cloud Build
   image: ./cicd-icons/gcp.png
-  url: /integrations/google-dast/
-
+  url: /integrations/google-overview/
 - title: Harness
   image: ./cicd-icons/harness.png
-  url: /integrations/harness-dast/
-
+  url: /integrations/harness-overview/
 - title: Jenkins
   image: ./cicd-icons/jenkins.png
-  url: /integrations/jenkins-dast/
-
+  url: /integrations/jenkins-overview/
 - title: AWS Code Pipeline
   image: ./cicd-icons/aws.png
-  url: /integrations/aws-dast/
-
+  url: /integrations/aws-overview/
 - title: GitHub
   image: ./cicd-icons/github.png
-  url: /how-to/private-github-repo-onboarding/
-
+  url: /integrations/github-overview/
 - title: Gitlab
   image: ./cicd-icons/gitlab.png
-  url: /integrations/gitlab-dast/
-
+  url: /integrations/gitlab-overview/
 - title: Bitbucket
   image: ./cicd-icons/bitbucket.png
-  url: /integrations/bitbucket-dast/
-
-
+  url: /integrations/bitbucket-overview/
+- title: Checkmarx
+  image: ./cicd-icons/checkmarx.png
+  url: /integrations/checkmarx-overview/
 ::/cards::
 
 **CI/CD Support Matrix** provides a structured overview of supported capabilities and integration types across popular CI/CD platforms. This helps teams align their DevOps processes with available tools and identify the best fit for their workflows.
@@ -92,7 +86,6 @@ These are the three supported methods for integrating CI/CD tools with AccuKnox 
 | ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | Available     | Coming Soon            | Coming Soon                      |
 | ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | Available     | Coming Soon            | Coming Soon                      |
 | ![Harness](./cicd-icons/harness.png) **Harness**               | Available     | Coming Soon            | Coming Soon                      |
-
 ---
 
 ## Feature Support Table (Plugins)
