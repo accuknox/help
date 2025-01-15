@@ -212,7 +212,8 @@ nav:
         - "WordPress-MySQL": "getting-started/wordpress-mysql.md"
         - "DVWA": "getting-started/dvwa.md"
         - "PHP-MySQL": "getting-started/php-mysql.md"
-    - "ASPM Overview":
+    - "ASPM":
+      - "Overview": "how-to/aspm-overview.md"
       - "Github IaC Scan": "how-to/github-iac-scan.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
@@ -245,48 +246,48 @@ nav:
         - "Overview": "integrations/cicd-overview.md"
         - "Azure DevOps":
           - "Overview": "integrations/azure-overview.md"
-          - "DAST": "integrations/azure-dast.md"
           - "SAST": "integrations/azure-sast.md"
           - "Container Image Scan": "integrations/azure-container-scan.md"
           - "Iac Scan": "integrations/azure-iac.md"
+          - "DAST": "integrations/azure-dast.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
-          - "DAST": "integrations/google-dast.md"
           - "SAST": "integrations/google-sast.md"
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
+          - "DAST": "integrations/google-dast.md"
         - "Harness":
           - "Overview": "integrations/harness-overview.md"
-          - "DAST" : "integrations/harness-dast.md"
           - "SAST" : "integrations/harness-sast.md"
           - "Container Image Scan": "integrations/harness-container-scan.md"
           - "IaC Scan": "integrations/harness-iac-scan.md"
+          - "DAST" : "integrations/harness-dast.md"
         - "Jenkins":
           - "Overview": "integrations/jenkins-overview.md"
-          - "DAST": "integrations/jenkins-dast.md"
           - "SAST": "integrations/jenkins-sast.md"
           - "Container Scan": "integrations/jenkins-container-scan.md"
           - "IaC Scan": "integrations/jenkins-iac-scan.md"
+          - "DAST": "integrations/jenkins-dast.md"
         - "AWS Code Pipeline":
           - "Overview": "integrations/aws-overview.md"
-          - "DAST": "integrations/aws-dast.md"
           - "SAST": "integrations/aws-sast.md"
           - "Container Scan": "integrations/aws-container-scan.md"
           - "IaC Scan": "integrations/aws-iac-scan.md"
+          - "DAST": "integrations/aws-dast.md"
         - "GitHub":
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
-            - "Github DAST": "integrations/github-dast.md"
-            - "Github SAST": "integrations/github-sast.md"
-            - "Github Container Scan": "integrations/github-container-scan.md"
-            - "Github IaC Scan": "integrations/github-iac.md"
+            - "SAST": "integrations/github-sast.md"
+            - "Container Scan": "integrations/github-container-scan.md"
+            - "IaC Scan": "integrations/github-iac.md"
+            - "DAST": "integrations/github-dast.md"
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
-            - "DAST": "integrations/gitlab-dast.md"
             - "SAST": "integrations/gitlab-sast.md"
             - "Container Scan": "integrations/gitlab-container-scan.md"
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
+            - "DAST": "integrations/gitlab-dast.md"
             - "Scan Variables":
               - "Container Scan Variables": "integrations/gitlab-container-variables.md"
               - "IaC Scan Variables": "integrations/gitlab-iac-variables.md"
@@ -294,10 +295,10 @@ nav:
               - "SAST Scan variables": "integrations/gitlab-sast-variables.md"
         - "Bitbucket":
             - "Overview": "integrations/bitbucket-overview.md"
-            - "DAST": "integrations/bitbucket-dast.md"
             - "SAST": "integrations/bitbucket-sast.md"
             - "Container Scan": "integrations/bitbucket-container-scan.md"
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
+            - "DAST": "integrations/bitbucket-dast.md"
             - "Scan Variables":
               - "Container Scan Variables": "integrations/bitbucket-container-variables.md"
               - "IaC Scan Variables": "integrations/bitbucket-iac-variables.md"
