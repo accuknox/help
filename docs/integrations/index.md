@@ -11,7 +11,7 @@ hide:
 ::cards:: cols=3
 - title: CI/CD
   image: ./icons/cicd.svg
-  url: /integrations/azure-dast/
+  url: /integrations/cicd-overview/
 - title: Container Platform
   image: ./icons/vms.svg
   url: /support-matrix/registry/
