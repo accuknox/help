@@ -5,13 +5,22 @@ hide:
   - toc
 ---
 
+
+<style>
+.nt-card .nt-card-image{
+  color: #005BFF;
+}
+
+.nt-card-title {
+    text-align: -webkit-center;
+}
+</style>
+
+
 # Bitbucket Integrations
 
 ::cards:: cols=2
 
-- title: DAST (Dynamic Analysis)
-  image: ./cicd-icons/dast.svg
-  url: /integrations/bitbucket-dast/
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/bitbucket-sast/
@@ -21,4 +30,7 @@ hide:
 - title: IaC Scan
   image: ./cicd-icons/iac.svg
   url: /integrations/bitbucket-iac-scan/
-  ::/cards::
+- title: DAST (Dynamic Analysis)
+  image: ./cicd-icons/dast.svg
+  url: /integrations/bitbucket-dast/
+::/cards::

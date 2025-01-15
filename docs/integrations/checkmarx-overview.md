@@ -5,6 +5,16 @@ hide:
   - toc
 ---
 
+<style>
+.nt-card .nt-card-image{
+  color: #005BFF;
+}
+
+.nt-card-title {
+    text-align: -webkit-center;
+}
+</style>
+
 # Checkmarx Integrations
 
 ::cards:: cols=2
@@ -21,4 +31,4 @@ hide:
 - title: IaC Scan
   image: ./cicd-icons/iac.svg
   url: /integrations/checkmarx-iac/
-  ::/cards::
+::/cards::

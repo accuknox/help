@@ -4,6 +4,7 @@ description: Learn how to integrate gitlab with Rafay to automate security testi
 hide:
   - toc
 ---
+
 <style>
 .nt-card .nt-card-image{
   color: #005BFF;
@@ -18,9 +19,6 @@ hide:
 
 ::cards:: cols=2
 
-- title: DAST (Dynamic Analysis)
-  image: ./cicd-icons/dast.svg
-  url: /integrations/gitlab-dast/
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/gitlab-sast/
@@ -30,4 +28,8 @@ hide:
 - title: IaC Scan
   image: ./cicd-icons/iac.svg
   url: /integrations/gitlab-iac-scan/
-  ::/cards::
+- title: DAST (Dynamic Analysis)
+  image: ./cicd-icons/dast.svg
+  url: /integrations/gitlab-dast/
+
+::/cards::

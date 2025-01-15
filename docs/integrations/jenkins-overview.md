@@ -4,6 +4,7 @@ description: Learn how to integrate jenkins with Rafay to automate security test
 hide:
   - toc
 ---
+
 <style>
 .nt-card .nt-card-image{
   color: #005BFF;
@@ -18,9 +19,6 @@ hide:
 
 ::cards:: cols=2
 
-- title: DAST (Dynamic Analysis)
-  image: ./cicd-icons/dast.svg
-  url: /integrations/jenkins-dast/
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/jenkins-sast/
@@ -30,4 +28,7 @@ hide:
 - title: IaC Scan
   image: ./cicd-icons/iac.svg
   url: /integrations/jenkins-iac-scan/
+- title: DAST (Dynamic Analysis)
+  image: ./cicd-icons/dast.svg
+  url: /integrations/jenkins-dast/
   ::/cards::

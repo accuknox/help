@@ -4,6 +4,7 @@ description: Learn how to integrate azure with Rafay to automate security testin
 hide:
   - toc
 ---
+
 <style>
 .nt-card .nt-card-image{
   color: #005BFF;
@@ -18,9 +19,6 @@ hide:
 
 ::cards:: cols=2
 
-- title: DAST (Dynamic Analysis)
-  image: ./cicd-icons/dast.svg
-  url: /integrations/azure-dast/
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/azure-sast/
@@ -30,4 +28,8 @@ hide:
 - title: IaC Scan
   image: ./cicd-icons/iac.svg
   url: /integrations/azure-iac/
-  ::/cards::
+- title: DAST (Dynamic Analysis)
+  image: ./cicd-icons/dast.svg
+  url: /integrations/azure-dast/
+
+::/cards::

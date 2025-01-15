@@ -18,9 +18,6 @@ hide:
 
 ::cards:: cols=2
 
-- title: DAST (Dynamic Analysis)
-  image: ./cicd-icons/dast.svg
-  url: /integrations/aws-dast/
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/aws-sast/
@@ -30,4 +27,7 @@ hide:
 - title: IaC Scan
   image: ./cicd-icons/iac.svg
   url: /integrations/aws-iac-scan/
+- title: DAST (Dynamic Analysis)
+  image: ./cicd-icons/dast.svg
+  url: /integrations/aws-dast/
   ::/cards::
