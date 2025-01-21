@@ -86,6 +86,7 @@ These are the three supported methods for integrating CI/CD tools with AccuKnox 
 | ![CircleCI](./cicd-icons/circle.png) **CircleCI**              | Available     | Coming Soon            | Coming Soon                      |
 | ![GCP Cloud Build](./cicd-icons/gcp.png) **GCP Cloud Build**   | Available     | Coming Soon            | Coming Soon                      |
 | ![Harness](./cicd-icons/harness.png) **Harness**               | Available     | Coming Soon            | Coming Soon                      |
+
 ---
 
 ## Feature Support Table (Plugins)
