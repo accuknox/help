@@ -65,7 +65,7 @@ RINC also supports email integration, allowing you to receive alerts via email.
 
 We recommend installing RINC through our provided helm charts.
 
-_Note: RINC uses MongoDB as its data store and creates a new collection called "rinc" upon launch. It is recommended that you create a separate MongoDB user with R/W access to the "rinc" collection. See the document on_ [_Minimum Required Database Permissions_](https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Minimum-Required-Database-Permissions-for-RINC-to-Generate-Reports "https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Minimum-Required-Database-Permissions-for-RINC-to-Generate-Reports")_._
+_Note: RINC uses MongoDB as its data store and creates a new collection called "rinc" upon launch. It is recommended that you create a separate MongoDB user with R/W access to the "rinc" collection. See the section on_ [_Minimum Required Database Permissions_](#minimum-required-database-permissions-for-rinc-to-generate-reports)_._
 
 ```bash
 VERSION=0.9.0
@@ -73,7 +73,7 @@ VERSION=0.9.0
 helm show values oci://public.ecr.aws/k9v9d5v2/accuknox-rinc --version "$VERSION" > values.yaml
 ```
 
-The file `values.yaml` is well-documented and includes all configurable options for `RINC`. Please go through it and adjust the values as needed to suit your preferences. See [passing database/vault credentials](https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Passing-Database-Credentials "https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Passing-Database-Credentials") to RINC.
+The file `values.yaml` is well-documented and includes all configurable options for `RINC`. Please go through it and adjust the values as needed to suit your preferences. See [passing database/vault credentials](#passing-database-credentials) to RINC.
 
 By default, all reports are disabled and can be enabled by setting `enable` to `true` in the Helm chart values. For example, to enable the RabbitMQ report, set:
 
@@ -91,7 +91,7 @@ tar xvzf "accuknox-rinc-$VERSION.tgz"
 less accuknox-rinc/accuknox-values.yaml
 ```
 
-> RINC supports reading secrets directly from Vault. If you are using Hashicorp's Vault, please refer to the section on [vault](https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Vault-Policy "https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Vault-Policy").
+> RINC supports reading secrets directly from Vault. If you are using Hashicorp's Vault, please refer to the section on [vault](#vault-policy).
 
 After customizing the values to your preferences, run the Helm install command below to deploy `RINC` in your cluster:
 
@@ -238,7 +238,7 @@ existingSecret:
 ### 3. **Reading credentials directly from Vault**
 RINC can read credentials directly from Vault. To configure RINC to connect to Vault, specify the connection details in the Helm values under `secretConfig.config.vault` and ensure that `secretConfig.create` is set to `true`. Helm will pass the Vault credentials to RINC via the created Kubernetes Secret, allowing RINC to use these credentials to connect to Vault and read the remaining credentials directly from it.
 
-See the section on [Vault](https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Vault-Policy "https://accu-knox.atlassian.net/wiki/spaces/~7120201d6b6aebfb704b9bb2b0c2fa67476d2a/pages/1021444255/RINC+-+A+Getting+Started+Guide#Vault-Policy") for setting up the required Vault policies.
+See the section on [Vault](#vault-policy) for setting up the required Vault policies.
 
 ```yaml
 secretConfig:
