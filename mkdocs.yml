@@ -225,10 +225,11 @@ nav:
       - "Sonatype Nexus": "how-to/sonatype-nexus.md"
       - "JFrog Container" : "how-to/jfrog-container.md"
       - "Quay": "how-to/quay.md"
-    - "RINC": "how-to/RINC.md"
     - "OnPrem":
         - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
         - "Security on OpenShift": "getting-started/security-on-openshift.md"
+        - "Health Monitoring":
+          - "RINC": "how-to/RINC.md"
     - "Open Source":
       - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
       - "Open Source Installation": "getting-started/open-source.md"
