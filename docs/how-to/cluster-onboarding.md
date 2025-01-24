@@ -46,52 +46,7 @@ KubeArmor differs from seccomp-based profiles, wherein KubeArmor allows to dynam
 KubeArmor is installed using the following commands:
 
 ```bash
->> curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
->> karmor install
-```
-
-Sample Output:
-
-```bash
-(Accuknox㉿kali)-[~]
-
-└─$ curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
-
-kubearmor/kubearmor-client info checking GitHub for latest tag
-
-kubearmor/kubearmor-client info found version: 1.2.3 for v1.2.3/linux/amd64
-
-kubearmor/kubearmor-client info installed /usr/local/bin/karmor
-
-kubearmor/kubearmor-client info karmor is installed in /usr/local/bin
-
-kubearmor/kubearmor-client info invoke /usr/local/bin/karmor or move karmor to your desired PATH
-
-(Accuknox㉿kali)-[~]
-
-└─$ karmor install
-
-🛡        Installed helm release : kubearmor-operator
-
-😄        KubeArmorConfig updated
-
-⌚️        This may take a couple of minutes                    
-
-🥳        KubeArmor Snitch Deployed!            
-
-🥳        KubeArmor Daemonset Deployed!            
-
-🥳        Done Checking , ALL Services are running!            
-
-⌚️        Execution Time : 1m22.006691427s
-
-🔧        Verifying KubeArmor functionality (this may take upto a minute) |.
-
-        🛡️        Your Cluster is Armored Up!
-
-(Accuknox㉿kali)-[~]
-
-└─$
+curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin && karmor install
 ```
 
 **Step 4.2:** AccuKnox-Agents installation
@@ -110,49 +65,13 @@ After installing KubeArmor we are going to install AccuKnox Agents in the cluste
 AccuKnox Agents can be installed using the following command:
 
 ```sh
-   helm upgrade --install agents oci://registry-1.docker.io/accuknox/accuknox-agents
-
-  --version "v0.6.5"
-
-  --set joinToken="***********-***********-***********"
-
-  --set spireHost="spire.demo.accuknox.com"
-
-  --set ppsHost="pps.demo.accuknox.com"
-
-  --set knoxGateway="knox-gw.demo.accuknox.com:3000"
-
-  -n agents --create-namespace
-```
-
-Sample Output:
-
-```sg
-WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /etc/rancher/k3s/k3s.yaml
-
-WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /etc/rancher/k3s/k3s.yaml
-
-Release "agents" does not exist. Installing it now.
-
-Pulled: registry-1.docker.io/accuknox/accuknox-agents:v0.6.5
-
-Digest: sha256:420a4dae8225ce1eb201b5468c588eeb71bbf532f9d9f1eafac2281760f61e11
-
-NAME: agents
-
-LAST DEPLOYED: Fri Jul 26 15:23:37 2024
-
-NAMESPACE: agents
-
-STATUS: deployed
-
-REVISION: 1
-
-TEST SUITE: None
-
-(Accuknox㉿kali)-[~]
-
-└─$
+helm upgrade --install agents oci://registry-1.docker.io/accuknox/accuknox-agents
+--version "v0.6.5"
+--set joinToken="***********-***********-***********"
+--set spireHost="spire.demo.accuknox.com"
+--set ppsHost="pps.demo.accuknox.com"
+--set knoxGateway="knox-gw.demo.accuknox.com:3000"
+-n agents --create-namespace
 ```
 
 !!! info "Note"
