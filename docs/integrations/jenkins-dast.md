@@ -5,120 +5,130 @@ description: Integrate AccuKnox DAST with Jenkins CI/CD pipeline to detect vulne
 
 # Jenkins DAST
 
-This document provides the steps to integrate AccuKnox DAST (Dynamic Application Security Testing) with a Jenkins CI/CD pipeline. By incorporating AccuKnox DAST into the pipeline, you can detect vulnerabilities and security issues in web applications before they reach production.
+## Overview
 
-## Prerequisites
+The **AccuKnox DAST Jenkins Plugin** simplifies integrating dynamic application security testing (DAST) into Jenkins pipelines. This plugin allows you to perform ZAP-based scans on target URLs and seamlessly upload the results to AccuKnox SaaS for centralized investigation and analysis.
 
-- **AccuKnox UI access** to view DAST findings and manage configurations.
+## Key Features
 
-- **Jenkins access** to set up and run the DAST pipeline.
+- **Automated DAST Scans**: Perform **Baseline** or **Full Scans** on target URLs directly from your Jenkins pipelines.
 
-## **Step 1: Generate AccuKnox Token**
+- **Seamless Integration with AccuKnox**: Upload scan results to **AccuKnox SaaS**, enabling centralized management of DAST findings alongside SAST, IaC, and container security findings.
 
-1. Log into your AccuKnox account.
+- **Customizable Build Parameters**: Define parameters like target URL, scan type, severity thresholds, and AccuKnox authentication details.
 
-2. Go to **Settings > Tokens** and click on the **Create** button.
-![alt](images/jenkins-dast/1.png)
+## Installation
 
-3. Provide a name for the token and click **Generate**.
-![finalfinal.png](images/jenkins-dast/2.png)
+### Current Installation Method:
 
-4. Copy the generated token and the **Tenant ID**.
-![alt](images/jenkins-dast/3.png)
+1. Download the plugin in `.hpi` format from the provided source.
 
-## **Step 2: Create a Label in AccuKnox**
+2. Navigate to the Jenkins dashboard.
 
-Labels in AccuKnox help group similar findings together.
+3. Go to **Manage Jenkins > Manage Plugins**.
+   ![image-20250124-041037.png](./images/jenkins-dast/1.png)
 
-1. Navigate to **Settings > Labels** and click **Create Label**.
-![alt](images/jenkins-dast/4.png)
+4. Under the **Advanced** tab:
 
-2 . Save the label and note it down.
+5. Click **Choose File** and select the downloaded `.hpi` file.
+   ![image-20250114-184732.png](./images/jenkins-dast/2.png)
+   ![image-20250124-041316.png](./images/jenkins-dast/3.png)
 
-## **Step 3: Jenkins Pipeline Configuration for DAST Integration**
+6. Click **Deploy** to install the plugin.
+   ![image-20250124-041354.png](./images/jenkins-dast/4.png)
 
-Add the following Jenkins pipeline code to your Jenkins job configuration. This pipeline uses OWASP ZAP to scan the target URL for vulnerabilities, then uploads the scan results to AccuKnox.
+7. Restart Jenkins if required.
 
-```groovy
-pipeline {
-    agent any
-    environment {
-        TARGET_URL = '<https://ginandjuice.shop/'>
-    }
-    stages {
-        stage('OWASP ZAP Scan') {
-            steps {
-                dir('/var/lib/jenkins/workspace/DAST-AccuKnox-Demo') {
-                    script {
-                        // Run OWASP ZAP as a Docker container
-                        sh '''
-                            docker run --rm -v /var/lib/jenkins/workspace/DAST-AccuKnox-Demo/:/zap/wrk/:rw -t zaproxy/zap-stable zap-baseline.py \
-                                -t ${TARGET_URL} \
-                                -J scanreport.json \
-                                -I
-                        '''
-                    }
-                }
-            }
-        }
-        stage('Pushing DAST Results to AccuKnox') {
-            steps {
-                dir("${WORKSPACE}") {
-                    withCredentials([
-                        string(credentialsId: 'accuknox-token', variable: 'ACCUKNOX_TOKEN'),
-                        string(credentialsId: 'tenant-id', variable: 'TENANT_ID'),
-                        string(credentialsId: 'label_dast', variable: 'LABEL')
-                    ]) {
-                        sh '''
-                            curl --location --request POST "<https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$TENANT_ID&data_type=ZAP&label_id=$LABEL&save_to_s3=false>" \
-                                --header "Tenant-Id: $TENANT_ID" \
-                                --header "Authorization: Bearer $ACCUKNOX_TOKEN" \
-                                --form "file=@scanreport.json"
-                        '''
-                    }
-                }
-            }
-        }
-    }
-}
+### Future Availability:
+
+The plugin will be available in the Jenkins Marketplace after the release.
+
+## Configuration
+
+### Job Configuration
+
+1. Open the configuration page of your Jenkins job.
+
+2. Under the **Build** section:
+
+   - Click **Add build step**.
+
+   - Select **Run AccuKnox DAST Scan**.
+
+![image-20250124-041651.png](./images/jenkins-dast/5.png)
+
+### Plugin Parameters:
+
+The plugin provides the following configuration options:
+
+| **Parameter**          | **Description**                                                | **Example**           |
+| ---------------------- | -------------------------------------------------------------- | --------------------- |
+| **Target URL**         | URL of the web application to scan.                            | `https://example.com` |
+| **Scan Type**          | Type of scan: baseline or full-scan.                           | `full-scan`           |
+| **Tenant ID**          | Tenant ID associated with your AccuKnox account.               | `my-tenant-id`        |
+| **AccuKnox Token**     | Authentication token for AccuKnox SaaS.                        | `my-accuknox-token`   |
+| **Label**              | A label to tag the scan results in AccuKnox SaaS.              | `build-123`           |
+| **Severity Threshold** | Minimum severity level to trigger build failures (e.g., High). | `High`                |
+
+![image-20250124-045000.png](./images/jenkins-dast/6.png)
+
+## Token Generation for AccuKnox
+
+To generate the **AccuKnox Token** and obtain the **Tenant ID**:
+
+1. Log in to AccuKnox.
+
+2. Navigate to **Settings** > **Tokens** and create an AccuKnox token.
+
+3. Copy the generated token and store it securely for later use. For detailed steps, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/ "https://help.accuknox.com/how-to/how-to-create-tokens/").
+
+## Running the Scan
+
+When you run the Jenkins job:
+
+1. **DAST Scan Execution**:
+
+   - The plugin performs a DAST scan (baseline or full) on the target URL.
+
+   - Results are saved as a `report.json` file in the workspace.
+
+2. **Uploading Results to AccuKnox SaaS**:
+
+   - The `report.json` file is uploaded to the specified AccuKnox tenant using the provided credentials.
+
+### Sample Console Output:
+
+```sh
+Running AccuKnox DAST Scan...
+ZAP output: [ZAP Scan Logs]
+Uploading DAST scan results to AccuKnox...
+Results uploaded successfully.
 ```
 
-### Explanation of Stages
+## Troubleshooting
 
-- **OWASP ZAP Scan**: Runs an OWASP ZAP scan on the target URL (`<https://ginandjuice.shop/`)> using the zap-baseline.py script. The scan results are saved in a JSON file, `scanreport.json`.
+1. **Missing AccuKnox Token or Tenant ID**:
 
-- **Pushing DAST Results to AccuKnox**: Uploads the JSON scan report to AccuKnox using a secure API request, which includes the AccuKnox token, tenant ID, and label ID.
+   - Ensure both fields are provided in the Jenkins job configuration.
 
-## **Step 4: Configure Secrets in Jenkins**
+   - Verify their accuracy in the AccuKnox SaaS dashboard.
 
-1. Go to **Jenkins > Manage Jenkins > Manage Credentials**.
-![alt](images/jenkins-dast/5.png)
+2. **Scan Failure**:
 
-1. Add the following credentials:
+   - Check the Jenkins console output for ZAP-specific errors.
 
-    - **accuknox-token**: The AccuKnox token was generated in Step 1.
+   - Verify that the target URL is accessible and not blocking scan requests.
 
-    - **tenant-id**: AccuKnox Tenant ID.
+3. **Upload Failure**:
 
-    - **label_dast**: AccuKnox Label ID created in Step 2.
-![alt](images/jenkins-dast/6.png)
+   - Verify network connectivity to the **AccuKnox SaaS** endpoint.
 
-## **Step 5: Run the Pipeline**
+   - Double-check the **Tenant ID** and **AccuKnox Token**.
 
-1. Save and run the pipeline in Jenkins.
+   - Ensure the `report.json` file is generated correctly before uploading.
 
-2. Monitor the pipeline stages to ensure OWASP ZAP scans the target URL and the results are uploaded to AccuKnox.
+## Conclusion
 
-### Console Output after successful execution
+The **AccuKnox DAST Jenkins Plugin** simplifies the process of integrating dynamic application security testing into your CI/CD pipeline. By seamlessly combining ZAP-based scans with AccuKnox SaaS, you can ensure vulnerabilities are identified and managed in a centralized manner, improving the overall security posture of your application.
 
-![alt](images/jenkins-dast/7.png)
-
-## **Step 6: View DAST Findings in AccuKnox**
-
-1. Log in to the AccuKnox platform.
-
-2. Go to **Issues > Findings** and select **DAST Findings** to view the results of the DAST scan.
-![alt](images/jenkins-dast/8.png)
-
-3. Click on any finding for detailed information. You can also create a ticket for further action.
-![alt](images/jenkins-dast/9.png)
+For further assistance, contact the AccuKnox support team or refer to the [AccuKnox Documentation](https://www.accuknox.com/ "https://www.accuknox.com/").

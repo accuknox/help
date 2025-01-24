@@ -270,6 +270,7 @@ nav:
           - "Container Scan": "integrations/jenkins-container-scan.md"
           - "IaC Scan": "integrations/jenkins-iac-scan.md"
           - "DAST": "integrations/jenkins-dast.md"
+          - "Secret Scan": "integrations/jenkins-secret-scan.md"
         - "AWS Code Pipeline":
           - "Overview": "integrations/aws-overview.md"
           - "SAST": "integrations/aws-sast.md"
