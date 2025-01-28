@@ -252,6 +252,7 @@ nav:
           - "Container Image Scan": "integrations/azure-container-scan.md"
           - "Iac Scan": "integrations/azure-iac.md"
           - "DAST": "integrations/azure-dast.md"
+          - "Secret Scan": "integrations/azure-secret-scan.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
           - "SAST": "integrations/google-sast.md"
@@ -291,6 +292,7 @@ nav:
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
             - "DAST": "integrations/gitlab-dast.md"
+            - "Secret Scan": "integrations/gitlab-secret-scan.md"
             - "Scan Variables":
               - "Container Scan Variables": "integrations/gitlab-container-variables.md"
               - "IaC Scan Variables": "integrations/gitlab-iac-variables.md"
@@ -302,6 +304,7 @@ nav:
             - "Container Scan": "integrations/bitbucket-container-scan.md"
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
             - "DAST": "integrations/bitbucket-dast.md"
+            - "Secret Scan": "integrations/bitbucket-secret-scan.md"
             - "Scan Variables":
               - "Container Scan Variables": "integrations/bitbucket-container-variables.md"
               - "IaC Scan Variables": "integrations/bitbucket-iac-variables.md"
