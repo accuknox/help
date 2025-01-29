@@ -31,6 +31,12 @@ h2 {
 - title: CNAPP Security Overview
   image: ./icons/CNAPP.svg
   url: /use-cases/cnapp-security-overview/
+- title: Vulnerability Management (CNAPP)
+  image: ./icons/VULN.svg
+  url: /use-cases/epss-scoring/
+- title: Secrets Scanning
+  image: ./icons/secret-scan.svg
+  url: /use-cases/azure-secret-scan/
 - title: AI/ML Security
   image: ./icons/AIML.svg
   url: /use-cases/jupyter-notebook/
@@ -46,9 +52,6 @@ h2 {
 - title: Kubernetes Security Posture Management (KSPM)
   image: ./icons/KSPM.svg
   url: /use-cases/kspm/
-- title: Vulnerability Management (CNAPP)
-  image: ./icons/VULN.svg
-  url: /use-cases/epss-scoring/
 - title: Cloud
   image: ./icons/vm-hardening.svg
   url: /use-cases/cloud/azure/

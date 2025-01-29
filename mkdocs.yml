@@ -352,7 +352,16 @@ nav:
     - "Email Backend" : "integrations/email-backend.md"
   - "Use-Cases":
     - "Use Cases": "use-cases/index.md"
-    - "CNAPP Security Overview": "use-cases/cnapp-security-overview.md"
+    - "CNAPP Dashboard Widgets": "use-cases/cnapp-security-overview.md"
+    - "Vulnerability Management (CNAPP)" :
+      - "EPSS Scoring": "use-cases/epss-scoring.md"
+      - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
+      - "Vulnerability Management": "use-cases/vulnerability.md"
+    - "Secrets Scan":
+      - "Azure DevOps": "use-cases/azure-secret-scan.md"
+      - "Bitbucket": "use-cases/bitbucket-secret-scan.md"
+      - "Jenkins": "use-cases/jenkins-secret-scan.md"
+      - "Gitlab": "use-cases/gitlab-secret-scan.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "ModelArmor":
@@ -415,10 +424,6 @@ nav:
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
       - "Mitigate Supply Chain Attacks with KnoxGuard" : "use-cases/knoxguard-supply-chain.md"
-    - "Vulnerability Management (CNAPP)" :
-      - "EPSS Scoring": "use-cases/epss-scoring.md"
-      - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
-      - "Vulnerability Management": "use-cases/vulnerability.md"
     - "VM Security":
         - "Introduction" : "use-cases/vm-overview.md"
         - "Agentless Risk Assessment":
