@@ -325,7 +325,7 @@ nav:
       - "Nutanix":
         - "AccuKnox": "integrations/nutanix-accuknox.md"
         - "KubeArmor": "integrations/nutanix-kubearmor.md"
-      - "SpectroCloud": "integrations/spectrocloud.md"
+      - "Spectro Cloud": "integrations/spectrocloud.md"
     - "Ticketing" :
       - "Ticket Templates" : "integrations/ticket-template.md"
       - "Jira Cloud" : "integrations/jira-cloud.md"

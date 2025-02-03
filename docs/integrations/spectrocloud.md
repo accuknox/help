@@ -1,11 +1,11 @@
 ---
-title: Spectrocloud Integration
-description: Steps to deploy AccuKnox agents via Spectrocloud / Palette using Cluster Add On Profiles to onboard the clusters to AccuKnox.
+title: Deploy AccuKnox agents via Spectro Cloud Palette
+description: Steps to deploy AccuKnox agents via Spectro Cloud / Palette using Cluster Add On Profiles to onboard the clusters to AccuKnox.
 ---
 
-# Deploy AK agents via Spectrocloud / Palette
+# Deploy AccuKnox agents via Spectro Cloud Palette
 
-This document provides instructions on using Spectrocloud/Palette to onboard the clusters to AccuKnox via the use of Cluster Add On Profiles. Essentially simplifying the onboarding of clusters already connected to the Spectrocloud platform.
+This document provides instructions on using Spectro Cloud Palette to onboard the clusters to AccuKnox via the use of Cluster Add On Profiles. Essentially simplifying the onboarding of clusters already connected to the Spectro Cloud platform.
 
 ## Prerequisites
 
