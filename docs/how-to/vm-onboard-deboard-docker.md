@@ -33,9 +33,9 @@ Ports required on the control plane VM:
 
 | Component                       | Type                           | Ports          | Endpoint                          | Purpose                                           |
 |---------------------------------|--------------------------------|----------------|----------------------------------|--------------------------------------------------|
-| Knox-Gateway                    | Outbound to SaaS               | 3000           | knox-gw.<env>.accuknox.com:3000  | For Knox-Gateway service                         |
-| PPS                             | Outbound to SaaS               | 443            | pps.<env>.accuknox.com           | For PPS (Policy Provisioning Service)            |
-| Spire-Server                    | Outbound to SaaS               | 8081, 9090     | spire.<env>.accuknox.com         | For Spire-Server communication                   |
+| Knox-Gateway                    | Outbound to SaaS               | 3000           | `knox-gw.<env>.accuknox.com:3000`  | For Knox-Gateway service                         |
+| PPS                             | Outbound to SaaS               | 443            | `pps.<env>.accuknox.com`           | For PPS (Policy Provisioning Service)            |
+| Spire-Server                    | Outbound to SaaS               | 8081, 9090     | `spire.<env>.accuknox.com`         | For Spire-Server communication                   |
 | KubeArmor Relay Server          | Inbound in Control Plane       | 32768          | -                                | For KubeArmor relay server on control plane      |
 | Shared Informer Agent           | Inbound in Control Plane       | 32769          | -                                | For Shared Informer agent on control plane       |
 | Policy Enforcement Agent (PEA)  | Inbound in Control Plane       | 32770          | -                                | For Policy Enforcement Agent on control plane    |
