@@ -62,6 +62,9 @@ jobs:
 
 {% endraw %}
 
+!!!info "NOTE"
+    The `label` parameter in the workflow (`"my-dast-scan"`) helps identify the scan in AccuKnox. You can customize this label by updating the value in the YAML file. For more details on creating and managing labels, refer to the [How to Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/) documentation.
+
 ## Initial Workflow Without AccuKnox Scan
 
 Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push changes to the repository, no security checks are performed, potentially allowing security issues in the application.
