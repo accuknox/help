@@ -215,6 +215,7 @@ nav:
     - "ASPM":
       - "Overview": "how-to/aspm-overview.md"
       - "Github IaC Scan": "how-to/github-iac-scan.md"
+      - "AWS CDK IaC Scan": "how-to/aws-cdk-iac-scan.md"
     - "Container Registry":
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"

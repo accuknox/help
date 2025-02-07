@@ -122,3 +122,5 @@ After clicking on the create ticket Icon the next page will popup
 Once the user clicks on Create Ticket new page with all the information related to the IaC findings and with a predefined Priority based on the Risk Factor. The user has to click on Create to confirm the ticket creation.
 
 ![IaC Scan Github](images/github-iac/image16.png)
+
+We support CDK scanning. For more details, refer to [AWS CDK Scan](./aws-cdk-iac-scan.md).
