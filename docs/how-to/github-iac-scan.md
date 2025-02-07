@@ -123,4 +123,4 @@ Once the user clicks on Create Ticket new page with all the information related 
 
 ![IaC Scan Github](images/github-iac/image16.png)
 
-We support CDK scanning. For more details, refer to [AWS CDK Scan](https://help.accuknox.com/how-to/aws-cdk-iac-scan/ "https://help.accuknox.com/how-to/aws-cdk-iac-scan/").
+We support CDK scanning. For more details, refer to [AWS CDK Scan](./aws-cdk-iac-scan.md).
