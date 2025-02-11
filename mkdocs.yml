@@ -282,6 +282,7 @@ nav:
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
             - "SAST": "integrations/github-sast.md"
+            - "SAST (Semgrep)": "integrations/semgrep-sast.md"
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
             - "DAST": "integrations/github-dast.md"
