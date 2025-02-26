@@ -17,9 +17,7 @@ The **AccuKnox SAST Jenkins Plugin** simplifies integrating SonarQube-based Stat
 
 ## Installation
 
-### Current Installation Method
-
-1. Download the plugin in `.hpi` format from [here](https://drive.google.com/file/d/1H6yLOanoQ6RyHTGdGn_Ah2w4CGhKuOsD/view?usp=drive_link "https://drive.google.com/file/d/1H6yLOanoQ6RyHTGdGn_Ah2w4CGhKuOsD/view?usp=drive_link").
+1. Download the plugin in `.hpi` format from [here](https://drive.google.com/file/d/1-GfUr_8Llv9izr1Vx4zW8CPw0-gg1IRm/view?usp=sharing "https://drive.google.com/file/d/1-GfUr_8Llv9izr1Vx4zW8CPw0-gg1IRm/view?usp=sharing").
 
 2. Navigate to the Jenkins dashboard.
 
@@ -35,10 +33,6 @@ The **AccuKnox SAST Jenkins Plugin** simplifies integrating SonarQube-based Stat
    ![image-20250114-184945.png](./images/jenkins-sast/4.png)
 
 6. Restart Jenkins if required.
-
-### Future Availability
-
-The plugin will be available in the Jenkins Marketplace post-release. After this date, users can install it directly from the Jenkins Plugin Manager.
 
 ## Configuration
 
