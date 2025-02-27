@@ -8,12 +8,20 @@ hide:
 <style>
     table:first-of-type td:first-child img{
     display: block;
-    height: 5rem;
+    height: 3rem;
     }
 
 ​    .nt-card-title {
 ​    text-align: -webkit-center;
 ​    }
+
+ /* align tables to center */
+
+ table{
+    margin-left: auto;
+    margin-right: auto;
+    }
+
 </style>
 
 # CI/CD Support Matrix
