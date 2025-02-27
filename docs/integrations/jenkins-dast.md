@@ -19,9 +19,7 @@ The **AccuKnox DAST Jenkins Plugin** simplifies integrating dynamic application 
 
 ## Installation
 
-### Current Installation Method:
-
-1. Download the plugin in `.hpi` format from the provided source.
+1. Download the plugin in `.hpi` format from [here](https://drive.google.com/file/d/1wgRtCiCTqx30CT_Si54NL9ikeYWkwMbl/view?usp=sharing "https://drive.google.com/file/d/1wgRtCiCTqx30CT_Si54NL9ikeYWkwMbl/view?usp=sharing").
 
 2. Navigate to the Jenkins dashboard.
 
@@ -39,9 +37,6 @@ The **AccuKnox DAST Jenkins Plugin** simplifies integrating dynamic application 
 
 7. Restart Jenkins if required.
 
-### Future Availability:
-
-The plugin will be available in the Jenkins Marketplace after the release.
 
 ## Configuration
 
