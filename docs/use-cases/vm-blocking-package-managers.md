@@ -17,14 +17,12 @@ Attackers might attempt to download additional tools or downgrade packages to a 
 
 ```yaml
 apiVersion: security.kubearmor.com/v1
-kind: KubeArmorHost
-Policymetadata:
+kind: KubeArmorHostPolicy
+metadata:
   name: block-pkg-mgmt-tools
 spec:
   severity: 10
   message: "Alert! Execution of package management process is denied"
-  tags:
-  - ALERT
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: <vm-hostname>
