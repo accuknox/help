@@ -489,6 +489,7 @@ nav:
     - "Technical Guide": "resources/technical-support-guide.md"
     - "Release Notes":
           - "AccuKnox" :
+            - "v2.4 Release Notes" : "getting-started/2.4-release.md"
             - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
             - "v2.0 Release Notes" : "getting-started/2.0-release.md"
             - "v1.7 Release Notes" : "getting-started/1-7-release.md"
