@@ -1,6 +1,6 @@
 ---
 title: Rafay Integration with AccuKnox
-description: The Rafay integration with AccuKnox enables users to deploy the AccuKnox agents through Rafay and onboard to AccuKnox SaaS to get visibility into your Kubernetes clusters.
+description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and enhance security with AccuKnox CNAPP following this step-by-step guide
 ---
 
 # Rafay Integration with AccuKnox

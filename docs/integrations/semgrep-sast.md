@@ -1,6 +1,6 @@
 ---
 title: Semgrep Integration with Github Actions
-description: This document is a step by step guide for integrating Semgrep with AccuKnox. Semgrep can be used for SAST, SCA and secrets scanning for your source code repositories.
+description: Step-by-step guide to integrating Semgrep with AccuKnox for SAST, SCA, and secret scanning in source code repositories.
 ---
 
 # Semgrep Integration with GitHub Actions

@@ -1,6 +1,6 @@
 ---
 title: Cloud Security Posture Management (CSPM)
-description: AccuKnox CSPM helps organizations ensure their cloud resources and configurations comply with security best practices, industry standards, and regulatory requirements.
+description: AccuKnox CSPM ensures your cloud resources follow security best practices, industry standards, and regulatory requirements.
 hide:
   - toc
 ---

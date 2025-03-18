@@ -1,6 +1,6 @@
 ---
 title: Azure DevOps Secret Scan
-description: This guide walks you through the process of integrating AccuKnox Secret Scanning into your Azure DevOps pipeline. By doing so, you can efficiently detect and handle hard-coded secrets within your codebase to improve the overall security posture of your applications.
+description: Detect and remediate hard-coded secrets in Azure DevOps pipelines using AccuKnox Secret Scanning to improve code security and prevent exposure.
 ---
 
 # Azure DevOps Secret Scan

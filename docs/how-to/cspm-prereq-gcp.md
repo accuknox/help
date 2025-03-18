@@ -1,6 +1,6 @@
 ---
 title: CSPM Pre-requisite for GCP
-description: Pre-requisite for onboarding GCP cloud account to AccuKnox SaaS platform.
+description: Pre-requisites and setup instructions for onboarding GCP cloud accounts to AccuKnox SaaS for continuous compliance and security checks.
 ---
 
 # CSPM Pre-requisite for GCP

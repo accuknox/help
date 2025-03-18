@@ -1,6 +1,6 @@
 ---
 title: AWS CloudWatch Integration
-description: AccuKnox integrates with AWS CloudWatch to provide real-time monitoring and alerting capabilities for cloud-native applications. This document provides a step-by-step guide to integrate AccuKnox with AWS CloudWatch.
+description: Connect AccuKnox with AWS CloudWatch to enable real-time monitoring and alerting for security events and anomalies in cloud-native applications.
 ---
 
 ## AWS CloudWatch Integration

@@ -1,6 +1,6 @@
 ---
 title: RSyslog Integration
-description: This document provides the steps to integrate RSyslog with AccuKnox Container Security Platform to forward the events to RSyslog.
+description: Learn how to forward logs and alerts from AccuKnox to a centralized RSyslog server for enhanced visibility and security management.
 ---
 
 

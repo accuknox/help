@@ -1,6 +1,6 @@
 ---
 title: AWS Network Security
-description: Learn how to identify and remediate open SSH ports in AWS to enhance network security and prevent unauthorized access with AccuKnox Cloud Security Posture Management (CSPM).
+description: Identify and fix open SSH ports in AWS with AccuKnox CSPM to improve network security and prevent unauthorized access to cloud resources.
 ---
 
 # AWS Network Security

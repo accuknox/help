@@ -1,6 +1,6 @@
 ---
 title: Defending Against Log4Shell
-description: The Log4Shell vulnerability (CVE-2021-44228) has demonstrated the critical need for robust runtime security in modern IT infrastructures. Attackers exploit this vulnerability by injecting malicious code via the vulnerable Log4j library, often leading to unauthorized system access. Here, we will show how to secure your virtual machines (VMs) against such attacks using AccuKnox Runtime Security and KubeArmor.
+description: Secure your VMs from Log4Shell exploits with AccuKnox Runtime Security and KubeArmor. Detect, block, and mitigate attacks fast.
 ---
 
 # Defending Against Log4Shell

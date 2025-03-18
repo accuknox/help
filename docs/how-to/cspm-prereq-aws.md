@@ -1,6 +1,6 @@
 ---
 title: CSPM Pre-requisite for AWS
-description: Pre-requisite for onboarding AWS cloud account to AccuKnox SaaS platform.
+description: CSPM onboarding pre-requisites for AWS accounts, including necessary permissions and configurations for secure integration.
 ---
 
 # CSPM Pre-requisite for AWS

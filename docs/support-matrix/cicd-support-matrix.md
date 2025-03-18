@@ -1,5 +1,5 @@
 ---
-title:
+title: CI/CD Support Matrix
 description: Check out the integration mechanisms and feature availability for key DevOps and security functionalities across popular CI/CD platforms.
 hide:
   - toc

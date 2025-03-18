@@ -1,6 +1,6 @@
 ---
 title: CIS K8s Benchmark findings
-description: Step-by-step guide to view CIS K8s Benchmark findings in Accuknox and solutions to resolve them.
+description: Learn how to view and resolve CIS Kubernetes Benchmark findings with AccuKnox to improve Kubernetes cluster security and compliance.
 ---
 
 # CIS K8s Benchmark Findings

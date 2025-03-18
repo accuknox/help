@@ -1,6 +1,6 @@
 ---
 title: Forensics
-description: AccuKnox can help in forensic analysis of the workloads to identify the root cause of security incidents and to provide detailed insights into the security-sensitive activities within the workloads.
+description: AccuKnox provides forensic analysis to identify security incidents' root causes and offers insights into security-sensitive activities.
 ---
 
 [comment]: <> (This is an auto-generated file. Do not edit manually.)

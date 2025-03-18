@@ -1,6 +1,6 @@
 ---
 title: Raise a Jira ITSM Support Ticket
-description: Follow these steps to raise a Jira ITSM support ticket for major platform issues.
+description: Follow these steps to raise a Jira ITSM support ticket for resolving platform issues and getting technical assistance.
 ---
 
 By following these steps, you can quickly and effectively raise a Jira ITSM support ticket for major platform issues, ensuring that your problem is addressed promptly and efficiently.

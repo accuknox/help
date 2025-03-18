@@ -1,6 +1,6 @@
 ---
 title: Network Segmentation
-description: Identity-aware Policy Discovery and microsegmentation enables security teams such as SOC, DevSecOps teams to logically seggregate workloads into distinct security segments and have more granular control over those segments.
+description: Use identity-aware policy discovery and microsegmentation to create security segments and enhance workload protection with AccuKnox.
 ---
 
 # Network Segmentation

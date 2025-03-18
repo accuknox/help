@@ -1,6 +1,6 @@
 ---
 title: Jenkins Secret Scanning Integration
-description: Learn how to integrate secret scanning into Jenkins pipelines using the AccuKnox Secret Scanning Jenkins Plugin. This plugin uses TruffleHog to detect sensitive data in source code and uploads the results to AccuKnox SaaS for centralized monitoring.
+description: Integrate secret scanning in Jenkins pipelines with AccuKnox using TruffleHog to detect and manage sensitive data.
 ---
 
 # Jenkins Secret Scanning Integration

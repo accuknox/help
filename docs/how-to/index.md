@@ -1,4 +1,5 @@
 ---
+description: Introduction to the AccuKnox zero trust CNAPP framework, providing an overview of core security features and architecture.
 hide:
   - toc
 ---

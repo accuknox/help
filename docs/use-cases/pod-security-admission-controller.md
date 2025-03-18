@@ -1,6 +1,6 @@
 ---
 title: Pod Security Admission Controller
-description: Pod Security Admission (PSA) enforces security standards on a Pod's Security Context and related fields based on three levels defined by the Pod Security Standards.
+description: Enforce Kubernetes security standards on Pods using PSA, ensuring compliance with Pod Security Standards at different enforcement levels.
 ---
 
 # Pod Security Admission Controller

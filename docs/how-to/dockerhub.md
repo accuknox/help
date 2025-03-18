@@ -1,6 +1,6 @@
 ---
 title: Dockerhub Registry Onboarding
-description: Learn how to onboard a Dockerhub registry to Accuknox for scanning container images.
+description: Guide on onboarding DockerHub registry to AccuKnox SaaS for scanning container images and identifying security vulnerabilities.
 ---
 
 # Dockerhub Registry Onboarding

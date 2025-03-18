@@ -1,6 +1,6 @@
 ---
 title: ModelArmor Pickle Code Injection
-description: The Pickle Code Injection Proof of Concept (PoC) demonstrates the security vulnerabilities in Python's `pickle` module, which can be exploited to execute arbitrary code during deserialization.
+description: Learn how Python's pickle module can be exploited for arbitrary code execution and how to secure applications against such threats.
 ---
 
 # **ModelArmor Use Case: Pickle Code Injection PoC**

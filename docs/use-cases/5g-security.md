@@ -1,6 +1,6 @@
 ---
 title: 5G Security
-description:  AccuKnox leverages KubeArmor to provide 5G security.
+description:  AccuKnox uses KubeArmor to provide enhanced security for 5G networks, protecting against unauthorized access and data breaches.
 ---
 
 # 5G Security

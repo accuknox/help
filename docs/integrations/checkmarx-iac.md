@@ -1,6 +1,6 @@
 ---
 title: IaC Scan (KICS)
-description: Integrate KICS scans with AccuKnox using a CI/CD pipeline workflow with this step-by-step guide to analyze and prioritize vulnerabilities in your infrastructure as code.
+description: Integrate KICS IaC scans with AccuKnox in CI/CD to identify and prioritize vulnerabilities in infrastructure code.
 ---
 
 ## **Introduction**

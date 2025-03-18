@@ -1,6 +1,6 @@
 ---
 title: Admission Controller Support Using Knoxguard
-description: Knoxguard, the latest security feature, aims to bolster Kubernetes environment security and compliance through robust policy enforcement. Knoxguard operates independently of any policy engine, offering the flexibility to integrate with your preferred enforcement add on. Currently, Knoxguard supports Kyverno as the policy enforcement engine.
+description: Knoxguard enhances Kubernetes security with policy enforcement, supporting Kyverno for flexible and independent policy integration.
 ---
 
 # Admission Controller Support Using Knoxguard

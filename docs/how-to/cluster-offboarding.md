@@ -1,6 +1,6 @@
 ---
 title: Cluster Offboarding
-description: This guide outlines the steps for offboarding a cluster from AccuKnox SaaS.
+description: Instructions for offboarding a cluster from AccuKnox SaaS, ensuring a clean and secure removal process.. Follow this step by step guide.
 ---
 
 # Cluster Offboarding

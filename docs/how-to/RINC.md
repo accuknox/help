@@ -1,6 +1,6 @@
 ---
 title: RINC - A Getting Started Guide
-description: RINC (short for "Reporting IN Cluster") is a simple and lightweight reporting tool that provides insights into the status of a Kubernetes cluster, as well as other services running within it. It includes built-in alerting capabilities, allowing users to define alerts using an expression language.
+description: Introduction to RINC (short for Runtime Insights and Network Controls) and how to get started with its features on AccuKnox SaaS.
 ---
 
 RINC (short for "Reporting IN Cluster") is a simple and lightweight reporting tool that provides insights into the status of a Kubernetes cluster, as well as other services running within it.

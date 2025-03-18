@@ -1,4 +1,5 @@
 ---
+description: Explore AccuKnox's resources for securing cloud-native applications with a Zero Trust CNAPP solution including playbooks, user manuals and pricing and support
 hide:
   - toc
 ---

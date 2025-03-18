@@ -1,6 +1,6 @@
 ---
 title: GCP Compute Security
-description: Learn how to identify and remediate misconfigurations in GCP compute resources to enhance security and prevent unauthorized access with AccuKnox Cloud Security Posture Management (CSPM).
+description: Learn how to identify and fix misconfigurations in GCP compute resources with AccuKnox CSPM to prevent unauthorized access and enhance security.
 ---
 
 # GCP Compute Security

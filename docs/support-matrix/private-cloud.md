@@ -1,6 +1,6 @@
 ---
 title: Private Clouds
-description:  AccuKnox Zero Trust Cloud Native Application Protection for Multi-Cloud Environments provides support to the various private cloud platforms like RedHat OpenShift and VMWare Tanzu.
+description:  AccuKnox CNAPP secures private cloud platforms like OpenShift and Tanzu, ensuring consistent protection and compliance.
 ---
 
 # Private Clouds

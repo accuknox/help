@@ -1,6 +1,6 @@
 ---
 title: Preventing Cryptominers Execution
-description: AccuKnox is designed to prevent the execution of known cryptominers, block unauthorized binaries from running in the /tmp directory, and protect sensitive files from tampering, thereby mitigating cryptojacking threats that can lead to resource depletion and unauthorized data exposure.
+description: Block cryptominers, restrict unauthorized binaries in /tmp, and secure sensitive files to prevent cryptojacking threats.
 ---
 
 # Preventing Cryptominers Execution

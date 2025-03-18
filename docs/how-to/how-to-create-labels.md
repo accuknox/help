@@ -1,6 +1,6 @@
 ---
 title: How to Create Labels
-description: This guide on how to create labels in AccuKnox SaaS platform helps you to organize and manage your resources effectively. Labels are key-value pairs that you can attach to resources like images, registries, and repositories.
+description: Instructions for creating labels in AccuKnox SaaS, helping organize and manage resources like images, registries, and repositories effectively.
 ---
 
 # How to Create Labels

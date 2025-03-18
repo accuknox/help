@@ -1,6 +1,6 @@
 ---
 title: Automated Ticket Creation using Rules Engine
-description: The Rules Engine allows users to customize and automate ticket creation by selecting the data type, defining the criticality, and configuring specific ticket settings. This ensures that customized tickets are created whenever the selected criteria is met, providing more control over the ticketing process.
+description: Automate ticket creation in AccuKnox by defining rules, severity, and data types for a streamlined incident response process.
 ---
 
 # Automated Ticket Creation using Rules Engine

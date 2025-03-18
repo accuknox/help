@@ -1,6 +1,6 @@
 ---
 title: Public Cloud
-description: AccuKnox Zero Trust Cloud Native Application Protection for Multi-Cloud Environments provides support to the various public cloud platforms like Amazon Web Services, Google Cloud Platform, and Microsoft Azure.
+description: AccuKnox CNAPP supports AWS, GCP, and Azure, providing comprehensive security for multi-cloud environments with Zero Trust.
 ---
 
 # Public Cloud

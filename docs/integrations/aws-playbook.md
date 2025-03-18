@@ -1,6 +1,6 @@
 ---
 title: AWS Installation Guide (Playbook)
-description: Explore the process of subscribing to AccuKnox via AWS Marketplace, encompassing the necessary actions within the marketplace, the subscription and access workflow, the post-registration access acquisition, and the subsequent steps following access attainment.
+description: Guide to subscribing and configuring AccuKnox through AWS Marketplace to enable comprehensive cloud security with automated threat detection.
 ---
 
 

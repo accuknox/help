@@ -1,6 +1,6 @@
 ---
 title: Compliance Matrix
-description: This matrix provides a detailed view of the compliance standards supported by Accuknox CNAPP.
+description: AccuKnox's compliance matrix details supported standards, helping ensure your cloud environment meets security requirements.
 ---
 
 ![Compliance Matrix](./compliance-matrix.png)

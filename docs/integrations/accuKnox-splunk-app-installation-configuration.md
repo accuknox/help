@@ -1,6 +1,6 @@
 ---
 title: AccuKnox Splunk App Installation and Configuration
-description:  AccuKnox Splunk App is designed to deliver operational reporting as well as a simplified and configurable dashboard. Users can view the real-time alerts in form of logs and telemetries.
+description: Install and configure the AccuKnox Splunk App to monitor real-time logs, security telemetry, and operational insights for improved incident response.
 ---
 
 # AccuKnox Splunk App

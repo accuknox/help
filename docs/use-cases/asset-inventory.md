@@ -1,6 +1,6 @@
 ---
 title: Asset Inventory
-description: AccuKnox CSPM tool scans the cloud account for the assets like hosts, applications, Web API,Containers, Clusters and so on. Asset count will be increased or decreased if there are any changes in the onboarded cloud account. This is done by the periodic scan that AccuKnox CSPM tool runs after fixed time intervals.
+description: AccuKnox CSPM scans cloud accounts to track assets like hosts, apps, and clusters, ensuring accurate and up-to-date inventory management.
 ---
 
 # Asset Inventory

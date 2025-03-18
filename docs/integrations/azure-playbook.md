@@ -1,3 +1,7 @@
+---
+description: Step-by-step guide to installing AccuKnox from Azure Marketplace to enable zero trust CNAPP and strengthen cloud security with automated protection.
+---
+
 # Azure Marketplace Installation Guide
 
 This document outlines the process of subscribing to AccuKnox via Azure Marketplace, including necessary actions, subscription workflow, access acquisition, and subsequent steps post-access attainment.

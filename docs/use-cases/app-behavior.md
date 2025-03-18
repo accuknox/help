@@ -1,6 +1,6 @@
 ---
 title: Application Behavior
-description: AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves runtime security by leveraging CNCF sandbox project, KubeArmor, which is a cloud-native runtime security enforcement system by AccuKnox. It does that by having a more granular control over the application behavior (such as process execution, file access, and networking operation).
+description: AccuKnox CWPP leverages KubeArmor to provide runtime security with granular control over app behavior, ensuring process and file safety.
 ---
 
 # Application Behavior

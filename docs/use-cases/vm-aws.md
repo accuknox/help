@@ -1,6 +1,6 @@
 ---
 title: VM Security Misconfigurations on AWS
-description: Learn about common misconfigurations in AWS VMs, including IAM security, network security, and disk security, and how to identify and remediate them using AccuKnox CSPM.
+description: Identify and fix AWS VM misconfigurations in IAM, network, and disk security with AccuKnox CSPM to enhance cloud security.
 ---
 
 # VM Security Misconfigurations on AWS

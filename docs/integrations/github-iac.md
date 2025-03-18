@@ -1,6 +1,6 @@
 ---
 title: Integrating IaC with AccuKnox in a GitHub CI/CD Pipeline
-description: Learn how to integrate Infrastructure as Code (IaC) security into a GitHub CI/CD pipeline using AccuKnox.
+description: Guide to performing IaC scans for GitHub repositories using AccuKnox SaaS to detect and remediate infrastructure misconfigurations.
 ---
 
 # Integrating IaC with AccuKnox in a GitHub CI/CD Pipeline

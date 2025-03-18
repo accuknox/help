@@ -1,3 +1,8 @@
+---
+title: Use Cases
+description: Explore how AccuKnox Zero Trust CNAPP secures workloads with policy enforcement, monitoring, and advanced threat protection.
+---
+
 ::cards:: cols=3
 
 - title: FIM

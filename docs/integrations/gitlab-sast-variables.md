@@ -1,6 +1,6 @@
 ---
 title: GitLab SAST Variables
-description: Variables for the GitLab CI/CD pipeline to scan source code for security vulnerabilities.
+description: Configure GitLab CI/CD variables for SAST with AccuKnox to automate code vulnerability detection and ensure secure, high-quality code deployment.
 ---
 
 

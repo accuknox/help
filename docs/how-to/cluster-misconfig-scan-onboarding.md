@@ -1,6 +1,6 @@
 ---
 title: Onboard Cluster for Misconfiguration Scanning
-description: This guide outlines the steps for onboarding a cluster to AccuKnox SaaS for scanning cluster misconfigurations.
+description: AccuKnox helps detect and fix security misconfigurations in Kubernetes clusters, securing applications and infrastructure.
 ---
 
 # Onboard Cluster for Misconfiguration Scanning

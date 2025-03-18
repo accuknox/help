@@ -1,6 +1,6 @@
 ---
 title: Bitbucket Container Scan
-description: This guide demonstrates integrating AccuKnox into a Bitbucket pipeline to identify and remediate vulnerabilities in Docker images. Below, we compare the state of the pipeline before and after integrating AccuKnox, highlighting the security improvements.
+description: Integrate AccuKnox with Bitbucket CI/CD to scan and fix container image vulnerabilities before deployment to ensure Bitbucket Container Security.
 ---
 
 # Enhancing Docker Image Security in Bitbucket Pipelines

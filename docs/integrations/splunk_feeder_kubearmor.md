@@ -1,3 +1,7 @@
+---
+title: Splunk Integration With KubeArmor
+description: Learn how to integrate KubeArmor with Splunk for Zero Trust CNAPP-based real-time security alerting and monitoring.
+---
 
 # Splunk Integration With KubeArmor
 

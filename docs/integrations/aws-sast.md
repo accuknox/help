@@ -1,6 +1,6 @@
 ---
 title: AWS CodePipeline - SAST
-description: Understand the process of integrating AccuKnox SAST with AWS codepipeline. By integrating AccuKnox SAST into the pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
+description: Integrate AccuKnox SAST into AWS CodePipeline to proactively identify and fix security vulnerabilities in code before deployment, ensuring secure releases.
 ---
 
 # AWS CodePipeline - SAST

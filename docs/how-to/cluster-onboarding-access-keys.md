@@ -1,6 +1,6 @@
 ---
 title: Cluster Onboarding with Access Keys
-description: Streamlining cluster onboarding is made easy with access keys, allowing users to onboard multiple clusters using the same key. Additionally, users can set expiration times for these keys and specify the number of clusters each key can onboard.
+description: Guide to onboarding multiple clusters using access keys, with options to set expiration times and limit the number of onboarded clusters.
 ---
 
 # Cluster Onboarding with Access Keys

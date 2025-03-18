@@ -1,6 +1,6 @@
 ---
 title: AccuKnox SAST Integration with Azure DevOps
-description: This document contains the process of integrating AccuKnox SAST with Azure DevOps. By integrating AccuKnox SAST into CI/CD pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
+description: Integrate AccuKnox SAST with Azure DevOps pipelines to identify and resolve code vulnerabilities before deployment, enhancing application security.
 ---
 
 # AccuKnox SAST Integration with Azure DevOps

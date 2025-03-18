@@ -1,6 +1,6 @@
 ---
 title: CWPP Report Generation
-description: Understand the Regex to Select the Cluster Name and Namespace for CWPP Report Generation.
+description: Detailed steps for generating CWPP (Cloud Workload Protection Platform) reports, including Regex configuration for cluster and namespace data.
 ---
 
 # CWPP Report Generation

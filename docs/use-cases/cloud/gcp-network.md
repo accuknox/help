@@ -1,6 +1,6 @@
 ---
 title: GCP Network Security
-description: Learn how to identify and remediate misconfigurations in GCP network settings to enhance security and prevent unauthorized access with AccuKnox Cloud Security Posture Management (CSPM).
+description: Learn how to identify and remediate misconfigurations in GCP network settings with AccuKnox to prevent unauthorized access.
 ---
 
 # GCP Network Security

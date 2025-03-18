@@ -1,4 +1,5 @@
 ---
+description: CSPM playbook providing guidelines on securing cloud infrastructure and identifying misconfigurations with AccuKnox’s zero trust model.
 hide:
   - toc
 ---

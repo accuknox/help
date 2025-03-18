@@ -1,6 +1,6 @@
 ---
 title: Azure DevOps IaC Scan Integration
-description: A step by step guide for integrating AccuKnox IaC scan with Azure DevOps. IaC scan helps you to find the vulnerabilities in you IaC code like Terraform, AWS Cloud Formation, Azure ARM templates etc. By using AccuKnox IaC, you can find the vulnerabilities in your infrastructure proactively.
+description: Secure Terraform, AWS CloudFormation, and Azure ARM templates in Azure DevOps by integrating AccuKnox IaC scanning for vulnerability detection.
 ---
 
 # Azure DevOps IaC Scan Integration

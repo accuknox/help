@@ -1,6 +1,6 @@
 ---
 title: IaC Scanning
-description: AccuKnox provides a comprehensive IaC scanning solution that helps you identify and remediate misconfigurations in your Infrastructure as Code (IaC) files, ensuring that your cloud infrastructure is secure and compliant with best practices.
+description: Use AccuKnox to scan and remediate IaC issues in Google Cloud Build, ensuring secure infrastructure deployment by fixing misconfigurations.
 ---
 
 # Integrating IaC Scanning for AWS S3 Buckets into Your CI/CD Pipeline

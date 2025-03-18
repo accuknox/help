@@ -1,6 +1,6 @@
 ---
 title: Blocking Execution of Package Managers
-description: This use case demonstrates how to block the execution of package managers on a VM to prevent attackers from downloading additional tools or downgrading packages to a vulnerable version.
+description: Prevent attackers from using package managers to download tools or downgrade packages to vulnerable versions on VMs.
 ---
 
 # Use Case: Blocking Execution of Package Managers

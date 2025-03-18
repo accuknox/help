@@ -1,6 +1,6 @@
 ---
 title: GitLab Container Scan
-description: Integrate AccuKnox into a GitLab pipeline to identify and remediate vulnerabilities in Docker images. Below, we compare the state of the pipeline before and after integrating AccuKnox.
+description: Integrate AccuKnox with GitLab CI/CD to detect and fix vulnerabilities in Docker images before deployment from code to cloud.
 ---
 
 To show how incorporating AccuKnox into a CI/CD pipeline with Gitlab can improve security, let's look at a detailed example involving a Docker image that initially had known vulnerabilities. By running AccuKnox scanning in the pipeline, we can find and fix these vulnerabilities before deploying the image. The following narrative illustrates this process by comparing the situations before and after adding AccuKnox, as seen in the Gitlab jobs log.

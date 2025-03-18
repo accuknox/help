@@ -1,6 +1,6 @@
 ---
 title: Onboarding and Deboarding VMs with Systemd
-description: Learn how to onboard and deboard VMs with Systemd using AccuKnox to protect your cloud-hosted virtual machines.
+description: Step-by-step process to onboard VMs with Systemd/Docker mode on AccuKnox SaaS to enable automated security enforcement and monitoring.
 ---
 
 # Onboarding and Deboarding VMs with Systemd

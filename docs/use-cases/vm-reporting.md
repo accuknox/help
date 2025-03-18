@@ -1,6 +1,6 @@
 ---
 title: Reporting
-description: CWPP supports generating comprehensive security reports for your VM's, either on demand or as per a scheduled frequency. The reports help in analyzing security postures, tracking violations, and ensuring compliance.
+description: Generate detailed security reports for VMs on demand or on a schedule. Track violations, analyze risks, and ensure compliance with ease.
 ---
 
 # **Reporting**

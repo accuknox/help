@@ -1,6 +1,6 @@
 ---
 title: WordPress-MySQL Application
-description: Protecting the WordPress-MySQL application using AccuKnox CWPP Security solution.
+description: Guide to securing WordPress-MySQL applications using AccuKnox CWPP security features to detect and block threats.
 ---
 
 # WordPress-MySQL Application

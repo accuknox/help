@@ -1,6 +1,6 @@
 ---
 title: Elastic Container Registry (ECR) Onboarding
-description:  This document provides the steps to onboard Amazon Elastic Container Registry (ECR) on AccuKnox SaaS.
+description: Guide to onboarding Amazon Elastic Container Registry (ECR) to AccuKnox SaaS for automated container security and threat detection.
 ---
 
 # Elastic Container Registry (ECR) Onboarding

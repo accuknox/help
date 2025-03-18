@@ -1,6 +1,6 @@
 ---
 title: Gitlab DAST Scan
-description: Integrate AccuKnox into a GitLab pipeline to identify and remediate vulnerabilities in web applications. Below, we compare the state of the pipeline before and after integrating AccuKnox, highlighting the security improvements.
+description: Automate DAST with AccuKnox in GitLab CI/CD to detect and fix vulnerabilities in web apps, ensuring secure deployment and reducing exposure risks.
 ---
 
 # Gitlab DAST

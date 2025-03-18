@@ -1,6 +1,6 @@
 ---
 title: Host Security Scan
-description: AccuKnox provides host scanning capabilities through an integration with tools like Nessus. Learn how AccuKnox detects critical vulnerabilities like Apache Log4j, Microsoft RDP RCE, and MS11-020, and provides remediation steps to secure your on-premises environment.
+description: AccuKnox integrates with Nessus, Masscan, and Zeek to identify issues in on-premise hosts, enhancing overall security and compliance.
 ---
 
 # Host Security Scan

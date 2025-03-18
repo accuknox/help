@@ -1,6 +1,6 @@
 ---
 title: Jira Cloud Integration
-description: Integrate AccuKnox with Jira Cloud to automate the process of generating Jira tickets with your existing security workflow.
+description: Integrate AccuKnox with Jira Cloud for streamlined security incident tracking using a Zero Trust CNAPP approach.
 ---
 
 

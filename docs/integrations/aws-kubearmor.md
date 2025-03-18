@@ -1,6 +1,6 @@
 ---
 title: AWS EKS - KubeArmor Integration
-description:  A step-by-step guide to integrate KubeArmor with AWS EKS. By integrating KubeArmor into the EKS cluster, you can enforce security policies for cloud-native applications.
+description:  Integrate AccuKnox KubeArmor with AWS EKS to enforce security policies and protect cloud-native applications from runtime threats and vulnerabilities.
 ---
 
 **Step 1:** Get KubeArmor’s latest version from AWS Marketplace

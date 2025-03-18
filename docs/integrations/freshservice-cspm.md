@@ -1,6 +1,6 @@
 ---
 title: Freshservice Integration
-description: Integrate AccuKnox with Freshservice and receive AccuKnox alert notifications in your Freshservice accounts. With this integration, you can automate the process of generating Freshservice “Problem alerts“ with your existing security workflow.
+description: Automate security alerts in Freshservice by integrating AccuKnox to create problem alerts and improve workflow response.
 ---
 
 # Freshservice Integration
