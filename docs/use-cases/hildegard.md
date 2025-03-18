@@ -1,43 +1,43 @@
 ---
 title: Hildegard
-description: Hildegard takes advantage of the different vulnerabilities caused by non-conformance with the best practices and understanding the loopholes behind the monitoring and security practices that are followed.
+description: Hildegard exploits vulnerabilities from non-compliance with security practices. Learn how AccuKnox helps prevent such attacks.
 ---
 
 ## **Introduction**
 
 In a Kubernetes cluster, several attack vectors become possible through the combination of multiple vulnerabilities in the environment. These become the basis for the Hildegard attack to succeed:
 
-+ **Vulnerabilities in Container Image**
+- **Vulnerabilities in Container Image**
 
-    - Malicious Container images pushed to registry which gets deployed on hosts
+  - Malicious Container images pushed to registry which gets deployed on hosts
 
-    - Cryptomining [<a href="https://intezer.com/blog/malware-analysis/teamtnt-cryptomining-explosion/" target="_blank">Ref</a>]
+  - Cryptomining [<a href="https://intezer.com/blog/malware-analysis/teamtnt-cryptomining-explosion/" target="_blank">Ref</a>]
 
-    - Embedded Secrets
+  - Embedded Secrets
 
-    - SSH Keys, AWS Credentials, Github Tokens, NPM tokens, etc.
+  - SSH Keys, AWS Credentials, Github Tokens, NPM tokens, etc.
 
-    - Proxy Avoidance, and many more..
+  - Proxy Avoidance, and many more..
 
-+ **Difficulty of implementing Runtime Security**
+- **Difficulty of implementing Runtime Security**
 
-    - Rogue container reconnaissance
+  - Rogue container reconnaissance
 
-    - Malicious RCE at runtime or Unknown process exec
+  - Malicious RCE at runtime or Unknown process exec
 
-    - Lateral Movement (writable volume mount points on hosts, service account exploitation, etc.)
+  - Lateral Movement (writable volume mount points on hosts, service account exploitation, etc.)
 
-    - Credential Theft (exposure of service account token, credential in config files, write into volume mount point)
+  - Credential Theft (exposure of service account token, credential in config files, write into volume mount point)
 
-    - Execution (maliciousexec into containers, malicious container spin-up, etc.)
+  - Execution (maliciousexec into containers, malicious container spin-up, etc.)
 
-+ **Modern attack vectors are complex and could target Linux Kernel Exploits**
+- **Modern attack vectors are complex and could target Linux Kernel Exploits**
 
-    - [<a href="https://attack.mitre.org/techniques/T1496/" target="_blank">Resource Hijacking</a>] [T1496] for cryptocurrency attacks
+  - [<a href="https://attack.mitre.org/techniques/T1496/" target="_blank">Resource Hijacking</a>] [T1496] for cryptocurrency attacks
 
-+ **Spaghetti of Access Controls**
+- **Spaghetti of Access Controls**
 
-    - Privilege Escalation via unused service account token, write to root certificate bundles etc.
+  - Privilege Escalation via unused service account token, write to root certificate bundles etc.
 
 ## **Exploit**
 
@@ -88,7 +88,7 @@ The above policy makes sure that no process is allowed access to the serviceacco
 
 ### Layer 2
 
-The attacker downloaded ```tmate``` and issued a command to run it, for securing a reverse shell.
+The attacker downloaded `tmate` and issued a command to run it, for securing a reverse shell.
 
 This can be completely prevented by using a whitelisting policy that allows only the necessary processes to make use of network protocols such as the following:
 
@@ -115,7 +115,7 @@ spec:
     Allow
 ```
 
-The above policy will only allow ```wget``` to make use of the TCP and UDP network protocols. ```tmate``` will thus be denied access to use TCP and UDP.
+The above policy will only allow `wget` to make use of the TCP and UDP network protocols. `tmate` will thus be denied access to use TCP and UDP.
 
 A similar policy can be created for any container, listing only the allowed binaries. The creation of these policies is automated using AccuKnox SaaS via Discover Engine.
 
@@ -167,13 +167,13 @@ spec:
   - MITRE_T1565_data_manipulation
 ```
 
-The above policy denies all write access inside the ```/bin/```, ```/sbin/``` and ```/boot/``` directories to prevent the attacker from tampering with the processes.
+The above policy denies all write access inside the `/bin/`, `/sbin/` and `/boot/` directories to prevent the attacker from tampering with the processes.
 
 ### Layer 4
 
-After successfully running ```tmate```, ```xmrig```, and ```ziggy```, the attacker hides them using ```LD_PRELOAD```. In particular, the malware overwrites two functions: ```readdir()``` and ```readdir64()```, which are responsible for returning the directory entries in the file system. This blinds most of the observability tools and container monitoring solutions.
+After successfully running `tmate`, `xmrig`, and `ziggy`, the attacker hides them using `LD_PRELOAD`. In particular, the malware overwrites two functions: `readdir()` and `readdir64()`, which are responsible for returning the directory entries in the file system. This blinds most of the observability tools and container monitoring solutions.
 
-KubeArmor taps the process execution in kernel space and will still be able to identify these processes even after the ```/etc/ld.so.preload``` file is modified to hide them.
+KubeArmor taps the process execution in kernel space and will still be able to identify these processes even after the `/etc/ld.so.preload` file is modified to hide them.
 
 ### Layer 5
 
@@ -210,33 +210,33 @@ spec:
   severity: 1
 ```
 
-The above policy only allows a few processes to be executed - ```ping``` and ```apache2``` other than the shells. Everything else gets denied, making sure that the payload will still get blocked from execution. These policies are auto-generated on the AccuKnox SaaS platform making it much easier to identify the required processes.
+The above policy only allows a few processes to be executed - `ping` and `apache2` other than the shells. Everything else gets denied, making sure that the payload will still get blocked from execution. These policies are auto-generated on the AccuKnox SaaS platform making it much easier to identify the required processes.
 
 ### **Key points**
 
 - **Initial Access**: Misconfigured kubelet allows anonymous access
 
--  Malware attempted to spread over as many containers as possible using service account tokens(Kubelet API) and eventually launched cryptojacking operations.
+- Malware attempted to spread over as many containers as possible using service account tokens(Kubelet API) and eventually launched cryptojacking operations.
 
-    + Service account token access is strictly controlled.
+  - Service account token access is strictly controlled.
 
-    + Allow only specific processes to access the service account token.
+  - Allow only specific processes to access the service account token.
 
-- **Two C&C conns**: Reverse ```tmate``` shell and IRC channel
+- **Two C&C conns**: Reverse `tmate` shell and IRC channel
 
-    + Network access is allowed for known binaries only
+  - Network access is allowed for known binaries only
 
 - Uses a known Linux process name (bioset) to disguise the malicious process.
 
-    + FIM disallows modifications in systems binary folder
+  - FIM disallows modifications in systems binary folder
 
-- ```LD_PRELOAD``` to hide the malicious processes.
+- `LD_PRELOAD` to hide the malicious processes.
 
-    + Process execution is tapped in kernel space
+  - Process execution is tapped in kernel space
 
 - Encrypts the malicious payload inside a binary to make automated static analysis more difficult
 
-    + Process whitelisting and binary tracking audits all the events.
+  - Process whitelisting and binary tracking audits all the events.
 
 ## **Summary**
 

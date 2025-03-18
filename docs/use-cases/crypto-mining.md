@@ -1,6 +1,6 @@
 ---
 title: Cryptojacking
-description: AccuKnox can help protect against cryptominers by blocking specific executables used for mining and thwarting the other generally used techniques for deploying cryptominers.
+description: Protect against cryptominers with AccuKnox by blocking mining executables and thwarting common cryptojacking techniques.
 ---
 
 # Cryptojacking

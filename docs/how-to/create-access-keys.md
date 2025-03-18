@@ -1,6 +1,6 @@
 ---
 title: How to Create Access Keys
-description: This guide helps you to authenticate and authorize your resources securely. Access Keys are used to authenticate and authorize the users to access the AccuKnox SaaS platform. You can create access keys for different users and manage them effectively.
+description: Guide on creating secure access keys in AccuKnox SaaS to authenticate and authorize user access and manage permissions effectively.
 ---
 
 # How to Create Access Keys

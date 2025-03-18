@@ -1,6 +1,6 @@
 ---
 title: Bitbucket Secret Scan
-description: This guide explains integrating AccuKnox Secret Scanning into your Bitbucket CI/CD Pipeline. The integration enhances code security by detecting hard-coded secrets and sensitive information in your repositories. It then uploads the results to the AccuKnox SaaS platform for further analysis and remediation.
+description: Improve code security by detecting hard-coded secrets in Bitbucket pipelines with AccuKnox and uploading results for remediation.
 ---
 
 # Bitbucket Secret Scan

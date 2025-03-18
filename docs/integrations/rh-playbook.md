@@ -1,6 +1,6 @@
 ---
 title: RedHat Marketplace Installation Guide
-description: Step-by-step guide to subscribe to AccuKnox via RedHat Marketplace including actions within the marketplace, subscription and access workflow, post-registration access acquisition, and subsequent steps.
+description: Step-by-step guide to subscribing to AccuKnox via the RedHat Marketplace and managing the post-registration process.
 ---
 
 # RedHat Marketplace Installation Guide

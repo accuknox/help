@@ -1,6 +1,6 @@
 ---
 title: Cluster Onboarding
-description: This is a detailed guide on how to onboard clusters to the AccuKnox SaaS platform. The guide covers the installation of KubeArmor and AccuKnox agents in the cluster to connect to the AccuKnox SaaS application.
+description: Step-by-step guide on onboarding clusters to AccuKnox SaaS, including installing KubeArmor and AccuKnox agents for secure integration.
 ---
 
 # Cluster Onboarding

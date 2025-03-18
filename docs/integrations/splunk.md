@@ -1,6 +1,6 @@
 ---
 title: Splunk Integration
-description: Integrate AccuKnox with Splunk and receive AccuKnox alert notifications in your Splunk account. With this integration, you can automate the process of generating Splunk alerts with your existing security workflow.
+description: Integrate AccuKnox with Splunk to receive and automate alert notifications, enhancing your security workflow. This guide gives you the step-by-step process.
 ---
 
 # Splunk Integration

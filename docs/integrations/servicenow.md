@@ -1,6 +1,6 @@
 ---
 title: ServiceNow Integration
-description: Integrate AccuKnox with ServiceNow and receive AccuKnox alert notifications in your ServiceNow account. With this integration, you can automate the process of generating ServiceNow tickets with your existing security workflow.
+description: Integrate AccuKnox with ServiceNow to automate ticket creation and improve security incident response. This guide gives you the integration process.
 ---
 
 # ServiceNow Integration

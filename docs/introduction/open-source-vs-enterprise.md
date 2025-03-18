@@ -1,6 +1,6 @@
 ---
 title: Open Source vs Enterprise
-description:  A comparison between KubeArmor (Opensource) and AccuKnox (Enterprise) CNAPP solutions and how AccuKnox provides a comprehensive security solution for cloud-native applications.
+description: Compare KubeArmor (Open Source) and AccuKnox (Enterprise) to understand the benefits of a comprehensive security solution.
 ---
 
 ### KubeArmor (Opensource)

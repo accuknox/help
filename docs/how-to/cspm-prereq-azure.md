@@ -1,6 +1,6 @@
 ---
 title: CSPM Pre-requisite for Azure
-description: Pre-requisite for onboarding Azure cloud account to AccuKnox SaaS platform.
+description: Pre-requisites and setup instructions for onboarding Azure cloud accounts to AccuKnox SaaS, ensuring automated security configuration.
 ---
 
 # CSPM Pre-requisite for Azure

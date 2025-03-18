@@ -1,6 +1,6 @@
 ---
 title: AWS Account onboarding
-description: Onboarding an AWS cloud account to the AccuKnox SaaS platform.
+description: Step-by-step instructions for onboarding an AWS cloud account to AccuKnox SaaS for automated security management.
 ---
 
 # AWS Account onboarding

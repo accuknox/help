@@ -1,6 +1,6 @@
 ---
 title: MFA-Enabled Application DAST Scan
-description: This guide demonstrates how to run a Dynamic Application Security Testing (DAST) scan on an MFA-enabled application using GitHub CI/CD workflows. The OWASP Juice Shop, a deliberately vulnerable application, is used as a reference to demonstrate the process and analyze the findings effectively.
+description: Run a DAST scan on MFA-enabled apps with GitHub CI/CD, using OWASP Juice Shop to detect vulnerabilities and analyze security risks.
 ---
 
 # MFA-Enabled Application DAST Scan

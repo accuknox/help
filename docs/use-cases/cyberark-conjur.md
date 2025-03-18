@@ -1,6 +1,6 @@
 ---
 title: CyberArk Conjur Hardening
-description: AccuKnox provides a comprehensive solution to secure CyberArk Conjur in Kubernetes clusters by protecting the access to the volume mount points and preventing unauthorized access to sensitive information and secrets.
+description: Secure CyberArk Conjur in Kubernetes with AccuKnox to protect sensitive information and prevent unauthorized access.
 ---
 
 # CyberArk Conjur Hardening

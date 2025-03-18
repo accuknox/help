@@ -1,6 +1,6 @@
 ---
 title: AWS Code Pipeline - Container Scan
-description:  Demonstrating the benefits of integrating AccuKnox into a CI/CD pipeline using AWS Code Pipeline to enhance security. This is a step-by-step guide to integrate AccuKnox with AWS Code Pipeline for container scanning.
+description: Scan Docker container images in AWS CodePipeline using AccuKnox to automatically identify vulnerabilities and strengthen container security.
 ---
 
 # AWS Code Pipeline - Container Scan

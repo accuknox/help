@@ -1,6 +1,6 @@
 ---
 title: Harness Container Image Scan
-description: Integrate AccuKnox into a Harness pipeline to perform a vulnerability scan of the container image before it is built/deployed. This guide demonstrates how to add the AccuKnox scan stage to the pipeline and configure it to fail the pipeline in case a vulnerability of specified severity/severities is found.
+description: Use AccuKnox’s container scan in Harness to identify vulnerabilities in container images before deployment following this step by step guide.
 ---
 
 # Container Image Scan in Harness Pipeline

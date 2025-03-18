@@ -1,6 +1,6 @@
 ---
 title: Customer Data Backup Guide
-description: This guide provides steps to backup scan results, logs, and alerts from the AccuKnox SaaS platform.
+description: Learn how to back up scan results, logs, and alerts from the AccuKnox SaaS platform to prevent data loss via our Customer Data Backup Guide.
 ---
 
 # Customer Data Backup Guide

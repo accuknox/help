@@ -1,6 +1,6 @@
 ---
 title: Auditing & Log Management
-description: Learn how to audit and manage logs in AccuKnox.
+description:  Learn how to audit and manage logs efficiently using AccuKnox, ensuring compliance, visibility, and security across your environment.
 ---
 
 # **Auditing & Log Management**

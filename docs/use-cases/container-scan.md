@@ -1,6 +1,6 @@
 ---
 title: Container Scan
-description: AccuKnox provides a comprehensive container scanning solution that helps you identify and remediate vulnerabilities in your container images, ensuring that your applications are secure and protected from potential threats.
+description: AccuKnox scans container images to detect and remediate vulnerabilities, ensuring secure and threat-free applications.
 ---
 
 # How to do ASPM Container Scan

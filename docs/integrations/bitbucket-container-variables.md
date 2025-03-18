@@ -1,6 +1,6 @@
 ---
 title: Bitbucket Container Scanning Variables
-description: Variables used in the Bitbucket CI/CD pipeline for container scanning
+description: Configure Bitbucket CI/CD with AccuKnox container scanning variables to identify vulnerabilities in Docker images.
 ---
 
 # Bitbucket Container Scanning Variables

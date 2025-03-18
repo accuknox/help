@@ -1,6 +1,6 @@
 ---
 title: DAST-Driven XSS Mitigation
-description: Dynamic Application Security Testing (DAST) is an essential strategy for identifying vulnerabilities in live applications. This documentation demonstrates how AccuKnox can detect cross site scripting attack using DAST, and how you can remediate the cross site scripting vulnerability.
+description: Use AccuKnox’s DAST to detect and remediate cross-site scripting vulnerabilities in live applications, improving security posture.
 ---
 
 # DAST-Driven XSS Mitigation

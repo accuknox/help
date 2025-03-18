@@ -1,6 +1,6 @@
 ---
 title: Harbor Registry Onboarding
-description: This document provides the steps to onboard Harbor Registry on AccuKnox SaaS.
+description: Step-by-step instructions for onboarding Harbor Registry to AccuKnox SaaS for secure scanning and monitoring of container images.
 ---
 
 # Harbor Registry Onboarding

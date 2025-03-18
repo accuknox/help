@@ -1,6 +1,6 @@
 ---
 title: Registry Scanning Support Matrix
-description: Check out our integration with various container registries, enabling users to onboard their registries. Once onboarded, scanning begins automatically in the background. Upon completion, the findings are populated in the Registry Scan Dashboard.
+description: Learn how to integrate the AccuKnox registry for enhanced Zero Trust CNAPP-based container security and vulnerability management.
 ---
 
 # Registry Scanning Support Matrix

@@ -1,6 +1,6 @@
 ---
 title: Summarized Custom Report
-description: AccuKnox CSPM security tool provides a summarized custom report that includes the details of the risks and vulnerabilities associated with the onboarded resources.
+description: Generate summarized custom reports with details on risks and vulnerabilities across cloud environments using AccuKnox CSPM for better visibility.
 ---
 
 # Summarized Custom Report

@@ -1,6 +1,6 @@
 ---
 title: Container Image Scan with Azure DevOps
-description: A step-by-step guide for integrating AccuKnox container image scan with Azure DevOps. Container image scanning helps you to find vulnerabilities in your container images. By integrating with AccuKnox container image scan you can secure your containers and container images.
+description: Scan Docker images in Azure DevOps pipelines using AccuKnox container scanning to identify and resolve vulnerabilities in containerized environments.
 ---
 
 # Container Image Scan with Azure DevOps

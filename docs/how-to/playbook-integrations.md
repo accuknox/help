@@ -1,4 +1,5 @@
 ---
+description: Guide to integrating AccuKnox with various tools and platforms for enhanced security and automation using the zero trust CNAPP model.
 hide:
   - toc
 ---

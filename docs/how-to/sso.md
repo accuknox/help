@@ -1,6 +1,6 @@
 ---
 title: SSO Login Guide
-description: This guide covers the complete process from inviting a new user to logging in with SSO.
+description: Step-by-step guide on inviting new users and setting up SSO for secure and streamlined login to the AccuKnox SaaS platform.
 ---
 
 # SSO Login Guide

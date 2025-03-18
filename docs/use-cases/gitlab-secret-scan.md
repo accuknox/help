@@ -1,6 +1,6 @@
 ---
 title: Gitlab Secret Scan
-description: This guide walks you through integrating AccuKnox Secret Scanning into your GitLab CI/CD pipeline to improve code security. The integration helps identify hard-coded secrets and sensitive data in your repositories, with scan results uploaded to the AccuKnox SaaS platform for analysis and remediation.
+description: Set up AccuKnox Secret Scanning in GitLab CI/CD to detect and fix hard-coded secrets, ensuring sensitive data is secure and reducing security risks.
 ---
 
 # Gitlab Secret Scan

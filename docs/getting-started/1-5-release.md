@@ -1,6 +1,6 @@
 ---
 title: AccuKnox Release Notes v1.5
-description: A summary log of the new features, enhancements, and bug fixes in AccuKnox v1.5 release.
+description: Learn about the feature enhancements, security updates, and bug fixes introduced in AccuKnox v1.5 for improved cloud security.
 ---
 
 # **Release Notes v1.5**

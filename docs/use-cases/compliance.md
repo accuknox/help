@@ -1,6 +1,6 @@
 ---
 title: GRC (Governance, Risk Management, and Compliance)
-description: AccuKnox CSPM tool provides a comprehensive view of your compliance posture across various industry standards and regulatory requirements. With over 30 compliance programs, CSPM ensures that your cloud environment meets the necessary security standards.
+description: AccuKnox CSPM offers a unified view of compliance posture across 30+ industry standards, ensuring cloud security and compliance.
 hide:
  - toc
 ---

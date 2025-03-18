@@ -1,6 +1,6 @@
 ---
 title: Google Cloud DAST Integration
-description: Integrate AccuKnox into a Google Cloud Build pipeline to identify and remediate vulnerabilities in web applications. Below, we compare the state of the pipeline before and after integrating AccuKnox, highlighting the security improvements.
+description: Integrate AccuKnox DAST into Google Cloud Build to detect and remediate vulnerabilities in web apps, improving pipeline security and reliability.
 ---
 
 # Google Cloud DAST

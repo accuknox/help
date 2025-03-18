@@ -1,6 +1,6 @@
 ---
 title: Checkmarx SAST Integration with AccuKnox
-description: Integrate Checkmarx Static Application Security Testing (SAST) scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
+description: Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipelines and enrich results with metadata for analysis.
 ---
 
 # Checkmarx SAST Integration

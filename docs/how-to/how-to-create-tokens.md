@@ -1,6 +1,6 @@
 ---
 title: How to Create Tokens
-description: This guide on how to create tokens in AccuKnox SaaS platform helps you to authenticate and authorize your resources securely. Tokens are used to authenticate and authorize the users to access the AccuKnox SaaS platform.
+description: Guide on creating tokens in AccuKnox SaaS to securely authenticate and authorize access to various resources and services.
 ---
 
 # How to Create Tokens

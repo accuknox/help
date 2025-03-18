@@ -1,6 +1,6 @@
 ---
 title: OAuth Integration with AccuKnox
-description: The OAuth integration with AccuKnox encompasses authorization (token generation, validation, and expiry) as well as third-party app integration. Our implementation adheres to industry standards and best practices for OAuth.
+description: Set up OAuth integration with AccuKnox for secure authorization, token generation, validation, and third-party app access.
 ---
 
 # OAuth Integration with AccuKnox

@@ -1,6 +1,6 @@
 ---
 title: Introduction to AccuKnox VM Security
-description: Learn about the key objectives, components, and benefits of VM security, and how AccuKnox enhances VM security with CSPM, Host Scanning, Malware Scanning, CWPP, Host Hardening, and Compliance Benchmarking.
+description: Discover how AccuKnox enhances VM security with CSPM, malware scanning, CWPP, host hardening, and compliance tools.
 ---
 
 <style>

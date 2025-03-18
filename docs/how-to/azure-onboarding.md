@@ -1,6 +1,6 @@
 ---
 title: Azure Account onboarding
-description: Onboarding an Azure cloud account to the AccuKnox SaaS platform.
+description: Step-by-step instructions for onboarding an Azure cloud account to AccuKnox SaaS for automated security management.
 ---
 
 # Azure Account onboarding

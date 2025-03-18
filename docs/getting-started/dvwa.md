@@ -1,6 +1,6 @@
 ---
 title: Damn Vulnerable Web Applications
-description: Protecting the DVWA application using AccuKnox CWPP Security solution.
+description: Guide on securing the Damn Vulnerable Web Application (DVWA) using AccuKnox CWPP to identify and block security vulnerabilities.
 ---
 
 # Damn Vulnerable Web Applications

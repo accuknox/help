@@ -1,6 +1,6 @@
 ---
 title: AccuKnox DAST with Azure DevOps
-description: Understand the process of integrating AccuKnox DAST with Azure DevOps. By integrating AccuKnox DAST into the pipeline, you can identify and resolve security vulnerabilities for your applications.
+description: Integrate AccuKnox DAST with Azure DevOps to automate the detection and resolution of runtime vulnerabilities in web applications.
 ---
 
 # AccuKnox DAST with Azure DevOps

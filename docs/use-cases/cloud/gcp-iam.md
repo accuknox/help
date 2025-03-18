@@ -1,6 +1,6 @@
 ---
 title: GCP IAM Security
-description: Learn how to identify and remediate misconfigurations in GCP IAM settings to enhance security and prevent unauthorized access with AccuKnox Cloud Security Posture Management (CSPM).
+description: Enhance GCP IAM security with AccuKnox by detecting and fixing misconfigurations to prevent unauthorized access.
 ---
 
 # GCP IAM Security

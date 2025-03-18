@@ -1,6 +1,6 @@
 ---
 title: Telemetry Logs
-description: Send telemetry logs to AccuKnox CNAPP Solution for comprehensive visibility of the assets.
+description: Send telemetry logs to the AccuKnox CNAPP solution for enhanced asset visibility and improved security monitoring.
 ---
 
 # Telemetry Logs

@@ -1,6 +1,6 @@
 ---
 title: PHP MySQL Web Application
-description: Protecting the PHP MySQL Web Application using AccuKnox CWPP Security solution.
+description: Step-by-step instructions for deploying AccuKnox's on-prem security solution for enhanced data privacy and control.
 ---
 
 

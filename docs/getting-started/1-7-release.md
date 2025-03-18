@@ -1,6 +1,6 @@
 ---
 title: AccuKnox Release Notes v1.7
-description: A summary log of the new features, enhancements, and bug fixes in AccuKnox v1.7 release.
+description: Stay updated with AccuKnox v1.7 release notes, detailing key feature upgrades, security improvements, and resolved issues.
 ---
 
 

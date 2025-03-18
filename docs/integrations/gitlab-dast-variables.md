@@ -1,6 +1,6 @@
 ---
 title: GitLab DAST Variables
-description: Variables for the GitLab CI/CD pipeline to scan web applications for security vulnerabilities.
+description: Variables for GitLab CI/CD pipeline to scan web apps for security vulnerabilities using AccuKnox DAST integration.
 ---
 
 The Dynamic Application Security Testing (DAST) scanning section of the GitLab CI/CD pipeline integrates with AccuKnox for scanning live web applications for security vulnerabilities.

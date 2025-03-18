@@ -1,6 +1,6 @@
 ---
 title: Checkmarx Container Integration with AccuKnox
-description: Integrate Checkmarx Container scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
+description: Use Checkmarx Container scans with AccuKnox in CI/CD pipelines to detect vulnerabilities and enhance security insights.
 ---
 
 # Checkmarx Container Integration

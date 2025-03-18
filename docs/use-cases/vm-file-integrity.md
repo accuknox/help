@@ -1,6 +1,6 @@
 ---
 title: File Integrity Monitoring
-description: This use case demonstrates how to safeguard critical system paths, such as binaries, configuration files, and credential directories, from unauthorized modifications, ensuring system integrity.
+description: Protect critical system paths from unauthorized changes. AccuKnox ensures system integrity with real-time monitoring and alerts.
 ---
 
 # Use Case: File Integrity Monitoring

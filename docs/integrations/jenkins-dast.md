@@ -1,6 +1,6 @@
 ---
 title: Jenkins DAST
-description: Integrate AccuKnox DAST with Jenkins CI/CD pipeline to detect vulnerabilities in web applications.
+description: Integrate AccuKnox DAST with Jenkins CI/CD to detect vulnerabilities in web applications and improve security posture.
 ---
 
 # Jenkins DAST

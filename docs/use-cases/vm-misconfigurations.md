@@ -1,3 +1,7 @@
+---
+title: Misconfiguration of Cloud-Hosted Virtual Machines
+description: Gain full-stack security with AccuKnox’s Zero Trust CNAPP approach, ensuring continuous protection for cloud workloads.
+---
 
 <style>
   .nt-card-title{

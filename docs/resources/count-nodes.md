@@ -1,6 +1,6 @@
 ---
 title: Count Nodes in Kubernetes Cluster
-description: Get the kubernetes node count from your cluster using the kubectl command.
+description: Learn how to retrieve the Kubernetes node count using the kubectl command for cluster monitoring and capacity planning.
 ---
 
 

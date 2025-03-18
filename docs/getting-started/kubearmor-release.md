@@ -1,6 +1,6 @@
 ---
 title: KubeArmor Version Release Blogs
-description: KubeArmor Version Release Blogs for the latest features and updates.
+description: Collection of KubeArmor version release blogs detailing the latest features, improvements, and fixes to enhance security performance.
 ---
 
 ## **KubeArmor Version Release Blogs**
