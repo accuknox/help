@@ -1,4 +1,6 @@
-#### Simulation
+# Managing ICMP Traffic for Enhanced Network Security
+
+## Simulation
 ```sh
 kubectl exec -it nginx-77b4fdf86c-x7sdm -- bash
 root@nginx-77b4fdf86c-x7sdm:/# hping3 www.google.com
@@ -17,7 +19,7 @@ PING google.com (216.58.200.206) 56(84) bytes of data.
 rtt min/avg/max/mdev = 51.917/56.005/60.094/4.088 ms
 ```
 
-#### Expected Alert
+## Expected Alert
 ```
 {
   "Action": "Block",

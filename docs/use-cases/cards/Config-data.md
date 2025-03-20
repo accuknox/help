@@ -1,4 +1,9 @@
-# Config data
+---
+title: Securing Configuration Data with AccuKnox CNAPP
+description: Protect access to configuration data containing plain text credentials.
+---
+
+# Securing Configuration Data with AccuKnox CNAPP
 Protect access to configuration data containing plain text credentials.
 
 ## Narrative
@@ -36,9 +41,9 @@ spec:
 
 With a shell different than the user owning the file:
 ```sh
-$ cat /etc/ca-certificates.conf                                                                                         
-cat: /etc/ca-certificates.conf: Permission denied                                                                       
-$                                                   
+$ cat /etc/ca-certificates.conf
+cat: /etc/ca-certificates.conf: Permission denied
+$
 ```
 
 #### Expected Alert

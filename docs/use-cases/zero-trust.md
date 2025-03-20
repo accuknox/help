@@ -1,5 +1,5 @@
 ---
-title: Zero Trust
+title: Understanding Zero Trust with AccuKnox for Secure Access
 description: AccuKnox provides a comprehensive Zero Trust solution that helps you secure your Kubernetes workloads by enforcing security policies and best practices.
 ---
 

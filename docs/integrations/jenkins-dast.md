@@ -1,9 +1,9 @@
 ---
-title: Jenkins DAST
+title: Setting Up Jenkins DAST with AccuKnox for Code Testing
 description: Integrate AccuKnox DAST with Jenkins CI/CD to detect vulnerabilities in web applications and improve security posture.
 ---
 
-# Jenkins DAST
+# Setting Up Jenkins DAST with AccuKnox for Code Testing
 
 ## Overview
 

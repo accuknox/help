@@ -1,5 +1,5 @@
 ---
-title: IaC Scanning
+title: Infrastructure as Code (IaC) Scanning with AccuKnox
 description: Use AccuKnox to scan and remediate IaC issues in Google Cloud Build, ensuring secure infrastructure deployment by fixing misconfigurations.
 ---
 
