@@ -290,6 +290,7 @@ nav:
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
             - "SAST": "integrations/gitlab-sast.md"
+            - "SAST (Opengrep)": "integrations/gitlab-opengrep.md"
             - "Container Scan": "integrations/gitlab-container-scan.md"
             - "IaC Scan (AccuKnox)": "integrations/gitlab-iac-scan.md"
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
