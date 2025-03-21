@@ -1,11 +1,16 @@
+---
+title: Securely Deleting Logs for Compliance with AccuKnox
+description: Prevent unauthorized deletion of logs and traces of critical components to ensure compliance with security standards.
+---
+
 # Logs delete
 Do not allow external tooling to delete logs/traces of critical components.
 
 ## Narrative
-Adversaries may delete or modify artifacts generated within systems to remove evidence of their presence or hinder defenses. Various artifacts may be created by an adversary or something that can be attributed to an adversary’s actions. Typically these artifacts are used as defensive indicators related to monitored events, such as strings from downloaded files, logs that are generated from user actions, and other data analyzed by defenders. Location, format, and type of artifact (such as command or login history) are often specific to each platform. 
+Adversaries may delete or modify artifacts generated within systems to remove evidence of their presence or hinder defenses. Various artifacts may be created by an adversary or something that can be attributed to an adversary’s actions. Typically these artifacts are used as defensive indicators related to monitored events, such as strings from downloaded files, logs that are generated from user actions, and other data analyzed by defenders. Location, format, and type of artifact (such as command or login history) are often specific to each platform.
 
 ## Attack Scenario
-It's important to note that removal of indicators related to intrusion activity may interfere with event collection, reporting, or other processes used to detect such activity. This can compromise the integrity of security solutions by causing notable events to go unreported. Additionally, this activity may impede forensic analysis and incident response, due to a lack of sufficient data to determine what occurred. It's crucial to ensure that all relevant indicators are properly monitored and reported to prevent such issues from occurring.<br /> **Attack Type** Integrity Threats, Data Manipulation **Actual Attack** NetWalker, Conti, DarkSide RaaS 
+It's important to note that removal of indicators related to intrusion activity may interfere with event collection, reporting, or other processes used to detect such activity. This can compromise the integrity of security solutions by causing notable events to go unreported. Additionally, this activity may impede forensic analysis and incident response, due to a lack of sufficient data to determine what occurred. It's crucial to ensure that all relevant indicators are properly monitored and reported to prevent such issues from occurring.<br /> **Attack Type** Integrity Threats, Data Manipulation **Actual Attack** NetWalker, Conti, DarkSide RaaS
 
 ## Compliance
 - CIS Distribution Independent Linuxv2.0

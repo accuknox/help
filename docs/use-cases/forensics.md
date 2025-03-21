@@ -1,5 +1,5 @@
 ---
-title: Forensics
+title: Forensic Analysis of Security Events Using AccuKnox
 description: AccuKnox provides forensic analysis to identify security incidents' root causes and offers insights into security-sensitive activities.
 ---
 

@@ -1,4 +1,8 @@
-# Ensure TLS
+---
+title: Enforcing TLS Encryption for Secure Communications
+description: Ensure that all service endpoints are using the right TLS and certificate configuration.
+---
+# Enforcing TLS Encryption for Secure Communications
 Ensure that all service endpoints are using the right TLS and certificate configuration.
 
 ## Description

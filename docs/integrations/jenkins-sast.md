@@ -1,9 +1,9 @@
 ---
-title: Jenkins SAST
+title: Setting Up Jenkins SAST with AccuKnox for Code Security
 description: Integrate AccuKnox SAST with Jenkins CI/CD pipeline to detect security vulnerabilities in source code.
 ---
 
-# Jenkins SAST
+# Setting Up Jenkins SAST with AccuKnox for Code Security
 
 The **AccuKnox SAST Jenkins Plugin** simplifies integrating SonarQube-based Static Application Security Testing (SAST) with Jenkins pipelines. This plugin facilitates fetching project-specific reports from SonarQube and sending the results to AccuKnox SaaS for centralized investigation and analysis.
 

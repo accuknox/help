@@ -1,9 +1,9 @@
 ---
-title: Host Security Scan
+title: Running Host Security Scans with AccuKnox Tooling Host Security Scan
 description: AccuKnox integrates with Nessus, Masscan, and Zeek to identify issues in on-premise hosts, enhancing overall security and compliance.
 ---
 
-# Host Security Scan
+# Running Host Security Scans with AccuKnox Tooling
 
 AccuKnox provides host scanning capabilities through an integration with tools like Nessus
 

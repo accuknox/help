@@ -1,4 +1,9 @@
-# FIM
+---
+title: File Integrity Monitoring (FIM) with AccuKnox
+description: With KubeArmor, one can not only monitor for changes but also block any write attempts in such system folders. Compliance frameworks such as PCI-DSS, NIST, and CIS expect FIM to be in place.
+---
+
+# File Integrity Monitoring (FIM) with AccuKnox
 File Integrity Monitoring
 
 ## Narrative

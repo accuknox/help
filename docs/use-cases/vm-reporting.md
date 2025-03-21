@@ -1,5 +1,5 @@
 ---
-title: Reporting
+title: Generating VM Security Reports with AccuKnox Dashboard
 description: Generate detailed security reports for VMs on demand or on a schedule. Track violations, analyze risks, and ensure compliance with ease.
 ---
 

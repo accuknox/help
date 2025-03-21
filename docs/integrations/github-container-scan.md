@@ -1,7 +1,9 @@
 ---
-title: Integrating Container Scanning with AccuKnox in a GitHub CI/CD Pipeline
+title: Setting Up Container Scanning in GitHub CI/CD Pipeline
 description: Learn how to integrate container scanning with AccuKnox in a GitHub CI/CD pipeline to identify and remediate vulnerabilities in Docker images.
 ---
+
+# Setting Up Container Scanning in GitHub CI/CD Pipeline
 
 In this guide, we demonstrate how to incorporate AccuKnox's container scanning capabilities into a GitHub Actions workflow. The process ensures that vulnerabilities in Docker images are identified and remediated before deployment, significantly improving the security posture of your CI/CD pipeline.
 

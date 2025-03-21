@@ -1,9 +1,9 @@
 ---
-title: Harness SAST
+title: Integrating Harness SAST with AccuKnox CNAPP
 description: Automate SAST in Harness pipelines with AccuKnox to detect vulnerabilities and improve security posture following this step by step guide.
 ---
 
-# Harness SAST
+# Integrating Harness SAST with AccuKnox CNAPP
 
 This document outlines the steps to integrate AccuKnox SAST scanning into the Harness Pipeline. This will allow automating the scan to be triggered on events. The results from the scan will then be visible on the AccuKnox platform for management and resolution.
 

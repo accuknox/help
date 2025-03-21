@@ -1,7 +1,9 @@
 ---
-title: Hildegard
+title: Detecting and Mitigating Hildegard Attacks with AccuKnox
 description: Hildegard exploits vulnerabilities from non-compliance with security practices. Learn how AccuKnox helps prevent such attacks.
 ---
+
+# Detecting and Mitigating Hildegard Attacks with AccuKnox
 
 ## **Introduction**
 
