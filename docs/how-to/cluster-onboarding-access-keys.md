@@ -15,7 +15,7 @@ Streamlining cluster onboarding is made easy with access keys, allowing users to
 
 3. One or more clusters to onboard
 
-4. Access Key ( see how to [create](https://help.accuknox.com/how-to/create-access-keys/ "https://help.accuknox.com/how-to/create-access-keys/"))
+4. Access Key (See how to [create](https://help.accuknox.com/how-to/create-access-keys/ "https://help.accuknox.com/how-to/create-access-keys/"))
 
 ## Onboarding
 
@@ -23,14 +23,14 @@ In the case of the Access key onboarding method, the User can directly onboard t
 
 ### Step1: Install KubeArmor
 
-`curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin`
-
-`karmor install`
+```cmd
+curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
+karmor install
+```
 
 Output:
 
 ```cmd
-$curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
 kubearmor/kubearmor-client info checking GitHub for latest tag
 kubearmor/kubearmor-client info found version: 1.3.0 for v1.3.0/linux/amd64
 kubearmor/kubearmor-client info installed /usr/local/bin/karmor
@@ -77,15 +77,15 @@ helm upgrade --install agents oci://registry-1.docker.io/accuknox/accuknox-agent
         --set knoxGateway="knox-gw.demo.accuknox.com:3000" \
         --set tokenURL="cwpp.demo.accuknox.com" \
         --set clusterName="accuknoxcluster" \
-        --set accessToken="<token>" \
+        --set accessKey="<token>" \
         -n accuknox-agents --create-namespace
 ```
 
 !!! info "Note"
-    In the commands above, substitute **--set clusterName** with the desired cluster name, and replace the token with the **Access Keys** generated from UI.
+    In the commands above, substitute **--set clusterName** with the desired cluster name, and replace the ```<token>``` with the **Access Keys** generated from UI. Adjust the URLs if required
 
 !!! info "Note"
-    Please check for the --version "v0.0.0" from the UI steps of cluster onboarding to make sure you are using the latest image tags
+    Please check for the value of --version "v0.0.0" from the UI steps of cluster onboarding to make sure you are using the latest image tags
 
 
 #### Output
@@ -104,9 +104,11 @@ TEST SUITE: None
 
 To verify please use
 
-`kubectl get po -n accuknox-agents`
+```cmd
+kubectl get po -n accuknox-agents
+```
 
-After installing all the AccuKnox agents the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory-> Clusters
+After installing all the AccuKnox agents, the cluster is onboarded successfully into the SaaS application. We can see the workload details of the onboarded cluster by Navigating to Inventory-> Clusters
 
 ![image-20250102-134403.png](./images/cluster-onboarding-access-keys/1.png)
 
@@ -115,4 +117,4 @@ After installing all the AccuKnox agents the cluster is onboarded successfully i
 ![image-20250102-134439.png](./images/cluster-onboarding-access-keys/2.png)
 
 !!! info "Note"
-    You can repeat the same command with different **"cluster-names"** to onboard multiple cluster using access keys
+    You can repeat the same command with different **"clusterName"** to onboard multiple cluster using access keys
