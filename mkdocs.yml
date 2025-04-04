@@ -287,6 +287,7 @@ nav:
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
             - "DAST": "integrations/github-dast.md"
+            - "Secret Scanning with Github Actions": "integrations/github-actions-secret-scan.md"
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
             - "SAST": "integrations/gitlab-sast.md"
@@ -361,6 +362,7 @@ nav:
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
     - "Secrets Scan":
+      - "GitHub": "use-cases/github-secret-scan.md"
       - "Azure DevOps": "use-cases/azure-secret-scan.md"
       - "Bitbucket": "use-cases/bitbucket-secret-scan.md"
       - "Jenkins": "use-cases/jenkins-secret-scan.md"
