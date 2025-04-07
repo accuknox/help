@@ -350,6 +350,8 @@ nav:
       - "Rsyslog" : "integrations/rsyslog.md"
       - "Rsyslog Feeder Integration" : "integrations/rsyslog_feeder_integration.md"
       - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+    - "SSO":
+      - "Azure Entra": "integrations/azure-entra-sso.md"
     - "Notification":
       - "Slack": "integrations/slack.md"
       - "Email": "integrations/email.md"
