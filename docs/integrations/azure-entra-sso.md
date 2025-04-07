@@ -21,8 +21,7 @@ This guide helps you integrate Azure Entra (formerly Azure Active Directory) wit
 
 4. **Name**: Any meaningful name (e.g., `AccuKnox SSO`)
 
-5. **Supported account types**: Choose **Single tenant
-
+5. **Supported account types**: Choose **Single tenant**
 6. **Redirect URI**:
 Type: `Web`
 URI: `https://cspm.accuknox.com/oidc/callback`
