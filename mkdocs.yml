@@ -274,6 +274,7 @@ nav:
           - "Secret Scan": "integrations/jenkins-secret-scan.md"
           - "Pipeline Script":
             - "SAST": "integrations/jenkins-sast-script.md"
+            - "DAST": "integrations/jenkins-dast-script.md"
         - "AWS Code Pipeline":
           - "Overview": "integrations/aws-overview.md"
           - "SAST": "integrations/aws-sast.md"
