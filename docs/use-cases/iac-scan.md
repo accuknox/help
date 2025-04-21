@@ -94,52 +94,52 @@ Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push 
 
 After integrating AccuKnox into your CI/CD pipeline, the next push triggers the GitHub Actions workflow. The AccuKnox scan identifies the misconfiguration with the S3 bucket:
 
-![](images/iac-scan-images/3.png)
-![](images/iac-scan-images/11.png)
+![iac-scans-accuknox](images/iac-scan-images/3.png)
+![iac-scans-accuknox](images/iac-scan-images/11.png)
 
 #### Under Github Actions
 
 Go into Actions; under "All Workflows," you will be able to see all the instances when the workflow ran and the results that were sent over to the AccuKnox SaaS platform.
 
-![](images/iac-scan-images/4.png)
+![iac-scans-accuknox](images/iac-scan-images/4.png)
 
 Click on the latest workflow run, and you will be able to see all the steps that were executed under the workflow.
 
-![](images/iac-scan-images/5.png)
+![iac-scans-accuknox](images/iac-scan-images/5.png)
 
 Under Workflow there is "Run IaC scan" step, clicking on the "Run IaC scan” user will be able to see the scan results, including which checks have failed or passed.
 
-![](images/iac-scan-images/6.png)
+![iac-scans-accuknox](images/iac-scan-images/6.png)
 
 The image below shows the check for CKV_AWS_18:
 
-![](images/iac-scan-images/3.png)
+![iac-scans-accuknox](images/iac-scan-images/3.png)
 
 #### Under AccuKnox SaaS
 
 Once the scan is complete, users will be able to go into the AccuKnox SaaS platform and navigate to Issues → Findings, where they can find misconfigurations in their Infrastructure as Code.
 
-![](images/iac-scan-images/7.png)
+![iac-scans-accuknox](images/iac-scan-images/7.png)
 
 The user needs to select "IaC Scan" from the data type filter next to the findings.
 
-![](images/iac-scan-images/8.png)
-![](images/iac-scan-images/9.png)
+![iac-scans-accuknox](images/iac-scan-images/8.png)
+![iac-scans-accuknox](images/iac-scan-images/9.png)
 Users can search for their repository or findings from the search bar.
 
-![](images/iac-scan-images/10.png)
+![iac-scans-accuknox](images/iac-scan-images/10.png)
 
 Clicking on the misconfiguration opens up the ticket creation dialog box.
 
-![](images/iac-scan-images/11.png)
+![iac-scans-accuknox](images/iac-scan-images/11.png)
 
 Clicking on the arrow above will redirect you to a new page that provides detailed information and solutions regarding the misconfiguration.
 
-![](images/iac-scan-images/12.png)
+![iac-scans-accuknox](images/iac-scan-images/12.png)
 
 The image below shows details, solutions, and other information about the misconfiguration.
 
-![](images/iac-scan-images/13.png)
+![iac-scans-accuknox](images/iac-scan-images/13.png)
 
 ### 5. Resolution: You update the Terraform code to address the AccuKnox IaC Scan findings
 
@@ -166,7 +166,7 @@ resource "aws_s3_bucket" "my_bucket" {
 
 In the next scan ensure the S3 bucket has access logging enabled will not shown up in the logs.
 
-![](images/iac-scan-images/15.png)
+![iac-scans-accuknox](images/iac-scan-images/15.png)
 
 ### 6. Final Outcome
 

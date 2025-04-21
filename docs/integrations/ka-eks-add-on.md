@@ -12,7 +12,7 @@ In this article you will understand how to install KubeArmor on your EKS cluster
 
 Once you've subscribed to Kubearmor on AWS Marketplace and completed the on-screen setup, you'll be directed to the Amazon EKS console. To begin in the Amazon EKS console, navigate to your EKS clusters and click on the "Add-ons" tab. From there, select "Get more add-ons" to locate the KubeArmor EKS add-ons in the cluster settings of your existing EKS clusters. You can use the search bar to find "KubeArmor" and then follow the on-screen instructions to enable the Kubearmor add-on for your Amazon EKS cluster.
 
-![](images/ka-eks-add-on-0.png)
+![eks-add-on](images/ka-eks-add-on-0.png)
 
 ## From AWS-CLI
 

@@ -4,6 +4,7 @@ description: Set up OAuth integration with AccuKnox for secure authorization, to
 ---
 
 # OAuth Integration with AccuKnox
+
 The OAuth integration with AccuKnox encompasses authorization (token generation, validation, and expiry) as well as third-party app integration. Our implementation adheres to industry standards and best practices for OAuth. It also ensures seamless integration of AccuKnox APIs.
 
 AccuKnox provides Oauth flow that will enable the client to access the AccuKnox APIs securely. AccuKnox APIs request an internal query and provide JWT tokens for the third-party apps without any hassle of MFA.
@@ -58,15 +59,15 @@ To ensure a robust layer of security, AccuKnox utilizes access and refresh token
 
 - Users grant permission to third-party apps, which redirects them to AccuKnox for authentication and authorization.
 
-   ![](images/oauth/oauth-0.png)
+  ![oauth-integration-accuknox](images/oauth/oauth-0.png)
 
 - Enter the MFA code
 
-    ![](images/oauth/oauth-1.png)
+  ![oauth-integration-accuknox](images/oauth/oauth-1.png)
 
 - Select the Tenant you want to authorize to the Third Party Application
 
-   ![](images/oauth/oauth-2.png)
+  ![oauth-integration-accuknox](images/oauth/oauth-2.png)
 
 **4.Token Issuance:**
 
@@ -107,4 +108,5 @@ With these tokens in hand, users can securely make API calls to AccuKnox, thereb
 - For CSPM: <https://cspm.dev.accuknox.com/api/swagger/>
 
 ---
+
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

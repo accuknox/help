@@ -1,11 +1,11 @@
 
-## **Logs:**
+# Logs
 
 AccuKnox CNAPP Solution provides comprehensive visibility of the cloud assets with the help of Dashboards and logs/alerts. AccuKnox’s open source KubeArmor can forward policy related logs/alerts to the SaaS. Also it can forward the container logs that is present in the workloads. We can also use Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., User can also forward the logs from AccuKnox SaaS using the channel integration option to these SIEM tools.
 
 The Logs summary in AccuKnox displays a complete list of log events that have occurred within the infrastructure during a defined timeline.
 
-![](images/logs-dash.png)
+![logs-accuknox](images/logs-dash.png)
 
 It provides an interface to:
 
@@ -19,7 +19,7 @@ Sent customized alerts to third-party SIEM (security information and event manag
 
 Logs are generated in real-time based on certain conditions/rules you configure on the security policies. You will get logs from four different components
 
-![](images/logs-1.png)
+![logs-accuknox](images/logs-1.png)
 
 
 **K8s-cluster/VM**
@@ -40,16 +40,16 @@ As in the rest of the platform interface, the time range can be set by date rang
 **Filter using elements from the log events list**
 Click one or more elements in a log event to add them directly to the filter.
 
-![](images/logs-filter.png)
+![logs-accuknox](images/logs-filter.png)
 
 
 Click Save button, to save the selected filter to Saved Filters
 
-![](images/save-filter.png)
+![logs-accuknox](images/save-filter.png)
 
 When the user fills the details and clicks the create option the filter will be saved.
 
-![](images/logs-saved-filter.png)
+![logs-accuknox](images/logs-saved-filter.png)
 
 **Directly search elements in the filter**
 You can directly search by the elements, such as “Cluster_name”, “Flow_IP_destination” etc visible in the logs.
@@ -70,7 +70,7 @@ Click one of the events in the log to view the details pane.
 
 The Log Detail contents vary depending on the selected component type of the log event.
 
-![](images/logs-panel.png)
+![logs-accuknox](images/logs-panel.png)
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -647,7 +647,7 @@ description: Get the count of AWS assets such as EC2 instances, S3 buckets, VPCs
     ```
     ## Sample Output
 
-    ![](images/azure-count.png)
+    ![asset-count](images/azure-count.png)
 
 ??? "**GCP**"
 
@@ -697,4 +697,4 @@ description: Get the count of AWS assets such as EC2 instances, S3 buckets, VPCs
     ```
     ## Sample Output
 
-    ![](images/gcp-count.png)
+    ![asset-count](images/gcp-count.png)

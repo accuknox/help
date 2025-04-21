@@ -121,6 +121,6 @@ Imagine an attacker deploys a cryptomining binary like `xmrig` in the `/tmp/` di
 
     - Alerts with severity 10 are visible on the SaaS platform, displaying specific details about the attempted action and the policy triggered.
 
-![](./images/vm-crypto-miners/1.png)
+![vm-crypto-miners](./images/vm-crypto-miners/1.png)
 
-![](./images/vm-crypto-miners/2.png)
+![vm-crypto-miners](./images/vm-crypto-miners/2.png)

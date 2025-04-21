@@ -6,7 +6,7 @@ description: Enhance CI/CD security in Google Cloud Build by integrating AccuKno
 # Google Cloud Build Integration
 To demonstrate the benefits of integrating AccuKnox into a CI/CD pipeline using Google Cloud Build to enhance security, let's consider a specific case involving a container image with known vulnerabilities. By incorporating AccuKnox scanning into the pipeline, we can identify and resolve these vulnerabilities before deploying the image. The detailed example below outlines this process by comparing the scenarios before and after the inclusion of AccuKnox, as evidenced in the Cloud Build logs.
 
-![](images/google-build/google-build.png)
+![google-build-integration-accuknox](images/google-build/google-build.png)
 
 ## **Scenario Before Integrating AccuKnox**
 
@@ -104,7 +104,7 @@ AccuKnox Scan has halted the deployment because it detected critical vulnerabili
 
 AccuKnox carefully analyzed the image and found critical and high-severity vulnerabilities. Based on these findings, the workflow stopped and prevented the vulnerable image from being deployed.
 
-![](images/google-build/failed-img-build.png)
+![google-build-integration-accuknox](images/google-build/failed-img-build.png)
 
 ### **Remediation and Rescan**
 
@@ -149,7 +149,7 @@ DONE
 
 After addressing the vulnerabilities, the AccuKnox scan approved the updated image, allowing it to be safely pushed to the registry. This example highlights the importance of including vulnerability scanning in the pipeline. It prevents insecure images from being deployed to production, ensuring that only secure images are allowed.
 
-![](images/google-build/suces-img-build.png)
+![google-build-integration-accuknox](images/google-build/suces-img-build.png)
 
 ## **AccuKnox Container scan integration with Google Cloud Build Pipeline**
 
@@ -177,7 +177,7 @@ We’ll follow a basic “image scanning for Google Cloud Build” example proje
 
 4. **Push** the container image to a registry.
 
-![](images/google-build/img-scan-flow.png)
+![google-build-integration-accuknox](images/google-build/img-scan-flow.png)
 
 ### **Steps for integration**
 
@@ -245,27 +245,27 @@ substitutions:
 
 **Step 3**: Once the scan is complete, the user will be able to go into the AccuKnox SaaS and navigate to **Issues** → **Registry Scan** where they can find their repository name and select it to see the findings associated with it.
 
-![](images/google-build/registry-scan.png)
+![google-build-integration-accuknox](images/google-build/registry-scan.png)
 
 **Step 4**: After clicking on the image name, the user will be able to see the metadata for the image that was built during the workflow execution.
 
-![](images/google-build/img-scan-details.png)
+![google-build-integration-accuknox](images/google-build/img-scan-details.png)
 
 **Step 5**: In the **Vulnerabilities** section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in **Issues** → **Vulnerabilities** section where the user can manage these findings with others as well.
 
-![](images/google-build/img-scan-cve.png)
+![google-build-integration-accuknox](images/google-build/img-scan-cve.png)
 
 **Step 6**: The **Resources** section contains information about packages and modules that were used to build the code base into a container image.
 
-![](images/google-build/img-rsc.png)
+![google-build-integration-accuknox](images/google-build/img-rsc.png)
 
 **Step 7**: The **Sensitive Data** section contains information about any secrets or credentials that might be exposed in the image.
 
-![](images/google-build/sens-data.png)
+![google-build-integration-accuknox](images/google-build/sens-data.png)
 
 **Step 8**: The user can see the scan history of every scan that happened while pushing any changes to the repo.
 
-![](images/google-build/img-scan-hist.png)
+![google-build-integration-accuknox](images/google-build/img-scan-hist.png)
 
 ## **Conclusion**
 

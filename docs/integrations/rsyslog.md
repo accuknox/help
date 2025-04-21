@@ -22,7 +22,7 @@ To forward the events to RSyslog you must first set up the RSyslog Integration.
 + Go to Settings → Integrations → CWPP(Tab).
 + Click integrate now on RSyslog.
 
-![](images/rsys-int.png)
+![rsyslog](images/rsys-int.png)
 
 + Fill up the following fields:
     + **Integration Name:** Enter the name for the integration. You can set any name of your choice. e.g., ``` Container Security Alerts ```

@@ -5,7 +5,7 @@ description: AccuKnox CNAPP will be hosted in our cloud environment and the agen
 
 In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS.
 
-![](images/accuknox-architecture.png)
+![accuknox-arch](images/accuknox-architecture.png)
 
 ## AccuKnox Agents
 

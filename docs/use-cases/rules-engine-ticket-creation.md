@@ -18,7 +18,7 @@ A ticketing platform integrated to AccuKnox with a ticketing configuration creat
 ## Steps to set up Automated Ticket Creation
 
 **Step 1:** Log in to the AccuKnox platform and navigate to Issues → Findings
-![](./images/rules-engine-ticket-creation/1.png)
+![rules-engine-ticket-creation](./images/rules-engine-ticket-creation/1.png)
 
 **Step 2:** Hover over to **Rule Engine** in Findings (Issues>Findings>Rule Engine)
 ![image-20241001-182655.png](./images/rules-engine-ticket-creation/2.png)

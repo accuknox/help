@@ -47,7 +47,7 @@ Copy the Tenant Id and click on **Copy** to fetch the API token. These values wi
 
 Navigate to Project Settings → Click on **Secrets**
 
-![](./images/harness-sast/4.png)
+![harness-sast-accuknox](./images/harness-sast/4.png)
 
 Select **New Secret** and click on **Text** in the dropdown
 

@@ -5,7 +5,6 @@ description: Learn about common misconfigurations in Google Cloud Platform (GCP)
 
 # VM Security Misconfigurations on Google Cloud Platform (GCP)
 
-
 ## IAM Security
 
 ### **Common Misconfigurations in GCP IAM**
@@ -37,43 +36,39 @@ An attacker identifies a service account with admin privileges, either through d
 
 3. **Review Findings:** Analyze the identified findings to assess the risk associated with excessive permissions in service accounts that are not restricted properly.
 
-
-
 ![image-20241220-091323.png](./images/vm-misconfigurations/gcp1.png)
 
 ### **Remediation Steps for Service Account Admin**
 
 1. **Identify the Finding:**
-    Locate the findings related to misconfigured service accounts with excessive permissions (e.g., Service Account Admin).
+   Locate the findings related to misconfigured service accounts with excessive permissions (e.g., Service Account Admin).
 
 2. **Create a Ticket:**
-    Create a ticket to track the remediation process and ensure visibility of the issue.
+   Create a ticket to track the remediation process and ensure visibility of the issue.
 
 3. **Follow Remediation Guidance:**
 
-    - **Service Account Admin:**
-        Remove unnecessary admin, owner, or write privileges from service accounts. Apply the principle of least privilege to limit access only to the necessary resources.
+   - **Service Account Admin:**
+     Remove unnecessary admin, owner, or write privileges from service accounts. Apply the principle of least privilege to limit access only to the necessary resources.
 
-    - **Verify Resolution:**
-        Confirm that the issue has been remediated by reviewing updated IAM roles, service account configurations in the AccuKnox portal.
-
-
+   - **Verify Resolution:**
+     Confirm that the issue has been remediated by reviewing updated IAM roles, service account configurations in the AccuKnox portal.
 
 ![image-20241219-073652.png](./images/vm-misconfigurations/gcp2.png)
 
 ### **Best Practices for GCP IAM Security**
 
 - **Apply Least Privilege:**
-    Always ensure that service accounts and IAM roles are granted the minimum permissions required for their tasks. Avoid granting admin or owner roles unless absolutely necessary.
+  Always ensure that service accounts and IAM roles are granted the minimum permissions required for their tasks. Avoid granting admin or owner roles unless absolutely necessary.
 
 - **Regularly Audit IAM Roles and Service Accounts:**
-    Continuously review and audit IAM roles and permissions to ensure compliance with the principle of least privilege. Regularly check service account configurations to ensure they have appropriate, minimal access.
+  Continuously review and audit IAM roles and permissions to ensure compliance with the principle of least privilege. Regularly check service account configurations to ensure they have appropriate, minimal access.
 
 - **Monitor IAM Security Continuously:**
-    Use **AccuKnox CSPM** to continuously monitor IAM configurations and detect any misconfigurations, excessive permissions, or unauthorized access attempts.
+  Use **AccuKnox CSPM** to continuously monitor IAM configurations and detect any misconfigurations, excessive permissions, or unauthorized access attempts.
 
 - **Enable Multi-Factor Authentication (MFA):**
-    Enable MFA for all IAM users and service accounts with access to critical resources to add an extra layer of protection.
+  Enable MFA for all IAM users and service accounts with access to critical resources to add an extra layer of protection.
 
 By proactively managing IAM configurations, limiting permissions, and applying security best practices, organizations can significantly reduce the risks associated with misconfigured IAM roles and service accounts in GCP, ensuring a secure and compliant cloud environment.
 
@@ -106,43 +101,39 @@ All ports are open to the public, allowing an attacker to probe the environment 
 
 3. **Review Findings:** Analyze the identified findings related to open ports, and SSH misconfigurations. Assess the risk associated with each finding.
 
-
-
 ![image-20241220-121449.png](./images/vm-misconfigurations/gcp3.png)
 
 ### **Remediation Steps for Network Security Issues**
 
 1. **Identify the Finding:**
-    Locate the findings related to publicly exposed open ports.
+   Locate the findings related to publicly exposed open ports.
 
 2. **Create a Ticket:**
-    Create a ticket to track the remediation process and assign the appropriate team for resolution.
+   Create a ticket to track the remediation process and assign the appropriate team for resolution.
 
 3. **Follow Remediation Guidance:**
 
-    - **All Ports Open to the Public:**
-        Restrict unnecessary ports, allowing access only from specific, trusted IP addresses or networks. Review the firewall and network access control lists (ACLs) regularly.
+   - **All Ports Open to the Public:**
+     Restrict unnecessary ports, allowing access only from specific, trusted IP addresses or networks. Review the firewall and network access control lists (ACLs) regularly.
 
 4. **Verify Resolution:**
-    Confirm that the misconfigurations have been remediated by reviewing updated firewall rules and network configurations access settings.
-
-
+   Confirm that the misconfigurations have been remediated by reviewing updated firewall rules and network configurations access settings.
 
 ![image-20241227-101339.png](./images/vm-misconfigurations/gcp4.png)
 
 ### **Best Practices for GCP Network Security**
 
 - **Limit Public Access to Critical Ports:**
-    Restrict access to sensitive ports to known IP addresses or trusted networks. Ensure that only necessary services are exposed to the internet.
+  Restrict access to sensitive ports to known IP addresses or trusted networks. Ensure that only necessary services are exposed to the internet.
 
 - **Use Firewalls and ACLs:**
-    Continuously configure and audit firewall rules and network access control lists (ACLs) to block unnecessary ports and limit access based on IP address or range.
+  Continuously configure and audit firewall rules and network access control lists (ACLs) to block unnecessary ports and limit access based on IP address or range.
 
 - **Monitor Network Security Continuously:**
-    Use AccuKnox CSPM to monitor your network security continuously for any misconfigurations or unauthorized access attempts, ensuring timely remediation.
+  Use AccuKnox CSPM to monitor your network security continuously for any misconfigurations or unauthorized access attempts, ensuring timely remediation.
 
 - **Implement Zero Trust Networking:**
-    Adopt a zero-trust model for your network by verifying every connection, ensuring that only authenticated and authorized users or devices can access resources.
+  Adopt a zero-trust model for your network by verifying every connection, ensuring that only authenticated and authorized users or devices can access resources.
 
 ## **Project level SSH for VM**
 
@@ -162,8 +153,6 @@ Project-wide SSH keys introduce several risks:
 
 An attacker obtains a project-wide SSH private key due to weak key management practices. With the compromised key, they gain access to all virtual machines (VMs) in the project. This access allows the attacker to exfiltrate data, deploy malware, or disrupt operations across multiple instances simultaneously.
 
-
-
 ![image-20241227-120248.png](./images/vm-misconfigurations/gcp5.png)
 
 ### How to Identify and Remediate Project-Wide SSH Keys with AccuKnox
@@ -180,25 +169,23 @@ An attacker obtains a project-wide SSH private key due to weak key management pr
 
 1. **Identify Affected Projects**: Use the GCP console or CLI to check for projects with SSH keys enabled.
 
-    `gcloud compute project-info describe --project=<project-id>`
+   `gcloud compute project-info describe --project=<project-id>`
 
-    Look for `commonInstanceMetadata` and verify if the `ssh-keys` metadata field is present.
+   Look for `commonInstanceMetadata` and verify if the `ssh-keys` metadata field is present.
 
 2. **Remove Project-Wide SSH Keys**:
 
-    `gcloud compute project-info remove-metadata --project=<project-id> --keys=ssh-keys`
+   `gcloud compute project-info remove-metadata --project=<project-id> --keys=ssh-keys`
 
 3. **Implement Instance-Specific Keys**: Configure SSH keys at the instance level to limit access scope.
 
-    `gcloud compute instances add-metadata <instance-name> --metadata ssh-keys="<username>:<public-key>"`
+   `gcloud compute instances add-metadata <instance-name> --metadata ssh-keys="<username>:<public-key>"`
 
 4. **Adopt IAM-Based Access**: Use IAM roles and OS Login to manage SSH access securely.
 
-    `gcloud compute project-info add-metadata --metadata enable-oslogin=TRUE`
+   `gcloud compute project-info add-metadata --metadata enable-oslogin=TRUE`
 
-
-
-    ![](./images/vm-misconfigurations/gcp6.png)
+   ![vm-misconfig-gcp](./images/vm-misconfigurations/gcp6.png)
 
 ### Best Practices to Avoid Project-Wide SSH Key Risks
 
@@ -232,8 +219,6 @@ Unused compute disks pose several risks:
 
 An organization forgets to delete disks after decommissioning several virtual machines (VMs). An attacker with access to the cloud account identifies these unattached disks, mounts them to their own instances, and extracts sensitive data, leading to a data breach.
 
-
-
 ![image-20241227-121047.png](./images/vm-misconfigurations/gcp7.png)
 
 ### How to Identify and Remediate Unused Compute Disks with AccuKnox
@@ -250,7 +235,7 @@ An organization forgets to delete disks after decommissioning several virtual ma
 
 1. **List Unattached Disks**: Use GCP's CLI to list unattached disks:
 
-    `gcloud compute disks list --filter="users=[]"`
+   `gcloud compute disks list --filter="users=[]"`
 
 2. **Evaluate Disk Usage**: Review each unattached disk to determine if it contains critical data.
 
@@ -258,7 +243,7 @@ An organization forgets to delete disks after decommissioning several virtual ma
 
 4. **Delete Unused Disks**:
 
-    `gcloud compute disks delete <disk-name>`
+   `gcloud compute disks delete <disk-name>`
 
 5. **Implement Policies for Disk Management**: Use labels to track disk ownership and automate cleanup processes.
 

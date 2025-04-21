@@ -15,12 +15,12 @@ To set up this integration, you need to coordinate with your Jira administrator 
 + You need a Jira Site URL , Email, UserID & API token, Project key for this integration.
 + To create JIRA token go to https://id.atlassian.com/manage-profile/security/api-tokens, and click on **create API token**.
 
-![](images/jira-api1.png)
+![jira-cloud-integration-accuknox](images/jira-api1.png)
 
 + Add a label to identify the token.
 + Click Create to generate token.
 
-![](images/jira-api2.png)
+![jira-cloud-integration-accuknox](images/jira-api2.png)
 
 ??? "JIRA integration for CWPP"
 
@@ -28,7 +28,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
     + Go to Channel Integration.
     + Click integrate now on JIRA
 
-    ![](images/Jira-int.png)
+    ![jira-cloud-integration-accuknox](images/Jira-int.png)
 
     + Enter the following details to configure JIRA.
 
@@ -49,13 +49,13 @@ To set up this integration, you need to coordinate with your Jira administrator 
     + Navigate to the **Integration** section under the **Settings** tab.
     + Select **CSPM** from the available options.
 
-    ![](images/jira-cspm/j-cspm1.png)
+    ![jira-cloud-integration-accuknox](images/jira-cspm/j-cspm1.png)
 
     + Click **Add Connection**, then choose **Jira Cloud** from the dropdown under **Type**.
 
-    ![](images/jira-cspm/j-cspm2.png)
+    ![jira-cloud-integration-accuknox](images/jira-cspm/j-cspm2.png)
 
-    ![](images/jira-cspm/j-cspm3.png)
+    ![jira-cloud-integration-accuknox](images/jira-cspm/j-cspm3.png)
 
     + Click **Next**.
 
@@ -66,13 +66,13 @@ To set up this integration, you need to coordinate with your Jira administrator 
     + **User Email**: Enter the email address associated with your Jira account. e.g., `jira@organisation.com`
     + **Secret**: Enter the generated Token from [here](https://id.atlassian.com/manage-profile/security/api-tokens). e.g., `kRVxxxxxxxxxxxxx39`
 
-    ![](images/jira-cspm/j-cspm6.png)
+    ![jira-cloud-integration-accuknox](images/jira-cspm/j-cspm6.png)
 
     **Now Setup Ticket Configuration**
 
     + Click on the Jira ticketing backend to add configuration.
 
-    ![](images/jira-cspm/j-cspm4.png)
+    ![jira-cloud-integration-accuknox](images/jira-cspm/j-cspm4.png)
 
     Here, enter the following details:
 
@@ -92,7 +92,7 @@ To set up this integration, you need to coordinate with your Jira administrator 
       + **Priority**: Determines the urgency of the task (e.g., Low, Medium, High, Critical).
       + **Affects Versions**: Specifies the versions impacted by the task.
 
-    ![](images/jiracspm_customFields.png)
+    ![jira-cloud-integration-accuknox](images/jiracspm_customFields.png)
 
     + **Auto Maintain Tickets**: Automatically manages ticket statuses to keep them updated without manual intervention.
     + **Keep Syncing Closed Tickets**: Ensures closed tickets are continuously synced for real-time accuracy across systems.
@@ -120,10 +120,10 @@ To set up this integration, you need to coordinate with your Jira administrator 
 
     + Implementing **Comment Analysis** provides streamlines issue management and enhances visibility into project status.
 
-    ![](images/jiracspm_commentAnalysis.png)
+    ![jira-cloud-integration-accuknox](images/jiracspm_commentAnalysis.png)
     + Click **Save**.
 
-    ![](images/jiracspm3.png)
+    ![jira-cloud-integration-accuknox](images/jiracspm3.png)
 
     + For more ticketing templates, [refer to this](ticket-template.md).
 
@@ -137,17 +137,17 @@ Users can now add Jira ticket Assignee as well when they create the ticket for a
 
 **Step 2:** After the integration the Users need to create the Configuration for the integration. For this users need to select the Integration->CSPM->jira Integration-> Add configuration
 
-![](./images/jira-cloud/1.png)
+![jira-cloud-integration-accuknox](./images/jira-cloud/1.png)
 
 **Step 3:** Now when the users select the project name in the Ticket configuration the assignee users will be listed. The users can select any name and save the ticket configuration after filling all other necessary fields. 
 
-![](./images/jira-cloud/2.png)
+![jira-cloud-integration-accuknox](./images/jira-cloud/2.png)
 
 From now on the users can create the ticket with this particular configuration so that the ticket will be created with the assignee set to the name that  was selected during the configuration.
 
 If the users want to change the assignee during the ticket creation that can also be done by clicking on the assignee section as shown below
 
-![](./images/jira-cloud/3.png)
+![jira-cloud-integration-accuknox](./images/jira-cloud/3.png)
 
 !!!info "NOTE"
     If the user wants to set the tickets for multiple people then they will have to create multiple ticket configurations. Each configuration can be assigned to only one Assignee.

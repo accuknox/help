@@ -13,7 +13,7 @@ To send an alert notification via mail you must first set up the Email notificat
 
 - Click on the **Integrate Now** button for email
 
-![](images/email/email-0.png)
+![email-integration-accuknox](images/email/email-0.png)
 
 - Fill the following fields:
 
@@ -21,7 +21,7 @@ To send an alert notification via mail you must first set up the Email notificat
 
     + **Email**: Enter the Email that will receive the notification and press ENTER. You can specify multiple email addresses in this field by pressing ENTER after each email address. e.g.,```demo@organization.com```
 
-![](images/email/email-1.png)
+![email-integration-accuknox](images/email/email-1.png)
 
 - Click **Test** to check the new functionality, You will receive a test mail on the specified mail addresses with subject "Test email"
 

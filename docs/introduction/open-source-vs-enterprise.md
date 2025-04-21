@@ -30,7 +30,7 @@ description: Compare KubeArmor (Open Source) and AccuKnox (Enterprise) to unders
 | Integration with Registries for Container Image Vuln Scan                                                                 | :x:              |:heavy_check_mark:|
 | Telemetry aggregation (Process executed, File accessed, Network connections made) and Alerts events (Audit, Block)        | :x:              |:heavy_check_mark:|
 
-![](/introduction/images/os-vs-enterprise.png)
+![open-source-vs-gcp](/introduction/images/os-vs-enterprise.png)
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

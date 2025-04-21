@@ -43,7 +43,7 @@ In a Kubernetes cluster, several attack vectors become possible through the comb
 
 ## **Exploit**
 
-![](images/hildegard.png)
+![hildegard](images/hildegard.png)
 
 1. The attacker started by exploiting an unsecured Kubelet on the internet and searched for containers running inside the Kubernetes nodes. After finding container 1 in Node A, the attacker attempted to perform remote code execution (RCE) in container 1.
 2. The attacker downloaded tmate and issued a command to run it and establish a reverse shell to tmate • Instant terminal sharing from container 1. The attacker then continued the attack with this tmate session.

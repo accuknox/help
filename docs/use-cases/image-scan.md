@@ -1,6 +1,6 @@
 ---
 title: Container Image Scanning
-description:  Identify and fix vulnerabilities in container images with AccuKnox’s scanning solution to ensure secure, threat-free applications.
+description: Identify and fix vulnerabilities in container images with AccuKnox’s scanning solution to ensure secure, threat-free applications.
 ---
 
 **Need for securing containers for Application Hardening**
@@ -11,23 +11,22 @@ AccuKnox can secure containers by scanning container images, monitoring code in 
 
 Lets understand this by an example use-case - **Container Image scanning**
 
+- User can add docker hub, ECR registries by navigating to _Issues→Registryscan_. In the screen click **Add Registry** option
 
-+ User can add docker hub, ECR registries by navigating to *Issues→Registryscan*. In the screen click **Add Registry** option
+![image-scan](images/image-scan-1.png)
 
-![](images/image-scan-1.png)
-
-+ If you have an existing registry give the necessary details of your registry to scan. For step by step onboarding instructions, refer:
+- If you have an existing registry give the necessary details of your registry to scan. For step by step onboarding instructions, refer:
 
     - [ECR onboarding](../how-to/ecr.md)
     - [GAR onboarding](../how-to/gar.md)
     - [ACR onboarding](../how-to/acr.md)
 
-![](images/image-scan-2.png)
+![image-scan](images/image-scan-2.png)
 
+- Once the registry is added successfully, the scan will automatically start and user can navigate to the Issues→Registry scan option to see the findings
 
-+ Once the registry is added successfully, the scan will automatically start and user can navigate to the Issues→Registry scan option to see the findings
+![image-scan](images/image-scan-3.png)
 
-![](images/image-scan-3.png)
+---
 
-- - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

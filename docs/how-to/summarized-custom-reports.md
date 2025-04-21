@@ -28,7 +28,7 @@ This widget provides the no. of New critical findings across all the assets that
 
 This widget will provide the new findings that were discovered across all the latest scans. This will also be an immediate action item for the users to act upon.
 
-![](./images/summarized-custom-reports/1.png)
+![custom-report-summary-step](./images/summarized-custom-reports/1.png)
 
 ### No. Of Findings Fixed
 
@@ -44,9 +44,9 @@ This widget will provide the information regarding the Critical findings that ar
 
 This widget will provide the trend analysis across the no. of Assets that are getting discovered on a weekly basis from the onboarded cloud accounts,clusters, containers. This can give a clear picture of the growing asset count.
 
-![](./images/summarized-custom-reports/2.png)
+![custom-report-summary-step](./images/summarized-custom-reports/2.png)
 
-![](./images/summarized-custom-reports/3.png)
+![custom-report-summary-step](./images/summarized-custom-reports/3.png)
 
 #### New Findings Weekly Trend
 

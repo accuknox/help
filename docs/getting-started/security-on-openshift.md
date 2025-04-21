@@ -14,17 +14,17 @@ In the OpenShift console, install KubeArmor operator by following the instructio
 - Install KubeArmor version "1.4.9" with default configurations (5, 6, 7).
 
 <figure markdown="span">
-  ![](./images/security-on-openshift/1.png)
+  ![security-on-openshift](./images/security-on-openshift/1.png)
   <figcaption></figcaption>
 </figure>
 
 <figure markdown="span">
-  ![](./images/security-on-openshift/2.png)
+  ![security-on-openshift](./images/security-on-openshift/2.png)
   <figcaption></figcaption>
 </figure>
 
 <figure markdown="span">
-  ![](./images/security-on-openshift/3.png)
+  ![security-on-openshift](./images/security-on-openshift/3.png)
   <figcaption></figcaption>
 </figure>
 
@@ -94,21 +94,21 @@ Once the steps in the previous chapter are completed, proceed with the agent ins
 4. Create the instance. The `KubeArmorConfig` Instance controls the installation of the agents in the entire cluster, and only one instance should be created per cluster.
 
 <figure markdown="span">
-  ![](./images/security-on-openshift/4.png)
+  ![security-on-openshift](./images/security-on-openshift/4.png)
   <figcaption></figcaption>
 </figure>
 <figure markdown="span">
-  ![](./images/security-on-openshift/5.png)
-  <figcaption></figcaption>
-</figure>
-
-<figure markdown="span">
-  ![](./images/security-on-openshift/6.png)
+  ![security-on-openshift](./images/security-on-openshift/5.png)
   <figcaption></figcaption>
 </figure>
 
 <figure markdown="span">
-  ![](./images/security-on-openshift/7.png)
+  ![security-on-openshift](./images/security-on-openshift/6.png)
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown="span">
+  ![security-on-openshift](./images/security-on-openshift/7.png)
   <figcaption></figcaption>
 </figure>
 
@@ -124,8 +124,8 @@ Along with this document, a file called `kubearmor-dashboard.ndjson` has been sh
 2. Navigate to **Saved Objects** under Kibana.
 3. Click **Import** and select `kubearmor-dashboard.ndjson`.
 
-![](./images/security-on-openshift/kibana1.png)
+![security-on-openshift](./images/security-on-openshift/kibana1.png)
 
-![](./images/security-on-openshift/kibana2.png)
+![security-on-openshift](./images/security-on-openshift/kibana2.png)
 
-![](./images/security-on-openshift/kibana3.png)
+![security-on-openshift](./images/security-on-openshift/kibana3.png)

@@ -21,7 +21,7 @@ To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline usin
 
 **Step 1**: Log in to AccuKnox Saas, Navigate to Settings, and select Tokens to create an AccuKnox token for forwarding scan results to Saas
 
-![](images/google-build/token-creation.png)
+![google-dast-integration-accuknox](images/google-build/token-creation.png)
 
 **Note:** Copy the token and create a Google Cloud secret for the token to be used as a secret in the pipeline. Also, copy the tenant ID value to be used in the Cloud Build YAML file.
 
@@ -31,7 +31,7 @@ To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline usin
 
     + ```AK_TOK```: The artifact token received from the AccuKnox management plane
 
-![](images/google-build/add-token.png)
+![google-dast-integration-accuknox](images/google-build/add-token.png)
 
 **Step 3**: To integrate AccuKnox scans into your Google Cloud Build, set up a cloudbuild.yaml file in your repository with the following content:
 
@@ -98,7 +98,7 @@ Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push 
 
 After integrating AccuKnox into your CI/CD pipeline, the next push triggers the Google Cloudbuild workflow. The AccuKnox scan identifies the potential vulnerability in the domain URL.
 
-![](images/google-build/build-dast.png)
+![google-dast-integration-accuknox](images/google-build/build-dast.png)
 
 To view the Results in AccuKnox Saas:
 
@@ -106,21 +106,21 @@ To view the Results in AccuKnox Saas:
 
 **Step 2**: Go to **Issues** > **Vulnerabilities** and select **Data Type** as **ZAP** to view the identified vulnerabilities.
 
-![](images/google-build/dast-results.png)
+![google-dast-integration-accuknox](images/google-build/dast-results.png)
 
 **Step 3**: Click on the Vulnerability to view more details
 
-![](images/google-build/cx-misconf.png)
+![google-dast-integration-accuknox](images/google-build/cx-misconf.png)
 
 **Step 4**: Fix the Vulnerability
 
 To fix the Cross-Domain Misconfiguration, follow the instructions in the Solutions tab.
 
-![](images/google-build/cx-sol.png)
+![google-dast-integration-accuknox](images/google-build/cx-sol.png)
 
 **Step 5**: Create a ticket for fixing the Cross-Domain Misconfiguration by selecting the Ticket Configuration and clicking on the Create Ticket icon.
 
-![](images/google-build/ticket-dast.png)
+![google-dast-integration-accuknox](images/google-build/ticket-dast.png)
 
 **Step 6**: Review the Updated Results
 

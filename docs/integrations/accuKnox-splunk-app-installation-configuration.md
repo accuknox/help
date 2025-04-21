@@ -5,7 +5,7 @@ description: Install and configure the AccuKnox Splunk App to monitor real-time 
 
 # AccuKnox Splunk App
 
-![](./images/splunk-accuknox.png)
+![splunk-install-config](./images/splunk-accuknox.png)
 
 ## **Introduction**
 
@@ -49,25 +49,25 @@ Splunk App can be installed on Splunk Enterprise Deployment done on K8s or VM.
  ```
 
 2. Log in to your **Splunk Deployment.**
-    ![](./images/Login-Splunk.png)
+    ![splunk-install-config](./images/Login-Splunk.png)
 3. Click on the gear ![:gear:](https://pf-emoji-service--cdn.us-east-1.prod.public.atl-paas.net/standard/caa27a19-fc09-4452-b2b4-a301552fd69c/64x64/2699.png){:   style="height:15px;width:15px"} icon next to **Apps.**
-   ![](./images/manageapps.png)
+   ![splunk-install-config](./images/manageapps.png)
 4. This will navigate you to the **Apps Dashboard.** On the top right, click on **Install app from file.**
-   ![](./images/installappfromfile.png)
+   ![splunk-install-config](./images/installappfromfile.png)
 5. This will navigate to **Upload App** Screen. Select **AccuKnox.tar.gz** file downloaded in the *first step*, and upload. In case you are updating the app and it’s already installed, mark the check box for Upgrade App.
- ![](./images/choosefile.png)
+ ![splunk-install-config](./images/choosefile.png)
 6. Once Uploaded the App will be installed on the Splunk Deployment, with a confirmation message, **“*****AccuKnox" was installed successfully.*** Click on **Launch App** to view the App.
 
- ![](./images/AccuKnoxInstalled.png)
+ ![splunk-install-config](./images/AccuKnoxInstalled.png)
 7. You can **Restart Splunk** for the App to work properly. Go to **Settings > Server Control > Restart Splunk,** Restarting the app will take approx. 1-2 minutes.
 
- ![](./images/RestartSplunk.png)
+ ![splunk-install-config](./images/RestartSplunk.png)
 8. Wait for Splunk to Restart And you can log in back to see the **AccuKnox App** in the App section.
 
- ![](./images/Dashboard.png)
+ ![splunk-install-config](./images/Dashboard.png)
 9. Click on the **AccuKnox App** to launch the App. This will navigate you to the App dashboard.
 
- ![](./images/SplunkDashboard.png)
+ ![splunk-install-config](./images/SplunkDashboard.png)
 
 **Note:**
 
@@ -79,7 +79,7 @@ Splunk App can be installed on Splunk Enterprise Deployment done on K8s or VM.
 
 Install the AccuKnox App by downloading it from the App homepage.
 
-![](./images/splunkbase_app_preview.png)
+![splunk-install-config](./images/splunkbase_app_preview.png)
 
 ## Option 3: Install from GitHub
 
@@ -181,7 +181,7 @@ kubectl set env deploy/feeder-service SPLUNK_FEEDER_ENABLED="true" -n accuknox-a
 
 ### Integration of Splunk
 
-![](./images/channel-integration.png)
+![splunk-install-config](./images/channel-integration.png)
 
 ### 1. Prerequisites
 
@@ -229,7 +229,7 @@ From AccuKnox we can manage the type of data forwardered to integration using tr
 
 2. Configure the required options:
 
-    ![](./images/create-trigger.png)
+    ![splunk-install-config](./images/create-trigger.png)
 
 - **Name:** Define an alert trigger name.
 
