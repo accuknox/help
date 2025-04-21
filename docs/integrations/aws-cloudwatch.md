@@ -20,7 +20,7 @@ Navigate to Settings→Integrations. Choose **"AWS CloudWatch"** services and cl
 + Go to Channel Integration URL
 + Click the Integrate Now button → AWS CloudWatch
 
-![](images/aws-int.png)
+![aws-cloudwatch-integration](images/aws-int.png)
 
 + Here you'll be able to see these entries:
     + **Integration Name:** Enter the name for the integration. You can set any name.

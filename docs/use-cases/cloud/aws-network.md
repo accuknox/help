@@ -25,7 +25,7 @@ When SSH ports are publicly exposed, attackers can exploit them to:
 
 An attacker scans for publicly exposed SSH ports using tools like **Nmap** or **Shodan**. If the SSH configuration lacks strong authentication, they launch brute-force attacks using tools like **Hydra** or **Medusa** to crack credentials. Once successful, the attacker gains control over the EC2 instance, compromising its resources and potentially infiltrating the entire network.
 
-![](../images/cloud/aws/n1.png)
+![aws-network](../images/cloud/aws/n1.png)
 
 ## **How to Identify and Remediate Open SSH Ports with AccuKnox**
 

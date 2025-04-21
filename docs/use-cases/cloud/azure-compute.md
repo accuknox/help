@@ -25,7 +25,7 @@ When a VM disk is publicly exposed, it becomes a target for malicious attackers.
 
 An attacker uses scanning tools to scan the Internet for publicly accessible VM disks. Upon finding a vulnerable disk, they gain access, exfiltrate sensitive data, or plant malicious files. This can result in data breaches, operational disruptions, or financial losses.
 
-![](../images/cloud/azure/c1.png)
+![azure-compute-accuknox](../images/cloud/azure/c1.png)
 
 ## **How to Identify and Remediate VM Disk Public Access with AccuKnox**
 
@@ -37,7 +37,7 @@ An attacker uses scanning tools to scan the Internet for publicly accessible VM 
 
 4. **Take Action**: Follow the remediation guidance provided within the platform to secure exposed disks.
 
-![](../images/cloud/azure/c2.png)
+![azure-compute-accuknox](../images/cloud/azure/c2.png)
 
 ### **Remediation Steps**
 

@@ -100,7 +100,7 @@ sudo apt install zip
 
 ### Output
 
-![](images/tbshoot-0.png)
+![tbshoot](images/tbshoot-0.png)
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

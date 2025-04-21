@@ -52,9 +52,9 @@ spec:
 ```
 
 3. Upload and activate the policy to block the execution of package managers on the VM.
-![](./images/vm-block-pkg/1.png)
+![vm-block-pkgmngers-accuknox](./images/vm-block-pkg/1.png)
 
-![](./images/vm-block-pkg/2.png)
+![vm-block-pkgmngers-accuknox](./images/vm-block-pkg/2.png)
 
 ## **Expected Outcome**
 
@@ -71,11 +71,11 @@ An attacker attempts to use `apt` to install a malicious package. The execution 
 1. Open a new terminal session on the VM.
 
 2. Try executing a blocked package manager command.
-![](./images/vm-block-pkg/3.png)
+![vm-block-pkgmngers-accuknox](./images/vm-block-pkg/3.png)
 
 3. Confirm:
 
     - Execution is blocked.
 
     - Alert details are displayed on the SaaS platform.
-![](./images/vm-block-pkg/4.png)
+![vm-block-pkgmngers-accuknox](./images/vm-block-pkg/4.png)

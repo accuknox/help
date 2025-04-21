@@ -25,7 +25,7 @@ $ wget https://github.com/xmrig/xmrig/releases/download/v6.21.2/xmrig-6.21.2-lin
 ```
 After executing the above, the binary is downloaded into the container which can be confirmed by using ```ls```
 
-![](images/crypto-mining/goat-ls.png)
+![crypto-mining-accuknox](images/crypto-mining/goat-ls.png)
 
 **Step 2**: Install the xmrig binary into the ```/tmp``` folder
 
@@ -34,7 +34,7 @@ $ tar xvzf /tmp/xmrig-6.21.2-linux-static-x64.tar.gz -C /tmp
 ```
 On successful install, an output similar to below will be visible
 
-![](images/crypto-mining/xmrig-installed.png)
+![crypto-mining-accuknox](images/crypto-mining/xmrig-installed.png)
 
 **Step 3**: Try running xmrig with the below command
 
@@ -135,15 +135,15 @@ To apply the policy in SaaS,
 
 **Step 1**: To create the policy Navigate to Runtime Protection → Policies. Then select **Create Policy** option from the screen.
 
-![](images/crypto-mining/create-policy.png)
+![crypto-mining-accuknox](images/crypto-mining/create-policy.png)
 
 **Step 2**: In the policy editor tool create/upload the above policy. Select the Cluster, namespace, **Save** and then select **Save to workspace** option.
 
-![](images/crypto-mining/save-policy.png)
+![crypto-mining-accuknox](images/crypto-mining/save-policy.png)
 
 **Step 3**: Apply the policy by clicking on the three dots next to the saved policy and selecting **Apply Policy**.
 
-![](images/crypto-mining/apply-policy.png)
+![crypto-mining-accuknox](images/crypto-mining/apply-policy.png)
 
 **Step 4**: The policy is applied successfully. Now, try to execute xmrig again
 
@@ -152,7 +152,7 @@ $ /tmp/xmrig-6.21.2/xmrig 48edfHu7V9Z84YzzMa6fUueoELZ9ZRXq9VetWzYGzKt52XU5xvqgzY
 ```
 Exit status 126 is shown as xmrig is not allowed to be executed
 
-![](images/crypto-mining/xmrig-exit.png)
+![crypto-mining-accuknox](images/crypto-mining/xmrig-exit.png)
 
 Alerts are generated for the execution attempt:
 

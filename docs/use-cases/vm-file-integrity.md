@@ -53,9 +53,9 @@ spec:
 
 3. Upload and activate the policy.
 
-![](./images/vm-file-integrity/1.png)
+![vm-file-integrity-accuknox](./images/vm-file-integrity/1.png)
 
-![](./images/vm-file-integrity/2.png)
+![vm-file-integrity-accuknox](./images/vm-file-integrity/2.png)
 
 ## **Protected Directories**
 
@@ -79,7 +79,7 @@ A malicious script attempts to modify or create a file in `/sbin`. The write act
 
 2. Attempt to modify a file or create a file in a protected directory.
 
-![](./images/vm-file-integrity/3.png)
+![vm-file-integrity-accuknox](./images/vm-file-integrity/3.png)
 
 1. Confirm:
 
@@ -87,4 +87,4 @@ A malicious script attempts to modify or create a file in `/sbin`. The write act
 
     - Alerts appear on the SaaS platform with details of the action.
 
-![](./images/vm-file-integrity/4.png)
+![vm-file-integrity-accuknox](./images/vm-file-integrity/4.png)

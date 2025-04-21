@@ -25,7 +25,7 @@ Azure Network Security misconfigurations present various vulnerabilities. Below 
 
 4. **Take Action**: Follow the remediation guidance provided within the platform
 
-![](./images/vm-misconfigurations/azure1.png)
+![vm-azure-sec-accuknox](./images/vm-misconfigurations/azure1.png)
 
 ### **Remediation Steps**
 
@@ -67,7 +67,7 @@ When a VM disk is publicly exposed, it becomes a target for malicious attackers.
 
 An attacker uses scanning tools to scan the Internet for publicly accessible VM disks. Upon finding a vulnerable disk, they gain access, exfiltrate sensitive data, or plant malicious files. This can result in data breaches, operational disruptions, or financial losses.
 
-![](./images/vm-misconfigurations/azure3.png)
+![vm-azure-sec-accuknox](./images/vm-misconfigurations/azure3.png)
 
 ### **How to Identify and Remediate VM Disk Public Access with AccuKnox**
 
@@ -79,7 +79,7 @@ An attacker uses scanning tools to scan the Internet for publicly accessible VM 
 
 4. **Take Action**: Follow the remediation guidance provided within the platform to secure exposed disks.
 
-![](./images/vm-misconfigurations/azure4.png)
+![vm-azure-sec-accuknox](./images/vm-misconfigurations/azure4.png)
 
 ### **Remediation Steps**
 

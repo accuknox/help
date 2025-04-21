@@ -10,30 +10,33 @@ To send an alert notification via Slack you must first set up the Slack notifica
 ## Integration of Slack:
 
 ### **a. Prerequisites:**
+
 You need a valid and active account in Slack.
 After logging into your Slack channel, you must generate a Hook URL.
 
 **Note :** To generate Hook URL follow the steps, [Webhooks-for-Slack](https://api.slack.com/messaging/webhooks) .
 
 ### **b. Steps to Integrate:**
-+ Go to Channel Integration.
-+ Click integrate now on Slack.
 
-![](images/slack-int.png)
+- Go to Channel Integration.
+- Click integrate now on Slack.
 
-+ Fill up the following fields:
+![slack-integration](images/slack-int.png)
 
-+ **Integration Name:** Enter the name for the integration. You can set any name. e.g., ``` Container Security Alerts ```
+- Fill up the following fields:
 
-+ **Hook URL:** Enter your generated slack hook URL here. e.g., ``` https://hooks.slack.com/services/T000/B000/XXXXXXX ```
+- **Integration Name:** Enter the name for the integration. You can set any name. e.g., `Container Security Alerts`
 
-+ **Sender Name:** Enter the sender name here. e.g., ``` AccuKnox User ```
+- **Hook URL:** Enter your generated slack hook URL here. e.g., `https://hooks.slack.com/services/T000/B000/XXXXXXX`
 
-+ **Channel Name:** Enter your slack channel name here. e.g.,  ```  livealertsforcontainer ```
+- **Sender Name:** Enter the sender name here. e.g., `AccuKnox User`
 
-+ Click **Test** to check the new functionality, You will receive the test message on configured slack channel. ``` Test message Please ignore !! ```
+- **Channel Name:** Enter your slack channel name here. e.g., ` livealertsforcontainer`
 
-+ Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications.
+- Click **Test** to check the new functionality, You will receive the test message on configured slack channel. `Test message Please ignore !!`
 
-- - -
+- Click **Save** to save the Integration. You can now configure Alert Triggers for Slack Notifications.
+
+---
+
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

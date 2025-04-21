@@ -14,31 +14,31 @@ The ticket template system offers both dynamic and static templates, allowing fo
 ## Managing Ticket Templates: View, Edit, or Create
 
 + **Go to Settings**. Click **Ticket Template**.
-    ![](images/ticketing-template/ticketing_template1.png)
+    ![ticket-template-integration-accuknox](images/ticketing-template/ticketing_template1.png)
 
 + **Viewing a Template**:
    Click the desired ticket template from the list to view its details.
 
 + **Editing a Template**:
    Click on the ticket template to open its details. You can make edits directly from this screen.
-       ![](images/ticketing-template/ticketing_edit.png)
+       ![ticket-template-integration-accuknox](images/ticketing-template/ticketing_edit.png)
 
 + **Deleting a Template**:
    Select the template you wish to remove, then click **Delete**.
-    ![](images/ticketing-template/ticketing_delete.png)
+    ![ticket-template-integration-accuknox](images/ticketing-template/ticketing_delete.png)
 
 + **Duplicating a Template**:
    To create a copy of an existing template, select the template and click **Duplicate Template**.
-    ![](images/ticketing-template/ticketing_duplicate.png)
+    ![ticket-template-integration-accuknox](images/ticketing-template/ticketing_duplicate.png)
 
 + **Creating a Custom Template**:
     + Click on **Add Template** to create a new custom template.
     + Fill in the required fields and save your changes.
-    ![](images/ticketing-template/ticketing_addTemplate.png)
+    ![ticket-template-integration-accuknox](images/ticketing-template/ticketing_addTemplate.png)
 
 ## Template Fields
 
-![](images/ticketing-template/ticketing_fields.png)
+![ticket-template-integration-accuknox](images/ticketing-template/ticketing_fields.png)
 
 + **Name**:
    This field specifies the name of the ticket or the item being referenced. It is critical to identify the issue at a glance.
@@ -78,10 +78,10 @@ In security scanning workflows, various tools are used to detect vulnerabilities
 #### Steps to extract the field for more information
 
 + Right-click and Inspect: Right-click and choose Inspect to open the Developer Tools
-![](images/ticketing-template/ticket_template_custom1.png)
+![ticket-template-integration-accuknox](images/ticketing-template/ticket_template_custom1.png)
 + Go to the Network Tab: In the Developer Tools, click on the Network tab. This tab records all network requests made by the web page, including data fetched from the server.
 + Extract the Data: In the Response section of the selected request, you should see the data. You can use this information to identify the fields you need.
-![](images/ticketing-template/ticket_template_fields.png)
+![ticket-template-integration-accuknox](images/ticketing-template/ticket_template_fields.png)
 
 Here are some examples
 

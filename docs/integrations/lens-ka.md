@@ -8,7 +8,7 @@ Follow the below steps to add the KubeArmor helm chart to Lens and deploy it,
 
 **Step 1**: Navigate to File → Preferences or press Ctrl+Comma to open the Preferences menu and select the Kubernetes tab.
 
-![](images/lens/lens-0.png)
+![lens-ka-integration-accuknox](images/lens/lens-0.png)
 
 **Step 2**: Click on “Add Custom Helm Repo” and enter the following info:
 
@@ -17,11 +17,11 @@ Follow the below steps to add the KubeArmor helm chart to Lens and deploy it,
 
 Click on Add
 
-![](images/lens/lens-ka-1.png)
+![lens-ka-integration-accuknox](images/lens/lens-ka-1.png)
 
 **Step 3**: Navigate to your cluster on Lens, goto Helm → Charts and search KubeArmor. Select the “kubearmor-operator” and click on Install. (Press ctrl+R to reload if you can’t find it)
 
-![](images/lens/lens-ka-2.png)
+![lens-ka-integration-accuknox](images/lens/lens-ka-2.png)
 
 **Step 4**: In the Helm chart tab that opens, do the following:
 
@@ -30,7 +30,7 @@ Click on Add
 
 Finally click on Install
 
-![](images/lens/lens-ka-3.png)
+![lens-ka-integration-accuknox](images/lens/lens-ka-3.png)
 
 Wait for the operator to finish deploying the necessary components. This will deploy KubeArmor on the cluster with the default options.
 
@@ -66,11 +66,11 @@ This policy is created based on NIST guidelines which specify that package manag
 
 **Step 1**: Apply the policy by opening a "create resource" tab(Press the + button at the bottom)
 
-![](images/lens/lens-ka-4.png)
+![lens-ka-integration-accuknox](images/lens/lens-ka-4.png)
 
 **Step 2**: Copy the policy from above and paste into the tab. Then click on Create & Close to apply the policy.
 
-![](images/lens/lens-ka-5.png)
+![lens-ka-integration-accuknox](images/lens/lens-ka-5.png)
 
 **Step 3**: Open a terminal session using the + button and exec inside the container
 
@@ -96,6 +96,6 @@ The permission is denied since we have applied a policy to block the execution o
 
 The applied policy can be found by navigating to Custom Resources → security.kubearmor.com → Kube Armor Policy. From here, the policy can be edited as required or removed.
 
-![](images/lens/lens-ka-6.png)
+![lens-ka-integration-accuknox](images/lens/lens-ka-6.png)
 
 More information about the structure of policies and some examples can be found in <a href="https://docs.kubearmor.io/kubearmor/documentation/security_policy_specification" target="_blank">KubeArmor Docs</a>

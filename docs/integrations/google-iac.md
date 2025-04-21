@@ -22,7 +22,7 @@ To illustrate the advantages of integrating AccuKnox into a CI/CD pipeline using
 
 **Step 1**: Login to AccuKnox Saas, Navigate to Settings, and select Tokens to create an AccuKnox token for forwarding scan results to Saas
 
-![](images/google-build/token-creation.png)
+![google-iac-integration-accuknox](images/google-build/token-creation.png)
 
 **Note**: Copy the token and create a Google Cloud secret for the token to be used as a secret in the pipeline. Also, copy the tenant ID value to be used in the Cloud Build YAML file.
 
@@ -187,35 +187,35 @@ After integrating AccuKnox into your CI/CD pipeline, the next push triggers the 
 
 You can also access the same security finding on the AccuKnox SaaS UI
 
-![](images/google-build/iac-finding.png)
+![google-iac-integration-accuknox](images/google-build/iac-finding.png)
 
 Under Google Codebuild History
 
-![](images/google-build/iac-build.png)
+![google-iac-integration-accuknox](images/google-build/iac-build.png)
 
 ### **View Results Under AccuKnox SaaS**
 
 **Step 1**: Once the scan is complete, users can go into the AccuKnox SaaS platform and navigate to **Issues** → **Vulnerabilities**, where they can find misconfigurations in their Infrastructure as Code.
 
-![](images/google-build/iac-page.png)
+![google-iac-integration-accuknox](images/google-build/iac-page.png)
 
 **Step 2**: The user must select **IaC Scan** from the data type filter next to the findings
 
-![](images/google-build/iac-filter.png)
+![google-iac-integration-accuknox](images/google-build/iac-filter.png)
 
 **Step 3**: Clicking on the misconfiguration opens up the ticket creation dialog box.
 
-![](images/google-build/iac-details.png)
+![google-iac-integration-accuknox](images/google-build/iac-details.png)
 
 **Step 4**: Choose a ticket configuration and click the adjacent button to create a ticket for remediation.
 
-![](images/google-build/iac-ticket.png)
+![google-iac-integration-accuknox](images/google-build/iac-ticket.png)
 
 **Step 5**: Click on **Create** to create the ticket, Once it is created it will be visible in your ticketing tool dashboard.
 
 **Step 6**: After remediating the issue, rescan the Terraform script to ensure the misconfiguration has been fixed. Then, navigate to AccuKnox SaaS to view the updated findings.
 
-![](images/google-build/iac-rescan.png)
+![google-iac-integration-accuknox](images/google-build/iac-rescan.png)
 
 ## **Conclusion**
 

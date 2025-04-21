@@ -23,7 +23,7 @@ To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline usin
 
 **Step 1**: Log in to AccuKnox Saas, Navigate to Settings, and select Tokens to create an AccuKnox token for forwarding scan results to Saas
 
-![](images/google-build/token-creation.png)
+![google-sast-integration-accuknox](images/google-build/token-creation.png)
 
 **Note**: Copy the token and create a Google Cloud secret for the token to be used as a secret in the pipeline. Also, copy the tenant ID value to be used in the Cloud Build YAML file.
 
@@ -31,17 +31,17 @@ To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline usin
 
 - Add the following secrets:
 
-    + ```SONAR_TOKEN```: Your SonarQube project token.
+    - ```SONAR_TOKEN```: Your SonarQube project token.
 
-    + ```AK_TOK```: The artifact token received from the AccuKnox management plane.
+    - ```AK_TOK```: The artifact token received from the AccuKnox management plane.
 
 - Optionally add the following instead if specifying directly in file:
 
-    + ```TENANT_ID```: Your AccuKnox Tenant ID.
+    - ```TENANT_ID```: Your AccuKnox Tenant ID.
 
-    + ```AK_URL```: The AccuKnox URL (```cspm.accuknox.com```).
+    - ```AK_URL```: The AccuKnox URL (```cspm.accuknox.com```).
 
-    + ```SQ_URL```: Your SonarQube URL.
+    - ```SQ_URL```: Your SonarQube URL.
 
 **Step 3**: To integrate AccuKnox scans into your Google Cloud Build, set up a ```cloudbuild.yaml``` file in your repository with the following content:
 
@@ -113,13 +113,14 @@ logsBucket: "gs://{bucket-name}"
 **Note**: In the YAML file above, you need to replace the value for the ```{project-name}``` with the Sonarqube project name and ```{Sonarqube_host_url}``` with the actual Sonarqube URL. Under substitution, replace ```"{cspm.<env>.accuknox.com}"``` with the applicable "cspm env-name" (e.g. demo or use ```"{cspm.accuknox.com}"``` if you are making use of a paid SaaS subscription), replace ```{bucket-name}``` with your GCP bucket name, and replace ```[tenant-id]``` with your tenant ID copied in the **Step 1**.
 
 ## **Before AccuKnox Scan**
+
 Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push the changes to the repository it gets deployed without any security checks, potentially **allowing the SQL Injection vulnerability in the application**
 
 ## **After AccuKnox Scan Integration**
 
 After integrating AccuKnox into your CI/CD pipeline, the next push triggers the Google Cloudbuild Actions workflow. The AccuKnox scan identifies the SQL Injection vulnerability in the JAVA application
 
-![](images/google-build/sast-build.png)
+![google-sast-integration-accuknox](images/google-build/sast-build.png)
 
 ### **View the Results in AccuKnox Saas**
 
@@ -127,21 +128,21 @@ After integrating AccuKnox into your CI/CD pipeline, the next push triggers the 
 
 **Step 2**: Go to **Issues** > **Vulnerabilities** and select **Data Type** as **SonarQube** to view the identified vulnerabilities, including the SQL Injection vulnerability in ```VulnerableApp.java```.
 
-![](images/google-build/sast-findings.png)
+![google-sast-integration-accuknox](images/google-build/sast-findings.png)
 
 **Step 3**: Click on the Vulnerability to view more details
 
-![](images/google-build/sast-details.png)
+![google-sast-integration-accuknox](images/google-build/sast-details.png)
 
 **Step 4**: Fix the Vulnerability
 
 To fix the SQL Injection vulnerability, use prepared statements instead of concatenating user input directly into the SQL query as seen in the Solutions tab.
 
-![](images/google-build/sast-solution.png)
+![google-sast-integration-accuknox](images/google-build/sast-solution.png)
 
 **Step 5**: Create a ticket for fixing the SQL Injection vulnerability by selecting a Ticket Configuration and clicking on the adjacent button.
 
-![](images/google-build/sast-ticket.png)
+![google-sast-integration-accuknox](images/google-build/sast-ticket.png)
 
 **Step 6**: Review the Updated Results
 

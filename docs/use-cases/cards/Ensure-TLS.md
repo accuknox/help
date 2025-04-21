@@ -2,26 +2,33 @@
 title: Enforcing TLS Encryption for Secure Communications
 description: Ensure that all service endpoints are using the right TLS and certificate configuration.
 ---
+
 # Enforcing TLS Encryption for Secure Communications
+
 Ensure that all service endpoints are using the right TLS and certificate configuration.
 
 ## Description
+
 k8tls (pronounced cattles), to assess server port security by detecting its TLS and certificates configuration.k8tls has been used in the context of general k8s clusters to understand the security risk posture of exposed k8s service endpoints
 
 ## Attack Scenario
+
 An attacker may perform reconnaissance to identify protocol without TLS to exploit those parameters. TLS ensures all the traffic flows in an encrypted manner to avoid the risk of MITM attacks.
 
 **Attack Type** Man-in-the-middle(MITM)
 
 ## Tags
+
 - Ensuring TLS
 
 ## Getting Started
 
 ### Scan k8s services
+
 For k8s, the solution gets deployed as a job that scans the k8s service ports.
 
 Clone the GitHub repo link: https://github.com/kubearmor/k8tls
+
 ```sh
 Git clone https://github.com/kubearmor/k8tls.git
 ```
@@ -54,8 +61,8 @@ kubectl logs -n k8tls $(kubectl get pod -n k8tls -l job-name=k8tls -o name) -f
 └─────────────────────────────────────────────────────────┴────────────────────┴────────────┴─────────┴────────────────────────┴────────┴───────────┴──────────────────────────────────────────────┘
 ```
 
-
 ## Screenshots
-### Zero Trust Policy
-![](../images/cards/ens-tls-0.png)
 
+### Zero Trust Policy
+
+![ensure-tls-accuknox](../images/cards/ens-tls-0.png)

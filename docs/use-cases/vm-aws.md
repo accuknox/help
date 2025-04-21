@@ -77,7 +77,7 @@ When SSH ports are publicly exposed, attackers can exploit them to:
 
 An attacker scans for publicly exposed SSH ports using tools like **Nmap** or **Shodan**. If the SSH configuration lacks strong authentication, they launch brute-force attacks using tools like **Hydra** or **Medusa** to crack credentials. Once successful, the attacker gains control over the EC2 instance, compromising its resources and potentially infiltrating the entire network.
 
-![](./images/vm-misconfigurations/aws3.png)
+![vm-misconfigs-flagging-aws](./images/vm-misconfigurations/aws3.png)
 
 ### **How to Identify and Remediate Open SSH Ports with AccuKnox**
 
@@ -89,7 +89,7 @@ An attacker scans for publicly exposed SSH ports using tools like **Nmap** or **
 
 4. **Review Findings** Analyze the severity of each finding and assess the potential risk
 
-![](./images/vm-misconfigurations/aws4.png)
+![vm-misconfigs-flagging-aws](./images/vm-misconfigurations/aws4.png)
 
 ### **Remediation Steps**
 
@@ -143,7 +143,7 @@ An attacker gains access to an AWS account due to compromised credentials. They 
 
 4. **Take Action**: Follow the remediation guidance within the platform to enable encryption for all EBS volumes.
 
-![](./images/vm-misconfigurations/aws7.png)
+![vm-misconfigs-flagging-aws](./images/vm-misconfigurations/aws7.png)
 
 ### Remediation Steps
 

@@ -130,24 +130,24 @@ Note: The user can configure the workflow according to their needs, setting it t
 
 **Step 3:** Once the scan is complete, the user will be able to go into the AccuKnox SaaS and navigate to `Issues → RegistryScan` where they can find their repository name and select it to see the findings associated with it.
 
-![](images/container-scan-images/02.png)
+![container-scan-accuknox](images/container-scan-images/02.png)
 
 **Step 4:** After clicking on the image name, the user will be able to see the metadata for the image that was built during the workflow execution.
 
-![](images/container-scan-images/03.png)
+![container-scan-accuknox](images/container-scan-images/03.png)
 
 **Step 5:** In the `Vulnerabilities` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in `Issues → Vulnerabilities` section where the user can manage these findings with others as well.
 
-![](images/container-scan-images/04.png)
+![container-scan-accuknox](images/container-scan-images/04.png)
 
 **Step 6:** The `Resources` section contains the information about packages and modules that were used to build the code base into a container image.
 
-![](images/container-scan-images/05.png)
+![container-scan-accuknox](images/container-scan-images/05.png)
 
 **Step 7:** The `Sensitive Data` section contains the information about any secrets or credentials that might be exposed in the image.
 
-![](images/container-scan-images/06.png)
+![container-scan-accuknox](images/container-scan-images/06.png)
 
 **Step 8:** The user can see the scan history of every scan that happened while creating a Pull Request of the GitHub repo.
 
-![](images/container-scan-images/07.png)
+![container-scan-accuknox](images/container-scan-images/07.png)

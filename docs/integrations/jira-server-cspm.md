@@ -20,8 +20,8 @@ To set up this integration, you need to coordinate with your Jira administrator 
 + Go to Channel Integration → CSPM.
 + Click on add connector and select JIRA Server
 
-![](images//jiraserver/jira-server-0.png)
-![](images/jiraserver/jira-server-1.png)
+![jira-server-integration-accuknox](images//jiraserver/jira-server-0.png)
+![jira-server-integration-accuknox](images/jiraserver/jira-server-1.png)
 
 Enter the following details to configure JIRA.
 
@@ -30,7 +30,7 @@ Enter the following details to configure JIRA.
 + **Username:** Enter your Jira account email address here.e.g., ``` jira@organisation.com ```
 + **Secret:** Enter the generated Token here from ``` https://id.atlassian.com/manage-profile/security/api-tokens.``` .e.g., ```kRVxxxxxxxxxxxxx39 ```
 
-![](images/jiraserver/jira-server-2.png)
+![jira-server-integration-accuknox](images/jiraserver/jira-server-2.png)
 
 Click on the Jira ticketing backend to add configuration.
 

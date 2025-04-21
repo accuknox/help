@@ -29,7 +29,7 @@ Azure Network Security misconfigurations present various vulnerabilities. Below 
 
 4. **Remediate**: Follow the detailed remediation steps to close or secure open ports.
 
-![](../images/cloud/azure/n1.png)
+![azure-network-security](../images/cloud/azure/n1.png)
 
 ### **Remediation Steps**
 
@@ -63,7 +63,7 @@ Azure Network Security misconfigurations present various vulnerabilities. Below 
 
 4. **Take Action**: Follow the remediation guidance provided within the platform
 
-![](../images/cloud/azure/n3.png)
+![azure-network-security](../images/cloud/azure/n3.png)
 
 ### **Remediation Steps**
 

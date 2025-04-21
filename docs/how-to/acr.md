@@ -60,7 +60,7 @@ Choose one of the following options:
 
   - **All**: Scans all images, regardless of the pull time.
 
-![](https://help.accuknox.com/how-to/images/dockerhub/8.png)
+![acr-onboarding-step](https://help.accuknox.com/how-to/images/dockerhub/8.png)
 
 ### **Name/Tag Pattern:**
 
@@ -72,13 +72,13 @@ To exclude specific images, use the `-` symbol. For example: - To exclude `cwpp/
 
 **Note**: Only images matching the pattern will be scanned. For instance, using `*:latest` ensures only images with the latest tags are scanned.
 
-![](https://help.accuknox.com/how-to/images/dockerhub/9.png)
+![acr-onboarding-step](https://help.accuknox.com/how-to/images/dockerhub/9.png)
 
 ### Schedule and Certificate
 
 Set the scan schedule using a CRON expression. For example: - **CRON Expression**: `18 minute 07 hour * day (month) * month * day (week)`.
 
-![](https://help.accuknox.com/how-to/images/dockerhub/10.png)
+![acr-onboarding-step](https://help.accuknox.com/how-to/images/dockerhub/10.png)
 
 Toggle **Trigger Scan on Save** to initiate the scan for the first time without waiting for the scheduled time.
 

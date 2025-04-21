@@ -24,9 +24,9 @@ The percentage is calculated by the number of Passed Checks/Rules against the To
 User can click on any Compliance Program or there Sub-control which will navigate to the list of misconfiguration. Further user can filter based on Cloud Account, Region, Severity, Checks, and many more on the **Detailed View** Tab.
 
 -   **Compliance**: A  detailed report  that gives you insight into how you score against a framework’s requirements and rules.
-![](images/compliance-summary.png)
+![compliance-grc-accuknox](images/compliance-summary.png)
 -   **Detailed View**: A filtered view of the  **Misconfigurations**  page that shows resources with misconfigurations for the selected Compliance Program.
-![](images/compliane-detailed-view.png)
+![compliance-grc-accuknox](images/compliane-detailed-view.png)
 
 ## Compliance Support Matrix
 

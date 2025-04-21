@@ -3,7 +3,6 @@ title: Email Backend Integration
 description: The Email Backend Integration allows making use of your own SMTP server to send all Emails that originate from the AccuKnox platform.
 ---
 
-
 # Email Backend Integration
 
 The Email Backend Integration allows making use of your own SMTP server to send all Emails that originate from the AccuKnox platform.
@@ -28,25 +27,25 @@ For Gmail, you can find the credentials following this <a href="https://support.
 
 - Click on **Add Connector** and select **Email Backend**
 
-![](images/email/email-back-0.png)
+![email-backend-integration-accuknox](images/email/email-back-0.png)
 
 - Specify the following details to make use of the Email Backend:
 
-    + **Name**: Enter the name for the integration. You can set any name. e.g.,``` Secure Email Backend ```
+    - **Name**: Enter the name for the integration. You can set any name. e.g.,`Secure Email Backend`
 
-    + **Host**: The SMTP Hostname. e.g.,```smtp.google.com```
+    - **Host**: The SMTP Hostname. e.g.,`smtp.google.com`
 
-    + **Port**: The port number to be used for the SMTP server. e.g.,```587```
+    - **Port**: The port number to be used for the SMTP server. e.g.,`587`
 
-    + Select to use TLS or SSL based on the port number specified in the Port field
+    - Select to use TLS or SSL based on the port number specified in the Port field
 
-    + **Username**: The email address to authenticate with the SMTP server. e.g.,```admin@gmail.com```
+    - **Username**: The email address to authenticate with the SMTP server. e.g.,`admin@gmail.com`
 
-    + **From Email**: The email address that will be in the Sender field of the emails. e.g.,```notify@gmail.com```
+    - **From Email**: The email address that will be in the Sender field of the emails. e.g.,`notify@gmail.com`
 
-    + **Secret**: The Password to authenticate with the SMTP server. This could be an <a href="https://support.google.com/accounts/answer/185833?hl=en" target="_blank">App Password</a>
+    - **Secret**: The Password to authenticate with the SMTP server. This could be an <a href="https://support.google.com/accounts/answer/185833?hl=en" target="_blank">App Password</a>
 
-![](images/email/email-back-1.png)
+![email-backend-integration-accuknox](images/email/email-back-1.png)
 
 - Click on **Save**
 

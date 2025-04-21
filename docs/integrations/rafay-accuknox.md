@@ -7,37 +7,37 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
 
 ??? "**AccuKnox KubeArmor**"
 
-    ![](images/rafay/rafay-ka.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka.png)
 
     **Step 1:** Creating Addon
 
     To integrate with the Rafay platform first we have created an addon using KubeArmor <a href="https://github.com/kubearmor/KubeArmor/blob/main/deployments/helm/values.yaml" target="_blank">helm</a> repository
 
-    ![](images/rafay/rafay-ka-0.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-0.png)
 
     **Step 2:** Creating Blue Print
 
     After creating the Add on to apply that in cluster we have created the Blueprint using the KubeArmor addon
 
-    ![](images/rafay/rafay-ka-1.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-1.png)
 
     **Step 3:** Connecting Cluster with Rafay
 
     **3.1** Importing existing Cluster option
 
-    ![](images/rafay/rafay-ka-2.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-2.png)
 
     **3.2** Selecting the Cluster Platform
 
-    ![](images/rafay/rafay-ka-3.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-3.png)
 
     **3.3** Applying KubeArmor Blue Print to the Cluster
 
-    ![](images/rafay/rafay-ka-4.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-4.png)
 
     **3.4** Connecting the Cluster to Rafay Platform
 
-    ![](images/rafay/rafay-ka-5.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-5.png)
 
     **3.5** Applying the Bootstrap.yaml file to the Cluster
 
@@ -100,7 +100,7 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
 
     **3.7** After applying the yaml file the cluster is connected to the Rafay System
 
-    ![](images/rafay/rafay-ka-6.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-6.png)
 
     **Step 4:** Applying KubeArmor Policy
 
@@ -141,7 +141,7 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
     apt-get update
     ```
 
-    ![](images/rafay/rafay-ka-7.png)
+    ![rafay-integration-steps](images/rafay/rafay-ka-7.png)
 
     **Step 6:** Policy logs
 
@@ -219,33 +219,33 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
     1. **Policy Enforcement Agent:** AccuKnox’s Policy Enforcement Agent enforces the policies by leveraging KubeArmor. The policy   not only keeps the track of the policies but is capable of doing tasks such as applying policies, denying policies, updating policies, and deleting the policies.
     1. **Shared Informer Agent:** Shared Informer Agent watches all the changes occurring in Kubernetes entities such as Pods, Nodes, Namespaces, Endpoints, and Services.
 
-    ![](images/rafay/rafay-ak.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak.png)
 
     ### **1.Create AccuKnox Agents Add-On**
 
     **Step 1:** Navigate to Add-Ons section in the Rafay console, Click on New Add on button and select Create New “Add-On from Catalog”.
 
-    ![](images/rafay/rafay-ak-0.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-0.png)
 
     **Step 2:** In the catalog search for AccuKnox and select accuknox-agents.
 
-    ![](images/rafay/rafay-ak-1.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-1.png)
 
     **Step 3:** Go to VALUES.YAML tab and download the file, this file will be used later in the steps.
 
-    ![](images/rafay/rafay-ak-2.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-2.png)
 
     **Step 4:** Click on Create Add-On.
 
-    ![](images/rafay/rafay-ak-3.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-3.png)
 
     **Step 5:** Give the Add-On a suitable Name and select “accuknox-agents” as namespace.
 
-    ![](images/rafay/rafay-ak-4.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-4.png)
 
     **Step 6:** Upload the VALUES.YAML that was downloaded in step 3 and click on the edit button to change some fields.
 
-    ![](images/rafay/rafay-ak-5.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-5.png)
 
     **Step 7:** Change the following fields respectively:
 
@@ -256,11 +256,11 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
 
     (To see how to get joinToken refer to this guide : https://help.accuknox.com/getting-started/cluster-onboarding/)
 
-    ![](images/rafay/rafay-ak-6.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-6.png)
 
     **Step 8:** Save Changes to create a new version for the Add-On.
 
-    ![](images/rafay/rafay-ak-7.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-7.png)
 
     ### **2.Creating Blueprint**
 
@@ -268,25 +268,25 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
 
     **Step 1:** To create a Blueprint user must navigate to the Infrastructure→Blueprint and select New Blueprint
 
-    ![](images/rafay/rafay-ak-8.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-8.png)
 
     **Step 2:** Now give the name for the blue print and save it
 
-    ![](images/rafay/rafay-ak-9.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-9.png)
 
     **Step 3:** After that we need attach the kubearmor and AccuKnox- Agents add on that we created previously to the blueprint
 
-    ![](images/rafay/rafay-ak-10.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-10.png)
 
     ### **3.Deploying the Blueprint in Cluster**
 
     **Step 1:** Attaching the blueprint to the cluster by selecting the AccuKnox blueprint
 
-    ![](images/rafay/rafay-ak-11.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-11.png)
 
     **Step 2:** Download the bootstrap file from the Rafay interface and apply this to the cluster using CLI
 
-    ![](images/rafay/rafay-ak-12.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-12.png)
 
     **Step 3:** Applying the bootstrap.yaml in cluster
 
@@ -320,11 +320,11 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
 
     **Step 4:** Wait for KubeArmor and AccuKnox to complete deployment
 
-    ![](images/rafay/rafay-ak-13.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-13.png)
 
     **Step 5:** Check if the cluster is onboarded on AccuKnox SaaS platform in the Cloud Workload section.
 
-    ![](images/rafay/rafay-ak-14.png)
+    ![rafay-integration-steps](images/rafay/rafay-ak-14.png)
 
     ## **Expected Outcome**
 
@@ -334,7 +334,7 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
 
     Cluster workload behavior in AccuKnox SaaS is monitored using KubeArmor and AccuKnox Agents, installed as DaemonSets. Information is gathered at pod-level granularity, enabling users to access details for each pod in different namespaces. Workload behavior is presented through both list and graphical views.
 
-    ![](images/rafay/rafay-ex-0.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-0.png)
 
     **List View:**
     In the list view users can get the selected pod’s application behavior in 3 types of list namely:
@@ -348,7 +348,7 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
     - **Network Observability:**
     Network Observability shows the ingress and egress connection that are coming to and going out of the pod.It gives the information regarding Port number, source from where the ingress connection is coming and Destination to which egress connection is destined to go.
 
-    ![](images/rafay/rafay-ex-1.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-1.png)
 
     ### **Policy Dashboard**
 
@@ -364,29 +364,29 @@ description: Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and
     - **Alert based Operations:** Graphically represents alert-triggering operations such as file access, process blocks, and audits, giving users an overview of the types of alerts generated.
     - **Alerts based on Severity:** Provides information on attack severity levels that were mitigated by the runtime protection policies within the chosen cluster/namespace.
 
-    ![](images/rafay/rafay-ex-2.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-2.png)
 
     ### **Policy Enforcement**
 
     Policies section gives the user information about the runtime protection policies that are applied in the cluster. Policies are classified as Discovered, Active, inactive, Pending, Hardening and so on. We can see the policies based on the cluster, Namespace and policy type that we select in the filters shown in the page. AccuKnox has the option to see the policies related to a particular namespace and workload. Along with the discovered and Hardening policies users can also create custom policies by using the policy editor tool.
 
-    ![](images/rafay/rafay-ex-3.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-3.png)
 
     ### **Monitoring Logs**
 
     AccuKnox CNAPP Solution provides comprehensive visibility of the cloud assets with the help of Dashboards and logs/alerts. AccuKnox’s open source KubeArmor can forward policy related logs/alerts to the SaaS. Also it can forward the container logs that is present in the workloads. Logs are generated in real-time based on certain conditions/rules you configure on the security policies. You will get logs from four different components.
 
-    ![](images/rafay/rafay-ex-4.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-4.png)
 
     The Log Detail contents vary depending on the selected component type of the log event.
 
-    ![](images/rafay/rafay-ex-5.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-5.png)
 
     ### **SIEM/Notification Integration**
 
     Users can use Feeder service agent to pass the logs to other SIEM tools like Splunk, ELK, Rsyslog, etc.., Users can also forward the logs from AccuKnox SaaS using the channel integration option to these SIEM tools. User can integrate with various SIEM and ticketing tools like [Splunk](https://help.accuknox.com/integrations/splunk/), [Rsyslog](https://help.accuknox.com/integrations/rsyslog/), [AWS CloudWatch](https://help.accuknox.com/integrations/aws-cloudwatch/), Elastic Search, [Slack](https://help.accuknox.com/saas/slack/) and [Jira](https://help.accuknox.com/integrations/jira-cloud).
 
-    ![](images/rafay/rafay-ex-6.png)
+    ![rafay-integration-steps](images/rafay/rafay-ex-6.png)
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
