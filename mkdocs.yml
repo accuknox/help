@@ -254,6 +254,7 @@ nav:
           - "Iac Scan": "integrations/azure-iac.md"
           - "DAST": "integrations/azure-dast.md"
           - "Secret Scan": "integrations/azure-secret-scan.md"
+          - "OpenGrep SAST": "integrations/azure-opengrep-sast.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
           - "SAST": "integrations/google-sast.md"
