@@ -313,6 +313,7 @@ nav:
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
             - "DAST": "integrations/bitbucket-dast.md"
             - "Secret Scan": "integrations/bitbucket-secret-scan.md"
+            - "OpenGrep SAST": "integrations/opengrep-sast-bitbucket.md"
             - "Scan Variables":
               - "Container Scan Variables": "integrations/bitbucket-container-variables.md"
               - "IaC Scan Variables": "integrations/bitbucket-iac-variables.md"
@@ -424,6 +425,7 @@ nav:
         - "SAST - SQL Injection": "use-cases/sast-sq.md"
         - "MFA-enabled DAST Scans": "use-cases/mfa-dast.md"
         - "DAST-Driven XSS Mitigation": "use-cases/dast-xss.md"
+        - "Secret Scans in CI/CD": "use-cases/secret-scan-cicd-aws.md"
     - "Kubernetes Security Posture Management (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
