@@ -3,35 +3,33 @@ title: Infrastructure as Code (IaC) Scanning with AccuKnox
 description: Use AccuKnox to scan and remediate IaC issues in Google Cloud Build, ensuring secure infrastructure deployment by fixing misconfigurations.
 ---
 
-# Integrating IaC Scanning for AWS S3 Buckets into Your CI/CD Pipeline
+# Integrating AccuKnox IaC Scanning for AWS S3 Buckets in Your CI/CD Pipeline
 
-To provide a practical demonstration of using AccuKnox for a CI/CD scan, let's go through a detailed use case involving a Terraform project. AccuKnox IaC Scanner is a tool designed to identify misconfigurations in Infrastructure as Code (IaC) files, such as those written for Terraform, Kubernetes and more. It helps in enforcing best practices and security guidelines.
+This guide demonstrates how to integrate AccuKnox's IaC Scanner into a CI/CD pipeline to automatically detect and fix misconfigurations in Terraform projects.
 
-**Check it out on GitHub Marketplace**: [here](https://github.com/marketplace/actions/accuknox-iac)
+🔗 **Check it out on GitHub Marketplace:** [**AccuKnox IaC Scanner**](https://github.com/marketplace/actions/accuknox-iac "https://github.com/marketplace/actions/accuknox-iac")
 
 ## Scenario
 
-You are responsible for maintaining an AWS infrastructure managed through Terraform. Your project includes an S3 bucket designed to host a website. The CI/CD pipeline is set up to automatically deploy changes pushed to your Git repository. You want to ensure that any changes meet security best practices and do not introduce any misconfigurations.
+You manage AWS infrastructure using Terraform, including an S3 bucket for website hosting. Your GitHub Actions CI/CD pipeline automatically deploys changes. To enforce security best practices, you want to scan Terraform configurations before deployment.
 
 ## Objective
 
-Integrate AccuKnox into the CI/CD pipeline to automatically scan the Terraform code for potential security issues, specifically focusing on the S3 bucket configuration.
+Integrate **AccuKnox IaC Scanner** into your CI/CD pipeline to identify and fix potential security misconfigurations, focusing on AWS S3 bucket security.
 
 ## Tools
 
-- **Terraform** for infrastructure management.
-- **AccuKnox** for IaC Scanning.
-- **GitHub Actions** as the CI/CD platform (though the process is similar for other platforms like GitLab CI, Jenkins, etc.).
+- **AccuKnox** -- CNAPP platform
+
+- **GitHub Actions** -- CI/CD platform (similar process for GitLab CI, Jenkins, etc.)
 
 ## Steps
 
-### 1. Initial Setup
+### 1. Terraform Setup
 
-Your Terraform code for creating an S3 bucket is as follows:
+Example Terraform code for creating an S3 bucket:
 
-{% raw %}
-
-```terraform
+```hcl
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-unique-bucket-name"
   acl    = "public-read"
@@ -43,27 +41,18 @@ resource "aws_s3_bucket" "my_bucket" {
 }
 ```
 
-{% endraw %}
+### 2. GitHub Actions Workflow Integration
 
-### 2. CI/CD Pipeline Integration
-
-To integrate AccuKnox scans into your GitHub Actions workflow, set up a `.github/workflows/terraform.yml` file in your repository with the following content:
+Create a GitHub Actions workflow at `.github/workflows/iac.yml`:
 
 {% raw %}
-
-```yaml
+```yml
 name: AccuKnox IaC Scan Workflow
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
-permissions:
-  contents: read
-  security-events: write
+      - iac
 
 jobs:
   tests:
@@ -72,102 +61,85 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Run IaC scan
+      - name: Accuknox IaC
         uses: accuknox/iac-scan-action@v0.0.1
         with:
           directory: ./
           output_file_path: ./results
-          token: ${{ secrets.TOKEN }}
-          endpoint: "cspm.dev.accuknox.com"
-          tenant_id: ${{ secrets.TENANT_ID}}
+          token: ${{ secrets.ACCUKNOX_TOKEN }}
+          endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
+          tenant_id: ${{ secrets.ACCUKNOX_TENANT_ID }}
+          label: ${{ secrets.ACCUKNOX_LABEL }}
           quiet: "true"
-          soft_fail: "true"
+          soft_fail: true
 ```
-
 {% endraw %}
 
-### 3. Before AccuKnox Scan
+### 3. Before Integration
 
-Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push the above Terraform code, it gets deployed without any security checks, potentially exposing sensitive data due to the public-read ACL setting on the S3 bucket.
+Without the AccuKnox scan, insecure configurations like `acl = "public-read"` could be deployed without any warnings.
 
-### 4. After AccuKnox Scan Integration
+### 4. After Integration
 
-After integrating AccuKnox into your CI/CD pipeline, the next push triggers the GitHub Actions workflow. The AccuKnox scan identifies the misconfiguration with the S3 bucket:
+Once AccuKnox is integrated:
 
-![iac-scans-accuknox](images/iac-scan-images/3.png)
-![iac-scans-accuknox](images/iac-scan-images/11.png)
+- Every push or pull request triggers a security scan.
 
-#### Under Github Actions
+- Misconfigurations (e.g., public-read S3 buckets) are identified.
 
-Go into Actions; under "All Workflows," you will be able to see all the instances when the workflow ran and the results that were sent over to the AccuKnox SaaS platform.
+- Results are available under **Actions** → **Run IaC scan** in GitHub.
 
-![iac-scans-accuknox](images/iac-scan-images/4.png)
+You can view:
 
-Click on the latest workflow run, and you will be able to see all the steps that were executed under the workflow.
+- Which security checks passed or failed
 
-![iac-scans-accuknox](images/iac-scan-images/5.png)
+- Detailed results are directly in the GitHub Action logs.
 
-Under Workflow there is "Run IaC scan" step, clicking on the "Run IaC scan” user will be able to see the scan results, including which checks have failed or passed.
+![image-20250428-061628.png](./images/iac-scan/1.png)
 
-![iac-scans-accuknox](images/iac-scan-images/6.png)
+### 5. Viewing Findings on AccuKnox SaaS
 
-The image below shows the check for CKV_AWS_18:
+- Log in to the AccuKnox SaaS platform.
 
-![iac-scans-accuknox](images/iac-scan-images/3.png)
+- Navigate to **Issues → Findings**.
 
-#### Under AccuKnox SaaS
+- Filter by **Data Type: IaC Scan**.
 
-Once the scan is complete, users will be able to go into the AccuKnox SaaS platform and navigate to Issues → Findings, where they can find misconfigurations in their Infrastructure as Code.
+![image-20250428-064843.png](./images/iac-scan/2.png)
 
-![iac-scans-accuknox](images/iac-scan-images/7.png)
+- Search for your repository or specific findings.
 
-The user needs to select "IaC Scan" from the data type filter next to the findings.
+- Click on a finding for detailed information, remediation steps, and solutions.
 
-![iac-scans-accuknox](images/iac-scan-images/8.png)
-![iac-scans-accuknox](images/iac-scan-images/9.png)
-Users can search for their repository or findings from the search bar.
+![image-20250428-065005.png](./images/iac-scan/3.png)
 
-![iac-scans-accuknox](images/iac-scan-images/10.png)
+![image-20250429-111307.png](./images/iac-scan/4.png)
 
-Clicking on the misconfiguration opens up the ticket creation dialog box.
+### 6. Remediating Issues
 
-![iac-scans-accuknox](images/iac-scan-images/11.png)
+#### 6.1 Create a Ticket
 
-Clicking on the arrow above will redirect you to a new page that provides detailed information and solutions regarding the misconfiguration.
+- You can **create a ticket directly from AccuKnox Findings** by integrating your organization's ticketing system (**Jira**, **ServiceNow**, etc.) with AccuKnox.
 
-![iac-scans-accuknox](images/iac-scan-images/12.png)
+- This ensures vulnerabilities detected during scans are **automatically or manually ticketed** for tracking and resolution.
 
-The image below shows details, solutions, and other information about the misconfiguration.
+- Refer to the integration guide for setup:
+  🔗 [**AccuKnox Jira Cloud Integration Guide**](https://help.accuknox.com/integrations/jira-cloud/ "https://help.accuknox.com/integrations/jira-cloud/")
 
-![iac-scans-accuknox](images/iac-scan-images/13.png)
+![image-20250428-090126.png](./images/iac-scan/5.png)
 
-### 5. Resolution: You update the Terraform code to address the AccuKnox IaC Scan findings
+#### 6.2 Fix the Code
 
-{% raw %}
+- After fixing the vulnerability, rerun the pipeline.
 
-```terraform
-resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name"
-  acl    = "private"
+- Navigate to the AccuKnox dashboard and verify that the vulnerability has been resolved.
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-  }
+## Conclusion
 
-  logging {
-    target_bucket = "my-logging-bucket"
-    target_prefix = "log/"
-  }
-}
-```
+Integrating AccuKnox IaC Scans into your CI/CD pipeline helps:
 
-{% endraw %}
+- Catch misconfigurations early.
 
-In the next scan ensure the S3 bucket has access logging enabled will not shown up in the logs.
+- Maintain security best practices.
 
-![iac-scans-accuknox](images/iac-scan-images/15.png)
-
-### 6. Final Outcome
-
-After applying the updates and rerunning the CI/CD pipeline with the AccuKnox scan, the "Ensure the S3 bucket has access logging enabled" check is passed. Continue to address any other failed checks until your Infrastructure as Code (IaC) passes all checks. Once completed, your S3 bucket configuration will adhere to the best practices for security, ensuring that activity is logged.
+- Ensure a faster, safer deployment process.

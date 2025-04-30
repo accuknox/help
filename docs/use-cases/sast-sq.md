@@ -1,208 +1,153 @@
----
-title: SAST with SonarQube and AccuKnox SaaS
-description: Identify and fix an SQL Injection vulnerability using SonarQube integrated with GitHub Actions and pushing the results to AccuKnox SaaS.
----
+# SAST with Opengrep and AccuKnox: Detecting SQL Injection Vulnerabilities
 
-# **SAST with SonarQube and AccuKnox SaaS**
+In this guide, we'll walk through integrating **Opengrep** for Static Application Security Testing (SAST) and **AccuKnox** for continuous security monitoring of Python code to detect **SQL Injection** vulnerabilities in your CI/CD pipeline.
 
-## **Introduction**
+🔗 **Check it out on GitHub Marketplace:** [**AccuKnox-Opengrep SAST Scanner**](https://github.com/marketplace/actions/accuknox-sast-opengrep "https://github.com/marketplace/actions/accuknox-sast-opengrep")
 
-SQL Injection is a common security vulnerability found in web applications. It occurs when an attacker can manipulate a SQL query by injecting malicious input into the query string. This use case demonstrates how to identify and fix an SQL Injection vulnerability using SonarQube integrated with GitHub Actions and pushing the results to AccuKnox SaaS.
+## Scenario
 
-## **Step-by-Step Guide**
+You are maintaining a Python application, and your CI/CD pipeline automatically deploys changes to your application. You want to ensure that your code is checked for security vulnerabilities, especially **SQL Injection** attacks, which can compromise your application and data.
 
-Example Vulnerable Code (```VulnerableApp.java```) for Demonstration:
+The solution is to integrate **Opengrep** for scanning the Python code in your CI/CD pipeline and forward the results to **AccuKnox** for further analysis and issue tracking.
 
-```sh
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-public class VulnerableApp {
-    public static void main(String[] args) {
-        String user = args[0]; // User input should be sanitized
-        Connection conn = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/test?user=root&password=root");
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM users WHERE username = '" + user + "'"); // Vulnerable to SQL Injection
-            while (rs.next()) {
-                System.out.println("User: " + rs.getString("username"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try { if (rs != null) rs.close(); } catch (Exception e) {};
-            try { if (stmt != null) stmt.close(); } catch (Exception e) {};
-            try { if (conn != null) conn.close(); } catch (Exception e) {};
-        }
-    }
-}
+## Objective
+
+Integrate **Opengrep** into your CI/CD pipeline to detect **SQL Injection** vulnerabilities in Python code. Forward the scan results to **AccuKnox** to help track and manage security issues.
+
+## Tools
+
+- **AccuKnox** -- CNAPP platform
+
+- **GitHub Actions** -- CI/CD platform (similar to GitLab CI, Jenkins, etc.)
+
+## Steps
+
+### 1. Vulnerable Python Code Example
+
+This Python code contains a **SQL Injection** vulnerability where user input is concatenated directly into a SQL query, allowing an attacker to manipulate the query.
+
+```python
+import sqlite3
+
+def get_user_data(username):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # VULNERABLE SQL QUERY: User input is directly injected into the query.
+    query = "SELECT * FROM users WHERE username = '" + username + "';"
+
+    cursor.execute(query)
+    user_data = cursor.fetchall()
+
+    conn.close()
+
+    return user_data
+
+# Example of how the vulnerable function could be called
+username_input = input("Enter your username: ")
+print(get_user_data(username_input))
+
 ```
 
-**Step 1**: Configure SonarQube and GitHub Actions
+**Explanation**:
 
-1. Create a ```sonar-project.properties``` File:
+- The code directly injects user input into the SQL query, which opens the door for **SQL Injection** attacks.
 
-    - Place this file in the root of your GitHub repository.
+- An attacker can provide input like `" OR '1'='1"` to manipulate the query and gain unauthorized access to data.
 
-```sh
-# Required metadata
-sonar.projectKey=github_sonar_example
-sonar.projectName=GitHub Sonar Example
-sonar.projectVersion=1.0
-# Path to source directories (required)
-sonar.sources=.
-# Encoding of the source files
-sonar.sourceEncoding=UTF-8
-# Additional settings
-sonar.host.url=<http://your_sonarqube_server:9000>
-sonar.login=your_project_token
-```
+### 2. GitHub Actions Workflow Integration
 
-2.Add SonarQube and AccuKnox Tokens to GitHub Secrets:
-
-- Navigate to your GitHub repository > Settings > Secrets > Actions.
-
-- Add the following secrets:
-
-    - ```SONAR_TOKEN```: Your SonarQube project token.
-
-    - ```SQ_URL```: Your SonarQube URL.
-
-    - ```AK_URL```: The AccuKnox URL (```cspm.accuknox.com```).
-
-    - ```TENANT_ID```: Your AccuKnox Tenant ID.
-
-    - ```AK_TOK```: The artifact token received from AccuKnox management plane.
-
-3.Create GitHub Actions Workflow:
-
-- Add a new file ```.github/workflows/sonarqube.yml```:
+Create a GitHub Actions workflow at `.github/workflows/sast.yml`:
 
 {% raw %}
-```sh
-name: SonarQube and AccuKnox SAST Integration
+```yaml
+name: AccuKnox SAST Scan Workflow
+
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - sast
+
 jobs:
-  sonarqube_sast:
+  tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@main
+
+      - name: Accuknox SAST
+        uses: accuknox/sast-scan-opengrep-action@1.0.0
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SQ_URL }}
-      - name: Run AccuKnox SAST job
-        env:
-          SQ_URL: ${{ secrets.SQ_URL }}
-          SQ_AUTH_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          docker run --rm \
-            -e SQ_URL=${{ secrets.SQ_URL }} \
-            -e SQ_AUTH_TOKEN=${{ secrets.SONAR_TOKEN }} \
-            -e REPORT_PATH=/app/data/ \
-            -e SQ_PROJECTS="^github_sonar_example$" \
-            -v $PWD:/app/data/ \
-            accuknox/sastjob:latest
-      - name: Upload SAST reports
-        env:
-          AK_URL: ${{ secrets.AK_URL }}
-          TENANT_ID: ${{ secrets.TENANT_ID }}
-          AK_TOK: ${{ secrets.AK_TOK }}
-        run: |
-          cd ${GITHUB_WORKSPACE}
-          for file in `ls -1 SQ-*.json`; do
-            curl --location --request POST "<https://$AK_URL/api/v1/artifact/?tenant_id=$TENANT_ID&data_type=SQ&save_to_s3=false>" \
-              --header "Tenant-Id: $TENANT_ID" \
-              --header "Authorization: Bearer $AK_TOK" \
-              --form "file=@\"$file\""
-          done
+          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
+          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
+          accuknox_tenant: ${{ secrets.ACCUKNOX_TENANT_ID }}
+          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          input_soft_fail: false
 ```
+
 {% endraw %}
 
-**Step 2**: Push Changes and Trigger Scan
+- Triggers on **push** or **pull request** to the `main` branch.
 
-- Commit the ```sonar-project.properties```, ```.github/workflows/sonarqube.yml```, and ```VulnerableApp.java``` files to your repository and push the changes to GitHub.
+- Runs the **Opengrep** scan on the code.
 
-- The workflow will be triggered automatically on push or pull request events.
+- Uploads the results to AccuKnox for further analysis.
 
-**Step 3**: Review the Results in AccuKnox SaaS
+### 4. Before AccuKnox Integration
 
-- After the workflow completes, navigate to the AccuKnox SaaS dashboard.
+Without **AccuKnox** in your pipeline, any push containing the above vulnerable Python code would be deployed without any security checks, potentially exposing your application to **SQL Injection** attacks.
 
-- Go to **Issues** > **Vulnerabilities** and select **Data Type** as **SonarQube** to view the identified vulnerabilities, including the SQL Injection vulnerability in ```VulnerableApp.java```.
+### 5. After AccuKnox Integration
 
-![sast](images/sast/findings.png)
+Once the **AccuKnox** scan is integrated:
 
-- Click on the Vulnerability to view more details
+- Every push or pull request to `main` triggers the scan.
 
-![sast](images/sast/details.png)
+- **SQL Injection** vulnerabilities will be detected and flagged.
 
-**Step 4**: Fix the Vulnerability
+- Results are uploaded to **AccuKnox** for detailed analysis and remediation tracking.
 
-To fix the SQL Injection vulnerability, use prepared statements instead of concatenating user input directly into the SQL query as seen in the Solutions tab.
+Open image-20250428-074532.png
 
-![sast](images/sast/solution.png)
+![image-20250428-074532.png](./images/sast/1.png)
 
-Secure Java Code Example (To be saved as ```SecureApp.java```)
+#### Viewing the Results in AccuKnox
 
-```sh
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-public class SecureApp {
-    public static void main(String[] args) {
-        String user = args[0]; // User input should be sanitized
-        Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/test?user=root&password=root");
-            String query = "SELECT * FROM users WHERE username = ?";
-            pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, user);
-            rs = pstmt.executeQuery(); // Secure against SQL Injection
-            while (rs.next()) {
-                System.out.println("User: " + rs.getString("username"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try { if (rs != null) rs.close(); } catch (Exception e) {};
-            try { if (pstmt != null) pstmt.close(); } catch (Exception e) {};
-            try { if (conn != null) conn.close(); } catch (Exception e) {};
-        }
-    }
-}
-```
+- Log into **AccuKnox** and navigate to **Issues → Findings**.
 
-**Step 5**: Re-Analyze the Code
+- Filter by **Data Type: Opengrep SAST Scan** and search for the findings related to your repository.
 
-1. **Update the Code**: Replace ```VulnerableApp.java``` with the secure version ```SecureApp.java```.
+Open image-20250428-084216.png
 
-2. **Run SonarQube Scanner Again**: Push the updated code to the repository. GitHub Actions will automatically trigger the SonarQube scan and AccuKnox SAST job.
+![image-20250428-084216.png](./images/sast/2.png)
 
-**Step 6**: Review the Updated Results
+- Detailed information will be provided, including the severity of the vulnerability and suggested remediation.
 
-- After the workflow completes, navigate to the AccuKnox SaaS dashboard.
+Open image-20250428-084307.png
 
-- Go to **Issues** > **Vulnerabilities** and select **Data Type** as **SonarQube** to verify that the SQL Injection vulnerability has been resolved.
+![image-20250428-084307.png](./images/sast/3.png)
 
-## **Conclusion**
+### 6. Remediating the Vulnerability
 
-By following these steps, you can leverage SonarQube integrated with GitHub Actions and AccuKnox SaaS to identify and fix security vulnerabilities in your codebase. This process ensures that your code maintains high quality and security standards, and any potential vulnerabilities are promptly addressed.
+#### 6.1 Create a Ticket
 
+- You can **create a ticket directly from AccuKnox Findings** by integrating your organization's ticketing system (**Jira**, **ServiceNow**, etc.) with AccuKnox.
+
+- This ensures vulnerabilities detected during scans are **automatically or manually ticketed** for tracking and resolution.
+
+- Refer to the integration guide for setup:
+  🔗 [**AccuKnox Jira Cloud Integration Guide**](https://help.accuknox.com/integrations/jira-cloud/ "https://help.accuknox.com/integrations/jira-cloud/")
+
+Open image-20250428-085128.png
+
+![image-20250428-085128.png](./images/sast/4.png)
+
+#### 6.2 Fix the Code
+
+- After fixing the vulnerability, rerun the pipeline.
+
+- Navigate to the AccuKnox dashboard and verify that the vulnerability has been resolved.
+
+## Conclusion
+
+By integrating **Opengrep** for SAST scans and forwarding the results to **AccuKnox**, you can automate the detection and resolution of security vulnerabilities like **SQL Injection** in your Python codebase. This setup ensures that potential security risks are caught early in the CI/CD pipeline, providing a robust defense for your application.
