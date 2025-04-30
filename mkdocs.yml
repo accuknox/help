@@ -420,12 +420,12 @@ nav:
       - "Container Image Scan": "use-cases/image-scan.md"
     - "DevSecOps (ASPM)":
         - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
-        - "IaC Scan AWS S3 Buckets (CI/CD Pipeline)": "use-cases/iac-scan.md"
-        - "ASPM Container Scan": "use-cases/container-scan.md"
-        - "SAST - SQL Injection": "use-cases/sast-sq.md"
-        - "MFA-enabled DAST Scans": "use-cases/mfa-dast.md"
-        - "DAST-Driven XSS Mitigation": "use-cases/dast-xss.md"
-        - "Secret Scans in CI/CD": "use-cases/secret-scan-cicd-aws.md"
+        - "IaC Scan": "use-cases/iac-scan.md"
+        - "Container Scan": "use-cases/container-scan.md"
+        - "SAST": "use-cases/sast-sq.md"
+        - "DAST (MFA-Enabled)": "use-cases/mfa-dast.md"
+        - "DAST XSS Mitigation": "use-cases/dast-xss.md"
+        - "Secrets Scan": "use-cases/secret-scan-cicd-aws.md"
     - "Kubernetes Security Posture Management (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"

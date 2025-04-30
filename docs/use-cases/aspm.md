@@ -43,9 +43,21 @@ hide:
   image: ./icons/vuln-mgmt.svg
   url: /use-cases/vulnerability/
 
-::/cards::
+- title: DAST (MFA-Enabled)
+  content:
+  image: ./icons/dast-mfa.svg
+  url: /use-cases/mfa-dast/
 
+- title: DAST XSS Mitigation
+  content:
+  image: ./icons/dast-xss.svg
+  url: /use-cases/dast-xss/
 
+- title: Secret Scan in CI/CD
+  content:
+  image: ./icons/secret-scan-cicd.svg
+  url: /use-cases/secret-scan-cicd-aws/
+  ::/cards::
 
 ### **AccuKnox Features**
 
@@ -62,7 +74,7 @@ hide:
 - Enterprise-grade compliance detection
 
 !!!info
-    AccuKnox supports [**Integrations**](https://help.accuknox.com/integrations/jenkins-dast/ "https://help.accuknox.com/integrations/jenkins-dast/") with a wide range of tools for streamlined workflows.
+AccuKnox supports [**Integrations**](https://help.accuknox.com/integrations/jenkins-dast/ "https://help.accuknox.com/integrations/jenkins-dast/") with a wide range of tools for streamlined workflows.
 
 !!!info
-    For more information on our **ASPM** offerings, visit the [**AccuKnox ASPM Page**](https://www.accuknox.com/products/aspm "https://www.accuknox.com/products/aspm").
+For more information on our **ASPM** offerings, visit the [**AccuKnox ASPM Page**](https://www.accuknox.com/products/aspm "https://www.accuknox.com/products/aspm").
