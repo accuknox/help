@@ -60,6 +60,7 @@ print(get_user_data(username_input))
 Create a GitHub Actions workflow at `.github/workflows/sast.yml`:
 
 {% raw %}
+
 ```yaml
 name: AccuKnox SAST Scan Workflow
 
@@ -107,8 +108,6 @@ Once the **AccuKnox** scan is integrated:
 
 - Results are uploaded to **AccuKnox** for detailed analysis and remediation tracking.
 
-Open image-20250428-074532.png
-
 ![image-20250428-074532.png](./images/sast/1.png)
 
 #### Viewing the Results in AccuKnox
@@ -117,13 +116,9 @@ Open image-20250428-074532.png
 
 - Filter by **Data Type: Opengrep SAST Scan** and search for the findings related to your repository.
 
-Open image-20250428-084216.png
-
 ![image-20250428-084216.png](./images/sast/2.png)
 
 - Detailed information will be provided, including the severity of the vulnerability and suggested remediation.
-
-Open image-20250428-084307.png
 
 ![image-20250428-084307.png](./images/sast/3.png)
 
@@ -137,8 +132,6 @@ Open image-20250428-084307.png
 
 - Refer to the integration guide for setup:
   🔗 [**AccuKnox Jira Cloud Integration Guide**](https://help.accuknox.com/integrations/jira-cloud/ "https://help.accuknox.com/integrations/jira-cloud/")
-
-Open image-20250428-085128.png
 
 ![image-20250428-085128.png](./images/sast/4.png)
 
