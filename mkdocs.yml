@@ -225,7 +225,7 @@ nav:
       - "Sonatype Nexus": "how-to/sonatype-nexus.md"
       - "JFrog Container" : "how-to/jfrog-container.md"
       - "Quay": "how-to/quay.md"
-      - "In-Cluster Image Scan with Helm": "how-to/in-cluster-image-scan-helm.md"
+      - "In-Cluster Scanner": "how-to/in-cluster-image-scan-helm.md"
     - "OnPrem":
         - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
         - "Security on OpenShift": "getting-started/security-on-openshift.md"
