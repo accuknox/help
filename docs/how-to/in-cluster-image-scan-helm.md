@@ -22,13 +22,13 @@ From the AccuKnox Control Plane:
 Use the following Helm command to install the scanner in your Kubernetes cluster:
 
 ```bash
-helm install kubeshield oci://public.ecr.aws/k9v9d5v2/kubeshield-chart -n kubeshield --create-namespace \
+helm install kubeshield oci://public.ecr.aws/k9v9d5v2/kubeshield-chart -n agents --create-namespace \
   --set scan.tenantId="{{tenantId}}" \
   --set scan.authToken="{{authToken}}" \
   --set scan.url="{{url}}" \
   --set scan.label="{{label}}" \
   --set scan.cronTab="30 9 * * *" \
-  --version "v0.1.1"
+  --version "v0.1.2"
 ```
 
 Replace the parameters (`{{tenantId}}`, `{{authToken}}`, `{{url}}`, `{{label}}` and `{{cronTab}}`) with the appropriate values.
