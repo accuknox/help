@@ -81,13 +81,3 @@ kubeshield-controller-manager-5dd5cbc6d4-8xg8k   1/1     Running   0          22
 ```
 
 > STATUS should be **Running**
-
-🔧 Check how many images are scanned or yet to scan
-
-```bash
-kubectl get ClusterScan -n kubeshield
-
-kubectl get -n kubeshield clusterscan.kubeshield.accuknox.com/triggered-schedule-clusterscan-jdb2k -o yaml
-```
-
-> Replace value of `triggered-schedule-clusterscan-jdb2k` from 1st command
