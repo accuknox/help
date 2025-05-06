@@ -40,7 +40,7 @@ Pulled: public.ecr.aws/k9v9d5v2/kubeshield-chart:v0.1.1
 Digest: sha256:a4c1a8948db7a24d8990b71b53184f564960b2b39dbd6cba1cd6104c12addd75
 NAME: kubeshield
 LAST DEPLOYED: Mon May  5 10:08:24 2025
-NAMESPACE: kubeshield
+NAMESPACE: agents
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
