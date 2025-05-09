@@ -34,7 +34,7 @@ hide:
 - title: Secrets Scan
   image: ./cicd-icons/secret-scan.svg
   url: /integrations/azure-secret-scan/
-- title: OpenGrep DAST
+- title: OpenGrep SAST
   image: ./cicd-icons/opengrep-sast.svg
   url: /integrations/azure-opengrep-sast/
 ::/cards::
