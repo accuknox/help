@@ -17,7 +17,7 @@ hide:
 
 # Jenkins Integrations
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
@@ -31,4 +31,14 @@ hide:
 - title: DAST (Dynamic Analysis)
   image: ./cicd-icons/dast.svg
   url: /integrations/jenkins-dast/
-  ::/cards::
+- title: Secrets Scan
+  image: ./cicd-icons/secret-scan.svg
+  url: /integrations/jenkins-secret-scan/
+- title: Pipeline Script for SAST
+  image: ./cicd-icons/sast.svg
+  url: /integrations/jenkins-sast-script/
+- title: Pipeline Script for DAST
+  image: ./cicd-icons/dast.svg
+  url: /integrations/jenkins-dast-script/
+
+::/cards::

@@ -17,7 +17,7 @@ hide:
 
 # Azure DevOps Integrations
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
@@ -31,5 +31,10 @@ hide:
 - title: DAST (Dynamic Analysis)
   image: ./cicd-icons/dast.svg
   url: /integrations/azure-dast/
-
+- title: Secrets Scan
+  image: ./cicd-icons/secret-scan.svg
+  url: /integrations/azure-secret-scan/
+- title: OpenGrep SAST
+  image: ./cicd-icons/opengrep-sast.svg
+  url: /integrations/azure-opengrep-sast/
 ::/cards::
