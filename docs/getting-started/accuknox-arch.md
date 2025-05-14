@@ -39,8 +39,6 @@ Cloud-native environments bring innovation but also introduce unique security ch
 
 ![Code to Cloud](/getting-started/images/code-to-cloud.png)
 
----
-
 ## AccuKnox AppSec + CloudSec CNAPP
 
 AccuKnox’s **Cloud-Native Application Protection Platform (CNAPP)** simplifies cloud security by addressing threats holistically:
@@ -53,13 +51,11 @@ AccuKnox’s **Cloud-Native Application Protection Platform (CNAPP)** simplifies
 
 By integrating these modules, AccuKnox ensures comprehensive coverage of code, cloud, container, and cluster (4C) assets.
 
-![Code to Cloud](/getting-started/images/accuknox-arch/1.png)
-
----
+![Code to Cloud](/introduction/images/tree-view.png)
 
 ## Enterprise CNAPP Offerings
 
-![AccuKnox Product Set](/introduction/images/gartner-cnapp-site.png)
+![AccuKnox Product Set](/introduction/images/ak-offering.png)
 
 ### Application Security Posture Management (ASPM)
 
