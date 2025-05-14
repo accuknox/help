@@ -4,6 +4,37 @@ description: Step-by-step instructions for deploying AccuKnox's on-prem security
 ---
 
 # AccuKnox OnPrem Deployment Guide
+## Onboarding Steps for AccuKnox
+
+The onboarding process for AccuKnox's on-prem security solution consists of four key steps that the user must complete. Let's go through each step in a thorough, step-by-step manner:
+
+![on-prem](images/on-prem/user_journey.png)
+
+### **Step 1: Hardware & Prerequisites**
+
+- Verify hardware, email user, and domain configurations.
+- Ensure your environment meets all requirements.
+- Time estimate: **Varies**, allocate sufficient time for review and adjustments.
+
+### **Step 2: Staging AccuKnox Container Images** *(For airgapped environments only)*
+
+- Stage AccuKnox container images in the airgapped setup.
+- Reconfirm hardware, email user, and domain requirements.
+- Time estimate: **~1 hour**.
+
+### **Step 3: Installation**
+
+- Install the AccuKnox system within your environment.
+- Ensure all prerequisites remain satisfied.
+- Time estimate: **~45 minutes**.
+
+### **Step 4: Verification/Validation**
+
+- Confirm all previous steps were completed successfully.
+- Validate hardware, email user, and domain configurations.
+- Time estimate: **~1 hour**.
+
+AccuKnox onprem deployment is based on Kubernetes native architecture.
 
 ## High-Level Architecture Overview
 
@@ -64,16 +95,17 @@ Agents need to be deployed in target k8s clusters and virtual machines that have
 
 ### Jump Host Pre-requisites
 
-| Tool                                  | Version                       | Install Command                                                                                                                                                                                    |
-|---------------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| jq                                    | 1.6                           | `apt install jq`                                                                                                                                                                                   |
-| unzip                                 | x.x                           | `apt install unzip`                                                                                                                                                                                |
-| [yq](https://github.com/mikefarah/yq) | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - | tar xz && mv ${BINARY} /usr/bin/yq` |
-| helm                                  | v3.x.x                        | `curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash`                                                                                                                 |
-| kubectl                               | Supported by your k8s cluster | -                                                                                                                                                                                                  |
-| aws                                   | v2                            | `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update` |
-| docker                                | v20.xx                        | `apt install docker.io`                                                                                                                                                                            |
-| Storage                               | 80GB                          | -                                                                                                                                                                                                  |
+| Tool                                  | Version                       | Install Command                                                                                                                                                                                              |
+|---------------------------------------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| jq                                    | 1.6                           | `apt install jq`                                                                                                                                                                                             |
+| unzip                                 | x.x                           | `apt install unzip`                                                                                                                                                                                          |
+| [yq](https://github.com/mikefarah/yq) | v4.40.x                       | `VERSION=v4.40.5 && BINARY=yq_linux_amd64 && wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY}.tar.gz -O - | tar xz && mv ${BINARY} /usr/bin/yq`                    |
+| helm                                  | v3.x.x                        | `curl -s https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash`                                                                                                                           |
+| kubectl                               | Supported by your k8s cluster | -                                                                                                                                                                                                            |
+| aws                                   | v2                            | `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update`            |
+| docker                                | v20.xx                        | `apt install docker.io`                                                                                                                                                                                      |
+| Storage                               | 80GB                          | -                                                                                                                                                                                                            |
+
 
 ## Installation Steps
 
@@ -101,8 +133,8 @@ If you want to use your private/local registry as the exclusive source of images
 | `registry.username` | Registry User                                                                                     | Customer |
 | `registry.password` | Registry Password                                                                                 | Customer |
 | `registry.address`  | The registry server address                                                                       | Customer |
-| `ecr.user`          | Credential to pull images from AccuKnox registry<br>**Value:** `AKIA55UKWV********`               | AccuKnox |
-| `ecr.password`      | Credential to pull images from AccuKnox registry<br>**Value:** `0c5UL9oHkftDRBfnrQV4Jmic********` | AccuKnox |
+| `ecr.user`          | Credential to pull images from AccuKnox registry                                                  | AccuKnox |
+| `ecr.password`      | Credential to pull images from AccuKnox registry                                                  | AccuKnox |
 
 ```sh
 cd airgapped-reg
@@ -231,14 +263,17 @@ done
 
 ## Install AccuKnox pre-chart
 
+!!! note "IMPORTANT"
+    Contact your AccuKnox representative to acquire the credentials for `ecr.user` and `ecr.password` values.
+
 | Value                                         | Description                                                                               | Provider |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------- | -------- |
 | **email.user**                                | Email user will send signup invites, reports, etc.                                        | Customer |
 | **email.password**                            | Email Password                                                                            | Customer |
 | **email.host**                                | The Email server address                                                                  | Customer |
 | **email.from**                                | The Email sender address (noreply@domain.com)                                             | Customer |
-| **ecr.user**                                  | Credential to pull images from AccuKnox registry<br>Value: `AKIA55UKWV****`               | AccuKnox |
-| **ecr.password**                              | Credential to pull images from AccuKnox registry<br>Value: `0c5UL9oHkftDRBfnrQV4Jmic/***` | AccuKnox |
+| **ecr.user**                                  | Credential to pull images from AccuKnox registry                                          | AccuKnox |
+| **ecr.password**                              | Credential to pull images from AccuKnox registry                                          | AccuKnox |
 | **global.externalServices.postgres.user**     | Postgres username, if using an external DB                                                | Customer |
 | **global.externalServices.postgres.password** | Postgres password, if using an external DB                                                | Customer |
 | **global.externalServices.postgres.host**     | Postgres host, if using an external DB                                                    | Customer |
@@ -253,7 +288,7 @@ done
 | **global.externalServices.s3.bucket**         | S3 bucket name                                                                            | Customer |
 
 ```sh
-helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.from="" --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="AKIA55UKWV**\*\***" --set ecr.password="0c5UL9oHkftDRBfnrQV4Jmic/**\*\*\***"
+helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.from="" --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="*****\*\***" --set ecr.password="****/**\*\*\***"
 ```
 
 Or, if using an external PostgreSQL or Mongo DB,
@@ -332,9 +367,12 @@ kubectl apply -f ingress.yaml
 
 ## Verification of installation
 
-- After successful installation, you should be able to point to https://frontend.<your-domain.com> URL and get the sign-in page.
-- https://cspm.<your-domain.com>/admin/ page should be available.
-- https://cwpp.<your-domain.com>/cm/ page should be available.
+After successful installation, you should be able to access the following URLs:
+
+- [https://frontend.your-domain.com](https://frontend.your-domain.com) — Access the **Sign-in page**.
+- [https://cspm.your-domain.com/admin/](https://cspm.your-domain.com/admin/) — Access the **CSPM Admin page**.
+- [https://cwpp.your-domain.com/cm/](https://cwpp.your-domain.com/cm/) — Access the **CWPP Configuration Management page**.
+
 
 ![](./images/on-prem/4.png)
 
