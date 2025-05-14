@@ -382,7 +382,7 @@ nav:
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
         - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
-        - "Deploy PyTorch App with ModelKnox": "use-cases/modelarmor-deploy-pytorch.md"
+        - "Deploy PyTorch App with ModelArmor": "use-cases/modelarmor-deploy-pytorch.md"
     - "Cloud Security Posture Management (CSPM)":
       - "Overview" : "use-cases/cspm.md"
       - "Asset Inventory": "use-cases/asset-inventory.md"

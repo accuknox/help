@@ -75,10 +75,10 @@ This guide demonstrates how to deploy a PyTorch application on Kubernetes and en
            app: pytorch
        spec:
          containers:
-         - name: pytorch-container
-           image: yourusername/pytorch-app:latest
-           ports:
-           - containerPort: 5000
+           - name: pytorch-container
+             image: yourusername/pytorch-app:latest
+             ports:
+               - containerPort: 5000
    ```
 
 4. **Service Configuration**: Expose the deployment using a LoadBalancer with `pytorch-service.yaml`:
