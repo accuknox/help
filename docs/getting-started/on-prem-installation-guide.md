@@ -288,7 +288,7 @@ done
 | **global.externalServices.s3.bucket**         | S3 bucket name                                                                            | Customer |
 
 ```sh
-helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.from="" --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="*****\*\***" --set ecr.password="****/**\*\*\***"
+helm upgrade  --install  -n  accuknox-chart accuknox-pre pre-chart  --create-namespace -f override-values.yaml --set global.email.from="" --set global.email.user="" --set global.email.password="" --set global.email.host="" --set ecr.user="" --set ecr.password=""
 ```
 
 Or, if using an external PostgreSQL or Mongo DB,
@@ -369,9 +369,9 @@ kubectl apply -f ingress.yaml
 
 After successful installation, you should be able to access the following URLs:
 
-- [https://frontend.your-domain.com](https://frontend.your-domain.com) — Access the **Sign-in page**.
-- [https://cspm.your-domain.com/admin/](https://cspm.your-domain.com/admin/) — Access the **CSPM Admin page**.
-- [https://cwpp.your-domain.com/cm/](https://cwpp.your-domain.com/cm/) — Access the **CWPP Configuration Management page**.
+- https://frontend.&lt;your-domain.com&gt;/ — Access the **Sign-in page**.
+- https://cspm.&lt;your-domain.com&gt;/admin/ — Access the **CSPM Admin page**.
+- https://cwpp.&lt;your-domain.com&gt;/cm/ — Access the **CWPP Configuration Management page**.
 
 
 ![](./images/on-prem/4.png)
