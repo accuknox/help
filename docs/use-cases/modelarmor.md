@@ -30,7 +30,6 @@ The below examples show some of the important use-cases.
 
 ::/cards::
 
-
 ## **TensorFlow Based Use Cases**
 
 ### FGSM Attack on a TensorFlow Model
