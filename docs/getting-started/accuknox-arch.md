@@ -11,7 +11,7 @@ Welcome to the **AccuKnox Enterprise CNAPP Suite**, a unified **AppSec + CloudSe
 
 In a rapidly evolving cloud-native landscape, maintaining robust security requires solutions that adapt and scale. AccuKnox delivers end-to-end protection, ensuring that your cloud workloads, clusters, and code remain secure, compliant, and operationally efficient.
 
-![AccuKnox Enterprise Architecture](/introduction/images/accuknox-architecture.png)
+![AccuKnox Enterprise Architecture](/introduction/images/updated-arch.png)
 
 ---
 
