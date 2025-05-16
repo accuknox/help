@@ -7,7 +7,7 @@ description: AccuKnox has an expanded offering to cater to diverse deployment ne
 
 AccuKnox has an expanded offering to cater to diverse deployment needs and preferences:
 
-![Deployment Models](images/deployment-models.jpg)
+![Deployment Models](images/deployment-models-clean.png)
 
 ---
 
