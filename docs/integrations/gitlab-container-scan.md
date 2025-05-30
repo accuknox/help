@@ -3,52 +3,69 @@ title: GitLab Container Scan
 description: Integrate AccuKnox with GitLab CI/CD to detect and fix vulnerabilities in Docker images before deployment from code to cloud.
 ---
 
-To show how incorporating AccuKnox into a CI/CD pipeline with Gitlab can improve security, let's look at a detailed example involving a Docker image that initially had known vulnerabilities. By running AccuKnox scanning in the pipeline, we can find and fix these vulnerabilities before deploying the image. The following narrative illustrates this process by comparing the situations before and after adding AccuKnox, as seen in the Gitlab jobs log.
+# Securing Docker Images in GitLab CI/CD with AccuKnox Integration
 
-## Scenario Before Integrating AccuKnox
+This guide demonstrates integrating AccuKnox into GitLab CI/CD pipelines to improve Docker image security by identifying and remediating vulnerabilities during the build process. We will compare the pipeline's state before and after the integration to highlight the security improvements.
 
-### **Context**
+### Prerequisites
 
-The Docker image was built from a Dockerfile using an outdated base image (`node:15-slim`), which contained known security vulnerabilities. Using this old base image unintentionally introduced many security weaknesses to the Docker image.
+Before beginning, ensure the following:
 
-**Dockerfile Example:**
+- A **GitLab** repository with **CI/CD** enabled
 
-```Dockerfile
-FROM node:15-slim
-```
+- Access to **AccuKnox**
 
-### **Issues**
+### Integration Steps
 
-- The outdated base image had several known vulnerabilities.
+#### Step 1: Generate AccuKnox API Token
 
-- The Docker image was being pushed to the registry without any security validation.
-
-## Steps for Integrating AccuKnox
-
-**Step 1**: Log in to AccuKnox Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
+Log in to AccuKnox. Navigate to Settings and select Tokens to create an AccuKnox token to forward scan results to AccuKnox. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
 
 **Step 2:** Configure GitLab CI/CD Variables. For details on configuring variables, refer to [How to Create CI/CD Variables in GitLab](https://docs.gitlab.com/ee/ci/variables/ "https://docs.gitlab.com/ee/ci/variables/").
 
-1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
+| **Name**             | **Description**                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------- |
+| `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to (e.g., `cspm.demo.accuknox.com`) |
+| `ACCUKNOX_TENANT_ID` | The ID of the tenant associated with the CSPM panel                                    |
+| `ACCUKNOX_TOKEN`     | Token for authenticating with the AccuKnox CSPM panel                                  |
+| `ACCUKNOX_LABEL`     | Label to categorize or tag the scan results                                            |
 
-2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+The label used to categorize and identify scan results in AccuKnox. [Create a new label](https://help.accuknox.com/how-to/how-to-create-labels/ "https://help.accuknox.com/how-to/how-to-create-labels/") if it is not available
 
-3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com/")).
+#### Step 3: Define the GitLab CI/CD Pipeline Configuration
 
-4. **ACCUKNOX_LABEL**: The label for your scan.
-
-**Step 3**: Set Up GitLab CI/CD Pipeline
-
-Create a new pipeline in your GitLab project with the following YAML configuration:
+Create or modify your `.gitlab-ci.yml` file to integrate AccuKnox scanning into your build pipeline:
 
 ```yaml
+variables:
+  IMAGE: "gitlabci"
+  IMAGE_TAG: "test7"
+  IMAGE_TAR: "image.tar"
+
+build_image:
+  stage: build
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  script:
+    - docker build -t $IMAGE:$IMAGE_TAG -f Dockerfile .
+    - docker save -o $IMAGE_TAR $IMAGE:$IMAGE_TAG
+  artifacts:
+    paths:
+      - $IMAGE_TAR
+    expire_in: 30 minutes
+
+accuknox-container-scan:
+  before_script:
+    - echo $IMAGE:$IMAGE_TAG
+    - docker load -i $IMAGE_TAR
+
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@1.0
+  - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@1.0.7
     inputs:
       STAGE: test
-      TAG: "v2"
-      DOCKERFILE_CONTEXT: Dockerfile
-      REPOSITORY_NAME: gitlab-ci-testing
+      IMAGE_NAME: $IMAGE
+      TAG: $IMAGE_TAG
       INPUT_SOFT_FAIL: false
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
       ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
@@ -56,40 +73,53 @@ include:
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
 
-## Scenario After Integrating AccuKnox
+### Inputs for AccuKnox Container Scanning
 
-**Enhancing the GitLab Workflow:** We then added a step to our GitLab workflow to run the AccuKnox vulnerability scan on the newly built Docker image.
+| **Name**             | **Description**                                                                                               | **Required** | **Default**                        |
+| -------------------- | ------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------- |
+| `ACCUKNOX_ENDPOINT`  | AccuKnox CSPM panel URL                                                                                       | Yes          | `cspm.demo.accuknox.com`           |
+| `ACCUKNOX_TENANT_ID` | AccuKnox Tenant ID                                                                                            | Yes          |                                    |
+| `ACCUKNOX_TOKEN`     | AccuKnox API Token                                                                                            | Yes          |                                    |
+| `ACCUKNOX_LABEL`     | Label for scan results                                                                                        | Yes          |                                    |
+| `INPUT_SOFT_FAIL`    | Continue even if the scan fails                                                                               | No           | `true`                             |
+| `IMAGE_NAME`         | The name of the Docker image                                                                                  | Yes          |                                    |
+| `TAG`                | The tag for the Docker image                                                                                  | No           | `$BITBUCKET_BUILD_NUMBER`          |
+| `SEVERITY`           | Comma-separated list of vulnerability severities that will trigger failure when `INPUT_SOFT_FAIL` is disabled | No           | `UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL` |
 
-### **Outcome**
+### Workflow Enhancements After AccuKnox Integration:
 
-- AccuKnox scanned the Docker image for vulnerabilities, and if critical issues were detected, the pipeline halted the deployment, preventing the image from being pushed to the registry.
+1. **Build and Scan**: Docker images are built and automatically scanned for vulnerabilities during the pipeline execution.
 
-- If no critical vulnerabilities were found, the image was approved and successfully pushed.
+2. **Critical Vulnerabilities Halt Deployment**: If critical vulnerabilities are detected, the pipeline fails, preventing the deployment of insecure images.
 
-![image-20250113-053137.png](./images/gitlab-container-scan/1.png)
+3. **Improved Security Posture**: Only images free from known vulnerabilities are deployed, reducing the risk in production environments.
 
-## View Results in AccuKnox SaaS
+#### Outcome
 
-**Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
+- Vulnerabilities are detected and addressed early in the CI/CD pipeline, ensuring that only secure Docker images are pushed to production.
 
-**Step 2**: Go to Issues > Findings and select Container Image Findings to see identified vulnerabilities.
+- Developers receive immediate feedback on image security, allowing for quicker remediation of issues.
+  ![image-20250530-054409.png](./images/gitlab-container-scan/1.png)
 
-![image-20250113-053332.png](./images/gitlab-container-scan/2.png)
+### View Scan Results in AccuKnox SaaS
 
-**Step 3**: Click on a vulnerability to view more details.
+After the scan completes, the results can be accessed in AccuKnox SaaS:
 
-![image-20250113-053452.png](./images/gitlab-container-scan/3.png)
+1.  Go to **Issues → RegistryScan** in AccuKnox to view your scanned Docker images.
+    ![image-20250530-055717.png](./images/gitlab-container-scan/2.png)
 
-**Step 4**: Fix the Vulnerability: Create a ticket in your issue-tracking system to address the identified vulnerability.
+2.  Click on the image name to access detailed metadata and scan results.
+    ![image-20250530-055745.png](./images/gitlab-container-scan/3.png)
 
-![image-20250113-054209.png](./images/gitlab-container-scan/4.png)
+3.  Under the **Vulnerabilities** section, you'll see a list of vulnerabilities discovered in the Docker image.
+    ![image-20250530-055810.png](./images/gitlab-container-scan/4.png)
 
-**Step 6**: Review Updated Results
+4.  In the **Resources** section, you'll find details about the packages and modules used to build the container.
+    ![image-20250530-055836.png](./images/gitlab-container-scan/5.png)
 
-- After fixing the vulnerability, rerun the pipeline.
+5.  You can also view the scan history to track improvements over time.
+    ![image-20250530-055902.png](./images/gitlab-container-scan/6.png)
 
-- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
+### Conclusion
 
-## **Conclusion**
-
-By integrating AccuKnox into the GitLab CI/CD pipeline, the security of Docker images is significantly improved. Vulnerabilities are detected early, preventing insecure images from being deployed to production. The workflow allows teams to automatically remediate issues and ensure only secure images make it to the registry.
+Integrating AccuKnox into GitLab CI/CD pipelines enhances the security of Docker images by scanning for vulnerabilities early in the development process. This proactive approach ensures that only secure images are deployed, reducing the risk of security breaches in production environments.
