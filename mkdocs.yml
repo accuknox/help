@@ -176,6 +176,7 @@ nav:
 
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
+    - "Administrator's Guide": "how-to/administrators-guide.md"
     - "Onboarding Playbooks":
       - "Overview" : "how-to/playbook-overview.md"
       - "ASPM Playbook": "how-to/playbook-aspm.md"
