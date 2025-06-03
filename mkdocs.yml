@@ -176,7 +176,10 @@ nav:
 
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
-    - "Administrator's Guide": "how-to/administrators-guide.md"
+    - "Administrator's Guide":
+      - "Table of Content": "how-to/administrators-guide.md"
+      - "Onboarding Assets": "how-to/high-level-onboarding.md"
+      - "Kubernetes Security Onboarding": "how-to/k8s-security-onboarding.md"
     - "Onboarding Playbooks":
       - "Overview" : "how-to/playbook-overview.md"
       - "ASPM Playbook": "how-to/playbook-aspm.md"

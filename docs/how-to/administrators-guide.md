@@ -3,28 +3,25 @@ hide:
   - toc
 ---
 
-# AccuKnox Administrator's Guide
+# Administrator's Guide
 
 !!! info "Purpose of this Guide"
     This page serves as a focused documentation index for administrators looking for **step-by-step onboarding, deployment, configuration, and operational guidance**. This documentation is suitable for users deploying AccuKnox in real-world cloud-native environments. This curated guide is tailored for technical administrators and DevSecOps engineers who are looking for **concrete, task-oriented onboarding assets**, **installation steps**, and **configuration references**.
 
 ## Custom Onboarding Pages
 
-These two pages are specially prepared for deeper onboarding context.
+These two pages are specially prepared for high-level onboarding context.
 
-- **AccuKnox Onboarding Assets** _(custom content to be shared)_
-- **Detailed Kubernetes Security Onboarding** _(custom content to be shared)_
+- [AccuKnox Onboarding Assets](../how-to/high-level-onboarding.md)
+- [Detailed Kubernetes Security Onboarding](../how-to/k8s-security-onboarding.md)
 
----
-## Administrator's Guide Contents
+## Table of Contents
 
 ??? note "Getting Started & Installation"
 
     - [On-prem Installation](../getting-started/on-prem-installation-guide.md)
-    - [Open Source Installation](../getting-started/open-source.md)
     - [Runtime Security Prerequisites](../getting-started/cwpp-prereq.md)
     - [Signup/Login via SSO](../how-to/sso.md)
-    - [Create Access Keys](../how-to/create-access-keys.md)
 
 ??? note "Cloud Accounts Onboarding"
 
