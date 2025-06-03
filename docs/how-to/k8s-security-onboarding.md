@@ -191,3 +191,5 @@ AccuKnox Admission Controller enforces:
 
 Each feature requires outbound (egress) HTTPS access only.
 Refer to the access notes under each feature for exact service and port requirements.
+
+<img src="https://i.ibb.co/Z1wCCbhv/Screenshot-2025-06-03-203641.png" alt="Screenshot-2025-06-03-203641" border="0">

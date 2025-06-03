@@ -1,5 +1,7 @@
 # Onboarding Assets – High-Level Overview
 
+<img src="https://i.ibb.co/7dFjz13S/support-worklaods.png" alt="support-worklaods" border="0">
+
 ## Customer Environments
 
 **Cloud:**

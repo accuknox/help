@@ -12,8 +12,37 @@ hide:
 
 These two pages are specially prepared for high-level onboarding context.
 
-- [AccuKnox Onboarding Assets](../how-to/high-level-onboarding.md)
-- [Detailed Kubernetes Security Onboarding](../how-to/k8s-security-onboarding.md)
+<div style="display: flex; gap: 20px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+  <!-- First Image Block -->
+  <div style="flex: 1; min-width: 300px; max-width: 600px; text-align: center;">
+    <a href="../high-level-onboarding" style="text-decoration: none; color: blue;">
+      <img id="img1" src="https://i.ibb.co/7dFjz13S/support-worklaods.png" alt="AccuKnox Onboarding Assets"
+           style="width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
+      <p style="margin-top: 10px; font-weight: bold;">AccuKnox Onboarding Assets</p>
+    </a>
+  </div>
+
+  <!-- Second Image Block -->
+  <div style="flex: 1; min-width: 300px; max-width: 600px; text-align: center;">
+    <a href="../k8s-security-onboarding" style="text-decoration: none; color: blue;">
+      <img id="img2" src="https://i.ibb.co/Z1wCCbhv/Screenshot-2025-06-03-203641.png" alt="Kubernetes Security Onboarding"
+           style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #ccc; border-radius: 8px;">
+      <p style="margin-top: 10px; font-weight: bold;">Detailed Kubernetes Security Onboarding</p>
+    </a>
+  </div>
+</div>
+
+<script>
+  // Match heights of both images after loading
+  window.onload = function() {
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+    if (img1 && img2) {
+      img2.style.height = img1.clientHeight + "px";
+    }
+  };
+</script>
+
 
 ## Table of Contents
 
