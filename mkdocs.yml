@@ -176,10 +176,7 @@ nav:
 
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
-    - "Administrator's Guide":
-      - "Table of Contents": "how-to/administrators-guide.md"
-      - "Onboarding Assets": "how-to/high-level-onboarding.md"
-      - "Kubernetes Security Onboarding": "how-to/k8s-security-onboarding.md"
+    - "Administrator's Guide": "how-to/administrators-guide.md"
     - "Onboarding Playbooks":
       - "Overview" : "how-to/playbook-overview.md"
       - "ASPM Playbook": "how-to/playbook-aspm.md"
@@ -189,6 +186,7 @@ nav:
       - "Host Security Playbook": "how-to/playbook-hostsec.md"
       - "Integrations Playbook" : "how-to/playbook-integrations.md"
     - "Cloud Accounts":
+      - "Overview": "how-to/high-level-onboarding.md"
       - "Prerequisites":
             - "AWS": "how-to/cspm-prereq-aws.md"
             - "Azure": "how-to/cspm-prereq-azure.md"
@@ -200,6 +198,7 @@ nav:
         - "Offboard Clound Account": "how-to/cloud-offboarding.md"
     - "Workloads":
       - "Kubernetes":
+        - "Onboarding Overview": "how-to/k8s-security-onboarding.md"
         - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"
         - "Runtime Security Onboarding" : "how-to/cluster-onboarding.md"
         - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"

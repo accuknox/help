@@ -5,9 +5,9 @@ description: Pre-requisites and setup instructions for onboarding GCP cloud acco
 
 # CSPM Pre-requisite for GCP
 
-In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
+When the AccuKnox control plane is hosted in a cloud environment, scanning is performed using Cloud account Readonly Access permissions.
 
-![image](images/accuknox-architecture.png)
+![image](images/gcp-arch.png)
 
 **Note:**
 Make sure the Below API Library is enabled in your GCP Account for onboarding into AccuKnox SaaS:

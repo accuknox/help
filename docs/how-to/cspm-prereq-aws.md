@@ -5,9 +5,9 @@ description: CSPM onboarding pre-requisites for AWS accounts, including necessar
 
 # CSPM Pre-requisite for AWS
 
-In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
+When the AccuKnox control plane is hosted in a cloud environment, scanning is performed using Cloud account Readonly Access permissions.
 
-![image](images/accuknox-architecture.png)
+![image](images/aws-arch.png)
 
 AWS onboarding requires creation of an IAM user. Please follow the following steps to provide a user with appropriate read access:
 

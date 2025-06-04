@@ -5,9 +5,9 @@ description: Pre-requisites and setup instructions for onboarding Azure cloud ac
 
 # CSPM Pre-requisite for Azure
 
-In SaaS model of deployment the AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission.
+When the AccuKnox control plane is hosted in a cloud environment, scanning is performed using Cloud account Readonly Access permissions.
 
-![image](images/accuknox-architecture.png)
+![image](images/azure-arch.png)
 
 For Azure Onboarding it is required to register an App and giving Security read access to that App from the Azure portal.
 
