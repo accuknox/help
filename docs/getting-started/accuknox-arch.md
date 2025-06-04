@@ -1,5 +1,7 @@
-title: AccuKnox Enterprise Architecture Deep Dive
+---
+title: AccuKnox Enterprise Architecture
 description: A concise and detailed overview of AccuKnox's CNAPP architecture, components, and operational workflows.
+---
 
 # AccuKnox Enterprise Architecture
 

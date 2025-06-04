@@ -1,8 +1,8 @@
 ---
-title: AccuKnox Architecture Overview
+title: Architecture Deep Dive
 description: Technical architecture and operational flow of AccuKnox Control Plane and integrations.
 ---
-# AccuKnox Architecture Overview
+# Architecture Deep Dive
 
 ## Control Plane Architecture
 
