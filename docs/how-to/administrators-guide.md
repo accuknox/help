@@ -12,7 +12,8 @@ hide:
 ## Table of Contents
 
 ??? note "Getting Started & Installation"
-
+    - [AccuKnox Architecture Overview](../getting-started/accuknox-arch.md)
+    - [AccuKnox Architecture Deep Dive](../getting-started/architecture-deep-dive.md)
     - [On-prem Installation](../getting-started/on-prem-installation-guide.md)
     - [Runtime Security Prerequisites](../getting-started/cwpp-prereq.md)
     - [Signup/Login via SSO](../how-to/sso.md)
