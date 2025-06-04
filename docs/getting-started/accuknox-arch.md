@@ -1,144 +1,152 @@
 ---
 title: AccuKnox Enterprise Architecture
-description: Discover how the AccuKnox Enterprise CNAPP Suite provides end-to-end security throughout the software development lifecycle.
+description: A concise and detailed overview of AccuKnox's CNAPP architecture, components, and operational workflows.
 ---
 
 # AccuKnox Enterprise Architecture
 
-## Introduction
+AccuKnox's Cloud-Native Application Protection Platform (CNAPP) offers a unified **AppSec + CloudSec** solution, integrating modules like ASPM, CSPM, CWPP, KIEM, and GRC. This architecture ensures comprehensive security across the software development lifecycle.
 
-Welcome to the **AccuKnox Enterprise CNAPP Suite**, a unified **AppSec + CloudSec** platform designed to protect cloud-native applications across their entire lifecycle. AccuKnox combines cutting-edge technology, a unified architecture, and seamless integrations to address the most critical security challenges in modern DevSecOps environments.
+## Core Components
 
-In a rapidly evolving cloud-native landscape, maintaining robust security requires solutions that adapt and scale. AccuKnox delivers end-to-end protection, ensuring that your cloud workloads, clusters, and code remain secure, compliant, and operationally efficient.
+### Control Plane Architecture
 
-![AccuKnox Enterprise Architecture](/introduction/images/updated-arch.png)
+- **Microservices**:
+    - _Divy_: Handles API requests.
+    - _Celery_: Manages asynchronous tasks.
+    - _Kueue_: Schedules Kubernetes-native jobs.
+- **Parser Jobs**: Process asset and findings data, updating databases accordingly.
+- **Alerts & Telemetry**: Ingested via RabbitMQ, processed for real-time insights.
+- **Secure Onboarding**: Utilizes SPIFFE-based control plane for cluster onboarding.
+- **Storage/Databases**:
+    - _RDS_: Stores CSPM, KSPM, and ASPM data.
+    - _MongoDB_: Handles streaming telemetry.
+    - _Neo4j_: Manages metadata for KIEM.
+- **Integrations**: Interfaces with SIEM tools (e.g., Splunk, Rsyslog) and ticketing systems (e.g., JIRA, Slack).
 
----
 
-## Cloud-Native Deployment Challenges
+## Control Plane Architecture
 
-Cloud-native environments bring innovation but also introduce unique security challenges at each stage:
+![](./images/deep-arch/control-plane-arch.png)
 
-### Code Build Phase
+**Key Components**
 
-- Hardcoded secrets.
-- Insecure configurations.
-- Vulnerable dependencies in open-source code.
+1. Playbook job scheduling: Microservices (Divy), Kueue scheduler, Celery tasks
+2. Parser jobs for asset + findings database
+3. Alerts and telemetry handling via RabbitMQ
+4. SPIFFE-based secure cluster onboarding
+5. Storage layer: RDS, MongoDB, Neo4j
+6. External integrations & triggers handling
 
-### Deployment Phase
+## Cloud Architecture
 
-- Image poisoning.
-- Insecure CI/CD pipelines.
-- Exploitable vulnerabilities.
+![](./images/deep-arch/cloud-arch.png)
 
-### Runtime Phase
+- SaaS and On-Prem support identical services (except AskADA AI Copilot – SaaS only)
+- Tenant-level feature control
+- Models:
+      1. SaaS: AWS-managed (Aurora, S3)
+      2. On-Prem: Full in-cluster setup (for air-gapped environments)
+      3. Externalized: Uses customer DB/storage
 
-- Zero-day attacks.
-- Crypto-mining and lateral movement.
-- Data exfiltration and undetected malware.
+## Externalized Storage Architecture
 
-![Code to Cloud](/getting-started/images/code-to-cloud.png)
+![](./images/deep-arch/externalized-storage.png)
 
-## AccuKnox AppSec + CloudSec CNAPP
+- Supports deployments with customer-managed storage
+- Enables hybrid cloud use cases
+- Flexible DB integration (e.g., existing RDS, MongoDB, etc.)
 
-AccuKnox’s **Cloud-Native Application Protection Platform (CNAPP)** simplifies cloud security by addressing threats holistically:
+## On-Premises Deployment Architecture
 
-- **ASPM**: Application Shift-Left Security.
-- **CSPM**: Cloud Infrastructure Security.
-- **CWPP**: Runtime Workload Protection.
-- **KIEM**: Kubernetes Identity Management.
-- **GRC**: Governance, Risk, and Compliance.
+![](./images/deep-arch/onprem-arch.png)
 
-By integrating these modules, AccuKnox ensures comprehensive coverage of code, cloud, container, and cluster (4C) assets.
+- K8s-native deployment
+- No reliance on AWS managed services
+- Designed for high-security & compliance environments
 
-![Code to Cloud](/introduction/images/tree-view.png)
+[Deployment Details →](./images/deep-arch/https://help.accuknox.com/getting-started/deployment-models/)
 
-## Enterprise CNAPP Offerings
+## Scaling Considerations
 
-![AccuKnox Product Set](/introduction/images/ak-offering.png)
+![](./images/deep-arch/scan-alert-flow.png)
 
-### Application Security Posture Management (ASPM)
+### Key Choke Points
 
-- **Static Application Security Testing (SAST)** for identifying insecure code.
-- **Dynamic Application Security Testing (DAST)** to simulate real-world attacks.
-- **Software Composition Analysis (SCA)** for open-source vulnerabilities.
-- **Infrastructure as Code (IaC)** scanning for configuration issues.
+1. **Playbook Jobs**: One AWS account = 272 jobs across regions
+      - Kueue ensures tenant-aware resource allocation
+2. **Parser Jobs**: Celery tasks parse reports & update DB
+3. **Telemetry Overload**: Managed via thresholds & redirection to SIEM
 
-![Code to Cloud](/getting-started/images/accuknox-arch/1-aspm.png)
+### Noisy Neighbor Mitigation
 
-### Cloud Security Posture Management (CSPM)
+- Celery replicated per tenant (currently manual)
+- Kueue isolates playbook jobs per tenant
+- RMQ overload handled by telemetry offload
 
-- Multi-cloud compliance enforcement.
-- Automated detection of misconfigurations.
-- Continuous Detection and Response (CDR).
-- Agentless vulnerability management.
+## Log & Data Storage
 
-![Code to Cloud](/getting-started/images/accuknox-arch/2-cspm.png)
+- **RDS**: CSPM, KSPM, ASPM (per-tenant tables)
+- **MongoDB**: Telemetry logs (per-tenant collections)
+- **Neo4j**: GraphDB for metadata (KIEM), expanding to assets/findings in v3.0
 
-### Cloud Workload Protection Platform (CWPP)
+## Customer Data Flow
 
-- Real-time runtime protection using **eBPF sensors**.
-- Preemptive mitigation through Zero Trust policies.
-- Inline defense against advanced threats and lateral movement.
+![](./images/deep-arch/customer-data-flow.png)
 
-![Code to Cloud](/getting-started/images/accuknox-arch/3-cwpp.png)
+1. Playbook execution (on-prem or SaaS)
+2. Report generated (assets/findings JSON)
+3. Sent to control plane via Artifact API (token-based)
+4. Saved in S3 + Celery task triggered
+5. Celery pulls from S3 and parses
+6. DB + Graph updated
+7. UI fetches via Divy APIs
 
-### Kubernetes Identity and Entitlement Management (KIEM)
+## Rules Engine Architecture
 
-- Flagging excessive permissions and dormant identities.
-- Detecting toxic combinations and privilege escalations.
-- Ensuring compliance with Kubernetes best practices.
+![](./images/deep-arch/rules-engine-arch.png)
 
-### Governance, Risk, and Compliance (GRC)
+- Parser emits events → Rules Engine evaluates
+- Tenant-specific rule specs evaluated
+- Actions (e.g., notifications, tickets) sent as Celery tasks
+- Fully asynchronous, scalable via queues
 
-- Continuous monitoring and reporting.
-- Audit-ready outputs for 30+ frameworks, including **HIPAA**, **GDPR**, and **SOC2**.
-- Policy orchestration for consistent enforcement.
 
----
+## Integrations Architecture
 
-## Key Differentiators
+![](./images/deep-arch/integrations.png)
 
-- **Zero Trust Security**: Policies ensure only authorized actions are permitted.
-- **Multi-Cloud Integrations**: Unified dashboards for diverse environments.
-- **AI-Driven Insights**: Advanced analytics powered by AI (e.g., AskAda CoPilot).
-- **Agentless and Agent-Based Scanning**: Flexible deployment options for any infrastructure.
-- **Shift-Left Security**: Proactively detect and fix vulnerabilities in early development phases.
+- **CLI-based**: TruffleHog, Sonarqube, Trivy, Zap, Kubebench
+- **API-based**: Checkmarx, Nessus
+- **SIEM**: One-way push (e.g., Splunk, Sentinel)
+- **Ticketing**: Bidirectional (e.g., Jira, ServiceNow)
 
-![Code to Cloud](/getting-started/images/accuknox-arch/6.png)
+**Integration Timelines**
 
----
+- CLI-based: 1 sprint
+- API-based: 2–3 weeks
+- SIEM: 1 sprint
+- Ticketing: 3–5 sprints
 
-## Deployment and Integrations
-
-- **Deployment Options**: SaaS, On-Premises, or hybrid.
-- **Integrations**: SIEM (Splunk, Rsyslog), SOAR, EDR, and ticketing tools (JIRA, Slack).
-- **Lifecycle Management**: Streamlined workflows for findings, ticketing, and compliance.
-
-![Code to Cloud](/getting-started/images/accuknox-arch/2.png)
-
----
+[Explore Integrations →](/integrations/)
 
 ## Compliance Frameworks
 
-AccuKnox supports 30+ regulatory standards, including:
+![Compliance Frameworks](/getting-started/images/accuknox-arch/7.png)
 
-- **ISO 27001**, **PCI DSS**, and **SOC2**.
-- Industry-specific frameworks like **HIPAA** and **GDPR**.
+Supports over 30 regulatory standards, including:
 
-This ensures your infrastructure remains secure and audit-ready across regions and industries.
+- **General**: ISO 27001, PCI DSS, SOC2.
+- **Industry-Specific**: HIPAA, GDPR.
 
-![Code to Cloud](/getting-started/images/accuknox-arch/7.png)
+## Additional Resources
 
----
-
-## Conclusion
-
-AccuKnox redefines cloud-native security by delivering comprehensive protection and operational simplicity. With an integrated approach to compliance, runtime security, and DevSecOps, AccuKnox empowers your teams to focus on innovation while staying secure.
-
----
+- [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
+- [Integrations Playbook](https://help.accuknox.com/how-to/playbook-integrations/)
+- [Telemetry Logs](https://help.accuknox.com/integrations/telemetry-logs/)
+- [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
 
 !!!info NOTE
-    You can protect your workloads in minutes using AccuKnox, it is available to protect your Kubernetes and other cloud workloads using Kernel Native Primitives such as AppArmor, SELinux, and eBPF. Let us know if you are seeking additional guidance in planning your cloud security program.
+    AccuKnox offers rapid protection for Kubernetes and other cloud workloads using Kernel Native Primitives like AppArmor, SELinux, and eBPF. For assistance in planning your cloud security strategy, feel free to reach out.
 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
