@@ -170,7 +170,6 @@ nav:
   - "Overview":
     - "Overview": "getting-started/index.md"
     - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
-    - "Architecture Deep Dive": "getting-started/architecture-deep-dive.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "Deployment Models": "getting-started/deployment-models.md"
     - "DevSecOps" : "getting-started/devsecops.md"
