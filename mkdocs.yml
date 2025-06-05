@@ -330,6 +330,16 @@ nav:
             - "SCA": "integrations/checkmarx-sca.md"
             - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
             - "Container Scan": "integrations/checkmarx-container.md"
+        - "CircleCI":
+            - "Overview": "integrations/circleci-overview.md"
+            - "DAST": "integrations/circleci-dast.md"
+            - "SAST": "integrations/circleci-sast.md"
+            - "IaC Scan": "integrations/circleci-iac-scan.md"
+            - "Secret Scan": "integrations/circleci-secret-scan.md"
+            - "SQ-SAST": "integrations/circleci-sqsast.md"
+            - "Container Scan": "integrations/circleci-container-scan.md"
+
+
     - "Registry Scan" : "support-matrix/registry.md"
     - "K8s Management":
       - "Rafay": "integrations/rafay-accuknox.md"

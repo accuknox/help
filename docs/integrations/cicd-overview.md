@@ -19,7 +19,7 @@ hide:
 
 **CI/CD Support Matrix** provides a structured overview of supported capabilities and integration types across popular CI/CD platforms. This helps teams align their DevOps processes with available tools and identify the best fit for their workflows.
 
-::cards:: cols=3
+::cards:: cols=5
 
 - title: Azure DevOps
   image: ./cicd-icons/azure.png
@@ -48,4 +48,7 @@ hide:
 - title: Checkmarx
   image: ./cicd-icons/checkmarx.png
   url: /integrations/checkmarx-overview/
+- title: CircleCI
+  image: ./cicd-icons/circleci.png
+  url: /integrations/circleci-overview/
   ::/cards::
