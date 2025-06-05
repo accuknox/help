@@ -100,3 +100,8 @@ After remediating the issue:
 Integrating SAST scanning with AccuKnox in your CircleCI pipeline ensures vulnerabilities are detected and fixed early in the SDLC. This enables better compliance, reduces security debt, and supports shift-left security practices. The AccuKnox plugin is lightweight, easy to configure, and supports integration across GitHub Actions, GitLab, Jenkins, Azure DevOps, and other CI/CD tools.
 
 For more help, contact `support@accuknox.com` or refer to the [AccuKnox Developer Documentation](https://help.accuknox.com/).
+
+!!! note
+    Since the AccuKnox CircleCI plugin is currently unverified, you must enable the usage of unverified orbs in your CircleCI project settings.
+    Navigate to **Organization Settings → Security** and toggle **"Allow uncertified public orbs"** to `true`.
+    ![Image](./images/circleci-overview/note.png)

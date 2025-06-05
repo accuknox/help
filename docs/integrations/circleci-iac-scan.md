@@ -111,3 +111,8 @@ After fixing the issues:
 By incorporating AccuKnox's IaC scanning into your CI/CD workflow, you ensure misconfigurations and security weaknesses in infrastructure code are caught early. This reduces risk and supports secure infrastructure provisioning across environments. AccuKnox plugins are lightweight, CI-friendly, and support GitHub Actions, GitLab, Jenkins, Azure Pipelines, and AWS CodePipeline.
 
 For more help, contact `support@accuknox.com` or refer to the [AccuKnox Developer Documentation](https://help.accuknox.com/).
+
+!!! note
+    Since the AccuKnox CircleCI plugin is currently unverified, you must enable the usage of unverified orbs in your CircleCI project settings.
+    Navigate to **Organization Settings → Security** and toggle **"Allow uncertified public orbs"** to `true`.
+    ![Image](./images/circleci-overview/note.png)

@@ -122,3 +122,8 @@ By integrating AccuKnox’s DAST scanning into your CircleCI pipeline, your orga
 The plugin is lightweight, configuration-driven, and designed for easy use across all CI/CD stages. DAST scanning with AccuKnox is also supported on other platforms like GitHub Actions, GitLab CI, Jenkins, Azure Pipelines, and AWS CodePipelines.
 
 For more help, contact [support@accuknox.com](mailto:support@accuknox.com) or refer to the [AccuKnox Developer Documentation](https://help.accuknox.com/).
+
+!!! note
+    Since the AccuKnox CircleCI plugin is currently unverified, you must enable the usage of unverified orbs in your CircleCI project settings.
+    Navigate to **Organization Settings → Security** and toggle **"Allow uncertified public orbs"** to `true`.
+    ![Image](./images/circleci-overview/note.png)

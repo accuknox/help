@@ -135,3 +135,8 @@ By integrating SonarQube with AccuKnox via CircleCI, you achieve a more robust s
 AccuKnox also supports integrations across other CI tools such as GitHub Actions, Jenkins, GitLab, and Azure DevOps.
 
 For more help, contact `support@accuknox.com` or refer to the [AccuKnox Developer Documentation](https://help.accuknox.com/).
+
+!!! note
+    Since the AccuKnox CircleCI plugin is currently unverified, you must enable the usage of unverified orbs in your CircleCI project settings.
+    Navigate to **Organization Settings → Security** and toggle **"Allow uncertified public orbs"** to `true`.
+    ![Image](./images/circleci-overview/note.png)

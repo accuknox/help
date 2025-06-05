@@ -117,3 +117,8 @@ Once vulnerabilities are fixed:
 By integrating container scanning into your CircleCI pipeline with AccuKnox, your team can continuously validate the security of your images and maintain compliance with best practices. This ensures your container deployments are hardened before they reach production.
 
 For more help, contact `support@accuknox.com` or refer to the AccuKnox Developer Documentation.
+
+!!! note
+    Since the AccuKnox CircleCI plugin is currently unverified, you must enable the usage of unverified orbs in your CircleCI project settings.
+    Navigate to **Organization Settings → Security** and toggle **"Allow uncertified public orbs"** to `true`.
+    ![Image](./images/circleci-overview/note.png)

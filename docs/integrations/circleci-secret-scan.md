@@ -118,3 +118,8 @@ After you've addressed the identified secrets:
 Integrating secret scanning into your CI/CD pipeline with AccuKnox is a critical step in **preventing sensitive information leaks during development**. This approach enables a **shift-left security strategy**, ensuring that credentials are identified and remediated before they ever reach production code. The AccuKnox CircleCI plugin is designed for speed and ease of use, and its capabilities can be extended to other platforms like GitHub Actions, GitLab, Jenkins, Azure DevOps, and more.
 
 For more help, contact `support@accuknox.com` or refer to the [AccuKnox Developer Documentation](https://help.accuknox.com/).
+
+!!! note
+    Since the AccuKnox CircleCI plugin is currently unverified, you must enable the usage of unverified orbs in your CircleCI project settings.
+    Navigate to **Organization Settings → Security** and toggle **"Allow uncertified public orbs"** to `true`.
+    ![Image](./images/circleci-overview/note.png)
