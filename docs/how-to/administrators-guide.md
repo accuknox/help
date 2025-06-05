@@ -21,6 +21,7 @@ hide:
     - [Cloud Accounts Overview](../how-to/high-level-onboarding.md)
     - [AWS Prerequisites](../how-to/cspm-prereq-aws.md)
     - [AWS Onboarding](../how-to/aws-onboarding.md)
+    - [AWS Organization Onboarding](../how-to/aws-org-onboard.md)
     - [Azure Prerequisites](../how-to/cspm-prereq-azure.md)
     - [Azure Onboarding](../how-to/azure-onboarding.md)
     - [GCP Prerequisites](../how-to/cspm-prereq-gcp.md)

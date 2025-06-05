@@ -193,6 +193,7 @@ nav:
             - "GCP": "how-to/cspm-prereq-gcp.md"
       - "Onboarding":
         - "AWS" : "how-to/aws-onboarding.md"
+        - "AWS Organizations" : "how-to/aws-org-onboard.md"
         - "Azure" : "how-to/azure-onboarding.md"
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Offboard Clound Account": "how-to/cloud-offboarding.md"
