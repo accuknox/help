@@ -98,7 +98,7 @@ The `accuknox-scan/sq-sast` job accepts the following parameters:
 
 ![Image](./images/circleci-sqsast/4.png)
 
-## View Results in AccuKnox Console
+## Step 4: View Results in AccuKnox Console
 
 Once the scan completes, you can review the findings in AccuKnox:
 

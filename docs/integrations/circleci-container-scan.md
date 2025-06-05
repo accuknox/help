@@ -32,15 +32,14 @@ Using contexts is the recommended approach for managing environment variables ac
 2.  **Create a new context** (e.g., `accuknox-context`).
 3.  Add the following environment variables to the new context:
 
-| Name                | Description                                                    |
+| Name | Description |
 | :------------------ | :------------------------------------------------------------- |
-| `ACCUKNOX_TOKEN`    | API token from AccuKnox                                        |
+| `ACCUKNOX_TOKEN` | API token from AccuKnox |
 | `ACCUKNOX_ENDPOINT` | AccuKnox API endpoint (e.g., `https://cspm.demo.accuknox.com`) |
-| `ACCUKNOX_TENANT`   | Your tenant ID from AccuKnox                                   |
-| `ACCUKNOX_LABEL`    | Logical grouping label for scan results                        |
+| `ACCUKNOX_TENANT` | Your tenant ID from AccuKnox |
+| `ACCUKNOX_LABEL` | Logical grouping label for scan results |
 
-4.  Attach this context to your scan jobs within your `.circleci/config.yml` file, like so:
-
+Attach this context to your scan jobs within your `.circleci/config.yml` file, like so:
     ```yaml
     - accuknox-scan/container:
         context: accuknox-context
