@@ -11,7 +11,7 @@ This guide explains how to onboard your **AWS Organization root account** to Acc
 
 ## Prerequisites
 
-- You must have administrative access to your AWS Management Account (the root account of your AWS Organization).
+- You must have administrative access to your AWS Management Account and have permissions to deploy CloudFormation Stackset across the Organization.
 - You need the AWS Organization ID of your root organization.
 
 ## Step-by-Step Onboarding Process
@@ -36,7 +36,7 @@ Next, select existing labels or create new ones to associate with all assets tha
 ### 3. Enter AWS Organization Details
 
 - Log in to the **AWS Console** → go to **AWS Organizations**.
-- Copy your **Organization ID** (e.g., `o-xxxxxxxxxx`).
+- Copy your **Organization ID** (e.g., `r-xxxxxxxxxx`).
 ![Select Regions](./images/aws-org-onboard/3.png)
 
 - You must use the **root organization account**.
