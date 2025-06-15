@@ -196,7 +196,7 @@ nav:
         - "AWS Organizations" : "how-to/aws-org-onboard.md"
         - "Azure" : "how-to/azure-onboarding.md"
         - "GCP" : "how-to/gcp-onboarding.md"
-        - "Offboard Clound Account": "how-to/cloud-offboarding.md"
+        - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
     - "Workloads":
       - "Kubernetes":
         - "Onboarding Overview": "how-to/k8s-security-onboarding.md"
