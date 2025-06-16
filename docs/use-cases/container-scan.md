@@ -1,98 +1,65 @@
 ---
-title: Container Scan
+title: Detecting and Blocking Vulnerable Docker Images with AccuKnox Container Scanning
 description: AccuKnox scans container images to detect and remediate vulnerabilities, ensuring secure and threat-free applications.
 ---
 
-# How to do ASPM Container Scan
+# Detecting and Blocking Vulnerable Docker Images with AccuKnox Container Scanning
 
-To show how incorporating AccuKnox into a CI/CD pipeline with GitHub Actions can improve security, let's look at a detailed example involving a Docker image that initially had known vulnerabilities. By running AccuKnox scanning in the pipeline, we can find and fix these vulnerabilities before deploying the image. The following narrative illustrates this process by comparing the situations before and after adding AccuKnox, as seen in the GitHub Actions logs.
+This guide demonstrates how to integrate AccuKnox's container scanning into a CI/CD pipeline using GitHub Actions. The integration enables automated vulnerability detection and policy enforcement for container images, ensuring that insecure artifacts are never deployed to production environments.
 
-**Check it out on GitHub Marketplace**: [here](https://github.com/marketplace/actions/accuknox-container-scan)
+By embedding AccuKnox container scans in your DevSecOps workflows, security validation becomes an automated gatekeeper, enabling early detection of vulnerabilities, rapid remediation, and compliance with security best practices.
 
-## Scenario Before Integrating AccuKnox
+## Scenario
 
-**Context:** We started with a Docker image built from a Dockerfile using an outdated base image (node:10.4) that contained many known security vulnerabilities. Using this old base image unintentionally introduced many security weaknesses into the Docker image.
+Imagine a development team building a Node.js web application using an outdated base image (`node:18-alpine`). This image includes multiple known vulnerabilities. Without scanning, the image is pushed to production, exposing the system to exploitation. By integrating AccuKnox scanning into the CI/CD pipeline, these risks can be identified and blocked before deployment.
 
+## Objective
 
-**Dockerfile Example:**
-```dockerfile
-FROM node:10.4
-# Further configuration and setup of the image
+This guide shows how to:
+
+- Detect container vulnerabilities using AccuKnox's GitHub Actions plugin.
+- Prevent deployment of insecure Docker images.
+- Automate the scanning process for every code push or pull request.
+- View scan results in the AccuKnox SaaS dashboard.
+- Remediate vulnerabilities and verify fixes.
+
+## Steps Overview
+
+1. **Setup**
+2. **Integrate AccuKnox's GitHub Action in CI/CD**
+3. **Understand the risks before integration**
+4. **Compare benefits after integration**
+5. **Explore the AccuKnox SaaS dashboard**
+6. **Remediate detected issues and rescan**
+7. **Verify security posture improvements**
+
+## Setup
+
+Here's a Dockerfile using an outdated and vulnerable Node.js base image:
+
+```sh
+FROM node:18-alpine
+# Additional setup commands
 ```
 
-**Hypothetical GitHub Actions Log - Pre AccuKnox Scan:**
-```
+This image includes known CVEs. Without a security scan, these vulnerabilities would go unnoticed. When the image is built and pushed:
+
+```sh
 Building Docker image...
 Image built successfully: your-image:latest
 Pushing your-image:latest to Docker Hub...
 Image pushed successfully.
-```
-
-Before using AccuKnox, our Docker image was sent to the registry without any vulnerability checks. This oversight could allow vulnerable images to be deployed, opening up potential security risks.
-
-## Scenario After Integrating AccuKnox
-
-**Enhancing the GitHub Actions Workflow:** We then added a step to our GitHub Actions workflow to run the AccuKnox vulnerability scan on the newly built Docker image.
-
-**Updated GitHub Actions Workflow Snippet (Incorporating AccuKnox Scan):**
-
-{% raw %}
-```yaml
-      - name: Run AccuKnox CSPM Scan
-        uses: accuknox/container-scan-action@v0.0.1
-        with:
-          token: ${{ secrets.TOKEN }}
-          tenant_id: ${{ secrets.TENANT_ID }}
-          repository_name: ${{ github.repository }}
-          exit_code: 1
-          dockerfile_context: Dockerfile
-```
-{% endraw %}
-
-**GitHub Actions Log - Post AccuKnox Integration:**
 
 ```
-Building Docker image...
-Image built successfully: your-image:latest
-Scanning your-image:latest with AccuKnox...
-2023-01-01T00:00:00.000Z INF Scanning /path/to/your-image:latest
-2023-01-01T00:00:05.000Z INF Number of language-specific files: 1
-2023-01-01T00:00:10.000Z INF Detected vulnerabilities for your-image:latest
-2023-01-01T00:00:10.000Z INF CRITICAL: 10 vulnerabilities
-2023-01-01T00:00:10.000Z INF HIGH: 20 vulnerabilities
-AccuKnox scan failed due to the presence of critical vulnerabilities.
-```
 
-AccuKnox carefully analyzed the image and found critical and high-severity vulnerabilities. Based on these findings, the workflow stopped and prevented the vulnerable image from being pushed to the Docker registry.
+At this stage, there's no safeguard preventing the release of insecure code.
 
-## Remediation and Rescan
+### GitHub Actions Workflow Integration (AccuKnox Container Scan)
 
-**Fortifying the Dockerfile:** After seeing the vulnerabilities, we updated the Dockerfile to use a newer, more secure base image (node:14.17) instead, in order to fix the security issues.
+Now, let's integrate AccuKnox's container scan into the GitHub Actions workflow.
 
-**Dockerfile Post-Update:**
-```dockerfile
-FROM node:14.17
-# Additional image enhancements and setup
-```
+### Create a GitHub Actions workflow at `.github/workflows/container.yml`
 
-**GitHub Actions Log - After Remediation:**
-```
-Building Docker image...
-Image built successfully: your-image:latest
-Scanning your-image:latest with AccuKnox...
-2023-01-02T00:00:00.000Z INF Scanning /path/to/your-image:latest
-2023-01-02T00:00:05.000Z INF Number of language-specific files: 1
-2023-01-02T00:00:10.000Z INF No critical vulnerabilities found.
-Image scan passed successfully.
-Pushing your-image:latest to Docker Hub...
-Image pushed successfully.
-```
-
-Once the vulnerabilities were resolved, the AccuKnox scan approved the updated image, allowing it to be safely pushed to the registry. This example clearly shows how important it is to have vulnerability scanning in the pipeline - it prevents insecure images from being deployed to production, ensuring only secure images make it through.
-
-## Steps needed to be taken for integration:
-
-**Step 1:** User needs to create a GitHub workflow file inside their GitHub repository using the following workflow Template:
 
 {% raw %}
 ```yaml
@@ -101,10 +68,7 @@ name: AccuKnox Scan Workflow
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - all
 
 jobs:
   accuknox-cicd:
@@ -113,41 +77,135 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Run AccuKnox container scan
-        uses: accuknox/container-scan-action@v0.0.1
+      - name: Build Docker image
+        run: |
+          IMAGE_NAME="github-action-test"
+          IMAGE_TAG="latest"
+          docker build -t "$IMAGE_NAME:$IMAGE_TAG" .
+          echo "Successfully built Docker image: $IMAGE_NAME:$IMAGE_TAG"
+
+      - name: "Run Accuknox Container"
+        uses: accuknox/container-scan-action@1.0.0
         with:
-          token: ${{ secrets.TOKEN }}
-          tenant_id: ${{ secrets.TENANT_ID }}
-          repository_name: ${{ github.repository }}
+          endpoint: "<ACCUKNOX_ENDPOINT>"
+          tenant_id: <ACCUKNOX_TENANT_ID>
+          token: ${{ secrets.ACCUKNOX_TOKEN }}
+          label: <ACCUKNOX_LABEL>
+          image: "github-action-test"
+          tag: "latest"
 ```
 {% endraw %}
 
-Note: In the above template, the user needs to change some variables, including `TOKEN` and `TENANT_ID`. Values for these variables can be viewed from AccuKnox SaaS. For other inputs, refer to [AccuKnox Container Scan - GitHub Marketplace](https://github.com/marketplace/actions/accuknox-container-scan) to get the other input details according to your use case.
+### Explanation
 
-**Step 2:** Now, when a user attempts to create a pull request from their repository, the workflow will be triggered, performing the necessary steps for scanning and posting the results to AccuKnox SaaS.
+- **Build Docker Image**:
+    - Sets `IMAGE_NAME` to `github-action-test` and `IMAGE_TAG` to `latest`.
+    - Builds a Docker image from the Dockerfile in the repo.
+    - Tag the image as `github-action-test:latest`.
 
-Note: The user can configure the workflow according to their needs, setting it to trigger on events such as push, pull, etc.
+- **Run AccuKnox Container Scan**:
+    - Uses `AccuKnox Container Scan` to scan the built Docker image.
+    - Sends scan data to `cspm.demo.accuknox.com` with the given `tenant_id` and secret `token`.
+    - Applies a label `"SPOC"` for identification.
+    - Scans the image tagged as `github-action-test:latest`.
 
-**Step 3:** Once the scan is complete, the user will be able to go into the AccuKnox SaaS and navigate to `Issues → RegistryScan` where they can find their repository name and select it to see the findings associated with it.
+## Before Integration
+Without security automation:
+- Vulnerable images are unknowingly pushed to production.
+- Developers rely on manual checks or periodic scans.
+- Security issues are detected late, increasing remediation costs.
+- No centralized vulnerability tracking or compliance validation.
 
-![container-scan-accuknox](images/container-scan-images/02.png)
+## After Integration
 
-**Step 4:** After clicking on the image name, the user will be able to see the metadata for the image that was built during the workflow execution.
+With AccuKnox integrated:
+- Every push or pull request triggers a vulnerability scan.
+- Insecure builds are blocked automatically.
+- Findings are centralized in the AccuKnox dashboard.
+- Developers are alerted in real-time and can act quickly.
+- Continuous compliance with security baselines is maintained.
 
-![container-scan-accuknox](images/container-scan-images/03.png)
+![image-20250610-144254.png](./images/container-scan-images/1.png)
 
-**Step 5:** In the `Vulnerabilities` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in `Issues → Vulnerabilities` section where the user can manage these findings with others as well.
+## Viewing Findings on AccuKnox SaaS
 
-![container-scan-accuknox](images/container-scan-images/04.png)
+After a scan:
 
-**Step 6:** The `Resources` section contains the information about packages and modules that were used to build the code base into a container image.
+1. Log in to [AccuKnox SaaS](https://cloud.accuknox.com/ "https://cloud.accuknox.com/").
 
-![container-scan-accuknox](images/container-scan-images/05.png)
+2. Navigate to **Issues → RegistryScan**.
+![image-20250610-143223.png](./images/container-scan-images/2.png)
 
-**Step 7:** The `Sensitive Data` section contains the information about any secrets or credentials that might be exposed in the image.
+3. Locate your repository and click on the scanned image.
 
-![container-scan-accuknox](images/container-scan-images/06.png)
+4. Explore metadata, vulnerability list, and scan history.
+![image-20250610-143315.png](./images/container-scan-images/3.png)
 
-**Step 8:** The user can see the scan history of every scan that happened while creating a Pull Request of the GitHub repo.
+### Vulnerabilities Tab
 
-![container-scan-accuknox](images/container-scan-images/07.png)
+- Displays CVEs and affected packages.
+- Includes severity (CRITICAL, HIGH, etc.) and remediation advice.
+![image-20250610-143349.png](./images/container-scan-images/4.png)
+
+### Sensitive Data Tab
+
+- Highlights secrets or credentials leaked into the image.
+
+### Resources Tab
+
+- Lists all software components, libraries, and dependencies detected.
+![image-20250610-143414.png](./images/container-scan-images/5.png)
+
+### Remediating the Vulnerability
+
+#### Create a Ticket
+
+- You can **create a ticket directly from AccuKnox Findings** by integrating your organization's ticketing system (**Jira**, **ServiceNow**, etc.) with AccuKnox.
+
+- This ensures vulnerabilities detected during scans are **automatically or manually ticketed** for tracking and resolution.
+
+- Refer to the integration guide for setup:
+  🔗 [**AccuKnox Jira Cloud Integration Guide**](https://help.accuknox.com/integrations/jira-cloud/ "https://help.accuknox.com/integrations/jira-cloud/")
+
+- To create the ticket, go to Issues > Findings and select Container Image Findings to see identified vulnerabilities.
+![image-20250610-143711.png](./images/container-scan-images/6.png)
+
+- Click on a vulnerability to view more details
+![image-20250610-143949.png](./images/container-scan-images/7.png)
+
+- Create a Ticket for Fixing the Vulnerability
+![image-20250610-144124.png](./images/container-scan-images/8.png)
+
+#### Fix the Code
+
+Update the Dockerfile to a secure base image
+
+#### Re-Scan
+
+Push the code or re-run the workflow manually:
+
+GitHub Actions will:
+
+- Rebuild the image.
+
+- Trigger the AccuKnox scan.
+
+- Upload findings again to the SaaS portal.
+
+#### Verification
+
+Return to the AccuKnox dashboard:
+
+- Confirm that previous CVEs are marked resolved.
+
+- Ensure that new scan reports show "No Critical Vulnerabilities."
+
+## Conclusion
+
+Integrating AccuKnox's ASPM container scan into your CI/CD pipeline provides real-time, automated protection against known vulnerabilities. This shift-left security approach ensures that only hardened, production-ready images reach your container registry.
+
+Benefits include:
+
+- Faster feedback loops for developers.
+
+- Stronger security posture.
