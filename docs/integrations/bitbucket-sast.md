@@ -45,14 +45,6 @@ pipelines:
   branches:
     main:
     - step:
-        name: SonarQube analysis
-        script:
-          - pipe: sonarsource/sonarqube-scan:2.0.1
-            variables:
-              SONAR_HOST_URL: ${SONAR_HOST_URL}
-              SONAR_TOKEN: ${SONAR_TOKEN}
-              EXTRA_ARGS: '-Dsonar.projectKey=${SONAR_PROJECT_KEY}'
-    - step:
         name: AccuKnox SAST
         script:
           - pipe: accu-knox/scan:1.0.0

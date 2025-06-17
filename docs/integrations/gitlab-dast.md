@@ -33,13 +33,13 @@ Create a new pipeline in your GitLab project with the following YAML configurati
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/dast-scan@1.0
+  - component: $CI_SERVER_FQDN/accu-knox/scan/dast-scan@2.0.0
     inputs:
       STAGE: test
       TARGET_URL: "https://juice-shop.herokuapp.com/"
       SEVERITY_THRESHOLD: "High"
       DAST_SCAN_TYPE: "baseline"
-      INPUT_SOFT_FAIL: false
+      SOFT_FAIL: false
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
       ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}

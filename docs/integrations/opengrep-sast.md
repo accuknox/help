@@ -54,7 +54,7 @@ jobs:
         with:
           accuknox_endpoint: "${{ secrets.ACCUKNOX_ENDPOINT }}"
           accuknox_tenant: "${{ secrets.ACCUKNOX_TENANT }}"
-          accuknox_token: "${{ secrets.ACCUKNOX_ENDPOINT }}"
+          accuknox_token: "${{ secrets.ACCUKNOX_TOKEN }}"
           accuknox_label: "${{ secrets.ACCUKNOX_LABEL }}"
           input_soft_fail: true
           upload_artifact: true

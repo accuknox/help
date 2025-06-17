@@ -61,12 +61,12 @@ accuknox-container-scan:
     - docker load -i $IMAGE_TAR
 
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@1.0.7
+  - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@2.0.0
     inputs:
       STAGE: test
       IMAGE_NAME: $IMAGE
       TAG: $IMAGE_TAG
-      INPUT_SOFT_FAIL: false
+      SOFT_FAIL: true
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
       ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
