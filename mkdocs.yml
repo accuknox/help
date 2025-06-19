@@ -246,6 +246,12 @@ nav:
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
+    - "knoxctl":
+      - "knoxctl Overview": "knoxctl/index.md"
+      - "Install knoxctl": "knoxctl/knoxctl-install.md"
+      - "knoxctl Commands": "knoxctl/knoxctl-commands.md"
+      - "KubeArmor": "knoxctl/kubearmor.md"
+      - "Miscellaneous": "knoxctl/miscellaneous.md"
 
 
   - "Integrations":
