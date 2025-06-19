@@ -19,7 +19,10 @@ hide:
 
 ::cards:: cols=2
 
-- title: SAST (Static Analysis)
+- title: SAST
+  image: ./cicd-icons/opengrep-sast.svg
+  url: /integrations/bitbucket-opengrep-sast/
+- title: SAST (SonarQube)
   image: ./cicd-icons/sast.svg
   url: /integrations/bitbucket-sast/
 - title: Container Scan
@@ -34,9 +37,6 @@ hide:
 - title: Secrets Scan
   image: ./cicd-icons/secret-scan.svg
   url: /integrations/bitbucket-secret-scan/
-- title: OpenGrep SAST
-  image: ./cicd-icons/opengrep-sast.svg
-  url: /integrations/bitbucket-opengrep-sast/
 
 ::/cards::
 

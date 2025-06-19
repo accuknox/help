@@ -38,27 +38,37 @@ This guide explains how to integrate AccuKnox into your Bitbucket Pipelines to e
 
 **Step 3:** Configure Bitbucket Pipeline
 
+| **Input**              | **Description**                                                            | **Default Value**     |
+|------------------------|----------------------------------------------------------------------------|------------------------|
+| `SONAR_TOKEN`          | Token for authenticating with SonarQube.                                   | N/A (Required)         |
+| `SONAR_HOST_URL`       | The SonarQube host URL.                                                    | N/A (Required)         |
+| `SONAR_PROJECT_KEY`    | The project key in SonarQube.                                              | N/A (Required)         |
+| `SONAR_ORGANIZATION_ID`| Required only for SonarQube Cloud users.                                   | `""`                   |
+| `SKIP_SONAR_SCAN`      | Skip SonarQube scan, for advanced users. Value should be boolean.          | `false` (boolean)      |
+| `SOFT_FAIL`            | Do not return an error code if there are failed checks.                    | `true` (boolean)       |
+| `ACCUKNOX_TENANT`      | The ID of the tenant associated with the CSPM panel.                       | N/A (Required)         |
+| `ACCUKNOX_ENDPOINT`    | The URL of the CSPM panel to push the scan results to.                     | N/A (Required)         |
+| `ACCUKNOX_LABEL`       | The label created in AccuKnox SaaS for associating scan results.           | N/A (Required)         |
+| `ACCUKNOX_TOKEN`       | The token for authenticating with the CSPM panel.                          | N/A (Required)         |
+
 Use the following YAML configuration for your `bitbucket-pipelines.yml` file:
 
 ```yaml
+definitions:
+  services:
+    docker:
+      memory: 3072
+
 pipelines:
   branches:
     main:
     - step:
-        name: SonarQube analysis
+        name: AccuKnox SAST Scan
         script:
-          - pipe: sonarsource/sonarqube-scan:2.0.1
+          - pipe: accu-knox/scan:2.0.0
             variables:
-              SONAR_HOST_URL: ${SONAR_HOST_URL}
-              SONAR_TOKEN: ${SONAR_TOKEN}
-              EXTRA_ARGS: '-Dsonar.projectKey=${SONAR_PROJECT_KEY}'
-    - step:
-        name: AccuKnox SAST
-        script:
-          - pipe: accu-knox/scan:1.0.0
-            variables:
-              SCAN_TYPE: SAST
-              INPUT_SOFT_FAIL: "true"
+              SCAN_TYPE: SQ_SAST
+              SKIP_SONAR_SCAN: "false"
               SONAR_TOKEN: ${SONAR_TOKEN}
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
@@ -66,8 +76,6 @@ pipelines:
               ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
               ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
               ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
-        services:
-          - docker
 ```
 
 ## Initial CI/CD Pipeline Without AccuKnox Scan

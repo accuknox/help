@@ -29,9 +29,22 @@ This guide walks you through integrating AccuKnox Secret Scanning into your GitL
 
 **Step 3**: Set Up GitLab CI/CD Pipeline
 
+| Input Value          | Description                                                                 | Default Value            |
+| :------------------- | :-------------------------------------------------------------------------- | :----------------------- |
+| `STAGE`              | Specifies the pipeline stage.                                               | `test`                   |
+| `RESULTS`            | Specifies which type(s) of results to output: `verified`, `unknown`, `unverified`, `filtered_unverified`. Defaults to all types. | `""`                     |
+| `BRANCH`             | The branch to scan. Use `all-branches` to scan all branches.                | `""`                     |
+| `EXCLUDE_PATHS`      | Paths to exclude from the scan.                                             | `""`                     |
+| `ADDITIONAL_ARGUMENTS` | Extra parameters for secret scanning.                                       | `""`                     |
+| `SOFT_FAIL`          | Do not return an error code if secrets are found.                           | `true`                   |
+| `ACCUKNOX_TOKEN`     | The token for authenticating with the CSPM panel.                           | `N/A (Required)`         |
+| `ACCUKNOX_TENANT`    | The ID of the tenant associated with the CSPM panel.                        | `N/A (Required)`         |
+| `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to.                      | `cspm.demo.accuknox.com` |
+| `ACCUKNOX_LABEL`     | The label created in AccuKnox SaaS for associating scan results.            | `N/A (Required)`         |
+
 Create a new pipeline in your GitLab project with the following YAML configuration:
 
-```yml
+```yaml
 include:
   - component: $CI_SERVER_FQDN/accu-knox/scan/secret-scan@main
     inputs:

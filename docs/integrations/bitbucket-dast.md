@@ -29,19 +29,29 @@ Steps for Integration[¶](https://help.accuknox.com/integrations/gitlab-dast/#st
 
 **Step 3:** Configure Bitbucket Pipeline
 
+| Input               | Description                                                                 | Default Value  |
+|--------------------|-----------------------------------------------------------------------------|----------------|
+| `TARGET_URL`        | The URL of the web application to scan.                                    | N/A (Required) |
+| `SEVERITY_THRESHOLD`| The minimum severity level (e.g., High, Medium, Low) that will cause the pipeline to fail if present in the report. | High           |
+| `DAST_SCAN_TYPE`    | Type of ZAP scan to run: `'baseline'` or `'full-scan'`.                    | baseline       |
+| `SOFT_FAIL`         | Do not return an error code if there are failed checks.                    | true (boolean) |
+| `ACCUKNOX_TENANT`   | The ID of the tenant associated with the CSPM panel.                       | N/A (Required) |
+| `ACCUKNOX_ENDPOINT` | The URL of the CSPM panel to push the scan results to.                     | N/A (Required) |
+| `ACCUKNOX_LABEL`    | The label created in AccuKnox SaaS for associating scan results.           | N/A (Required) |
+| `ACCUKNOX_TOKEN`    | The token for authenticating with the CSPM panel.                          | N/A (Required) |
+
 Use the following YAML configuration for your `bitbucket-pipelines.yml` file:
 
 ```yaml
 pipelines:
   branches:
-    dast:
+    main:
     - step:
-        name: Accuknox DAST
+        name: AccuKnox DAST Scan
         script:
-          - pipe: accu-knox/scan:1.0.0
+          - pipe: accu-knox/scan:2.0.0
             variables:
               SCAN_TYPE: DAST
-              INPUT_SOFT_FAIL: "true"
               TARGET_URL: "http://testaspnet.vulnweb.com/login.aspx"
               SEVERITY_THRESHOLD: High
               DAST_SCAN_TYPE: baseline
@@ -49,8 +59,6 @@ pipelines:
               ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
               ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
               ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
-        services:
-        - docker
 ```
 
 ## Initial CI/CD Pipeline Without AccuKnox Scan

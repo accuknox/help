@@ -25,9 +25,9 @@ To integrate AccuKnox Secret Scanning, ensure you have:
 
 ### Step 2: Configure CI/CD Variables
 
-1.  Go to your **Bitbucket repository settings**.
+3.  Go to your **Bitbucket repository settings**.
 
-2.  Add the following variables, for details on configuring variables, refer to [How to Create CI/CD Variables in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
+4.  Add the following variables, for details on configuring variables, refer to [How to Create CI/CD Variables in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
 
     - **ACCUKNOX_TOKEN**: Your AccuKnox API token.
 
@@ -39,23 +39,35 @@ To integrate AccuKnox Secret Scanning, ensure you have:
 
 ### Step 3: Update the `bitbucket-pipelines.yml` File
 
+| **Input Value**         | **Description**                                                                      | **Default Value**     |
+|-------------------------|--------------------------------------------------------------------------------------|------------------------|
+| `RESULTS`               | Specifies which type(s) of results to output: `verified`, `unknown`, `unverified`, `filtered_unverified`. Defaults to all types. | `""`                   |
+| `BRANCH`                | The branch to scan. Use `all-branches` to scan all branches.                         | `""`                   |
+| `EXCLUDE_PATHS`         | Paths to exclude from the scan.                                                      | `""`                   |
+| `ADDITIONAL_ARGUMENTS`  | Extra parameters for secret scanning.                                                | `""`                   |
+| `SOFT_FAIL`             | Do not return an error code if secrets are found.                                    | `true`                 |
+| `ACCUKNOX_TOKEN`        | The token for authenticating with the CSPM panel.                                    | N/A (Required)         |
+| `ACCUKNOX_TENANT`       | The ID of the tenant associated with the CSPM panel.                                 | N/A (Required)         |
+| `ACCUKNOX_ENDPOINT`     | The URL of the CSPM panel to push the scan results to.                               | N/A (Required)         |
+| `ACCUKNOX_LABEL`        | The label created in AccuKnox SaaS for associating scan results.                     | N/A (Required)         |
+
 Add the following secret scanning configuration to your pipeline:
 
-```yml
+```yaml
 pipelines:
   branches:
-    secret-with-pipe:
-      - step:
-          name: AccuKnox Secret Scan
-          script:
-            - pipe: accu-knox/scan:1.0.1
-              variables:
-                SCAN_TYPE: SECRET
-                INPUT_SOFT_FAIL: "true"
-                ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-                ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
-                ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
-                ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
+    main:
+    - step:
+        name: AccuKnox Secret Scan
+        script:
+          - pipe: accu-knox/scan:2.0.0
+            variables:
+              SCAN_TYPE: SECRET
+              SOFT_FAIL: "true"
+              ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+              ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+              ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+              ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
 
 ### Step 4: Commit and Push Changes

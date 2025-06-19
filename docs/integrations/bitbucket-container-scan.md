@@ -38,50 +38,44 @@ The label used to categorize and identify scan results in AccuKnox. [Create a ne
 
 #### Step 3: Define the Bitbucket Pipelines YAML File
 
+**Inputs for AccuKnox Container Scanning**
+
+| **Input**           | **Description**                                                                                           | **Default Value**                  |
+| ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `IMAGE_NAME`        | Docker image name.                                                                                        | N/A (**Required**)                 |
+| `TAG`               | The tag for the Docker image.                                                                             | N/A (**Required**)                 |
+| `SEVERITY`          | Allows selection of severity level for the scan. Options: `UNKNOWN`, `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. | `UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL` |
+| `SOFT_FAIL`         | Do not return an error code if there are failed checks.                                                   | `true`                             |
+| `ACCUKNOX_TENANT`   | The ID of the tenant associated with the CSPM panel.                                                      | N/A (**Required**)                 |
+| `ACCUKNOX_ENDPOINT` | The URL of the CSPM panel to push the scan results to.                                                    | N/A (**Required**)                 |
+| `ACCUKNOX_LABEL`    | The label created in AccuKnox SaaS for associating scan results.                                          | N/A (**Required**)                 |
+| `ACCUKNOX_TOKEN`    | The token for authenticating with the CSPM panel.                                                         | N/A (**Required**)                 |
+
 Create or modify your `bitbucket-pipelines.yml` as follows:
 
 ```yaml
 pipelines:
   branches:
     main:
-      - step:
-          name: Set Variables
-          script:
-            - echo "IMAGE_NAME=bitbucket" >> $BITBUCKET_PIPELINES_VARIABLES_PATH
-            - echo "TAG=test" >> $BITBUCKET_PIPELINES_VARIABLES_PATH
-          output-variables:
-            - IMAGE_NAME
-            - TAG
-      - step:
-          name: Build and Scan Image
-          script:
-            - docker build -t $IMAGE_NAME:$TAG .
-            - pipe: accu-knox/scan:1.1.1
-              variables:
-                SCAN_TYPE: CONTAINER
-                INPUT_SOFT_FAIL: "true"
-                ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-                ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
-                ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
-                ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
-                IMAGE_NAME: $IMAGE_NAME
-                TAG: $TAG
-          services:
-            - docker
+    - step:
+        name: Set Variables and Scan
+        services:
+          - docker
+        script:
+          - export IMAGE_NAME="bitbucket"
+          - export TAG="test"
+          - docker build -t $IMAGE_NAME:$TAG .
+          - pipe: accu-knox/scan:2.0.0
+            variables:
+              SCAN_TYPE: CONTAINER
+              SOFT_FAIL: "true"
+              IMAGE_NAME: $IMAGE_NAME
+              TAG: $TAG
+              ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+              ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+              ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+              ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
-
-### Inputs for AccuKnox Container Scanning
-
-| **Name**             | **Description**                                                                                               | **Required** | **Default**                        |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------- |
-| `ACCUKNOX_ENDPOINT`  | AccuKnox CSPM panel URL                                                                                       | Yes          | `cspm.demo.accuknox.com`           |
-| `ACCUKNOX_TENANT_ID` | AccuKnox Tenant ID                                                                                            | Yes          |                                    |
-| `ACCUKNOX_TOKEN`     | AccuKnox API Token                                                                                            | Yes          |                                    |
-| `ACCUKNOX_LABEL`     | Label for scan results                                                                                        | Yes          |                                    |
-| `INPUT_SOFT_FAIL`    | Continue even if the scan fails                                                                               | No           | `true`                             |
-| `IMAGE_NAME`         | The name of the Docker image                                                                                  | Yes          |                                    |
-| `TAG`                | The tag for the Docker image                                                                                  | No           | `$BITBUCKET_BUILD_NUMBER`          |
-| `SEVERITY`           | Comma-separated list of vulnerability severities that will trigger failure when `INPUT_SOFT_FAIL` is disabled | No           | `UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL` |
 
 ### After AccuKnox Integration:
 

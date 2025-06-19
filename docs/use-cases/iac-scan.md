@@ -46,7 +46,7 @@ resource "aws_s3_bucket" "my_bucket" {
 Create a GitHub Actions workflow at `.github/workflows/iac.yml`:
 
 {% raw %}
-```yml
+```yaml
 name: AccuKnox IaC Scan Workflow
 
 on:

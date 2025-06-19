@@ -1,11 +1,11 @@
 ---
-title: Integrating Opengrep SAST with AccuKnox in a GitLab CI/CD Pipeline
-description: Learn how to integrate Opengrep SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation in this guide.
+title: Integrating SAST with AccuKnox in a GitLab CI/CD Pipeline
+description: Learn how to integrate SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation in this guide.
 ---
 
-# Integrating Opengrep SAST with AccuKnox in a GitLab CI/CD Pipeline
+# Integrating SAST with AccuKnox in a GitLab CI/CD Pipeline
 
-This guide demonstrates how to integrate Opengrep SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation.
+This guide demonstrates how to integrate SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation.
 
 ### Prerequisites
 
@@ -31,35 +31,33 @@ Define the following environment variables in GitLab under **Settings > CI/CD > 
 
 - **ACCUKNOX_LABEL**: The label for your scan.
 
+### Inputs for AccuKnox SAST Action
+
+| **Parameter**        | **Description**                                                                 | **Default Value**              |
+|----------------------|---------------------------------------------------------------------------------|--------------------------------|
+| `STAGE`              | Specifies the pipeline stage.                                                   | `test`                         |
+| `SOFT_FAIL`          | Do not return an error code if vulnerabilities are found.                      | `true`                         |
+| `UPLOAD_ARTIFACT`    | Uploads scan results to AccuKnox CSPM.                                         | `true`                         |
+| `ACCUKNOX_TOKEN`     | Token for authenticating with the CSPM panel.                                  | **N/A (Required)**             |
+| `ACCUKNOX_TENANT`    | The ID of the tenant associated with the CSPM panel.                           | **N/A (Required)**             |
+| `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to.                         | `cspm.demo.accuknox.com`       |
+| `ACCUKNOX_LABEL`     | Label created in AccuKnox SaaS for associating scan results.                   | **N/A (Required)**             |
+
 #### Step 3: Define GitLab CI/CD Pipeline
 
 Create a new pipeline configuration in `.gitlab-ci.yml` with the following setup:
 
-```yml
+```yaml
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/opengrep-sast-scan@1.0.4
+  - component: $CI_SERVER_FQDN/accu-knox/scan/sast-scan@2.0.0
     inputs:
       STAGE: test
-      INPUT_SOFT_FAIL: false
+      SOFT_FAIL: false
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
       ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
-
-### Inputs for AccuKnox Opengrep SAST Action
-
-| **Input**             | **Description**                                              | **Default Value**        |
-| --------------------- | ------------------------------------------------------------ | ------------------------ |
-| **STAGE**             | Specifies the pipeline stage.                                | `test`                   |
-| **PIPELINE_ID**       | GitLab Run ID                                                | `$CI_PIPELINE_ID`        |
-| **JOB_URL**           | GitLab Job URL                                               | `$CI_JOB_URL`            |
-| **INPUT_SOFT_FAIL**   | Do not return an error code if vulnerabilities are found.    | `true`                   |
-| **UPLOAD_ARTIFACT**   | Uploads scan results to AccuKnox CSPM.                       | `true`                   |
-| **ACCUKNOX_TOKEN**    | Token for authenticating with the CSPM panel.                | N/A (Required)           |
-| **ACCUKNOX_TENANT**   | The ID of the tenant associated with the CSPM panel.         | N/A (Required)           |
-| **ACCUKNOX_ENDPOINT** | The URL of the CSPM panel to push the scan results to.       | `cspm.demo.accuknox.com` |
-| **ACCUKNOX_LABEL**    | Label created in AccuKnox SaaS for associating scan results. | N/A (Required)           |
 
 ### Pipeline Execution
 
@@ -97,4 +95,4 @@ With AccuKnox integrated, scan results are automatically forwarded for risk asse
 
 ### Conclusion
 
-Integrating Opengrep SAST with AccuKnox in GitLab CI/CD enhances security by automating vulnerability detection and remediation. This setup ensures centralized monitoring, early detection, and actionable insights, strengthening code quality and security throughout the development lifecycle.
+Integrating SAST with AccuKnox in GitLab CI/CD enhances security by automating vulnerability detection and remediation. This setup ensures centralized monitoring, early detection, and actionable insights, strengthening code quality and security throughout the development lifecycle.
