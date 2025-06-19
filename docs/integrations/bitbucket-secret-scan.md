@@ -29,6 +29,16 @@ To integrate AccuKnox Secret Scanning, ensure you have:
 
 4.  Add the following variables, for details on configuring variables, refer to [How to Create CI/CD Variables in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
 
+    - **ACCUKNOX_TOKEN**: Your AccuKnox API token.
+
+    - **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+
+    - **ACCUKNOX_ENDPOINT**: Your AccuKnox API endpoint.
+
+    - **ACCUKNOX_LABEL**: Label for scan results.
+
+### Step 3: Update the `bitbucket-pipelines.yml` File
+
 | **Input Value**         | **Description**                                                                      | **Default Value**     |
 |-------------------------|--------------------------------------------------------------------------------------|------------------------|
 | `RESULTS`               | Specifies which type(s) of results to output: `verified`, `unknown`, `unverified`, `filtered_unverified`. Defaults to all types. | `""`                   |
@@ -40,8 +50,6 @@ To integrate AccuKnox Secret Scanning, ensure you have:
 | `ACCUKNOX_TENANT`       | The ID of the tenant associated with the CSPM panel.                                 | N/A (Required)         |
 | `ACCUKNOX_ENDPOINT`     | The URL of the CSPM panel to push the scan results to.                               | N/A (Required)         |
 | `ACCUKNOX_LABEL`        | The label created in AccuKnox SaaS for associating scan results.                     | N/A (Required)         |
-
-### Step 3: Update the `bitbucket-pipelines.yml` File
 
 Add the following secret scanning configuration to your pipeline:
 

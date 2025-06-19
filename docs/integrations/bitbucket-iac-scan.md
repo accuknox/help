@@ -20,6 +20,15 @@ This guide explains how to integrate Infrastructure as Code (IaC) security into 
 
 **Step 2:** Add the following variables in your Bitbucket repository settings:. For details on configuring variables, refer to [How to Create CI/CD Variables in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
 
+1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
+
+2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+
+3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
+
+4. **ACCUKNOX_LABEL**: The label for your scan.
+
+**Step 3:** Configure Bitbucket Pipeline
 
 | **Parameter**         | **Description**                                                                 | **Default Value**         |
 |------------------------|---------------------------------------------------------------------------------|----------------------------|
@@ -33,8 +42,6 @@ This guide explains how to integrate Infrastructure as Code (IaC) security into 
 | `ACCUKNOX_ENDPOINT`    | The URL of the CSPM panel to push the scan results to                            | **N/A (Required)**         |
 | `ACCUKNOX_LABEL`       | The label created in AccuKnox SaaS for associating scan results                  | **N/A (Required)**         |
 | `ACCUKNOX_TOKEN`       | The token for authenticating with the CSPM panel                                 | **N/A (Required)**         |
-
-**Step 3:** Configure Bitbucket Pipeline
 
 Use the following YAML configuration for your `bitbucket-pipelines.yml` file:
 

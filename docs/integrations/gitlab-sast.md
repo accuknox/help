@@ -20,6 +20,19 @@ This guide demonstrates how to incorporate AccuKnox into a CI/CD pipeline using 
 **Step 1**: Log in to AccuKnox Navigate to Settings and select Tokens to create an AccuKnox token for forwarding scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
 
 **Step 2:** Configure GitLab CI/CD Variables. For details on configuring variables, refer to [How to Create CI/CD Variables in GitLab](https://docs.gitlab.com/ee/ci/variables/ "https://docs.gitlab.com/ee/ci/variables/").
+1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
+
+2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+
+3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
+
+4. **ACCUKNOX_LABEL**: The label for your scan.
+
+5. **SONAR_TOKEN**: Your SonarQube API token.
+
+6. **SONAR_HOST_URL**: The URL of your SonarQube server.
+
+7. **SONAR_PROJECT_KEY**: The project key for your SonarQube project.
 
 ## Configuration Parameters
 
