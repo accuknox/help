@@ -22,23 +22,24 @@ knoxctl logs [flag] [option]
 
 Below is a table of flags available with the `knoxctl logs` command, along with their descriptions:
 
-| Flag                | Description                                                            |
-| ------------------- | ---------------------------------------------------------------------- | ------ | -------------------------- |
-| `--container`       | Name of the container.                                                 |
-| `--gRPC`            | gRPC server information.                                               |
-| `--json`            | Flag to print alerts and logs in the JSON format.                      |
-| `-l`, `--labels`    | Use the labels to select the endpoints.                                |
-| `--limit`           | Number of logs you want to see.                                        |
-| `--logFilter`       | Filter for what kinds of alerts and logs to receive, options: `{policy | system | all}` (default "policy").  |
-| `--logPath`         | Output location for alerts and logs, options: `{path                   | stdout | none}` (default "stdout"). |
-| `--logType`         | Log type you want (e.g., ContainerLog/HostLog).                        |
-| `--msgPath`         | Output location for messages, options: `{path                          | stdout | none}` (default "none").   |
-| `-n`, `--namespace` | Kubernetes namespace filter.                                           |
-| `--operation`       | Type of operation (e.g., Process/File/Network).                        |
-| `--pod`             | Name of the pod.                                                       |
-| `--resource`        | Command used by the user.                                              |
-| `--source`          | Binary used by the system.                                             |
-| `-h`, `--help`      | Help for logs.                                                         |
+| **Flag**             | **Description**                                                                                     |
+|----------------------|-----------------------------------------------------------------------------------------------------|
+| `--container`        | Name of the container.                                                                              |
+| `--gRPC`             | gRPC server information.                                                                            |
+| `--json`             | Flag to print alerts and logs in the JSON format.                                                   |
+| `-l`, `--labels`     | Use the labels to select the endpoints.                                                             |
+| `--limit`            | Number of logs you want to see.                                                                     |
+| `--logFilter`        | Filter for what kinds of alerts and logs to receive, options: `{policy &#124; system &#124; all}` (default `"policy"`). |
+| `--logPath`          | Output location for alerts and logs, options: `{path &#124; stdout &#124; none}` (default `"stdout"`). |
+| `--logType`          | Log type you want (e.g., `ContainerLog`, `HostLog`).                                                |
+| `--msgPath`          | Output location for messages, options: `{path &#124; stdout &#124; none}` (default `"none"`).        |
+| `-n`, `--namespace`  | Kubernetes namespace filter.                                                                        |
+| `--operation`        | Type of operation (e.g., `Process`, `File`, `Network`).                                             |
+| `--pod`              | Name of the pod.                                                                                    |
+| `--resource`         | Command used by the user.                                                                           |
+| `--source`           | Binary used by the system.                                                                          |
+| `-h`, `--help`       | Help for logs.                                                                                      |
+
 
 Use these flags to tailor the `knoxctl logs` output to your specific requirements, whether it's for debugging, monitoring, or auditing purposes within your Kubernetes cluster.
 
