@@ -54,24 +54,6 @@ This guide demonstrates how to incorporate AccuKnox into a CI/CD pipeline using 
 Create a new pipeline in your GitLab project with the following YAML configuration:
 
 ```yaml
-sonarqube-check:
-  image:
-    name: sonarsource/sonar-scanner-cli:latest
-    entrypoint: [""]
-  variables:
-    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
-    GIT_DEPTH: "0"
-    SONAR_TOKEN: ${SONAR_TOKEN}
-    SONAR_HOST_URL: ${SONAR_HOST_URL}
-    SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - .sonar/cache
-  script:
-    - sonar-scanner -Dsonar.qualitygate.wait=true -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.token=$SONAR_TOKEN -Dsonar.sources=. \
-  allow_failure: true
-
 include:
   - component: $CI_SERVER_FQDN/accu-knox/scan/sq-sast-scan@2.0.0
     inputs:
