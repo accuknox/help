@@ -41,7 +41,7 @@ To integrate AccuKnox Secret Scanning, ensure you have:
 
 Add the following secret scanning configuration to your pipeline:
 
-```yml
+```yaml
 pipelines:
   branches:
     secret-with-pipe:

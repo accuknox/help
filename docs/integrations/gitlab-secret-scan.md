@@ -31,7 +31,7 @@ This guide walks you through integrating AccuKnox Secret Scanning into your GitL
 
 Create a new pipeline in your GitLab project with the following YAML configuration:
 
-```yml
+```yaml
 include:
   - component: $CI_SERVER_FQDN/accu-knox/scan/secret-scan@main
     inputs:

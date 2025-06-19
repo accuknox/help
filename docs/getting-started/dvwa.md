@@ -64,7 +64,7 @@ Before applying our KubeArmor Security policy we can see that along with ping ot
 
 The policy allows the necessary processes like ping and apache2 to execute.
 
-```yml
+```yaml
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:

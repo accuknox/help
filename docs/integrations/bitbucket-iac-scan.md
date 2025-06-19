@@ -20,13 +20,19 @@ This guide explains how to integrate Infrastructure as Code (IaC) security into 
 
 **Step 2:** Add the following variables in your Bitbucket repository settings:. For details on configuring variables, refer to [How to Create CI/CD Variables in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
 
-1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
 
-2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
-
-3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
-
-4. **ACCUKNOX_LABEL**: The label for your scan.
+| **Parameter**         | **Description**                                                                 | **Default Value**         |
+|------------------------|---------------------------------------------------------------------------------|----------------------------|
+| `FILE`                 | Specify a file for scanning (e.g., `.tf` for Terraform). Cannot be used with `DIRECTORY`. | `""` *(empty, optional)*   |
+| `DIRECTORY`            | Directory with infrastructure code and/or package manager files to scan         | `"."` *(current directory)*|
+| `COMPACT`              | Do not display code blocks in the output                                        | `true` *(boolean)*         |
+| `QUIET`                | Display only failed checks                                                       | `true` *(boolean)*         |
+| `FRAMEWORK`            | Run only on a specific infrastructure (e.g., Kubernetes or Terraform)            | `""` *(empty, optional)*   |
+| `SOFT_FAIL`            | Do not return an error code if there are failed checks                           | `true` *(boolean)*         |
+| `ACCUKNOX_TENANT`      | The ID of the tenant associated with the CSPM panel                              | **N/A (Required)**         |
+| `ACCUKNOX_ENDPOINT`    | The URL of the CSPM panel to push the scan results to                            | **N/A (Required)**         |
+| `ACCUKNOX_LABEL`       | The label created in AccuKnox SaaS for associating scan results                  | **N/A (Required)**         |
+| `ACCUKNOX_TOKEN`       | The token for authenticating with the CSPM panel                                 | **N/A (Required)**         |
 
 **Step 3:** Configure Bitbucket Pipeline
 
@@ -37,13 +43,13 @@ pipelines:
   branches:
     main:
     - step:
-        name: AccuKnox IaC
+        name: AccuKnox IaC Scan
         script:
-          - pipe: accu-knox/scan:1.0.0
+          - pipe: accu-knox/scan:2.0.0
             variables:
               SCAN_TYPE: IAC
-              INPUT_DIRECTORY: "./"
-              INPUT_SOFT_FAIL: "true"
+              DIRECTORY: "./"
+              SOFT_FAIL: "true"
               ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
               ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
               ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}

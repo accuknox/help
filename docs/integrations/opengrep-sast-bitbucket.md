@@ -1,6 +1,6 @@
-# Integrating Opengrep SAST with AccuKnox in Bitbucket Pipelines
+# Integrating SAST with AccuKnox in Bitbucket Pipelines
 
-This guide shows how to integrate Opengrep SAST scanning into a Bitbucket Pipeline and automatically forward results to AccuKnox for analysis and mitigation.
+This guide shows how to integrate SAST scanning into a Bitbucket Pipeline and automatically forward results to AccuKnox for analysis and mitigation.
 
 ## Prerequisites
 
@@ -24,14 +24,15 @@ This guide shows how to integrate Opengrep SAST scanning into a Bitbucket Pipeli
 
 - Go to **Repository Settings > Repository Variables** and click **Add Variable**. Refer to [**How to Create CI/CD Variables in Bitbucket**](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
 
-Add the following variables:
+## Inputs for AccuKnox SAST Task
 
-| Name                 | Description                                                                                                                                                       |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to (e.g., `cspm.demo.accuknox.com`)                                                                            |
-| `ACCUKNOX_TENANT_ID` | The ID of the tenant associated with the CSPM panel                                                                                                               |
-| `ACCUKNOX_TOKEN`     | Token for authenticating with the AccuKnox CSPM panel                                                                                                             |
-| `ACCUKNOX_LABEL`     | The label used to categorize and identify scan results in AccuKnox. [Create a new label](https://help.accuknox.com/how-to/how-to-create-labels/) if not available |
+| **Input Value**       | **Description**                                                   | **Default Value**  |
+|------------------------|-------------------------------------------------------------------|--------------------|
+| `SOFT_FAIL`            | Do not return an error code if secrets are found.                | `true`             |
+| `ACCUKNOX_TOKEN`       | The token for authenticating with the CSPM panel.                | N/A (Required)     |
+| `ACCUKNOX_TENANT`      | The ID of the tenant associated with the CSPM panel.             | N/A (Required)     |
+| `ACCUKNOX_ENDPOINT`    | The URL of the CSPM panel to push the scan results to.           | N/A (Required)     |
+| `ACCUKNOX_LABEL`       | The label created in AccuKnox SaaS for associating scan results. | N/A (Required)     |
 
 ### Step 3: Define Bitbucket Pipeline
 
@@ -41,28 +42,18 @@ In your repository, create or update your pipeline YAML (`bitbucket-pipelines.ym
 pipelines:
   branches:
     main:
-      - step:
-          name: AccuKnox Scan Test 14
-          script:
-            - pipe: accu-knox/scan:1.1.0
-              variables:
-                SCAN_TYPE: OPENGREP_SAST
-                INPUT_SOFT_FAIL: "true"
-                ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-                ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
-                ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
-                ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
+    - step:
+        name: Accuknox SAST
+        script:
+          - pipe: accu-knox/scan:2.0.0
+            variables:
+              SCAN_TYPE: SAST
+              SOFT_FAIL: "true"
+              ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
+              ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
+              ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
+              ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
-
-## Inputs for AccuKnox Opengrep SAST Task
-
-| Name                 | Description                     | Required | Default                  |
-| -------------------- | ------------------------------- | -------- | ------------------------ |
-| `ACCUKNOX_ENDPOINT`  | AccuKnox CSPM panel URL         | Yes      | `cspm.demo.accuknox.com` |
-| `ACCUKNOX_TENANT_ID` | AccuKnox Tenant ID              | Yes      |                          |
-| `ACCUKNOX_TOKEN`     | AccuKnox API Token              | Yes      |                          |
-| `ACCUKNOX_LABEL`     | Label for scan results          | Yes      |                          |
-| `INPUT_SOFT_FAIL`    | Continue even if the scan fails | No       | `true`                   |
 
 ## Workflow Execution Without AccuKnox
 
@@ -87,4 +78,4 @@ After the pipeline run:
 
 ## Conclusion
 
-Integrating **Opengrep SAST** with **Bitbucket Pipelines** enables automated vulnerability detection and centralized security management. It ensures early detection of issues, risk assessment, and provides actionable insights to maintain code security and quality.
+Integrating **SAST** with **Bitbucket Pipelines** enables automated vulnerability detection and centralized security management. It ensures early detection of issues, risk assessment, and provides actionable insights to maintain code security and quality.

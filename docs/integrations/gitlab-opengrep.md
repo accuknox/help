@@ -1,11 +1,11 @@
 ---
-title: Integrating Opengrep SAST with AccuKnox in a GitLab CI/CD Pipeline
-description: Learn how to integrate Opengrep SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation in this guide.
+title: Integrating SAST with AccuKnox in a GitLab CI/CD Pipeline
+description: Learn how to integrate SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation in this guide.
 ---
 
-# Integrating Opengrep SAST with AccuKnox in a GitLab CI/CD Pipeline
+# Integrating SAST with AccuKnox in a GitLab CI/CD Pipeline
 
-This guide demonstrates how to integrate Opengrep SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation.
+This guide demonstrates how to integrate SAST scanning into a GitLab CI/CD pipeline and forward the results to AccuKnox for security analysis and remediation.
 
 ### Prerequisites
 
@@ -31,7 +31,7 @@ Define the following environment variables in GitLab under **Settings > CI/CD > 
 
 - **ACCUKNOX_LABEL**: The label for your scan.
 
-### Inputs for AccuKnox Opengrep SAST Action
+### Inputs for AccuKnox SAST Action
 
 | **Parameter**        | **Description**                                                                 | **Default Value**              |
 |----------------------|---------------------------------------------------------------------------------|--------------------------------|
@@ -47,7 +47,7 @@ Define the following environment variables in GitLab under **Settings > CI/CD > 
 
 Create a new pipeline configuration in `.gitlab-ci.yml` with the following setup:
 
-```yml
+```yaml
 include:
   - component: $CI_SERVER_FQDN/accu-knox/scan/sast-scan@2.0.0
     inputs:
@@ -95,4 +95,4 @@ With AccuKnox integrated, scan results are automatically forwarded for risk asse
 
 ### Conclusion
 
-Integrating Opengrep SAST with AccuKnox in GitLab CI/CD enhances security by automating vulnerability detection and remediation. This setup ensures centralized monitoring, early detection, and actionable insights, strengthening code quality and security throughout the development lifecycle.
+Integrating SAST with AccuKnox in GitLab CI/CD enhances security by automating vulnerability detection and remediation. This setup ensures centralized monitoring, early detection, and actionable insights, strengthening code quality and security throughout the development lifecycle.

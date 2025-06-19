@@ -1,6 +1,6 @@
-# Integrating Opengrep SAST with AccuKnox in GitHub Actions
+# Integrating SAST with AccuKnox in GitHub Actions
 
-This guide outlines integrating Opengrep SAST scanning into a GitHub Actions workflow and forwarding the results to AccuKnox for analysis and mitigation.
+This guide outlines integrating SAST scanning into a GitHub Actions workflow and forwarding the results to AccuKnox for analysis and mitigation.
 
 ### Prerequisites
 
@@ -61,7 +61,7 @@ jobs:
 ```
 {% endraw %}
 
-### Inputs for AccuKnox Opengrep SAST Action
+### Inputs for AccuKnox SAST Action
 
 | **Name**              | **Description**                 | **Required** | **Default**              |
 | --------------------- | ------------------------------- | ------------ | ------------------------ |
@@ -108,4 +108,4 @@ With AccuKnox integrated, Opengrep scan results are automatically sent to AccuKn
 
 ### Conclusion
 
-Integrating OpenGrep SAST with AccuKnox in GitHub Actions enables automated vulnerability detection and secure development workflows. It provides centralized monitoring, early issue detection, and actionable remediation insights, ensuring code quality. By leveraging AccuKnox's risk assessment capabilities, developers can seamlessly enhance security while maintaining efficiency in their CI/CD pipeline.
+Integrating SAST with AccuKnox in GitHub Actions enables automated vulnerability detection and secure development workflows. It provides centralized monitoring, early issue detection, and actionable remediation insights, ensuring code quality. By leveraging AccuKnox's risk assessment capabilities, developers can seamlessly enhance security while maintaining efficiency in their CI/CD pipeline.

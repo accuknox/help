@@ -22,35 +22,39 @@ This guide explains how to integrate AccuKnox into your Bitbucket Pipelines to e
 
 **Step 2:** Add the following variables in your Bitbucket repository settings:. For details on configuring variables, refer to [How to Create CI/CD Variables in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/ "https://support.atlassian.com/bitbucket-cloud/docs/variables-and-secrets/").
 
-1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
-
-2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
-
-3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
-
-4. **ACCUKNOX_LABEL**: The label for your scan.
-
-5. **SONAR_TOKEN**: Your SonarQube API token.
-
-6. **SONAR_HOST_URL**: The URL of your SonarQube server.
-
-7. **SONAR_PROJECT_KEY**: The project key for your SonarQube project.
+| **Input**              | **Description**                                                            | **Default Value**     |
+|------------------------|----------------------------------------------------------------------------|------------------------|
+| `SONAR_TOKEN`          | Token for authenticating with SonarQube.                                   | N/A (Required)         |
+| `SONAR_HOST_URL`       | The SonarQube host URL.                                                    | N/A (Required)         |
+| `SONAR_PROJECT_KEY`    | The project key in SonarQube.                                              | N/A (Required)         |
+| `SONAR_ORGANIZATION_ID`| Required only for SonarQube Cloud users.                                   | `""`                   |
+| `SKIP_SONAR_SCAN`      | Skip SonarQube scan, for advanced users. Value should be boolean.          | `false` (boolean)      |
+| `SOFT_FAIL`            | Do not return an error code if there are failed checks.                    | `true` (boolean)       |
+| `ACCUKNOX_TENANT`      | The ID of the tenant associated with the CSPM panel.                       | N/A (Required)         |
+| `ACCUKNOX_ENDPOINT`    | The URL of the CSPM panel to push the scan results to.                     | N/A (Required)         |
+| `ACCUKNOX_LABEL`       | The label created in AccuKnox SaaS for associating scan results.           | N/A (Required)         |
+| `ACCUKNOX_TOKEN`       | The token for authenticating with the CSPM panel.                          | N/A (Required)         |
 
 **Step 3:** Configure Bitbucket Pipeline
 
 Use the following YAML configuration for your `bitbucket-pipelines.yml` file:
 
 ```yaml
+definitions:
+  services:
+    docker:
+      memory: 3072
+
 pipelines:
   branches:
     main:
     - step:
-        name: AccuKnox SAST
+        name: AccuKnox SAST Scan
         script:
-          - pipe: accu-knox/scan:1.0.0
+          - pipe: accu-knox/scan:2.0.0
             variables:
-              SCAN_TYPE: SAST
-              INPUT_SOFT_FAIL: "true"
+              SCAN_TYPE: SQ_SAST
+              SKIP_SONAR_SCAN: "false"
               SONAR_TOKEN: ${SONAR_TOKEN}
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
@@ -58,8 +62,6 @@ pipelines:
               ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
               ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
               ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
-        services:
-          - docker
 ```
 
 ## Initial CI/CD Pipeline Without AccuKnox Scan

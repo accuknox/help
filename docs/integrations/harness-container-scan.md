@@ -115,7 +115,7 @@ fi
 
 The variables can be added by using the Variables option in the right bar (or) the below code block can be copied into the Stage level of the pipeline yaml and the values changed accordingly.
 
-```yml
+```yaml
         variables:
           - name: tenant_id
             type: String

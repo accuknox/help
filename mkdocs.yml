@@ -384,12 +384,12 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
-    - "Secrets Scan":
-      - "GitHub": "use-cases/github-secret-scan.md"
-      - "Azure DevOps": "use-cases/azure-secret-scan.md"
-      - "Bitbucket": "use-cases/bitbucket-secret-scan.md"
-      - "Jenkins": "use-cases/jenkins-secret-scan.md"
-      - "Gitlab": "use-cases/gitlab-secret-scan.md"
+    # - "Secrets Scan":
+    #   - "GitHub": "use-cases/github-secret-scan.md"
+    #   - "Azure DevOps": "use-cases/azure-secret-scan.md"
+    #   - "Bitbucket": "use-cases/bitbucket-secret-scan.md"
+    #   - "Jenkins": "use-cases/jenkins-secret-scan.md"
+    #   - "Gitlab": "use-cases/gitlab-secret-scan.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "ModelArmor":
