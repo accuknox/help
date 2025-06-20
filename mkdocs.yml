@@ -166,14 +166,8 @@ pages:
 
 nav:
   - "Home": "introduction/home.md"
-
-  - "Overview":
-    - "Overview": "getting-started/index.md"
-    - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
-    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
-    - "Deployment Models": "getting-started/deployment-models.md"
-    - "DevSecOps" : "getting-started/devsecops.md"
-
+  # - "Overview":
+  #   - "Overview": "getting-started/index.md"
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
     - "Administrator's Guide": "how-to/administrators-guide.md"
@@ -185,6 +179,9 @@ nav:
       - "KSPM Playbook": "how-to/playbook-kspm.md"
       - "Host Security Playbook": "how-to/playbook-hostsec.md"
       - "Integrations Playbook" : "how-to/playbook-integrations.md"
+    - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
+    - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
+    - "DevSecOps" : "getting-started/devsecops.md"
     - "Cloud Accounts":
       - "Overview": "how-to/high-level-onboarding.md"
       - "Prerequisites":
@@ -240,22 +237,22 @@ nav:
       - "Open source vs Enterprise" : "introduction/open-source-vs-enterprise.md"
       - "Open Source Installation": "getting-started/open-source.md"
     - "Signup/Login via SSO": "how-to/sso.md"
-    - "Create Tokens" : "how-to/how-to-create-tokens.md"
-    - "Create Labels" : "how-to/how-to-create-labels.md"
-    - "Create Access Keys": "how-to/create-access-keys.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
     - "knoxctl":
-      - "knoxctl Overview": "knoxctl/index.md"
-      - "Install knoxctl": "knoxctl/knoxctl-install.md"
-      - "knoxctl Commands": "knoxctl/knoxctl-commands.md"
+      - "Overview": "knoxctl/index.md"
+      - "Configuration": "knoxctl/knoxctl-config.md"
+      - "Commands": "knoxctl/knoxctl-commands.md"
       - "KubeArmor": "knoxctl/kubearmor.md"
       - "Miscellaneous": "knoxctl/miscellaneous.md"
 
 
   - "Integrations":
     - "Integrations": "integrations/index.md"
+    - "Create Tokens" : "how-to/how-to-create-tokens.md"
+    - "Create Labels" : "how-to/how-to-create-labels.md"
+    - "Create Access Keys": "how-to/create-access-keys.md"
     - "CI/CD":
         - "Overview": "integrations/cicd-overview.md"
         - "Azure DevOps":
@@ -500,6 +497,7 @@ nav:
 
   - "Resources":
     - "Resources": "resources/index.md"
+    - "Deployment Models": "getting-started/deployment-models.md"
     - "CWPP Troubleshooting": "resources/troubleshooting.md"
     - "CSPM Troubleshooting": "resources/cspm-troubleshooting.md"
     - "User Manual": "resources/accuknox-manual.md"
