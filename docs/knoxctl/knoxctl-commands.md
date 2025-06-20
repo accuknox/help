@@ -2,9 +2,9 @@
 
 This document provides a quick reference guide for common `knoxctl` CLI operations. These commands help you interact with AccuKnox-managed Kubernetes clusters, nodes, and alerts. Use them to efficiently filter, inspect, and debug workloads across your cloud environments.
 
+
 > ✅ Tip: Use the `--json` flag to get machine-readable output and integrate with other tools.
 
----
 
 ## 🔍 Cluster and Node Operations
 
