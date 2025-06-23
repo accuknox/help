@@ -69,7 +69,7 @@ AccuKnox onprem deployment is based on Kubernetes native architecture.
 
 | **Pre-requisites**                                           | **Why is it needed?**                                                                                                                           | **Specs**                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 3 Virtual machines or bare-metal nodes [Mandatory]           | To install the AccuKnox POC control plane in on-prem mode. Root access to the nodes would be required by the AccuKnox team during installation. | - 1 node with at least 4 CPU + 16GB <br> 2 nodes, each with 8 CPU + 16GB <br> - Each node has at least 256 GB of disk space. <br> - Each node is installed with Debian 11 OS <br> - These 3 nodes should have full ingress + egress connectivity between themselves. <br> - Users/APIs access to ports [443, 8443, 3000, 8081, 9090] should be enabled for all these VMs. |
+| 3 Virtual machines or bare-metal nodes [Mandatory]           | To install the AccuKnox POC control plane in on-prem mode. Root access to the nodes would be required by the AccuKnox team during installation. | - 1 node with at least 4 CPU + 16GB <br> - 2 nodes, each with 8 CPU + 16GB <br> - Each node has at least 256 GB of disk space. <br> - Each node is installed with Debian 11 OS <br> - These 3 nodes should have full ingress + egress connectivity between themselves. <br> - Users/APIs access to ports [443, 8443, 3000, 8081, 9090] should be enabled for all these VMs. |
 | Internet Connectivity [Mandatory]                            | The VMs would require Internet connectivity during the installation.                                                                            | Egress only access to Port 80 + 443.                                                                                                                                                                                                                                                                                                                                      |
 | Email User + Password + email ID + Server Address [Optional] | AccuKnox Control plane allows one to invite other users to the Portal by sending an invitation via email                                        | AccuKnox Control plane configures 5 default users for whom the access will be enabled if this configuration is not provided.                                                                                                                                                                                                                                              |
 | Trusted SSL Certificates [Optional]                          | SSL Certificates are used for AccuKnox Portal.                                                                                                  | If trusted certs are not provided, we can use self-signed certs.                                                                                                                                                                                                                                                                                                          |
@@ -88,10 +88,12 @@ All nodes are expected to make use of Debian 11 as their Operating System
 
 ## Container Registry
 
-### Harbor Installation using Ansible
-
 A Harbor container registry will be deployed on the master node if not available.
 Full Access to the registry is required to push and pull the AccuKnox microservice images from this registry.
+
+### Harbor Installation using Ansible
+
+AccuKnox team will leverage an ansible playbook that:
 
 - Installs Harbor
 - Supports self-signed and letsencrypt-signed certificates.
@@ -195,7 +197,7 @@ update-ca-certificates
 
 ## Kubernetes Cluster
 
-Deploy Kubeadm and initialize a cluster on the master node. Connect the worker nodes to the initialized cluster. Ensure the cluster is functional.
+Deploy K0s and initialize a cluster on the master node. Connect the worker nodes to the initialized cluster. Ensure the cluster is functional.
 
 ### Install k0s
 
@@ -450,7 +452,7 @@ ssl:
   customcerts: true
 ```
 
-## AccuKnox Installation Package
+### AccuKnox Installation Package
 
 The `override-values.yaml` file contains installation-specific configurations:
 
@@ -502,8 +504,8 @@ helm upgrade --install -n accuknox-chart accuknox-pre pre-chart \
   --set global.email.user="" \
   --set global.email.password="" \
   --set global.email.host="" \
-  --set ecr.user="AKIA55UKWVCCBZ2YEFIY" \
-  --set ecr.password="0c5UL9oHkftDRBfnrQV4Jmic/5eei4agpyxNtAkV"
+  --set ecr.user="" \
+  --set ecr.password=""
 ```
 
 ## Install AccuKnox Microservices Chart
