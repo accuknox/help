@@ -23,7 +23,7 @@ hide:
   image: ./cicd-icons/sast.svg
   url: /integrations/azure-sast/
 - title: SonarQube SAST
-  image: ./cicd-icons/opengrep-sast.svg
+  image: ./cicd-icons/pipeline-script.svg
   url: /integrations/azure-sqsast/
 - title: Container Scan
   image: ./cicd-icons/container.svg
