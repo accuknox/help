@@ -247,7 +247,7 @@ nav:
       - "KubeArmor": "knoxctl/kubearmor.md"
       - "Miscellaneous": "knoxctl/miscellaneous.md"
     - "CDR":
-      - "Prerequisites": "getting-started/cdr-prereqs.md"
+      - "Remediation Prerequisites": "getting-started/cdr-prereqs.md"
       - "AWS": "getting-started/aws-cdr.md"
       - "GCP": "getting-started/gcp-cdr.md"
       - "Azure": "getting-started/azure-cdr.md"

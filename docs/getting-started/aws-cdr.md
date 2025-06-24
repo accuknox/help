@@ -16,7 +16,7 @@ Accuknox CDR for AWS is deployed using CloudFormation scripts, the script deploy
 
 If you already have an S3 bucket containing cloudTrail Trail logs we will provide you with a CloudFormation script to use the already existant bucket.
 
-The CloudFormation Script will be provided to you by AccuKnox team in the onboarding phase.
+The CloudFormation script will be provided to you by AccuKnox team in the onboarding phase.
 
 ## **Prerequisites**
 Before deploying the CloudFormation scripts the following parameters are required:
@@ -76,4 +76,4 @@ In this step we assume that you have an AWS console access and have already stor
 
 ## **Next Steps**
 
-Now the integration is completed you should start seeing alerts in AccuKnox SaaS as they araise.
+Now the integration is completed and you should start seeing alerts in AccuKnox SaaS as they araise.
