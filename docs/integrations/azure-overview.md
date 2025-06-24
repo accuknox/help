@@ -22,6 +22,9 @@ hide:
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/azure-sast/
+- title: SonarQube SAST
+  image: ./cicd-icons/pipeline-script.svg
+  url: /integrations/azure-sqsast/
 - title: Container Scan
   image: ./cicd-icons/container.svg
   url: /integrations/azure-container-scan/
@@ -34,7 +37,4 @@ hide:
 - title: Secrets Scan
   image: ./cicd-icons/secret-scan.svg
   url: /integrations/azure-secret-scan/
-- title: OpenGrep SAST
-  image: ./cicd-icons/opengrep-sast.svg
-  url: /integrations/azure-opengrep-sast/
 ::/cards::

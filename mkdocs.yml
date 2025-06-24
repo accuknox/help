@@ -258,11 +258,12 @@ nav:
         - "Azure DevOps":
           - "Overview": "integrations/azure-overview.md"
           - "SAST": "integrations/azure-sast.md"
+          - "SQ-SAST": "integrations/azure-sqsast.md"
           - "Container Image Scan": "integrations/azure-container-scan.md"
           - "Iac Scan": "integrations/azure-iac.md"
           - "DAST": "integrations/azure-dast.md"
           - "Secret Scan": "integrations/azure-secret-scan.md"
-          - "OpenGrep SAST": "integrations/azure-opengrep-sast.md"
+          # - "OpenGrep SAST": "integrations/azure-opengrep-sast.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
           - "SAST": "integrations/google-sast.md"
