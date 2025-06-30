@@ -396,6 +396,7 @@ nav:
     #   - "Gitlab": "use-cases/gitlab-secret-scan.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
+      - "Categories and Probes": "use-cases/subprompts-categories.md"
       - "ModelArmor":
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
@@ -423,8 +424,6 @@ nav:
       - "GRC":
         - "Multi-cloud Compliance": "use-cases/compliance.md"
         - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-
-
     - "Cloud Workload Protection Platform (CWPP)":
       - "CWPP Overview": "use-cases/cwpp.md"
       - "Least Permissive Posture Assessment (CWPP)":
