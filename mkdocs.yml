@@ -396,6 +396,9 @@ nav:
     #   - "Gitlab": "use-cases/gitlab-secret-scan.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
+      - "Detectors and Models":
+        - "Prompts and Categories": "use-cases/prompts-categories.md"
+        - "Sub Prompts and Categories": "use-cases/subprompts-categories.md"
       - "ModelArmor":
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
