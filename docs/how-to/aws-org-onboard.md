@@ -11,8 +11,18 @@ This guide explains how to onboard your **AWS Organization root account** to Acc
 
 ## Prerequisites
 
-- You must have administrative access to your AWS Management Account and have permissions to deploy CloudFormation Stackset across the Organization.
+- You must have administrative access to your AWS Management Account and have permissions to deploy CloudFormation StackSet across the Organization.
 - You need the AWS Organization ID of your root organization.
+- **Enable all features in AWS Organizations**:
+  You must enable all features in your AWS Organization. If only consolidated billing is enabled, you won’t be able to create StackSets with service-managed permissions.[Ref: Enable All Features – AWS Documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
+- **Trusted Access must be activated for AWS CloudFormation StackSets ([ref link](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html))**:
+    - Sign in as an administrator to the AWS Management Account.
+    - Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation).
+    - From the navigation pane, choose **StackSets**.
+    - If trusted access is not enabled, a banner will appear — click **Activate trusted access**.
+      ![Activate Trusted Access](https://docs.aws.amazon.com/images/AWSCloudFormation/latest/UserGuide/images/console-stacksets-enable-trusted-access-from-stacksets-list-new.png)
+    - Once enabled, you will see a confirmation banner: _“Trusted access is successfully activated.”_
+      ![Trusted Access Activated](https://docs.aws.amazon.com/images/AWSCloudFormation/latest/UserGuide/images/console-stackset-trusted-access-enabled-banner-new.png)
 
 ## Step-by-Step Onboarding Process
 
@@ -37,12 +47,12 @@ Next, select existing labels or create new ones to associate with all assets tha
 
 - Log in to the **AWS Console** → go to **AWS Organizations**.
 - Copy your **Organization ID** (e.g., `r-xxxxxxxxxx`).
-![Select Regions](./images/aws-org-onboard/3.png)
+  ![Select Regions](./images/aws-org-onboard/3.png)
 
 - You must use the **root organization account**.
 - In AccuKnox, paste the ID into the **AWS Organization ID** field.
 - Select the AWS regions where your assets are located.
-![AWS Organization ID](./images/aws-org-onboard/2.png)
+  ![AWS Organization ID](./images/aws-org-onboard/2.png)
 
 !!! note
     At present, all assets discovered under this organization will inherit these selected labels.
