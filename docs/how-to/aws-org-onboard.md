@@ -53,8 +53,8 @@ Next, select existing labels or create new ones to associate with all assets tha
   ![AWS Organization ID](./images/aws-org-onboard/2.png)
 
 !!! note
-At present, all assets discovered under this organization will inherit these selected labels.
-Granular labeling for individual assets will be an enhancement in future updates.
+    At present, all assets discovered under this organization will inherit these selected labels.
+    Granular labeling for individual assets will be an enhancement in future updates.
 
 ### 4. Enable Auto-Connect & Launch StackSet
 
