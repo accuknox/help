@@ -13,9 +13,11 @@ This guide explains how to onboard your **AWS Organization root account** to Acc
 
 - You must have administrative access to your AWS Management Account and have permissions to deploy CloudFormation StackSet across the Organization.
 - You need the AWS Organization ID of your root organization.
+- **Enable all features in AWS Organizations**:
+  You must enable all features in your AWS Organization. If only consolidated billing is enabled, you won’t be able to create StackSets with service-managed permissions.[Ref: Enable All Features – AWS Documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html)
 - **Trusted Access must be activated for AWS CloudFormation StackSets ([ref link](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html))**:
     - Sign in as an administrator to the AWS Management Account.
-    - Open the CloudFormation console: [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation)
+    - Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation).
     - From the navigation pane, choose **StackSets**.
     - If trusted access is not enabled, a banner will appear — click **Activate trusted access**.
       ![Activate Trusted Access](https://docs.aws.amazon.com/images/AWSCloudFormation/latest/UserGuide/images/console-stacksets-enable-trusted-access-from-stacksets-list-new.png)
