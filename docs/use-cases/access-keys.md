@@ -26,7 +26,7 @@ Access keys allow users to interact with **Cloud Workload Protection Platform (C
 
     - Handle various finding types with specific `data_type` values:
 
-        - Examples include `cloudsploit` (CSPM findings), `trivy` (vulnerability scans), `SQ` (security queries), and `IaC` (Infrastructure as Code findings).
+        - Examples include `cloudsploit` (CSPM findings), vulnerability scans (SCA), `SQ` (security queries), and `IaC` (Infrastructure as Code findings).
 
 4. **Bulk Operations**
 
