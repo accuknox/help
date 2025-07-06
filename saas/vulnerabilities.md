@@ -1,6 +1,6 @@
 # **Vulnerabilities**
 
-AccuKnox Cloud Security Posture Management tool identifies the vulnerabilities in the cloud assets and images present in the registries once it is onboarded into the SaaS. It automatically scans these Assets and registries with help of various open-source tools. It uses tools like Clair, CLOC, Fortify, Snyk, SonarQube, Cloudsploit, Kube Bench, and various other open-source tools for Scanning. The scanned results and findings are parsed with the help of parsers and vulnerabilities are populated in the dashboard.
+AccuKnox Cloud Security Posture Management tool identifies the vulnerabilities in the cloud assets and images present in the registries once it is onboarded into the SaaS. It automatically scans these Assets and registries. The scanned results and findings are parsed with the help of parsers and vulnerabilities are populated in the dashboard.
 
 ![](images/vulnerabilities-1.png)
 
