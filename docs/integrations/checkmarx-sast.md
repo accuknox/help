@@ -1,111 +1,87 @@
 ---
-title: Checkmarx SAST Integration with AccuKnox
+title: Checkmarx SAST Integration with AccuKnox (via Docker)
 description: Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipelines and enrich results with metadata for analysis.
 ---
 
-# Checkmarx SAST Integration
+# Checkmarx SAST Integration with AccuKnox (via Docker)
 
-## Introduction
+This integration fetches SAST results from Checkmarx One and sends them to AccuKnox to visualize and prioritize vulnerabilities across projects.
 
-This guide walks you through integrating Checkmarx Static Application Security Testing (SAST) scans with AccuKnox using a CI/CD pipeline workflow. The scan results, formatted in SARIF, will be enriched with metadata and code snippets and then integrated with AccuKnox for further analysis.
+## Prerequisites
 
-## Pre-requisites
+- Docker installed
+- `.env` file created with the necessary variables (see below)
 
-- **GitHub repository** with the appropriate permissions.
+## Environment Variables
 
-- **Checkmarx AST API credentials** (Client ID, Client Secret, Tenant ID).
+Below are the required variables to configure the integration:
 
-- **AccuKnox CSPM credentials** (Tenant ID, CSPM URL, Token).
+### Checkmarx Variables
 
-## Step 1: Obtain Checkmarx and AccuKnox Credentials
+| Variable            | Description                                                                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `CX_API_KEY`        | API token to authenticate with Checkmarx One [Generate API Key](https://docs.checkmarx.com/en/34965-68618-generating-an-api-key.html) |
+| `CX_PROJECT`        | Project filter (supports wildcards and exclusion)                                                                                     |
+| `CX_PRIMARY_BRANCH` | `true` to consider only the primary branch of projects                                                                                |
 
-### Getting Checkmarx Credentials
+#### `CX_PROJECT` Usage Guide:
 
-1. **Login to the Checkmarx AST Platform**.
+- `{"*":"*"}` → All projects, all branches
+- `{"*dvwa*":"*"}` → Only projects with _dvwa_ in the name, all branches
+- `{"*dvwa*":"main"}` → Only projects with _dvwa_ in the name and branch = `main`
+- `{-*dvwa*:"main"}` → Exclude projects with _dvwa_ in the name; only include `main` branch from others
 
-2. Navigate to the **API Access Management** section.
+### AccuKnox Variables
 
-3. **Create a new API client**, and note the **Client ID**, **Client Secret**, and **Tenant ID**.
+| Variable       | Description                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `AK_ENDPOINT`  | AccuKnox API endpoint (e.g., `https://cspm.demo.accuknox.com`)                                                           |
+| `AK_LABEL`     | Label to tag the findings in AccuKnox UI [Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/?h=label) |
+| `AK_TENANT_ID` | Tenant ID in AccuKnox platform [Get Tenant ID](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token)           |
+| `AK_TOKEN`     | API token to authenticate with AccuKnox [Generate Token](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token) |
 
-![image-20241018-052333.png](images/checkmarx-sast/1.png)
+## Sample `.env` file
 
-![image-20241018-051743.png](images/checkmarx-sast/2.png)
+```dotenv
+CX_API_KEY=eyJhbGciOiJIUzUxMiIsInR5..................
+CX_PROJECT={"*":"*"}
+CX_PRIMARY_BRANCH=false
+AK_ENDPOINT=https://cspm.demo.accuknox.com
+AK_LABEL=cxprime
+AK_TENANT_ID=123
+AK_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tl...............
+```
 
-![image-20241018-051851.png](images/checkmarx-sast/3.png)
+## Run the Integration
 
-![image-20241018-051951.png](images/checkmarx-sast/4.png)
+```bash
+docker run --rm -it \
+  --env-file .env \
+  -v $PWD:/app/data/ \
+  accuknox/checkmarx-one-job:1.4
+```
 
-![image-20241018-052143.png](images/checkmarx-sast/5.png)
+![Integration Diagram](./images/checkmarx-sast/image1.png)
 
-### Getting AccuKnox Credentials
+The script fetches results from Checkmarx One using the API key and project filter, then forwards them to AccuKnox for visualization and risk prioritization.
 
-**1. Generate the AccuKnox token**
+## View Results in AccuKnox SaaS
 
-The first step is to generate an AccuKnox token. For generating the AccuKnox token, open up the AccuKnox, Go to Settings > Tokens then click on the create button.
+To view the Checkmarx findings:
 
-![image-20241017-062538.png](images/checkmarx-sast/6.png)
+1. Navigate to the AccuKnox Console.
+2. Go to **Issues > Findings**.
+3. Select one of the following categories to view the identified vulnerabilities:
 
-Give your token a name and click on the Generate button.
+   - CX SAST
+   - CX SCA
+   - CX KICS
+   - CX Containers
 
-![image-20241017-062723.png](images/checkmarx-sast/7.png)
+![AccuKnox Dashboard](./images/checkmarx-sast/image2.png)
 
-Once you have generated the the token, click on the copy button and take a note of it. It will be required to configured as a variable in the pipeline. Also copy the Tenant Id and take a note of it.
+## Notes
 
-![image-20241017-062925.png](images/checkmarx-sast/8.png)
-
-**2. Create a label**
-
-In AccuKnox, labels are used for grouping the similar types of assets together. For creating a label navigate to the Settings > Labels and click on the create label button.
-
-![image-20241017-063446.png](images/checkmarx-sast/9.png)
-
-Give your label a name and a filename prefix. Take a note of the label and click on the save button.
-
-## Step 2: Configure GitHub Workflow
-
-In your GitHub repository, create a workflow file (e.g., `.github/workflows/checkmarx-accuknox.yml`) with the following content:
-
-<script src="https://gist.github.com/HighnessAtharva/5b70b13a39ed46cb6d4e5543f7bf4522.js"></script>
-
-
-## Step 3: Set Up GitHub Secrets
-
-Ensure the following secrets are configured in your GitHub repository under **Settings > Secrets and Variables**:
-
-- `CX_CLIENT_ID`: Checkmarx Client ID
-
-- `CX_CLIENT_SECRET`: Checkmarx Client Secret
-
-- `CX_TENANT`: Checkmarx Tenant ID
-
-- `CSPM_URL`: AccuKnox CSPM URL
-
-- `TENANT_ID`: AccuKnox Tenant ID
-
-- `LABEL_ID`: AccuKnox Label ID
-
-- `CSPM_TOKEN`: AccuKnox CSPM API Token
-
-![image-20241018-045550.png](images/checkmarx-sast/10.png)
-
-## Step 4: Running the Workflow
-
-1. Push changes to the repository's `master` branch or open a pull request.
-
-2. The Checkmarx scan runs, generating a SARIF file.
-
-3. The workflow enriches the SARIF file with metadata and code snippets, then uploads it to AccuKnox for analysis.
-
-## Step 5: View findings in AccuKnox
-
-To see your findings navigate to AccuKnox > Issues > Findings and select the CX SAST findings.
-
-![image-20241018-051139.png](images/checkmarx-sast/11.png)
-
-Click on any finding to get more details. You can also click on the Create Ticket button to create a ticket.
-
-![image-20241018-051326.png](images/checkmarx-sast/12.png)
-
-## Conclusion
-
-By following this guide, you've successfully integrated Checkmarx SAST scans into your CI/CD pipeline and connected them with AccuKnox for further insights. You can now analyze and prioritize vulnerabilities within the AccuKnox dashboard
+- Make sure your `.env` file does not contain trailing spaces or special characters that could break parsing.
+- The `AK_LABEL` helps categorize data inside the AccuKnox dashboard (e.g., `cxprime`, `checkmarx-scan`). [Learn More](https://help.accuknox.com/how-to/how-to-create-labels/?h=label)
+- To schedule this job, you can embed this in a CI/CD pipeline or cron job runner.
