@@ -54,7 +54,7 @@ hide:
   url: /integrations/bitbucket-overview/
 - title: Checkmarx
   image: ./cicd-icons/checkmarx.png
-  url: /integrations/checkmarx-overview/
+  url: /integrations/checkmarx/
   ::/cards::
 
 **CI/CD Support Matrix** provides a structured overview of supported capabilities and integration types across popular CI/CD platforms. This helps teams align their DevOps processes with available tools and identify the best fit for their workflows.
