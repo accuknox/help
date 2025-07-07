@@ -329,12 +329,13 @@ nav:
             #   - "IaC Scan Variables": "integrations/bitbucket-iac-variables.md"
             #   - "DAST Scan Variables": "integrations/bitbucket-dast-variables.md"
             #   - "SAST Scan variables": "integrations/bitbucket-sast-variables.md"
-        - "CheckMarx":
-            - "Overview": "integrations/checkmarx-overview.md"
-            - "SAST": "integrations/checkmarx-sast.md"
-            - "SCA": "integrations/checkmarx-sca.md"
-            - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
-            - "Container Scan": "integrations/checkmarx-container.md"
+        - "CheckMarx": "integrations/checkmarx.md"
+        # - "CheckMarx":
+        #     - "Overview": "integrations/checkmarx-overview.md"
+        #     - "SAST": "integrations/checkmarx-sast.md"
+        #     - "SCA": "integrations/checkmarx-sca.md"
+        #     - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
+        #     - "Container Scan": "integrations/checkmarx-container.md"
         - "CircleCI":
             - "Overview": "integrations/circleci-overview.md"
             - "DAST": "integrations/circleci-dast.md"

@@ -1,11 +1,11 @@
 ---
-title: Checkmarx SAST Integration with AccuKnox (via Docker)
+title: Checkmarx (SAST, SCA, KICS, Container Scan) with AccuKnox
 description: Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipelines and enrich results with metadata for analysis.
 ---
 
-# Checkmarx SAST Integration with AccuKnox (via Docker)
+# Checkmarx (SAST, SCA, KICS, Container Scan) with AccuKnox
 
-This integration fetches SAST results from Checkmarx One and sends them to AccuKnox to visualize and prioritize vulnerabilities across projects.
+This integration fetches **SAST, SCA, KICS, and Container scan** results from **Checkmarx One** and sends them to **AccuKnox** to visualize and prioritize vulnerabilities across projects.
 
 ## Prerequisites
 
@@ -72,7 +72,6 @@ To view the Checkmarx findings:
 1. Navigate to the AccuKnox Console.
 2. Go to **Issues > Findings**.
 3. Select one of the following categories to view the identified vulnerabilities:
-
    - CX SAST
    - CX SCA
    - CX KICS

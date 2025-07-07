@@ -47,7 +47,7 @@ hide:
   url: /integrations/bitbucket-overview/
 - title: Checkmarx
   image: ./cicd-icons/checkmarx.png
-  url: /integrations/checkmarx-overview/
+  url: /integrations/checkmarx/
 - title: CircleCI
   image: ./cicd-icons/circleci.png
   url: /integrations/circleci-overview/
