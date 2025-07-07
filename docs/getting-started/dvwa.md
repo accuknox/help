@@ -1,68 +1,108 @@
 ---
 title: Damn Vulnerable Web Applications
-description: Guide on securing the Damn Vulnerable Web Application (DVWA) using AccuKnox CWPP to identify and block security vulnerabilities.
+description: Learn how to secure Damn Vulnerable Web Application (DVWA) using AccuKnox CWPP to identify and block security vulnerabilities effectively.
 ---
 
-# Damn Vulnerable Web Applications
+# Damn Vulnerable Web Applications with AccuKnox CWPP
 
-Damn Vulnerable Web Application (DVWA) is a PHP/MySQL web application that is damn vulnerable. Its main goal is to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications, and to aid both students & teachers to learn about web application security in a controlled classroom environment.
+Damn Vulnerable Web Application (DVWA) is a PHP/MySQL web application designed to be _damn vulnerable_. It serves as a resource for security professionals to test their skills and tools in a legal environment, helps web developers understand the processes of securing web applications, and aids students & teachers in learning about web application security in a controlled classroom setting.
 
-## DVWA Attack Points
+## 1. Prerequisites & Setup
 
-- Command Injection:
-  Attacks on the insecure transmission of User data
+### System Requirements
 
-- CSRF (Cross-Site Request Forgery): The attacker Froges as original site and makes the user click the link and steal data. Here either cookies or form data is stolen
+To deploy and secure DVWA with AccuKnox CWPP, ensure the following:
 
-- SQL Injection: Attacker can make use of this to get unauthorized to Database access
+- Kubernetes cluster running
+- Access to the AccuKnox platform
+- DVWA image pulled from [Docker Hub](https://hub.docker.com/r/vulnerables/web-dvwa)
+- kubectl configured with appropriate permissions
 
-- CSP(Content Security Policy): If the particular domain is allowed then a malicious script from that domain can be executed.
+### Initial DVWA Deployment Steps
 
-DVWA web Application is deployed in the cluster in the dvwa namespace. It has Web and MySQL pod running with 2 services.
+1. Deploy the DVWA application in your cluster within the `dvwa` namespace.
+2. Ensure both the Web and MySQL pods are running with their respective services.
 
-## Observability
+### AccuKnox Platform Access Requirements
 
-Once the cluster with the DVWA application is onboarded we can see the application behavior by Navigating to the Runtime Security→App Behavior section. In the screen the select cluster name and namespace in which the DVWA application is deployed.
+- Active AccuKnox CWPP subscription.
+- Cluster and namespace added to the AccuKnox platform.
+
+## 2. DVWA Vulnerability Testing Integration
+
+### DVWA Attack Points
+
+- **Command Injection**: Exploiting insecure user data transmission.
+- **CSRF (Cross-Site Request Forgery)**: Forging links to steal cookies or form data.
+- **SQL Injection**: Unauthorized database access.
+- **CSP (Content Security Policy)**: Executing malicious scripts from allowed domains.
+
+DVWA web application is deployed in the cluster in the `dvwa` namespace with both Web and MySQL pods running.
+
+### How AccuKnox Protects Against Specific DVWA Attack Vectors
+
+Once the cluster with the DVWA application is onboarded, navigate to **Runtime Security → App Behavior** in AccuKnox to observe application behavior.
 
 ![dvwa](images/dvwa-1.png)
 
-**1.Network Observability:** It gives data related to network connections happening in the pod
+#### Real-time Attack Detection Examples
 
+**1. Network Observability**: Data on network connections within the pod.
 ![dvwa](images/dvwa-2.png)
 
-**2.File Observability:** It gives information regarding files that are being accessed in the pod
-
+**2. File Observability**: Information on files accessed in the pod.
 ![dvwa](images/dvwa-3.png)
 
-**3.Process Observability:** It shows the process that is being executed in the pod.
-
+**3. Process Observability**: Insights on processes executed in the pod.
 ![dvwa](images/dvwa-4.png)
 
-## Protection With AccuKnox
+## 3. Policy Configuration Details
 
-According to the application behavior, the WordPress pod running in the DVWA uses 2 processes ping and apache2. So we are going to whitelist only these 2 processes and block other processes from execution in the WordPress pod.
+### Policy Customization Options
 
-### Before Applying policy
+According to the application behavior, the DVWA pod uses processes like `ping` and `apache2`. These processes can be whitelisted to block any other unauthorized executions.
 
-Before applying our KubeArmor Security policy we can see that along with ping other processes are also can be executed.
+### Understanding Policy Severity Levels
 
+AccuKnox CWPP policies allow you to set severity levels to prioritize blocking based on risk.
+
+### Best Practices for Policy Creation
+
+- Whitelist only required processes and files.
+- Regularly review and approve pending policies.
+
+## 4. Monitoring & Analysis
+
+### Alert Investigation Workflow
+
+Monitor alerts by navigating to **Monitors/Logs → Logs** in the AccuKnox dashboard.
+![dvwa](images/dvwa-14.png)
+
+### Performance Impact Assessment
+
+Assess DVWA pod performance post-policy enforcement to ensure there are no disruptions.
+
+### Compliance Reporting
+
+Use the platform’s reporting feature to validate compliance with organizational or regulatory security standards.
+
+## 5. Protection Workflow With AccuKnox CWPP
+
+### Before Applying Policy
+
+Initially, all processes can be executed inside the DVWA pod.
 ![dvwa](images/dvwa-5.png)
 
-### Applying the KubeArmor policy
+### Applying KubeArmor Policy
 
-**Step 1:** Navigate to the _Runtime Protection→ Policies_ and select the cluster and namespace where the DVWA application is deployed.
+1. Navigate to **Runtime Protection → Policies** in the AccuKnox UI.
+   ![dvwa](images/dvwa-6.png)
 
-![dvwa](images/dvwa-6.png)
+2. View auto-discovered policies for the DVWA application.
+   ![dvwa](images/dvwa-7.png)
 
-**Step 2:** In the screen select the discovered policies in the policy filter section to view the auto-discovered policies for the DVWA application.
-
-![dvwa](images/dvwa-7.png)
-
-**Step 3:** Click on the auto-discovered system policy for the dvwa web pod to see the policy
-
-![dvwa](images/dvwa-8.png)
-
-The policy allows the necessary processes like ping and apache2 to execute.
+3. Select and review the system policy for the `dvwa-web` pod.
+   ![dvwa](images/dvwa-8.png)
 
 ```yaml
 apiVersion: security.kubearmor.com/v1
@@ -138,31 +178,46 @@ spec:
   severity: 1
 ```
 
-**Step 4:** To apply this policy, select the policy checkbox and click Apply option
+4. Apply the policy.
+   ![dvwa](images/dvwa-9.png)
 
-![dvwa](images/dvwa-9.png)
+5. Policy enters pending state for approval.
+   ![dvwa](images/dvwa-10.png)
 
-**Step 5:** When we apply the policy, it goes into the pending state for approval.
+6. Review and approve the policy.
+   ![dvwa](images/dvwa-11.png)
 
-![dvwa](images/dvwa-10.png)
+7. Once approved, the policy becomes active.
+   ![dvwa](images/dvwa-12.png)
 
-**Step 6:** Review the changes and approve the policy
+8. Any other processes executed in the DVWA pod will now be blocked.
+   ![dvwa](images/dvwa-13.png)
 
-![dvwa](images/dvwa-11.png)
+## 6. Troubleshooting
 
-**Step 7:** After Approval policy becomes active
-![dvwa](images/dvwa-12.png)
+### Common Policy Application Issues
 
-**Step 8:** Now if we try to execute any other processes inside the dvwa pod it will be blocked.
+- Policies not applying due to namespace mismatch.
+- Pod label selectors not configured correctly.
 
-![dvwa](images/dvwa-13.png)
+### Log Analysis Techniques
 
-**Step 9:** We can view the logs alerts by navigating to the Monitors/Logs→ logs
+Use **Monitors/Logs** to investigate policy hits and blocked executions.
 
-![dvwa](images/dvwa-14.png)
+### Performance Optimization
 
-Thus DVWA application’s web pod is protected using AccuKnox CWPP Security solution.
+Tune policy settings to balance security and application performance.
 
----
+## 7. Advanced Use Cases
+
+### Multi-Environment Deployment
+
+Deploy DVWA with AccuKnox protection across multiple clusters and environments for testing.
+
+### Integration with CI/CD Pipelines
+
+Incorporate DVWA vulnerability scans and AccuKnox policy enforcement into your CI/CD workflows for DevSecOps.
+
+Thus, the DVWA application’s web pod is protected using the **AccuKnox CWPP security solution**.
 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
