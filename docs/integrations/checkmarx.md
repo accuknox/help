@@ -1,9 +1,9 @@
 ---
-title: Checkmarx (SAST, SCA, KICS, Container Scan) with AccuKnox
+title: Checkmarx (SAST, SCA, KICS, Container Scan) Integration with AccuKnox
 description: Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipelines and enrich results with metadata for analysis.
 ---
 
-# Checkmarx (SAST, SCA, KICS, Container Scan) with AccuKnox
+# Checkmarx (SAST, SCA, KICS, Container Scan) Integration with AccuKnox
 
 This integration fetches **SAST, SCA, KICS, and Container scan** results from **Checkmarx One** and sends them to **AccuKnox** to visualize and prioritize vulnerabilities across projects.
 
