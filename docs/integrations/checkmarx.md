@@ -72,10 +72,10 @@ To view the Checkmarx findings:
 1. Navigate to the AccuKnox Console.
 2. Go to **Issues > Findings**.
 3. Select one of the following categories to view the identified vulnerabilities:
-   - CX SAST
-   - CX SCA
-   - CX KICS
-   - CX Containers
+    - CX SAST
+    - CX SCA
+    - CX KICS
+    - CX Containers
 
 ![AccuKnox Dashboard](./images/checkmarx-sast/image2.png)
 
