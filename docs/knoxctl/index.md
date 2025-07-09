@@ -79,11 +79,12 @@ hide:
 
 To install `knoxctl`, download the appropriate binary for your Unix-based system. Use `uname -a` in the terminal to check your OS type and architecture, and select the matching version.
 
-- [Release version](./latest_version.txt)
-- [knoxctl for Linux (AMD64/x86_64)](./binaries/knoxctl_0.3.0_linux_amd64.tar.gz)
-- [knoxctl for Linux (ARM64)](./binaries/knoxctl_0.3.0_linux_arm64.tar.gz)
-- [knoxctl for Mac (Intel)](./binaries/knoxctl_0.3.0_darwin_amd64.tar.gz)
-- [knoxctl for Mac (Apple Silicon)](./binaries/knoxctl_0.3.0_darwin_arm64.tar.gz)
+Latest version is `0.9.0`, released on 7th July 2025.
+
+- [knoxctl for Linux (AMD64/x86_64)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_linux_amd64.tar.gz)
+- [knoxctl for Linux (ARM64)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_linux_arm64.tar.gz)
+- [knoxctl for Mac (Intel)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_darwin_amd64.tar.gz)
+- [knoxctl for Mac (Apple Silicon)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_darwin_arm64.tar.gz)
 
 !!! info
     In case knoxctl update failed due to KubeArmor Policy, please run the following command before trying to upgrade
