@@ -65,6 +65,71 @@ docker run --rm -it \
 
 The script fetches results from Checkmarx One using the API key and project filter, then forwards them to AccuKnox for visualization and risk prioritization.
 
+## Schedule the Scan with Cron (Optional)
+
+To automate the Checkmarx and AccuKnox integration (e.g., every 30 minutes or daily), you can schedule it using a cron job on your system.
+
+### 1. Create a Shell Script
+
+Save the following script as `run_checkmarx.sh` in your project directory:
+
+```bash
+#!/bin/bash
+
+cd /path/to/your/project
+
+docker run --rm \
+  --env-file .env \
+  -v $(pwd):/app/data/ \
+  accuknox/checkmarx-one-job:1.4
+```
+
+Replace `/path/to/your/project` with the absolute path to your working directory where the `.env` file is located.
+
+Make the script executable:
+
+```bash
+chmod +x run_checkmarx.sh
+```
+
+### 2. Add a Cron Job
+
+To run the scan automatically every 5 minutes:
+
+Open your crontab:
+
+```bash
+crontab -e
+```
+
+Add this line to the bottom:
+
+```bash
+*/5 * * * * /path/to/your/project/run_checkmarx.sh >> /path/to/your/project/checkmarx_cron.log 2>&1
+```
+
+This schedules the scan every 5 minutes and logs the output to a file named `checkmarx_cron.log`.
+
+You can change the schedule as needed. Examples:
+
+- Every 5 minutes: `*/5 * * * *`
+- Daily at 2 AM: `0 2 * * *`
+- Weekly on Sunday at midnight: `0 0 * * 0`
+
+### 3. Monitor the Output
+
+To monitor the output of scheduled scans, check the log file:
+
+```bash
+tail -f /path/to/your/project/checkmarx_cron.log
+```
+
+### Tips
+
+- Always use absolute paths in cron jobs (cron does not know your working directory).
+- Ensure Docker can be run without `sudo` (or update the script accordingly).
+- Make sure the `.env` file is valid and in the correct location.
+
 ## View Results in AccuKnox SaaS
 
 To view the Checkmarx findings:
