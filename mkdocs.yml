@@ -246,6 +246,7 @@ nav:
       - "Commands": "knoxctl/knoxctl-commands.md"
       - "KubeArmor": "knoxctl/kubearmor.md"
       - "Miscellaneous": "knoxctl/miscellaneous.md"
+      - "Container image scan": "knoxctl/image-scan.md"
 
 
   - "Integrations":
