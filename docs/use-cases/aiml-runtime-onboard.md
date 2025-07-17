@@ -1,73 +1,34 @@
-# Onboarding for AIML Runtime Security
+---
+title: AIML Runtime Security Onboarding
+description: A guide to onboard AIML Runtime Security using ModelArmor, including API usage and integration examples.
+---
 
-## Using Postman for AIML Runtime Onboarding
+# Onboard Custom Applications
 
-- Open Postman.
+## Step 1: Understand the API Purpose
 
-- Click "Import" (top-left).
+The endpoint `https://app.mod.accuknox.com/modelknox_runtime/application-query` acts as a proxy server that receives and processes user queries. It supports LLM Runtime Defense, which monitors and optionally blocks suspicious queries/responses when interacting with your application.
 
-- Select "Raw Text", then paste the following curl:
+## Step 2: Prepare Required Fields
 
-  ```bash
-  curl --location '
-  https://app.mod.accuknox.com/modelknox_runtime/application-query' \
-  --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9....' \
-  --header 'Content-Type: application/json' \
-  --header 'User: <ENTER USER INFO>' \
-  --header 'Secret-Token: <ENTER SECRET TOKEN>' \
-  --data '<ENTER REQUEST DATA>'
-  ```
+- **Authorization:**
+  `Bearer <Bearer-Token>`
+  (Used to authenticate the request with AccuKnox — do not change this token.)
 
-- Click "Continue", then "Import".
+- **User:**
+  `<ENTER USER INFO>`
+  (Specify the user identity — e.g., email — to trace who initiated the query.)
 
-- User Header – `<ENTER USER INFO>`
-  Replace with your registered email address in the system. For example:
+- **Secret-Token:**
+  `<ENTER SECRET TOKEN>`
+  (This is a credential/token tied to your application instance.)
 
-  ```sh
-  User:
-  tempuser1@product.com
-  ```
+- **Request Payload:**
+  (Include relevant parameters in JSON format. Example below.)
 
-- Secret-Token Header – `<ENTER SECRET TOKEN>`
+## Step 3: Choose Your Integration Method
 
-  Replace with your application's secret token (this is unique to you). Example:
-
-  ```sh
-  Secret-Token: 12345abcde67890
-  ```
-
-- `--data` – `<ENTER REQUEST DATA>`
-
-  This should be a JSON object describing the application you want to query. Example:
-
-  ```json
-  {
-    "cloud": "aws",
-    "account": "accuknox-dev",
-    "region": "us-west-1",
-    "application": "my-ml-app"
-  }
-  ```
-
-- Paste this JSON into the
-
-- Body tab → raw → select JSON.
-
-!!! NOTE "Authorization Token"
-    Do NOT modify the Authorization: Bearer ... token. It's fixed and required for access.
-
-### Final Checklist Before Sending
-
-To make a cURL POST request, you'll need to set the URL, which should already be filled from your cURL command.
-
-- Choose `POST` as the method.
-- For headers, include `Authorization`, `User`, `Secret-Token`
-- `Content-Type: application/json`.
-- The request body should be in raw JSON format, containing `cloud`, `account`, `region`, and `application_name`. After you've got all these details ready, simply click **"Send"** to transmit your request.
-
-## Using Python for AIML Runtime Onboarding
-
-You can use the requests library in Python. Below is the template you can follow:
+### Python (with requests library)
 
 ```python
 import requests
@@ -75,30 +36,66 @@ import requests
 url = "https://app.mod.accuknox.com/modelknox_runtime/application-query"
 
 headers = {
-    "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9....",  # Bearer token – do not change
+    "Authorization": "Bearer <YOUR_JWT_TOKEN>",
     "Content-Type": "application/json",
-    "User": "<ENTER USER INFO>",         # Replace with the user's email
-    "Secret-Token": "<ENTER SECRET TOKEN>"  # Replace with the user's secret token
+    "User": "<ENTER USER INFO>",
+    "Secret-Token": "<ENTER SECRET TOKEN>"
 }
 
 payload = {
-    # Replace with the actual request data template
-    # Example:
-    # "application_id": "app-123",
-    # "query_type": "vulnerability_scan"
+    "asset_id": "abc123",
+    "cloud": "aws",
+    "region": "us-west-2"
 }
 
 response = requests.post(url, headers=headers, json=payload)
 
 print("Status Code:", response.status_code)
-print("Response Body:", response.json())
+print("Response:", response.json())
+
 ```
 
-!!! NOTE "Authorization Token"
-    Do not modify the Authorization Bearer token — it is fixed and managed by us.
+### Terminal (using curl)
 
-### User Input Requirements
+```bash
+curl -X POST 'https://app.mod.accuknox.com/modelknox_runtime/application-query' \
+  -H 'Authorization: Bearer <YOUR_JWT_TOKEN>' \
+  -H 'Content-Type: application/json' \
+  -H 'User: <ENTER USER INFO>' \
+  -H 'Secret-Token: <ENTER SECRET TOKEN>' \
+  -d '{
+        "asset_id": "abc123",
+        "cloud": "aws",
+        "region": "us-west-2"
+      }'
+```
 
-- Your user email in the "User" header.
-- Your application secret token in the "Secret-Token" header.
-- A valid request body JSON in the payload section.
+### JavaScript (Node.js / Fetch API / Express)
+
+```javascript
+const fetch = require("node-fetch"); // npm install node-fetch if needed
+
+const url = "https://app.mod.accuknox.com/modelknox_runtime/application-query";
+
+const headers = {
+  Authorization: "Bearer <YOUR_JWT_TOKEN>",
+  "Content-Type": "application/json",
+  User: "<ENTER USER INFO>",
+  "Secret-Token": "<ENTER SECRET TOKEN>",
+};
+
+const payload = {
+  asset_id: "abc123",
+  cloud: "aws",
+  region: "us-west-2",
+};
+
+fetch(url, {
+  method: "POST",
+  headers: headers,
+  body: JSON.stringify(payload),
+})
+  .then((res) => res.json())
+  .then((data) => console.log("Response:", data))
+  .catch((err) => console.error("Error:", err));
+```
