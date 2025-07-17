@@ -398,6 +398,8 @@ nav:
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "Categories and Probes": "use-cases/subprompts-categories.md"
+      - "Runtime Security":
+        - "Onboarding": "use-cases/aiml-runtime-onboard.md"
       - "ModelArmor":
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
