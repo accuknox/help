@@ -39,16 +39,64 @@ knoxctl --artifactEndpoint="<url>" \
 
 Replace the parameters (`<tenantId>` , `<authToken>`, `<url>` and `<label>`) with the appropriate values.
 
-if you want to scan the machine on a regular basis you can configure the scan to be run by crontab as follow
+if you want to scan the machine on a regular basis you can configure the scan to be run by systemd timers by running the following script.
 
-- run `crontab -e`, this command will open the contab file using your faviorite text editor
-- add the following line at the end of the contab file
+Before running the script you need to replace the parameters (`<tenantId>` , `<authToken>`, `<url>` and `<label>`) with their appropriate values.
 
+```bash
+#!/bin/bash
+
+export AK_BASE_URL="<url>"
+export AK_TOKEN="<authToken>"
+export AK_LABEL="<label>"
+export AK_TENANT_ID="<tenantId>"
+
+export AK_URL="$AK_BASE_URL/api/v1/artifact/"
+
+cat <<EOF | sudo tee /etc/systemd/system/accuknox-container-scan.service
+# This service unit is for container image scanning
+# By AccuKnox Inc
+#
+
+[Unit]
+Description=Scan running container images and post results to AccuKnox SaaS
+Wants=accuknox-container-scan.timer
+
+[Service]
+Type=oneshot
+ExecStart=/bin/knoxctl image-scan --artifactEndpoint="$AK_URL" --token="$AK_TOKEN" --label="$AK_LABEL" --tenantId="$AK_TENANT_ID"
+MemoryHigh=1800M
+MemoryMax=2G
+KillMode=control-group
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cat <<EOF | sudo tee /etc/systemd/system/accuknox-container-scan.timer
+# This service unit is for container image scanning
+# By AccuKnox Inc
+#
+
+[Unit]
+Description=Scan running container images and post results to AccuKnox SaaS
+Requires=accuknox-container-scan.service
+
+[Timer]
+Unit=accuknox-container-scan.service
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+
+systemctl daemon-reload
+systemctl enable --now accuknox-container-scan.timer 
 ```
-30 9 * * *  knoxctl --artifactEndpoint="<url>" --token="<authToken>" --label="<label>" --tenantId="<tenantId>"
-```
-Replace the parameters (`<tenantId>` , `<authToken>`, `<url>` and `<label>`) with the appropriate values.
-The above will run the scan daily at 9:30am, you can change the execution time by modifying the cron expression
+
+The above will run the scan daily at misnight, you can change the execution time by modifying the value of `OnCalendar` in the systemd timer configuration.
 
 
 ### ⚙️ Parameters:
