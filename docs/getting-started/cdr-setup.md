@@ -40,7 +40,7 @@ jobs:
 
     steps:
       - name: Accuknox CDR action
-        uses: accuknox/cdr-remediation@main
+        uses: accuknox/cdr-remediation@v0.0.4
         with:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
