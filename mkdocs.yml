@@ -246,7 +246,7 @@ nav:
       - "Commands": "knoxctl/knoxctl-commands.md"
       - "KubeArmor": "knoxctl/kubearmor.md"
       - "Miscellaneous": "knoxctl/miscellaneous.md"
-      - "VM Container image scan": "knoxctl/image-scan.md"
+      - "VM Container Image Scan": "knoxctl/image-scan.md"
     - "CDR":
       - "Remediation": "getting-started/cdr-setup.md"
       - "AWS": "getting-started/aws-cdr.md"
