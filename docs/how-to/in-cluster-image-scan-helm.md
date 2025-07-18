@@ -20,6 +20,7 @@ From the AccuKnox Control Plane:
 ### 3. Schedule and Deploy the Scanner via Helm
 
 Use the following Helm command to install the scanner in your Kubernetes cluster:
+{% raw %}
 
 ```bash
 helm install kubeshield oci://public.ecr.aws/k9v9d5v2/kubeshield-chart -n agents --create-namespace \
@@ -32,7 +33,7 @@ helm install kubeshield oci://public.ecr.aws/k9v9d5v2/kubeshield-chart -n agents
 ```
 
 Replace the parameters (`{{tenantId}}`, `{{authToken}}`, `{{url}}`, `{{label}}` and `{{cronTab}}`) with the appropriate values.
-
+{% endraw %}
 #### Sample Output
 
 ```bash
