@@ -1,12 +1,12 @@
 ---
-title: "Container image scanner"
+title: "Container Image Scanner"
 weight: 4
 summary: "Knoxctl can scan container images running on a perticular VM and submit the results to SaaS"
 hide:
   - toc
 ---
 
-# Container image scanner
+# Container Image Scanner
 
 AccuKnox offers a container image scanning solution designed to periodically inspect container images running on your machine.
 
@@ -31,7 +31,7 @@ Use the following command to scan your machine:
 
 
 ```bash
-knoxctl --artifactEndpoint="<url>" \
+knoxctl image-scan --artifactEndpoint="<url>" \
     --token="<authToken>" \
     --label="<label>" \
     --tenantId="<tenantId>"
@@ -96,7 +96,7 @@ systemctl daemon-reload
 systemctl enable --now accuknox-container-scan.timer 
 ```
 
-The above will run the scan daily at misnight, you can change the execution time by modifying the value of `OnCalendar` in the systemd timer configuration.
+The above will run the scan daily at midnight, you can change the execution time by modifying the value of `OnCalendar` in the systemd timer configuration.
 
 
 ### ⚙️ Parameters:
