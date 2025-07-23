@@ -21,43 +21,84 @@ hide:
 
 ## **Use Cases**
 
-::cards:: cols=4
-
+::cards:: cols=5
 - title: IaC Scanning
   content:
-  image: ./icons/cluster-misconfig-scan.svg
-  url: /use-cases/iac-scan/
+  image: ./icons/iac.svg
+  url: https://help.accuknox.com/use-cases/iac-scan/
 
 - title: Container Scanning
   content:
-  image: ./icons/container-image-scan.svg
-  url: /use-cases/container-scan/
+  image: ./icons/container.svg
+  url: https://help.accuknox.com/use-cases/container-scan/
 
-- title: Static Application Security Testing (SAST)
+- title: SAST
   content:
-  image: ./icons/sql-injection.svg
-  url: /use-cases/sast-sq/
+  image: ./icons/sast.svg
+  url: https://help.accuknox.com/use-cases/sast-sq/
 
 - title: Vulnerability Management
   content:
   image: ./icons/vuln-mgmt.svg
-  url: /use-cases/vulnerability/
+  url: https://help.accuknox.com/use-cases/vulnerability/
 
 - title: DAST (MFA-Enabled)
   content:
   image: ./icons/dast-mfa.svg
-  url: /use-cases/mfa-dast/
+  url: https://help.accuknox.com/use-cases/mfa-dast/
 
 - title: DAST XSS Mitigation
   content:
   image: ./icons/dast-xss.svg
-  url: /use-cases/dast-xss/
+  url: https://help.accuknox.com/use-cases/dast-xss/
 
 - title: Secret Scan in CI/CD
   content:
   image: ./icons/secret-scan-cicd.svg
-  url: /use-cases/secret-scan-cicd-aws/
-  ::/cards::
+  url: https://help.accuknox.com/use-cases/secret-scan-cicd-aws/
+
+- title: Secrets in Code Repositories
+  content:
+  image: ./icons/secret-scan.svg
+  url: https://help.accuknox.com/use-cases/aspm/
+
+- title: Secrets in S3 Buckets & File Systems
+  content:
+  image: ./icons/access-keys.svg
+  url: https://help.accuknox.com/use-cases/hashicorp/
+
+- title: Rules Engine & Automated Ticket Creation
+  content:
+  image: ./icons/admission-controller.svg
+  url: https://help.accuknox.com/use-cases/rules-engine-ticket-creation/
+
+- title: EPSS Scoring for Prioritization
+  content:
+  image: ./icons/asset-inventory.svg
+  url: https://help.accuknox.com/use-cases/epss-scoring/
+
+- title: SCA
+  content:
+  image: ./icons/supply-chain-attacks.svg
+  url: https://www.accuknox.com/solutions/software-composition-analysis
+
+- title: Secrets in Container Images
+  content:
+  image: ./icons/secret-scan.svg
+  url: https://app.storylane.io/share/hmt8tl3ovppy
+
+- title: Secrets in Kubernetes ConfigMaps
+  content:
+  image: ./icons/secret-scan.svg
+  url: https://app.storylane.io/share/2iw7zsxwougy
+
+- title: IaC Security
+  content:
+  image: ./icons/cloud-misconfig-drift-detection.svg
+  url: https://help.accuknox.com/integrations/azure-iac/
+
+::/cards::
+
 
 ### **AccuKnox Features**
 
