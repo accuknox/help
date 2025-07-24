@@ -29,7 +29,6 @@ From the AccuKnox Control Plane:
 
 Use the following command to scan your machine:
 
-
 ```bash
 knoxctl image-scan --artifactEndpoint="<url>" \
     --token="<authToken>" \
@@ -93,11 +92,10 @@ WantedBy=timers.target
 EOF
 
 systemctl daemon-reload
-systemctl enable --now accuknox-container-scan.timer 
+systemctl enable --now accuknox-container-scan.timer
 ```
 
 The above will run the scan daily at midnight, you can change the execution time by modifying the value of `OnCalendar` in the systemd timer configuration.
-
 
 ### ⚙️ Parameters:
 
@@ -108,7 +106,6 @@ The above will run the scan daily at midnight, you can change the execution time
 | url       | cspm.accuknox.com | AccuKnox CSPM API Endpoint |
 | label     | kubeshield        | AccuKnox Label             |
 
-
 ### ✅ Post-Installation
 
 Once the scan is completed, results will be visible in the [**Findings**](https://app.accuknox.com/issues/findings/findings-summary) or [**Registry Scan**](https://app.accuknox.com/issues/registry-scan) sections within the AccuKnox Control Plane.
@@ -118,5 +115,19 @@ Once the scan is completed, results will be visible in the [**Findings**](https:
 - Select **Container Image Findings** & do **Group by** based on **Label Name**
 - You should be able to see the data for the **Label** used in above command
 
----
+## Check Services in a VM
 
+- See if a service is running:
+
+  ```sh
+  sudo systemctl status <service_name> # e.g., kubearmor, vm-adapter
+
+  sudo systemctl status kubearmor
+  sudo systemctl status vm-adapter
+  ```
+
+- List all running services:
+
+  ```sh
+  systemctl --type=service --state=running
+  ```
