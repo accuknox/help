@@ -259,6 +259,7 @@ nav:
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
     - "Create Access Keys": "how-to/create-access-keys.md"
+    - "Findings Lifecycle": "how-to/findings-lifecycle.md"
     - "CI/CD":
         - "Overview": "integrations/cicd-overview.md"
         - "Azure DevOps":
@@ -391,7 +392,7 @@ nav:
   - "Use-Cases":
     - "Use Cases": "use-cases/index.md"
     - "CNAPP Dashboard Widgets": "use-cases/cnapp-security-overview.md"
-    - "Vulnerability Management (CNAPP)" :
+    - "Vulnerability Management" :
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
@@ -412,7 +413,7 @@ nav:
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
         - "Adversarial Attacks on Deep Learning Models": "use-cases/modelarmor-adverserial-attacks.md"
         - "Deploy PyTorch App with ModelArmor": "use-cases/modelarmor-deploy-pytorch.md"
-    - "Cloud Security Posture Management (CSPM)":
+    - "Cloud Security (CSPM)":
       - "Overview" : "use-cases/cspm.md"
       - "Asset Inventory": "use-cases/asset-inventory.md"
       - "Azure Security":
@@ -434,7 +435,7 @@ nav:
       - "GRC":
         - "Multi-cloud Compliance": "use-cases/compliance.md"
         - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
-    - "Cloud Workload Protection Platform (CWPP)":
+    - "Workload Security (CWPP)":
       - "CWPP Overview": "use-cases/cwpp.md"
       - "Least Permissive Posture Assessment (CWPP)":
         - "Zero Trust Security": "use-cases/zero-trust.md"
@@ -447,7 +448,7 @@ nav:
         - "Cryptojacking" : "use-cases/crypto-mining.md"
         - "Hildegard" : "use-cases/hildegard.md"
       - "Container Image Scan": "use-cases/image-scan.md"
-    - "DevSecOps (ASPM)":
+    - "DevSecOps":
         - "Application Security Posture Management (ASPM)": "use-cases/aspm.md"
         - "IaC Scan": "use-cases/iac-scan.md"
         - "Container Scan": "use-cases/container-scan.md"
@@ -455,7 +456,7 @@ nav:
         - "DAST (MFA-Enabled)": "use-cases/mfa-dast.md"
         - "DAST XSS Mitigation": "use-cases/dast-xss.md"
         - "Secrets Scan": "use-cases/secret-scan-cicd-aws.md"
-    - "Kubernetes Security Posture Management (KSPM)":
+    - "K8s Security (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
       - "Kubernetes Identity and Entitlement Management (KIEM)" : "use-cases/kiem.md"

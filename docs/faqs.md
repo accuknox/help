@@ -132,6 +132,26 @@ hide:
 ??? "**7. Does Inline remediation slowdown the process?**"
     LSMs are already enabled in the environment and use host based LSM security. Since the attacker usually has direct access to the pod, AccuKnox uses Inline remediation to stop the processes before executing. Therefore, inline remediation does not slow down the process
 
+??? "**8. How to check running services in a VM?**"
+    To troubleshoot or verify if required services are running inside a Virtual Machine, use the following commands:
+
+    - To check if a specific service (e.g., `kubearmor`, `vm-adapter`) is running:
+
+    ```sh
+    sudo systemctl status <service_name>  # Replace with actual service name
+
+    sudo systemctl status kubearmor
+    sudo systemctl status vm-adapter
+    ```
+
+    - To list all currently running services:
+
+    ```sh
+    systemctl --type=service --state=running
+    ```
+
+    This helps confirm whether KubeArmor or other critical services are active inside the VM for proper enforcement and telemetry.
+
 ## Policy Management & Enforcement
 
 ??? "**1. How AccuKnox helps in Policy Version Control for Runtime Security?**"
