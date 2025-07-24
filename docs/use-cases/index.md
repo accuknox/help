@@ -28,10 +28,10 @@ h2 {
 
 ::cards:: cols=3
 
-- title: CNAPP Security Overview
+- title: CNAPP Overview
   image: ./icons/CNAPP.svg
   url: /use-cases/cnapp-security-overview/
-- title: Vulnerability Management (CNAPP)
+- title: Vulnerability Management
   image: ./icons/VULN.svg
   url: /use-cases/epss-scoring/
 - title: Secrets Scanning
@@ -40,16 +40,16 @@ h2 {
 - title: AI/ML Security
   image: ./icons/AIML.svg
   url: /use-cases/jupyter-notebook/
-- title: Cloud Security Posture Management (CSPM)
+- title: Cloud Security (CSPM)
   image: ./icons/CSPM.svg
   url: /use-cases/cspm/
-- title: Cloud Workload Protection Platform (CWPP)
+- title: Workload Security (CWPP)
   image: ./icons/CWPP.svg
   url: /use-cases/cwpp/
-- title: DevSecOps (ASPM)
+- title: DevSecOps
   image: ./icons/ASPM.svg
   url: /use-cases/aspm/
-- title: Kubernetes Security Posture Management (KSPM)
+- title: K8s Security (KSPM)
   image: ./icons/KSPM.svg
   url: /use-cases/kspm/
 - title: Cloud

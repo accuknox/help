@@ -62,7 +62,7 @@ LABELS - THESE ARE APPLIED BASED ON CSS SELECTORS - INSPECT ELEMENT, COPY SELECT
 */
 
 /* NAVBAR - USE CASE TAB */
-body > header > nav.md-tabs > div > ul:nth-child(2) > li:nth-child(5) > a::after
+body > header > nav.md-tabs > div > ul:nth-child(2) > li:nth-child(4) > a::after
 {
   background-color: #28a745;
   color: white;
@@ -75,7 +75,7 @@ body > header > nav.md-tabs > div > ul:nth-child(2) > li:nth-child(5) > a::after
 }
 
 /* USE CASES > DevSecOps (ASPM)*/
-#__nav_5_6_label > span.md-ellipsis::after{
+#__nav_4_4_label > span.md-ellipsis::after{
   background-color: #28a745;
   color: white;
   font-size: 0.8em;
@@ -87,7 +87,7 @@ body > header > nav.md-tabs > div > ul:nth-child(2) > li:nth-child(5) > a::after
 }
 
 /* OVERVIEW > DEPLOYMENT MODELS */
-body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div > div > nav > ul > li.md-nav__item.md-nav__item--active.md-nav__item--section.md-nav__item--nested > nav > ul > li:nth-child(3) > a > span::after{
+/* body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div > div > nav > ul > li.md-nav__item.md-nav__item--active.md-nav__item--section.md-nav__item--nested > nav > ul > li:nth-child(3) > a > span::after{
   background-color: #28a745;
   color: white;
   font-size: 0.8em;
@@ -96,10 +96,10 @@ body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div 
   margin-left: 8px;
   text-transform: uppercase;
   content: "New";
-}
+} */
 
 /* INTEGRATIONS > SIEM/SECURITY EVENTS & CI/CD */
-#__nav_4_3_label > span.md-ellipsis::after, #__nav_4_8_label > span.md-ellipsis::after{
+/* #__nav_4_3_label > span.md-ellipsis::after, #__nav_4_8_label > span.md-ellipsis::after{
   background-color: #28a745;
   color: white;
   font-size: 0.8em;
@@ -108,11 +108,11 @@ body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div 
   margin-left: 8px;
   text-transform: uppercase;
   content: "New";
-}
+} */
 
 /* GETTING STARTED > CLOUD ACCOUNTS & REPORTS */
 
-#__nav_3_5_label > span.md-ellipsis::after,#__nav_3_10_label > span.md-ellipsis::after{
+/* #__nav_3_5_label > span.md-ellipsis::after,#__nav_3_10_label > span.md-ellipsis::after{
   background-color: #28a745;
   color: white;
   font-size: 0.8em;
@@ -121,4 +121,4 @@ body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div 
   margin-left: 8px;
   text-transform: uppercase;
   content: "New";
-}
+} */
