@@ -179,7 +179,7 @@ nav:
       - "KSPM Playbook": "how-to/playbook-kspm.md"
       - "Host Security Playbook": "how-to/playbook-hostsec.md"
       - "Integrations Playbook" : "how-to/playbook-integrations.md"
-    - "AccuKnox Enterprise Architecture" : "getting-started/accuknox-arch.md"
+    - "Enterprise Architecture" : "getting-started/accuknox-arch.md"
     - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
     - "DevSecOps" : "getting-started/devsecops.md"
     - "Cloud Accounts":
@@ -228,8 +228,8 @@ nav:
       - "JFrog Container" : "how-to/jfrog-container.md"
       - "Quay": "how-to/quay.md"
       - "In-Cluster Scanner": "how-to/in-cluster-image-scan-helm.md"
-    - "OnPrem":
-        - "On-prem Installation" : "getting-started/on-prem-installation-guide.md"
+    - "On-Premises":
+        - "On-premise Installation" : "getting-started/on-prem-installation-guide.md"
         - "Security on OpenShift": "getting-started/security-on-openshift.md"
         - "Health Monitoring":
           - "RINC": "how-to/RINC.md"

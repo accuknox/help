@@ -6,7 +6,10 @@ hide:
 # Administrator's Guide
 
 !!! info "Purpose of this Guide"
-    This page serves as a focused documentation index for administrators looking for **step-by-step onboarding, deployment, configuration, and operational guidance**. This documentation is suitable for users deploying AccuKnox in real-world cloud-native environments. This curated guide is tailored for technical administrators and DevSecOps engineers who are looking for **concrete, task-oriented onboarding assets**, **installation steps**, and **configuration references**.
+    - Provides step-by-step guidance for onboarding, deployment, and configuration
+    - Includes task-oriented assets, installation steps, and configuration references
+    - Ideal for technical users seeking actionable, operational documentation
+    - Download the [AccuKnox Administrator's Guide PDF](/how-to/accuknox-admin-guide.pdf) 📩.
 
 
 ## Table of Contents

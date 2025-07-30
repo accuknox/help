@@ -36,7 +36,7 @@ h2 {
   url: /use-cases/epss-scoring/
 - title: Secrets Scanning
   image: ./icons/secret-scan.svg
-  url: /use-cases/azure-secret-scan/
+  url: /use-cases/secret-scan-cicd-aws/
 - title: AI/ML Security
   image: ./icons/AIML.svg
   url: /use-cases/jupyter-notebook/
