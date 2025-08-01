@@ -57,10 +57,10 @@ hide:
   image: ./icons/secret-scan-cicd.svg
   url: https://help.accuknox.com/use-cases/secret-scan-cicd-aws/
 
-- title: Secrets in Code Repositories
+- title: Generate ASPM Reports
   content:
-  image: ./icons/secret-scan.svg
-  url: https://help.accuknox.com/use-cases/aspm/
+  image: ./icons/ASPM.svg
+  url: /use-cases/aspm-reports/
 
 - title: Secrets in S3 Buckets & File Systems
   content:
@@ -103,6 +103,7 @@ hide:
 ### **AccuKnox Features**
 
 - Unified security test orchestration (SAST, DAST, SCA)
+- Scheduled and on-demand ASPM Reports
 - CI/CD pipeline security integration
 - Context-driven risk prioritization
 - End-to-end security coverage

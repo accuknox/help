@@ -387,6 +387,7 @@ nav:
     - "Notification":
       - "Slack": "integrations/slack.md"
       - "Email": "integrations/email.md"
+      - "Webhook": "integrations/webhook-integration.md"
     - "OAuth": "integrations/oauth.md"
     - "Email Backend" : "integrations/email-backend.md"
   - "Use-Cases":
@@ -456,6 +457,7 @@ nav:
         - "DAST (MFA-Enabled)": "use-cases/mfa-dast.md"
         - "DAST XSS Mitigation": "use-cases/dast-xss.md"
         - "Secrets Scan": "use-cases/secret-scan-cicd-aws.md"
+        - "ASPM Reports": "use-cases/aspm-reports.md"
     - "K8s Security (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"
