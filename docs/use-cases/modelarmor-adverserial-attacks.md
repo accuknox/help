@@ -10,20 +10,20 @@ Adversarial attacks exploit vulnerabilities in AI systems by subtly altering inp
 ## **Types of Adversarial Attacks**
 
 1. **By Model Access:**
-   - **White-box Attacks**: Complete knowledge of the model, including architecture and training data.
-   - **Black-box Attacks**: No information about the model; the attacker probes responses to craft inputs.
+      - **White-box Attacks**: Complete knowledge of the model, including architecture and training data.
+      - **Black-box Attacks**: No information about the model; the attacker probes responses to craft inputs.
 2. **By Target Objective:**
-   - **Non-targeted Attacks**: Push input to any incorrect class.
-   - **Targeted Attacks**: Force input into a specific class.
+      - **Non-targeted Attacks**: Push input to any incorrect class.
+      - **Targeted Attacks**: Force input into a specific class.
 
 ## **Attack Phases**
 
 1. **Training Phase Attacks:**
-   - **Data Poisoning**: Injects malicious data into the training set, altering model behavior.
-   - **Backdoor Attacks**: Embeds triggers in training data that activate specific responses during inference.
+      - **Data Poisoning**: Injects malicious data into the training set, altering model behavior.
+      - **Backdoor Attacks**: Embeds triggers in training data that activate specific responses during inference.
 2. **Inference Phase Attacks:**
-   - **Model Evasion**: Gradually perturbs input to skew predictions (e.g., targeted misclassification).
-   - **Membership Inference**: Exploits model outputs to infer sensitive training data (e.g., credit card numbers).
+      - **Model Evasion**: Gradually perturbs input to skew predictions (e.g., targeted misclassification).
+      - **Membership Inference**: Exploits model outputs to infer sensitive training data (e.g., credit card numbers).
 
 ## **Observations on Model Robustness**
 
@@ -35,13 +35,13 @@ Highly accurate models often exhibit reduced robustness against adversarial pert
 
 1. **Pre-analysis:** Test models for prompt injection vulnerabilities using techniques like fuzzing.
 2. Input Sanitation:
-   - **Validation**: Enforce strict input rules (e.g., character and data type checks).
-   - **Filtering**: Strip malicious scripts or fragments.
-   - **Encoding**: Convert special characters to safe representations.
+      - **Validation**: Enforce strict input rules (e.g., character and data type checks).
+      - **Filtering**: Strip malicious scripts or fragments.
+      - **Encoding**: Convert special characters to safe representations.
 3. Secure Practices for Model Deployment:
-   - Restrict model permissions.
-   - Regularly update libraries to patch vulnerabilities.
-   - Detect injection attempts with specialized tooling.
+      - Restrict model permissions.
+      - Regularly update libraries to patch vulnerabilities.
+      - Detect injection attempts with specialized tooling.
 
 ![Defense Strategies](./images/modelarmor/2.png)
 
