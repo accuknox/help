@@ -469,6 +469,9 @@ nav:
       - "Network Micro-segmentation" : "use-cases/network-segmentation.md"
       - "Cluster Misconfiguration Scan" : "use-cases/cluster-misconfiguration-scanning.md"
       - "Mitigate Supply Chain Attacks with KnoxGuard" : "use-cases/knoxguard-supply-chain.md"
+    - "API Security":
+      - "Overview": "use-cases/api-security.md"
+      - "API Traffic Connectors ": "use-cases/api-traffic-connectors.md"
     - "VM Security":
         - "Introduction" : "use-cases/vm-overview.md"
         - "Agentless Risk Assessment":
