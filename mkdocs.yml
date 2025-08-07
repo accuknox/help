@@ -255,9 +255,10 @@ nav:
     - "API Security":
       - "Overview": "getting-started/api-overview.md"
       - "Traffic Connectors":
-        - "Kubernetes": "getting-started/api-k8s.md"
-        - "Istio": "getting-started/api-istio.md"
-        - "Nginx": "getting-started/api-nginx.md"
+        - "Kubernetes":
+          - "Deploy SentryFlow": "getting-started/api-k8s.md"
+          - "Istio": "getting-started/api-istio.md"
+          - "Nginx": "getting-started/api-nginx.md"
 
 
   - "Integrations":
