@@ -252,6 +252,12 @@ nav:
       - "AWS": "getting-started/aws-cdr.md"
       - "GCP": "getting-started/gcp-cdr.md"
       - "Azure": "getting-started/azure-cdr.md"
+    - "API Security":
+      - "Overview": "getting-started/api-overview.md"
+      - "Traffic Connectors":
+        - "Kubernetes": "getting-started/api-k8s.md"
+        - "Istio": "getting-started/api-istio.md"
+        - "Nginx": "getting-started/api-nginx.md"
 
 
   - "Integrations":
