@@ -62,8 +62,7 @@ th {
 <tr><td>HITRUST CSF</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>ISMS-P for AWS</td><td>✅</td><td>❌</td><td>❌</td></tr>
 <tr><td>ISO 27001 - 2013</td><td>✅</td><td>✅</td><td>✅</td></tr>
-<tr><td>ISO 27001 - 2022</td><td>✅</td><td>✅</td><td>❌</td></tr>
-<tr><td>ISO 27001 - 2022</td><td>❌</td><td>❌</td><td>✅</td></tr>
+<tr><td>ISO 27001 - 2022</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>ISO 27017</td><td>❌</td><td>✅</td><td>✅</td></tr>
 <tr><td>ISO 27018</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>Korean Financial Security Agency Guidelines</td><td>✅</td><td>✅</td><td>✅</td></tr>
