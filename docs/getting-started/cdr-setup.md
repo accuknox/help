@@ -1,6 +1,10 @@
-title: AccuKnox CDR Setup
+---
+title: AccuKnox CDR Alert Remediation Setup
 description: Accuknox CDR Setup
 ---
+
+# AccuKnox CDR Alert Remediation Setup
+
 To remediate alerts the user need to provision the following:
 
 ## **Step 1: Cloud Access**

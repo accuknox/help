@@ -1,9 +1,9 @@
 ---
-title: AccuKnox CDR for AWS
+title: AccuKnox CDR for AWS – Deployment & Setup Guide
 description: Accuknox CDR for AWS documentation
 ---
 
-# **AccuKnox CDR for AWS**
+# AccuKnox CDR for AWS – Deployment & Setup Guide
 
 ## **Introduction**
 Accuknox CDR for AWS is deployed using CloudFormation scripts, the script deploys the following resources:

@@ -1,9 +1,9 @@
 ---
-title: AccuKnox CDR for Azure
+title: AccuKnox CDR for Azure – Deployment & Setup Guide
 description: Accuknox CDR documentation for Azure
 ---
 
-# AccuKnox CDR for Azure
+# AccuKnox CDR for Azure – Deployment & Setup Guide
 
 ## Introduction
 

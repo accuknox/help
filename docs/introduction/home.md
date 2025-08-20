@@ -709,6 +709,14 @@ line-height: normal;
 <div class="container">
   <div class="card" style="position: relative;">
     <div class="status-badge">Agentless</div>
+    <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
+    <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
+    <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
+    <a href="/use-cases/aspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+  </div>
+
+  <div class="card" style="position: relative;">
+    <div class="status-badge">Agentless</div>
     <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)" style="color: #000025">
     <h3 class="home-card-heading">Cloud Security (CSPM)</h3>
     <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across clouds.</p>
@@ -726,17 +734,9 @@ line-height: normal;
  <div class="card" style="position: relative;">
     <div class="status-badge">Agentless</div>
     <img src="../cards/aspm.svg" alt="Federal Security" style="color: #000025">
-    <h3 class="home-card-heading">On-Prem Deployment for Govt/Fed Org</h3>
+    <h3 class="home-card-heading">On-Prem Deployment</h3>
     <p>Secure air-gapped deployment with our CNAPP security suite to achieve federal regulatory standards. </p>
     <a href="/getting-started/on-prem-installation-guide/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-  <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
-    <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
-    <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
-    <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
-    <a href="/use-cases/aspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
@@ -747,6 +747,13 @@ line-height: normal;
     <a href="/use-cases/jupyter-notebook/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
   </div>
 
+ <div class="card" style="position: relative;">
+    <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/cdr');">See Features</div>
+    <img src="../cards/kspm.svg" alt="" style="color: #000025">
+    <h3 class="home-card-heading">Cloud Detection & Response <br>(CDR)</h3>
+    <p>Detect & Remediate Threats on AWS, GCP, Azure and catch what matters with AccuKnox.</p>
+    <a href="/getting-started/aws-cdr/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
+  </div>
 
   <div class="card" style="position: relative;">
     <img src="../cards/kiem.svg" alt="" style="color: #000025">
@@ -758,25 +765,18 @@ line-height: normal;
   <div class="card" style="position: relative;">
     <div class="status-badge">Agentless</div>
     <img src="../cards/grc.svg" style="width: 2.5rem;" alt="" style="color: #000025">
-    <h3 class="home-card-heading">Governance, Risk, and Compliance (GRC)</h3>
+    <h3 class="home-card-heading">Continuous Compliance</h3>
     <p>Provides a unified view of security posture, risk analysis, and compliance across multi-cloud and K8s environments.</p>
     <a href="/use-cases/compliance/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
   <div class="card" style="position: relative;">
   <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/kspm');">See Features</div>
-    <img src="../cards/kspm.svg" alt="" style="color: #000025">
+  <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
+
     <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
     <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities in real-time.</p>
     <a href="/use-cases/kspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-
-  <div class="card" style="position: relative;">
-    <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
-    <h3 class="home-card-heading">Open Source -<br>KubeArmor</h3>
-    <p>Enforces security policies in Kubernetes clusters, offering real-time protection for containers and microservices.</p>
-    <a href="https://docs.kubearmor.io/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
   </div>
 
 </div>
@@ -794,6 +794,7 @@ line-height: normal;
         <li><a href="/use-cases/iac-scan/" target="_blank">IaC Scan AWS S3 Buckets (CI/CD Pipeline)</a></li>
         <li><a href="/use-cases/sast-sq/" target="_blank">SAST + SQL Injection</a></li>
         <li><a href="/use-cases/container-scan/" target="_blank">ASPM Container Scan</a></li>
+        <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
       </ul>
     </div>
     <div class="use-cases-category">
@@ -842,16 +843,20 @@ line-height: normal;
       </ul>
     </div>
     <div class="use-cases-category">
-      <p class="use-cases-category-title">Prioritization</p>
+      <p class="use-cases-category-title">Cloud Detection & Response (CDR)</p>
       <ul class="use-cases-list">
-        <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
+        <li><a href="/getting-started/aws-cdr/" target="_blank">Onboarding AWS for CDR</a></li>
+        <li><a href="/getting-started/azure-cdr/" target="_blank">Onboarding Azure for CDR</a></li>
+        <li><a href="/getting-started/gcp-cdr/" target="_blank">Onboarding GCP for CDR</a></li>
+        <li><a href="/getting-started/cdr-setup/" target="_blank">Alert Remediation</a></li>
       </ul>
     </div>
     <div class="use-cases-category">
       <p class="use-cases-category-title">AI/ML Security</p>
       <ul class="use-cases-list">
+        <li><a href="/use-cases/jupyter-notebook/" target="_blank">Jupyter Notebook Security</a></li>
+        <li><a href="/use-cases/aiml-runtime-onboard/" target="_blank">LLM Security Onboarding</a></li>
         <li><a href="/use-cases/modelarmor/" target="_blank">ModelArmor (Open Source)</a></li>
-        <li><a href="https://www.accuknox.com/platform/modelknox" target="_blank">ModelKnox (Coming Soon)</a></li>
       </ul>
     </div>
   </div>
