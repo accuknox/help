@@ -1,9 +1,14 @@
 ---
-title: AccuKnox CDR for AWS
+title: AccuKnox CDR for AWS – Deployment & Setup Guide
 description: Accuknox CDR for AWS documentation
 ---
 
-# **AccuKnox CDR for AWS**
+# AccuKnox CDR for AWS – Deployment & Setup Guide
+
+!!! note "Remediation Setup"
+    For remediation setup for AWS, Azure and GCP CDR please refer to the following links:
+
+    - [Remediate Alerts](/getting-started/cdr-setup)
 
 ## **Introduction**
 Accuknox CDR for AWS is deployed using CloudFormation scripts, the script deploys the following resources:

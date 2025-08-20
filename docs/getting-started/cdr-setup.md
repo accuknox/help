@@ -1,6 +1,18 @@
-title: AccuKnox CDR Setup
+---
+title: AccuKnox CDR Alert Remediation Setup
 description: Accuknox CDR Setup
 ---
+
+# AccuKnox CDR Alert Remediation Setup
+
+!!! note "Onboarding Steps"
+    For Onboarding steps for AWS, Azure and GCP please refer to the following links:
+
+    - [AWS CDR Setup](/getting-started/aws-cdr)
+    - [Azure CDR Setup](/getting-started/azure-cdr)
+    - [GCP CDR Setup](/getting-started/gcp-cdr)
+
+
 To remediate alerts the user need to provision the following:
 
 ## **Step 1: Cloud Access**

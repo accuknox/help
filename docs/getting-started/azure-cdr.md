@@ -1,14 +1,18 @@
 ---
-title: AccuKnox CDR for Azure
+title: AccuKnox CDR for Azure – Deployment & Setup Guide
 description: Accuknox CDR documentation for Azure
 ---
 
-# AccuKnox CDR for Azure
+# AccuKnox CDR for Azure – Deployment & Setup Guide
+
+!!! note "Remediation Setup"
+    For remediation setup for AWS, Azure and GCP CDR please refer to the following links:
+
+    - [Remediate Alerts](/getting-started/cdr-setup)
 
 ## Introduction
 
-AccuKnox CDR for Azure can be deployed using a Terraform configuration. The
-configuration deploys the following resources:
+AccuKnox CDR for Azure can be deployed using a Terraform configuration. The configuration deploys the following resources:
 
 | Resource                                    | Purpose                                                |
 |---------------------------------------------|--------------------------------------------------------|

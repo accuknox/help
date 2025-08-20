@@ -248,10 +248,9 @@ nav:
       - "Miscellaneous": "knoxctl/miscellaneous.md"
       - "VM Container Image Scan": "knoxctl/image-scan.md"
     - "CDR":
-      - "Remediation": "getting-started/cdr-setup.md"
-      - "AWS": "getting-started/aws-cdr.md"
-      - "GCP": "getting-started/gcp-cdr.md"
-      - "Azure": "getting-started/azure-cdr.md"
+      - "AWS Onboarding": "getting-started/aws-cdr.md"
+      - "GCP Onboarding": "getting-started/gcp-cdr.md"
+      - "Azure Onboarding": "getting-started/azure-cdr.md"
     - "API Security":
       - "Overview": "getting-started/api-overview.md"
       - "Traffic Connectors":
@@ -404,12 +403,8 @@ nav:
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
       - "Vulnerability Management": "use-cases/vulnerability.md"
-    # - "Secrets Scan":
-    #   - "GitHub": "use-cases/github-secret-scan.md"
-    #   - "Azure DevOps": "use-cases/azure-secret-scan.md"
-    #   - "Bitbucket": "use-cases/bitbucket-secret-scan.md"
-    #   - "Jenkins": "use-cases/jenkins-secret-scan.md"
-    #   - "Gitlab": "use-cases/gitlab-secret-scan.md"
+    - "CDR (Cloud Detection and Response)":
+      - "Remediation": "getting-started/cdr-setup.md"
     - "AI/ML Security":
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "Categories and Probes": "use-cases/subprompts-categories.md"

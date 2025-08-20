@@ -1,9 +1,14 @@
 ---
-title: AccuKnox CDR for GCP
+title: AccuKnox CDR for Azure – Deployment & Setup Guide
 description: Accuknox CDR documentation for GCP
 ---
 
-# **AccuKnox CDR for GCP**
+# AccuKnox CDR for Azure – Deployment & Setup Guide
+
+!!! note "Remediation Setup"
+    For remediation setup for AWS, Azure and GCP CDR please refer to the following links:
+
+    - [Remediate Alerts](/getting-started/cdr-setup)
 
 ## **Introduction**
 AccuKnox CDR for GCP is deployed using terraform scripts, the scripts deployes the following resources:
