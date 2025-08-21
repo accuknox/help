@@ -49,7 +49,6 @@ Kubernetes cronjob
 
 ```bash
 helm upgrade --install k8s-risk-assessment-job oci://public.ecr.aws/k9v9d5v2/k8s-risk-assessment-job \
---set accuknox.tenantID="[TENANTID]" \
 --set accuknox.authToken="[AUTHTOKEN]" \
 --set accuknox.cronTab="30 9 * * *" \
 --set accuknox.clusterName="[CLUSTERNAME]" \
@@ -82,7 +81,6 @@ helm upgrade --install kiem-job oci://public.ecr.aws/k9v9d5v2/kiem-job \
 --set accuknox.authToken="[AUTHTOKEN]" \
 --set accuknox.cronTab="30 9 * * *" \
 --set accuknox.clusterName="[CLUSTERNAME]" \
---set accuknox.tenantID="[TENANTID]"
 ```
 
 **Features:**
@@ -105,7 +103,6 @@ Kubernetes cronjob
 ```bash
 helm upgrade --install cis-k8s-job oci://public.ecr.aws/k9v9d5v2/cis-k8s-job \
 --set accuknox.url="cspm.demo.accuknox.com" \
---set accuknox.tenantId="[TENANTID]" \
 --set accuknox.authToken="[AUTHTOKEN]" \
 --set accuknox.cronTab="30 9 * * *" \
 --set accuknox.clusterName="[CLUSTERNAME]" \
@@ -138,7 +135,6 @@ Kubernetes cronjob
 ```bash
 helm upgrade --install k8s-stig-job oci://public.ecr.aws/k9v9d5v2/k8s-stig-job \
 --set accuknox.url="cspm.demo.accuknox.com" \
---set accuknox.tenantId="[TENANTID]" \
 --set accuknox.authToken="[AUTHTOKEN]" \
 --set accuknox.cronTab="30 9 * * *" \
 --set accuknox.clusterName="[CLUSTERNAME]" \
@@ -163,7 +159,6 @@ CronJob (per node job)
 
 ```bash
 helm install kubeshield kubeshield-chart \
---set scan.tenantId="<TENANTID>" \
 --set scan.artifactToken="<TOKEN>" \
 --set scan.artifactEndpoint="https://cspm.demo.accuknox.com/api/v1/artifact/" \
 --set scan.label="<LABEL>"

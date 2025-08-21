@@ -45,7 +45,6 @@ Log in to AccuKnox. Navigate to Settings and select Tokens to create an AccuKnox
 | **Name**           | **Description**                                                                        |
 | ------------------ | -------------------------------------------------------------------------------------- |
 | `accuknoxEndpoint` | The URL of the CSPM panel to push the scan results to (e.g., `cspm.demo.accuknox.com`) |
-| `accuknoxTenantId` | The ID of the tenant associated with the CSPM panel                                    |
 | `accuknoxToken`    | Token for authenticating with the AccuKnox CSPM panel                                  |
 | `accuknoxLabel`    | Label to categorize or tag the scan results                                            |
 
@@ -86,7 +85,6 @@ steps:
       tag: $(imageTag)
       imageName: $(imageRepository)
       accuknoxEndpoint: "$(accuknoxEndpoint)"
-      accuknoxTenantId: "$(accuknoxTenantId)"
       accuknoxToken: "$(accuknoxToken)"
       accuknoxLabel: "$(accuknoxLabel)"
 ```
@@ -96,7 +94,6 @@ steps:
 | **Name**           | **Description**                                                                                        | **Required** | **Default**                        |
 | ------------------ | ------------------------------------------------------------------------------------------------------ | ------------ | ---------------------------------- |
 | `accuknoxEndpoint` | AccuKnox CSPM panel URL                                                                                | Yes          | `cspm.demo.accuknox.com`           |
-| `accuknoxTenantId` | AccuKnox Tenant ID                                                                                     | Yes          |                                    |
 | `accuknoxToken`    | AccuKnox API Token                                                                                     | Yes          |                                    |
 | `accuknoxLabel`    | Label for scan results                                                                                 | Yes          |                                    |
 | `inputSoftFail`    | Continue even if the scan fails                                                                        | No           | `true`                             |

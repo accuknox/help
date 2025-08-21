@@ -24,7 +24,6 @@ Use the following Helm command to install the scanner in your Kubernetes cluster
 
 ```bash
 helm install kubeshield oci://public.ecr.aws/k9v9d5v2/kubeshield-chart -n agents --create-namespace \
-  --set scan.tenantId="{{tenantId}}" \
   --set scan.authToken="{{authToken}}" \
   --set scan.url="{{url}}" \
   --set scan.label="{{label}}" \
@@ -32,7 +31,7 @@ helm install kubeshield oci://public.ecr.aws/k9v9d5v2/kubeshield-chart -n agents
   --version "v0.1.2"
 ```
 
-Replace the parameters (`{{tenantId}}`, `{{authToken}}`, `{{url}}`, `{{label}}` and `{{cronTab}}`) with the appropriate values.
+Replace the parameters (`{{authToken}}`, `{{url}}`, `{{label}}` and `{{cronTab}}`) with the appropriate values.
 {% endraw %}
 #### Sample Output
 
@@ -51,7 +50,6 @@ TEST SUITE: None
 
 | Variable  | Sample Value      | Description                |
 | --------- | ----------------- | -------------------------- |
-| tenantId  | 11                | AccuKnox Tenant ID         |
 | authToken | eyJhbGc...        | AccuKnox Token {JWT}       |
 | url       | cspm.accuknox.com | AccuKnox CSPM API Endpoint |
 | label     | kubeshield        | AccuKnox Label             |

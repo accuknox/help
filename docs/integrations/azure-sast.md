@@ -39,7 +39,6 @@ This guide shows how to integrate **SAST scanning** into an **Azure DevOps Pipel
 | **Name**            | **Description**                                                     |
 |---------------------|---------------------------------------------------------------------|
 | **accuknoxEndpoint** | The URL of the CSPM panel to push the scan results to (e.g., `cspm.demo.accuknox.com`). |
-| **accuknoxTenantId** | The ID of the tenant associated with the CSPM panel.               |
 | **accuknoxToken**    | Token for authenticating with the AccuKnox CSPM panel. Refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/). |
 | **accuknoxLabel**    | The label used to categorize and identify scan results in AccuKnox. Refer to [How to Create Labels](https://help.accuknox.com/how-to/how-to-create-labels). |
 
@@ -52,7 +51,6 @@ steps:-
 - task: AccuKnox-SAST@2
   inputs:
     accuknoxEndpoint: $(accuknoxEndpoint)
-    accuknoxTenantId: $(accuknoxTenantId)
     accuknoxToken: $(accuknoxToken)
     accuknoxLabel: $(accuknoxLabel)
     softFail: true
@@ -63,7 +61,6 @@ steps:-
 | **Name**             | **Description**                     | **Required** | **Default**                                                                 |
 |----------------------|-------------------------------------|--------------|------------------------------------------------------------------------------|
 | accuknoxEndpoint      | AccuKnox CSPM panel URL             | Yes          | [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/)                     |
-| accuknoxTenantId      | AccuKnox Tenant ID                  | Yes          |                                                                              |
 | accuknoxToken         | AccuKnox API Token                  | Yes          |                                                                              |
 | accuknoxLabel         | Label for scan results              | Yes          |                                                                              |
 | softFail              | Continue even if the scan fails     | No           | false                                                                        |

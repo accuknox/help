@@ -33,14 +33,13 @@ Use the following command to scan your machine:
 knoxctl image-scan --artifactEndpoint="<url>" \
     --token="<authToken>" \
     --label="<label>" \
-    --tenantId="<tenantId>"
 ```
 
-Replace the parameters (`<tenantId>` , `<authToken>`, `<url>` and `<label>`) with the appropriate values.
+Replace the parameters (`<authToken>`, `<url>` and `<label>`) with the appropriate values.
 
 if you want to scan the machine on a regular basis you can configure the scan to be run by systemd timers by running the following script.
 
-Before running the script you need to replace the parameters (`<tenantId>` , `<authToken>`, `<url>` and `<label>`) with their appropriate values.
+Before running the script you need to replace the parameters (`<authToken>`, `<url>` and `<label>`) with their appropriate values.
 
 ```bash
 #!/bin/bash
@@ -48,7 +47,6 @@ Before running the script you need to replace the parameters (`<tenantId>` , `<a
 export AK_BASE_URL="<url>"
 export AK_TOKEN="<authToken>"
 export AK_LABEL="<label>"
-export AK_TENANT_ID="<tenantId>"
 
 export AK_URL="$AK_BASE_URL/api/v1/artifact/"
 
@@ -63,7 +61,7 @@ Wants=accuknox-container-scan.timer
 
 [Service]
 Type=oneshot
-ExecStart=/bin/knoxctl image-scan --artifactEndpoint="$AK_URL" --token="$AK_TOKEN" --label="$AK_LABEL" --tenantId="$AK_TENANT_ID"
+ExecStart=/bin/knoxctl image-scan --artifactEndpoint="$AK_URL" --token="$AK_TOKEN" --label="$AK_LABEL"
 MemoryHigh=1800M
 MemoryMax=2G
 KillMode=control-group
@@ -101,7 +99,6 @@ The above will run the scan daily at midnight, you can change the execution time
 
 | Variable  | Sample Value      | Description                |
 | --------- | ----------------- | -------------------------- |
-| tenantId  | 11                | AccuKnox Tenant ID         |
 | authToken | eyJhbGc...        | AccuKnox Token {JWT}       |
 | url       | cspm.accuknox.com | AccuKnox CSPM API Endpoint |
 | label     | kubeshield        | AccuKnox Label             |
