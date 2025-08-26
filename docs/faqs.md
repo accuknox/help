@@ -79,33 +79,28 @@ hide:
 
     AccuKnox integrates both by applying **least-permissive, allow-specific and deny-rest** policies across cloud-native apps and infrastructure.
 
-??? "**11. In isolated (air-gapped) environments, how does AccuKnox handle updates and policy enforcement?**"
-    AccuKnox supports deployment in completely isolated environments, but some considerations apply:
-    + **Vulnerability Database Updates:** In SaaS environments, updates are twice daily. In isolated deployments, customers must configure automated pipelines to push updates.
-    + **Container Images:** Customers must stage required container images in their private registry. AccuKnox provides the image list and instructions.
-    + **Monitoring & Alerts:** In SaaS, AccuKnox SRE practices provide automated monitoring and notifications. In isolated setups, customers need equivalent procedures.
-    + **Backups:** Customers must configure backup/snapshot procedures, supported by AccuKnox SRE/DevOps.
-
-## Static Security (CSPM & ASPM)
+## CSPM (Cloud Security Posture Management)
 
 ??? "**1. Does AccuKnox CNAPP support only agent-based scanning or does it support agentless scanning ?**"
-    For CSPM, AccuKnox supports agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnoxCSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
+    For CSPM, AccuKnox supports agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnox CSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
 
-    For CWPP, AccuKnox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload. Thus we require agents to be installed to support scanning the workloads.
+    For CWPP, AccuKnox leverages the open source CNCF sandbox project **KubeArmor** for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload. Thus, we require agents to be installed to support scanning the workloads.
 
 ??? "**2. What is the differentiation of AccuKnox in Static Security?**"
     In the Static Security solution, unlike other CSPM tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. We also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
 
 ??? "**3. How does AccuKnox help to achieve static security?**"
-    AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and containing the SLA. We also give comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
+    AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and within the SLA. We also give comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
 
-??? "**4. What is the differentiation of AccuKnox in ASPM Security?**"
-    In the ASPM Security solution, unlike other tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. This is mainly done for the following two context:
+## ASPM (Application Security Posture Management)
+
+??? "**1. What is the differentiation of AccuKnox in ASPM Security?**"
+    In the ASPM Security solution, unlike other tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. This is mainly done for the following two contexts:
 
     + Remove dependencies and scoped results from one tool
     + Bring in contextual understanding of vulnerabilities and prioritization based on that
 
-    Further on this, We also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
+    Further on this, we also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
 
 ## Runtime Security (CWPP & KubeArmor)
 
@@ -203,8 +198,6 @@ hide:
 ??? "**1. What are all the compliance frameworks that AccuKnox is covering?**"
     AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001.
 
-??? "**2. Does AccuKnox support backup and auditing in isolated deployments?**"
-    Yes. Customers should configure **backup and snapshot procedures** in coordination with AccuKnox SRE/DevOps. In isolated deployments, customers are responsible for setting up monitoring and audit workflows, while AccuKnox provides guidance and support.
 
 ## Deployment & Architecture
 
@@ -230,7 +223,7 @@ hide:
     + Nodes can span multiple Availability Zones (AZs) and regions.
     + **Requirement:** Reliable network bandwidth between AZs/regions.
 
-??? "**5. Can AccuKnox reuse existing infrastructure (e.g., NAT, firewalls) during on-prem deployment?**"
+??? "**5. Can AccuKnox reuse existing infrastructure (e.g., NAT, firewalls) during on-prem deployment of the Control Plane?**"
     AccuKnox requires an **independent Kubernetes cluster** for deployment. We strongly recommend **not** using an existing cluster running customer applications.
 
 ??? "**6. Does AccuKnox integrate with virtualization platforms such as VMware or Hyper-V?**"
@@ -238,7 +231,6 @@ hide:
 
     + Instead, AccuKnox secures VMs created on these platforms.
     + Security is provided either **agentlessly (via snapshots)** or through **lightweight scanning agents**.
-
 
 ??? "**7. What is the typical timeline for a Proof of Concept (PoC)?**"
     Typical PoC timelines are:
@@ -252,6 +244,15 @@ hide:
     + [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
     + [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
 
+??? "**8. For onprem deployment of AccuKnox Control Plane, what are the challenges/considerations?**"
+    AccuKnox supports deployment in completely isolated environments, but some considerations apply:
+    + **Vulnerability Database Updates:** In SaaS environments, updates are twice daily. In isolated deployments, customers must configure automated pipelines to push updates.
+    + **Container Images:** Customers must stage required container images in their private registry. AccuKnox provides the image list and instructions.
+    + **Monitoring & Alerts:** In SaaS, AccuKnox SRE practices provide automated monitoring and notifications. In isolated setups, customers need equivalent procedures.
+    + **Backups:** Customers must configure backup/snapshot procedures, supported by AccuKnox SRE/DevOps.
+
+??? "**9. Does AccuKnox support backup and auditing in isolated deployments?**"
+    Yes. Customers should configure **backup and snapshot procedures** in coordination with AccuKnox SRE/DevOps. In isolated deployments, customers are responsible for setting up monitoring and audit workflows, while AccuKnox provides guidance and support.
 
 ## Pricing & Billing
 
