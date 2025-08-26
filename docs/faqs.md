@@ -71,26 +71,36 @@ hide:
 ??? "**9. What will happen to my application running on a VM?**"
     You get hardening policies via AccuKnox enforcement engine KubeArmor.
 
-## Static Security (CSPM & ASPM)
+??? "**10. Is AccuKnox more of a CNAPP solution or a Zero Trust solution?**"
+    AccuKnox is a **Zero Trust CNAPP** solution.
+
+    + CNAPP (Cloud-Native Application Protection Platform) defines the product category for securing cloud-native infrastructure and applications.
+    + Zero Trust is a **security philosophy**.
+
+    AccuKnox integrates both by applying **least-permissive, allow-specific and deny-rest** policies across cloud-native apps and infrastructure.
+
+## CSPM (Cloud Security Posture Management)
 
 ??? "**1. Does AccuKnox CNAPP support only agent-based scanning or does it support agentless scanning ?**"
-    For CSPM, AccuKnox supports agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnoxCSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
+    For CSPM, AccuKnox supports agentless scanning for Public Cloud Infrastructure. For Infrastructure behind a firewall or Private Cloud, AccuKnox CSPM leverages open source based agent to manage remote nodes for Automated reporting, Error log Delivery, Microservice Monitoring, User Shell Activity, Resource Monitoring.
 
-    For CWPP, AccuKnox leverage open source CNCF sandbox project KubeArmor for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload. Thus we require agents to be installed to support scanning the workloads.
+    For CWPP, AccuKnox leverages the open source CNCF sandbox project **KubeArmor** for scanning and in-line mitigation from known attacks. Together we provide a complete static and runtime security for a variety of workloads whether they are on Public/Private Cloud, VM, Baremetal or pure-containerized workload. Thus, we require agents to be installed to support scanning the workloads.
 
 ??? "**2. What is the differentiation of AccuKnox in Static Security?**"
     In the Static Security solution, unlike other CSPM tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. We also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
 
 ??? "**3. How does AccuKnox help to achieve static security?**"
-    AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and containing the SLA. We also give comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
+    AccuKnox Cloud Security Posture Management (CSPM) tool scans the Cloud Account to assess Vulnerabilities, Misconfigurations that are present in the cloud infrastructure based on security best practices & benchmarks. AccuKnox also enables you to handle Vulnerabilities with the ability to mark false positives, Waiting for 3rd party or Accepted risk and many more, so that you get to act on findings that are remediable and within the SLA. We also give comprehensive compliance reports based on various security governance for third party assessment operators (3PAO) auditing.
 
-??? "**4. What is the differentiation of AccuKnox in ASPM Security?**"
-    In the ASPM Security solution, unlike other tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. This is mainly done for the following two context:
+## ASPM (Application Security Posture Management)
+
+??? "**1. What is the differentiation of AccuKnox in ASPM Security?**"
+    In the ASPM Security solution, unlike other tools, AccuKnox provides flexibility to integrate a variety of open source and commercial security scanning tools through built-in parsers to provide you a composite security posture of your infrastructure. This is mainly done for the following two contexts:
 
     + Remove dependencies and scoped results from one tool
     + Bring in contextual understanding of vulnerabilities and prioritization based on that
 
-    Further on this, We also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
+    Further on this, we also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
 
 ## Runtime Security (CWPP & KubeArmor)
 
@@ -188,6 +198,7 @@ hide:
 ??? "**1. What are all the compliance frameworks that AccuKnox is covering?**"
     AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001.
 
+
 ## Deployment & Architecture
 
 ??? "**1. What is the deployment architecture?**"
@@ -201,6 +212,47 @@ hide:
 ??? "**2. How AccuKnox helps achieve protection for Edge, 5G workloads?**"
     With edge computing shifting towards containerized workloads and in few cases to orchestrated kubernetes workloads, it becomes important to have a security solution which can not only provide enforcement into different forms of deployment but can also provide real-time container-rich observability.
     KubeArmor supporting un-orchestrated containers, k8s workloads and bare metal VMs makes it an ideal universal engine. Its kernel-level runtime security enforcement and container aware observability brings the best of both worlds.
+
+??? "**3. What happens if the AccuKnox Control Plane goes down? Will runtime protection still work?**"
+    Yes. Runtime security enforcement continues even if the Control Plane is unavailable. The availability of the Control Plane does not impact the customer’s Data Plane or production operations.
+
+??? "**4. Can AccuKnox be deployed in a distributed architecture?**"
+    Yes. AccuKnox can deploy its Control Plane across multiple regions to achieve redundancy and disaster recovery.
+
+    + Uses **native Kubernetes concepts** for distributed deployment.
+    + Nodes can span multiple Availability Zones (AZs) and regions.
+    + **Requirement:** Reliable network bandwidth between AZs/regions.
+
+??? "**5. Can AccuKnox reuse existing infrastructure (e.g., NAT, firewalls) during on-prem deployment of the Control Plane?**"
+    AccuKnox requires an **independent Kubernetes cluster** for deployment. We strongly recommend **not** using an existing cluster running customer applications.
+
+??? "**6. Does AccuKnox integrate with virtualization platforms such as VMware or Hyper-V?**"
+    AccuKnox does not integrate directly with virtualization platforms (VMware, Hyper-V, KVM, Nutanix AHV).
+
+    + Instead, AccuKnox secures VMs created on these platforms.
+    + Security is provided either **agentlessly (via snapshots)** or through **lightweight scanning agents**.
+
+??? "**7. What is the typical timeline for a Proof of Concept (PoC)?**"
+    Typical PoC timelines are:
+    + **SaaS PoC:** ~1–2 weeks (infrastructure already in place).
+    + **On-Prem PoC:** ~2–3 weeks (depends on environment complexity and readiness).
+    + **Air-gapped On-Prem:** Additional time required for staging container images.
+
+    *Note:* In some cases where prerequisites are fully prepared, on-prem deployment has been completed in just a few hours.
+
+    References:
+    + [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
+    + [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
+
+??? "**8. For onprem deployment of AccuKnox Control Plane, what are the challenges/considerations?**"
+    AccuKnox supports deployment in completely isolated environments, but some considerations apply:
+    + **Vulnerability Database Updates:** In SaaS environments, updates are twice daily. In isolated deployments, customers must configure automated pipelines to push updates.
+    + **Container Images:** Customers must stage required container images in their private registry. AccuKnox provides the image list and instructions.
+    + **Monitoring & Alerts:** In SaaS, AccuKnox SRE practices provide automated monitoring and notifications. In isolated setups, customers need equivalent procedures.
+    + **Backups:** Customers must configure backup/snapshot procedures, supported by AccuKnox SRE/DevOps.
+
+??? "**9. Does AccuKnox support backup and auditing in isolated deployments?**"
+    Yes. Customers should configure **backup and snapshot procedures** in coordination with AccuKnox SRE/DevOps. In isolated deployments, customers are responsible for setting up monitoring and audit workflows, while AccuKnox provides guidance and support.
 
 ## Pricing & Billing
 
@@ -221,6 +273,28 @@ hide:
     - Configure to scan only images updated in the last **X days** or pulled within the last **Y days**.
     - AccuKnox will notify you if the container image count exceeds 5000.
     Additionally, AccuKnox supports scanning images **in Kubernetes clusters or virtual machines directly**, ensuring only runtime images are scanned. This reduces both the number of images scanned and findings noise.
+
+??? "**5. Can customers purchase individual modules instead of the full CNAPP solution?**"
+    Yes. Customers have the flexibility to purchase specific modules such as **KSPM, CSPM, ASPM, or CWPP** independently.
+
+    + **Pricing is modular** and typically based on:
+        - Number of cloud assets
+        - Number of container images
+        - Number of worker nodes
+
+    Customers only pay for the modules they choose.
+
+??? "**6. How is licensing handled in SaaS and on-prem environments?**"
+    + Licensing is generally **subscription-based**.
+    + On-prem customers are expected to procure **Platinum Support**.
+    + On-prem licensing often includes **discounted rates**, since customers manage their own infrastructure.
+
+??? "**7. How does modular pricing work?**"
+    + Customers can purchase modules individually (CSPM, ASPM, CWPP, KSPM).
+    + Pricing is based on factors such as:
+      - Number of cloud assets
+      - Number of container images
+      - Number of worker nodes
 
 ## Partnerships & Marketplace
 
@@ -265,6 +339,10 @@ hide:
 ??? "**1. Is there a support for CIEM?**"
     It is a part of the roadmap, like IOT edge, 5G Security
 
+??? "**2. What features are on the roadmap related to environments and integrations?**"
+    + Expanded **serverless support** (beyond AWS Fargate/ECS).
+    + **Windows support** for workloads.
+    + Ongoing expansion of integrations with **registries, SIEMs, and ticketing systems**.
 ---
 
 [ SCHEDULE DEMO ](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
