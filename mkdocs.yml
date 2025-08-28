@@ -409,8 +409,8 @@ nav:
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "Categories and Probes": "use-cases/subprompts-categories.md"
       - "Runtime Security":
-        - "LLM Defense":
-          - "Onboarding": "use-cases/aiml-runtime-onboard.md"
+        - "Onboard LLM Defense App": "use-cases/llm-defense-app-onboard.md"
+        - "Onboard Custom App": "use-cases/aiml-runtime-onboard.md"
       - "ModelArmor":
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
