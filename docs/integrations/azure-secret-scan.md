@@ -54,7 +54,6 @@ This guide walks you through the process of integrating AccuKnox Secret Scanning
 | `additionalArguments` | Extra parameters for secret scanning.                                                                                            | `""`               |
 | `inputSoftFail`       | Do not return an error code if secrets are found.                                                                                | `true`             |
 | `accuknoxToken`       | The token for authenticating with the CSPM panel.                                                                                | **N/A (Required)** |
-| `accuknoxTenantId`    | The ID of the tenant associated with the CSPM panel.                                                                             | **N/A (Required)** |
 | `accuknoxEndpoint`    | The URL of the CSPM panel to push the scan results to.                                                                           | **N/A (Required)** |
 | `accuknoxLabel`       | The label created in AccuKnox SaaS for associating scan results.                                                                 | **N/A (Required)** |
 
@@ -70,7 +69,6 @@ steps:-
   task: accuknox-secret-scan@1.0.2
   inputs:
     accuknoxEndpoint: $(accuknoxEndpoint)
-    accuknoxTenantId: $(accuknoxTenantId)
     accuknoxToken: $(accuknoxToken)
     accuknoxLabel: $(accuknoxLabel)
     inputSoftFail: true

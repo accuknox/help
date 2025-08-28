@@ -55,7 +55,6 @@ Edit your Azure DevOps pipeline YAML file to include the AccuKnox IaC Scan task.
 - task: accuknox-iac@1.0.1
   inputs:
     accuknoxEndpoint: "<ACCUKNOX_ENDPOINT>"
-    accuknoxTenantId: "<ACCUKNOX_TENANT_ID>"
     accuknoxToken: "<ACCUKNOX_TOKEN>"
     accuknoxLabel: "<ACCUKNOX_LABEL>"
     inputQuiet: true

@@ -42,7 +42,6 @@ This guide shows how to integrate **Opengrep SAST scanning** into an **Azure Dev
 | Name                 | Description                                                                             |
 | -------------------- | --------------------------------------------------------------------------------------- |
 | **accuknoxEndpoint** | The URL of the CSPM panel to push the scan results to (e.g., `cspm.demo.accuknox.com`). |
-| **accuknoxTenantId** | The ID of the tenant associated with the CSPM panel.                                    |
 | **accuknoxToken**    | Token for authenticating with the AccuKnox CSPM panel.                                  |
 | **accuknoxLabel**    | The label used to categorize and identify scan results in AccuKnox.                     |
 
@@ -55,7 +54,6 @@ steps:
   - task: accuknox-opengrep-sast@1.0
     inputs:
       accuknoxEndpoint: $(accuknoxEndpoint)
-      accuknoxTenantId: $(accuknoxTenantId)
       accuknoxToken: $(accuknoxToken)
       accuknoxLabel: $(accuknoxLabel)
       inputSoftFail: false
@@ -66,7 +64,6 @@ steps:
 | Name             | Description                     | Required | Default                                                                                  |
 | ---------------- | ------------------------------- | -------- | ---------------------------------------------------------------------------------------- |
 | accuknoxEndpoint | AccuKnox CSPM panel URL         | Yes      | [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com") |
-| accuknoxTenantId | AccuKnox Tenant ID              | Yes      |                                                                                          |
 | accuknoxToken    | AccuKnox API Token              | Yes      |                                                                                          |
 | accuknoxLabel    | Label for scan results          | Yes      |                                                                                          |
 | inputSoftFail    | Continue even if the scan fails | No       | false                                                                                    |

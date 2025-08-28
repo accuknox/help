@@ -51,7 +51,6 @@ To demonstrate the benefits of incorporating AccuKnox DAST into an Azure DevOps 
 | ------------------ | ------------------------------------ |
 | `targetUrl`        | URL of the web application to scan.  |
 | `accuknoxEndpoint` | URL of the AccuKnox CSPM API.        |
-| `accuknoxTenantId` | AccuKnox Tenant ID.                  |
 | `accuknoxToken`    | AccuKnox API token.                  |
 | `accuknoxLabel`    | Label to group findings in AccuKnox. |
 
@@ -67,7 +66,6 @@ steps:
     inputs:
       targetURL: $(TARGET_URL)
       accuknoxEndpoint: $(ACCUKNOX_ENDPOINT)
-      accuknoxTenantId: $(ACCUKNOX_TENANT_ID)
       accuknoxToken: $(ACCUKNOX_TOKEN)
       accuknoxLabel: $(ACCUKNOX_LABEL)
       scanType: $(SCAN_TYPE)
