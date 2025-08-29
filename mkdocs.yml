@@ -376,6 +376,7 @@ nav:
       - "Freshservice" : "integrations/freshservice-cspm.md"
       - "Connectwise" : "integrations/connectwise-cspm.md"
       - "ServiceNow" : "integrations/servicenow.md"
+      - "ServiceDesk Plus": "integrations/servicedesk-plus.md"
     - "SIEM Events" :
       - "Telemetry (Sample)" :
         - "Logs" : "integrations/telemetry-logs.md"
