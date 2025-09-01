@@ -34,8 +34,21 @@ hide:
     + Serverless - Fargate and ECS supported, others are on roadmap
     + Windows - On roadmap
 
-??? "**3. Where is AccuKnox SAAS is located?**"
-    Currently it is located in US region
+??? "**3. Where is AccuKnox SaaS located?**"
+    AccuKnox SaaS is deployed across multiple regions to ensure high availability, low latency, and compliance with regional data regulations. Currently, our SaaS is available in the following environments:
+
+    1.  United States (Primary Production Environment)
+        -   URL: [app.accuknox.com](http://app.accuknox.com/)
+        -   This is our primary production deployment serving customers across North America.
+    2.  India Production Environment
+        -   URL: [app.in.accuknox.com](http://app.in.accuknox.com/)
+        -   Optimized for customers in India and neighboring regions to ensure better performance and adherence to local data residency requirements.
+    3.  Europe Production Environment
+        -   URL: [app.eu.accuknox.com](http://app.eu.accuknox.com/)
+        -   Designed to comply with GDPR and serve customers across the European Union with minimal latency.
+    4.  Middle East Production Environment
+        -   URL: [app.me.accuknox.com](http://app.me.accuknox.com/)
+        -   Tailored for enterprises in the Middle East, offering improved accessibility and alignment with regional compliance standards.
 
 ??? "**4. Does AccuKnox provide auto discovery of assets and workloads?**"
     Yes, AccuKnox can auto discover assets in the cloud by leveraging the cloud native tools.
