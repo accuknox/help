@@ -60,7 +60,15 @@ Onboard your node/control plane by running the respective command with the below
 
 ```bash
 sudo knoxctl onboard vm cp-node \
-... usual flags
+--version v0.10.7 \
+--join-token=ae0e9974-6a8d-4c4f-9148-fb4e0ca769d9 \ #this may vary
+--spire-host=spire.accuknox.com \
+--pps-host=pps.accuknox.com \
+--knox-gateway=knox-gw.accuknox.com:3000 \
+--vm-mode="systemd" \  # this may vary
+--enable-host-policy-discovery \
+--hostViz="process,network,file,capabilities" \
+--viz="process,network,file"
 --skip-btf-check=true \
 --system-monitor-path=/tmp/system_monitor.bpf.o
 ```

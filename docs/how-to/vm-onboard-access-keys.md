@@ -40,15 +40,18 @@ In the case of the Access key onboarding method User can directly onboard the VM
 
 The command may look something like this:
 
-```cmd
-knoxctl onboard vm cp-node \
-  --version v0.8.1 \
-  --spire-host=spire.demo.accuknox.com \
-  --pps-host=pps.demo.accuknox.com \
-  --knox-gateway=knox-gw.demo.accuknox.com:3000 \
-  --vm-name="accuknox-vm" \
-  --access-key-url="cwpp.demo.accuknox.com" \
-  --access-key="access-token"
+```sh
+$ knoxctl onboard vm cp-node \
+--version v0.10.7 \
+--spire-host=spire.accuknox.com \
+--pps-host=pps.accuknox.com \
+--knox-gateway=knox-gw.accuknox.com:3000 \
+--vm-name="accuknox-vm" \
+--access-key-url="cwpp.demo.accuknox.com" \
+--access-key="access-token" \
+--enable-host-policy-discovery \
+--hostViz="process,network,file,capabilities" \
+--viz="process,network,file"
 ```
 
 In the above command, You need to replace the `--access-token` value with the created [access key](https://help.accuknox.com/how-to/create-access-keys/ "https://help.accuknox.com/how-to/create-access-keys/"), and substitute `--vm-name` with the desired vm name. After replacing the value the command will look like this:
