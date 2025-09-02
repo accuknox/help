@@ -73,17 +73,30 @@ The following agents are installed:
 The command may look something like this:
 
 ```sh
-$ knoxctl onboard vm Control Plane-node \
-  --version "v0.2.10" \
-  --join-token="843ef458-cecc-4fb9-b5c7-9f1bf7c34567" \
-  --spire-host="spire.dev.accuknox.com" \
-  --pps-host="pps.dev.accuknox.com" \
-  --knox-gateway="knox-gw.dev.accuknox.com:3000"
+$ knoxctl onboard vm cp-node \
+--version v0.10.7 \
+--join-token=ae0e9974-6a8d-4c4f-9148-fb4e0ca769d9 \ #this may vary
+--spire-host=spire.accuknox.com \
+--pps-host=pps.accuknox.com \
+--knox-gateway=knox-gw.accuknox.com:3000 \
+--vm-mode="systemd" \  # this may vary
+--enable-host-policy-discovery \
+--hostViz="process,network,file,capabilities" \
+--viz="process,network,file"
 ```
 
 The above command will emit the command to onboard worker nodes. You may also use the `--Control Plane-node-addr` flag to specify the address that other nodes will use to connect with your cluster.
 
 By default, the network created by onboarding commands reserves the subnet `172.20.32.0/27` for the `accuknox-net` Docker network. If you want to change it for your environment, you can use the `--network-cidr` flag.
+
+As for the additional flags, here is the parameter table:
+
+| Flag | Scope | Example | Description |
+| --- | --- | --- | --- |
+| `--enable-host-policy-discovery` | Host | --- | Enables automatic host-level policy discovery (process, network, file, capabilities). |
+| `--hostViz=<options>` | Host-level telemetry visualization | `process,network,file,capabilities` | Visualizes **process activity**, **network traffic**, **file access**, and **Linux capabilities**. |
+| `--viz=<options>` | Containers, workloads, or VM-level view | `process,network,file` | Visualizes **process**, **network**, and **file** activities. |
+
 
 ### Onboarding Worker Nodes
 
