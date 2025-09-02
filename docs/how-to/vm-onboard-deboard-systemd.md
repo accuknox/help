@@ -170,7 +170,7 @@ Creating kubearmor-vm-adapter ... done
 onboard-vm-node.go:41: VM successfully joined with control-plane!
 ```
 
-![image-20241111-053236.png](https://i.ibb.co/z4Jc6Dn/2-F01-D559-950-C-45-CC-AEF5-9-DE947-D92-BAB.png)
+![image-20241111-053236.png](https://i.ibb.co/PvZdwHXf/1.png)
 
 ## Troubleshooting
 
