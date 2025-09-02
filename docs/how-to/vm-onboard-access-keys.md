@@ -58,9 +58,15 @@ In the above command, You need to replace the `--access-token` value with the cr
 
 By default, if Docker is not found, systemd mode of installation would be used. If you want to explicitly onboard using systemd services, add the `--vm-mode=systemd` flag to the above command.
 
+As for the additional flags, here is the parameter table:
+
+| Flag | Scope | Example | Description |
+| --- | --- | --- | --- |
+| `--enable-host-policy-discovery` | Host | --- | Enables automatic host-level policy discovery (process, network, file, capabilities). |
+| `--hostViz=<options>` | Host-level telemetry visualization | `process,network,file,capabilities` | Visualizes **process activity**, **network traffic**, **file access**, and **Linux capabilities**. |
+| `--viz=<options>` | Containers, workloads, or VM-level view | `process,network,file` | Visualizes **process**, **network**, and **file** activities. |
+
 ### Output
-
-
 
 ![image-20241231-132346.png](./images/vm-onboard-access-keys/1.png)
 

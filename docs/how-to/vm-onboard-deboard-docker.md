@@ -89,6 +89,15 @@ The above command will emit the command to onboard worker nodes. You may also us
 
 By default, the network created by onboarding commands reserves the subnet `172.20.32.0/27` for the `accuknox-net` Docker network. If you want to change it for your environment, you can use the `--network-cidr` flag.
 
+As for the additional flags, here is the parameter table:
+
+| Flag | Scope | Example | Description |
+| --- | --- | --- | --- |
+| `--enable-host-policy-discovery` | Host | --- | Enables automatic host-level policy discovery (process, network, file, capabilities). |
+| `--hostViz=<options>` | Host-level telemetry visualization | `process,network,file,capabilities` | Visualizes **process activity**, **network traffic**, **file access**, and **Linux capabilities**. |
+| `--viz=<options>` | Containers, workloads, or VM-level view | `process,network,file` | Visualizes **process**, **network**, and **file** activities. |
+
+
 ### Onboarding Worker Nodes
 
 The second command will be for onboarding worker nodes. It may look something like this:

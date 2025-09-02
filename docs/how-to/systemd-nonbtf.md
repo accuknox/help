@@ -72,3 +72,11 @@ sudo knoxctl onboard vm cp-node \
 --skip-btf-check=true \
 --system-monitor-path=/tmp/system_monitor.bpf.o
 ```
+
+As for the additional flags, here is the parameter table:
+
+| Flag | Scope | Example | Description |
+| --- | --- | --- | --- |
+| `--enable-host-policy-discovery` | Host | --- | Enables automatic host-level policy discovery (process, network, file, capabilities). |
+| `--hostViz=<options>` | Host-level telemetry visualization | `process,network,file,capabilities` | Visualizes **process activity**, **network traffic**, **file access**, and **Linux capabilities**. |
+| `--viz=<options>` | Containers, workloads, or VM-level view | `process,network,file` | Visualizes **process**, **network**, and **file** activities. |
