@@ -3,119 +3,98 @@ title: AWS CodePipeline - SAST
 description: Integrate AccuKnox SAST into AWS CodePipeline to proactively identify and fix security vulnerabilities in code before deployment, ensuring secure releases.
 ---
 
-# AWS CodePipeline - SAST
+# AccuKnox SAST Integration with AWS CodePipeline
 
-This document contains the process of integrating AccuKnox SAST with AWS codepipeline. By integrating AccuKnox SAST into the pipeline, you can identify and resolve security vulnerabilities proactively before they are even deployed.
+This document contains the process of integrating AccuKnox SAST (Static Application Security Testing) with AWS CodePipeline. By integrating AccuKnox SAST into your CI/CD pipeline, you can identify and resolve security vulnerabilities proactively before they are deployed.
+
 
 ## Prerequisites
 
-- AWS Codepipeline access
+Before beginning the integration, ensure you have the following:
 
-- AccuKnox UI access
+* **AWS CodePipeline access** - Administrative access to create and modify pipelines.
+    * 📖 *Reference:* [Getting Started with AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-codepipeline.html)
+    * 📖 *Reference:* [Create a Pipeline in AWS CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html)
 
-- SonarQube access
+* **AWS CodeBuild access** - Make sure that you have added the `codestar-connections:UseConnection` IAM permission to your service role policy.
+    * 📖 *Reference:* [Getting Started with AWS CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started.html)
 
-### **Step 1: Create the AccuKnox Token**
+* **AccuKnox UI access** - Access to the AccuKnox platform.
 
-The first step is to generate an AccuKnox token. For generating the AccuKnox token, open up the AccuKnox, Go to Settings > Tokens then click on the create button.
+* **AWS IAM Configuration** - Proper service role permissions configured.
+    * 📖 *Reference:* [Add permissions to your CodeBuild service role policy](https://docs.aws.amazon.com/codepipeline/latest/userguide/troubleshooting.html#codebuild-role-connections)
 
-![alt](images/aws-sast/1.png)
+* **AccuKnox SAST API credentials**, including:
+    * Tenant ID
+    * Authentication Token
+    * Endpoint URL
+    * Labels
 
-Give your token a name and click on the Generate button.
+* **Repository Configuration**:
+    * **Full clone enabled** - Ensure AWS CodePipeline is configured to pass metadata that allows CodeBuild actions to perform a full Git clone.
+        * 📖 *Reference:* [Enable Full Clone in AWS CodeBuild](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
 
-![alt](images/aws-sast/2.png)
+## Configuration Steps
 
-Once you have generated the the token, click on the copy button and take a note of it. It will be required to configured as a secret in the pipeline. Also copy the Tenant Id and take a note of it.
+### Step 1: Configure AWS CodePipeline Environment Variables
 
-![alt](images/aws-sast/3.png)
+Add the following environment variables to your CodeBuild project or pipeline configuration.
 
-Copy this token, go to AWS secrets manager and create a secret with key `AK_TOKEN` and paste the value. Create another secret with the key `TENANT_ID`, and paste it's value.
+* 📖 *Reference:* [Set Environment Variables in CodeBuild Project](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-pipeline-variables.html)
 
-![alt](images/aws-sast/4.png)
+| Name                | Description                                                                                                                           | Required | Example Value            |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------ |
+| `ACCUKNOX_ENDPOINT` | The URL of the CSPM panel to push the scan results to.                                                                                | Yes      | `cspm.demo.accuknox.com` |
+| `ACCUKNOX_TOKEN`    | Token for authenticating with the AccuKnox CSPM panel. Refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/). | Yes      | `your_api_token_here`    |
+| `ACCUKNOX_LABEL`    | The label used to categorize and identify scan results in AccuKnox. Refer to [How to Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/). | Yes      | `test123`                |
+| `ACCUKNOX_TENANT`   | AccuKnox tenant id.                                                                                                                   | Yes      | `167`                    |
 
-### **Step 2: Create a label**
+### Step 2: Configure AWS CodeBuild Specification (buildspec.yml)
 
-In AccuKnox, labels are used for grouping similar types of assets together. For creating a label navigate to Settings > Labels and click on the create label button. Give your label a name and a filename prefix. Take a note of the label and click on the save button.
+Create or update your `buildspec.yml` file in your repository root with the following configuration:
 
-![alt](images/aws-sast/5.png)
-
-### **Step 3: Create SonarQube token**
-
-Create a SonarQube user with permissions to administer quality gates, quality profiles then generate an access token for that user. Go to AWS secretes manager and create a token with name `SONAR_TOKEN`.
-
-### **Step 4: Create the pipeline**
-
-Add this content to your buildspec file. Configure the variables `SQ_URL`, `PROJECT_KEY`, `AccuKnox_URL`, `TENANT_ID` and `LABEL`.
-
-```yaml
+```yml
 version: 0.2
+
 env:
   variables:
-    SQ_URL: https://sq.accuknox.com
-    PROJECT_KEY: "aws-code-pipeline"
-    AccuKnox_URL: cspm.demo.accuknox.com
-    TENANT_ID: "167"
-    LABEL: "SAST"
-    GIT_DEPTH: "0"
-  secrets-manager:
-    AK_TOKEN: "AK_TOKEN:AK_TOKEN"
-    SONAR_TOKEN: "SONAR_TOKEN:SONAR_TOKEN"
-
+    SOFT_FAIL: "true"
 
 phases:
-  post_build:
+  pre_build:
     commands:
-    - |
-      docker run --rm \
-      -e SONAR_HOST_URL=$SQ_URL  \
-      -e SONAR_TOKEN=$SONAR_TOKEN \
-      -v "$(pwd):/usr/src" \
-      sonarsource/sonar-scanner-cli
-    - |
-      docker run --rm \
-      -e SQ_URL=$SQ_URL \
-      -e SQ_AUTH_TOKEN=$SONAR_TOKEN \
-      -e REPORT_PATH=/app/data/ \
-      -e SQ_PROJECTS="$PROJECT_KEY" \
-      -v $PWD:/app/data/ \
-      accuknox/sastjob:latest
-      ls -la
-    - |
-      ls -la
-      for file in `ls -1 SQ-*.json`; do
-        curl --location --request POST "https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$TENANT_ID&label=$LABEL&data_type=SQ&save_to_s3=true" \
-          --header "Tenant-Id: $TENANT_ID" \
-          --header "Authorization: Bearer $AK_TOKEN" \
-          --form "file=@\"$file\""
-      done
-    - |
-      sleep 10
-      response=$(curl -s -u "$SONAR_TOKEN:" "$SQ_URL/api/qualitygates/project_status?projectKey=$PROJECT_KEY")
-      echo "Quality Gate API Response: $response"
-      qualityGateStatus=$(echo "$response" | jq -r '.projectStatus.status')
+      - echo "Installing AccuKnox ASPM scanner..."
+      - pip install [https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.12.1/accuknox_aspm_scanner-0.12.1-py3-none-any.whl](https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.12.1/accuknox_aspm_scanner-0.12.1-py3-none-any.whl) --break-system-packages
 
-      if [ "$qualityGateStatus" != "OK" ]; then
-        echo "Quality Gate failed: $qualityGateStatus"
-        exit 1
-      else
-        echo "Quality Gate passed"
-      fi
+  build:
+    commands:
+      - echo "Running AccuKnox sast scan"
+      - |
+        if [ "$SOFT_FAIL" = "true" ]; then
+          SOFT_FAIL_ARG="--softfail"
+        fi
+        echo "Installing AccuKnox scanner..."
+        echo "Running SAST scan..."
+        accuknox-aspm-scanner tool install --type sast
+        accuknox-aspm-scanner scan $SOFT_FAIL_ARG sast --command "scan ."
+
 ```
 
-Once you have added the above buildspec file and pushed it to repository, it will trigger the CI/CD pipeline. And you will see a screen like this.
+## Workflow Execution Without AccuKnox
 
-![alt](images/aws-sast/6.png)
+Initially, the pipeline scans the code for vulnerabilities but does not forward results to AccuKnox, requiring manual review.
 
-![alt](images/aws-sast/7.png)
+![alt](./images/aws-dast/1.png)
 
-You can see that the pipeline have failed, because it have found the vulnerabilities in the code.
+## Workflow Execution With AccuKnox
 
-### **Step 5: View the findings**
+With AccuKnox integrated, scan results are automatically sent to the AccuKnox platform for further risk assessment and remediation.
 
-To see all of your SAST findings, navigate to AccuKnox > Issues > Findings and select the Static Code Analysis Findings.
+## Viewing Results in AccuKnox
 
-![alt](images/aws-sast/8.png)
+1.  After the pipeline run, log in to **AccuKnox**.
+2.  Navigate to **Issues > Findings** and select **Opengrep Findings**.
+![alt](./images/aws-dast/2.png)
 
-Click on any finding to get more details. You can also click on the Create Ticket button to create a ticket.
-
-![alt](images/aws-sast/9.png)
+3.  Inspect vulnerabilities, apply fixes, and create tracking tickets if necessary.
+![alt](./images/aws-dast/3.png)
