@@ -115,6 +115,30 @@ hide:
 
     Further on this, we also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
 
+??? "**2. What components of ASPM are supported by AccuKnox?**"
+    AccuKnox provides a comprehensive ASPM solution integrated within our CNAPP. The core components include:
+    + Static Application Security Testing (SAST)
+    + Dynamic Application Security Testing (DAST)
+    + Secrets Scanning
+    + Infrastructure as Code (IaC) Scanning
+    + Container Scanning
+
+??? "**What are the different frameworks supported by IaC scanning?**"
+    AccuKnox's IaC scanning is designed to support industry-standard frameworks and languages. Our primary focus is on providing broad coverage for the most common tools used in modern DevOps environments, ensuring misconfigurations are identified before they reach production.
+
+??? "**We are currently handling manual pen testing of our endpoints every few months. However, we see the risk of exposure if the DevOps/dev team makes a basic configuration change that could leave us vulnerable for a longer period. How can AccuKnox help?**"
+    AccuKnox directly addresses this gap by shifting security from periodic point-in-time assessments to a continuous, automated process. Our platform helps in the following ways:
+    + Pipeline Integration: We integrate security checks directly into your CI/CD pipeline, catching vulnerabilities and misconfigurations automatically with every build and deployment.
+    + Continuous Compliance: The platform continuously monitors your cloud and Kubernetes environments for configuration drift and compliance violations, providing real-time alerts.
+    + Prioritization and Automation: Instead of manual checks, you can focus on automating security and prioritizing the most critical risks identified by the platform across your entire software development lifecycle.
+    This "built-in, not bolted-on" approach drastically reduces the window of exposure that exists between manual penetration tests.
+
+??? "**Does AccuKnox provide auto-patching or auto-PR creation services?**"
+    This capability is currently a work in progress and is scheduled to be available by October 2025.
+
+??? "**Is AccuKnox tooling natively integrated with IDE?**"
+    No, AccuKnox does not provide a native IDE plugin. Our strategy focuses on integrating security at the most critical control plane: the DevOps pipeline. Users can continue using their preferred IDE and its existing tooling, while AccuKnox provides native integration with CI/CD tools like Jenkins, Azure DevOps, and GitHub Actions to ensure security is enforced centrally and consistently.
+
 ## Runtime Security (CWPP & KubeArmor)
 
 ??? "**1. How does AccuKnox help to achieve Runtime security?**"
@@ -185,6 +209,36 @@ hide:
 
 ??? "**3. How does AccuKnox secure AI data pipelines against poisoning and compliance risks?**"
     AccuKnox provides **end-to-end visibility** from data ingestion to training with dataset lineage tracking, model SBOMs, and automated compliance checks (NIST AI RMF, EU AI Act, HIPAA), blocking poisoned datasets and ensuring regulatory adherence.
+
+??? "**4. Does AccuKnox AI security cover on-premise deployed AI components?**"
+    Yes. AccuKnox provides comprehensive AI security for a wide range of deployment models. Our platform is architected to be flexible, offering robust protection for:
+    + Public and Private Clouds
+    + Fully On-Premise Environments
+    + Air-Gapped Infrastructure
+    + Hybrid Deployments
+    This ensures your AI models, data, and infrastructure are secured, regardless of where they are deployed.
+
+??? "**5. How does AccuKnox secure MCP servers?**"
+    AccuKnox secures Master Control Program (MCP) servers by integrating them into our Zero Trust security framework. The MCP server operates within a Sandboxed Execution environment, which provides process and network isolation. All interactions are governed by strict authorization controls and are continuously monitored, ensuring the integrity and security of the core AI orchestration layer.
+
+??? "**6. How does AccuKnox secure AI Agents?**"
+    AccuKnox secures AI Agents through advanced runtime sandboxing and policy enforcement. Key security measures include:
+    + Sandboxing Unsafe Tool Usage: Isolating the execution of tools invoked by agents to prevent misuse or compromise.
+    + Sandboxing Untrusted Code: Automatically generated or untrusted code is executed in a secure, isolated sandbox (e.g., process, container, or microVM) to mitigate risks like Remote Code Execution (RCE), privilege compromise, and resource overload.
+    This proactive approach allows organizations to leverage the power of agentic AI while defending against associated threats.
+
+??? "**7. How does AccuKnox provide visibility into Shadow AI?**"
+    AccuKnox addresses the challenge of "Shadow AI" through its core capability of Comprehensive Visibility and Auto-Discovery. By onboarding your cloud accounts, our platform automatically discovers and inventories all AI/ML assets, including models, datasets, and compute infrastructure. This creates a single, unified view of all AI components, bringing potentially unsanctioned or unmonitored resources under the purview of the security team and   allowing for the consistent application of governance and security policies.
+
+??? "**8. How does AccuKnox help with dealing with privacy issues in AI-SPM?**"
+    AccuKnox has multiple built-in features to address data privacy:
+    + PII/PHI Scanning of Datasets: The platform can scan AI/ML datasets to identify and flag the presence of Personally Identifiable Information (PII) or Protected Health Information (PHI).
+    + Prompt and Response Firewalling: Our firewall inspects both the input prompts sent to LLMs and the output responses received from them to detect and block the exposure of PII/PHI in real-time.
+
+??? "**Does AccuKnox expose privacy-related aspects to external LLMs (e.g., for AI Co-Pilot)?**"
+    No, protecting customer data is paramount. AccuKnox implements strict guardrails:
+    + Data Sanitization: We ensure that no telemetry, alert data, or other information containing potential PII/PHI is ever sent to external LLMs for analysis or remediation suggestions.
+    + Tenant-Level Control: The AI-assisted remediation feature can be completely disabled on a per-tenant basis, giving customers full control over whether any of their data interacts with an LLM.
 
 ## CDR (Cloud Detection & Response)
 
