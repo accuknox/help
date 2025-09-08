@@ -317,6 +317,7 @@ nav:
             - "DAST": "integrations/github-dast.md"
             - "Secret Scanning with Github Actions": "integrations/github-actions-secret-scan.md"
             - "Devtron SAST": "integrations/github-devtron-sast.md"
+            - "Devtron DAST": "integrations/github-devtron-dast.md"
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
             - "SAST": "integrations/gitlab-opengrep.md"
