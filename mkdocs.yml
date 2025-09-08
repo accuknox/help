@@ -305,6 +305,7 @@ nav:
           - "Container Scan": "integrations/aws-container-scan.md"
           - "IaC Scan": "integrations/aws-iac-scan.md"
           - "DAST": "integrations/aws-dast.md"
+          - "Secret Scanning": "integrations/aws-secret-scan.md"
         - "GitHub":
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
