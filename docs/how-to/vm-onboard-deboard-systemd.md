@@ -124,19 +124,31 @@ The following agents will be installed:
 
 The command may look something like this:
 
-```
+```sh
 $ knoxctl onboard vm cp-node \
-  --version "v0.2.10" \
-  --join-token="843ef458-cecc-4fb9-b5c7-9f1bf7c34567" \
-  --spire-host="spire.dev.accuknox.com" \
-  --pps-host="pps.dev.accuknox.com" \
-  --knox-gateway="knox-gw.dev.accuknox.com:3000"
+--version v0.10.7 \
+--join-token=ae0e9974-6a8d-4c4f-9148-fb4e0ca769d9 \ #this may vary
+--spire-host=spire.accuknox.com \
+--pps-host=pps.accuknox.com \
+--knox-gateway=knox-gw.accuknox.com:3000 \
+--vm-mode="systemd" \  # this may vary
+--enable-host-policy-discovery \
+--hostViz="process,network,file,capabilities" \
+--viz="process,network,file"
 ```
 
 !!! note
     By default, if Docker is not found, systemd mode of installation would be used. If you want to explicitly onboard using systemd services, add the `--vm-mode=systemd` flag to the above command.
 
 The above command will emit the command to onboard worker nodes. You may also use the `--cp-node-addr` flag to specify the address that other nodes will use to connect with your cluster.
+
+As for the additional flags, here is the parameter table:
+
+| Flag | Scope | Example | Description |
+| --- | --- | --- | --- |
+| `--enable-host-policy-discovery` | Host | --- | Enables automatic host-level policy discovery (process, network, file, capabilities). |
+| `--hostViz=<options>` | Host-level telemetry visualization | `process,network,file,capabilities` | Visualizes **process activity**, **network traffic**, **file access**, and **Linux capabilities**. |
+| `--viz=<options>` | Containers, workloads, or VM-level view | `process,network,file` | Visualizes **process**, **network**, and **file** activities. |
 
 ## Onboarding Worker Nodes
 
@@ -158,7 +170,7 @@ Creating kubearmor-vm-adapter ... done
 onboard-vm-node.go:41: VM successfully joined with control-plane!
 ```
 
-![image-20241111-053236.png](https://i.ibb.co/z4Jc6Dn/2-F01-D559-950-C-45-CC-AEF5-9-DE947-D92-BAB.png)
+![image-20241111-053236.png](https://i.ibb.co/PvZdwHXf/1.png)
 
 ## Troubleshooting
 
