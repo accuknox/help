@@ -16,7 +16,7 @@ hide:
 
 # AWS Code Pipeline Integrations
 
-::cards:: cols=2
+::cards:: cols=3
 
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
@@ -30,4 +30,8 @@ hide:
 - title: DAST (Dynamic Analysis)
   image: ./cicd-icons/dast.svg
   url: /integrations/aws-dast/
-  ::/cards::
+- title: Secret Scanning
+  image: ./cicd-icons/secret-scan.svg
+  url: /integrations/aws-secret-scan/
+
+::/cards::
