@@ -44,6 +44,7 @@ Attach this context to your scan jobs within your `.circleci/config.yml` file, l
     - accuknox-scan/container:
         context: accuknox-context
         IMAGE_NAME: circleci
+        IMAGE_TAR: image.tar
         TAG: test
         SOFT_FAIL: true
     ```
@@ -65,16 +66,37 @@ Update your CircleCI configuration file (`.circleci/config.yml`) to include the 
 version: 2.1
 
 orbs:
-  accuknox-scan: accuknox/scan@1.0.0
+  accuknox-scan: accuknox/scan@1.0.2
 
-workflows:
+jobs:
+  build-docker-image:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker Image
+          command: 
+            docker build -t circleci:test -f Dockerfile .
+            docker save circleci:test -o image.tar
+      - persist_to_workspace:
+          root: .
+          paths:
+          - image.tar
+
+workflows:  
   accuknox:
     jobs:
-      - accuknox-scan/container:
-          context: accuknox-context
-          IMAGE_NAME: circleci
-          TAG: test
-          SOFT_FAIL: true
+    - build-docker-image
+    - accuknox-scan/container:
+        requires:
+        - build-docker-image
+        IMAGE_NAME: circleci
+        IMAGE_TAR: image.tar
+        TAG: test
+        SOFT_FAIL: true
+        SEVERITY: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
 ```
 
 ### Explanation of Parameters
@@ -84,6 +106,7 @@ The `accuknox-scan/container` job accepts several parameters to define the image
 | Parameter    | Description                                                                         | Default Value                      |
 | :----------- | :---------------------------------------------------------------------------------- | :--------------------------------- |
 | `IMAGE_NAME` | Name of the Docker image to scan.                                                   | _Required_                         |
+| `IMAGE_TAR`  | Path/filename of the Docker image tarball                                           | _Required_                         |
 | `TAG`        | Tag/version of the image.                                                           | _Required_                         |
 | `SEVERITY`   | Comma-separated list of severities: `UNKNOWN`, `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`. | `UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL` |
 | `SOFT_FAIL`  | If `true`, the job will not fail even if issues are found.                          | `true`                             |
