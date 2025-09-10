@@ -59,6 +59,10 @@ terraform init
 terraform plan
 terraform apply
 ```
+Save the terraform output and share it with the AccuKnox Team
+
+!!! note "Important"
+    At this point, only the subscription mentioned in the terraform variables will be monitored, to monitor other subscriptions in the account, follow the commands in step 3
 
 ### Step 2: Get the EventHub Primary Connection String
 
@@ -81,6 +85,49 @@ E.g.,
     "value": "Endpoint=sb://accuknox-cdr.servicebus.windows.net/;SharedAccessKeyName=logstash;SharedAccessKey=REDACTED;EntityPath=default"
   }
 }
+```
+
+
+### Step 3: Monitor additional subscriptions
+
+You can monitor additional subscriptions in the organization by running the following commands.
+Before running the script you need to update the values of the the variables.
+
+| Variable                       | Description                                                                            |
+|--------------------------------|----------------------------------------------------------------------------------------|
+| `SUBSCRIPTION_IDS`              | Azure account subscription IDs to monitor                                             |
+| `EVENTHUB_AUTH_RULE_ID`                     | Can be found in the terraform output of step 1                            |
+| `EVENTHUB_NAME`          | Can be found in the terraform output of step 1                                               | 
+
+```
+# Array of subscription IDs
+SUBSCRIPTION_IDS=("sub-11111111-aaaa-bbbb-cccc-111111111111" \
+                  "sub-22222222-aaaa-bbbb-cccc-222222222222" \
+                  "sub-33333333-aaaa-bbbb-cccc-333333333333")
+EVENTHUB_AUTH_RULE_ID="<eventhub-authorization-rule-id>"
+EVENTHUB_NAME="<eventhub-name>"
+
+DIAGNOSTIC_NAME="accuknox-cdr-activity-to-eventhub"
+for SUBSCRIPTION_ID in "${SUBSCRIPTION_IDS[@]}"; do
+  echo "Configuring Activity Log → Event Hub for $SUBSCRIPTION_ID ..."
+  
+  az monitor diagnostic-settings create \
+    --name $DIAGNOSTIC_NAME \
+    --resource "/subscriptions/$SUBSCRIPTION_ID" \
+    --event-hub-rule $EVENTHUB_AUTH_RULE_ID \
+    --event-hub $EVENTHUB_NAME \
+    --logs '[
+        {"category": "Administrative", "enabled": true},
+        {"category": "Security", "enabled": true},
+        {"category": "ServiceHealth", "enabled": true},
+        {"category": "Alert", "enabled": true},
+        {"category": "Recommendation", "enabled": true},
+        {"category": "Policy", "enabled": true},
+        {"category": "Autoscale", "enabled": true},
+        {"category": "ResourceHealth", "enabled": true}
+    ]'
+done
+
 ```
 
 ## **Next Steps**

@@ -46,12 +46,14 @@ Before applying the terraform scripts, please update the `terraform.tfvars` with
 
 | Variable             | Description                                               | Default Value          | Requirement |
 |----------------------|-----------------------------------------------------------|------------------------|-------------|
-| `project_id`         | GCP project ID                                            |                        | Mandatory   |
+| `project_id`         | GCP project ID to create the the resources in.            |                        | Mandatory   |
+| `projects`           | GCP projects to monitor                                   |                        | Mandatory   |
+| `org_id`             | GCP organization ID                                       |                        | Mandatory   |
 | `region`             | Any valid GCP region (required by the Terraform provider) |                        | Mandatory   |
-| `pubsub_topic_name`  | Pub/Sub Topic name                                        | `accuknox-cdr`         | Optional    |
-| `subscription_name`  | Pub/Sub Subscription name                                 | `accuknox-cdr`         | Optional    |
-| `service_account_id` | Service Account name                                      | `pubsub-reader`        | Optional    |
-| `sink_name`          | Log Sink name                                             | `audit-logs-to-pubsub` | Optional    |
+| `pubsub_topic_name`  | Pub/Sub Topic name                                        | `accuknox-siem`         | Optional    |
+| `subscription_name`  | Pub/Sub Subscription name                                 | `accuknox-siem-sub`         | Optional    |
+| `service_account_id` | Service Account name                                      | `accuknox-cdr-pubsub-reader`        | Optional    |
+| `sink_name`          | Log Sink name                                             | `accuknox-audit-logs-to-pubsub` | Optional    |
 
 Please run the following commands to deploy the required resources:
 ```bash
@@ -68,4 +70,3 @@ terraform apply
 
 Save the generated keys in a safe place and transmit them as well to your AccuKnox Point of Contact to start the onboarding process
 
-## **Next Steps**
