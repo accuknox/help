@@ -16,6 +16,9 @@ hide:
     + CWPP
     + Container Images Scanning
     + CDR (Cloud Detection or Response) or CDM (Continuous Diagnostic & Mitigation)
+    + AI Datasets, Pipelines, Models and Applications
+    + KSPM
+    + 33+ Compliance Frameworks
 
 ??? "**2. What are the platforms and environments that AccuKnox supports?**"
     AccuKnox supports the following environments:
@@ -27,10 +30,19 @@ hide:
     + AWS
     + GCP
     + Azure
+    + Oracle
+    + OpenStack
+    + OpenShift
+    + Nutanix
+    + VMWare
+    + IBM Cloud
 
     AccuKnox support for the different platforms are as follows:
     + Kubernetes - Fully supported
     + Linux - [Supported distributions](/getting-started/kubearmor-support-matrix/#supported-linux-distributions)
+    + VMs, Baremetals
+    + 5G Workloads and IoT/Edge Sensors
+    + AI Datasets and LLM Models
     + Serverless - Fargate and ECS supported, others are on roadmap
     + Windows - On roadmap
 
@@ -72,6 +84,8 @@ hide:
 
     + Registries: Nexus, ECR, GCR, DockerHub, ACR, Harbor
 
+    ![Integrations](https://help.accuknox.com/introduction/cards/integrations-updated.png)
+
 ??? "**8. Can AccuKnox help in Monitoring?**"
     + With Accuknox, you can create monitors for assets or group of assets to get alerts for changes observed in their Metadata (software version etc)
 
@@ -82,15 +96,7 @@ hide:
     + For these alerts you can have notification enabled as well through channels like Slack, email etc.
 
 ??? "**9. What will happen to my application running on a VM?**"
-    You get hardening policies via AccuKnox enforcement engine KubeArmor.
-
-??? "**10. Is AccuKnox more of a CNAPP solution or a Zero Trust solution?**"
-    AccuKnox is a **Zero Trust CNAPP** solution.
-
-    + CNAPP (Cloud-Native Application Protection Platform) defines the product category for securing cloud-native infrastructure and applications.
-    + Zero Trust is a **security philosophy**.
-
-    AccuKnox integrates both by applying **least-permissive, allow-specific and deny-rest** policies across cloud-native apps and infrastructure.
+    You get hardening policies via AccuKnox. AccuKnox VM Security protects virtual machines by combining CSPM, Host Scanning, Malware Scanning, CWPP, Host Hardening, and Compliance Benchmarking to prevent unauthorized access, safeguard data, and ensure compliance. It offers continuous vulnerability scanning, real-time threat detection, and remediation while minimizing the attack surface with hardened hosts and strong access controls. Overall, it provides proactive, real-time layered security and compliance assurance for virtualized environments.
 
 ## CSPM (Cloud Security Posture Management)
 
@@ -386,12 +392,26 @@ hide:
 ## Pricing & Billing
 
 ??? "**1. What is AccuKnox’s licensing model?**"
-    If it is an end customer, then [AccuKnox SLA](https://www.accuknox.com/sla). If the model is an MSSP, then it operates on a revenue-sharing basis.
+    You can get a custom quote and select individual security modules based on number of units (CWPP nodes, CSPM cloud assets, etc) or a comprehensive CNAPP bundle.AccuKnox offers a flexible licensing approach tailored to customer needs. It's not a one-size-fits-all model.
 
-    AccuKnox offers a flexible licensing approach tailored to customer needs. It's not a one-size-fits-all model. You can get a custom quote and select individual security modules or a comprehensive CNAPP bundle. The pricing is often based on factors like the number of cloud assets, images, and nodes. MSSP model, it is a revenue share.
+    Customers have the flexibility to purchase specific modules such as KSPM, CSPM, ASPM, or CWPP independently.
+    Pricing is modular and typically based on:
+    - Number of cloud assets normalized to units
+    - Number of container images
+    - Number of worker nodes
+    - Number of Tools in SCA, SAST, DAST, IaC
+    - Number of AI/LLM Model
+    - Bundle of per 1000 APIs
+    Customers only pay for the modules they choose.
+
 
 ??? "**2. How would I know what assets are included for billing?**"
-    <a href="https://help.accuknox.com/resources/count-assets/" target="_blank">View details here</a>
+    <a href="https://help.accuknox.com/resources/count-assets/" target="_blank">Count your assets here.</a>
+    AWS: EC2 instances, S3 buckets, RDS databases
+    Azure: Virtual Machines, Storage Accounts, SQL Databases
+    GCP: Compute Engine VMs, Cloud Storage buckets, Cloud SQL instances
+
+    To estimate billing, AccuKnox normalizes assets into units, refer the question above for details.
 
 ??? "**3. What happens if we exceed the asset count for a few days or weeks within a month?**"
     The AccuKnox Control Plane will not stop you from exceeding the quota. However, if the quota consistently exceeds by more than 30% over a longer period, the AccuKnox support team will reach out for clarifications.
@@ -403,35 +423,24 @@ hide:
     - AccuKnox will notify you if the container image count exceeds 5000.
     Additionally, AccuKnox supports scanning images **in Kubernetes clusters or virtual machines directly**, ensuring only runtime images are scanned. This reduces both the number of images scanned and findings noise.
 
-??? "**5. Can customers purchase individual modules instead of the full CNAPP solution?**"
-    Yes. Customers have the flexibility to purchase specific modules such as **KSPM, CSPM, ASPM, or CWPP** independently.
-
-    + **Pricing is modular** and typically based on:
-        - Number of cloud assets
-        - Number of container images
-        - Number of worker nodes
-
-    Customers only pay for the modules they choose.
-
-??? "**6. How is licensing handled in SaaS and on-prem environments?**"
-    + Licensing is generally **subscription-based**.
+??? "**5. How is licensing handled in SaaS and on-prem environments?**"
+    + Licensing is generally **subscription-based** for both SaaS and on-prem.
     + On-prem customers are expected to procure **Platinum Support**.
-    + On-prem licensing often includes **discounted rates**, since customers manage their own infrastructure.
 
-??? "**7. How does modular pricing work?**"
-    + Customers can purchase modules individually (CSPM, ASPM, CWPP, KSPM).
-    + Pricing is based on factors such as:
-      - Number of cloud assets
-      - Number of container images
-      - Number of worker nodes
+??? "**6. Who to reach out to for a custom quote for CNAPP?**"
+    You can reach out to:
+    - Sales Q's -info@accuknox.com
+    - Technical Q's -support@accuknox.com
+
 
 ## Partnerships & Marketplace
 
-??? "**1. How do you work with resellers and partnership models?**"
+??? "**1. How do you work with partners and what are the partnership models?**"
     We have a 100% partner aligned go to market approach. to this goal, we provide our partners the following:
     - Free training, certification
     - Joint marketing
     - Lead sharing
+    For more details, please visit our [partner page](https://accuknox.com/partners).
 
 ??? "**2. Current AccuKnox's marketplace listing?**"
     AccuKnox is currently listed on:
@@ -455,6 +464,8 @@ hide:
     - <a href="https://github.com/marketplace?query=Accuknox" target="_blank">GitHub Marketplace</a>
 
 ??? "**3. Who are AccuKnox's current partners and resellers?**"
+    We have various types of partners, including distributors and resellers, in different geographies such as the EU, US, India, and UAE. This includes System Integrators (SI), Global System Integrators (GSI), and Managed Security Service Providers (MSSP).
+
     AccuKnox collaborates with a diverse ecosystem of partners and is available on various cloud marketplaces.
 
     - **Cloud Partnerships**: AccuKnox partners with major cloud providers like **AWS**, **Google Cloud**, **Microsoft Azure**, **Oracle Cloud**, and **Red Hat**, offering its solutions on their respective marketplaces.
@@ -470,15 +481,25 @@ hide:
     - [Design Partnership](https://accuknox.com/partners/design-partnership-program)
     - [MSSP Partnership](https://accuknox.com/partners/mssp)
 
+??? "**4. How does the AccuKnox’s MSSP model work?**"
+    AccuKnox’s MSSP model lets managed security providers use AccuKnox’s platform to manage and secure multiple customers across different clouds, giving each client isolated access, custom policies, and easy onboarding. MSSPs can brand, automate, and scale their services—while monitoring, billing, and supporting all customers from one dashboard. Read more about our [MSSP partnership program](https://accuknox.com/blog/mssp-ready-cnapp).
+
+??? "**5. Can MSSP users access end customer tenant accounts?**"
+    Yes. AccuKnox fully supports MSSP users having viewer/editor access to end customer tenants, with customer permission. This is a critical requirement for MSSP models, and our platform is designed to accommodate it securely and seamlessly.
+
 ## Roadmap
 
 ??? "**1. Is there a support for CIEM?**"
     No, AccuKnox does not currently have CIEM; instead, we have KIEM. AccuKnox supports Identity and Entitlement Management for Kubernetes, referred to as KIEM (Kubernetes Identity & Entitlement Management). This capability is part of the Kubernetes Security (KSPM) module, which also handles cluster misconfiguration detection and CIS K8s benchmark findings.
 
 ??? "**2. What features are on the roadmap related to environments and integrations?**"
-    + Expanded **serverless support** (beyond AWS Fargate/ECS).
-    + **Windows support** for workloads.
-    + Ongoing expansion of integrations with **registries, SIEMs, and ticketing systems**.
----
+    For 2025 and beyond, AccuKnox is focusing on:
 
-[ SCHEDULE DEMO ](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+    CSPM Oracle Support, CSPM Azure Org Support, Assets Inventory revamp, CIEM, Custom Compliance Framework, RBAC enhancements, DSPM, Security Graph Phase I, CNAPP Policies Revamp, Collectors based ASPM onboarding, SBOM & SCA Integration, Scheduled Dashboard Reporting, AISPM: NIST AI RMF, ISO 42001, EU AI ACT, Windows / Linux Agentless VM scanning, SSPM (m365, sap), Redhat OpenShift Virtualization support, OpenStack support, Trellix (McAfee & Fireeye) Integrations, Nozomi, Armis, CTEM Integration
+
+    We will also have:
+    - Expanded **serverless support** (beyond AWS Fargate/ECS).
+    - **Windows support** for workloads.
+    - Ongoing expansion of integrations with **registries, SIEMs, and ticketing systems**.
+
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
