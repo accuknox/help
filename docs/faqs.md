@@ -16,6 +16,9 @@ hide:
     + CWPP
     + Container Images Scanning
     + CDR (Cloud Detection or Response) or CDM (Continuous Diagnostic & Mitigation)
+    + AI Datasets, Pipelines, Models and Applications
+    + KSPM
+    + 33+ Compliance Frameworks
 
 ??? "**2. What are the platforms and environments that AccuKnox supports?**"
     AccuKnox supports the following environments:
@@ -27,10 +30,19 @@ hide:
     + AWS
     + GCP
     + Azure
+    + Oracle
+    + OpenStack
+    + OpenShift
+    + Nutanix
+    + VMWare
+    + IBM Cloud
 
     AccuKnox support for the different platforms are as follows:
     + Kubernetes - Fully supported
     + Linux - [Supported distributions](/getting-started/kubearmor-support-matrix/#supported-linux-distributions)
+    + VMs, Baremetals
+    + 5G Workloads and IoT/Edge Sensors
+    + AI Datasets and LLM Models
     + Serverless - Fargate and ECS supported, others are on roadmap
     + Windows - On roadmap
 
@@ -72,6 +84,8 @@ hide:
 
     + Registries: Nexus, ECR, GCR, DockerHub, ACR, Harbor
 
+    ![Integrations](https://help.accuknox.com/introduction/cards/integrations-updated.png)
+
 ??? "**8. Can AccuKnox help in Monitoring?**"
     + With Accuknox, you can create monitors for assets or group of assets to get alerts for changes observed in their Metadata (software version etc)
 
@@ -82,15 +96,7 @@ hide:
     + For these alerts you can have notification enabled as well through channels like Slack, email etc.
 
 ??? "**9. What will happen to my application running on a VM?**"
-    You get hardening policies via AccuKnox enforcement engine KubeArmor.
-
-??? "**10. Is AccuKnox more of a CNAPP solution or a Zero Trust solution?**"
-    AccuKnox is a **Zero Trust CNAPP** solution.
-
-    + CNAPP (Cloud-Native Application Protection Platform) defines the product category for securing cloud-native infrastructure and applications.
-    + Zero Trust is a **security philosophy**.
-
-    AccuKnox integrates both by applying **least-permissive, allow-specific and deny-rest** policies across cloud-native apps and infrastructure.
+    You get hardening policies via AccuKnox. AccuKnox VM Security protects virtual machines by combining CSPM, Host Scanning, Malware Scanning, CWPP, Host Hardening, and Compliance Benchmarking to prevent unauthorized access, safeguard data, and ensure compliance. It offers continuous vulnerability scanning, real-time threat detection, and remediation while minimizing the attack surface with hardened hosts and strong access controls. Overall, it provides proactive, real-time layered security and compliance assurance for virtualized environments.
 
 ## CSPM (Cloud Security Posture Management)
 
@@ -114,6 +120,30 @@ hide:
     + Bring in contextual understanding of vulnerabilities and prioritization based on that
 
     Further on this, we also correlate and normalize results from a variety of security scanning tools and provide detailed results of vulnerabilities across infrastructure.
+
+??? "**2. What components of ASPM are supported by AccuKnox?**"
+    AccuKnox provides a comprehensive ASPM solution integrated within our CNAPP. The core components include:
+    + Static Application Security Testing (SAST)
+    + Dynamic Application Security Testing (DAST)
+    + Secrets Scanning
+    + Infrastructure as Code (IaC) Scanning
+    + Container Scanning
+
+??? "**What are the different frameworks supported by IaC scanning?**"
+    AccuKnox's IaC scanning is designed to support industry-standard frameworks and languages. Our primary focus is on providing broad coverage for the most common tools used in modern DevOps environments, ensuring misconfigurations are identified before they reach production.
+
+??? "**We are currently handling manual pen testing of our endpoints every few months. However, we see the risk of exposure if the DevOps/dev team makes a basic configuration change that could leave us vulnerable for a longer period. How can AccuKnox help?**"
+    AccuKnox directly addresses this gap by shifting security from periodic point-in-time assessments to a continuous, automated process. Our platform helps in the following ways:
+    + Pipeline Integration: We integrate security checks directly into your CI/CD pipeline, catching vulnerabilities and misconfigurations automatically with every build and deployment.
+    + Continuous Compliance: The platform continuously monitors your cloud and Kubernetes environments for configuration drift and compliance violations, providing real-time alerts.
+    + Prioritization and Automation: Instead of manual checks, you can focus on automating security and prioritizing the most critical risks identified by the platform across your entire software development lifecycle.
+    This "built-in, not bolted-on" approach drastically reduces the window of exposure that exists between manual penetration tests.
+
+??? "**Does AccuKnox provide auto-patching or auto-PR creation services?**"
+    This capability is currently a work in progress and is scheduled to be available by October 2025.
+
+??? "**Is AccuKnox tooling natively integrated with IDE?**"
+    No, AccuKnox does not provide a native IDE plugin. Our strategy focuses on integrating security at the most critical control plane: the DevOps pipeline. Users can continue using their preferred IDE and its existing tooling, while AccuKnox provides native integration with CI/CD tools like Jenkins, Azure DevOps, and GitHub Actions to ensure security is enforced centrally and consistently.
 
 ## Runtime Security (CWPP & KubeArmor)
 
@@ -178,13 +208,48 @@ hide:
 ## AI Security
 
 ??? "**1. How does AccuKnox detect and prevent adversarial and zero-day attacks on LLMs?**"
-    AccuKnox’s **ModelKnox** module applies AI-SPM with runtime behavioral monitoring, syscall tracing, and anomaly detection to identify adversarial patterns and zero-day exploits against LLM inference pipelines in real time.
+    AccuKnox’s **AI Security** applies AI-SPM with runtime behavioral monitoring, syscall tracing, and anomaly detection to identify adversarial patterns and zero-day exploits against LLM inference pipelines in real time.
 
 ??? "**2. How does AccuKnox enforce policy controls for AI workloads in Kubernetes?**"
     Using **KubeArmor integration**, AccuKnox enforces fine-grained eBPF/LSM policies (process, file, and network) for AI workloads running in Kubernetes clusters, ensuring least-privilege enforcement and runtime protection.
 
 ??? "**3. How does AccuKnox secure AI data pipelines against poisoning and compliance risks?**"
     AccuKnox provides **end-to-end visibility** from data ingestion to training with dataset lineage tracking, model SBOMs, and automated compliance checks (NIST AI RMF, EU AI Act, HIPAA), blocking poisoned datasets and ensuring regulatory adherence.
+
+??? "**4. Does AccuKnox AI security cover on-premise deployed AI components?**"
+    Yes. AccuKnox provides comprehensive AI security for a wide range of deployment models. Our platform is architected to be flexible, offering robust protection for:
+    + Public and Private Clouds
+    + Fully On-Premise Environments
+    + Air-Gapped Infrastructure
+    + Hybrid Deployments
+    This ensures your AI models, data, and infrastructure are secured, regardless of where they are deployed.
+
+??? "**5. How does AccuKnox secure MCP servers?**"
+    AccuKnox secures Master Control Program (MCP) servers by integrating them into our Zero Trust security framework. The MCP server operates within a Sandboxed Execution environment, which provides process and network isolation. All interactions are governed by strict authorization controls and are continuously monitored, ensuring the integrity and security of the core AI orchestration layer.
+
+??? "**6. How does AccuKnox secure AI Agents?**"
+    AccuKnox secures AI Agents through advanced runtime sandboxing and policy enforcement. Key security measures include:
+    + Sandboxing Unsafe Tool Usage: Isolating the execution of tools invoked by agents to prevent misuse or compromise.
+    + Sandboxing Untrusted Code: Automatically generated or untrusted code is executed in a secure, isolated sandbox (e.g., process, container, or microVM) to mitigate risks like Remote Code Execution (RCE), privilege compromise, and resource overload.
+    This proactive approach allows organizations to leverage the power of agentic AI while defending against associated threats.
+
+??? "**7. How does AccuKnox provide visibility into Shadow AI?**"
+    AccuKnox addresses the challenge of "Shadow AI" through its core capability of Comprehensive Visibility and Auto-Discovery. By onboarding your cloud accounts, our platform automatically discovers and inventories all AI/ML assets, including models, datasets, and compute infrastructure. This creates a single, unified view of all AI components, bringing potentially unsanctioned or unmonitored resources under the purview of the security team and   allowing for the consistent application of governance and security policies.
+
+??? "**8. How does AccuKnox help with dealing with privacy issues in AI-SPM?**"
+    AccuKnox has multiple built-in features to address data privacy:
+    + PII/PHI Scanning of Datasets: The platform can scan AI/ML datasets to identify and flag the presence of Personally Identifiable Information (PII) or Protected Health Information (PHI).
+    + Prompt and Response Firewalling: Our firewall inspects both the input prompts sent to LLMs and the output responses received from them to detect and block the exposure of PII/PHI in real-time.
+
+??? "**Does AccuKnox expose privacy-related aspects to external LLMs (e.g., for AI Co-Pilot)?**"
+    No, protecting customer data is paramount. AccuKnox implements strict guardrails:
+    + Data Sanitization: We ensure that no telemetry, alert data, or other information containing potential PII/PHI is ever sent to external LLMs for analysis or remediation suggestions.
+    + Tenant-Level Control: The AI-assisted remediation feature can be completely disabled on a per-tenant basis, giving customers full control over whether any of their data interacts with an LLM.
+
+??? "**Which platforms and environments does AccuKnox AI security support?**"
+    AccuKnox AI security supports a wide range of platforms and environments, including:
+    ![AI Security Platforms](https://i.ibb.co/x8CNxrmf/Screenshot-2025-09-14-235713.png)
+
 
 ## CDR (Cloud Detection & Response)
 
@@ -224,30 +289,27 @@ hide:
 ??? "**3. How AccuKnox helps to recommend Auto-Discovered Policies?**"
     AccuKnox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster information that is relayed by Shared Informer Agent.
 
-??? "**4. What are Hardening Policies?**"
-    KubeArmor is a security solution for the Kubernetes and cloud native platforms that helps protect your workloads from attacks and threats. It does this by providing a set of hardening policies that are based on industry-leading compliance and attack frameworks such as CIS, MITRE, NIST-800-53, and STIGs. These policies are designed to help you secure your workloads in a way that is compliant with these frameworks and recommended best practices.
+??? "**4. How Does AccuKnox Generate Hardening Policies?**"
+    AccuKnox operates KubeArmor to secure Kubernetes, container, and VM workloads by enforcing runtime hardening policies using Linux Security Modules (LSMs) and eBPF. The AccuKnox platform auto-discovers application behaviors and maps them to industry standards like CIS, MITRE, NIST, and STIG frameworks, generating tailored security policies to block unwanted activity at the system level. Policies can restrict process execution, file access, and network operations, helping achieve Zero Trust while maintaining compliance and visibility over what gets allowed or blocked in real time.
 
-??? "**5. What is Network Segmentation?**"
-    In Kubernetes, the network policy resource is a set of network traffic rules that are applied to a group of pods in a Kubernetes cluster. The network policy specifies how a pod is allowed to communicate with others. Network policy controllers (running as pods in the Kubernetes cluster) convert the requirements and restrictions of the network policies that are retrieved from the Kubernetes API into the network infrastructure.
-
-??? "**6. How AccuKnox helps to implement Zero Trust?**"
+??? "**5. How AccuKnox helps to implement Zero Trust?**"
     By implementing a zero trust posture with KubeArmor, organizations can increase their security posture and reduce the risk of unauthorized access or activity within their Kubernetes clusters. This can help to protect sensitive data, prevent system breaches, and maintain the integrity of the cluster.
     KubeArmor supports allow-based policies which result in specific actions to be allowed and denying/auditing everything else. For example, a specific pod/container might only invoke a set of binaries at runtime. As part of allow-based rules you can specify the set of processes that are allowed and everything else is either audited or denied based on the default security posture.
 
-??? "**7. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
+??? "**6. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
     + Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
     + Understanding the Application behaviour using LSMs enables creation of behavioural policies
     + Hardening policies are block based policies
     + Behavioural policies are allow based policies
     + An example of policies is FIM (File Integrity Monitoring) policy
 
-??? "**8. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
+??? "**7. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
     Yes, it can show up in terms of Application Behaviour & Logs
 
 ## Compliance & Auditing
 
 ??? "**1. What are all the compliance frameworks that AccuKnox is covering?**"
-    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001.
+    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001 including AI compliances like NIST AI RMF, OWASP Top 10 LLM, EU AI Act, etc. See the full list of [33+ compliance frameworks](https://accuknox.com/compliance) that we support.
 
 
 ## Deployment & Architecture
@@ -299,16 +361,15 @@ hide:
     + Security is provided either **agentlessly (via snapshots)** or through **lightweight scanning agents**.
 
 ??? "**7. What is the typical timeline for a Proof of Concept (PoC)?**"
-    Typical PoC timelines are:
-    + **SaaS PoC:** ~1–2 weeks (infrastructure already in place).
-    + **On-Prem PoC:** ~2–3 weeks (depends on environment complexity and readiness).
-    + **Air-gapped On-Prem:** Additional time required for staging container images.
+    Typical Proof of Concept (PoC) timelines are:
+    * **SaaS PoC:** ~1–2 weeks (infrastructure already in place).
+    * **On-Prem PoC:** ~2–3 weeks (depends on environment complexity and readiness).
+    * **Air-gapped On-Prem:** Additional time required for staging container images.
 
     *Note:* In some cases where prerequisites are fully prepared, on-prem deployment has been completed in just a few hours.
 
-    References:
-    + [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
-    + [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
+    * [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
+    * [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
 
 ??? "**8. For on-prem deployment of AccuKnox Control Plane, what are the challenges/considerations?**"
     AccuKnox supports deployment in completely isolated environments, but some considerations apply:
@@ -332,12 +393,26 @@ hide:
 ## Pricing & Billing
 
 ??? "**1. What is AccuKnox’s licensing model?**"
-    If it is an end customer, then [AccuKnox SLA](https://www.accuknox.com/sla). If the model is an MSSP, then it operates on a revenue-sharing basis.
+    You can get a custom quote and select individual security modules based on number of units (CWPP nodes, CSPM cloud assets, etc) or a comprehensive CNAPP bundle.AccuKnox offers a flexible licensing approach tailored to customer needs. It's not a one-size-fits-all model.
 
-    AccuKnox offers a flexible licensing approach tailored to customer needs. It's not a one-size-fits-all model. You can get a custom quote and select individual security modules or a comprehensive CNAPP bundle. The pricing is often based on factors like the number of cloud assets, images, and nodes. MSSP model, it is a revenue share.
+    Customers have the flexibility to purchase specific modules such as KSPM, CSPM, ASPM, or CWPP independently.
+    Pricing is modular and typically based on:
+    - Number of cloud assets normalized to units
+    - Number of container images
+    - Number of worker nodes
+    - Number of Tools in SCA, SAST, DAST, IaC
+    - Number of AI/LLM Model
+    - Bundle of per 1000 APIs
+    Customers only pay for the modules they choose.
+
 
 ??? "**2. How would I know what assets are included for billing?**"
-    <a href="https://help.accuknox.com/resources/count-assets/" target="_blank">View details here</a>
+    <a href="https://help.accuknox.com/resources/count-assets/" target="_blank">Count your assets here.</a>
+    AWS: EC2 instances, S3 buckets, RDS databases
+    Azure: Virtual Machines, Storage Accounts, SQL Databases
+    GCP: Compute Engine VMs, Cloud Storage buckets, Cloud SQL instances
+
+    To estimate billing, AccuKnox normalizes assets into units, refer the question above for details.
 
 ??? "**3. What happens if we exceed the asset count for a few days or weeks within a month?**"
     The AccuKnox Control Plane will not stop you from exceeding the quota. However, if the quota consistently exceeds by more than 30% over a longer period, the AccuKnox support team will reach out for clarifications.
@@ -349,35 +424,24 @@ hide:
     - AccuKnox will notify you if the container image count exceeds 5000.
     Additionally, AccuKnox supports scanning images **in Kubernetes clusters or virtual machines directly**, ensuring only runtime images are scanned. This reduces both the number of images scanned and findings noise.
 
-??? "**5. Can customers purchase individual modules instead of the full CNAPP solution?**"
-    Yes. Customers have the flexibility to purchase specific modules such as **KSPM, CSPM, ASPM, or CWPP** independently.
-
-    + **Pricing is modular** and typically based on:
-        - Number of cloud assets
-        - Number of container images
-        - Number of worker nodes
-
-    Customers only pay for the modules they choose.
-
-??? "**6. How is licensing handled in SaaS and on-prem environments?**"
-    + Licensing is generally **subscription-based**.
+??? "**5. How is licensing handled in SaaS and on-prem environments?**"
+    + Licensing is generally **subscription-based** for both SaaS and on-prem.
     + On-prem customers are expected to procure **Platinum Support**.
-    + On-prem licensing often includes **discounted rates**, since customers manage their own infrastructure.
 
-??? "**7. How does modular pricing work?**"
-    + Customers can purchase modules individually (CSPM, ASPM, CWPP, KSPM).
-    + Pricing is based on factors such as:
-      - Number of cloud assets
-      - Number of container images
-      - Number of worker nodes
+??? "**6. Who to reach out to for a custom quote for CNAPP?**"
+    You can reach out to:
+    - Sales Q's -info@accuknox.com
+    - Technical Q's -support@accuknox.com
+
 
 ## Partnerships & Marketplace
 
-??? "**1. How do you work with resellers and partnership models?**"
+??? "**1. How do you work with partners and what are the partnership models?**"
     We have a 100% partner aligned go to market approach. to this goal, we provide our partners the following:
     - Free training, certification
     - Joint marketing
     - Lead sharing
+    For more details, please visit our [partner page](https://accuknox.com/partners).
 
 ??? "**2. Current AccuKnox's marketplace listing?**"
     AccuKnox is currently listed on:
@@ -401,6 +465,8 @@ hide:
     - <a href="https://github.com/marketplace?query=Accuknox" target="_blank">GitHub Marketplace</a>
 
 ??? "**3. Who are AccuKnox's current partners and resellers?**"
+    We have various types of partners, including distributors and resellers, in different geographies such as the EU, US, India, and UAE. This includes System Integrators (SI), Global System Integrators (GSI), and Managed Security Service Providers (MSSP).
+
     AccuKnox collaborates with a diverse ecosystem of partners and is available on various cloud marketplaces.
 
     - **Cloud Partnerships**: AccuKnox partners with major cloud providers like **AWS**, **Google Cloud**, **Microsoft Azure**, **Oracle Cloud**, and **Red Hat**, offering its solutions on their respective marketplaces.
@@ -416,15 +482,25 @@ hide:
     - [Design Partnership](https://accuknox.com/partners/design-partnership-program)
     - [MSSP Partnership](https://accuknox.com/partners/mssp)
 
+??? "**4. How does the AccuKnox’s MSSP model work?**"
+    AccuKnox’s MSSP model lets managed security providers use AccuKnox’s platform to manage and secure multiple customers across different clouds, giving each client isolated access, custom policies, and easy onboarding. MSSPs can brand, automate, and scale their services—while monitoring, billing, and supporting all customers from one dashboard. Read more about our [MSSP partnership program](https://accuknox.com/blog/mssp-ready-cnapp).
+
+??? "**5. Can MSSP users access end customer tenant accounts?**"
+    Yes. AccuKnox fully supports MSSP users having viewer/editor access to end customer tenants, with customer permission. This is a critical requirement for MSSP models, and our platform is designed to accommodate it securely and seamlessly.
+
 ## Roadmap
 
 ??? "**1. Is there a support for CIEM?**"
     No, AccuKnox does not currently have CIEM; instead, we have KIEM. AccuKnox supports Identity and Entitlement Management for Kubernetes, referred to as KIEM (Kubernetes Identity & Entitlement Management). This capability is part of the Kubernetes Security (KSPM) module, which also handles cluster misconfiguration detection and CIS K8s benchmark findings.
 
 ??? "**2. What features are on the roadmap related to environments and integrations?**"
-    + Expanded **serverless support** (beyond AWS Fargate/ECS).
-    + **Windows support** for workloads.
-    + Ongoing expansion of integrations with **registries, SIEMs, and ticketing systems**.
----
+    For 2025 and beyond, AccuKnox is focusing on:
 
-[ SCHEDULE DEMO ](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
+    CSPM Oracle Support, CSPM Azure Org Support, Assets Inventory revamp, CIEM, Custom Compliance Framework, RBAC enhancements, DSPM, Security Graph Phase I, CNAPP Policies Revamp, Collectors based ASPM onboarding, SBOM & SCA Integration, Scheduled Dashboard Reporting, AISPM: NIST AI RMF, ISO 42001, EU AI ACT, Windows / Linux Agentless VM scanning, SSPM (m365, sap), Redhat OpenShift Virtualization support, OpenStack support, Trellix (McAfee & Fireeye) Integrations, Nozomi, Armis, CTEM Integration
+
+    We will also have:
+    - Expanded **serverless support** (beyond AWS Fargate/ECS).
+    - **Windows support** for workloads.
+    - Ongoing expansion of integrations with **registries, SIEMs, and ticketing systems**.
+
+[SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

@@ -3,103 +3,105 @@ title: AWS Code Pipeline - DAST
 description: Integrate AccuKnox DAST with AWS CodePipeline to detect and resolve runtime vulnerabilities in web applications, improving production security.
 ---
 
-# AWS Code Pipeline - DAST
+# Integrating AccuKnox DAST with AWS CodePipeline
 
-This document contains the process of integrating AccuKnox DAST with AWS codepipeline. By integrating AccuKnox DAST into the pipeline, you can identify and resolve security vulnerabilities for your applications.
+This document contains the process of integrating AccuKnox DAST with AWS CodePipeline. By integrating AccuKnox DAST into the pipeline, you can identify and resolve security vulnerabilities for your applications.
 
 ## Prerequisites
 
-- AWS Code pipeline access
+Before beginning the integration, ensure you have the following:
 
-- AccuKnox UI access
+* **AWS CodePipeline access** - Administrative access to create and modify pipelines.
+    * 📖 *Reference:* [*Getting Started with AWS CodePipeline*](https://docs.aws.amazon.com/codepipeline/latest/userguide/getting-started-codepipeline.html)
+    * 📖 *Reference:* [*Create a Pipeline in AWS CodePipeline*](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-create.html)
 
-### **Step 1: Create the AccuKnox Token**
+* **AWS CodeBuild access** - Make sure that you have added the `codestar-connections:UseConnection` IAM permission to your service role policy.
+    * 📖 *Reference:* [*Getting Started with AWS CodeBuild*](https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started.html)
 
-The first step is to generate an AccuKnox token. For generating the AccuKnox token, open up the AccuKnox, Go to Settings > Tokens then click on the create button.
+* **AccuKnox UI access** - Access to the AccuKnox platform.
 
-![image-20240920-120107.png](images/aws-dast/1.png)
+* **AWS IAM Configuration** - Proper service role permissions configured.
+    * 📖 *Reference:* [Add permissions to your CodeBuild service role policy](https://docs.aws.amazon.com/codepipeline/latest/userguide/troubleshooting.html#codebuild-role-connections)
 
-Give your token a name and click on the Generate button.
+* **AccuKnox API credentials** including:
+    * Tenant ID
+    * Authentication Token
+    * Endpoint URL
+    * Labels
 
-![image-20241104-121922.png](images/aws-dast/2.png)
+* **Repository Configuration**
+    * **Full clone enabled** - Ensure AWS CodePipeline is configured to pass metadata that allows CodeBuild actions to perform a full Git clone.
+        * 📖 *Reference:* [*Enable Full Clone in AWS CodeBuild*](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
 
- Once you have generated the the token, click on the copy button and take a note of it. It will be required to configured as a secret in the pipeline. Also copy the Tenant Id and take a note of it.
+## Configuration Steps
 
-![image-20241017-062925.png](images/aws-dast/3.png)
+### Step 1: Configure AWS CodePipeline Environment Variables
 
-Copy this token, go to AWS secrets manager and create a secret with key `AK_TOKEN` and paste the value. Create another secret with the key `TENANT_ID`, and paste it's value.
+Add the following environment variables to your CodeBuild project or pipeline configuration.
 
-![image-20240924-115035.png](images/aws-dast/4.png)
+* 📖 *Reference:* [*Set Environment Variables in CodeBuild Project*](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-pipeline-variables.html)
 
-### **Step 2: Create a label**
+| Name                | Description                                                                                                      | Required | Example Value              |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | -------------------------- |
+| `ACCUKNOX_ENDPOINT` | The URL of the CSPM panel to push the scan results to.                                                           | Yes      | `cspm.demo.accuknox.com`   |
+| `ACCUKNOX_TOKEN`    | Token for authenticating with the AccuKnox CSPM panel. Refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/). | Yes      | `your_api_token_here`      |
+| `ACCUKNOX_LABEL`    | Labels to associate with the scan results in the AccuKnox platform.                                              | Yes      | `test123`                  |
+| `ACCUKNOX_TENANT`   | AccuKnox tenant ID.                                                                                              | Yes      | `167`                      |
 
-In AccuKnox, labels are used for grouping similar types of assets together. For creating a label navigate to Settings > Labels and click on the create label button. Give your label a name and a filename prefix. Take a note of the label and click on the save button.
+### Step 2: Configure AWS CodeBuild Specification (buildspec.yml)
 
-![image-20241104-121722.png](images/aws-dast/5.png)
-
-### **Step 3: Create the pipeline**
-
-Add this content to your buildspec file. Configure the variables `CSPM_URL`, `TARGET_URL`, `TENANT_ID` and `LABEL`.
+Create or update your `buildspec.yml` file in your repository root with the following configuration:
 
 ```yaml
 version: 0.2
+
 env:
   variables:
-    CSPM_URL: cspm.demo.accuknox.com
-    TENANT_ID: "167"
-    TARGET_URL: http://testhtml5.vulnweb.com
-    REPO_URL: https://github.com/th3-v3ng34nc3/Aditya-ak-DAST
-    LABEL: "awsdast"
-
-  secrets-manager:
-    AK_TOKEN: "AK_TOKEN:AK_TOKEN"
+    SOFT_FAIL: "true"
+    TARGET_URL: "[https://juice-shop.herokuapp.com/](https://juice-shop.herokuapp.com/)"
+    DAST_SCAN_SCRIPT: "zap-baseline.py"
 
 phases:
   pre_build:
     commands:
-      - mkdir app
-      - echo Cloning repository...
-      - git clone --single-branch --branch main ${REPO_URL} app
-      - chmod -R 777 app
+      - echo "Installing AccuKnox ASPM scanner..."
+      - pip install [https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.12.1/accuknox_aspm_scanner-0.12.1-py3-none-any.whl](https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.12.1/accuknox_aspm_scanner-0.12.1-py3-none-any.whl) --break-system-packages
 
   build:
     commands:
-      # Run OWASP ZAP scan using Docker
-      - docker run --rm -v $(pwd)/app:/zap/wrk -w /zap/wrk ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t "$TARGET_URL" -r scanreport.html -x scanreport.xml -J scanreport.json -I
-
-  post_build:
-    commands:
-      - ls -al app
-      # Print out the results
-      - echo "Scan completed. Check the scanreport.json file for results."
-
-      # Post the scan report using curl
       - |
-        curl --location --request POST "https://cspm.demo.accuknox.com/api/v1/artifact/?tenant_id=$TENANT_ID&label_id=$LABEL&data_type=ZAP&save_to_s3=true" \
-          --header "Tenant-Id: $TENANT_ID" \
-          --header "Authorization: Bearer $AK_TOKEN" \
-          --form  "file=@\"app/scanreport.json\""
+        echo "Running AccuKnox DAST scan"
+        mkdir /tmp/scan-dir
+        chmod 777 /tmp/scan-dir
+        cd /tmp/scan-dir
 
-artifacts:
-  files:
-    - app/scanreport.json
+        if [ "$SOFT_FAIL" = "true" ]; then
+          SOFT_FAIL_ARG="--softfail"
+        fi
 
-cache:
-  paths:
-    - "/root/.m2/**/*"
-    - "/root/.npm/**/*"
+        ARGS="$DAST_SCAN_SCRIPT -t $TARGET_URL -I "
+
+        echo accuknox-aspm-scanner scan $SOFT_FAIL_ARG dast --command "$ARGS" --container-mode
+        accuknox-aspm-scanner scan $SOFT_FAIL_ARG dast --command "$ARGS" --container-mode
+        cd -
 ```
 
-Once you have added the above buildspec file and pushed it to repository, it will trigger the CI/CD pipeline. And you will see a screen like this.
+## Workflow Execution Without AccuKnox
 
-![image-20241104-134530.png](images/aws-dast/6.png)
+Initially, the pipeline scans the application for vulnerabilities but does not forward results to AccuKnox, requiring manual review.
+![alt](./images/aws-dast/1.png)
 
-### **Step 4: View the findings**
+## Workflow Execution With AccuKnox
 
-To see all of your DAST findings, navigate to AccuKnox > Issues > Findings and select the DAST Findings
+With AccuKnox integrated, scan results are automatically sent to AccuKnox for further risk assessment and remediation.
 
-![image-20241104-134634.png](images/aws-dast/7.png)
+## Viewing Results in AccuKnox
 
-Click on any finding to get more details. You can also click on the Create Ticket button to create a ticket.
+1.  After the pipeline run, log in to **AccuKnox**.
+2.  To see all of your DAST findings, navigate to `AccuKnox > Issues > Findings` and select `DAST Findings`.
+![alt](./images/aws-dast/2.png)
 
-![image-20241104-134712.png](images/aws-dast/8.png)
+3.  Click on any finding to get more details. You can also click on the **Create Ticket** button to create a ticket.
+![alt](./images/aws-dast/3.png)
+
+[Let us know](https://www.accuknox.com/contact-us/) if you are seeking additional guidance in planning your cloud security program.

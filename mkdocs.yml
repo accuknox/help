@@ -305,6 +305,7 @@ nav:
           - "Container Scan": "integrations/aws-container-scan.md"
           - "IaC Scan": "integrations/aws-iac-scan.md"
           - "DAST": "integrations/aws-dast.md"
+          - "Secret Scanning": "integrations/aws-secret-scan.md"
         - "GitHub":
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
@@ -316,6 +317,7 @@ nav:
             - "DAST": "integrations/github-dast.md"
             - "Secret Scanning with Github Actions": "integrations/github-actions-secret-scan.md"
             - "Devtron SAST": "integrations/github-devtron-sast.md"
+            - "Devtron DAST": "integrations/github-devtron-dast.md"
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
             - "SAST": "integrations/gitlab-opengrep.md"
