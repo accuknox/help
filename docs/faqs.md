@@ -208,7 +208,7 @@ hide:
 ## AI Security
 
 ??? "**1. How does AccuKnox detect and prevent adversarial and zero-day attacks on LLMs?**"
-    AccuKnox’s **ModelKnox** module applies AI-SPM with runtime behavioral monitoring, syscall tracing, and anomaly detection to identify adversarial patterns and zero-day exploits against LLM inference pipelines in real time.
+    AccuKnox’s **AI Security** applies AI-SPM with runtime behavioral monitoring, syscall tracing, and anomaly detection to identify adversarial patterns and zero-day exploits against LLM inference pipelines in real time.
 
 ??? "**2. How does AccuKnox enforce policy controls for AI workloads in Kubernetes?**"
     Using **KubeArmor integration**, AccuKnox enforces fine-grained eBPF/LSM policies (process, file, and network) for AI workloads running in Kubernetes clusters, ensuring least-privilege enforcement and runtime protection.
@@ -245,6 +245,11 @@ hide:
     No, protecting customer data is paramount. AccuKnox implements strict guardrails:
     + Data Sanitization: We ensure that no telemetry, alert data, or other information containing potential PII/PHI is ever sent to external LLMs for analysis or remediation suggestions.
     + Tenant-Level Control: The AI-assisted remediation feature can be completely disabled on a per-tenant basis, giving customers full control over whether any of their data interacts with an LLM.
+
+??? "**Which platforms and environments does AccuKnox AI security support?**"
+    AccuKnox AI security supports a wide range of platforms and environments, including:
+    ![AI Security Platforms](https://i.ibb.co/x8CNxrmf/Screenshot-2025-09-14-235713.png)
+
 
 ## CDR (Cloud Detection & Response)
 
@@ -284,30 +289,27 @@ hide:
 ??? "**3. How AccuKnox helps to recommend Auto-Discovered Policies?**"
     AccuKnox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster information that is relayed by Shared Informer Agent.
 
-??? "**4. What are Hardening Policies?**"
-    KubeArmor is a security solution for the Kubernetes and cloud native platforms that helps protect your workloads from attacks and threats. It does this by providing a set of hardening policies that are based on industry-leading compliance and attack frameworks such as CIS, MITRE, NIST-800-53, and STIGs. These policies are designed to help you secure your workloads in a way that is compliant with these frameworks and recommended best practices.
+??? "**4. How Does AccuKnox Generate Hardening Policies?**"
+    AccuKnox operates KubeArmor to secure Kubernetes, container, and VM workloads by enforcing runtime hardening policies using Linux Security Modules (LSMs) and eBPF. The AccuKnox platform auto-discovers application behaviors and maps them to industry standards like CIS, MITRE, NIST, and STIG frameworks, generating tailored security policies to block unwanted activity at the system level. Policies can restrict process execution, file access, and network operations, helping achieve Zero Trust while maintaining compliance and visibility over what gets allowed or blocked in real time.
 
-??? "**5. What is Network Segmentation?**"
-    In Kubernetes, the network policy resource is a set of network traffic rules that are applied to a group of pods in a Kubernetes cluster. The network policy specifies how a pod is allowed to communicate with others. Network policy controllers (running as pods in the Kubernetes cluster) convert the requirements and restrictions of the network policies that are retrieved from the Kubernetes API into the network infrastructure.
-
-??? "**6. How AccuKnox helps to implement Zero Trust?**"
+??? "**5. How AccuKnox helps to implement Zero Trust?**"
     By implementing a zero trust posture with KubeArmor, organizations can increase their security posture and reduce the risk of unauthorized access or activity within their Kubernetes clusters. This can help to protect sensitive data, prevent system breaches, and maintain the integrity of the cluster.
     KubeArmor supports allow-based policies which result in specific actions to be allowed and denying/auditing everything else. For example, a specific pod/container might only invoke a set of binaries at runtime. As part of allow-based rules you can specify the set of processes that are allowed and everything else is either audited or denied based on the default security posture.
 
-??? "**7. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
+??? "**6. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
     + Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
     + Understanding the Application behaviour using LSMs enables creation of behavioural policies
     + Hardening policies are block based policies
     + Behavioural policies are allow based policies
     + An example of policies is FIM (File Integrity Monitoring) policy
 
-??? "**8. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
+??? "**7. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
     Yes, it can show up in terms of Application Behaviour & Logs
 
 ## Compliance & Auditing
 
 ??? "**1. What are all the compliance frameworks that AccuKnox is covering?**"
-    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001.
+    AccuKnox’s CNAPP tool checks for compliance and governance from various benchmarks like STIG, CIS, NIST CSF, HIPAA, MITRE, SOC2, ISO 27001 including AI compliances like NIST AI RMF, OWASP Top 10 LLM, EU AI Act, etc. See the full list of [33+ compliance frameworks](https://accuknox.com/compliance) that we support.
 
 
 ## Deployment & Architecture
@@ -359,16 +361,15 @@ hide:
     + Security is provided either **agentlessly (via snapshots)** or through **lightweight scanning agents**.
 
 ??? "**7. What is the typical timeline for a Proof of Concept (PoC)?**"
-    Typical PoC timelines are:
-    + **SaaS PoC:** ~1–2 weeks (infrastructure already in place).
-    + **On-Prem PoC:** ~2–3 weeks (depends on environment complexity and readiness).
-    + **Air-gapped On-Prem:** Additional time required for staging container images.
+    Typical Proof of Concept (PoC) timelines are:
+    * **SaaS PoC:** ~1–2 weeks (infrastructure already in place).
+    * **On-Prem PoC:** ~2–3 weeks (depends on environment complexity and readiness).
+    * **Air-gapped On-Prem:** Additional time required for staging container images.
 
     *Note:* In some cases where prerequisites are fully prepared, on-prem deployment has been completed in just a few hours.
 
-    References:
-    + [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
-    + [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
+    * [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
+    * [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
 
 ??? "**8. For on-prem deployment of AccuKnox Control Plane, what are the challenges/considerations?**"
     AccuKnox supports deployment in completely isolated environments, but some considerations apply:
