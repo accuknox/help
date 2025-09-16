@@ -5,27 +5,25 @@ description: Learn how to onboard your application with AccuKnox LLM Defense usi
 
 ## Steps to Get Started
 
-### 1. Add Application
+### **1. Add Application**
 
 Click on **"Add Application"** as shown below.
 
 ![image-20250114-184710.png](./images/llm-defense-app-onboard/1.png)
-Click the "Add Application" button.
-
 
 Enter the **Application Name** and **Tags**, then click the **Add** button.
 
 ![image-20250114-184710.png](./images/llm-defense-app-onboard/2.png)
 Enter the application details.
 
-### 2. Save Your Token
+### **2. Save Your Token**
 
 Copy the **Accuknox_token** and store it securely for later use.
 
 ![image-20250114-184710.png](./images/llm-defense-app-onboard/3.png)
 Copy the API token shown on the screen.
 
-### 3. Install the SDK
+### **3. Install the SDK**
 
 Inside the environment where your application is running, install the package:
 
@@ -35,7 +33,7 @@ pip install accuknox-llm-defense
 
 For more details, see the [PyPI project page](https://pypi.org/project/accuknox-llm-defense/).
 
-### 4. Initialize the Client
+### **4. Initialize the Client**
 
 Import the package and initialize the client with the token you obtained earlier:
 
@@ -53,7 +51,7 @@ accuknox_client = LLMDefenseClient(
   * `llm_defense_api_key`: Your Accuknox token
   * `user_info`: User information (e.g., email)
 
-### 5. Prompt Scanning
+### **5. Prompt Scanning**
 
 Scan a prompt before sending it to your LLM:
 
@@ -66,7 +64,7 @@ sanitized_prompt = accuknox_client.scan_prompt(content=prompt)
 
   * `content`: The prompt to be scanned before sending to the LLM.
 
-### 6. Response Scanning
+### **6. Response Scanning**
 
 Scan the response received from your LLM:
 

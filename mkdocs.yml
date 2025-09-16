@@ -394,7 +394,7 @@ nav:
       - "Categories and Probes": "use-cases/subprompts-categories.md"
       - "Runtime Security":
         - "Onboard LLM Defense App": "use-cases/llm-defense-app-onboard.md"
-        - "Onboard Custom App": "use-cases/aiml-runtime-onboard.md"
+        # - "Onboard Custom App": "use-cases/aiml-runtime-onboard.md"
       - "ModelArmor":
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"
