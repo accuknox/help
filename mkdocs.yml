@@ -166,8 +166,6 @@ pages:
 
 nav:
   - "Home": "introduction/home.md"
-  # - "Overview":
-  #   - "Overview": "getting-started/index.md"
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
     - "Administrator's Guide": "how-to/administrators-guide.md"
@@ -327,11 +325,6 @@ nav:
             - "IaC Scan (GitLab Pipeline)": "integrations/gitlab-pipeline-iac-scan.md"
             - "DAST": "integrations/gitlab-dast.md"
             - "Secret Scan": "integrations/gitlab-secret-scan.md"
-            # - "Scan Variables":
-            #   - "Container Scan Variables": "integrations/gitlab-container-variables.md"
-            #   - "IaC Scan Variables": "integrations/gitlab-iac-variables.md"
-            #   - "DAST Scan Variables": "integrations/gitlab-dast-variables.md"
-            #   - "SAST Scan variables": "integrations/gitlab-sast-variables.md"
         - "Bitbucket":
             - "Overview": "integrations/bitbucket-overview.md"
             - "SAST": "integrations/opengrep-sast-bitbucket.md"
@@ -340,18 +333,7 @@ nav:
             - "IaC Scan": "integrations/bitbucket-iac-scan.md"
             - "DAST": "integrations/bitbucket-dast.md"
             - "Secret Scan": "integrations/bitbucket-secret-scan.md"
-            # - "Scan Variables":
-            #   - "Container Scan Variables": "integrations/bitbucket-container-variables.md"
-            #   - "IaC Scan Variables": "integrations/bitbucket-iac-variables.md"
-            #   - "DAST Scan Variables": "integrations/bitbucket-dast-variables.md"
-            #   - "SAST Scan variables": "integrations/bitbucket-sast-variables.md"
         - "CheckMarx": "integrations/checkmarx.md"
-        # - "CheckMarx":
-        #     - "Overview": "integrations/checkmarx-overview.md"
-        #     - "SAST": "integrations/checkmarx-sast.md"
-        #     - "SCA": "integrations/checkmarx-sca.md"
-        #     - "Iac Scan (KICS)": "integrations/checkmarx-iac.md"
-        #     - "Container Scan": "integrations/checkmarx-container.md"
         - "CircleCI":
             - "Overview": "integrations/circleci-overview.md"
             - "DAST": "integrations/circleci-dast.md"
@@ -360,8 +342,6 @@ nav:
             - "Secret Scan": "integrations/circleci-secret-scan.md"
             - "SQ-SAST": "integrations/circleci-sqsast.md"
             - "Container Scan": "integrations/circleci-container-scan.md"
-
-
     - "Registry Scan" : "support-matrix/registry.md"
     - "K8s Management":
       - "Rafay": "integrations/rafay-accuknox.md"
@@ -538,13 +518,14 @@ nav:
     - "Technical Guide": "resources/technical-support-guide.md"
     - "Release Notes":
           - "AccuKnox" :
-            - "v3.0 Release Notes" : "getting-started/3.0-release.md"
-            - "v2.4 Release Notes" : "getting-started/2.4-release.md"
-            - "v2.1-v2.2 Release Notes" : "getting-started/2.1-2.2-release.md"
-            - "v2.0 Release Notes" : "getting-started/2.0-release.md"
-            - "v1.7 Release Notes" : "getting-started/1-7-release.md"
-            - "v1.6 Release Notes" : "getting-started/1-6-release.md"
-            - "v1.5 Release Notes" : "getting-started/1-5-release.md"
+            - "v3.1" : "getting-started/3.1-release.md"
+            - "v3.0" : "getting-started/3.0-release.md"
+            - "v2.4" : "getting-started/2.4-release.md"
+            - "v2.1-v2.2" : "getting-started/2.1-2.2-release.md"
+            - "v2.0" : "getting-started/2.0-release.md"
+            - "v1.7" : "getting-started/1-7-release.md"
+            - "v1.6" : "getting-started/1-6-release.md"
+            - "v1.5" : "getting-started/1-5-release.md"
           - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Glossary": "resources/glossary.md"
 
