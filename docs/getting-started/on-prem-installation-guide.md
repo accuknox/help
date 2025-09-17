@@ -98,7 +98,7 @@ AccuKnox team will leverage an ansible playbook that:
 - Installs Harbor
 - Supports self-signed and letsencrypt-signed certificates.
 
-This playbook is tested with Harbor version 2.6.0 on Ubuntu 24.10 & Debian 11.
+This playbook is tested with Harbor version 2.6.0 on Ubuntu 24.10 & Debian 12.
 
 #### External Roles
 
