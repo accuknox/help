@@ -92,7 +92,7 @@ You now have all the necessary information from OCI!
 Now, let's use the credentials you just created to connect your account to the AccuKnox platform. ✨
 
 1. **Log in** to your AccuKnox account.
-![Image](./images/oracle-onboarding/0.png)
+![Image](./images/oracle-onboarding/ocl.png)
 
 2. Navigate to **Settings** ⚙️ and select **Cloud Accounts**.
 
@@ -123,3 +123,14 @@ Once the Oracle Cloud account is onboarded, you can shortly view the **Cloud Fin
 
 ![Image](./images/oracle-onboarding/5.png)
 
+We make several widgets for Oracle Cloud findings available on the **Dashboard** as well. These widgets provide insights into the security posture of your Oracle Cloud resources.
+
+![Image](./images/oracle-onboarding/d2.png)
+
+![Image](./images/oracle-onboarding/d1.png)
+
+You can also view and manage the compliance status and benchmarks associated with your Oracle account by going to the **Compliance** section and selecting the Oracle account from the dropdown.
+
+![Image](./images/oracle-onboarding/d3.png)
+
+![Image](./images/oracle-onboarding/d4.png)
