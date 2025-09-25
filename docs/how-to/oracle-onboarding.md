@@ -107,6 +107,7 @@ Now, let's use the credentials you just created to connect your account to the A
 6. You will now see the credential entry screen. Fill in the fields using the information you saved from the OCI console in the previous steps, use your OCI config file and the private key you downloaded:
     - User OCID
     - Tenancy OCID
+    - Compartment ID (You can find this in the OCI console under **Identity & Security** -> **Compartments**)
     - Fingerprint
     - Region
     - Private Key
