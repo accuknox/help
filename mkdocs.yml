@@ -191,6 +191,7 @@ nav:
         - "AWS Organizations" : "how-to/aws-org-onboard.md"
         - "Azure" : "how-to/azure-onboarding.md"
         - "GCP" : "how-to/gcp-onboarding.md"
+        - "Oracle" : "how-to/oracle-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
     - "Workloads":
       - "Kubernetes":
