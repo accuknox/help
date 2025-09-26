@@ -97,7 +97,9 @@ The webhook will expect the following inputs:
 - **Success Codes**: Should be set to `200,204,422`
 - **Test Payload**: (optional) Can be left empty
 - **Description**: (optional) User defined description for the integration
-- **Headers**: An authorization header is required to authenticate against github api's. The authorization header follows this format: `Authorization: token <github_token>`
+- **Headers**: An authorization header is required to authenticate against github api's. The authorization header follows this format:
+    - `Authorization: token <github_token>`
+    - `Accept: application/vnd.github+json`
 
 where **github_token** is the github fine-grained access token created on step 2.
 
