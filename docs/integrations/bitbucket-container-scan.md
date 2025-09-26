@@ -101,7 +101,7 @@ pipelines:
 **Step 2:** After clicking on the image name, the user will see the metadata for the image that was built during the workflow execution.
 ![image-20250502-054526.png](./images/bitbucket-container-scan/3.png)
 
-**Step 3:** In the `Vulnerabilities` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in the `Issues → Vulnerabilities` section, where the user can manage these findings with others.
+**Step 3:** In the `Findings` section, the user can see the image-specific vulnerabilities in a list manner that contains relevant information. These findings will also be available in the `Issues → Findings` section, where the user can manage these findings with others.
 ![image-20250502-054553.png](./images/bitbucket-container-scan/4.png)
 
 **Step 4:** The `Resources` section contains information about packages and modules that were used to build the code base into a container image.

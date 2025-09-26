@@ -111,7 +111,7 @@ After the scan completes, the results can be accessed in AccuKnox SaaS:
 2.  Click on the image name to access detailed metadata and scan results.
     ![image-20250530-055745.png](./images/gitlab-container-scan/3.png)
 
-3.  Under the **Vulnerabilities** section, you'll see a list of vulnerabilities discovered in the Docker image.
+3.  Under the **Findings** section, you'll see a list of vulnerabilities discovered in the Docker image.
     ![image-20250530-055810.png](./images/gitlab-container-scan/4.png)
 
 4.  In the **Resources** section, you'll find details about the packages and modules used to build the container.
