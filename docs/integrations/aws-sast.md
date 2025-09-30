@@ -25,7 +25,6 @@ Before beginning the integration, ensure you have the following:
     * 📖 *Reference:* [Add permissions to your CodeBuild service role policy](https://docs.aws.amazon.com/codepipeline/latest/userguide/troubleshooting.html#codebuild-role-connections)
 
 * **AccuKnox SAST API credentials**, including:
-    * Tenant ID
     * Authentication Token
     * Endpoint URL
     * Labels
@@ -47,7 +46,6 @@ Add the following environment variables to your CodeBuild project or pipeline co
 | `ACCUKNOX_ENDPOINT` | The URL of the CSPM panel to push the scan results to.                                                                                | Yes      | `cspm.demo.accuknox.com` |
 | `ACCUKNOX_TOKEN`    | Token for authenticating with the AccuKnox CSPM panel. Refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/). | Yes      | `your_api_token_here`    |
 | `ACCUKNOX_LABEL`    | The label used to categorize and identify scan results in AccuKnox. Refer to [How to Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/). | Yes      | `test123`                |
-| `ACCUKNOX_TENANT`   | AccuKnox tenant id.                                                                                                                   | Yes      | `167`                    |
 
 ### Step 2: Configure AWS CodeBuild Specification (buildspec.yml)
 
@@ -64,7 +62,7 @@ phases:
   pre_build:
     commands:
       - echo "Installing AccuKnox ASPM scanner..."
-      - pip install [https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.12.1/accuknox_aspm_scanner-0.12.1-py3-none-any.whl](https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.12.1/accuknox_aspm_scanner-0.12.1-py3-none-any.whl) --break-system-packages
+      - pip install https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.13.4/accuknox_aspm_scanner-0.13.4-py3-none-any.whl --break-system-packages
 
   build:
     commands:
