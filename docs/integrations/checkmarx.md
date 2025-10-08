@@ -7,6 +7,8 @@ description: Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipe
 
 This integration fetches **SAST, SCA, KICS, and Container scan** results from **Checkmarx One** and sends them to **AccuKnox** to visualize and prioritize vulnerabilities across projects.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/La6wMQ7U23s" frameborder="0" allowfullscreen></iframe>
+
 ## Prerequisites
 
 - Docker installed

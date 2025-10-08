@@ -391,6 +391,7 @@ nav:
     - "CDR (Cloud Detection and Response)":
       - "Remediation": "getting-started/cdr-setup.md"
     - "AI/ML Security":
+      - "Overview": "use-cases/aiml-overview.md"
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "Categories and Probes": "use-cases/subprompts-categories.md"
       - "Runtime Security":
