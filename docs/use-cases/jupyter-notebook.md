@@ -7,6 +7,10 @@ description: AccuKnox can help in securing Jupyter Notebook by preventing remote
 
 JupyterHub brings the power of notebooks to groups of users. It gives users access to computational environments and resources without burdening the users with installation and maintenance tasks. While this is a great model, attackers, or unethical users might take undue advantage of this model. The very nature of the Jupyter notebook is to allow users to do remote command/code execution.
 
+<!-- TODO -->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/rMc-fV5kzvs" frameborder="0" allowfullscreen></iframe> -->
+
+
 Remote Command Injection is just the start. Left unchecked, the attacker can gain unauthorized access to the kubernetes resources, exfiltrate data and mount supply chain attacks to name a few.
 
 ![jupyter-notebook-security-steps-accuknox](images/jupyter-notebook/jupyter-0.png)
