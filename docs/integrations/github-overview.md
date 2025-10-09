@@ -33,3 +33,5 @@ hide:
   image: ./cicd-icons/dast.svg
   url: /integrations/github-dast/
 ::/cards::
+
+![image](https://i.ibb.co/cSX9f6VR/image.png)

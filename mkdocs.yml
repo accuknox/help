@@ -194,7 +194,7 @@ nav:
         - "Oracle" : "how-to/oracle-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
     - "AI/ML Security":
-      - "Overview": "use-cases/aiml-overview.md"
+      - "Overview": "how-to/aiml-overview.md"
       - "AWS AI/ML Onboarding": "how-to/aiml-aws-onboard.md"
       - "Azure AI/ML Onboarding": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboarding": "how-to/aiml-gcp-onboard.md"
@@ -396,7 +396,7 @@ nav:
     - "CDR (Cloud Detection and Response)":
       - "Remediation": "getting-started/cdr-setup.md"
     - "AI/ML Security":
-      - "Overview": "use-cases/aiml-overview.md"
+      - "Use Cases": "use-cases/aiml-usecases.md"
       - "Categories and Probes": "use-cases/subprompts-categories.md"
       - "Runtime Security":
         - "Onboard LLM Defense App": "use-cases/llm-defense-app-onboard.md"
@@ -492,6 +492,7 @@ nav:
     - "Support Matrix": "support-matrix/index.md"
     - "CI/CD Support Matrix": "support-matrix/cicd-support-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
+    - "AI/ML Support Matrix" : "support-matrix/aiml-support-matrix.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "VMs" : "support-matrix/vms.md"
     - "Private Cloud" : "support-matrix/private-cloud.md"

@@ -7,6 +7,8 @@ description: Integrate AccuKnox DAST with Azure DevOps to automate the detection
 
 To demonstrate the benefits of incorporating AccuKnox DAST into an Azure DevOps CI/CD pipeline for enhanced security, this document outlines the steps to configure the integration, run DAST scans, and view results in the AccuKnox SaaS platform.
 
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## **Prerequisites**
 
 - Access to an Azure DevOps project.

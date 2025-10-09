@@ -7,6 +7,8 @@ description: Step-by-step instructions for onboarding an AWS cloud account to Ac
 
 In this section we can find the steps to onboard an AWS cloud account to the AccuKnox SaaS platform.
 
+![image](https://i.ibb.co/PzbPnkxj/image.png)
+
 ## **AWS IAM User Creation**
 
 Please follow the following steps to provide a user with appropriate read access:

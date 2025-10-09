@@ -17,6 +17,9 @@ hide:
 - title: CSPM Assets Support
   image: ./icons/cspm.svg
   url: /support-matrix/assets-list/
+- title: AI/ML Support Matrix
+  image: ./icons/ai-ml.svg
+  url: /support-matrix/aiml-support-matrix/
 - title: Compliance Matrix
   image: ./icons/compliance.svg
   url: /support-matrix/compliance-matrix/

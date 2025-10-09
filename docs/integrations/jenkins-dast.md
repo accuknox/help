@@ -9,6 +9,9 @@ description: Integrate AccuKnox DAST with Jenkins CI/CD to detect vulnerabilitie
 
 The **AccuKnox DAST Jenkins Plugin** simplifies integrating dynamic application security testing (DAST) into Jenkins pipelines. This plugin allows you to perform ZAP-based scans on target URLs and seamlessly upload the results to AccuKnox SaaS for centralized investigation and analysis.
 
+
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## Key Features
 
 - **Automated DAST Scans**: Perform **Baseline** or **Full Scans** on target URLs directly from your Jenkins pipelines.

@@ -21,6 +21,8 @@ hide:
 
 Our approach to CI/CD pipeline integration is not just about connecting tools—it's about creating a unified, automated security fabric that protects your applications from code to cloud. We focus on three core pillars: proactive vulnerability prevention, real-time threat detection, and continuous supply chain hardening. By shifting security left, we ensure every stage of your development lifecycle is fortified against modern attacks.
 
+![image](https://i.ibb.co/cSX9f6VR/image.png)
+
 === "Continuous API Security"
     !!! tip ""
         🚀 Instead of relying on infrequent manual penetration tests,

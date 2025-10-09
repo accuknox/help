@@ -7,6 +7,9 @@ description: Integrate AccuKnox DAST into Bitbucket pipelines to detect and reso
 
 This guide demonstrates how to integrate AccuKnox and Dynamic Application Security Testing (DAST) into a Bitbucket pipeline to identify and resolve vulnerabilities in a web application. We also support Authenticated and MFA DAST, ensuring comprehensive security coverage for your applications. Below, we outline the process and outcomes.
 
+
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## Pre-requisites
 
 - Access to Bitbucket Pipelines
