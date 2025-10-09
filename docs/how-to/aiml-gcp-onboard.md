@@ -1,15 +1,14 @@
 ---
-title:  Pre-requisite for GCP
-description: Pre-requisites and setup instructions for onboarding GCP cloud accounts to AccuKnox SaaS for continuous compliance and security checks.
+title: GCP AI/ML Cloud Onboarding
+description: Step-by-step instructions for onboarding a GCP cloud account and AI/ML assets within it to AccuKnox SaaS for automated security management.
 ---
 
-# Pre-requisite for GCP Cloud Account Onboarding
+# GCP AI/ML Cloud Onboarding
 
-## CSPM Pre-requisite for GCP
+!!! info "AI/ML Prerequisites for GCP Cloud Accounts"
+    **Please review the [AI/ML Prerequisites for GCP](https://help.accuknox.com/how-to/cspm-prereq-gcp/#aiml-security-prerequisites-for-gcp-cloud-accounts) before proceeding with the onboarding process.**
 
-When the AccuKnox control plane is hosted in a cloud environment, scanning is performed using Cloud account Readonly Access permissions.
-
-![image](images/gcp-arch.png)
+Here, we will see the steps to onboard a GCP cloud account to the AccuKnox SaaS platform
 
 **Note:**
 Make sure the Below API Library is enabled in your GCP Account for onboarding into AccuKnox SaaS:
@@ -76,33 +75,28 @@ For GCP there is a requirement for IAM Service Account Access.
 
 **Step 14:** Click the “Create“ button it will automatically download the JSON key.
 
-## AI/ML Security Prerequisites for GCP Cloud Accounts
+## From AccuKnox SaaS UI
 
-Permissions for Vertex AI (GCP) Access Control:
+**Step 1:** Go to the AccuKnox SaaS. Navigate to the “Settings” → “Cloud Accounts” then “Add Account”.
 
-Ref - [Vertex AI Docs](https://cloud.google.com/vertex-ai/docs/general/access-control#basic-roles)
+![image](images/gcp/gcp-saas-0.png)
 
-- **Basic roles** (apply broadly to cloud resources)
-    - Viewer (for general cloud assets)
-    - Security Reviewer
+**Step 2:** Click the “GCP Platform”
 
-- **Predefined roles specific to Vertex AI / Storage**
-    - Vertex AI Viewer
-    - Storage Bucket Viewer
-    - Storage Object Viewer
+![image](images/gcp/gcp-saas-1.png)
 
-- **Custom role**
-    - A role containing **only** the `aiplatform.endpoints.predict` permission
-        - Grants ability to call (invoke) Vertex AI endpoints
-        - Does *not* grant permissions to manage or deploy endpoints
+**Step 3:**  Create New Label and Add the Label for identifying the assets inside this account and add a Tag optionally.
 
-!!! note
-    You need to get a JSON private key with the service account to onboard the GCP account into AccuKnox SaaS. This can be done by following the [CSPM pre-requisite steps mentioned above](#).
+![image](images/gcp/gcp-saas-2.png)
 
-Screenshots for enabling AI related permissions are shown below:
+**Step 4:**  Enter the “Project ID“, “Client Email”(The Service Account mail ID) and  “Private Key” from the downloaded File.
+Copy paste the entire downloaded file into the ”Private Key” field . **Ensure to check the box "AI/ML Assets"** to enable AI/ML asset discovery and monitoring. Then Click “Connect“
 
-![image](images/gcp/gcp-ai-2.png)
-![image](images/gcp/gcp-ai-3.png)
-![image](images/gcp/gcp-ai-4.png)
+![image](images/ai-checkbox.png)
+
+The cloud account has been onboarded successfully
+
+![image](images/gcp/gcp-saas-4.png)
+
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

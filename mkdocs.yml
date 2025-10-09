@@ -193,6 +193,11 @@ nav:
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
+    - "AI/ML Security":
+      - "Overview": "use-cases/aiml-overview.md"
+      - "AWS AI/ML Onboarding": "how-to/aiml-aws-onboard.md"
+      - "Azure AI/ML Onboarding": "how-to/aiml-azure-onboard.md"
+      - "GCP AI/ML Onboarding": "how-to/aiml-gcp-onboard.md"
     - "Workloads":
       - "Kubernetes":
         - "Onboarding Overview": "how-to/k8s-security-onboarding.md"
@@ -392,11 +397,10 @@ nav:
       - "Remediation": "getting-started/cdr-setup.md"
     - "AI/ML Security":
       - "Overview": "use-cases/aiml-overview.md"
-      - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "Categories and Probes": "use-cases/subprompts-categories.md"
       - "Runtime Security":
         - "Onboard LLM Defense App": "use-cases/llm-defense-app-onboard.md"
-        # - "Onboard Custom App": "use-cases/aiml-runtime-onboard.md"
+      - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
       - "ModelArmor":
         - "Overview": "use-cases/modelarmor.md"
         - "Pickle Code Injection PoC": "use-cases/modelarmor-pickle-code.md"

@@ -1,15 +1,16 @@
 ---
-title: Pre-requisite for Azure
-description: Pre-requisites and setup instructions for onboarding Azure cloud accounts to AccuKnox SaaS, ensuring automated security configuration.
+title: Azure AI/ML Cloud Onboarding
+description: Step-by-step instructions for onboarding an Azure cloud account and AI/ML assets within it to AccuKnox SaaS for automated security management.
 ---
 
-# Pre-requisite for Azure Cloud Account Onboarding
+# Azure AI/ML Cloud Onboarding
 
-## CSPM Pre-requisite for Azure
+In this section we can find the steps to onboard an Azure cloud account to the AccuKnox SaaS platform
 
-When the AccuKnox control plane is hosted in a cloud environment, scanning is performed using Cloud account Readonly Access permissions.
+!!! info "AI/ML Prerequisites for Azure Cloud Accounts"
+    **Please review the [AI/ML Prerequisites for Azure](https://help.accuknox.com/how-to/cspm-prereq-azure/#aiml-security-prerequisites-for-azure-cloud-accounts) before proceeding with the onboarding process.**
 
-![image](images/azure-arch.png)
+## **Rapid Onboarding (via Azure)**
 
 For Azure Onboarding it is required to register an App and giving Security read access to that App from the Azure portal.
 
@@ -81,18 +82,29 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 ![image](images/azure11-1.png)
 
-## AI/ML Security Prerequisites for Azure Cloud Accounts
+## **From AccuKnox SaaS UI**
 
-Permissions for AI Asset Scanning (Azure):
+Configuring your Azure cloud account is complete, now we need to onboard the cloud account onto AccuKnox Saas Platform.
 
-- **Create a role with built-in Reader permissions**
-    - Assign the **Reader** role at the **subscription** or **resource group** level.
+**Step 1:** Go to settings→ Cloud Account and click on Add Account
 
-- **Create a custom role** with the following actions:
-    - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
-    - `Microsoft.MachineLearningServices/serverlessEndpoints/listKeys/action`
-    - `Microsoft.Storage/storageAccounts/listKeys/action`
-    - `Microsoft.MachineLearningServices/workspaces/batchEndpoints/score/action`
+![image](images/azure12.png)
+
+**Step 2:** Select Microsoft Azure as Cloud Account Type
+
+![image](images/azure13.png)
+
+**Step 3:** Select or create label and Tags that will be associated with this Cloud Account
+
+![image](images/azure14.png)
+
+**Step 4:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect. **Ensure to check the box "AI/ML Assets"** to enable AI/ML asset discovery and monitoring.
+
+![image](images/ai-checkbox.png)
+
+**Step 5:** After successfully connecting your cloud account will show up in the list
+
+![image](images/azure16.png)
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

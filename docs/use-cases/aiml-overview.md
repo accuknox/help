@@ -11,6 +11,8 @@ AccuKnox delivers platformized AI/ML security solutions to safeguard machine lea
 
 AI/ML systems face unique risks such as model theft, data privacy breaches, adversarial attacks, and compliance challenges. Securing these systems is critical to protect intellectual property, maintain data integrity, and meet regulatory requirements.
 
+## Supported Platforms
+
 <img src="https://i.ibb.co/wh0hknB2/ai-1.png)" alt="AI/ML Security" style="width:70%; max-width:600px;">
 
 ## Use Cases
@@ -20,20 +22,22 @@ AI/ML systems face unique risks such as model theft, data privacy breaches, adve
 
 - title: AI-DR (Detection & Runtime Protection)
   content: Detect and defend against AI-specific threats like prompt injection and model abuse with runtime visibility and enforcement.
-  image: ./icons/llm-protection.svg
+  image: ./icons/aidr.svg
   url: https://help.accuknox.com/use-cases/llm-defense-app-onboard/
 
 - title: Jupyter Notebook Security
   content: Secure Jupyter Notebooks with access controls, activity monitoring, and data protection to prevent unauthorized access and data leaks.
-  image: ./icons/jupyter-security.svg
+  image: ./icons/jupyter.svg
   url: https://help.accuknox.com/use-cases/jupyter-notebook/
 
 - title: ModelArmor
   content: Protect machine learning models from theft, adversarial attacks, and unauthorized access with encryption and usage monitoring.
-  image: ./icons/model-armor.svg
+  image: ./icons/modelarmor.svg
   url: https://help.accuknox.com/use-cases/modelarmor/
 
 ::/cards::
+
+## Featured Videos
 
 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: auto; font-family: Arial, sans-serif;">
 
@@ -88,10 +92,10 @@ AI/ML systems face unique risks such as model theft, data privacy breaches, adve
       <p style="margin:0; font-size:0.75rem; color:#555;">Implement end-to-end security for AI pipelines—from data ingestion to model deployment.</p>
     </div>
   </div>
-<!--
-TODO: Once these two videos are available, uncomment below -->
+
+<!-- ## Product Tours -->
 <!-- Prompt Firewalling -->
-<!-- <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
+  <!-- <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
   <div style="aspect-ratio:16/9;">
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EXAMPLE1" title="Prompt Firewalling" frameborder="0" allowfullscreen style="border:0;"></iframe>
   </div>
