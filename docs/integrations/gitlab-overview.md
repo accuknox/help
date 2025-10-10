@@ -60,3 +60,5 @@ hide:
   url: /integrations/gitlab-sast-variables/
 
 ::/cards::
+
+![image](https://i.ibb.co/cSX9f6VR/image.png)

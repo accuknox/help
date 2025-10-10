@@ -9,6 +9,10 @@ Managing security across multiple AWS accounts is complex. **AWS Organizations**
 
 This guide explains how to onboard your **AWS Organization root account** to AccuKnox.
 
+![image](https://i.ibb.co/21qVH4MK/image.png)
+
+![image](https://i.ibb.co/4Z4Nr94g/image.png)
+
 ## Prerequisites
 
 - You must have administrative access to your AWS Management Account and have permissions to deploy CloudFormation StackSet across the Organization.

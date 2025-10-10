@@ -7,6 +7,8 @@ description: Integrate AccuKnox DAST with AWS CodePipeline to detect and resolve
 
 This document contains the process of integrating AccuKnox DAST with AWS CodePipeline. By integrating AccuKnox DAST into the pipeline, you can identify and resolve security vulnerabilities for your applications.
 
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## Prerequisites
 
 Before beginning the integration, ensure you have the following:

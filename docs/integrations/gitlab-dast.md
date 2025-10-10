@@ -7,6 +7,9 @@ description: Automate DAST with AccuKnox in GitLab CI/CD to detect and fix vulne
 
 To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using GitLab to enhance security, consider a specific scenario involving a domain with known vulnerabilities. By integrating AccuKnox scanning into the pipeline, we can identify and resolve these security issues.
 
+
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## Pre-requisites
 
 - GitLab Access

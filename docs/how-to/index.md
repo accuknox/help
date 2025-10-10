@@ -23,6 +23,9 @@ hide:
 - title: ASPM
   image: ./icons/app-code.svg
   url: /how-to/aspm-overview/
+- title: AI/ML Security
+  image: ./icons/AIML.svg
+  url: /how-to/aiml-overview/
 - title: Container Registry
   image: ./icons/container-reg.svg
   url: /how-to/acr/

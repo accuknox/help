@@ -1,41 +1,50 @@
 ---
-title: AI/ML Security Overview
+title: AI/ML Security Onboarding
 description: Overview of AI/ML security solutions provided by AccuKnox to protect machine learning models, data pipelines, and AI-driven workloads.
 hide:
   - toc
 ---
 
-# AI/ML Security Overview
+# AI/ML Security Onboarding
 
-AccuKnox delivers platformized AI/ML security solutions to safeguard machine learning models, data pipelines, and AI-driven workloads from evolving threats. By applying Zero Trust principles, AccuKnox ensures robust protection across cloud, on-premises, and hybrid environments.
+<style>
+  .nt-card-title{
+    text-align: center;
+  }
 
-AI/ML systems face unique risks such as model theft, data privacy breaches, adversarial attacks, and compliance challenges. Securing these systems is critical to protect intellectual property, maintain data integrity, and meet regulatory requirements.
+  .nt-card-img img{
+    color: #00025;
+  }
+</style>
 
-## Supported Platforms
+AccuKnox delivers platformized AI/ML security solutions to safeguard machine learning models, data pipelines, and AI-driven workloads from evolving threats. By applying Zero Trust principles, AccuKnox ensures robust protection across cloud, on-premises, and hybrid environments. AI/ML systems face unique risks such as model theft, data privacy breaches, adversarial attacks, and compliance challenges. Securing these systems is critical to protect intellectual property, maintain data integrity, and meet regulatory requirements.
 
-<img src="https://i.ibb.co/wh0hknB2/ai-1.png)" alt="AI/ML Security" style="width:70%; max-width:600px;">
+## Supported Platforms and Use Cases
 
-## Use Cases
+!!!note "Useful Links"
+    - For list of supported platforms refer to AccuKnox's [**AI/ML Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
+    - For use cases refer to the [**AI/ML Security Use Cases**](https://help.accuknox.com/use-cases/aiml-usecases/)
 
-<!-- TODO: Add the right icons here -->
+## Onboarding AI/ML Assets from Cloud Providers
+Pick your cloud provider to get started with onboarding AI/ML assets:
+
 ::cards:: cols=3
 
-- title: AI-DR (Detection & Runtime Protection)
-  content: Detect and defend against AI-specific threats like prompt injection and model abuse with runtime visibility and enforcement.
-  image: ./icons/aidr.svg
-  url: https://help.accuknox.com/use-cases/llm-defense-app-onboard/
+- title: AWS
+  image: ./icons/aws-vm.svg
+  url: /how-to/aiml-aws-onboard/
 
-- title: Jupyter Notebook Security
-  content: Secure Jupyter Notebooks with access controls, activity monitoring, and data protection to prevent unauthorized access and data leaks.
-  image: ./icons/jupyter.svg
-  url: https://help.accuknox.com/use-cases/jupyter-notebook/
+- title: Azure
+  image: ./icons/azure-vm.svg
+  url: /how-to/aiml-azure-onboard/
 
-- title: ModelArmor
-  content: Protect machine learning models from theft, adversarial attacks, and unauthorized access with encryption and usage monitoring.
-  image: ./icons/modelarmor.svg
-  url: https://help.accuknox.com/use-cases/modelarmor/
+- title: GCP
+  image: ./icons/gcp-vm.svg
+  url: /how-to/aiml-gcp-onboard/
 
 ::/cards::
+
+<img src="https://i.ibb.co/wh0hknB2/ai-1.png)" alt="AI/ML Security" style="width:70%; max-width:600px;">
 
 ## Featured Videos
 
@@ -92,32 +101,5 @@ AI/ML systems face unique risks such as model theft, data privacy breaches, adve
       <p style="margin:0; font-size:0.75rem; color:#555;">Implement end-to-end security for AI pipelines—from data ingestion to model deployment.</p>
     </div>
   </div>
-
-<!-- ## Product Tours -->
-<!-- Prompt Firewalling -->
-  <!-- <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
-  <div style="aspect-ratio:16/9;">
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EXAMPLE1" title="Prompt Firewalling" frameborder="0" allowfullscreen style="border:0;"></iframe>
-  </div>
-  <div style="padding:8px;">
-    <h4 style="margin:0 0 4px; display:flex; align-items:center; gap:6px;">
-      Prompt Firewalling
-    </h4>
-    <p style="margin:0; font-size:0.75rem; color:#555;">Protect AI models from malicious prompts and unsafe user input in real time.</p>
-  </div>
-</div> -->
-
-<!-- AI Red Teaming -->
-<!-- <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
-  <div style="aspect-ratio:16/9;">
-    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EXAMPLE2" title="AI Red Teaming" frameborder="0" allowfullscreen style="border:0;"></iframe>
-  </div>
-  <div style="padding:8px;">
-    <h4 style="margin:0 0 4px; display:flex; align-items:center; gap:6px;">
-      AI Red Teaming
-    </h4>
-    <p style="margin:0; font-size:0.75rem; color:#555;">Continuously simulate attacks on AI systems to uncover vulnerabilities and improve defenses.</p>
-  </div>
-</div> -->
 
 </div>

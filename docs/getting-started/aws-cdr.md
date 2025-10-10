@@ -23,6 +23,8 @@ If you already have an S3 bucket containing cloudTrail Trail logs we will provid
 
 The CloudFormation script will be provided to you by AccuKnox team in the onboarding phase.
 
+![image](https://i.ibb.co/zTspWF6K/image.png)
+
 ## **Prerequisites**
 Before deploying the CloudFormation scripts the following parameters are required:
 

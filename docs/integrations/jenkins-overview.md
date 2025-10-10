@@ -42,3 +42,5 @@ hide:
   url: /integrations/jenkins-dast-script/
 
 ::/cards::
+
+![image](https://i.ibb.co/cSX9f6VR/image.png)

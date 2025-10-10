@@ -5,6 +5,9 @@ description: Learn how to integrate Dynamic Application Security Testing (DAST) 
 
 To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using GitHub Actions to enhance security, consider a specific scenario involving a domain with known vulnerabilities. By integrating AccuKnox scanning into the pipeline, we can identify and resolve these security issues.
 
+
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## Prerequisites
 
 - GitHub repository access.

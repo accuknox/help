@@ -38,3 +38,5 @@ hide:
   image: ./cicd-icons/secret-scan.svg
   url: /integrations/azure-secret-scan/
 ::/cards::
+
+![image](https://i.ibb.co/cSX9f6VR/image.png)

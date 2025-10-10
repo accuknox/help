@@ -21,8 +21,9 @@ AccuKnox CDR for Azure can be deployed using a Terraform configuration. The conf
 | EventHub Authorization Rule "activity_logs" | Allows ActivityLog to publish messages to the EventHub |
 | EventHub Authorization Rule "logstash"      | Allows Logstash to subscribe to the EventHub messages  |
 
-The Terraform configuration will be provided to you by the AccuKnox team in
-the onboarding phase.
+The Terraform configuration will be provided to you by the AccuKnox team in the onboarding phase.
+
+![image](https://i.ibb.co/C3YxGj11/image.png)
 
 ## Setup
 
@@ -97,7 +98,7 @@ Before running the script you need to update the values of the the variables.
 |--------------------------------|----------------------------------------------------------------------------------------|
 | `SUBSCRIPTION_IDS`              | Azure account subscription IDs to monitor                                             |
 | `EVENTHUB_AUTH_RULE_ID`                     | Can be found in the terraform output of step 1                            |
-| `EVENTHUB_NAME`          | Can be found in the terraform output of step 1                                               | 
+| `EVENTHUB_NAME`          | Can be found in the terraform output of step 1                                               |
 
 ```
 # Array of subscription IDs
@@ -110,7 +111,7 @@ EVENTHUB_NAME="<eventhub-name>"
 DIAGNOSTIC_NAME="accuknox-cdr-activity-to-eventhub"
 for SUBSCRIPTION_ID in "${SUBSCRIPTION_IDS[@]}"; do
   echo "Configuring Activity Log → Event Hub for $SUBSCRIPTION_ID ..."
-  
+
   az monitor diagnostic-settings create \
     --name $DIAGNOSTIC_NAME \
     --resource "/subscriptions/$SUBSCRIPTION_ID" \

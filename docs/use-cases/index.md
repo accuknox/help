@@ -39,7 +39,7 @@ h2 {
   url: /use-cases/secret-scan-cicd-aws/
 - title: AI/ML Security
   image: ./icons/AIML.svg
-  url: /use-cases/jupyter-notebook/
+  url: /use-cases/aiml-usecases/
 - title: Cloud Security (CSPM)
   image: ./icons/CSPM.svg
   url: /use-cases/cspm/

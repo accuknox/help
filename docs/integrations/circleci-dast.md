@@ -7,6 +7,9 @@ description:
 
 To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using CircleCI, this guide explains how to integrate Dynamic Application Security Testing (DAST) scans into your build process. By using the AccuKnox CircleCI plugin, teams can identify and resolve application-layer vulnerabilities before pushing to production.
 
+
+![image](https://i.ibb.co/xKgxF9KK/image.png)
+
 ## Prerequisites
 
 - A configured CircleCI project connected to your application’s source repository.

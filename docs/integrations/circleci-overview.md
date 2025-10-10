@@ -38,3 +38,5 @@ hide:
   image: ./cicd-icons/container.svg
   url: /integrations/circleci-container-scan/
 ::/cards::
+
+![image](https://i.ibb.co/cSX9f6VR/image.png)

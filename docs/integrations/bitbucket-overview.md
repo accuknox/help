@@ -58,3 +58,5 @@ hide:
   url: /integrations/bitbucket-sast-variables/
 
 ::/cards::
+
+![image](https://i.ibb.co/cSX9f6VR/image.png)
