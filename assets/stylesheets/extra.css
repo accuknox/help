@@ -1,0 +1,105 @@
+#logo_light_mode {
+    display: var(--md-header-logo-light-mode);
+}
+
+#logo_dark_mode {
+    display: var(--md-header-logo-dark-mode);
+}
+
+/* LIGHT MODE */
+[data-md-color-scheme="default"] {
+    --md-header-logo-dark-mode: none;
+    --md-header-logo-light-mode: block;
+
+
+    .md-typeset h1 {
+        color: #000000 !important;
+        font-weight: bolder;
+    }
+
+    .md-typeset h2 {
+        color: #000000 !important;
+        font-weight: bolder;
+    }
+
+
+    .ticket_tab {
+        background: white;
+        color: black;
+    }
+
+    .contact_tab {
+        background: white;
+        color: black;
+    }
+
+}
+
+
+/* DARK MODE */
+[data-md-color-scheme="slate"] {
+    --md-header-logo-dark-mode: block;
+    --md-header-logo-light-mode: none;
+
+    .md-typeset h1 {
+        color: #ffffff !important;
+        font-weight: bolder;
+    }
+
+    .md-typeset h2 {
+        color: #ffffff !important;
+        font-weight: bolder;
+    }
+
+    .ticket_tab {
+        background: black;
+        color: white;
+    }
+
+    .contact_tab {
+        background: black;
+        color: white;
+
+    }
+
+    .home-card-heading {
+        color: black;
+    }
+
+    .use-cases-container {
+        background-color: white;
+    }
+
+    .home-section-7 {
+        background-color: white;
+    }
+
+
+}
+
+.contact_tab {
+    float: right;
+    margin-right: 0.3rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 700;
+}
+
+.ticket_tab {
+    float: right;
+    margin-right: 5em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: 700;
+}
+
+.home-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+body .gist .gist-meta {
+    display: none;
+}

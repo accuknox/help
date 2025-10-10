@@ -1,0 +1,124 @@
+:root {
+  --md-primary-fg-color: #FFFFFF;
+  --md-primary-bg-color: #000000;
+  --md-primary-fg-color--light: #000000;
+  --md-primary-fg-color--dark:  #000000;
+
+}
+
+body .gist .gist-meta {
+  display: none;
+}
+
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+
+  fill: currentcolor;
+  display: block;
+  width: auto;
+  height: 2.2rem;
+  }
+
+  :root, [data-md-color-scheme=default] {
+
+    --md-footer-bg-color: #050525;
+    --md-footer-bg-color--dark: #050525;
+    --md-typeset-a-color: #093a9b;
+
+  }
+
+  .md-typeset .md-button--primary {
+    background-color: #0044FE;
+    border-color: #000000;
+    color: #FFFFFF;
+  }
+
+
+header.md-header{
+    background-color: #000025;
+}
+
+nav.md-tabs{
+background-color: #000025;
+}
+
+h1{
+  font-weight: 800 !important;
+}
+
+div.md-search{
+  border-radius: 50%;
+}
+
+
+
+
+
+
+/*
+--------------
+LABELS - THESE ARE APPLIED BASED ON CSS SELECTORS - INSPECT ELEMENT, COPY SELECTOR, APPLY STYLES
+--------------
+*/
+
+/* NAVBAR - USE CASE TAB */
+body > header > nav.md-tabs > div > ul:nth-child(2) > li:nth-child(4) > a::after
+{
+  background-color: #28a745;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  content: "New";
+}
+
+/* USE CASES > DevSecOps (ASPM)*/
+#__nav_4_4_label > span.md-ellipsis::after{
+  background-color: #28a745;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  content: "New";
+}
+
+/* OVERVIEW > DEPLOYMENT MODELS */
+/* body > div.md-container > main > div > div.md-sidebar.md-sidebar--primary > div > div > nav > ul > li.md-nav__item.md-nav__item--active.md-nav__item--section.md-nav__item--nested > nav > ul > li:nth-child(3) > a > span::after{
+  background-color: #28a745;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  content: "New";
+} */
+
+/* INTEGRATIONS > SIEM/SECURITY EVENTS & CI/CD */
+/* #__nav_4_3_label > span.md-ellipsis::after, #__nav_4_8_label > span.md-ellipsis::after{
+  background-color: #28a745;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  content: "New";
+} */
+
+/* GETTING STARTED > CLOUD ACCOUNTS & REPORTS */
+
+/* #__nav_3_5_label > span.md-ellipsis::after,#__nav_3_10_label > span.md-ellipsis::after{
+  background-color: #28a745;
+  color: white;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  content: "New";
+} */
