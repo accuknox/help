@@ -58,29 +58,27 @@ For Azure Onboarding it is required to register an App and giving Security read 
 
 ![image](images/azure7.png)
 
-**Step 12:** Navigate to Access control(IAM) and go to Roles , here select Add and Add role assignment
+**Step 12:** Navigate to Access control(IAM) and go to Roles , here select **Add > Add Custom Role**
 
-![image](images/azure8.png)
+![image](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/add-custom-role-menu.png)
 
-**Step 13:** Search for “Security Reader” Job function Role, select it and press *next*
+Create a custom role with the following actions:
+`Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
+`Microsoft.MachineLearningServices/serverlessEndpoints/listKeys/action`
+`Microsoft.Storage/storageAccounts/listKeys/action`
+`Microsoft.MachineLearningServices/workspaces/batchEndpoints/score/action`
 
-![image](images/azure9.png)
+It will look similar to this (use the above listed permissions):
+![alt text](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/json.png)
 
-**Step 14:** In the member section click on Select *members* it will open a dropdown menu on the right hand side
+**Step 13:** Next, we need to apply the Reader role.
+![image](https://i.ibb.co/bwNv5H2/image.png)
 
-![image](images/azure10.png)
+1. Go to the **Azure Portal** → **Subscriptions** (or **Resource Groups**) → select your target scope.
+2. Open **Access control (IAM)** → click **Add > Add role assignment**.
+3. In the **Role** tab, select **Reader**, then click **Next**.
+4. Under **Members**, choose the user, service principal, or group → **Review + assign** to apply the Reader role.
 
-**Step 15:** Here search for the Application that you registered in the beginning , select the application and click on *review and assign*.
-
-![image](images/azure11.png)
-
-**Step 16:** Similarly, we have to add another role. This time, search for *Log Analytics Reader*. Select it and click *next*
-
-![image](images/azure11-0.png)
-
-**Step 17:** Now, click on *Select members*, select the application that was created similar to the previous role. Finally, click on *Review and Assign*.
-
-![image](images/azure11-1.png)
 
 ## **From AccuKnox SaaS UI**
 
