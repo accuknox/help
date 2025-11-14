@@ -111,7 +111,7 @@ Every entry uses a common schema:
 
 ```json
 {
-  "invited_user": "ravi@accuknox.com",
+  "invited_user": "abc@xyz.com",
   "role_assigned": "Viewer",
   "invite_status": "sent"
 }
