@@ -33,5 +33,8 @@ hide:
 - title: Secret Scanning
   image: ./cicd-icons/secret-scan.svg
   url: /integrations/aws-secret-scan/
+- title: ECR Automated Scan
+  image: ./cicd-icons/container.svg
+  url: /how-to/ecr-automated-scan/
 
 ::/cards::
