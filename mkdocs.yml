@@ -210,6 +210,7 @@ nav:
         - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"
         - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
         - "CIS Benchmarking": "how-to/cis-benchmarking.md"
+        - "KubeArmor on GKE Autopilot": "getting-started/gke-autopilot.md"
         - "Cluster Offboarding" : "how-to/cluster-offboarding.md"
       - "VM/Bare Metal" :
         - "VM Onboard/Deboard with Docker" : "how-to/vm-onboard-deboard-docker.md"
@@ -255,7 +256,7 @@ nav:
       - "AWS Onboarding": "getting-started/aws-cdr.md"
       - "GCP Onboarding": "getting-started/gcp-cdr.md"
       - "Azure Onboarding": "getting-started/azure-cdr.md"
-    - "SBOM": "getting-started/sbom.md"
+    - "xBOM Setup Guide": "getting-started/xbom-setup.md"
     - "SARIF Findings": "getting-started/sarif-findings.md"
     - "Secrets Management": "getting-started/secrets-management.md"
     - "Reports":

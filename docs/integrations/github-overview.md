@@ -32,6 +32,9 @@ hide:
 - title: DAST (Dynamic Analysis)
   image: ./cicd-icons/dast.svg
   url: /integrations/github-dast/
+- title: ECR Automated Scan
+  image: ./cicd-icons/container.svg
+  url: /how-to/ecr-automated-scan/
 ::/cards::
 
 ![image](https://i.ibb.co/cSX9f6VR/image.png)
