@@ -327,10 +327,12 @@ nav:
           - "Secret Scan": "integrations/bamboo-secret-scan.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
-          - "SAST": "integrations/google-sast.md"
+          - "SAST (OpenGrep)": "integrations/google-opengrep-sast.md"
+          - "SQ-SAST (SonarQube)": "integrations/google-sast.md"
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
           - "DAST": "integrations/google-dast.md"
+          - "Secret Scan": "integrations/google-secret-scan.md"
         - "Harness":
           - "Overview": "integrations/harness-overview.md"
           - "SAST" : "integrations/harness-sast.md"
