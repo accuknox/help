@@ -207,6 +207,34 @@ Once the pipeline above is wired up, every push triggers the SAST scan. Issues l
 
 ![google-sast-integration-accuknox](images/google-build/og-sast/build-log.png)
 
+### **View the Results in AccuKnox SaaS**
+
+**Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
+
+**Step 2**: Go to **Issues** > **Findings** and select **OpenGrep Findings** to see identified vulnerabilities.
+
+![google-sast-integration-accuknox](images/opengrep-sast/2.png)
+
+**Step 3**: Click on a vulnerability to view more details.
+
+![google-sast-integration-accuknox](images/opengrep-sast/3.png)
+
+**Step 4**: Fix the Vulnerability
+
+Follow the instructions in the **Solutions** tab to fix the vulnerability.
+
+![google-sast-integration-accuknox](images/opengrep-sast/4.png)
+
+**Step 5**: Create a ticket for fixing the vulnerability by selecting a Ticket Configuration and clicking on the adjacent button.
+
+![google-sast-integration-accuknox](images/opengrep-sast/5.png)
+
+**Step 6**: Review the Updated Results
+
+- After fixing the vulnerability, rerun the Cloud Build pipeline.
+
+- Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
+
 ## **Conclusion**
 
 Google offers a complete ecosystem for CI/CD that includes Google Cloud Build, Google Cloud Registry, Google Cloud Repository, and Google Secret Manager. AccuKnox SAST scanning brings several benefits to the mix:
