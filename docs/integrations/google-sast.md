@@ -1,128 +1,254 @@
 ---
-title: Google Cloud Build SAST
-description: Integrate AccuKnox into a Google Cloud Build pipeline to identify and remediate vulnerabilities in Java applications. Below, we compare the state of the pipeline before and after integrating AccuKnox, highlighting the security improvements.
+title: Google Cloud Build SQ-SAST
+description: Integrate AccuKnox SonarQube-based SAST scanning into Google Cloud Build to catch source code vulnerabilities flagged by the SonarQube ruleset. The pipeline uses the AccuKnox ASPM Scanner CLI to run the Sonar Scanner and forwards findings directly to your AccuKnox CSPM panel.
 ---
 
-# Google Cloud Build SAST
+# Google Cloud Build SQ-SAST
 
-To demonstrate the benefits of incorporating AccuKnox into a CI/CD pipeline using Google Cloud Build to enhance security, consider a specific scenario involving a Java application with known vulnerabilities. By integrating AccuKnox scanning into the pipeline, we can identify and resolve these security issues before deployment.
+Integrate AccuKnox SonarQube-based SAST scanning into Google Cloud Build to catch source code vulnerabilities flagged by the SonarQube ruleset. The pipeline uses the AccuKnox ASPM Scanner CLI to run the Sonar Scanner, then forwards findings directly to your AccuKnox CSPM panel.
 
-## **Pre-requisite**
+## **Prerequisites**
 
-- GCP Console Access
+- GCP project with Cloud Build enabled
 
-- AccuKnox UI Access
+- AccuKnox SaaS access with permission to generate tokens
 
-- Sonarqube deployment
+- A SonarCloud or self-hosted SonarQube instance with a project already created
 
-- Google Cloud build Pipeline
+- A GitHub, GitLab, Bitbucket, or Cloud Source Repository connected to Cloud Build
 
-- Github/Google Cloud source repositories
+- A Cloud Build trigger pointing at the repository you want to scan
 
 ## **Steps for integration**
 
-**Step 1**: Log in to AccuKnox Saas, Navigate to Settings, and select Tokens to create an AccuKnox token for forwarding scan results to Saas
+### **Step 1: Gather your credentials**
+
+You need credentials from two systems before configuring the pipeline.
+
+**AccuKnox**
+
+Log in to AccuKnox SaaS. Navigate to **Settings > Tokens**, then create a new token.
 
 ![google-sast-integration-accuknox](images/google-build/token-creation.png)
 
-**Note**: Copy the token and create a Google Cloud secret for the token to be used as a secret in the pipeline. Also, copy the tenant ID value to be used in the Cloud Build YAML file.
+**SonarQube / SonarCloud**
 
-**Step 2**: Add SonarQube and AccuKnox Tokens to Google Cloud Secret Manager:
+Open your SonarQube instance or sonarcloud.io. Find the project you want to scan, then grab the project key (**Project Settings > Information**). Then, create an auth token under **My Account**, then **Security**. For SonarCloud, also note your organisation key.
 
-- Add the following secrets:
+![google-sast-integration-accuknox](images/google-build/sq-sast/sonar-project.png)
 
-    - ```SONAR_TOKEN```: Your SonarQube project token.
+![google-sast-integration-accuknox](images/google-build/sq-sast/sonar-token.png)
 
-    - ```AK_TOK```: The artifact token received from the AccuKnox management plane.
+Save these values for use in Step 3:
 
-- Optionally add the following instead if specifying directly in file:
+| **Field** | **Where to find it** |
+|---|---|
+| AccuKnox Endpoint | Your AccuKnox CSPM URL, for example, `cspm.demo.accuknox.com` |
+| AccuKnox Token | The token string shown after creation |
+| AccuKnox Label | Any descriptive string you choose |
+| Sonar Project Key | Project Settings, then Information |
+| Sonar Host URL | Your SonarQube URL or `https://sonarcloud.io` |
+| Sonar Token | My Account, then Security, then Generate token |
+| Sonar Organization | SonarCloud only, leave blank for self-hosted SonarQube |
 
-    - ```TENANT_ID```: Your AccuKnox Tenant ID.
+### **Step 2: Add the cloudbuild.yaml to your repository**
 
-    - ```AK_URL```: The AccuKnox URL (```cspm.accuknox.com```).
-
-    - ```SQ_URL```: Your SonarQube URL.
-
-**Step 3**: To integrate AccuKnox scans into your Google Cloud Build, set up a ```cloudbuild.yaml``` file in your repository with the following content:
+Drop the following file at the root of your repository as `cloudbuild.yaml`.
 
 ```yaml
+# =============================================================================
+# AccuKnox SonarQube SAST (sq-sast) - Google Cloud Build Pipeline
+# Runs a SonarQube/SonarCloud scan and fetches results into AccuKnox CSPM.
+# =============================================================================
+
 steps:
-    # Step 1: Check Docker permissions and add user to docker group if necessary
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
+
+  # Step 1: Validate required inputs (fail fast)
+  - id: validate-inputs
+    name: ubuntu:24.04
+    entrypoint: bash
+    env:
+      - ACCUKNOX_ENDPOINT=${_ACCUKNOX_ENDPOINT}
+      - ACCUKNOX_TOKEN=${_ACCUKNOX_TOKEN}
+      - ACCUKNOX_LABEL=${_ACCUKNOX_LABEL}
+      - SONAR_PROJECT_KEY=${_SONAR_PROJECT_KEY}
+      - SONAR_HOST_URL=${_SONAR_HOST_URL}
+      - SONAR_TOKEN=${_SONAR_TOKEN}
     args:
-      - '-c'
+      - -c
       - |
-        id
-        usermod -aG docker $(whoami) || true && chmod -R 777 /workspace # Add user to docker group (ignore if already added)
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args: [
-      '-c',
-      "gcloud secrets versions access latest --secret=sonarqube-token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/sonar-token.txt"
-    ]
-    id: 'access-sonar-secret'
-  - name: 'docker.io/sonarsource/sonar-scanner-cli'
-    entrypoint: '/bin/sh'
+        set -e
+        if [ -z "$$ACCUKNOX_ENDPOINT" ] || [ -z "$$ACCUKNOX_TOKEN" ] || [ -z "$$ACCUKNOX_LABEL" ]; then
+          echo "ERROR: _ACCUKNOX_ENDPOINT, _ACCUKNOX_TOKEN, and _ACCUKNOX_LABEL must be set!"
+          exit 1
+        fi
+        if [ -z "$$SONAR_PROJECT_KEY" ] || [ -z "$$SONAR_HOST_URL" ] || [ -z "$$SONAR_TOKEN" ]; then
+          echo "ERROR: _SONAR_PROJECT_KEY, _SONAR_HOST_URL, and _SONAR_TOKEN must be set!"
+          exit 1
+        fi
+        echo "All required inputs present."
+
+  # Step 2: Download the AccuKnox ASPM Scanner CLI
+  - id: download-scanner
+    name: ubuntu:24.04
+    entrypoint: bash
     args:
-      - '-c'
+      - -c
       - |
-        sonar-scanner -X \
-          -Dsonar.projectKey={project-name} \
-          -Dsonar.sources=. \
-          -Dsonar.host.url=$_SONAR_HOST_URL \
-          -Dsonar.login=$(cat /workspace/sonar-token.txt)
-  - name: 'docker.io/accuknox/sastjob:latest'
-    entrypoint: '/bin/sh'
+        set -e
+        export DEBIAN_FRONTEND=noninteractive
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends curl ca-certificates
+
+        curl -sSL https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.14.2/accuknox-aspm-scanner \
+          -o /workspace/accuknox-aspm-scanner
+        chmod +x /workspace/accuknox-aspm-scanner
+
+  # Step 3: Install Sonar Scanner, run the scan, upload results to AccuKnox CSPM
+  - id: run-sq-sast-scan
+    name: ubuntu:24.04
+    entrypoint: bash
+    env:
+      - SOFT_FAIL=${_SOFT_FAIL}
+      - SKIP_SONAR_SCAN=${_SKIP_SONAR_SCAN}
+      - ACCUKNOX_ENDPOINT=${_ACCUKNOX_ENDPOINT}
+      - ACCUKNOX_TOKEN=${_ACCUKNOX_TOKEN}
+      - ACCUKNOX_LABEL=${_ACCUKNOX_LABEL}
+      - SONAR_PROJECT_KEY=${_SONAR_PROJECT_KEY}
+      - SONAR_HOST_URL=${_SONAR_HOST_URL}
+      - SONAR_TOKEN=${_SONAR_TOKEN}
+      - SONAR_ORGANIZATION=${_SONAR_ORGANIZATION}
+      - REPO_URL=${_REPO_URL}
+      - BRANCH_NAME=${BRANCH_NAME}
+      - COMMIT_SHA=${COMMIT_SHA}
+      - BUILD_ID=${BUILD_ID}
+      - PROJECT_ID=${PROJECT_ID}
     args:
-      - '-c'
+      - -c
       - |
-        apt update && apt-get install -y docker.io && docker run --rm \
-          -e SQ_URL=$_SONAR_HOST_URL \
-          -e SQ_AUTH_TOKEN=$(cat /workspace/sonar-token.txt) \
-          -e REPORT_PATH=/app/data/ \
-          -e SQ_PROJECTS="^{project-name}$" \
-          -v $(pwd):/app/data/ \
-          accuknox/sastjob:latest
-  # Step 5: Access the secret using gcloud and save it to a file
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args: [
-      '-c',
-      "gcloud secrets versions access latest --secret=accuknox_token --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /workspace/ak-token.txt"
-    ]
-    id: 'access-ak-secret'
-  - name: 'gcr.io/cloud-builders/curl'
-    entrypoint: '/bin/sh'
-    args:
-      - '-c'
-      - |
-        for file in $(ls -1 SQ-*.json); do
-          curl --location --request POST "https://$_AK_URL/api/v1/artifact/?tenant_id=$_TENANT_ID&data_type=SQ&save_to_s3=false" \
-            --header "Tenant-Id: $_TENANT_ID" \
-            --header "Authorization: Bearer $(cat /workspace/ak-token.txt)" \
-            --form "file=@\"$file\""
-        done
+        set -e
+
+        export DEBIAN_FRONTEND=noninteractive
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends ca-certificates default-jre-headless
+
+        /workspace/accuknox-aspm-scanner tool install --type sq-sast
+
+        SOFT_FAIL=$(echo "$$SOFT_FAIL" | tr -d ' \t\r\n')
+        SOFT_FAIL_ARG=""
+        if [ "$$SOFT_FAIL" = "true" ]; then
+          SOFT_FAIL_ARG="--softfail"
+        fi
+
+        SKIP_SCAN_ARG=""
+        if [ "$$SKIP_SONAR_SCAN" = "true" ]; then
+          SKIP_SCAN_ARG="--skip-sonar-scan"
+        fi
+
+        SONAR_ORG_FLAG=""
+        if [ -n "$$SONAR_ORGANIZATION" ]; then
+          SONAR_ORG_FLAG="-Dsonar.organization=$$SONAR_ORGANIZATION"
+        fi
+
+        SONAR_CMD="-Dsonar.projectKey=$$SONAR_PROJECT_KEY -Dsonar.host.url=$$SONAR_HOST_URL -Dsonar.token=$$SONAR_TOKEN $$SONAR_ORG_FLAG"
+
+        PIPELINE_URL="https://console.cloud.google.com/cloud-build/builds/$$BUILD_ID?project=$$PROJECT_ID"
+        if [ -z "$$COMMIT_SHA" ]; then
+          COMMIT_SHA="manual-$$BUILD_ID"
+        fi
+
+        BRANCH_ARG=""
+        if [ -n "$$BRANCH_NAME" ]; then
+          BRANCH_ARG="--branch $$BRANCH_NAME"
+        fi
+
+        /workspace/accuknox-aspm-scanner scan --keep-results $$SOFT_FAIL_ARG sq-sast \
+          --command "$$SONAR_CMD" \
+          $$SKIP_SCAN_ARG \
+          --repo-url "$$REPO_URL" \
+          $$BRANCH_ARG \
+          --commit-sha "$$COMMIT_SHA" \
+          --pipeline-url "$$PIPELINE_URL"
+
 substitutions:
-  _SONAR_HOST_URL: "{Sonarqube_host_url}"
-  _AK_URL: "{cspm.<env>.accuknox.com}"
-  _TENANT_ID: "[tenant-id]"
-logsBucket: "gs://{bucket-name}"
+  _ACCUKNOX_ENDPOINT: ""
+  _ACCUKNOX_TOKEN: ""
+  _ACCUKNOX_LABEL: ""
+  _SONAR_PROJECT_KEY: ""
+  _SONAR_HOST_URL: ""
+  _SONAR_TOKEN: ""
+  _SONAR_ORGANIZATION: ""
+  _REPO_URL: ""
+  _SOFT_FAIL: "true"
+  _SKIP_SONAR_SCAN: "false"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8
+
+timeout: 3600s
 ```
 
-**Note**: In the YAML file above, you need to replace the value for the ```{project-name}``` with the Sonarqube project name and ```{Sonarqube_host_url}``` with the actual Sonarqube URL. Under substitution, replace ```"{cspm.<env>.accuknox.com}"``` with the applicable "cspm env-name" (e.g. demo or use ```"{cspm.accuknox.com}"``` if you are making use of a paid SaaS subscription), replace ```{bucket-name}``` with your GCP bucket name, and replace ```[tenant-id]``` with your tenant ID copied in the **Step 1**.
+Commit and push the file to your repository.
 
-## **Before AccuKnox Scan**
+### **Step 3: Configure the Cloud Build trigger**
 
-Initially, the CI/CD pipeline does not include the AccuKnox scan. When you push the changes to the repository it gets deployed without any security checks, potentially **allowing the SQL Injection vulnerability in the application**
+Open Cloud Build in the GCP console. Create or edit a trigger pointing at your repository.
 
-## **After AccuKnox Scan Integration**
+Under **Configuration**, select **Cloud Build configuration file** and point it at `cloudbuild.yaml`.
 
-After integrating AccuKnox into your CI/CD pipeline, the next push triggers the Google Cloudbuild Actions workflow. The AccuKnox scan identifies the SQL Injection vulnerability in the JAVA application
+Under **Advanced**, then **Substitution variables**, add:
 
-![google-sast-integration-accuknox](images/google-build/sast-build.png)
+| **Variable name** | **Value** |
+|---|---|
+| `_ACCUKNOX_ENDPOINT` | Your CSPM endpoint, for example, `cspm.demo.accuknox.com` |
+| `_ACCUKNOX_TOKEN` | The AccuKnox token from Step 1 |
+| `_ACCUKNOX_LABEL` | A label of your choice, for example, `sq-sast-myapp` |
+| `_SONAR_PROJECT_KEY` | The SonarQube project key, for example, `my-org_my-repo` |
+| `_SONAR_HOST_URL` | Your SonarQube URL, for example, `https://sonarcloud.io` |
+| `_SONAR_TOKEN` | The SonarQube auth token from Step 1 |
+| `_SONAR_ORGANIZATION` | *optional.* SonarCloud organization key. Leave blank for self-hosted SonarQube. |
+| `_REPO_URL` | Your repo URL, for example, `https://github.com/your-org/your-repo.git` |
+| `_SOFT_FAIL` | *optional.* `true` (default) or `false` to fail the build on findings |
+| `_SKIP_SONAR_SCAN` | *optional.* `false` (default) or `true` to skip the Sonar scan and only fetch existing results |
 
-### **View the Results in AccuKnox Saas**
+![google-sast-integration-accuknox](images/google-build/sq-sast/trigger-config.png)
+
+These values live in the trigger config rather than the YAML, which keeps your tokens out of git history.
+
+Save the trigger. The next push to the watched branch runs the pipeline.
+
+## **How the pipeline works**
+
+| **Step** | **Purpose** |
+|---|---|
+| 1. validate-inputs | Fails the build in under a second if any required AccuKnox or SonarQube credential is missing. Saves a wasted scanner download. |
+| 2. download-scanner | Fetches the AccuKnox ASPM Scanner v0.14.2 binary into `/workspace`, which persists across Cloud Build steps. |
+| 3. run-sq-sast-scan | Installs the SonarQube Scanner locally, runs the scan against your codebase, fetches the results from SonarQube, and uploads findings to AccuKnox CSPM. |
+
+![google-sast-integration-accuknox](images/google-build/sq-sast/build-log.png)
+
+## **Skip the scan, fetch only**
+
+If your SonarQube scan already runs in another pipeline (for example, a separate GitHub Action or a different Cloud Build trigger), you don't need this pipeline to run the scan again. Set `_SKIP_SONAR_SCAN` to `true`, and the AccuKnox scanner will pull the latest results from SonarQube and forward them to CSPM without rerunning anything.
+
+For most setups, leave `_SKIP_SONAR_SCAN` as `false` so scan and upload happen in one go.
+
+## **Viewing results**
+
+Open the AccuKnox CSPM panel. Filter findings by the label you set in `_ACCUKNOX_LABEL`. Each finding includes the file, line number, SonarQube rule ID, severity, and a link back to both the Cloud Build run and the SonarQube issue.
+
+## **Before the AccuKnox scan**
+
+Without SonarQube SAST integration in your pipeline, code quality and security issues that SonarQube flags stay siloed in the SonarQube UI. Security teams using AccuKnox as their single pane of glass have to context-switch to SonarQube to triage these findings, and they don't appear alongside cloud, container, or IaC risks.
+
+## **After AccuKnox scan integration**
+
+Once the pipeline above is wired up, every push triggers the SonarQube scan and the results land in AccuKnox CSPM alongside findings from every other scanner. SQL injection, hardcoded credentials, insecure deserialization, and other SonarQube-flagged issues appear with severity, file location, and remediation guidance in one place. Critical issues can fail the build by toggling `_SOFT_FAIL` to `false`.
+
+![google-sast-integration-accuknox](images/google-build/sq-sast/build-log.png)
+
+### **View the Results in AccuKnox SaaS**
 
 **Step 1**: After the workflow completes, navigate to the AccuKnox SaaS dashboard.
 
@@ -158,7 +284,7 @@ Google offers a complete ecosystem for CI/CD that includes Google Cloud Build, G
 
 - Code scanning in a CI/CD pipeline stops Security issues from reaching the deployment.
 
-- From AccuKnox Saas users can view the findings and mitigate the CRITICAL/HIGH findings.
+- From AccuKnox SaaS users can view the findings and mitigate the CRITICAL/HIGH findings.
 
 - Once the issues are resolved, users can trigger the scan again and observe the changes in the findings to ensure that the updated code successfully deploys the application.
 

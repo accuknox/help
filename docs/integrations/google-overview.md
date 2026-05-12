@@ -1,6 +1,6 @@
 ---
 title: Google Cloud Build Integrations
-description: Learn how to integrate google with Rafay to automate security testing and deployment of your applications.
+description: Learn how to integrate Google Cloud Build with AccuKnox to automate security testing and deployment of your applications.
 hide:
   - toc
 ---
@@ -16,9 +16,12 @@ hide:
 
 # Google Cloud Build Integrations
 
-::cards:: cols=2
+::cards:: cols=3
 
-- title: SAST (Static Analysis)
+- title: SAST (OpenGrep)
+  image: ./cicd-icons/opengrep-sast.svg
+  url: /integrations/google-opengrep-sast/
+- title: SQ-SAST (SonarQube)
   image: ./cicd-icons/sast.svg
   url: /integrations/google-sast/
 - title: Container Scan
@@ -30,7 +33,8 @@ hide:
 - title: DAST (Dynamic Analysis)
   image: ./cicd-icons/dast.svg
   url: /integrations/google-dast/
+- title: Secret Scan
+  image: ./cicd-icons/secret-scan-cicd.svg
+  url: /integrations/google-secret-scan/
 
 ::/cards::
-
-![image](https://i.ibb.co/cSX9f6VR/image.png)
