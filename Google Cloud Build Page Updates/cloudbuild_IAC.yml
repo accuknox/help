@@ -1,0 +1,120 @@
+# AccuKnox IaC (Checkov) — Google Cloud Build Pipeline
+
+steps:
+
+  # ---------------------------------------------------------------------------
+  # Step 1: Validate required inputs (fail fast)
+  # ---------------------------------------------------------------------------
+  - id: validate-inputs
+    name: ubuntu:24.04
+    entrypoint: bash
+    env:
+      - ACCUKNOX_ENDPOINT=${_ACCUKNOX_ENDPOINT}
+      - ACCUKNOX_TOKEN=${_ACCUKNOX_TOKEN}
+      - ACCUKNOX_LABEL=${_ACCUKNOX_LABEL}
+    args:
+      - -c
+      - |
+        set -e
+        echo "Validating required inputs..."
+        if [ -z "$$ACCUKNOX_ENDPOINT" ] || [ -z "$$ACCUKNOX_TOKEN" ] || [ -z "$$ACCUKNOX_LABEL" ]; then
+          echo "ERROR: _ACCUKNOX_ENDPOINT, _ACCUKNOX_TOKEN, and _ACCUKNOX_LABEL must be set!"
+          exit 1
+        fi
+        echo "All required inputs present."
+
+  # ---------------------------------------------------------------------------
+  # Step 2: Download the AccuKnox ASPM Scanner CLI
+  # ---------------------------------------------------------------------------
+  - id: download-scanner
+    name: ubuntu:24.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -e
+        export DEBIAN_FRONTEND=noninteractive
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends curl ca-certificates
+
+        echo "Downloading AccuKnox ASPM Scanner v0.14.2..."
+        curl -sSL https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.14.2/accuknox-aspm-scanner \
+          -o /workspace/accuknox-aspm-scanner
+        chmod +x /workspace/accuknox-aspm-scanner
+        echo "Scanner downloaded to /workspace/accuknox-aspm-scanner"
+
+  # ---------------------------------------------------------------------------
+  # Step 3: Install Checkov, run the IaC scan, upload to AccuKnox CSPM
+  # Install + scan run in the same step because ~/.local/bin/accuknox/ does not
+  # persist across Cloud Build steps — only /workspace is shared.
+  # ---------------------------------------------------------------------------
+  - id: run-iac-scan
+    name: ubuntu:24.04
+    entrypoint: bash
+    env:
+      - SOFT_FAIL=${_SOFT_FAIL}
+      - ACCUKNOX_ENDPOINT=${_ACCUKNOX_ENDPOINT}
+      - ACCUKNOX_TOKEN=${_ACCUKNOX_TOKEN}
+      - ACCUKNOX_LABEL=${_ACCUKNOX_LABEL}
+      - REPO_URL=${_REPO_URL}
+      - BRANCH_NAME=${BRANCH_NAME}
+    args:
+      - -c
+      - |
+        set -e
+
+        # Install ca-certificates so the scanner can upload over HTTPS
+        export DEBIAN_FRONTEND=noninteractive
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends ca-certificates
+
+        # Install the IaC tool (Checkov) locally
+        # Required because we are not using --container-mode
+        echo "Installing IaC tool (Checkov)..."
+        /workspace/accuknox-aspm-scanner tool install --type iac
+
+        # Resolve soft-fail flag
+        SOFT_FAIL=$(echo "$$SOFT_FAIL" | tr -d ' \t\r\n')
+        SOFT_FAIL_ARG=""
+        if [ "$$SOFT_FAIL" = "true" ]; then
+          SOFT_FAIL_ARG="--softfail"
+        fi
+
+        # Optional repo-branch arg
+        REPO_BRANCH_ARG=""
+        if [ -n "$$BRANCH_NAME" ]; then
+          REPO_BRANCH_ARG="--repo-branch $$BRANCH_NAME"
+        fi
+
+        # Fallback for missing REPO_URL
+        if [ -z "$$REPO_URL" ]; then
+          echo "WARNING: _REPO_URL substitution is empty."
+        fi
+
+        # Run the IaC scan
+        echo "Running AccuKnox IaC scan..."
+        /workspace/accuknox-aspm-scanner scan --keep-results $$SOFT_FAIL_ARG iac \
+          --command "-d ." \
+          --repo-url "$$REPO_URL" \
+          $$REPO_BRANCH_ARG
+
+# =============================================================================
+# Substitutions
+#   _ACCUKNOX_ENDPOINT  -> accuknox_endpoint  (required)
+#   _ACCUKNOX_TOKEN     -> accuknox_token     (required)
+#   _ACCUKNOX_LABEL     -> accuknox_label     (required)
+#   _SOFT_FAIL          -> soft_fail          (optional, default "true")
+#   _REPO_URL           -> repository URL     (optional)
+# =============================================================================
+substitutions:
+  _ACCUKNOX_ENDPOINT: ""
+  _ACCUKNOX_TOKEN: ""
+  _ACCUKNOX_LABEL: ""
+  _SOFT_FAIL: "true"
+  _REPO_URL: ""
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8
+
+timeout: 1800s
