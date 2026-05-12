@@ -504,6 +504,7 @@ nav:
         - "DAST XSS Mitigation": "use-cases/dast-xss.md"
         - "Secrets Scan": "use-cases/secret-scan-cicd-aws.md"
         - "ASPM Reports": "use-cases/aspm-reports.md"
+        - "ASPM Scanner CLI": "use-cases/aspm-scanner-cli.md"
     - "K8s Security (KSPM)":
       - "Overview": "use-cases/kspm.md"
       - "Admission Controller": "use-cases/admission-controller-knoxguard.md"

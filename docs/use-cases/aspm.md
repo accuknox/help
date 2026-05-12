@@ -97,6 +97,11 @@ hide:
   image: ./icons/cloud-misconfig-drift-detection.svg
   url: https://help.accuknox.com/integrations/azure-iac/
 
+- title: ASPM Scanner CLI
+  content:
+  image: ./icons/cicd-pipeline.svg
+  url: /use-cases/aspm-scanner-cli/
+
 ::/cards::
 
 
