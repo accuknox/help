@@ -1,0 +1,169 @@
+# =============================================================================
+# AccuKnox Container Scan - Google Cloud Build Pipeline
+# Builds the image, runs a vulnerability scan, and optionally generates an SBOM.
+# =============================================================================
+
+steps:
+
+  # ---------------------------------------------------------------------------
+  # Step 1: Validate required AccuKnox inputs (fail fast)
+  # ---------------------------------------------------------------------------
+  - id: validate-inputs
+    name: ubuntu:24.04
+    entrypoint: bash
+    env:
+      - ACCUKNOX_ENDPOINT=${_ACCUKNOX_ENDPOINT}
+      - ACCUKNOX_TOKEN=${_ACCUKNOX_TOKEN}
+      - ACCUKNOX_LABEL=${_ACCUKNOX_LABEL}
+    args:
+      - -c
+      - |
+        set -e
+        echo "Validating required inputs..."
+        if [ -z "$$ACCUKNOX_ENDPOINT" ] || [ -z "$$ACCUKNOX_TOKEN" ] || [ -z "$$ACCUKNOX_LABEL" ]; then
+          echo "ERROR: _ACCUKNOX_ENDPOINT, _ACCUKNOX_TOKEN, and _ACCUKNOX_LABEL must be set!"
+          exit 1
+        fi
+        echo "All required inputs present."
+
+  # ---------------------------------------------------------------------------
+  # Step 2: Download the AccuKnox ASPM Scanner CLI
+  # ---------------------------------------------------------------------------
+  - id: download-scanner
+    name: ubuntu:24.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -e
+        export DEBIAN_FRONTEND=noninteractive
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends curl ca-certificates
+
+        echo "Downloading AccuKnox ASPM Scanner v0.14.2..."
+        curl -sSL https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.14.2/accuknox-aspm-scanner \
+          -o /workspace/accuknox-aspm-scanner
+        chmod +x /workspace/accuknox-aspm-scanner
+        echo "Scanner downloaded to /workspace/accuknox-aspm-scanner"
+
+  # ---------------------------------------------------------------------------
+  # Step 3: Build the image, run vulnerability scan, optionally run SBOM scan
+  # docker.io is installed because the scanner runs Trivy in --container-mode.
+  # ---------------------------------------------------------------------------
+  - id: run-container-scan
+    name: ubuntu:24.04
+    entrypoint: bash
+    env:
+      - ACCUKNOX_ENDPOINT=${_ACCUKNOX_ENDPOINT}
+      - ACCUKNOX_TOKEN=${_ACCUKNOX_TOKEN}
+      - ACCUKNOX_LABEL=${_ACCUKNOX_LABEL}
+    args:
+      - -c
+      - |
+        set -e
+
+        # ====================================================================
+        # Container scan configuration — edit these values as needed
+        # ====================================================================
+        IMAGE_NAME="my-app"                                # image name (without tag)
+        TAG="latest"                                       # image tag
+        DOCKERFILE_CONTEXT="Dockerfile"                    # path to Dockerfile
+        SEVERITY="UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"        # severities to report
+        SOFT_FAIL="true"                                   # true to keep pipeline green on findings
+        GENERATE_SBOM="false"                              # true to also run an SBOM scan
+        PROJECT_NAME=""                                    # required when GENERATE_SBOM=true
+        # ====================================================================
+
+        # Install ca-certificates (HTTPS upload) and docker CLI (--container-mode)
+        export DEBIAN_FRONTEND=noninteractive
+        apt-get update -qq
+        apt-get install -y -qq --no-install-recommends ca-certificates docker.io
+
+        # Pin Docker client API to match the Cloud Build host daemon (Docker 20.10).
+        export DOCKER_API_VERSION=1.41
+
+        cd /workspace
+
+        # Validate project_name if SBOM generation is enabled
+        GENERATE_SBOM="$${GENERATE_SBOM,,}"
+        GENERATE_SBOM=$(echo "$$GENERATE_SBOM" | tr -d ' \t\r\n')
+        if [ "$$GENERATE_SBOM" = "true" ] && [ -z "$$PROJECT_NAME" ]; then
+          echo "ERROR: PROJECT_NAME is required when GENERATE_SBOM is true!"
+          exit 1
+        fi
+
+        # Build the image
+        echo "Building Docker image $$IMAGE_NAME:$$TAG from context $$DOCKERFILE_CONTEXT ..."
+        docker build -t "$$IMAGE_NAME:$$TAG" -f "$$DOCKERFILE_CONTEXT" .
+
+        # Save the image to a tarball that the in-container Trivy can read.
+        # Cloud Build's in-step Trivy container cannot see the host docker daemon,
+        # but /workspace is mounted into the Trivy container, so a tarball works.
+        echo "Saving image to /workspace/image.tar for scanning..."
+        docker save "$$IMAGE_NAME:$$TAG" -o /workspace/image.tar
+
+        # Pre-create results file with permissive perms (scanner writes from inside a container)
+        touch /workspace/results.json
+        chmod 666 /workspace/results.json
+
+        # Install the container scanning tool (Trivy)
+        echo "Installing container scan tool..."
+        /workspace/accuknox-aspm-scanner tool install --type container
+
+        # Resolve soft-fail flag
+        SOFT_FAIL="$${SOFT_FAIL,,}"
+        SOFT_FAIL=$(echo "$$SOFT_FAIL" | tr -d ' \t\r\n')
+        SOFT_FAIL_ARG=""
+        if [ "$$SOFT_FAIL" = "true" ]; then
+          SOFT_FAIL_ARG="--softfail"
+        fi
+
+        # Build the --command string for Trivy (scan the tarball, not the registry)
+        CMD="image --input /workspace/image.tar"
+        if [ -n "$$SEVERITY" ]; then
+          CMD="$$CMD --severity $$SEVERITY"
+        fi
+
+        # ---- Vulnerability scan ----
+        # Local Trivy reads the tarball directly from /workspace.
+        # We intentionally skip --container-mode here because the in-container
+        # Trivy cannot read /workspace files in Cloud Build.
+        echo "Running AccuKnox vulnerability scan..."
+        /workspace/accuknox-aspm-scanner scan \
+          $$SOFT_FAIL_ARG \
+          --keep-results \
+          container \
+          --command "$$CMD"
+
+        cp /workspace/results.json /workspace/results-vuln.json
+
+        # ---- SBOM scan (optional, second run) ----
+        if [ "$$GENERATE_SBOM" = "true" ]; then
+          echo "Running AccuKnox SBOM scan..."
+          /workspace/accuknox-aspm-scanner scan \
+            $$SOFT_FAIL_ARG \
+            --keep-results \
+            --project-name "$$PROJECT_NAME" \
+            container \
+            --command "$$CMD" \
+            --generate-sbom
+
+          cp /workspace/results.json /workspace/results-sbom.json
+        fi
+
+# =============================================================================
+# Substitutions (only AccuKnox credentials — set these in the trigger UI)
+#   _ACCUKNOX_ENDPOINT  -> accuknox_endpoint  (required)
+#   _ACCUKNOX_TOKEN     -> accuknox_token     (required)
+#   _ACCUKNOX_LABEL     -> accuknox_label     (required, e.g. "container-myapp")
+# =============================================================================
+substitutions:
+  _ACCUKNOX_ENDPOINT: ""
+  _ACCUKNOX_TOKEN: ""
+  _ACCUKNOX_LABEL: ""
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8
+
+timeout: 1800s
