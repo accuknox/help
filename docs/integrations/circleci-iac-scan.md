@@ -60,7 +60,7 @@ Update your `.circleci/config.yml` with the `iac` job from the AccuKnox plugin.
 version: 2.1
 
 orbs:
-  accuknox-scan: accuknox/scan@1.0.4
+  accuknox-scan: accuknox/scan@1.0.5
 
 workflows:
   accuknox:

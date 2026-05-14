@@ -58,14 +58,17 @@ version: 0.2
 env:
   variables:
     SOFT_FAIL: "true"
-    TARGET_URL: "[https://juice-shop.herokuapp.com/](https://juice-shop.herokuapp.com/)"
+    TARGET_URL: "https://juice-shop.herokuapp.com/"
     DAST_SCAN_SCRIPT: "zap-baseline.py"
 
 phases:
+  install:
+    runtime-versions:
+      python: 3.11
   pre_build:
     commands:
       - echo "Installing AccuKnox ASPM scanner..."
-      - pip install https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.13.4/accuknox_aspm_scanner-0.13.4-py3-none-any.whl --break-system-packages
+      - pip install https://github.com/accuknox/aspm-scanner-cli/releases/download/v0.14.2/accuknox_aspm_scanner-0.14.2-py3-none-any.whl --break-system-packages
 
   build:
     commands:

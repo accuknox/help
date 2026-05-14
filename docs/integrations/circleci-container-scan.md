@@ -70,7 +70,7 @@ Update your CircleCI configuration file (`.circleci/config.yml`) to include the 
 version: 2.1
 
 orbs:
-  accuknox-scan: accuknox/scan@1.0.4
+  accuknox-scan: accuknox/scan@1.0.5
 
 jobs:
   build-docker-image:

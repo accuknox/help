@@ -66,7 +66,7 @@ To integrate DAST scanning, modify your `.circleci/config.yml` file using the Ac
 version: 2.1
 
 orbs:
-  accuknox-scan: accuknox/scan@1.0.4
+  accuknox-scan: accuknox/scan@1.0.5
 
 workflows:
   accuknox:
