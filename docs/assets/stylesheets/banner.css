@@ -98,16 +98,18 @@
 
 /* Dark mode specific adjustments */
 [data-md-color-scheme="slate"] .md-banner {
-  background: #1e40af;
-  }
+  background: linear-gradient(135deg, #1e3a5f 0%, #172554 100%);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
 
 [data-md-color-scheme="slate"] .md-banner a,
 [data-md-color-scheme="slate"] .md-banner a:visited {
-  color: #fde047;
+  color: #60a5fa;
+  font-weight: 700;
 }
 
 [data-md-color-scheme="slate"] .md-banner a:hover {
-  color: #fef08a;
+  color: #93c5fd;
 }
 
 /* Ensure banner doesn't interfere with header */
