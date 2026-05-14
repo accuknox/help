@@ -141,6 +141,9 @@ Specify patterns to include or exclude images for scanning. Use the `-` symbol t
 
 **Note**: Only images matching the pattern will be scanned. For instance, using `*:latest` ensures only images with the latest tags are scanned.
 
+!!! tip "Character range expressions supported (v3.5+)"
+    Tag patterns support bracket-based character ranges. For example, `*:v[1-8]*` matches any image with a tag starting with `v` followed by a digit between 1 and 8 (e.g., `v1`, `v2.0`, `v8-beta`), while excluding tags like `v9` or `v10`. This helps avoid scanning unnecessary image versions and reduces scan costs.
+
 ![image-20241216-124904.png](./images/docker-trusted/10.png)
 
 #### Schedule and Certificate:

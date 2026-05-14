@@ -18,7 +18,7 @@ Browse to **Entra ID** > **App registrations** and click on **New Registration**
 
 ![App Registration](./images/acr/1.png)
 
-Provide a Name for the App Registration and click on **Register** 
+Provide a Name for the App Registration and click on **Register**
 
 ![New App Registration](./images/acr/2.png)
 
@@ -40,7 +40,7 @@ Copy the **client secret value**, this is used as the password for connecting to
 
 **Step 3**: Assign Permissions
 
-Select the subscription where the ACR is present. 
+Select the subscription where the ACR is present.
 
 !!! note
     If only one registry needs to be scanned, the Role Assignment can also be added in the IAM blade of the Container Registry resource instead of the subscription
@@ -142,6 +142,9 @@ By default, images are excluded unless explicitly included through patterns.
 To exclude specific images, use the `-` symbol. For example: - To exclude `cwpp/ubuntu:v1`, use the pattern `-*:v1`. - To include `cwpp/ubuntu:latest`, specify a pattern like `*:latest`.
 
 **Note**: Only images matching the pattern will be scanned. For instance, using `*:latest` ensures only images with the latest tags are scanned.
+
+!!! tip "Character range expressions supported (v3.5+)"
+    Tag patterns support bracket-based character ranges. For example, `*:v[1-8]*` matches any image with a tag starting with `v` followed by a digit between 1 and 8 (e.g., `v1`, `v2.0`, `v8-beta`), while excluding tags like `v9` or `v10`. This helps avoid scanning unnecessary image versions and reduces scan costs.
 
 ![acr-onboarding-step](https://help.accuknox.com/how-to/images/dockerhub/9.png)
 
