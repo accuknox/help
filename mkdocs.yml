@@ -256,7 +256,11 @@ nav:
       - "AWS Onboarding": "getting-started/aws-cdr.md"
       - "GCP Onboarding": "getting-started/gcp-cdr.md"
       - "Azure Onboarding": "getting-started/azure-cdr.md"
-    - "xBOM Setup Guide": "getting-started/xbom-setup.md"
+    - "xBOM":
+      - "Overview": "getting-started/xbom-setup.md"
+      - "Generate via knoxctl": "getting-started/xbom-knoxctl.md"
+      - "Generate via Container Image Scan": "getting-started/xbom-container-image.md"
+      - "Generate via GitHub Actions": "getting-started/xbom-github-actions.md"
     - "SARIF Findings": "getting-started/sarif-findings.md"
     - "Secrets Management": "getting-started/secrets-management.md"
     - "Reports":
