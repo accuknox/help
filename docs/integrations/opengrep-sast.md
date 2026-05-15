@@ -97,7 +97,7 @@ With AccuKnox integrated, Opengrep scan results are automatically sent to AccuKn
 3.  Select a vulnerability to inspect details.
     ![image-20250310-030648.png](./images/opengrep-sast/3.png)
 
-4.  Apply fixes based on recommendations under the **Solutions** tab.
+4.  Apply fixes based on recommendations under the **Solutions** tab  or use **ASK AI**.
     ![image-20250310-030726.png](./images/opengrep-sast/4.png)
 
 5.  Generate an issue ticket for tracking the fix.
