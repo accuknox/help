@@ -30,7 +30,7 @@ To securely store sensitive values, define the following secrets in your GitHub 
 | Secret Name         | Description                                   |
 |---------------------|-----------------------------------------------|
 | `SONAR_TOKEN`       | API token for authenticating with SonarQube. |
-| `SONAR_HOST_URL`    | URL of your SonarQube server.                | 
+| `SONAR_HOST_URL`    | URL of your SonarQube server.                |
 |`SONAR_PROJECT_KEY`   | Project key for identifying your project in SonarQube            |
 |`SONAR_ORG_ID` | Organization ID for SonarQube. Cloud users only|
 | `ACCUKNOX_TOKEN`    | API token for authenticating with AccuKnox.  |
@@ -43,7 +43,7 @@ To securely store sensitive values, define the following secrets in your GitHub 
 Add a new workflow file (`.github/workflows/sast.yml`) to your repository with the following configuration:
 
 
-
+{% raw %}
 ```yaml
 name: AccuKnox SAST Workflow
 on:
@@ -70,9 +70,8 @@ jobs:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
           soft_fail: false
-
 ```
-
+{% endraw %}
 
 
 ### Inputs for AccuKnox SAST Action
@@ -85,7 +84,7 @@ jobs:
 |`sonar_organization_id` | Organization ID for SonarQube. Cloud users only. |  No | None |
 | `accuknox_endpoint`   | URL of AccuKnox API to upload results.               | Yes          | None        |
 | `accuknox_token`      | Token for authenticating with the AccuKnox API.      | Yes          | None        |
-| `accuknox_label`               | Label for tagging results in AccuKnox SaaS.          | Yes          | None        
+| `accuknox_label`               | Label for tagging results in AccuKnox SaaS.          | Yes          | None
 | `skip_sonar_scan`   | Skip SonarQube scan, for advanced users   | No          | false        |
 | `soft_fail`                 | Fail the pipeline if secrets are found.                                                                                    | Optional          | `false`                  |
 
