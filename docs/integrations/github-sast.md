@@ -42,7 +42,7 @@ To securely store sensitive values, define the following secrets in your GitHub 
 
 Add a new workflow file (`.github/workflows/sast.yml`) to your repository with the following configuration:
 
-{% raw %}
+
 
 ```yaml
 name: AccuKnox SAST Workflow
@@ -73,7 +73,7 @@ jobs:
 
 ```
 
-{% endraw %}
+
 
 ### Inputs for AccuKnox SAST Action
 
@@ -81,12 +81,11 @@ jobs:
 |-----------------------|-------------------------------------------------------|--------------|-------------|
 | `sonar_token`         | Personal access token for authenticating with SonarQube. | Yes          | None        |
 | `sonar_host_url`      | URL of the SonarQube server for SAST.                 | Yes          | None        |
-| `accuknox_endpoint`   | URL of AccuKnox API to upload results.               | Yes          | None        |
 |`sonar_project_key` | Project key in SonarQube for identifying the project.|  Yes | None |
 |`sonar_organization_id` | Organization ID for SonarQube. Cloud users only. |  No | None |
+| `accuknox_endpoint`   | URL of AccuKnox API to upload results.               | Yes          | None        |
 | `accuknox_token`      | Token for authenticating with the AccuKnox API.      | Yes          | None        |
-| `accuknox_label`               | Label for tagging results in AccuKnox SaaS.          | Yes          | None        |
-| `sonar_project_key`   | SonarQube project key for identifying the project.   | Yes          | None        |
+| `accuknox_label`               | Label for tagging results in AccuKnox SaaS.          | Yes          | None        
 | `skip_sonar_scan`   | Skip SonarQube scan, for advanced users   | No          | false        |
 | `soft_fail`                 | Fail the pipeline if secrets are found.                                                                                    | Optional          | `false`                  |
 
