@@ -547,6 +547,235 @@ hide:
     .text-container-int { margin-left: 0; margin-top: 30px; }
     .use-cases-grid { grid-template-columns: 1fr; }
   }
+
+  /* =====================================================
+     HOMEPAGE DARK MODE OVERRIDES
+     Targets every hardcoded section for slate scheme
+     ===================================================== */
+  [data-md-color-scheme="slate"] .hero-section {
+    background-color: #060a14;
+  }
+
+  /* SECTION 2: Explorer / Modules */
+  [data-md-color-scheme="slate"] .explorer-section {
+    background-color: #0b0f19;
+  }
+
+  [data-md-color-scheme="slate"] .explorer-title {
+    color: #f1f5f9 !important;
+  }
+
+  [data-md-color-scheme="slate"] .tabs-container {
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  [data-md-color-scheme="slate"] .tab-btn {
+    color: #94a3b8;
+  }
+
+  [data-md-color-scheme="slate"] .tab-btn.active {
+    background-color: #3b82f6;
+    color: #ffffff;
+  }
+
+  [data-md-color-scheme="slate"] .tab-btn:hover:not(.active) {
+    background-color: #1e293b;
+    color: #e2e8f0;
+  }
+
+  /* Invert tab icons in dark mode for visibility */
+  [data-md-color-scheme="slate"] .tab-btn img {
+    filter: brightness(0) invert(0.7);
+  }
+  [data-md-color-scheme="slate"] .tab-btn.active img {
+    filter: brightness(0) invert(1);
+  }
+
+  [data-md-color-scheme="slate"] .modules-container {
+    border-color: rgba(148, 163, 184, 0.1);
+    background-color: #111827;
+  }
+
+  [data-md-color-scheme="slate"] .modules-sidebar {
+    background-color: #0d1220;
+    border-right-color: rgba(148, 163, 184, 0.08);
+  }
+
+  [data-md-color-scheme="slate"] .module-item {
+    color: #94a3b8;
+    border-left-color: transparent;
+  }
+
+  [data-md-color-scheme="slate"] .module-item:hover {
+    background-color: #1e293b;
+    color: #e2e8f0;
+  }
+
+  [data-md-color-scheme="slate"] .module-item.active {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border-left-color: #3b82f6;
+  }
+
+  [data-md-color-scheme="slate"] .module-item img {
+    filter: brightness(0) invert(0.6);
+  }
+  [data-md-color-scheme="slate"] .module-item.active img {
+    filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(190deg);
+  }
+
+  [data-md-color-scheme="slate"] .modules-content {
+    background-color: #111827;
+  }
+
+  [data-md-color-scheme="slate"] .module-detail-title {
+    color: #f1f5f9;
+  }
+
+  [data-md-color-scheme="slate"] .module-description {
+    color: #94a3b8;
+  }
+
+  [data-md-color-scheme="slate"] .agentless-badge {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+  }
+
+  [data-md-color-scheme="slate"] .module-visual-placeholder {
+    background-color: #1e293b;
+    border: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  [data-md-color-scheme="slate"] .learn-more-link {
+    color: #60a5fa;
+  }
+
+  [data-md-color-scheme="slate"] .action-btn {
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+  }
+  [data-md-color-scheme="slate"] .action-btn:hover {
+    background-color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+  }
+
+  /* SECTION 3: Use Cases / Popular Resources */
+  [data-md-color-scheme="slate"] .use-cases-section {
+    background-color: #0b0f19;
+  }
+
+  [data-md-color-scheme="slate"] .section-heading-3 {
+    color: #f1f5f9 !important;
+  }
+
+  [data-md-color-scheme="slate"] .use-case-card {
+    background-color: #111827;
+    border-color: rgba(148, 163, 184, 0.1);
+  }
+
+  [data-md-color-scheme="slate"] .use-case-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
+  }
+
+  [data-md-color-scheme="slate"] .use-case-header {
+    border-bottom-color: rgba(148, 163, 184, 0.08);
+  }
+
+  [data-md-color-scheme="slate"] .use-case-title {
+    color: #e2e8f0 !important;
+  }
+
+  [data-md-color-scheme="slate"] .use-case-icon.icon-blue {
+    background-color: rgba(59, 130, 246, 0.12);
+  }
+  [data-md-color-scheme="slate"] .use-case-icon.icon-indigo {
+    background-color: rgba(99, 102, 241, 0.12);
+  }
+  [data-md-color-scheme="slate"] .use-case-icon.icon-sky {
+    background-color: rgba(14, 165, 233, 0.12);
+  }
+
+  [data-md-color-scheme="slate"] .use-case-list a {
+    color: #94a3b8;
+  }
+
+  [data-md-color-scheme="slate"] .use-case-list a:hover {
+    color: #60a5fa;
+  }
+
+  [data-md-color-scheme="slate"] .view-all-btn {
+    background-color: #3b82f6;
+  }
+  [data-md-color-scheme="slate"] .view-all-btn:hover {
+    background-color: #2563eb;
+  }
+
+  /* SECTION 4: Integrations (already dark, but refine) */
+  [data-md-color-scheme="slate"] .integrations-container {
+    background-color: #060a14;
+    border-top: 1px solid rgba(148, 163, 184, 0.06);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+  }
+
+  /* SECTION 5: Technical Support */
+  [data-md-color-scheme="slate"] .section5-container {
+    background-color: #0b0f19;
+  }
+
+  [data-md-color-scheme="slate"] .section-heading {
+    color: #e2e8f0 !important;
+  }
+
+  [data-md-color-scheme="slate"] .section5-card {
+    background-color: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  [data-md-color-scheme="slate"] .section5-card-title {
+    color: #e2e8f0;
+  }
+
+  [data-md-color-scheme="slate"] .section5-card p {
+    color: #94a3b8;
+  }
+
+  [data-md-color-scheme="slate"] .section5-card-link {
+    color: #60a5fa;
+  }
+
+  /* SECTION 7: Find Out More */
+  [data-md-color-scheme="slate"] .home-section-7 {
+    background-color: #0b0f19 !important;
+  }
+
+  [data-md-color-scheme="slate"] .section7-link {
+    color: #60a5fa;
+    border-right-color: #334155;
+  }
+
+  /* Carousel dark mode */
+  [data-md-color-scheme="slate"] .carousel-card {
+    background-color: #1e293b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  [data-md-color-scheme="slate"] .card-center {
+    background-color: #1e293b;
+  }
+  [data-md-color-scheme="slate"] .card-left,
+  [data-md-color-scheme="slate"] .card-right {
+    background-color: #111827;
+  }
+
+  /* Responsive dark overrides */
+  @media (max-width: 991px) {
+    [data-md-color-scheme="slate"] .modules-sidebar {
+      border-bottom-color: rgba(148, 163, 184, 0.08);
+    }
+  }
 </style>
 
 <section class="hero-section">

@@ -18,10 +18,11 @@
 }
 
 [data-md-color-scheme=slate] {
-  --nt-units-background: #003773;
+  --nt-units-background: #1e3a5f;
+  --nt-plan-vertical-line-color: rgba(148, 163, 184, 0.15);
 }
 [data-md-color-scheme=slate] .nt-pastello {
-  --nt-units-background: #3f4997;
+  --nt-units-background: #2d3a6e;
 }
 
 .nt-plan-root {

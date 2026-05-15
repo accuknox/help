@@ -42,39 +42,50 @@
     --md-header-logo-light-mode: none;
 
     .md-typeset h1 {
-        color: #ffffff !important;
+        color: #f1f5f9 !important;
         font-weight: bolder;
     }
 
     .md-typeset h2 {
-        color: #ffffff !important;
+        color: #e2e8f0 !important;
         font-weight: bolder;
     }
 
     .ticket_tab {
-        background: black;
-        color: white;
+        background: #1e293b;
+        color: #e2e8f0;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        transition: all 0.2s ease;
+    }
+
+    .ticket_tab:hover {
+        background: #334155;
+        border-color: rgba(59, 130, 246, 0.3);
     }
 
     .contact_tab {
-        background: black;
-        color: white;
+        background: #1e293b;
+        color: #e2e8f0;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        transition: all 0.2s ease;
+    }
 
+    .contact_tab:hover {
+        background: #334155;
+        border-color: rgba(59, 130, 246, 0.3);
     }
 
     .home-card-heading {
-        color: black;
+        color: #f1f5f9;
     }
 
     .use-cases-container {
-        background-color: white;
+        background-color: #0b0f19;
     }
 
     .home-section-7 {
-        background-color: white;
+        background-color: #0b0f19;
     }
-
-
 }
 
 .contact_tab {

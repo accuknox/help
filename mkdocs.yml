@@ -41,15 +41,14 @@ theme:
   palette:
     - scheme: default
       primary: indigo
-      # accent: blue
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
       accent: blue
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-4
         name: Switch to light mode
   language: "en"
   shortcuts:
@@ -365,7 +364,6 @@ nav:
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
             - "SAST": "integrations/github-sast.md"
-            - "SAST (Semgrep)": "integrations/semgrep-sast.md"
             - "SAST (Opengrep)": "integrations/opengrep-sast.md"
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
