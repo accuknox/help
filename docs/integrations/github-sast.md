@@ -30,7 +30,9 @@ To securely store sensitive values, define the following secrets in your GitHub 
 | Secret Name         | Description                                   |
 |---------------------|-----------------------------------------------|
 | `SONAR_TOKEN`       | API token for authenticating with SonarQube. |
-| `SONAR_HOST_URL`    | URL of your SonarQube server.                |                    |
+| `SONAR_HOST_URL`    | URL of your SonarQube server.                | 
+|`SONAR_PROJECT_KEY`   | Project key for identifying your project in SonarQube            |
+|`SONAR_ORG_ID` | Organization ID for SonarQube. Cloud users only|
 | `ACCUKNOX_TOKEN`    | API token for authenticating with AccuKnox.  |
 | `ACCUKNOX_ENDPOINT` | URL of the AccuKnox CSPM API.                |
 | `ACCUKNOX_LABEL` | The label for your scan.               |
@@ -57,15 +59,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run AccuKnox SAST
-        uses: accuknox/sast-scan-action@v1.0.3
+        uses: accuknox/sast-scan-action@latest
         with:
           skip_sonar_scan: false
+          sonar_project_key: ${{ secrets.SONAR_PROJECT_KEY }}
           sonar_token: ${{ secrets.SONAR_TOKEN }}
           sonar_host_url: ${{ secrets.SONAR_HOST_URL }}
+          sonar_organization_id: ${{ secrets.SONAR_ORG_ID }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
-          sonar_project_key: "my-project-key"
+          soft_fail: false
 
 ```
 
@@ -78,6 +82,8 @@ jobs:
 | `sonar_token`         | Personal access token for authenticating with SonarQube. | Yes          | None        |
 | `sonar_host_url`      | URL of the SonarQube server for SAST.                 | Yes          | None        |
 | `accuknox_endpoint`   | URL of AccuKnox API to upload results.               | Yes          | None        |
+|`sonar_project_key` | Project key in SonarQube for identifying the project.|  Yes | None |
+|`sonar_organization_id` | Organization ID for SonarQube. Cloud users only. |  No | None |
 | `accuknox_token`      | Token for authenticating with the AccuKnox API.      | Yes          | None        |
 | `accuknox_label`               | Label for tagging results in AccuKnox SaaS.          | Yes          | None        |
 | `sonar_project_key`   | SonarQube project key for identifying the project.   | Yes          | None        |
@@ -110,7 +116,7 @@ jobs:
 
 **Step 4**: Fix the Vulnerability
 
-Follow the instructions in the Solutions tab to fix the vulnerability
+Follow the instructions in the Solutions tab or use  ASK AI to fix the vulnerability
 
 ![image-20241122-040110.png](./images/github-sast/3.png)
 
