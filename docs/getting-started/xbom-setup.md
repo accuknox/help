@@ -34,6 +34,13 @@ xBOM is an umbrella term covering **SBOM** (software dependencies), **CBOM** (cr
 
 These setup steps are required regardless of which generation method you choose.
 
+### Step 0: Install knoxctl
+
+Install `knoxctl` before starting xBOM generation.
+
+- Installation guide: [knoxctl documentation](https://help.accuknox.com/knoxctl/)
+- Source and releases: [accuknox-cli-v2 on GitHub](https://github.com/accuknox/accuknox-cli-v2)
+
 ### Step 1: Create Project and Classifier
 
 1. Log in to the AccuKnox UI.

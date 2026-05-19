@@ -12,6 +12,9 @@ Use the `knoxctl` local UI to interactively scan filesystems, container images, 
 - `knoxctl` binary installed on your system
 - AccuKnox project, labels, and access key created — see [Common Prerequisites](xbom-setup.md#common-prerequisites)
 
+!!! note
+    Windows-specific installation steps for `knoxctl` are not documented on this page. Use the official [knoxctl documentation](https://help.accuknox.com/knoxctl/) and [GitHub repository](https://github.com/accuknox/accuknox-cli-v2) to get the current installation method and binaries.
+
 ---
 
 ## Step 1: Run knoxctl
