@@ -39,7 +39,7 @@ After saving, the token is displayed once in a confirmation modal.
 
 ## Step 3: Download and install the browser plugin
 
-[Download Chrome plugin](https://promptfirewall-plugin-extension.s3.ap-south-1.amazonaws.com/Prompt-firewall-plugin.zip) and extract the ZIP file to a folder on your machine.
+[Download Chrome plugin](https://promptfirewall-plugin-extension.s3.ap-south-1.amazonaws.com/Prompt-firewall-plugin-v2.zip) and extract the ZIP file to a folder on your machine.
 
 To install in Chrome:
 
