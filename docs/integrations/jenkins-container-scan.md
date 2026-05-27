@@ -1,157 +1,143 @@
 ---
 title: Jenkins Container Scan
-description: Use AccuKnox’s Jenkins plugin to scan container images and upload results to AccuKnox SaaS for security management.
+description: Pull and scan container images for CVEs from a Jenkins pipeline using the AccuKnox ASPM plugin.
 ---
 
-# Jenkins Container Scan
+# Container Image Scanning in Jenkins
 
-The AccuKnox Container Scan Jenkins Plugin is designed to integrate AccuKnox's container scanning capabilities into your Jenkins pipelines. This plugin allows you to perform container image scans and automatically upload the results to AccuKnox SaaS.
+This guide adds a Container scan stage to a Jenkins pipeline using the **AccuKnox ASPM Scanner** plugin. The scanner pulls the image from a registry, runs SCA on it, and uploads findings to AccuKnox.
 
-## Features
+## Prerequisites
 
-- **Container Image Scans**: Scan Docker images for vulnerabilities.
+- A Jenkins controller (`2.387.3 LTS` or newer) with at least one build agent.
+- An AccuKnox SaaS account with a tenant / label you can upload findings to.
+- Network egress from the Jenkins agent to the AccuKnox control plane (or a mirrored scanner image for air-gapped agents).
+- Registry credentials configured on the Jenkins agent if you scan a private image.
+- Docker available on the agent if you set `containerMode: true`.
 
-- **Severity Levels**: Specify the severity levels to be scanned.
+## Step 1: Install the AccuKnox ASPM Plugin
 
-- **Automatic Results Upload**: Upload scan results to AccuKnox SaaS for centralized management and reporting.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-install.md) for the one-time plugin installation steps.
 
-- **Exit Code Handling**: Specify exit codes as 0 to pass the build and 1 to fail the build having specified vulnerabilities of high, medium, etc.
+## Step 2: Configure Jenkins credentials and global settings
 
-- **Repository and Branch Information**: Include repository and branch information in the scan results for better traceability.
+- Store the AccuKnox token as a Jenkins **Secret text** credential.
+- Set the endpoint, label, and token credential on the global config.
 
-## Installation
+## Step 3: Define the Jenkins Pipeline
 
-### Current Installation Method
+```groovy
+pipeline {
+  agent any
 
-1. Download the plugin in `.hpi` format from [here](https://drive.google.com/file/d/1kRGPW_-gFfMio8xsFfuk0Jzmnapyk7kz/view?usp=sharing "https://drive.google.com/file/d/1kRGPW_-gFfMio8xsFfuk0Jzmnapyk7kz/view?usp=sharing").
+  parameters {
+    string(
+      name: 'IMAGE_NAME',
+      defaultValue: 'testing-app:latest',
+      description: 'Docker image name to build and scan'
+    )
+    string(
+      name: 'SEVERITY_THRESHOLD',
+      defaultValue: 'HIGH,CRITICAL',
+      description: 'Comma-separated severities that fail the build'
+    )
+    booleanParam(
+      name: 'SOFT_FAIL',
+      defaultValue: true,
+      description: 'true = build stays green; false = fail build on findings'
+    )
+  }
 
-2. Navigate to the Jenkins dashboard.
-   ![alt](images/jenkins-container-scan/1.png)
+  options {
+    timestamps()
+    timeout(time: 30, unit: 'MINUTES')
+    disableConcurrentBuilds()
+  }
 
-3. Go to **Manage Jenkins > Manage Plugins**.
-   ![alt](images/jenkins-container-scan/2.png)
+  stages {
+    stage('Checkout') {
+      steps {
+        sh '''
+          set -eu
+          rm -rf repo
+          git clone --depth=1 https://github.com/Vickydew1/Testing.git repo
+        '''
+      }
+    }
 
-4. Click on the **Advanced** tab.
+    stage('Build Docker Image') {
+      steps {
+        dir('repo') {
+          sh '''
+            docker build -t testing-app .
+          '''
+        }
+      }
+    }
 
-5. In the **Deploy Plugin** section, click **Choose File** and select the downloaded `.hpi` file.
-   ![alt](images/jenkins-container-scan/3.png)
-
-6. Click **Deploy** to install the plugin.
-   ![alt](images/jenkins-container-scan/4.png)
-
-7. Restart Jenkins if required.
-
-## Configuration
-
-### Job Configuration
-
-1. Open the configuration page of your Jenkins job.
-![alt](images/jenkins-container-scan/5.png)
-
-2. Under the **Build** section, click on **Add build step** and select **AccuKnox Container Scan**.
-
-![alt](images/jenkins-container-scan/6.png)
-
-![alt](images/jenkins-container-scan/7.png)
-
-### Parameters
-
-The plugin provides the following parameters:
-
-- **Image Name**: The name of the Docker image to be scanned.
-
-- **Image Tag**: The tag of the Docker image to be scanned (default is "latest").
-
-- **Exit Code**: The exit code(default is 0).
-
-- **Tenant ID**: The tenant ID for AccuKnox API.
-
-- **AccuKnox Token**: The access token for authenticating with AccuKnox.
-
-- **Label**: The label for AccuKnox SaaS.
-
-- **Severity**: The severity levels to be scanned (default is "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL").
-
-### Token Generation from AccuKnox SaaS and Viewing Tenant ID
-
-1. Navigate to **Tokens** within the **Settings** section in the sidebar.
-![image1-20240718-120954.png](images/jenkins-container-scan/8.png)
-
-2. Click on **Create Token**: After clicking on 'Create Token,' the Tenant ID will be visible.
-![alt](images/jenkins-container-scan/9.png)
-
-3. Click on **Generate**.
-![alt](images/jenkins-container-scan/10.png)
-
-### Example Configuration
-
-Here is an example of how to configure the plugin in your Jenkins job:
-
-1. Add a new build step and select **AccuKnox Container Scan**.
-
-2. Configure the parameters:
-
-    - **Image Name**: your-image-name
-
-    - **Image Tag**: latest
-
-    - **Exit Code**: 0
-
-    - **Tenant ID**: your-tenant-id
-
-    - **AccuKnox Token**: your-access-token
-
-    - **Label**: your-label
-
-    - **Severity**: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
-
-## Running the Scan
-
-When you run the Jenkins job, the plugin will:
-
-1. Print the configuration parameters to the Jenkins console output.
-
-2. Validate the provided AccuKnox Token and Tenant ID.
-
-3. Execute the AccuKnox container scan using the specified parameters.
-
-4. Upload the scan results to AccuKnox SaaS.
-
-5. Mark the build as failed if the scan or upload process encounters errors (unless soft fail is enabled).
-
-### Sample Console Output
-
-```bash
-accuknox-image-scan running...
-AccuKnox Container Scan executed. Output is suppressed.
-Pushing results to AccuKnox SaaS...
-Scan results uploaded successfully.
-Build completed successfully.
-Finished: SUCCESS
+    stage('Container Scan') {
+      steps {
+        accuknoxContainer(
+          image: params.IMAGE_NAME,
+          severityThreshold: params.SEVERITY_THRESHOLD,
+          softFail: params.SOFT_FAIL
+        )
+      }
+    }
+  }
+}
 ```
 
-### Viewing Findings
+## Pipeline inputs
 
-To view the findings in AccuKnox SaaS, navigate to **Issues -> Findings** and select 'Container Findings'.
+=== "Step parameters"
 
-![alt](images/jenkins-container-scan/11.png)
+    | Parameter | Description | Required | Default |
+    |------|------|------|------|
+    | `image` | Image reference, e.g. `nginx:1.27.1` or `registry.local/app:1.0`. | yes | *required* |
+    | `severityThreshold` | CSV of severities that fail the build. | no | `HIGH,CRITICAL` |
+    | `softFail` | `true` = advisory only; `false` = fail build on matching severities. | no | `false` |
+    | `containerMode` | Run the scanner inside Docker on the agent. | no | `false` |
+    | `scanImage` | Air-gapped: mirrored scanner image to use. | no | *(unset)* |
 
-## Troubleshooting
+=== "Common knobs"
 
-### Missing AccuKnox Token or Tenant ID
+    Every `accuknox*` step accepts these:
 
-- Ensure both fields are filled in the job configuration.
+    | Parameter | Default | Notes |
+    |------|------|------|
+    | `endpoint` | from global config | Control-plane host (no scheme). Per-step override. |
+    | `label` | from global config | Becomes the `label_id` on the upload. |
+    | `credentialsId` | from global config | Jenkins credential ID holding the AccuKnox bearer token. |
+    | `skipUpload` | `false` | Run the scanner but don't upload. Useful for dry runs. |
+    | `keepResults` | `true` | Keep results JSON on the agent and archive it as a build artifact. |
+    | `containerMode` | `false` | Run the scanner inside Docker on the agent. |
+    | `cliPath` | `auto` | Path to a pre-staged `accuknox-aspm-scanner` binary (air-gapped use). |
 
-- Verify the accuracy of the provided credentials.
+## Without AccuKnox vs With AccuKnox
 
-### Scan Failure
+=== "Without AccuKnox"
 
-- Check the Jenkins console output for detailed error messages.
+    The container scanner produces a long JSON report. Gating is left as an exercise for the pipeline author.
 
-- Ensure the specified image name and tag exist and are accessible.
+=== "With AccuKnox"
 
-### Upload Failure
+    The plugin uploads results, applies severity gating, and exposes per-image findings in the AccuKnox console with package / CVE context and remediation links.
 
-- Verify network connectivity to the AccuKnox SaaS endpoint.
+*Figure 1. Container findings in the AccuKnox console.*
+![Container findings in AccuKnox](images/jenkins-container-scan/container_1.png)
 
-- Check the accuracy of the Tenant ID and AccuKnox Token.
+## Viewing Results in AccuKnox
+
+Once the Jenkins job uploads its report, the findings are available in the AccuKnox SaaS console.
+
+1. Log in to the AccuKnox console and switch to the tenant whose label you configured in Jenkins.
+2. Open **Issues → Findings**, and filter by **Container**.
+3. Click any finding to inspect the affected package, CVE, and the recommended remediation.
+4. Use the **ASK AI** button on a finding for an LLM-generated explanation and patch suggestion.
+5. Create a ticket directly from the finding to track remediation.
+6. Re-run the Jenkins job after upgrading the base image or package. The finding flips to **Resolved** on the next ingest.
+
+## Conclusion
+
+Wiring Container scanning into Jenkins via the AccuKnox ASPM plugin gives you continuous, automated detection of issues on every build, with a single pane of glass in the AccuKnox console for triage, ticketing, and verification. Combine it with the other scan types ([SAST](jenkins-sast.md), [IaC](jenkins-iac-scan.md), [Secret](jenkins-secret-scan.md), [SBOM](jenkins-sbom.md), [SCA](jenkins-artifact-scan.md)) to get full-coverage ASPM directly from your pipelines.
