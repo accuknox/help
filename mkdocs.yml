@@ -346,15 +346,13 @@ nav:
           - "DAST" : "integrations/harness-dast.md"
         - "Jenkins":
           - "Overview": "integrations/jenkins-overview.md"
-          - "SAST SonarQube": "integrations/jenkins-sast.md"
-          - "SAST": "integrations/jenkins-sast-opengrep.md"
-          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "Install": "integrations/jenkins-install.md"
+          - "SAST": "integrations/jenkins-sast.md"
           - "IaC Scan": "integrations/jenkins-iac-scan.md"
-          - "DAST": "integrations/jenkins-dast.md"
           - "Secret Scan": "integrations/jenkins-secret-scan.md"
-          - "Pipeline Script":
-            - "SAST": "integrations/jenkins-sast-script.md"
-            - "DAST": "integrations/jenkins-dast-script.md"
+          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "SBOM": "integrations/jenkins-sbom.md"
+          - "Multi-Artifact (SCA)": "integrations/jenkins-artifact-scan.md"
         - "AWS Code Pipeline":
           - "Overview": "integrations/aws-overview.md"
           - "SAST": "integrations/aws-sast.md"
