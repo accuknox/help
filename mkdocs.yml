@@ -287,10 +287,12 @@ nav:
       - "AI Gateway Method":
         - "Azure APIM": "getting-started/azure-ai-foundry.md"
         - "AWS API Gateway": "how-to/aws-apim.md"
+        - "Apigee": "integrations/apigee-integration.md"
         - "Bifrost": "integrations/bifrost-integration.md"
         - "LiteLLM": "integrations/litellm.md"
       - "Prompt Firewall":
         - "SDK Method": "use-cases/llm-defense-app-onboard.md"
+        - "Apigee Proxy": "integrations/apigee-integration.md"
         - "OpenAI Browser Plugin":
           - "Chrome": "integrations/openai-browser-integration.md"
           - "Firefox": "integrations/openai-firefox-browser-integration.md"
