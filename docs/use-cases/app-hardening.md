@@ -5,9 +5,20 @@ description: Steps to achieve zero-trust environment by App Hardening using Accu
 
 # App Hardening
 
-One of the methods to achieve for a zero-trust environment is Application Hardening. KubeArmor is a security solution for the Kubernetes and cloud native platforms that helps protect your workloads from attacks and threats. It does this by providing a set of hardening policies which is a block based policies. It is based on industry-leading technical conformance to standard compliance and attack frameworks such as CIS, MITRE, NIST-800-53, and STIGs. These policies are designed to help you secure your workloads in a way that is compliant with these frameworks and recommended best practices.
+Application Hardening is one path to a Zero Trust environment. KubeArmor ships a curated set of block-based hardening policies derived from CIS, MITRE ATT&CK, NIST 800-53, PCI DSS, and STIG, so you can pick the controls that match your compliance posture and apply them at runtime.
 
-Lets understand by taking an use-case example - **Disallowing any binaries execution to prevent from RCE Vulnerability**
+## Where Hardening Fits in the Runtime Security Journey
+
+Hardening policies cover steps 3, 4, and 7 of the AccuKnox Runtime Security Journey: you pull recommended policies from industry frameworks, activate them in AUDIT mode for continuous diagnostics, and promote them to BLOCK mode once stable.
+
+![AccuKnox Runtime Security Journey, steps 1 to 4](../assets/images/runtime-security-journey-1.png)
+
+![AccuKnox Runtime Security Journey, steps 5 to 8](../assets/images/runtime-security-journey-2.png)
+
+!!! info "Hardening sits on top of a learning loop"
+    Step 5 loops back to Step 2. Discovered policies keep refining the baseline while hardening policies sit alongside in AUDIT for 2-3 weeks, then move to BLOCK once behavior is **STABLE**, locking in true Zero Trust runtime protection.
+
+Use case example: **Disallowing arbitrary binary execution to prevent RCE**
 
 1.Select your cluster and namespace from this Policies screen. We will be getting list of hardening policies for the selected Namespace.
 

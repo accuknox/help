@@ -14,12 +14,9 @@ This guide adds a Secret scan stage to a Jenkins pipeline using the **AccuKnox A
 - Network egress from the Jenkins agent to the AccuKnox control plane (or a mirrored scanner image for air-gapped agents).
 - Use a **full git clone** (no `--depth=1`). The secret scanner walks the commit history.
 
-!!! warning "Shallow clones miss history"
-    `git clone --depth=1` only fetches the latest commit. Secrets that were added and later removed will not be detected. Always use a full clone for the Secret stage.
-
 ## Step 1: Install the AccuKnox ASPM Plugin
 
-See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-install.md) for the one-time plugin installation steps.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the one-time plugin installation steps.
 
 ## Step 2: Configure Jenkins credentials and global settings
 

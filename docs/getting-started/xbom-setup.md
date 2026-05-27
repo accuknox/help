@@ -9,6 +9,8 @@ hide:
 
 xBOM is an umbrella term covering **SBOM** (software dependencies), **CBOM** (cryptographic assets), and **AIBOM** (AI/ML models). Each maps a different layer of the supply chain to track risk, meet compliance requirements like EO 14028 and the EU AI Act, and respond to vulnerabilities faster.
 
+![xBOM Architecture](images/xbom/xbom-architecture.webp)
+
 ## Choose a Generation Method
 
 ::cards:: cols=3
