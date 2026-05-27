@@ -346,7 +346,7 @@ nav:
           - "DAST" : "integrations/harness-dast.md"
         - "Jenkins":
           - "Overview": "integrations/jenkins-overview.md"
-          - "Install": "integrations/jenkins-install.md"
+          - "Installation": "integrations/jenkins-installation.md"
           - "SAST": "integrations/jenkins-sast.md"
           - "IaC Scan": "integrations/jenkins-iac-scan.md"
           - "Secret Scan": "integrations/jenkins-secret-scan.md"

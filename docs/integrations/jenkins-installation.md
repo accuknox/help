@@ -24,10 +24,10 @@ This page walks through the one-time installation and global configuration of th
 4. After restart, open **Manage Jenkins → Plugins → Installed** and confirm **AccuKnox ASPM Scanner** is listed.
 
 *Figure 1. Manage Plugins, Advanced settings.*
-![Manage Plugins, Advanced settings](images/jenkins-install/install_1.png)
+![Manage Plugins, Advanced settings](images/jenkins-installation/install_1.png)
 
 *Figure 2. Uploading `accuknox-aspm.hpi`.*
-![Uploading accuknox-aspm.hpi](images/jenkins-install/install_2.png)
+![Uploading accuknox-aspm.hpi](images/jenkins-installation/install_2.png)
 
 ## 2. Generate an AccuKnox API token
 
@@ -50,10 +50,10 @@ For step-by-step screenshots, see [How to Create Tokens](../how-to/how-to-create
 6. Click **Save**.
 
 *Figure 3. Manage Jenkins → Security → Credentials.*
-![Manage Jenkins Security Credentials](images/jenkins-install/install_4.png)
+![Manage Jenkins Security Credentials](images/jenkins-installation/install_4.png)
 
 *Figure 4. Global credentials with `accuknox-token` added.*
-![Global credentials with accuknox-token added](images/jenkins-install/install_5.png)
+![Global credentials with accuknox-token added](images/jenkins-installation/install_5.png)
 
 ## 4. Configure the plugin globally
 
@@ -69,20 +69,14 @@ Back on **Manage Jenkins**, open **System** (under **System Configuration**) and
 | Skip scanner auto-install | off | Tick only for air-gapped agents. |
 
 *Figure 5. Manage Jenkins → System Configuration → System.*
-![Manage Jenkins System Configuration](images/jenkins-install/install_6.png)
+![Manage Jenkins System Configuration](images/jenkins-installation/install_6.png)
 
 *Figure 6. AccuKnox ASPM global configuration filled in.*
-![AccuKnox ASPM global configuration filled in](images/jenkins-install/install_7.png)
+![AccuKnox ASPM global configuration filled in](images/jenkins-installation/install_7.png)
 
 ## 5. (Optional) Create the SBOM project on AccuKnox
 
 If you plan to use the `accuknoxSbom` step, the project name you pass must already exist on AccuKnox with classifier `container`. Create it from the AccuKnox console under **Projects → Add Project**.
-
-!!! danger "Project must exist for SBOM uploads"
-    Without this, the upload will be accepted but the AccuKnox back-end will raise:
-    ```
-    ValueError: Project '<name>' with classifier 'container' not found.
-    ```
 
 ## 6. Pick your scan
 

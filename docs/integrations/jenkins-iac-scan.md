@@ -15,7 +15,7 @@ This guide configures a Jenkins pipeline that scans Infrastructure-as-Code (Terr
 
 ## Step 1: Install the AccuKnox ASPM Plugin
 
-See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-install.md) for the one-time plugin installation steps.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the one-time plugin installation steps.
 
 ## Step 2: Configure Jenkins credentials and global settings
 

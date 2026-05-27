@@ -23,10 +23,10 @@ The **AccuKnox ASPM Scanner** plugin wires AccuKnox security scans directly into
 
 ::cards:: cols=3
 
-- title: Install
+- title: Installation
   content: One-time plugin install and global config.
   image: ./cicd-icons/jenkins.png
-  url: /integrations/jenkins-install/
+  url: /integrations/jenkins-installation/
 - title: SAST
   content: Static Application Security Testing on source code.
   image: ./cicd-icons/sast.svg

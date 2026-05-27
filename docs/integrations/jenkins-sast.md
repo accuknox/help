@@ -15,7 +15,7 @@ This guide walks through configuring a Jenkins pipeline that uses the **AccuKnox
 
 ## Step 1: Install the AccuKnox ASPM Plugin
 
-Install `accuknox-aspm.hpi` via **Manage Jenkins → Plugins → Advanced**. See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-install.md) for the full walk-through with screenshots.
+Install `accuknox-aspm.hpi` via **Manage Jenkins → Plugins → Advanced**. See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the full walk-through with screenshots.
 
 ## Step 2: Configure Jenkins credentials and global settings
 

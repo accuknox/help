@@ -14,12 +14,9 @@ This guide adds an SBOM (Software Bill of Materials) stage to a Jenkins pipeline
 - Network egress from the Jenkins agent to the AccuKnox control plane (or a mirrored scanner image for air-gapped agents).
 - An AccuKnox project pre-created with classifier `container`. The SBOM upload fails otherwise.
 
-!!! danger "Pre-create the project on AccuKnox"
-    The `projectName` you pass to `accuknoxSbom` must already exist on the AccuKnox console with classifier `container`. Without it, uploads are accepted but the back-end raises `ValueError: Project '<name>' with classifier 'container' not found`.
-
 ## Step 1: Install the AccuKnox ASPM Plugin
 
-See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-install.md) for the one-time plugin installation steps.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the one-time plugin installation steps.
 
 ## Step 2: Configure Jenkins and pre-create the SBOM project
 
