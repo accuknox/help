@@ -1,19 +1,19 @@
 ---
-title: Prompt Firewall OpenAI Browser Integration (Chrome)
-description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome, Chromium-based browsers, and real-time prompt and response filtering in ChatGPT.
+title: Prompt Firewall OpenAI Browser Integration (Firefox)
+description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT.
 ---
 
-# OpenAI Browser Integration for Prompt Security (Chrome)
+# OpenAI Browser Integration for Prompt Security (Firefox)
 
 The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT before they leave your browser session. Blocked prompts show a red banner. Allowed ones pass through silently.
 
-This guide covers installation for **Chrome, Brave, and Edge** (Chromium-based browsers). For Firefox, see the [Firefox integration guide](openai-firefox-browser-integration.md).
+This guide covers installation for **Mozilla Firefox**. For Chromium-based browsers (Chrome, Brave, Edge), see the [Chrome integration guide](openai-browser-integration.md).
 
 ## Prerequisites
 
 - An active AccuKnox account with AI Security enabled
 - Access to the Integrations section (to generate a token)
-- A Chromium-based browser (Chrome, Brave, or Edge)
+- Mozilla Firefox browser
 
 ## Step 1: Create a new integration
 
@@ -41,21 +41,30 @@ After saving, the token is displayed once in a confirmation modal.
 
 ## Step 3: Download and install the browser plugin
 
-[Download Chrome plugin](https://promptfirewall-plugin-extension.s3.ap-south-1.amazonaws.com/Prompt-firewall-plugin-v2.zip) and extract the ZIP file to a folder on your machine.
+[Download Firefox plugin](https://promptfirewall-plugin-extension.s3.ap-south-1.amazonaws.com/Prompt-firewall-plugin-v2.zip) and extract the ZIP file to a folder on your machine.
 
-To install in Chrome:
+To install in Firefox:
 
-1. Go to `chrome://extensions`
-2. Enable **Developer mode** (top-right toggle)
-3. Click **Load unpacked** and select the extracted plugin folder
+1. Open Firefox and enter `about:debugging` in the address bar
+2. Select **This Firefox** from the left sidebar
+3. Click on **Load Temporary Add-on**
+
+![Firefox about:debugging page - This Firefox selected](./images/firefox1.png)
+
+1. Navigate to the extracted plugin folder and select the `manifest.json` file
+2. Click **Open** to load the add-on
+
+![Firefox temporary add-on loaded successfully](./images/firefox2.png)
+
+The plugin is now connected and loaded in Firefox.
 
 ## Step 4: Configure the extension
 
 ![AccuKnox Prompt Firewall Settings panel](image-69.png){ align=right width="400" }
 
-Click the AccuKnox icon in your browser toolbar and open **Settings**.
+Click the AccuKnox icon in your Firefox toolbar and open **Settings**.
 
-Fill in the two fields:
+Fill in the following field:
 
 | Field | Value |
 |---|---|
@@ -71,12 +80,10 @@ Once connected, the extension popup shows a green status dot next to **AccuKnox 
 
 Open ChatGPT and send a test prompt. Depending on your active policy, you will see one of the following:
 
-
 ![Red banner - Prompt blocked](image-63.png)
 ![Green banner - Prompt cleared](image-64.png)
 
 ## Request log
-
 
 All intercepted prompts and responses are visible under **AI Security > Request Log**.
 
@@ -91,3 +98,11 @@ Each entry shows:
 You can filter by verdict or direction, search by content or reason, and export the full log as JSON.
 
 ![Request Log table](image-65.png)
+
+## Important notes for Firefox
+
+!!! note "Temporary vs Permanent installation"
+    The steps above load the add-on as a **temporary installation**, which means it will be unloaded when you restart Firefox. For a permanent installation, you can package the add-on or contact AccuKnox support for options to deploy the extension permanently.
+
+!!! info "Developer mode"
+    Unlike Chrome, Firefox does not require explicitly enabling developer mode to load temporary add-ons. Simply navigate to `about:debugging` to begin.

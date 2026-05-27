@@ -291,7 +291,9 @@ nav:
         - "LiteLLM": "integrations/litellm.md"
       - "Prompt Firewall":
         - "SDK Method": "use-cases/llm-defense-app-onboard.md"
-        - "OpenAI Browser Plugin": "integrations/openai-browser-integration.md"
+        - "OpenAI Browser Plugin":
+          - "Chrome": "integrations/openai-browser-integration.md"
+          - "Firefox": "integrations/openai-firefox-browser-integration.md"
       - "Azure Copilot Studio": "integrations/copilot-studio.md"
       - "BedRock AgentCore": "integrations/bedrock-agentcore.md"
       - "Power Apps": "integrations/powerapps-integration.md"
