@@ -67,6 +67,12 @@ The **AI Security** module provides prompt firewalling, threat detection, and ri
 - title: AWS API Gateway
   image: https://raw.githubusercontent.com/pulumi/pulumi-aws-apigateway/main/assets/logo.png
   url: ../how-to/aws-apim.md
+  description: Integrate with AWS API Gateway as a secure proxy in front of Bedrock and other LLM backends
+
+- title: Apigee
+  image: https://cdn.worldvectorlogo.com/logos/apigee.svg
+  url: ../integrations/apigee-integration.md
+  description: Configure an Apigee proxy as an LLM security gateway with prompt validation and resilient error handling
 
 - title: LiteLLM
   image: ./image-16.png
