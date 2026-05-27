@@ -5,17 +5,26 @@ description: AccuKnox CWPP leverages KubeArmor to provide runtime security with 
 
 # Application Behavior
 
-Zero-Trust security model is such that it advocates for deny by default and only allow tailored whitelisted activities to ensure the smooth functionality with security. In order to do that, AccuKnox’s Cloud Workload Protection Platform (CWPP) achieves runtime security by leveraging CNCF sandbox project, KubeArmor, which is a cloud-native runtime security enforcement system by AccuKnox. It does that by having a more granular control over the application behavior (such as process execution, file access, and networking operation). With KubeArmor, a user can:
+Zero Trust means deny by default, then allow only the whitelisted activity a workload actually needs. To get there, AccuKnox uses KubeArmor (a CNCF sandbox project) to control application behavior at runtime: process execution, file access, and networking. With KubeArmor a user can:
 
 - restrict file system access for certain processes
-
 - restrict what processes can be spawned within the pod
+- restrict the capabilities that can be used by the processes within the pod
 
-- restrict the capabilities that can be used by the processes within the pod.
+## The AccuKnox Runtime Security Journey
+
+Application Behavior discovery is the engine that powers steps 2, 5, and 6 of the journey. AccuKnox watches every container, builds a golden baseline of normal activity, and keeps learning as new behavior appears.
+
+![AccuKnox Runtime Security Journey, steps 1 to 4](../assets/images/runtime-security-journey-1.png)
+
+![AccuKnox Runtime Security Journey, steps 5 to 8](../assets/images/runtime-security-journey-2.png)
+
+!!! info "Discovery is continuous"
+    Step 5 loops back to Step 2. Cronjobs, scale events, and new code paths produce fresh discovered policies. You accept or discard each change. Once behavior holds steady for 2-3 weeks, policies are marked **STABLE** and ready to move from **AUDIT** to **BLOCK** mode.
 
 <iframe width="620" height="315" src="https://www.youtube.com/embed/HpCt-AlbxGU" frameborder="0" allowfullscreen></iframe>
 
-Lets understand this by following use-case example - **Auditing Application Behavior of MySQL application**
+Use case example: **Auditing Application Behavior of a MySQL workload**
 
 1.Install workload:
 `sh  kubectl apply -f https://raw.githubusercontent.com/kubearmor/KubeArmor/main/examples/wordpress-mysql/wordpress-mysql-deployment.yaml`
