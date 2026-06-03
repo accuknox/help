@@ -19,6 +19,5 @@ Here’s the table that outlines the inputs and their descriptions, along with d
 | SEVERITY            | Allows selection of severity level for the scan. Options include UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL. | UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL        |
 | INPUT_SOFT_FAIL     | Do not return an error code if there are failed checks.            | true                                    |
 | ACCUKNOX_TOKEN      | The token for authenticating with the CSPM panel.                 | N/A (Required)                          |
-| ACCUKNOX_TENANT     | The ID of the tenant associated with the CSPM panel.              | N/A (Required)                          |
 | ACCUKNOX_ENDPOINT   | The URL of the CSPM panel to push the scan results to.            | cspm.demo.accuknox.com                  |
 | ACCUKNOX_LABEL      | The label created in AccuKnox SaaS for associating scan results.  | N/A (Required)                          |
