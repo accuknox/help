@@ -27,13 +27,13 @@ AccuKnox supports Kubernetes security across managed and on-prem clusters. Selec
   image: ./icons/cloud-account.svg
 - title: CIS Benchmarking
   url: /how-to/cis-benchmarking/
-  image: ./icons/compliance.svg
+  image: ../assets/icons/compliance.svg
 - title: Runtime Prerequisites
   url: /getting-started/cwpp-prereq/
   image: ./icons/CWPP.svg
 - title: Cluster Offboarding
   url: /how-to/cluster-offboarding/
-  image: ./icons/devsecops.svg
+  image: ./icons/onprem.svg
 
 ::/cards::
 
