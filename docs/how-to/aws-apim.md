@@ -9,7 +9,7 @@ This guide provides instructions for deploying an AWS HTTP API Gateway integrate
 
 For the full source example, see the GitHub repository: [AWS API Gateway Integration with Prompt Firewall](https://github.com/accuknox/AWS-API-Gateway_Integration_with-Prompt-Firewall)
 
-![alt text](image-31.png)
+![alt text](image-32.png)
 
 ### Key Configurations
 
