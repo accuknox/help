@@ -42,7 +42,7 @@ hide:
 - title: Ticketing Procedures
   image: ./icons/ticketing-procedures.svg
   url: /resources/ticket-procedure/
-- title: Technical Guide
+- title: Technical Support Guide
   image: ./icons/technical-guide.svg
   url: /resources/technical-support-guide/
 - title: SLA & Escalation Matrix
