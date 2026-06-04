@@ -1,9 +1,9 @@
 ---
-title: Prompt Firewall OpenAI Browser Integration (Chrome)
+title: Prompt Firewall Gen AI Browser Integration (Chrome)
 description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome, Chromium-based browsers, and real-time prompt and response filtering in ChatGPT.
 ---
 
-# OpenAI Browser Integration for Prompt Security (Chrome)
+# Gen AI Browser Integration for Prompt Security (Chrome)
 
 The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT before they leave your browser session. Blocked prompts show a red banner. Allowed ones pass through silently.
 

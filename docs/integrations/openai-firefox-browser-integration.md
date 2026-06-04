@@ -1,9 +1,9 @@
 ---
-title: Prompt Firewall OpenAI Browser Integration (Firefox)
+title: Prompt Firewall Gen AI Browser Integration (Firefox)
 description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT.
 ---
 
-# OpenAI Browser Integration for Prompt Security (Firefox)
+# Gen AI Browser Integration for Prompt Security (Firefox)
 
 The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT before they leave your browser session. Blocked prompts show a red banner. Allowed ones pass through silently.
 
