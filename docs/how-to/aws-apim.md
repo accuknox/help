@@ -5,6 +5,8 @@ description: Deploy an AWS HTTP API Gateway integrated with AWS Lambda using Ter
 
 # AWS API Gateway Integration with Prompt Firewall
 
+For the full source example, see the GitHub repository: [AWS API Gateway Integration with Prompt Firewall](https://github.com/accuknox/AWS-API-Gateway_Integration_with-Prompt-Firewall)
+
 ## API Gateway to Lambda Gateway Integration
 
 This guide provides instructions for deploying an AWS HTTP API Gateway integrated with AWS Lambda using Terraform. Ideally, this setup is designed for secure and efficient model interactions.
