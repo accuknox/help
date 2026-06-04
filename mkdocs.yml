@@ -293,7 +293,7 @@ nav:
       - "Prompt Firewall":
         - "SDK Method": "use-cases/llm-defense-app-onboard.md"
         - "Apigee Proxy": "integrations/apigee-integration.md"
-        - "OpenAI Browser Plugin":
+        - "GenAI Browser Plugin":
           - "Chrome": "integrations/openai-browser-integration.md"
           - "Firefox": "integrations/openai-firefox-browser-integration.md"
       - "Azure Copilot Studio": "integrations/copilot-studio.md"
