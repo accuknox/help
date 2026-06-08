@@ -59,7 +59,7 @@ pool:
 steps:
 - checkout: self
 steps:-
-- task: AccuKnox-SAST@3
+- task: AccuKnox-SAST@4.0.0
   inputs:
     accuknoxEndpoint:'$(ACCUKNOX_ENDPOINT)'
     accuknoxToken: '$(ACCUKNOX_TOKEN)'
