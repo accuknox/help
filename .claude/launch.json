@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ai-soc-prototype",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8137", "--directory", "D:/Atharva/AccuKnox/HelpDocs/AI-SOC/prototype"],
+      "port": 8137
+    }
+  ]
+}

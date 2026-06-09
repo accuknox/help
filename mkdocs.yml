@@ -197,6 +197,7 @@ nav:
       - "AWS AI/ML Onboard": "how-to/aiml-aws-onboard.md"
       - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
+      - "AWS Bedrock Red Teaming (Collector)": "how-to/aiml-bedrock-collector.md"
       - "Prompt Firewall Setup": "use-cases/prompt-firewall.md"
       - "LLM Static Scans": "how-to/llm-static-scan.md"
       - "ML Static Scans": "how-to/ml-static-scan.md"

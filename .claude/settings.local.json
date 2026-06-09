@@ -5,7 +5,9 @@
       "WebFetch(domain:docs.openshift.com)",
       "WebSearch",
       "Bash(python3)",
-      "WebFetch(domain:docs.redhat.com)"
+      "WebFetch(domain:docs.redhat.com)",
+      "Bash(python -c \"import openpyxl; print\\('openpyxl available'\\)\")",
+      "Bash(pip install *)"
     ]
   }
 }
