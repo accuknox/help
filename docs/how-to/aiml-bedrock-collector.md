@@ -1,9 +1,9 @@
 ---
-title: AWS Bedrock Model Red Teaming using AccuKnox Collector method
+title: Red Teaming Amazon Bedrock Models via AccuKnox Collector method
 description: Red team a specific Amazon Bedrock model with the AccuKnox Custom Model collector, without onboarding the full AWS account or organization.
 ---
 
-# AWS Bedrock Model Red Teaming using AccuKnox Collector method
+# Red Teaming Amazon Bedrock Models via AccuKnox Collector method
 
 AccuKnox supports cloud-based onboarding to scan and red team every model deployed across an AWS Bedrock account. The Collector method is a lighter alternative for targeting a specific model on Bedrock without onboarding the entire cloud account or organization.
 

@@ -197,7 +197,7 @@ nav:
       - "AWS AI/ML Onboard": "how-to/aiml-aws-onboard.md"
       - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
-      - "Custom Model Red Teaming":
+      - "Red Team Custom Models":
         - "Overview": "how-to/aiml-custom-model-redteaming.md"
         - "AWS Bedrock": "how-to/aiml-bedrock-collector.md"
         - "NVIDIA Triton": "how-to/aiml-triton-collector.md"

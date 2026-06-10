@@ -17,7 +17,7 @@ hide:
   }
 </style>
 
-The **Custom Model** collector red teams a single model over its HTTP inference endpoint, without onboarding a full cloud account or organization. The same flow works for any LLM exposed over HTTP. Pick your serving platform to get started.
+The **Custom Model** collector red teams a single model over its HTTP inference endpoint, without onboarding a full cloud account. The flow works for any LLM exposed over HTTP. Pick your serving platform to get started.
 
 ::cards:: cols=3
 
