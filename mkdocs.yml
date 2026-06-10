@@ -197,7 +197,11 @@ nav:
       - "AWS AI/ML Onboard": "how-to/aiml-aws-onboard.md"
       - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
-      - "AWS Bedrock Red Teaming (Collector)": "how-to/aiml-bedrock-collector.md"
+      - "Red Team Custom Models":
+        - "Overview": "how-to/aiml-custom-model-redteaming.md"
+        - "AWS Bedrock": "how-to/aiml-bedrock-collector.md"
+        - "NVIDIA Triton": "how-to/aiml-triton-collector.md"
+        - "vLLM": "how-to/aiml-vllm-collector.md"
       - "Prompt Firewall Setup": "use-cases/prompt-firewall.md"
       - "LLM Static Scans": "how-to/llm-static-scan.md"
       - "ML Static Scans": "how-to/ml-static-scan.md"
