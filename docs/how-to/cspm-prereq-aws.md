@@ -39,75 +39,49 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 ## Permissions for AI Asset Scanning (AWS)
 
-### General Scan Permission (Required)
+### Required Managed Policies
 
 Create an **IAM User** and attach the following managed policies:
 
-    * `ReadOnly` (AWS managed -- job function)
-    * `SecurityAudit` (AWS managed -- job function)
+- `ReadOnlyAccess` (AWS managed — job function)
+- `SecurityAudit` (AWS managed — job function)
 
-### Permissions for Bedrock & SageMaker
+### Required Inline Policy
 
-Create an **inline policy** with the following permissions:
+Create an **inline policy** with the following JSON. This covers Bedrock, SageMaker, Bedrock AgentCore, and AWS Marketplace access in a single policy:
 
-=== "Bedrock"
-
-    ```json
-    [
-        "bedrock:InvokeModel",
-        "bedrock:InvokeAgent"
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AccuKnoxAIMLPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeAgent",
+                "sagemaker:InvokeEndpoint",
+                "sagemaker:ListTags",
+                "bedrock-agentcore:InvokeAgentRuntime",
+                "bedrock-agentcore:StopRuntimeSession",
+                "aws-marketplace:Subscribe",
+                "aws-marketplace:ViewSubscriptions"
+            ],
+            "Resource": "*"
+        }
     ]
-    ```
+}
+```
 
-=== "SageMaker"
+!!! note
+    `aws-marketplace:Subscribe` and `aws-marketplace:ViewSubscriptions` are required for invoking certain models (e.g., Claude Opus 4.5) that are distributed through AWS Marketplace.
 
-    ```json
-    [
-        "sagemaker:InvokeEndpoint",
-        "sagemaker:ListTags"
-    ]
-    ```
-
-=== "Bedrock AgentCore"
-
-    ```json
-    [
-        "bedrock-agentcore:InvokeAgentRuntime",
-        "bedrock-agentcore:StopRuntimeSession"
-    ]
-    ```
-
-=== "AWS Marketplace"
-
-    !!! note
-        Required for invoking certain models (e.g., Claude Opus 4.5).
-
-    ```json
-    [
-        "aws-marketplace:Subscribe",
-        "aws-marketplace:ViewSubscriptions"
-    ]
-    ```
-
-## Configure IAM User for AI Asset Scanning (AWS)
+### Setup Steps
 
 1. Navigate to **IAM > Users > Create User**.
-2. Select the AWS managed policies **ReadOnlyAccess** and **SecurityAudit** to attach to the user.
-3. Go to **Add Permissions > Create inline policy**.
-    * **For AgentCore permissions**, add an additional inline policy by selecting the service **Bedrock-Agentcore**.
-    * Allow the required read and runtime actions (including `InvokeAgentRuntime`, `GetEvaluator`, `GetPolicy`, `GetPolicyEngine`, `GetOnlineEvaluationConfig`, `StopRuntimeSession`, and the corresponding `List*` actions such as `ListPolicies`, `ListPolicyEngines`, `ListEvaluators`, `ListOnlineEvaluationConfigs`, and `ListTagsForResource`).
-    * Set **Resources** to **All**.
-
-        ![AgentCore IAM inline policy - Bedrock-Agentcore permissions step 1](image-52.png)
-
-        ![AgentCore IAM inline policy - Bedrock-Agentcore permissions step 2](image-53.png)
-
-        ![AgentCore IAM inline policy - Bedrock-Agentcore permissions step 3](image-54.png)
-
-4. For **SageMaker Permissions**, add another set of permissions by selecting the service **SageMaker**, allowing the actions **InvokeEndpoint** and **ListTags**, and choosing **All** under resources.
-5. For **Bedrock Permissions**, select the service **Bedrock**, allow the actions **InvokeModel**, **ListTagsForResource**, and **InvokeAgent**, and choose **All** under resources.
-6. For **AWS Marketplace Permissions** (required for invoking certain models, e.g., Claude Opus 4.5), select the service **AWS Marketplace**, allow the actions **Subscribe** and **ViewSubscriptions**, and choose **All** under resources.
-7. Finally, review and create the policy to attach it to the IAM user.
+2. Attach the managed policies **ReadOnlyAccess** and **SecurityAudit**.
+3. Go to **Add Permissions > Create inline policy**, paste the JSON above, and create the policy.
+4. After creating the user, go to **Security Credentials** and create an **Access Key** and **Secret Key** to use during AccuKnox onboarding.
 
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
