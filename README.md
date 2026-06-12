@@ -15,9 +15,7 @@ Built with [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs](https
 
 ```sh
 # Install dependencies
-pip install mkdocs-material mkdocs-material-extensions pymdown-extensions \
-  mkdocs-macros-plugin mkdocs-embed-external-markdown mkdocs-redirects \
-  neoteroi-mkdocs mkdocs-breadcrumbs-plugin
+pip install mkdocs-material mkdocs-material-extensions pymdown-extensions mkdocs-macros-plugin mkdocs-embed-external-markdown mkdocs-redirects neoteroi-mkdocs mkdocs-breadcrumbs-plugin
 
 # Start the local dev server (http://127.0.0.1:8000)
 mkdocs serve

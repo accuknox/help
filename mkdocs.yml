@@ -299,7 +299,8 @@ nav:
         - "SDK Method": "use-cases/llm-defense-app-onboard.md"
         - "Apigee Proxy": "integrations/apigee-integration.md"
         - "GenAI Browser Plugin":
-          - "Chrome": "integrations/openai-browser-integration.md"
+          - "Chrome (ChatGPT)": "integrations/openai-browser-integration.md"
+          - "Chrome (Claude)": "integrations/claude-browser-integration.md"
           - "Firefox": "integrations/openai-firefox-browser-integration.md"
       - "Azure Copilot Studio": "integrations/copilot-studio.md"
       - "BedRock AgentCore": "integrations/bedrock-agentcore.md"
