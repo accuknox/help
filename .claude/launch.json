@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8137", "--directory", "D:/Atharva/AccuKnox/HelpDocs/AI-SOC/prototype"],
       "port": 8137
+    },
+    {
+      "name": "mkdocs",
+      "runtimeExecutable": "mkdocs",
+      "runtimeArgs": ["serve", "-a", "127.0.0.1:8000"],
+      "port": 8000
     }
   ]
 }
