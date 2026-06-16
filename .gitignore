@@ -1,3 +1,5 @@
 todos.md
 .venv
 site/
+.firecrawl
+node_modules
