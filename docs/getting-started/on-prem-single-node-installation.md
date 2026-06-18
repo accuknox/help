@@ -25,10 +25,10 @@ This guide provides step-by-step instructions for installing AccuKnox on a singl
 
 ### Step 1: Download the Installation Bundle
 
-Download the AccuKnox bundle using `wget`:
+Download the AccuKnox bundle using `wget` (the exact URL will be given at the time of deployment by the AccuKnox team):
 
 ```bash
-wget https://accuknox-onprem-artifacts.nbg1.your-objectstorage.com/releases/AccuKnox-cp-v3.5-Jun-17.tar.gz
+wget https://accukno-xxxx-xxxx.xxxx.your-objectstorage.com/releases/AccuKnox-cp-v3.5-Jun-17.tar.gz
 ```
 
 ### Step 2: Extract the Installation Bundle
