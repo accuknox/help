@@ -7,7 +7,9 @@
       "Bash(python3)",
       "WebFetch(domain:docs.redhat.com)",
       "Bash(python -c \"import openpyxl; print\\('openpyxl available'\\)\")",
-      "Bash(pip install *)"
+      "Bash(pip install *)",
+      "Bash(npx firecrawl *)",
+      "Bash(Select-Object -First 30)"
     ]
   }
 }
