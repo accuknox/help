@@ -14,8 +14,8 @@ This guide provides step-by-step instructions for installing AccuKnox on a singl
 
 ### Hardware Requirements
 
-* **VM:** 8 vCPU / 32GB Memory
-* **Storage:** 256GB
+* **Standard Deployment:** 8 vCPU / 32 GB RAM / 256 GB Storage
+* **For AI-SPM and Ask-AI enabled:** 12 vCPU / 48 GB RAM / 500 GB Storage
 * **Required Binaries:** `tar`, `wget`
 
 !!! warning "Rocky Linux Users"
@@ -28,7 +28,7 @@ This guide provides step-by-step instructions for installing AccuKnox on a singl
 Download the AccuKnox bundle using `wget`:
 
 ```bash
-wget https://accukno-xxxx-xxxx.xxxx.your-objectstorage.com/Accuknox-cp-v3_3.tar.gz
+wget https://accuknox-onprem-artifacts.nbg1.your-objectstorage.com/releases/AccuKnox-cp-v3.5-Jun-17.tar.gz
 ```
 
 ### Step 2: Extract the Installation Bundle
@@ -36,8 +36,8 @@ wget https://accukno-xxxx-xxxx.xxxx.your-objectstorage.com/Accuknox-cp-v3_3.tar.
 Extract the downloaded file, remove the archive to free up space, and navigate to the directory:
 
 ```bash
-tar -xvf Accuknox-cp-v3_3.tar.gz
-rm Accuknox-cp-v3_3.tar.gz
+tar -xvf AccuKnox-cp-v3.5-Jun-17.tar.gz
+rm Accuknox-cp-v3_5-Jun-17.tar.gz
 cd Accuknox/
 ```
 
@@ -46,20 +46,56 @@ cd Accuknox/
 Extract the Helm charts and navigate to their directory:
 
 ```bash
-tar -xvf Helm-charts-accuknox-stable-helm-chart-v3.3-xx-xx.tar.gz
-cd Helm-charts-accuknox-stable-helm-chart-v3.3-xx-xx
+tar -xvf Helm-charts-xxx.tar.gz
+cd Helm-charts-xxx/
+```
+### Step 4: Download Required Container Images
+
+```bash
+cd image-downloader/
+```
+Standard Deployment Images:
+
+```bash
+./tar_download.sh --cspm 
+```
+or
+For Standard Deployment with AI-SPM images:
+
+```bash
+./tar_download.sh --aispm
 ```
 
-### Step 4: Install Dependencies
+### Step 5: Install Dependencies
 
 Run the scripts to install the required binaries and K3s:
 
 ```bash
+cd ..
 ./binaries.sh
-./airgapped_k3s.sh
+./airgapped_k3s.sh server
 ```
 
-### Step 5: Configure Deployment Values
+### Step 6: Install AccuKnox Charts
+
+Standard Installation
+
+```bash
+./install_chart.sh
+```
+To enable AI-SPM features, provide the required API keys during installation:
+
+```bash
+./install_chart.sh --aispm
+```
+
+Enable Ask-AI and AI Copilot (Optional):
+
+```bash
+./install_chart.sh --askai
+```
+
+### Step 7: Configure Deployment Values
 
 Update the necessary overrides in `override-values.yaml`. For an **IP-based deployment (recommended for POC)**, update the `nginxIngressGateway` with your appropriate `<PRIVATE-IP>`:
 
@@ -79,21 +115,12 @@ nginxIngressGateway:
       selfsigned: false
       customcerts: false
     ```
+### Step 8: Access the UI and Complete Setup
 
-### Step 6: Install AccuKnox Charts
-
-Execute the chart installation script:
-
-```bash
-./install_chart.sh
-```
-
-### Step 7: Access the UI and Complete Setup
-
-1. Open the AccuKnox UI in your browser at: `https://<PRIVATE-IP>/`
-2. Run the following command to retrieve the verification link:
+1. Open the AccuKnox UI in your browser at: `https://<SERVER-IP OR DNS>/ `
+2. To complete sign-up, please connect to the AccuKnox team
 
     ```bash
     kubectl logs deploy/celery -n accuknox-divy | grep "check-email-verification"
     ```
-3. To complete the sign-up process, please connect to the AccuKnox team.
+3. Use the generated link to complete account activation. For assistance, contact the AccuKnox team.
