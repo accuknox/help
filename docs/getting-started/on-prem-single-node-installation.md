@@ -37,7 +37,7 @@ Extract the downloaded file, remove the archive to free up space, and navigate t
 
 ```bash
 tar -xvf AccuKnox-cp-v3.5-Jun-17.tar.gz
-rm Accuknox-cp-v3_5-Jun-17.tar.gz
+rm Accuknox-cp-v3.5-Jun-17.tar.gz
 cd Accuknox/
 ```
 
@@ -63,7 +63,7 @@ or
 For Standard Deployment with AI-SPM images:
 
 ```bash
-./tar_download.sh --aispm
+./tar_download.sh --cspm --aispm
 ```
 
 ### Step 5: Install Dependencies
