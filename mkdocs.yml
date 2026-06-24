@@ -270,7 +270,9 @@ nav:
       - "Generate via Container Image Scan": "getting-started/xbom-container-image.md"
       - "Generate via GitHub Actions": "getting-started/xbom-github-actions.md"
     - "SARIF Findings": "getting-started/sarif-findings.md"
-    - "Secrets Management": "getting-started/secrets-management.md"
+    - "Secrets Management":
+      - "Overview": "getting-started/secrets-management.md"
+      - "On-Prem Deployment Guide": "getting-started/secrets-manager-onprem-deployment.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
@@ -441,6 +443,9 @@ nav:
       - "Azure Sentinel Feeder Integration" : "integrations/azure-sentinel-feeder-integration.md"
       - "Rsyslog" : "integrations/rsyslog.md"
       - "Rsyslog Feeder Integration" : "integrations/rsyslog_feeder_integration.md"
+      - "Sumo Logic" :
+        - "Webhook" : "integrations/sumologic-webhook.md"
+        - "Syslog (Rsyslog)" : "integrations/sumologic-syslog.md"
       - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
     - "SSO":
       - "Signup/Login via SSO": "how-to/sso.md"
