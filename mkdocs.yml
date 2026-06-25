@@ -577,6 +577,7 @@ nav:
     - "Public Cloud" : "support-matrix/public-cloud.md"
     - "Registry Scan" : "support-matrix/registry.md"
     - "IaC": "support-matrix/iac.md"
+    - "SAST": "support-matrix/sast-support-matrix.md"
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
 
   - "Resources":
