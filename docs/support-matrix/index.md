@@ -45,5 +45,8 @@ hide:
 - title: KubeArmor Support Matrix
   image: ./icons/kubearmor.svg
   url: /support-matrix/kubearmor-support-matrix/
+- title: SAST Language Support
+  image: ./icons/cicd.svg
+  url: /support-matrix/sast-support-matrix/
 
 ::/cards::
