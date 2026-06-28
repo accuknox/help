@@ -130,7 +130,7 @@ def mapping(asks, delivers, stays=None, size=11):
 
     if stays:
         p3 = doc.add_paragraph(); p3.paragraph_format.space_after = Pt(10)
-        r4 = p3.add_run("Stays with you "); r4.font.bold = True; r4.font.size = Pt(size); r4.font.color.rgb = GREY
+        r4 = p3.add_run("Stays with you: "); r4.font.bold = True; r4.font.size = Pt(size); r4.font.color.rgb = GREY
         r5 = p3.add_run(stays); r5.font.size = Pt(size); r5.font.color.rgb = NAVY
 
 
@@ -235,10 +235,10 @@ title.add_run("Meeting the RBI Guidance on Model Risk Management").font.color.rg
 sub = doc.add_paragraph(); sub.paragraph_format.space_before = Pt(4)
 sr = sub.add_run("A security control map for AI and ML models"); sr.font.size = Pt(16); sr.font.color.rgb = BLUE; sr.font.bold = True
 rule()
-para("This paper takes the Reserve Bank of India's Guidance on Regulatory "
-     "Principles for Model Risk Management and maps each AI and ML requirement to "
-     "the security controls AccuKnox provides, and to the duties that stay with "
-     "the regulated entity.", size=11.5, space_after=10)
+para("A requirement-by-requirement map of the Reserve Bank of India's Guidance on "
+     "Regulatory Principles for Model Risk Management to the AI and ML security "
+     "controls that meet it, and the duties that stay with the regulated entity.",
+     size=11.5, space_after=10)
 para("Applies to commercial and co-operative banks, NBFCs, payments and small "
      "finance banks, all-India financial institutions such as NABARD and EXIM "
      "Bank, asset reconstruction companies, and credit information companies.",
@@ -268,12 +268,10 @@ r.font.size = Pt(11); r.font.color.rgb = NAVY
 para("Most of the guidance is technology-neutral. The AI and ML chapter is where "
      "the bulk of the security work sits, and it is where most institutions have "
      "the least in place today.", size=11)
-para("This paper maps each AI and ML requirement to a control you can deploy and "
-     "the evidence it produces, and it is honest about the parts that stay with "
-     "you. AccuKnox is not a governance framework. It supplies the inventory, the "
+para("AccuKnox is not a governance framework. It supplies the inventory, the "
      "validation results, the runtime controls, and the audit trail your Model "
      "Risk Management Framework relies on.", size=11)
-para("At a glance, AccuKnox covers:", size=11, bold=True, space_after=4, space_before=2)
+para("AccuKnox covers:", size=11, bold=True, space_after=4, space_before=2)
 for b in [
     "A live inventory of every AI model, dataset, and pipeline, including shadow assets.",
     "Independent, repeatable validation of model behaviour through automated red teaming.",
@@ -289,18 +287,8 @@ para("What stays with you: the framework itself, risk-tier decisions, model "
 page_break()
 
 # ======================= 2. ABOUT =======================
-h1("2. About this paper")
-para("This paper concentrates on the AI and ML parts of the RBI guidance, because "
-     "that is where most of the security work sits, along with the deployment and "
-     "monitoring duties that go with them. It is written for the security and risk "
-     "teams who will operate these controls.")
-para("One boundary keeps it honest. AccuKnox is a security platform, not a "
-     "governance framework. It does not replace your Model Risk Management "
-     "Framework. It produces the inventory, the test results, the runtime "
-     "controls, and the audit trail that the framework relies on. Where a "
-     "requirement is yours to own and not ours to solve, this paper says so.")
-h2("Who this applies to")
-para("RBI names eleven categories of regulated entity. In practice it reaches "
+h1("2. Who this applies to")
+para("RBI names eleven categories of regulated entity, which together reach "
      "almost everyone the RBI supervises:", space_after=4)
 for b in [
     "Commercial banks, including foreign banks, and small finance, payments, "
@@ -318,8 +306,7 @@ para("If a model has a material effect on a business decision, RBI expects you t
 h1("3. Who owns what")
 para("Model risk management is shared work. The regulated entity owns the "
      "framework and the judgement calls. AccuKnox owns the technical controls and "
-     "the evidence. Reading the map with that split in mind avoids the common "
-     "mistake of buying a tool and assuming the obligation is met.")
+     "the evidence.")
 add_table(
     ["The regulated entity owns", "Where AccuKnox helps"],
     [
@@ -341,8 +328,6 @@ page_break()
 
 # ======================= 4. REQUIREMENT MAP =======================
 h1("4. The requirement map")
-para("Each item states what RBI asks for, then what AccuKnox delivers against it, "
-     "then any part that stays with you.", color=GREY, space_after=6)
 
 h2("4.1 Governance and accountability")
 mapping("for a board-approved framework covering every model, with the board "
@@ -401,9 +386,9 @@ h2("4.6 Explainability and compensating controls")
 mapping("you to set explainability thresholds and, where full explainability is "
         "not achievable, to apply compensating controls: corroborate output before "
         "use, validate more often, monitor continuously, and restrict usage.",
-        ["exactly that layer. You set the threshold; when a model falls short "
-         "AccuKnox supplies the controls, response checks that verify output before "
-         "a customer sees it, scheduled re-tests, continuous monitoring, and hard "
+        ["the compensating controls. You set the threshold; when a model falls "
+         "short, AccuKnox supplies response checks that verify output before a "
+         "customer sees it, scheduled re-tests, continuous monitoring, and hard "
          "usage limits at the prompt boundary."])
 
 h2("4.7 Hallucination, bias, and consumer protection")
@@ -431,7 +416,7 @@ mapping("for models that interact with customers: defenses against prompt "
         "persistence, detection of anomalous usage, a clear disclosure that the "
         "user is dealing with AI, and a route to human help.",
         ["a ", ("stateful prompt firewall", L_FIREWALL_BLOG),
-         " that scores the whole conversation, the thing that catches multi-turn "
+         " that scores the whole conversation, which catches the multi-turn "
          "jailbreaks a single-prompt filter misses. It blocks injection and "
          "adversarial input, caps tokens and context, and AI-DR flags anomalous "
          "usage."],
@@ -468,8 +453,8 @@ h2("4.13 Selection, development, and data governance")
 mapping("you to define the rationale before building a model, follow a structured "
         "development process, govern the data, and make sure models are not "
         "overfitted and do not rely on spurious correlations.",
-        ["a narrower contribution here: scanning model artifacts for tampering. The "
-         "rest is model-quality work."],
+        ["model-artifact scanning for tampering. The rest of this requirement is "
+         "model-quality work, not a security control."],
         "this work, owned by your data and modelling teams. AccuKnox does not "
         "assess overfitting or statistical soundness.")
 page_break()
@@ -524,8 +509,7 @@ para("Findings, alerts, and audit logs export to the SIEM and ticketing tools yo
 
 # ======================= 7. WHERE TO START =======================
 h1("7. Where to start")
-para("You do not have to do everything at once. A practical order that follows "
-     "RBI's own risk logic:", space_after=4)
+para("A practical sequence, following RBI's own risk order:", space_after=4)
 for i, b in enumerate([
     "Discover the inventory. You cannot tier or validate what you cannot see, and "
     "shadow models are where the surprises are.",
@@ -575,16 +559,14 @@ for label, url in [
 
 rule()
 para("AccuKnox is a zero trust CNAPP that secures cloud, workloads, and AI systems "
-     "from build to runtime. This paper maps RBI's Model Risk Management guidance "
-     "to security controls and is provided for information, not as legal or "
-     "compliance advice.", size=10, color=GREY, space_before=8)
+     "from build to runtime. This document is for information only and is not legal "
+     "or compliance advice.", size=10, color=GREY, space_before=8)
 page_break()
 
 # ======================= APPENDIX =======================
 h1("Appendix A. Screenshots")
-para("The diagrams and screenshots below illustrate the controls referenced in "
-     "this paper. The first four are architecture and flow diagrams; the rest are "
-     "from the AccuKnox console.", size=10.5, color=GREY, space_after=8)
+para("The first four images are architecture and flow diagrams; the rest are "
+     "screenshots from the AccuKnox console.", size=10.5, color=GREY, space_after=8)
 figs = [
     ("diagram-ai-spm-architecture.png", "The AI-SPM security architecture: "
      "discovery across managed and unmanaged infrastructure, a deployment pipeline "
