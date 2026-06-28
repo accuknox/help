@@ -26,6 +26,9 @@ def on_post_build(config, **kwargs):
         for fname in files:
             if not fname.endswith(".md"):
                 continue
+            # Auto-generated folder index files are repo-only; never publish them.
+            if fname == "README.md":
+                continue
 
             src_path = os.path.join(root, fname)
             rel = os.path.relpath(src_path, docs_dir).replace(os.sep, "/")

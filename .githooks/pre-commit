@@ -1,0 +1,28 @@
+#!/bin/sh
+# Regenerate the folder-index README.md files under docs/ and stage any that
+# changed, so the indexes stay current whenever docs files are added, renamed,
+# or have their front matter edited.
+#
+# Enable once per clone:  git config core.hooksPath .githooks
+# (or run: sh scripts/install-git-hooks.sh)
+
+# Only do work when the commit touches something under docs/.
+if git diff --cached --name-only | grep -q '^docs/'; then
+    if command -v python >/dev/null 2>&1; then
+        PY=python
+    elif command -v py >/dev/null 2>&1; then
+        PY="py -3.11"
+    elif command -v python3 >/dev/null 2>&1; then
+        PY=python3
+    else
+        echo "pre-commit: no python found; skipping README regeneration" >&2
+        exit 0
+    fi
+
+    $PY scripts/gen_docs_readmes.py >/dev/null 2>&1
+
+    # Stage README index changes only: additions, edits, and removals.
+    git add -A -- ':(glob)docs/**/README.md' 'docs/README.md' 2>/dev/null
+fi
+
+exit 0
