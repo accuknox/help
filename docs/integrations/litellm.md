@@ -33,6 +33,7 @@ Follow these instructions to integrate AccuKnox LLM Defense with LiteLLM. This s
       env_token: <accuknox token you get when onboarding application>
       user_info: <user name/email>
       client_info: <optional client info>
+      base_url: <accuknox base url, option for onprem only>
     ```
 
 4. Run the proxy server using:
