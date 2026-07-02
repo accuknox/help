@@ -5,10 +5,7 @@ description: Integrate AccuKnox LLM Defense with LiteLLM to scan prompts and res
 
 # LiteLLM Integration
 
-Follow these instructions to integrate AccuKnox LLM Defense with LiteLLM. This setup will enable scanning of prompts and responses for potential threats and logging interactions to enhance security and visibility for your LLM applications.
-
-!!! note "Important"
-    Since this integration hooks into API calls, it currently **only logs and categorizes** prompts and responses (e.g., Prompt Injection, Toxic, Code) for observability. It does not actively block requests at this stage.
+Follow these instructions to integrate AccuKnox LLM Defense with LiteLLM. This setup will enable scanning of prompts and resp for potential threats and logging interactions to enhance security and visibility for your LLM applications.
 
 1. Install `litellm` python package, `litellm` proxy cli package and `accuknox-llm-defense` package using:
 
@@ -36,6 +33,7 @@ Follow these instructions to integrate AccuKnox LLM Defense with LiteLLM. This s
       env_token: <accuknox token you get when onboarding application>
       user_info: <user name/email>
       client_info: <optional client info>
+      base_url: <accuknox base url>
     ```
 
 4. Run the proxy server using:

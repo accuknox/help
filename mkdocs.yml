@@ -18,6 +18,11 @@ edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
 docs_dir: "docs"
 dev_addr: '127.0.0.1:8000'
 
+# Auto-generated folder index files (scripts/gen_docs_readmes.py) live inside
+# docs/ for repo crawlability but must not be published as site pages.
+exclude_docs: |
+  README.md
+
 # Theme
 theme:
   name: "material"
