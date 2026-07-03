@@ -32,7 +32,7 @@ metadata:
   name: kubearmor-allowlist
 spec:
   allowlistPaths:
-  - AccuKnox/kubearmor/*
+  - Accuknox/kubearmor/*
 ```
 
 Verify that the KubeArmor allowlist is synchronized:
