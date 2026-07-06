@@ -17,11 +17,11 @@ This guide walks you through configuring input/output policies in AccuKnox for p
     * Monitoring and auditing AI interactions for Create/Apply Policiescompliance
     * Customizing security policies to fit your organization's needs
 
-    ![AccuKnox Prompt Firewall policy capabilities overview](image-1.png)
+    ![AccuKnox Prompt Firewall policy capabilities overview](../use-cases/image-1.png)
 
 !!! warning "Pre-requisite"
     Add the **AccuKnox Prompt Firewall Proxy** to your app first.
-    See: [Prompt Firewall App Onboarding](https://help.accuknox.com/use-cases/llm-defense-app-onboard/)
+    See: [Prompt Firewall App Onboarding](https://help.accuknox.com/how-to/llm-defense-app-onboard/)
 
 ??? note "Watch: Prompt Firewall Use Case Video"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/l_RCQosnNJk" frameborder="0" allowfullscreen></iframe>
@@ -47,7 +47,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 ## Step 3: Policy Types (Prompt vs. Response)
 
 - **Prompt Policies**: Input control (e.g., block abusive queries, dangerous requests).
-  [Details](https://help.accuknox.com/use-cases/prompts-categories/?h=prompt)
+  [Details](https://help.accuknox.com/use-cases/subprompts-categories/?h=prompt)
 - **Response Policies**: Output control (e.g., block vulnerable code, data leaks).
 
 ![Differentiate-Your-Defenses](https://accuknox.com/wp-content/uploads/Differentiate-Your-Defenses.png)
@@ -68,7 +68,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 | Secrets          | User pastes an API key: sk-12345abcde...                              | Prevent credentials or secrets from being processed or logged by the LLM.         |
 | Token Limit      | User pastes a 50-page document into the prompt.                       | Ensure prompts do not exceed token limits to prevent DoS or high costs.           |
 
-![Prompt firewall policy types and categories](image.png)
+![Prompt firewall policy types and categories](../use-cases/image.png)
 
 !!! info "Need Custom Policies Tailored to Your Use Case?"
     AccuKnox can configure custom prompt firewall policies built around your specific business requirements — regex-based pattern matching, domain-specific block lists, response filtering rules, or any other criteria your use case demands. This goes beyond the default policy templates available out of the box. See default policy types or reach out to your AccuKnox representative to discuss a custom setup.
@@ -98,7 +98,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
     - **Violation Score**
     - **Triggered Policy**
 
-![alt](./images/image2.png)
+![alt](../use-cases/images/image2.png)
 
 ## Example: Conversation Blocking
 
@@ -106,7 +106,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 - **Flag & Block:** Unsafe content triggers block (e.g., "BanCode" for code execution).
 - **Log:** Dashboard records **Policy Name**, **Type**, **Action**, **Status**.
 
-![alt](./images/image1.png)
+![alt](../use-cases/images/image1.png)
 
 **Result:** Unauthorized code execution is blocked, keeping your AI secure.
 

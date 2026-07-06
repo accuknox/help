@@ -12,8 +12,7 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [access-keys.md](access-keys.md) | Learn how to query data using access keys in AccuKnox CWPP and CSPM for enhanced security insights and operational efficiency. |
 | [admission-controller-knoxguard.md](admission-controller-knoxguard.md) | Knoxguard enhances Kubernetes security with policy enforcement, supporting Kyverno for flexible and independent policy integration. |
 | [aidr.md](aidr.md) | AI Detection and Response (AI-DR) provides continuous detection, investigation, and response for AI and GenAI workloads across cloud environments. |
-| [aiml-runtime-onboard.md](aiml-runtime-onboard.md) | A guide to onboard AIML Runtime Security using ModelArmor, including API usage and integration examples. |
-| [aiml-usecases.md](aiml-usecases.md) | Explore key AI/ML security use cases including AI-DR, Jupyter Notebook Security and ModelArmor to protect machine learning models and data pipelines. |
+| [aiml-usecases.md](aiml-usecases.md) | Explore AccuKnox AI security use cases across the eight modules, from AI-SPM and AI-DR to Agentic AI Security, Model & Dataset Security, Red Teaming, and Pro... |
 | [api-security.md](api-security.md) | Guide to managing API security with AccuKnox, including real-time inventory, collections, OpenAPI spec uploads, scanning, and reviewing findings. |
 | [app-behavior.md](app-behavior.md) | AccuKnox CWPP leverages KubeArmor to provide runtime security with granular control over app behavior, ensuring process and file safety. |
 | [app-hardening.md](app-hardening.md) | Steps to achieve zero-trust environment by App Hardening using AccuKnox security solution for Kubernetes and cloud native platforms. |
@@ -21,9 +20,6 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [aspm-scanner-cli.md](aspm-scanner-cli.md) | Run IaC, SAST, Secret, Container, and DAST scans from a single CLI - in CI/CD pipelines or local developer workflows - and optionally upload results to the A... |
 | [aspm.md](aspm.md) | AccuKnox ASPM provides real-time insights into application security, integrating visibility and risk mitigation into the development lifecycle. |
 | [asset-inventory.md](asset-inventory.md) | AccuKnox CSPM scans cloud accounts to track assets like hosts, apps, and clusters, ensuring accurate and up-to-date inventory management. |
-| [azure-aidr.md](azure-aidr.md) | Onboarding guide for AccuKnox AI-DR for Azure with Terraform to get started with threat detection and response for your AI workloads. |
-| [azure-secret-scan.md](azure-secret-scan.md) | Detect and remediate hard-coded secrets in Azure DevOps pipelines using AccuKnox Secret Scanning to improve code security and prevent exposure. |
-| [bitbucket-secret-scan.md](bitbucket-secret-scan.md) | Improve code security by detecting hard-coded secrets in Bitbucket pipelines with AccuKnox and uploading results for remediation. |
 | [cdr.md](cdr.md) | Learn how AccuKnox CDR provides automated, closed-loop cloud security by detecting policy violations in real-time and triggering immediate remediation workfl... |
 | [cis-benchmarking.md](cis-benchmarking.md) | Learn how to view and resolve CIS Kubernetes Benchmark findings with AccuKnox to improve Kubernetes cluster security and compliance. |
 | [cloud-misconfigurations.md](cloud-misconfigurations.md) | Securing your most critical assets in Public Cloud by detecting misconfigurations and drift detection on onboarded Cloud Account. |
@@ -39,8 +35,6 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [dast-xss.md](dast-xss.md) | Use AccuKnox’s DAST to detect and remediate cross-site scripting vulnerabilities in live applications, improving security posture. |
 | [epss-scoring.md](epss-scoring.md) | Learn how the Exploit Prediction Scoring System (EPSS) complements CVSS and CWE to provide a more comprehensive approach to vulnerability management. |
 | [forensics.md](forensics.md) | AccuKnox provides forensic analysis to identify security incidents' root causes and offers insights into security-sensitive activities. |
-| [github-secret-scan.md](github-secret-scan.md) | Integrate AccuKnox Secret Scanning into GitHub Actions to detect hardcoded secrets and sensitive credentials before they reach production. |
-| [gitlab-secret-scan.md](gitlab-secret-scan.md) | Set up AccuKnox Secret Scanning in GitLab CI/CD to detect and fix hard-coded secrets, ensuring sensitive data is secure and reducing security risks. |
 | [hardening.md](hardening.md) | AccuKnox provides a comprehensive hardening solution that helps you secure your Kubernetes workloads by enforcing security policies and best practices. |
 | [hashicorp.md](hashicorp.md) | AccuKnox helps organizations secure HashiCorp Vault by preventing ransomware attacks and unauthorized access to secrets stored in the Vault. |
 | [hildegard.md](hildegard.md) | Hildegard exploits vulnerabilities from non-compliance with security practices. Learn how AccuKnox helps prevent such attacks. |
@@ -48,12 +42,10 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [image-scan.md](image-scan.md) | Identify and fix vulnerabilities in container images with AccuKnox’s scanning solution to ensure secure, threat-free applications. |
 | [index.md](index.md) | Explore Accuknox's use cases by categories - ASPM, CSPM, CWPP, KSPM. |
 | [iot-edge-security.md](iot-edge-security.md) | Secure IoT and Edge workloads with KubeArmor, providing runtime protection and compliance for distributed environments. |
-| [jenkins-secret-scan.md](jenkins-secret-scan.md) | Learn how to integrate secret scanning into Jenkins pipelines using the AccuKnox Secret Scanning Jenkins Plugin. This plugin uses TruffleHog to detect sensit... |
 | [jupyter-notebook.md](jupyter-notebook.md) | AccuKnox can help in securing Jupyter Notebook by preventing remote command injection and unauthorized access to kubernetes resources. |
 | [kiem.md](kiem.md) | Manage Kubernetes permissions, detect events, and enhance security with AccuKnox’s centralized identity management. |
 | [knoxguard-supply-chain.md](knoxguard-supply-chain.md) | Learn how to mitigate supply chain attacks with KnoxGuard by blocking deployments that use images from untrusted registries. |
 | [kspm.md](kspm.md) | KSPM provides a security framework for Kubernetes, continuously assessing configurations and detecting misconfigurations to prevent security breaches. |
-| [llm-defense-app-onboard.md](llm-defense-app-onboard.md) | Learn how to onboard your application with AccuKnox Prompt Firewall using the Python SDK. This guide covers steps from application registration to scanning p... |
 | [mfa-dast.md](mfa-dast.md) | Run a DAST scan on MFA-enabled apps with GitHub CI/CD, using OWASP Juice Shop to detect vulnerabilities and analyze security risks. |
 | [modelarmor-adverserial-attacks.md](modelarmor-adverserial-attacks.md) | Understand how attackers manipulate AI models with imperceptible input changes to cause incorrect predictions and security risks. |
 | [modelarmor-deploy-pytorch.md](modelarmor-deploy-pytorch.md) | ModelArmor is a security solution that helps you secure your machine learning models by enforcing security policies and best practices. |
@@ -62,16 +54,12 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [network-segmentation.md](network-segmentation.md) | Use identity-aware policy discovery and microsegmentation to create security segments and enhance workload protection with AccuKnox. |
 | [pod-security-admission-controller.md](pod-security-admission-controller.md) | Enforce Kubernetes security standards on Pods using PSA, ensuring compliance with Pod Security Standards at different enforcement levels. |
 | [prompt-firewall-overview.md](prompt-firewall-overview.md) | Real-time inline security for AI applications. Inspect, filter, and enforce policies on every prompt and response flowing between users and LLMs. |
-| [prompt-firewall.md](prompt-firewall.md) | A step-by-step guide to onboarding your application with the AccuKnox Prompt Firewall |
-| [prompts-categories.md](prompts-categories.md) | Explore the full list of AI/ML security categories and probe definitions used in AccuKnox's prompt firewall and AI detection capabilities. |
 | [red-teaming.md](red-teaming.md) | Automated adversarial testing for LLMs and ML models. Continuously stress-test your AI applications against prompt injection, jailbreaks, toxicity, hallucina... |
 | [rules-engine-ticket-creation.md](rules-engine-ticket-creation.md) | Automate ticket creation in AccuKnox by defining rules, severity, and data types for a streamlined incident response process. |
 | [sast-sq.md](sast-sq.md) | Integrate Opengrep SAST with AccuKnox in your CI/CD pipeline to detect SQL Injection and other code vulnerabilities using continuous security monitoring. |
 | [secret-scan-cicd-aws.md](secret-scan-cicd-aws.md) | Integrate AccuKnox Secret Scanning into GitHub Actions to proactively catch AWS credentials and secrets before they leak in your CI/CD pipeline. |
-| [securing-you-cloud-infra-through-detecting-misconfiguration-and-vulnerabilities.md](securing-you-cloud-infra-through-detecting-misconfiguration-and-vulnerabilities.md) | !secure-cloud-accuknox |
 | [serverless-security.md](serverless-security.md) | Comprehensive security solutions for Serverless functions, images, and platforms including AWS Lambda and Knative. |
 | [subprompts-categories.md](subprompts-categories.md) | Detailed breakdown of subprompt categories used in various detection probes, including sentiment analysis, code safety, hallucination, and prompt injection. |
-| [use-case-cards.md](use-case-cards.md) | Explore how AccuKnox Zero Trust CNAPP secures workloads with policy enforcement, monitoring, and advanced threat protection. |
 | [vm-audit-log.md](vm-audit-log.md) | Learn how to audit and manage logs efficiently using AccuKnox, ensuring compliance, visibility, and security across your environment. |
 | [vm-aws.md](vm-aws.md) | Identify and fix AWS VM misconfigurations in IAM, network, and disk security with AccuKnox CSPM to enhance cloud security. |
 | [vm-azure.md](vm-azure.md) | Learn about common misconfigurations in Azure VMs, their impact, and how to identify and remediate them using AccuKnox CSPM. |

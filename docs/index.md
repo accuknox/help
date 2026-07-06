@@ -856,17 +856,29 @@ hide:
       <div class="module-item" data-cat="workloads" style="display:none;" onclick="selectModule('kspm', this)">
          <img src="assets/icons/wheel.svg" alt="Kubernetes Security Posture" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Kubernetes Security Posture (KSPM)
       </div>
-      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('prompt-firewall', this)">
-         <img src="assets/icons/ai.svg" alt="Prompt Firewall" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Prompt Firewall
-      </div>
-      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('red-teaming', this)">
-         <img src="assets/icons/ai.svg" alt="Red Teaming" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Red Teaming
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('ai-spm', this)">
+         <img src="assets/icons/posture.svg" alt="AI-SPM" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AI Posture (AI-SPM)
       </div>
       <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('ai-dr', this)">
-         <img src="assets/icons/ai.svg" alt="AI-DR" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AI-DR
+         <img src="assets/icons/ai.svg" alt="AI Detect & Respond" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Detect &amp; Respond (AI-DR)
       </div>
-      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('model-armor', this)">
-         <img src="assets/icons/ai.svg" alt="ModelArmor" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> ModelArmor
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('agentic-ai', this)">
+         <img src="assets/icons/ai.svg" alt="Agentic AI Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Agentic AI Security
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('model-dataset', this)">
+         <img src="assets/icons/ai.svg" alt="AI Model & Dataset Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Model &amp; Dataset Security
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('red-teaming', this)">
+         <img src="assets/icons/ai.svg" alt="AI Red Teaming" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Red Teaming &amp; Pen Testing
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('ai-identity', this)">
+         <img src="assets/icons/user_check.svg" alt="AI Identity Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AI Identity Security
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('prompt-firewall', this)">
+         <img src="assets/icons/ai.svg" alt="AI Guardrails" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Guardrails (Prompt Firewall)
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('ai-grc', this)">
+         <img src="assets/icons/compliance.svg" alt="AI-GRC" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Compliance (AI-GRC)
       </div>
       <div class="module-item" data-cat="compliance" style="display:none;" onclick="selectModule('comp', this)">
          <img src="assets/icons/compliance.svg" alt="Continuous Compliance" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Continuous Compliance
@@ -1009,70 +1021,121 @@ hide:
         </div>
         <div id="prompt-firewall" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/prompt-firewall/" class="action-btn" target="_blank">Overview</a>
-                <a href="/use-cases/llm-defense-app-onboard/" class="action-btn" target="_blank">Defense App Onboard</a>
-                <a href="/use-cases/subprompts-categories/" class="action-btn" target="_blank">Subprompts Categories</a>
+                <a href="/how-to/prompt-firewall/" class="action-btn" target="_blank">Getting Started</a>
+                <a href="/use-cases/prompt-firewall-overview/" class="action-btn" target="_blank">Use Case</a>
                 <a href="/integrations/ai-overview/" class="action-btn" target="_blank">Integrations</a>
             </div>
             <div class="module-detail-title">
-                Prompt Firewall
+                AI Guardrails (Prompt Firewall)
             </div>
             <div class="module-description">
-                Real-time protection for LLMs against prompt injection, jailbreaking, and data leakage.
+                Real-time inline protection for LLM apps against prompt injection, jailbreaking, sensitive-data leakage, and unsafe output.
             </div>
             <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/aiml-sec.png"  alt="Prompt Firewall" />
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI Guardrails (Prompt Firewall)" />
             </div>
-            <a href="/integrations/ai-overview/" class="action-btn" target="_blank">Integrations</a>
-            <a href="/use-cases/prompt-firewall/" class="learn-more-link">Learn more about Prompt Firewall &rarr;</a>
+            <a href="/use-cases/prompt-firewall-overview/" class="learn-more-link">Learn more about AI Guardrails &rarr;</a>
         </div>
         <div id="red-teaming" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/how-to/llm-static-scan/" class="action-btn" target="_blank">LLM Static Scan</a>
-                <a href="/how-to/ml-static-scan/" class="action-btn" target="_blank">ML Static Scan</a>
-                <a href="/how-to/aiml-aws-onboard/" class="action-btn" target="_blank">Cloud Onboarding</a>
+                <a href="/how-to/aiml-custom-model-redteaming/" class="action-btn" target="_blank">Getting Started</a>
+                <a href="/use-cases/red-teaming/" class="action-btn" target="_blank">Use Case</a>
+                <a href="/use-cases/subprompts-categories/" class="action-btn" target="_blank">Categories &amp; Probes</a>
             </div>
             <div class="module-detail-title">
-                Red Teaming
+                AI Red Teaming &amp; Pen Testing
             </div>
             <div class="module-description">
-                 Automated adversarial testing to identify vulnerabilities in your AI models before deployment.
+                 Automated adversarial testing to find prompt-injection, jailbreak, toxicity, and data-leak vulnerabilities in your models before deployment.
             </div>
             <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/aiml-sec.png"  alt="Red Teaming" />
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI Red Teaming & Pen Testing" />
             </div>
-            <a href="/how-to/llm-static-scan/" class="learn-more-link">Learn more about Red Teaming &rarr;</a>
+            <a href="/use-cases/red-teaming/" class="learn-more-link">Learn more about AI Red Teaming &rarr;</a>
         </div>
         <div id="ai-dr" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/aidr/" class="action-btn" target="_blank">AI-DR Use Cases</a>
+                <a href="/use-cases/aidr/" class="action-btn" target="_blank">Use Case</a>
+                <a href="/how-to/azure-aidr/" class="action-btn" target="_blank">Azure Setup</a>
                  <a href="/support-matrix/aiml-support-matrix/" class="action-btn" target="_blank">Support Matrix</a>
             </div>
             <div class="module-detail-title">
-                AI Detection & Response (AI-DR)
+                AI Detect &amp; Respond (AI-DR)
             </div>
             <div class="module-description">
-                Continuous monitoring and response for AI security incidents and anomalies.
+                Continuous monitoring and response for AI security incidents and anomalies across SageMaker, Bedrock, and Azure ML.
             </div>
             <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI-DR" />
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI Detect & Respond (AI-DR)" />
             </div>
             <a href="/use-cases/aidr/" class="learn-more-link">Learn more about AI-DR &rarr;</a>
         </div>
-        <div id="model-armor" class="module-detail-block" style="display:none;">
+        <div id="ai-spm" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/modelarmor/" class="action-btn" target="_blank">ModelArmor Use Cases</a>
+                <a href="/how-to/aiml-overview/" class="action-btn" target="_blank">Getting Started</a>
+                <a href="/use-cases/aiml-usecases/" class="action-btn" target="_blank">Use Cases</a>
+                <a href="/support-matrix/aiml-support-matrix/" class="action-btn" target="_blank">Support Matrix</a>
             </div>
             <div class="module-detail-title">
-                ModelArmor
+                AI Security Posture Management (AI-SPM)
             </div>
             <div class="module-description">
-                Comprehensive model governance and privacy protection for enterprise AI adoption.
+                Discover AI/ML assets across cloud and on-prem, surface shadow AI, and continuously score the posture of your models, datasets, and AI applications.
             </div>
             <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/aiml-sec.png"  alt="ModelArmor" />
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI Security Posture Management (AI-SPM)" />
             </div>
-            <a href="/use-cases/modelarmor/" class="learn-more-link">Learn more about ModelArmor &rarr;</a>
+            <a href="/use-cases/aiml-usecases/" class="learn-more-link">Learn more about AI-SPM &rarr;</a>
+        </div>
+        <div id="agentic-ai" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/use-cases/modelarmor/" class="action-btn" target="_blank">Use Case</a>
+                <a href="/integrations/bedrock-agentcore/" class="action-btn" target="_blank">Bedrock AgentCore</a>
+                <a href="/integrations/copilot-studio/" class="action-btn" target="_blank">Copilot Studio</a>
+            </div>
+            <div class="module-detail-title">
+                Agentic AI Security
+            </div>
+            <div class="module-description">
+                Runtime sandboxing and zero-trust guardrails for AI agents, agent toolchains, and untrusted models using KubeArmor.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="Agentic AI Security" />
+            </div>
+            <a href="/use-cases/modelarmor/" class="learn-more-link">Learn more about Agentic AI Security &rarr;</a>
+        </div>
+        <div id="model-dataset" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/how-to/llm-static-scan/" class="action-btn" target="_blank">LLM Static Scan</a>
+                <a href="/how-to/ml-static-scan/" class="action-btn" target="_blank">ML Static Scan</a>
+                <a href="/use-cases/modelarmor-pickle-code/" class="action-btn" target="_blank">Use Case</a>
+            </div>
+            <div class="module-detail-title">
+                AI Model &amp; Dataset Security
+            </div>
+            <div class="module-description">
+                Scan models and datasets from Hugging Face, GitHub, and registries for supply-chain risks, malware, and unsafe serialization such as pickle code injection.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI Model & Dataset Security" />
+            </div>
+            <a href="/use-cases/modelarmor-pickle-code/" class="learn-more-link">Learn more about Model &amp; Dataset Security &rarr;</a>
+        </div>
+        <div id="ai-identity" class="module-detail-block" style="display:none;">
+            <div class="module-detail-title">
+                AI Identity Security <span class="agentless-badge">Coming Soon</span>
+            </div>
+            <div class="module-description">
+                Identity and entitlement controls for AI agents, models, and non-human identities. Coming soon.
+            </div>
+        </div>
+        <div id="ai-grc" class="module-detail-block" style="display:none;">
+            <div class="module-detail-title">
+                AI Compliance &amp; Governance (AI-GRC) <span class="agentless-badge">Coming Soon</span>
+            </div>
+            <div class="module-description">
+                Governance, risk, and compliance mapping for AI systems against frameworks like the EU AI Act, NIST AI RMF, and ISO 42001. Coming soon.
+            </div>
         </div>
         <div id="comp" class="module-detail-block" style="display:none;">
             <div class="content-header">

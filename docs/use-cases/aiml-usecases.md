@@ -1,11 +1,11 @@
 ---
-title: AI/ML Security Use Cases
-description: Explore key AI/ML security use cases including AI-DR, Jupyter Notebook Security and ModelArmor to protect machine learning models and data pipelines.
+title: AI Security Use Cases
+description: Explore AccuKnox AI security use cases across the eight modules, from AI-SPM and AI-DR to Agentic AI Security, Model & Dataset Security, Red Teaming, and Prompt Firewall guardrails.
 hide:
   - toc
 ---
 
-# AI/ML Security Use Cases
+# AI Security Use Cases
 
 <style>
   .nt-card-title{
@@ -17,35 +17,74 @@ hide:
   }
 </style>
 
+AccuKnox secures the full AI lifecycle through **AI Security Posture Management (AI-SPM)** and its focused modules: **AI Detect & Respond (AI-DR)**, **Agentic AI Security**, **AI Model & Dataset Security**, **AI Red Teaming & Pen Testing**, and **AI Guardrails (Prompt Firewall)**. **AI Identity Security** and **AI Compliance & Governance (AI-GRC)** are coming soon.
+
 !!! note "Useful Links"
-    - For onboarding refer to the [**AI/ML Onboarding Guide**](https://help.accuknox.com/how-to/aiml-overview/)
-    - For list of supported platforms refer to the [**AI/ML Security Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
+    - For onboarding refer to the [**AI Security Onboarding Guide**](https://help.accuknox.com/how-to/aiml-overview/)
+    - For list of supported platforms refer to the [**AI Security Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
 
-::cards:: cols=3
+## Security Modules
 
-- title: Prompt Firewall
+::cards:: cols=4
+
+- title: AI Posture Management (AI-SPM)
   image: ./icons/AIML.svg
-  url: https://help.accuknox.com/use-cases/prompt-firewall-overview/
+  url: /how-to/aiml-overview/
 
-- title: AI-DR (AI Detection and Response)
+- title: AI Detect & Respond (AI-DR)
   image: ./icons/aidr.svg
-  url: https://help.accuknox.com/use-cases/aidr/
+  url: /use-cases/aidr/
 
-- title: AI Red Teaming (ML/LLMs)
+- title: Agentic AI Security
+  image: ./icons/mcp-security.svg
+  url: /use-cases/modelarmor/
+
+- title: AI Model & Dataset Security
+  image: ./icons/modelarmor.svg
+  url: /use-cases/modelarmor-pickle-code/
+
+- title: AI Red Teaming & Pen Testing
   image: ./icons/model-safety.svg
-  url: https://help.accuknox.com/use-cases/red-teaming/
+  url: /use-cases/red-teaming/
+
+- title: AI Guardrails (Prompt Firewall)
+  image: ./icons/AIML.svg
+  url: /use-cases/prompt-firewall-overview/
+
+- title: AI Identity Security (Coming Soon)
+  image: ./icons/AIML.svg
+  url:
+
+- title: AI Compliance & Governance (Coming Soon)
+  image: ./icons/AIML.svg
+  url:
+
+::/cards::
+
+## More AI Use Cases
+
+::cards:: cols=4
 
 - title: Jupyter Notebook Security
   image: ./icons/jupyter.svg
-  url: https://help.accuknox.com/use-cases/jupyter-notebook/
+  url: /use-cases/jupyter-notebook/
 
-- title: ModelArmor
+- title: Adversarial Attacks on ML Models
+  image: ./icons/model-safety.svg
+  url: /use-cases/modelarmor-adverserial-attacks/
+
+- title: Deploy ModelArmor with PyTorch
   image: ./icons/modelarmor.svg
-  url: https://help.accuknox.com/use-cases/modelarmor/
+  url: /use-cases/modelarmor-deploy-pytorch/
+
+- title: Categories & Probes
+  image: ./icons/model-safety.svg
+  url: /use-cases/subprompts-categories/
 
 - title: MCP Security
   image: ./icons/mcp-security.svg
-  url:
+  url: /integrations/mcp-server/
+
 ::/cards::
 
 ## Featured Videos

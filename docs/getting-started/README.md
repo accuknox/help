@@ -30,15 +30,12 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [azure-cdr.md](azure-cdr.md) | Accuknox CDR documentation for Azure |
 | [cdr-setup.md](cdr-setup.md) | AccuKnox CDR Setup |
 | [cluster-onboarding-managed.md](cluster-onboarding-managed.md) | Onboarding a managed cluster into the AccuKnox SaaS application. |
-| [cspm-prereq-aws.md](cspm-prereq-aws.md) | AccuKnox CNAPP will be hosted in our cloud environment and scan will be done using the Cloud account Readonly Access permission. |
 | [cwpp-prereq.md](cwpp-prereq.md) | AccuKnox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS. |
 | [deployment-models.md](deployment-models.md) | AccuKnox has an expanded offering to cater to diverse deployment needs such as SaaS, Managed OEM/MSSP, AWS On-prem, and Full On-prem/Air-Gapped deployments. |
 | [devsecops.md](devsecops.md) | Integrate AccuKnox with CI pipeline and perform the scans and show the reports in the SaaS Dashboard. |
 | [dvwa.md](dvwa.md) | Learn how to secure Damn Vulnerable Web Application (DVWA) using AccuKnox CWPP to identify and block security vulnerabilities effectively. |
 | [gcp-cdr.md](gcp-cdr.md) | AccuKnox CDR documentation for GCP |
 | [gke-autopilot.md](gke-autopilot.md) | Install KubeArmor on GKE Autopilot using the Autopilot Workload Allowlist and onboard your cluster to the AccuKnox Platform. |
-| [home.md](home.md) | — |
-| [index.md](index.md) | Explore AccuKnox's architecture, deployment models, agents, and developer security guides to get started with the platform. |
 | [kubearmor-release.md](kubearmor-release.md) | Collection of KubeArmor version release blogs detailing the latest features, improvements, and fixes to enhance security performance. |
 | [on-prem-installation-guide.md](on-prem-installation-guide.md) | Step-by-step instructions for deploying AccuKnox's on-prem security solution, providing enhanced data privacy and control. |
 | [on-prem-overview.md](on-prem-overview.md) | Overview of On-Premises Deployment for AccuKnox |

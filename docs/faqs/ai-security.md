@@ -53,7 +53,7 @@ hide:
     AccuKnox's AI-powered correlation reduces false positives by up to 95% through intelligent analysis tuned for AI/LLM workload patterns.
 
     **References:**
-    - [Prompt Firewall Use Case](https://help.accuknox.com/use-cases/prompt-firewall/)
+    - [Prompt Firewall Use Case](https://help.accuknox.com/how-to/prompt-firewall/)
 
 ---
 
@@ -136,7 +136,7 @@ hide:
     The firewall integrates with applications via SDK or API proxy, adding minimal latency overhead while providing kernel-backed enforcement for workloads running in Kubernetes.
 
     **References:**
-    - [Prompt Firewall Use Case](https://help.accuknox.com/use-cases/prompt-firewall/)
+    - [Prompt Firewall Use Case](https://help.accuknox.com/how-to/prompt-firewall/)
 
 ??? "**12. Does AccuKnox detect and block sensitive data in prompts — PII, API keys, credentials?**"
     Yes. AccuKnox detects PII, PHI, API keys, credentials, and other sensitive data in both prompts sent to LLMs and responses received from them:
@@ -222,7 +222,7 @@ hide:
     + Custom dashboards and reporting reflect only the services and frameworks the tenant has opted for.
 
     **References:**
-    - [Prompt Firewall Use Case](https://help.accuknox.com/use-cases/prompt-firewall/)
+    - [Prompt Firewall Use Case](https://help.accuknox.com/how-to/prompt-firewall/)
 
 ---
 
