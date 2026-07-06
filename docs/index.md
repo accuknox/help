@@ -863,7 +863,7 @@ hide:
          <img src="assets/icons/ai.svg" alt="AI Detect & Respond" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Detect &amp; Respond (AI-DR)
       </div>
       <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('agentic-ai', this)">
-         <img src="assets/icons/ai.svg" alt="Agentic AI Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Agentic AI (ModelArmor)
+         <img src="assets/icons/ai.svg" alt="Agentic AI Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Agentic AI Security
       </div>
       <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('model-dataset', this)">
          <img src="assets/icons/ai.svg" alt="AI Model & Dataset Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Model &amp; Dataset Security
@@ -1094,13 +1094,13 @@ hide:
                 <a href="/integrations/copilot-studio/" class="action-btn" target="_blank">Copilot Studio</a>
             </div>
             <div class="module-detail-title">
-                Agentic AI Security (ModelArmor)
+                Agentic AI Security
             </div>
             <div class="module-description">
-                Runtime sandboxing and zero-trust guardrails for AI agents, agent toolchains, and untrusted models using ModelArmor and KubeArmor.
+                Runtime sandboxing and zero-trust guardrails for AI agents, agent toolchains, and untrusted models using KubeArmor.
             </div>
             <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/aiml-sec.png"  alt="Agentic AI Security (ModelArmor)" />
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="Agentic AI Security" />
             </div>
             <a href="/use-cases/modelarmor/" class="learn-more-link">Learn more about Agentic AI Security &rarr;</a>
         </div>

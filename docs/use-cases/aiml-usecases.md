@@ -35,7 +35,7 @@ AccuKnox secures the full AI lifecycle through **AI Security Posture Management 
   image: ./icons/aidr.svg
   url: /use-cases/aidr/
 
-- title: Agentic AI Security (ModelArmor)
+- title: Agentic AI Security
   image: ./icons/mcp-security.svg
   url: /use-cases/modelarmor/
 

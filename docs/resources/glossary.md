@@ -22,7 +22,7 @@ Definitions for AccuKnox's eight AI security modules and their related product n
 
 **AI Detect & Respond (AI-DR):** Detection and response for AI security incidents, unauthorized AI deployments, and runtime threats correlated across cloud control planes.
 
-**Agentic AI Security:** Runtime sandboxing, tool-call enforcement, and least-privilege controls for AI agents and agent toolchains, delivered through ModelArmor and KubeArmor.
+**Agentic AI Security:** Runtime sandboxing, tool-call enforcement, and least-privilege controls for AI agents and agent toolchains, delivered through KubeArmor runtime enforcement.
 
 **AI Model & Dataset Security:** Static and supply-chain scanning of models and datasets (Hugging Face, GitHub, registries) for malware, tampering, and unsafe serialization such as pickle code injection.
 
@@ -33,8 +33,6 @@ Definitions for AccuKnox's eight AI security modules and their related product n
 **AI Identity Security:** Identity and entitlement controls for AI agents, models, and non-human identities. _Coming soon._
 
 **AI Compliance & Governance (AI-GRC):** Governance, risk, and compliance mapping for AI systems against frameworks such as the EU AI Act, NIST AI RMF, and ISO 42001. _Coming soon._
-
-**ModelArmor:** AccuKnox's runtime protection product that powers Agentic AI Security and AI Model & Dataset Security.
 
 **Prompt Firewall:** The product that delivers AI Guardrails.
 
