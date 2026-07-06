@@ -57,7 +57,7 @@ Follow these steps to configure and run an authenticated DAST scan in AccuKnox:
 | **Logged In Indicator** | Keyword/phrase indicating successful login (e.g., Welcome, Dashboard, My Account). | `Welcome` |
 | **Logged Out Indicator** | Keyword/phrase indicating logout or session expiration (e.g., Login, Sign In, Session Expired). | `Login` |
 | **Login Fallback URL** | Post-login page URL to verify successful authentication. | `https://example.com/dashboard` |
-| **Label** | Label for organizing scan results. See [AccuKnox Labels](../saas/labels.md). | — |
+| **Label** | Label for organizing scan results. See [AccuKnox Labels](../how-to/how-to-create-labels.md). | — |
 | **Tags** | (Optional) Tags for categorization and filtering. | — |
 
 ![Authenticated DAST Scan](./images/dast-authenticated/4.png)

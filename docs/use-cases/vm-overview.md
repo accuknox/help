@@ -20,19 +20,19 @@ description: Discover how AccuKnox enhances VM security with CSPM, malware scann
 ::cards:: cols=2
 
 - title: Agentless Risk Assessment
-  image: ../images/vm-overview/agentless-risk-assessment.svg
+  image: ./images/vm-overview/agentless-risk-assessment.svg
   url: /use-cases/vm-misconfigurations/
 
 - title: Agent Based Detection & Remediation
-  image: ../images/vm-overview/agent-based-detection.svg
+  image: ./images/vm-overview/agent-based-detection.svg
   url: /use-cases/vm-audit-log/
 
 - title: Advanced Threat Protection
-  image: ../images/vm-overview/advanced-threat-protection.svg
+  image: ./images/vm-overview/advanced-threat-protection.svg
   url: /use-cases/vm-crypto-miners/
 
 - title: Reporting
-  image: ../images/vm-overview/reporting.svg
+  image: ./images/vm-overview/reporting.svg
   url: /use-cases/vm-reporting/
 
 ::/cards::

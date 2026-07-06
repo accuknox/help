@@ -16,7 +16,7 @@ This guide adds a multi-artifact SCA stage to a Jenkins pipeline. Every file mat
 
 ## Step 1: Install the AccuKnox ASPM Plugin
 
-See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-install.md) for the one-time plugin installation steps.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the one-time plugin installation steps.
 
 ## Step 2: Configure Jenkins credentials and global settings
 

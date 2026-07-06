@@ -231,8 +231,8 @@ The Apigee proxy now performs the following operations:
 ## Related Resources
 
 - [Prompt Firewall Overview](../use-cases/prompt-firewall-overview.md)
-- [SDK Onboarding for Prompt Firewall](../use-cases/prompt-firewall.md)
-- [Prompt Firewall App Onboarding](../use-cases/llm-defense-app-onboard.md)
+- [SDK Onboarding for Prompt Firewall](../how-to/prompt-firewall.md)
+- [Prompt Firewall App Onboarding](../how-to/llm-defense-app-onboard.md)
 - [Azure APIM Integration](../getting-started/azure-ai-foundry.md)
 - [AWS API Gateway Integration](../how-to/aws-apim.md)
 - [Bifrost Integration](bifrost-integration.md)

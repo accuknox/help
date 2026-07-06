@@ -6,24 +6,24 @@ description: Learn how to onboard your application with AccuKnox Prompt Firewall
 ## Steps to Get Started
 
 !!! info "Why Prompt Firewall?"
-    ![AccuKnox Prompt Firewall benefits and use cases](image-2.png)
+    ![AccuKnox Prompt Firewall benefits and use cases](../use-cases/image-2.png)
 
 ### **1. Add Application**
 
 Click on **"Add Application"** as shown below.
 
-![image-20250114-184710.png](./images/llm-defense-app-onboard/1.png)
+![image-20250114-184710.png](../use-cases/images/llm-defense-app-onboard/1.png)
 
 Enter the **Application Name** and **Tags**, then click the **Add** button.
 
-![image-20250114-184710.png](./images/llm-defense-app-onboard/2.png)
+![image-20250114-184710.png](../use-cases/images/llm-defense-app-onboard/2.png)
 Enter the application details.
 
 ### **2. Save Your Token**
 
 Copy the **Accuknox_token** and store it securely for later use.
 
-![image-20250114-184710.png](./images/llm-defense-app-onboard/3.png)
+![image-20250114-184710.png](../use-cases/images/llm-defense-app-onboard/3.png)
 Copy the API token shown on the screen.
 
 ### **3. Install the SDK**

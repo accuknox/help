@@ -20,15 +20,15 @@ Cloud-hosted virtual machines (VMs) are an essential part of modern infrastructu
 ::cards:: cols=3
 
 - title: AWS Misconfiguration
-  image: ../images/vm-misconfigurations/aws-vm.svg
+  image: ./images/vm-misconfigurations/aws-vm.svg
   url: /use-cases/vm-aws/
 
 - title: GCP Misconfiguration
-  image: ../images/vm-misconfigurations/gcp-vm.svg
+  image: ./images/vm-misconfigurations/gcp-vm.svg
   url: /use-cases/vm-gcp/
 
 - title: Azure Misconfiguration
-  image: ../images/vm-misconfigurations/azure-vm.svg
+  image: ./images/vm-misconfigurations/azure-vm.svg
   url: /use-cases/vm-azure/
 
 

@@ -115,6 +115,19 @@ markdown_extensions:
   - neoteroi.cards
 plugins:
   - external-markdown
+  - redirects:
+      redirect_maps:
+        'use-cases/prompt-firewall.md': 'how-to/prompt-firewall.md'
+        'use-cases/llm-defense-app-onboard.md': 'how-to/llm-defense-app-onboard.md'
+        'use-cases/aiml-runtime-onboard.md': 'how-to/aiml-runtime-onboard.md'
+        'use-cases/prompts-categories.md': 'use-cases/subprompts-categories.md'
+        'use-cases/azure-aidr.md': 'how-to/azure-aidr.md'
+        'getting-started/cspm-prereq-aws.md': 'how-to/cspm-prereq-aws.md'
+        'use-cases/azure-secret-scan.md': 'integrations/azure-secret-scan.md'
+        'use-cases/gitlab-secret-scan.md': 'integrations/gitlab-secret-scan.md'
+        'use-cases/bitbucket-secret-scan.md': 'integrations/bitbucket-secret-scan.md'
+        'use-cases/jenkins-secret-scan.md': 'integrations/jenkins-secret-scan.md'
+        'use-cases/github-secret-scan.md': 'integrations/github-actions-secret-scan.md'
   - search:
       separator: '[\s\-\.]+'
       lang:
@@ -199,10 +212,12 @@ nav:
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
-    - "AI/ML Security (AI-SPM)":
+    - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
       - "SaaS vs On-Prem": "how-to/aiml-saas-vs-onprem.md"
-      - "SDK LLM Defense": "use-cases/llm-defense-app-onboard.md"
+      - "SDK LLM Defense": "how-to/llm-defense-app-onboard.md"
+      - "Runtime Defense (API Method)": "how-to/aiml-runtime-onboard.md"
+      - "Azure AI-DR Setup": "how-to/azure-aidr.md"
       - "AWS AI/ML Onboard": "how-to/aiml-aws-onboard.md"
       - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
@@ -211,7 +226,7 @@ nav:
         - "AWS Bedrock": "how-to/aiml-bedrock-collector.md"
         - "NVIDIA Triton": "how-to/aiml-triton-collector.md"
         - "vLLM": "how-to/aiml-vllm-collector.md"
-      - "Prompt Firewall Setup": "use-cases/prompt-firewall.md"
+      - "Prompt Firewall Setup": "how-to/prompt-firewall.md"
       - "LLM Static Scans": "how-to/llm-static-scan.md"
       - "ML Static Scans": "how-to/ml-static-scan.md"
     - "Workload Security (CWPP)":
@@ -275,6 +290,7 @@ nav:
       - "Generate via Container Image Scan": "getting-started/xbom-container-image.md"
       - "Generate via GitHub Actions": "getting-started/xbom-github-actions.md"
     - "SARIF Findings": "getting-started/sarif-findings.md"
+    - "Event Trail Logs": "getting-started/audit-trail-logs.md"
     - "Secrets Management":
       - "Overview": "getting-started/secrets-management.md"
       - "On-Prem Deployment Guide": "getting-started/secrets-manager-onprem-deployment.md"
@@ -307,7 +323,7 @@ nav:
         - "Bifrost": "integrations/bifrost-integration.md"
         - "LiteLLM": "integrations/litellm.md"
       - "Prompt Firewall":
-        - "SDK Method": "use-cases/llm-defense-app-onboard.md"
+        - "SDK Method": "how-to/llm-defense-app-onboard.md"
         - "Apigee Proxy": "integrations/apigee-integration.md"
         - "GenAI Browser Plugin":
           - "Chrome (ChatGPT)": "integrations/openai-browser-integration.md"
@@ -472,10 +488,9 @@ nav:
     - "CDR (Cloud Detection and Response)": "use-cases/cdr.md"
     - "API Security": "use-cases/api-security.md"
     - "Serverless Security": "use-cases/serverless-security.md"
-    - "AI/ML Security":
+    - "AI Security":
       - "Overview": "use-cases/aiml-usecases.md"
       - "AI-DR (AI Detection and Response)": "use-cases/aidr.md"
-      - "Azure AI-DR": "use-cases/azure-aidr.md"
       - "Prompt Firewall": "use-cases/prompt-firewall-overview.md"
       - "Red Teaming": "use-cases/red-teaming.md"
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
@@ -564,7 +579,6 @@ nav:
         - "Reporting":
             - "OnDemand and Scheduled" : "use-cases/vm-reporting.md"
             - "Host Scan Report" : "use-cases/vm-host-scan-report.md"
-    - "Event Trail Logs": "getting-started/audit-trail-logs.md"
     - "Access Keys": "use-cases/access-keys.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     - "5G Security" : "use-cases/5g-security.md"

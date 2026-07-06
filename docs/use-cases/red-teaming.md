@@ -165,6 +165,6 @@ Red teaming scans are supported across both managed and on-premise AI deployment
 
 - [LLM Static Scan Setup Guide](https://help.accuknox.com/how-to/llm-static-scan/)
 - [Subprompts Categories and Probes](https://help.accuknox.com/use-cases/subprompts-categories/)
-- [AI/ML Categories Reference](https://help.accuknox.com/use-cases/prompts-categories/)
-- [Prompt Firewall (Runtime Protection)](https://help.accuknox.com/use-cases/prompt-firewall/)
+- [AI/ML Categories Reference](https://help.accuknox.com/use-cases/subprompts-categories/)
+- [Prompt Firewall (Runtime Protection)](https://help.accuknox.com/how-to/prompt-firewall/)
 - [ModelArmor: Adversarial Attacks](https://help.accuknox.com/use-cases/modelarmor-adverserial-attacks/)

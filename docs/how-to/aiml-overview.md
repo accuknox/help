@@ -1,11 +1,11 @@
 ---
-title: AI/ML Security Onboarding
-description: Overview of AI/ML security solutions provided by AccuKnox to protect machine learning models, data pipelines, and AI-driven workloads.
+title: AI Security Posture Management (AI-SPM)
+description: "Get started with AccuKnox AI-SPM. Onboard AI/ML assets and set up every AI security module: AI-DR, Agentic AI Security, Model & Dataset Security, Red Teaming, and Prompt Firewall guardrails."
 hide:
   - toc
 ---
 
-# AI/ML Security Onboarding
+# AI Security Posture Management (AI-SPM)
 
 <style>
   .nt-card-title{
@@ -17,7 +17,18 @@ hide:
   }
 </style>
 
-## Red Teaming Against AI Models
+- AccuKnox AI-SPM discovers and protects your AI/ML assets.
+- Run every AI security module from one console:
+  - **AI Detect & Respond (AI-DR)**
+  - **Agentic AI Security**
+  - **AI Model & Dataset Security**
+  - **AI Red Teaming & Pen Testing**
+  - **AI Guardrails (Prompt Firewall)**
+- **AI Identity Security** and **AI Compliance & Governance (AI-GRC)** are coming soon.
+
+## Cloud Onboarding
+
+Onboard a cloud account to discover AI/ML assets and enable red teaming and posture scanning across your models and datasets.
 
 ::cards:: cols=4
 
@@ -39,21 +50,45 @@ hide:
 
 ::/cards::
 
-## LLM Prompt Security
+## Set Up a Security Module
 
 ::cards:: cols=4
 
-- title: Prompt Firewall Application
+- title: Red Teaming & Pen Testing
+  image: ./icons/model-safety.svg
+  url: /how-to/aiml-custom-model-redteaming/
+
+- title: LLM Static Scans
+  image: ./icons/sast.svg
+  url: /how-to/llm-static-scan/
+
+- title: ML Static Scans
+  image: ./icons/supply-chain-attacks.svg
+  url: /how-to/ml-static-scan/
+
+- title: Prompt Firewall Setup
   image: ./icons/AIML.svg
-  url: /use-cases/llm-defense-app-onboard/
+  url: /how-to/prompt-firewall/
+
+- title: Prompt Firewall App (SDK)
+  image: ./icons/AIML.svg
+  url: /how-to/llm-defense-app-onboard/
+
+- title: Runtime Defense (API)
+  image: ./icons/mcp-security.svg
+  url: /how-to/aiml-runtime-onboard/
+
+- title: AI-DR (Azure Setup)
+  image: ./icons/model-safety.svg
+  url: /how-to/azure-aidr/
 
 ::/cards::
 
 ## Supported Platforms and Use Cases
 
 !!! note "Useful Links"
-    - For list of supported platforms refer to AccuKnox's [**AI/ML Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
-    - For use cases refer to the [**AI/ML Security Use Cases**](https://help.accuknox.com/use-cases/aiml-usecases/)
+    - For list of supported platforms refer to AccuKnox's [**AI Security Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
+    - For use cases refer to the [**AI Security Use Cases**](https://help.accuknox.com/use-cases/aiml-usecases/)
 
 ## Featured Videos
 
