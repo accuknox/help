@@ -41,7 +41,7 @@ After saving, the token is displayed once in a confirmation modal.
 
 ## Step 3: Download and install the browser plugin
 
-[Download Firefox plugin](https://promptfirewall-plugin-extension.s3.ap-south-1.amazonaws.com/Prompt-firewall-plugin-v4.zip) and extract the ZIP file to a folder on your machine.
+[Download Firefox plugin](https://drive.google.com/file/d/1Sn4LoZDT-q8vyF9vMsNkL7WvQpb9GHg7/view?usp=sharing), download the ZIP file from Google Drive, and extract it to a folder on your machine.
 
 To install in Firefox:
 
