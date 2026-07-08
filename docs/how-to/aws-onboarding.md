@@ -13,7 +13,7 @@ In this section we can find the steps to onboard an AWS cloud account to the Acc
 
 Follow these steps to provide a user with appropriate read access:
 
-**Step 1:** Navigate to IAM → Users and click on Add Users
+**Step 1:** Navigate to IAM → IAM Users and click on Create user
 
 ![image](images/iam-user-0.png)
 
@@ -45,7 +45,7 @@ In this example we are onboarding AWS account using the Access Keys method.
 
 ![image](images/cloud-onboarding-1.png)
 
-**Step 2:** In the Cloud Account Page select *Add Account* option
+**Step 2:** In the Cloud Account Page select *Onboard Account* option
 
 ![image](images/cloud-onboarding-2.png)
 
@@ -55,13 +55,15 @@ In this example we are onboarding AWS account using the Access Keys method.
 
 **Step 4:** In the next Screen select the labels and Tags field from the dropdown Menu.
 
+![image](images/cloud-onboarding-4.png)
+
+**Step 5:** After assigning Label and Tag. On the next screen, provide the AWS account’s Access Key and Secret Access Key ID and Select the Region of the AWS account.
+
 ![image](images/cloud-onboarding-5.png)
-
-**Step 5:** After giving labels and Tag in the Next Screen Provide the AWS account’s Access Key and Secret Access Key ID and Select the Region of the AWS account.
-
+Scroll to the bottom...
 ![image](images/cloud-onboarding-6.png)
 
-**Step 6:** AWS account is added to AccuKnox using the Access Key method. You can view the onboarded cloud account by navigating to Settings → Cloud Accounts.
+**Step 6:** The AWS account should have been added to AccuKnox using the Access Key method. You can view the onboarded cloud account by navigating to Settings → Cloud Accounts.
 
 ![image](images/cloud-onboarding-7.png)
 
