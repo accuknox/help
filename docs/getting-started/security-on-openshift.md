@@ -5,6 +5,9 @@ description: Guide to deploying KubeArmor runtime security enforcement on OpenSh
 
 # Runtime Security Deployment for Openshift
 
+!!! info "Onboarding via the AccuKnox Helm Command"
+    If you're onboarding this OpenShift cluster using the [AccuKnox agents helm command](../how-to/cluster-onboarding.md) instead of the OperatorHub console flow below, add the `REDHAT_CERTIFIED_OP` flags described in that guide so the KubeArmor Operator satisfies OpenShift's Security Context Constraints (SCC).
+
 ## Operator Installation
 
 In the OpenShift console, install KubeArmor operator by following the instructions below:

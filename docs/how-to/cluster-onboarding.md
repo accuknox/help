@@ -73,6 +73,14 @@ helm upgrade --install agents oci://public.ecr.aws/k9v9d5v2/kspm-runtime \
     ```
     In the above command joinToken is specific to this example and it will vary based on the cluster being onboarded.
 
+!!! info "OpenShift Clusters"
+    If you are onboarding an **OpenShift** cluster, add the following flags to the helm command so that the KubeArmor Operator is recognized as a Red Hat certified operator:
+    ```sh
+    --set kubearmor-operator.kubearmorOperator.env[0].name=REDHAT_CERTIFIED_OP \
+    --set kubearmor-operator.kubearmorOperator.env[0].value=true \
+    ```
+    Without these flags, OpenShift's Security Context Constraints (SCC) can block the KubeArmor Operator pod from coming up, since it isn't identified as a Red Hat certified operator. This can surface as errors like `unable to validate against any security context constraint`, or the operator pod getting stuck in `CrashLoopBackOff`/`Error` state. See the [Runtime Security FAQ](../faqs/runtime-security.md) for troubleshooting.
+
 ## View Onboarded Clusters
 
 **Step 4:** Onboarded Cluster
