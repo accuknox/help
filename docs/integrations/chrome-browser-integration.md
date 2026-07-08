@@ -1,19 +1,21 @@
 ---
 title: Prompt Firewall Gen AI Browser Integration (Chrome)
-description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome, Chromium-based browsers, and real-time prompt and response filtering in ChatGPT.
+description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome and real-time prompt and response filtering in ChatGPT, Claude, GitHub Copilot, and Gemini.
 ---
 
 # Gen AI Browser Integration for Prompt Security (Chrome)
 
-The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT before they leave your browser session. Blocked prompts show a red banner. Allowed ones pass through silently.
+The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT, Claude, GitHub Copilot, and Gemini before they leave your browser session. This includes blocking prompt injection attacks, where a malicious input tries to override the model's behavior. Blocked prompts show a red banner. Allowed ones pass through silently.
 
-This guide covers installation for **Chrome, Brave, and Edge** (Chromium-based browsers). For Firefox, see the [Firefox integration guide](openai-firefox-browser-integration.md).
+![Red banner - Prompt blocked](prompt-block-1.png)
+
+The same plugin covers all four apps at once, no separate install needed per app. This guide covers installation for **Chrome**. For Edge, see the [Edge integration guide](edge-browser-integration.md). For Firefox, see the [Firefox integration guide](firefox-browser-integration.md).
 
 ## Prerequisites
 
 - An active AccuKnox account with AI Security enabled
 - Access to the Integrations section (to generate a token)
-- A Chromium-based browser (Chrome, Brave, or Edge)
+- Google Chrome browser
 
 ## Step 1: Create a new integration
 
@@ -25,7 +27,7 @@ Fill in the following fields:
 
 | Field | Value |
 |---|---|
-| Integration Name | Any descriptive name (e.g. `openai-browser-prod`) |
+| Integration Name | Any descriptive name (e.g. `chrome-browser-prod`) |
 | Tags | Add relevant tags (e.g. `llmguard`) |
 
 Click **Add** to save.
@@ -41,7 +43,7 @@ After saving, the token is displayed once in a confirmation modal.
 
 ## Step 3: Download and install the browser plugin
 
-[Download Chrome plugin](https://drive.google.com/file/d/1Sn4LoZDT-q8vyF9vMsNkL7WvQpb9GHg7/view?usp=sharing), download the ZIP file from Google Drive, and extract it to a folder on your machine.
+[Download the plugin](https://drive.google.com/file/d/1Sn4LoZDT-q8vyF9vMsNkL7WvQpb9GHg7/view?usp=sharing), download the ZIP file from Google Drive, and extract it to a folder on your machine.
 
 To install in Chrome:
 
@@ -55,7 +57,7 @@ To install in Chrome:
 
 Click the AccuKnox icon in your browser toolbar and open **Settings**.
 
-Fill in the two fields:
+Fill in the following field:
 
 | Field | Value |
 |---|---|
@@ -69,14 +71,12 @@ Click **Save Settings**, then **Test Connection**.
 
 Once connected, the extension popup shows a green status dot next to **AccuKnox Prompt Firewall** along with a running count of scanned, allowed, blocked, and warned prompts. Click **View Logs** to see the full request log.
 
-Open ChatGPT and send a test prompt. Depending on your active policy, you will see one of the following:
-
+Open ChatGPT, Claude, GitHub Copilot, or Gemini and send a test prompt. Depending on your active policy, you will see one of the following:
 
 ![Red banner - Prompt blocked](image-63.png)
 ![Green banner - Prompt cleared](image-64.png)
 
 ## Request log
-
 
 All intercepted prompts and responses are visible under **AI Security > Request Log**.
 

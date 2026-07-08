@@ -68,7 +68,7 @@ Inline prompt and response protection through the SDK, AI gateways, and app plat
 ::/cards::
 
 !!! tip "Browser-based Guardrails"
-    For prompt protection directly in the browser, see the GenAI Browser Plugins for [Chrome (ChatGPT)](../integrations/openai-browser-integration.md), [Chrome (Claude)](../integrations/claude-browser-integration.md), and [Firefox](../integrations/openai-firefox-browser-integration.md).
+    For prompt protection directly in the browser, see the GenAI Browser Plugins for [Chrome](../integrations/chrome-browser-integration.md), [Edge](../integrations/edge-browser-integration.md), and [Firefox](../integrations/firefox-browser-integration.md).
 
 ## Agentic AI Security
 

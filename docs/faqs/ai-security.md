@@ -278,7 +278,7 @@ hide:
     The prompt firewall operates as an inline proxy — intercepting and inspecting every interaction between the application and the LLM provider before it completes.
 
     **References:**
-    - [GenAI Browser Integration](https://help.accuknox.com/integrations/openai-browser-integration/)
+    - [GenAI Browser Integration](https://help.accuknox.com/integrations/chrome-browser-integration/)
     - [Amazon Bedrock AgentCore Integration](https://help.accuknox.com/integrations/bedrock-agentcore/)
     - [Power Apps Integration](https://help.accuknox.com/integrations/powerapps-integration/)
 

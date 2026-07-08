@@ -1,13 +1,13 @@
 ---
 title: Prompt Firewall Gen AI Browser Integration (Firefox)
-description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT.
+description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT, Claude, GitHub Copilot, and Gemini.
 ---
 
 # Gen AI Browser Integration for Prompt Security (Firefox)
 
-The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT before they leave your browser session. Blocked prompts show a red banner. Allowed ones pass through silently.
+The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT, Claude, GitHub Copilot, and Gemini before they leave your browser session. This includes blocking prompt injection attacks, where a malicious input tries to override the model's behavior. Blocked prompts show a red banner. Allowed ones pass through silently.
 
-This guide covers installation for **Mozilla Firefox**. For Chromium-based browsers (Chrome, Brave, Edge), see the [Chrome integration guide](openai-browser-integration.md).
+The same plugin covers all four apps at once, no separate install needed per app. This guide covers installation for **Mozilla Firefox**. For Chrome, see the [Chrome integration guide](chrome-browser-integration.md). For Edge, see the [Edge integration guide](edge-browser-integration.md).
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ Click **Save Settings**, then **Test Connection**.
 
 Once connected, the extension popup shows a green status dot next to **AccuKnox Prompt Firewall** along with a running count of scanned, allowed, blocked, and warned prompts. Click **View Logs** to see the full request log.
 
-Open ChatGPT and send a test prompt. Depending on your active policy, you will see one of the following:
+Open ChatGPT, Claude, GitHub Copilot, or Gemini and send a test prompt. Depending on your active policy, you will see one of the following:
 
 ![Red banner - Prompt blocked](image-63.png)
 ![Green banner - Prompt cleared](image-64.png)

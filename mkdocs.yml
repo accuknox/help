@@ -128,6 +128,9 @@ plugins:
         'use-cases/bitbucket-secret-scan.md': 'integrations/bitbucket-secret-scan.md'
         'use-cases/jenkins-secret-scan.md': 'integrations/jenkins-secret-scan.md'
         'use-cases/github-secret-scan.md': 'integrations/github-actions-secret-scan.md'
+        'integrations/openai-browser-integration.md': 'integrations/chrome-browser-integration.md'
+        'integrations/claude-browser-integration.md': 'integrations/chrome-browser-integration.md'
+        'integrations/openai-firefox-browser-integration.md': 'integrations/firefox-browser-integration.md'
   - search:
       separator: '[\s\-\.]+'
       lang:
@@ -326,9 +329,9 @@ nav:
         - "SDK Method": "how-to/llm-defense-app-onboard.md"
         - "Apigee Proxy": "integrations/apigee-integration.md"
         - "GenAI Browser Plugin":
-          - "Chrome (ChatGPT)": "integrations/openai-browser-integration.md"
-          - "Chrome (Claude)": "integrations/claude-browser-integration.md"
-          - "Firefox": "integrations/openai-firefox-browser-integration.md"
+          - "Chrome": "integrations/chrome-browser-integration.md"
+          - "Edge": "integrations/edge-browser-integration.md"
+          - "Firefox": "integrations/firefox-browser-integration.md"
       - "Azure Copilot Studio": "integrations/copilot-studio.md"
       - "BedRock AgentCore": "integrations/bedrock-agentcore.md"
       - "Power Apps": "integrations/powerapps-integration.md"

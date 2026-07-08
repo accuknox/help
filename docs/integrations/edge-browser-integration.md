@@ -1,21 +1,21 @@
 ---
-title: Prompt Firewall Gen AI Browser Integration (Claude)
-description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome, Chromium-based browsers, and real-time prompt and response filtering in Claude.
+title: Prompt Firewall Gen AI Browser Integration (Edge)
+description: A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Microsoft Edge and real-time prompt and response filtering in ChatGPT, Claude, GitHub Copilot, and Gemini.
 ---
 
-# Gen AI Browser Integration for Prompt Security (Claude)
+# Gen AI Browser Integration for Prompt Security (Edge)
 
-The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in Claude before they leave your browser session. This includes blocking prompt injection attacks, where a malicious input tries to override Claude's behavior. Blocked prompts show a red banner. Allowed ones pass through silently.
+The AccuKnox Prompt Firewall browser plugin intercepts prompts and responses directly in ChatGPT, Claude, GitHub Copilot, and Gemini before they leave your browser session. This includes blocking prompt injection attacks, where a malicious input tries to override the model's behavior. Blocked prompts show a red banner. Allowed ones pass through silently.
 
 ![Red banner - Prompt blocked](prompt-block-1.png)
 
-This guide covers installation for **Chrome, Brave, and Edge** (Chromium-based browsers). The same plugin works for both Claude and ChatGPT — no separate install needed.
+The same plugin covers all four apps at once, no separate install needed per app. This guide covers installation for **Microsoft Edge**. For Chrome, see the [Chrome integration guide](chrome-browser-integration.md). For Firefox, see the [Firefox integration guide](firefox-browser-integration.md).
 
 ## Prerequisites
 
 - An active AccuKnox account with AI Security enabled
 - Access to the Integrations section (to generate a token)
-- A Chromium-based browser (Chrome, Brave, or Edge)
+- Microsoft Edge browser
 
 ## Step 1: Create a new integration
 
@@ -27,7 +27,7 @@ Fill in the following fields:
 
 | Field | Value |
 |---|---|
-| Integration Name | Any descriptive name (e.g. `claude-browser-prod`) |
+| Integration Name | Any descriptive name (e.g. `edge-browser-prod`) |
 | Tags | Add relevant tags (e.g. `llmguard`) |
 
 Click **Add** to save.
@@ -43,12 +43,12 @@ After saving, the token is displayed once in a confirmation modal.
 
 ## Step 3: Download and install the browser plugin
 
-[Download Chrome plugin](https://drive.google.com/file/d/1Sn4LoZDT-q8vyF9vMsNkL7WvQpb9GHg7/view?usp=sharing), download the ZIP file from Google Drive, and extract it to a folder on your machine.
+[Download the plugin](https://drive.google.com/file/d/1Sn4LoZDT-q8vyF9vMsNkL7WvQpb9GHg7/view?usp=sharing), download the ZIP file from Google Drive, and extract it to a folder on your machine.
 
-To install in Chrome:
+To install in Edge:
 
-1. Go to `chrome://extensions`
-2. Enable **Developer mode** (top-right toggle)
+1. Go to `edge://extensions`
+2. Enable **Developer mode** (toggle in the left sidebar)
 3. Click **Load unpacked** and select the extracted plugin folder
 
 ## Step 4: Configure the extension
@@ -57,7 +57,7 @@ To install in Chrome:
 
 Click the AccuKnox icon in your browser toolbar and open **Settings**.
 
-Fill in the two fields:
+Fill in the following field:
 
 | Field | Value |
 |---|---|
@@ -71,9 +71,10 @@ Click **Save Settings**, then **Test Connection**.
 
 Once connected, the extension popup shows a green status dot next to **AccuKnox Prompt Firewall** along with a running count of scanned, allowed, blocked, and warned prompts. Click **View Logs** to see the full request log.
 
-Open Claude and send a test prompt. Depending on your active policy, you will see one of the following:
+Open ChatGPT, Claude, GitHub Copilot, or Gemini and send a test prompt. Depending on your active policy, you will see one of the following:
 
-
+![Red banner - Prompt blocked](image-63.png)
+![Green banner - Prompt cleared](image-64.png)
 
 ## Request log
 
