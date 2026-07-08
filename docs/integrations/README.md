@@ -58,6 +58,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [bitbucket-sast.md](bitbucket-sast.md) | Integrate SonarQube SAST into Bitbucket CI/CD with AccuKnox to detect and fix code vulnerabilities before deployment. |
 | [bitbucket-secret-scan.md](bitbucket-secret-scan.md) | This guide explains integrating AccuKnox Secret Scanning into your Bitbucket CI/CD Pipeline. The integration enhances code security by detecting hard-coded s... |
 | [checkmarx.md](checkmarx.md) | Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipelines and enrich results with metadata for analysis. |
+| [chrome-browser-integration.md](chrome-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome and real-time prompt and response filtering in ChatGPT, Claude, Gi... |
 | [cicd-overview.md](cicd-overview.md) | Check out the integration mechanisms and feature availability for key DevOps and security functionalities across popular CI/CD platforms. |
 | [circleci-container-scan.md](circleci-container-scan.md) | Detect vulnerabilities in Docker images directly within your CircleCI CI/CD pipeline using the AccuKnox container scanning plugin. |
 | [circleci-dast.md](circleci-dast.md) | Integrate Dynamic Application Security Testing (DAST) into your CircleCI pipeline using the AccuKnox plugin to identify application-layer vulnerabilities bef... |
@@ -66,12 +67,13 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [circleci-sast.md](circleci-sast.md) | Integrate Static Application Security Testing (SAST) scans into your CircleCI pipeline using the AccuKnox plugin to identify vulnerabilities in source code e... |
 | [circleci-secret-scan.md](circleci-secret-scan.md) | Detect hardcoded secrets and sensitive credentials in your codebase using AccuKnox Secret Scanning integrated into CircleCI pipelines. |
 | [circleci-sqsast.md](circleci-sqsast.md) | Integrate SonarQube-based SAST into CircleCI with AccuKnox for centralized vulnerability visibility, analysis, and triage. |
-| [claude-browser-integration.md](claude-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome, Chromium-based browsers, and real-time prompt and response filter... |
 | [connectwise-cspm.md](connectwise-cspm.md) | Automate security alerts in Connectwise by integrating AccuKnox to generate tickets and enhance security workflows. |
 | [copilot-studio.md](copilot-studio.md) | Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enhanced AI-driven security management. |
+| [edge-browser-integration.md](edge-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Microsoft Edge and real-time prompt and response filtering in ChatGPT, Cl... |
 | [email-backend.md](email-backend.md) | The Email Backend Integration allows making use of your own SMTP server to send all Emails that originate from the AccuKnox platform. |
 | [email.md](email.md) | This document explains how to integrate Email with AccuKnox to receive alert notifications via mail. |
 | [f5.md](f5.md) | Integrate F5 Big-IP with AccuKnox API Security for API traffic monitoring, observability, and security enforcement. |
+| [firefox-browser-integration.md](firefox-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT, Claude, G... |
 | [freshservice-cspm.md](freshservice-cspm.md) | Automate security alerts in Freshservice by integrating AccuKnox to create problem alerts and improve workflow response. |
 | [github-actions-secret-scan.md](github-actions-secret-scan.md) | Integrate AccuKnox Secret Scanning into your GitHub Actions CI/CD workflow to detect hardcoded secrets and sensitive credentials before they reach production. |
 | [github-container-scan.md](github-container-scan.md) | Learn how to integrate container scanning with AccuKnox in a GitHub CI/CD pipeline to identify and remediate vulnerabilities in Docker images. |
@@ -126,8 +128,6 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [nutanix-accuknox.md](nutanix-accuknox.md) | Install AccuKnox agents on a D2iQ managed cluster and onboard to AccuKnox SaaS to get visibility into your Kubernetes clusters. |
 | [nutanix-kubearmor.md](nutanix-kubearmor.md) | Integrate KubeArmor with Nutanix to enforce security policies at the pod and node level for your Nutanix clusters. |
 | [okta-sso.md](okta-sso.md) | Integrate Okta with AccuKnox using OpenID Connect (OIDC) for Single Sign-On (SSO) authentication. |
-| [openai-browser-integration.md](openai-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome, Chromium-based browsers, and real-time prompt and response filter... |
-| [openai-firefox-browser-integration.md](openai-firefox-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT. |
 | [opengrep-sast-bitbucket.md](opengrep-sast-bitbucket.md) | Integrate Opengrep SAST scanning into Bitbucket Pipelines and automatically forward results to AccuKnox for analysis and mitigation. |
 | [opengrep-sast.md](opengrep-sast.md) | Integrate Opengrep SAST scanning into a GitHub Actions workflow and forward results to AccuKnox for security analysis and mitigation. |
 | [oracle-playbook.md](oracle-playbook.md) | Step-by-step guide to subscribing and managing AccuKnox via Oracle Marketplace for streamlined deployment and monitoring. |
