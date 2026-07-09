@@ -60,7 +60,7 @@ In this example we are onboarding AWS account using the Access Keys method.
 **Step 5:** After assigning Label and Tag. On the next screen, provide the AWS account’s Access Key and Secret Access Key ID and Select the Region of the AWS account.
 
 ![image](images/cloud-onboarding-5.png)
-Scroll to the bottom...
+**Follow the given instruction to the bottom...**
 ![image](images/cloud-onboarding-6.png)
 
 **Step 6:** The AWS account should have been added to AccuKnox using the Access Key method. You can view the onboarded cloud account by navigating to Settings → Cloud Accounts.
