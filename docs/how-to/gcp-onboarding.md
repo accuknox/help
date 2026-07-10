@@ -91,7 +91,7 @@ For GCP there is a requirement for IAM Service Account Access.
 **Step 4:** Follow the instructions on the next page
 
 !!! note
-    Ensure to enter the "Project ID" before copying and adding the Terraform script
+    Ensure you enter the "Project ID" before copying and adding the Terraform script
 
 ![image](images/gcp/gcp-saas-3.png)
 
