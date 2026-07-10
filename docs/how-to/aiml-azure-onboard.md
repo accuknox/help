@@ -128,7 +128,7 @@ Configuring your Azure cloud account is complete. Now we need to onboard the clo
 
 **Step 4:** Enter the details saved during app registration (Application ID, Directory ID, Secret Value) and the Subscription ID from the Azure portal. **Check the "AI/ML Assets" box** to enable AI/ML asset discovery and monitoring. Click Connect.
 
-![image](images/ai-checkbox.png)
+![image](images/azure-onboarding-options.png)
 
 **Step 5:** After successfully connecting your cloud account will show up in the list
 
