@@ -63,7 +63,7 @@ In this example we are onboarding AWS account using the Access Keys method.
 Follow the on-screen instructions and scroll to the bottom of the page.
 ![image](images/cloud-onboarding-6.png)
 
-**Step 6:** The AWS account should have been added to AccuKnox using the Access Key method. You can view the onboarded cloud account by navigating to Settings → Cloud Accounts.
+**Step 6:** The AWS account has been added to AccuKnox using the Access Key method. You can view the onboarded cloud account by navigating to Settings → Cloud Accounts.
 
 ![image](images/cloud-onboarding-7.png)
 
