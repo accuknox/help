@@ -57,7 +57,7 @@ In this example we are onboarding AWS account using the Access Keys method.
 
 ![image](images/cloud-onboarding-4.png)
 
-**Step 5:** After assigning Label and Tag. On the next screen, provide the AWS account’s Access Key and Secret Access Key ID and Select the Region of the AWS account.
+**Step 5:** After assigning a label and tag, on the next screen provide the AWS account’s Access Key and Secret Access Key ID and select the region of the AWS account.
 
 ![image](images/cloud-onboarding-5.png)
 **Follow the given instruction to the bottom...**
