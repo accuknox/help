@@ -83,9 +83,10 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 Configuring your Azure cloud account is complete. Now we need to onboard the cloud account onto the AccuKnox SaaS Platform.
 
-**Step 1:** Go to settings→ Cloud Account and click on Add Account
+**Step 1:** Go to settings→ Cloud Account and click on Onboard Account
 
 ![image](images/azure12.png)
+![image](images/azure12-0.png)
 
 **Step 2:** Select Microsoft Azure as Cloud Account Type
 
@@ -95,11 +96,15 @@ Configuring your Azure cloud account is complete. Now we need to onboard the clo
 
 ![image](images/azure14.png)
 
-**Step 4:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect
+**Step 4:** Follow the steps present on the next page. 
 
 ![image](images/azure15.png)
 
-**Step 5:** After successfully connecting your cloud account will show up in the list
+**Step 5:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect
+
+![image](images/azure15-0.png)
+
+**Step 6:** After successfully connecting your cloud account will show up in the list
 
 ![image](images/azure16.png)
 
