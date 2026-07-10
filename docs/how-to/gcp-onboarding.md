@@ -20,11 +20,11 @@ Here, we will see the steps to onboard a GCP cloud account to the AccuKnox SaaS 
 
 For GCP there is a requirement for IAM Service Account Access.
 
-**Step 1:**  Log into your Google Cloud console and navigate to  IAM & Admin choose “Roles“ and Click “Create Role“
+**Step 1:**  Log into your Google Cloud console and navigate to  IAM & Admin choose “Roles“ and Click “Create custom role“
 
 ![image](images/gcp/gcp-0.png)
 
-**Step 2:**  Name the “Role” and Click “Add Permission”
+**Step 2:**  Name the Role and Click “Add Permission”
 
 ![image](images/gcp/gcp-1.png)
 
@@ -35,6 +35,7 @@ For GCP there is a requirement for IAM Service Account Access.
 **Step 4:** Choose the permission and Click “Add“ then Click Create in the same page.
 
 ![image](images/gcp/gcp-3.png)
+![image](images/gcp/gcp-3-0.png)
 
 **Step 5:**  In the Navigation Panel, navigate to IAM Admin > Service Accounts.
 
@@ -74,22 +75,30 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ## From AccuKnox SaaS UI
 
-**Step 1:** Go to the AccuKnox SaaS. Navigate to the “Settings” → “Cloud Accounts” then “Add Account”.
+**Step 1:** Go to the AccuKnox SaaS. Navigate to the “Settings” → “Cloud Accounts” then “Onboard Account”.
 
 ![image](images/gcp/gcp-saas-0.png)
+![image](images/gcp/gcp-saas-01.png)
 
-**Step 2:** Click the “GCP Platform”
+**Step 2:** Select the “Google Cloud Platform” options and click "Next"
 
 ![image](images/gcp/gcp-saas-1.png)
 
-**Step 3:**  Create New Label and Add the Label for identifying the assets inside this account and add a Tag optionally.
+**Step 3:**  Select or create label and Tags that will be associated with this Cloud Account
 
 ![image](images/gcp/gcp-saas-2.png)
 
-**Step 4:**  Enter the “Project ID“, “Client Email”(The Service Account mail ID) and  “Private Key” from the downloaded File.
-Copy paste the entire downloaded file into the ”Private Key” field . Then Click “Connect“
+**Step 4:** Follow the instructions on the next page
+
+!!! note
+    Ensure to enter the "Project ID" before copying and adding the Terraform script
 
 ![image](images/gcp/gcp-saas-3.png)
+
+**Step 5:**  Scroll down and enter the “Client Email”(The Service Account mail ID) and  “Private Key” from the downloaded File.
+Copy paste the entire downloaded file into the ”Private Key” field . Then Click “Connect“
+
+![image](images/gcp/gcp-saas-3-0.png)
 
 The cloud account has been onboarded successfully
 
