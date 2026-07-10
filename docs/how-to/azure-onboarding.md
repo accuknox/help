@@ -100,7 +100,7 @@ Configuring your Azure cloud account is complete. Now we need to onboard the clo
 
 ![image](images/azure15.png)
 
-**Step 5:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect
+**Step 5:** Enter the details saved earlier during app registration and the subscription ID from the Azure portal, then click **Connect**.
 
 ![image](images/azure15-0.png)
 
