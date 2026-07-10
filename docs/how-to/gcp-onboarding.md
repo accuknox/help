@@ -95,8 +95,8 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ![image](images/gcp/gcp-saas-3.png)
 
-**Step 5:**  Scroll down and enter the “Client Email”(The Service Account mail ID) and  “Private Key” from the downloaded File.
-Copy paste the entire downloaded file into the ”Private Key” field . Then Click “Connect“
+**Step 5:**  Scroll down and enter the “Client Email” (the service account email address) and “Private Key” from the downloaded file.
+Copy and paste the entire downloaded file into the ”Private Key” field, then click “Connect“
 
 ![image](images/gcp/gcp-saas-3-0.png)
 
