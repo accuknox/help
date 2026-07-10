@@ -20,7 +20,7 @@ Here, we will see the steps to onboard a GCP cloud account to the AccuKnox SaaS 
 
 For GCP there is a requirement for IAM Service Account Access.
 
-**Step 1:**  Log into your Google Cloud console and navigate to  IAM & Admin choose “Roles“ and Click “Create custom role“
+**Step 1:** Log into your Google Cloud console, navigate to IAM & Admin → Roles, and click “Create custom role”
 
 ![image](images/gcp/gcp-0.png)
 
