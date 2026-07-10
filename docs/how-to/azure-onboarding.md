@@ -96,7 +96,7 @@ Configuring your Azure cloud account is complete. Now we need to onboard the clo
 
 ![image](images/azure14.png)
 
-**Step 4:** Follow the steps present on the next page. 
+**Step 4:** Follow the steps presented on the next page.
 
 ![image](images/azure15.png)
 
