@@ -84,7 +84,7 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ![image](images/gcp/gcp-saas-1.png)
 
-**Step 3:**  Select or create label and Tags that will be associated with this Cloud Account
+**Step 3:** Select or create a label and Tags that will be associated with this Cloud Account
 
 ![image](images/gcp/gcp-saas-2.png)
 
