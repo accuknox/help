@@ -255,7 +255,10 @@ nav:
         - "PHP-MySQL": "getting-started/php-mysql.md"
     - "VM Security":
       - "Agent Based":
-        - "Linux": "how-to/vm-security/agent-based/linux.md"
+        - "Linux":
+          - "Overview": "how-to/vm-security/agent-based/linux.md"
+          - "Ubuntu": "how-to/vm-security/agent-based/ubuntu.md"
+          - "RHEL": "how-to/vm-security/agent-based/rhel.md"
         - "Windows": "how-to/vm-security/agent-based/windows.md"
         - "Container Image Scanning": "how-to/vm-security/agent-based/container-image-scanning.md"
       - "Agentless":
