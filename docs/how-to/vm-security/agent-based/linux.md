@@ -3,9 +3,33 @@ title: Agent-Based VM Scanning for Linux
 description: Comprehensive guide for Agent-based Vulnerability and Malware Scanning on Linux VMs.
 ---
 
+<style>
+  .nt-card-title{
+    text-align: center;
+  }
+
+  .nt-card-img img{
+    color: #00025;
+  }
+</style>
+
 # Agent-Based VM Scanning for Linux
 
 This guide provides step-by-step instructions to onboard Linux Virtual Machines (VMs) for agent-based vulnerability and malware scanning using the AccuKnox VM Security agent.
+
+For a fleet-wide onboarding walkthrough with distribution-specific commands, pick a guide below:
+
+::cards:: cols=2
+
+- title: Ubuntu
+  image: ./images/ubuntu.svg
+  url: /how-to/vm-security/agent-based/ubuntu/
+
+- title: RHEL
+  image: ./images/rhel.svg
+  url: /how-to/vm-security/agent-based/rhel/
+
+::/cards::
 
 ## Prerequisites
 
