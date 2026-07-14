@@ -15,6 +15,5 @@ Here’s the table that outlines the inputs and their descriptions, along with d
 | DAST_SCAN_TYPE     | Type of DAST scan to run: 'baseline' or 'full-scan'.                                            | baseline                  |
 | INPUT_SOFT_FAIL    | Do not return an error code if there are failed checks.                                        | true (boolean)            |
 | ACCUKNOX_TOKEN     | The token for authenticating with the CSPM panel.                                             | N/A (Required)            |
-| ACCUKNOX_TENANT    | ID of the tenant associated with the CSPM Panel panel.                                        | N/A (Required)            |
 | ACCUKNOX_ENDPOINT  | URL of the CSPM panel to push the scan results to.                                            | cspm.demo.accuknox.com    |
 | ACCUKNOX_LABEL     | Label created in AccuKnox SaaS for associating scan results.                                  | N/A (Required)            |

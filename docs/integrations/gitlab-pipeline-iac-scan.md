@@ -19,11 +19,9 @@ This guide demonstrates how to integrate Infrastructure as Code (IaC) security i
 
 1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
 
-2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+2. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
 
-3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
-
-4. **ACCUKNOX_LABEL**: The label for your scan.
+3. **ACCUKNOX_LABEL**: The label for your scan.
 
 **Step 3**: Set Up GitLab CI/CD Pipeline
 
@@ -31,15 +29,11 @@ Create a new pipeline in your GitLab project with the following YAML configurati
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/iac-scan@1.0
+  - component: $CI_SERVER_FQDN/accu-knox/scan/iac-scan@2.4.0
     inputs:
       STAGE: test
-      INPUT_DIRECTORY: "."
-      INPUT_COMPACT: true
-      INPUT_QUIET: true
-      INPUT_SOFT_FAIL: false
+      SOFT_FAIL: true
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
