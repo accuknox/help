@@ -373,7 +373,7 @@ nav:
           - "Secret Scan": "integrations/bamboo-secret-scan.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
-          - "SAST (OpenGrep)": "integrations/google-opengrep-sast.md"
+          - "SAST": "integrations/google-opengrep-sast.md"
           - "SQ-SAST (SonarQube)": "integrations/google-sast.md"
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
@@ -404,8 +404,8 @@ nav:
         - "GitHub":
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
-            - "SAST": "integrations/github-sast.md"
-            - "SAST (Opengrep)": "integrations/opengrep-sast.md"
+            - "SAST (SonarQube)": "integrations/github-sast.md"
+            - "SAST": "integrations/opengrep-sast.md"
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
             - "DAST": "integrations/github-dast.md"

@@ -74,4 +74,4 @@ Once the AccuKnox IaC scan is integrated into the CI/CD pipeline, every push tri
 
 ## **Conclusion**
 
-By integrating Checkov for IaC scanning with AccuKnox in a GitLab CI/CD pipeline, you strengthen the security of your infrastructure code. This integration allows for early detection and remediation of misconfigurations and vulnerabilities in the development lifecycle, ensuring a more secure deployment environment.
+By integrating IaC scanning with AccuKnox in a GitLab CI/CD pipeline, you strengthen the security of your infrastructure code. This integration allows for early detection and remediation of misconfigurations and vulnerabilities in the development lifecycle, ensuring a more secure deployment environment.

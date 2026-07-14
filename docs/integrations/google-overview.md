@@ -18,7 +18,7 @@ hide:
 
 ::cards:: cols=3
 
-- title: SAST (OpenGrep)
+- title: SAST (Static Analysis)
   image: ./cicd-icons/opengrep-sast.svg
   url: /integrations/google-opengrep-sast/
 - title: SQ-SAST (SonarQube)

@@ -40,7 +40,7 @@ Save these three values for use in Step 3:
 Drop the following file at the root of your repository as `cloudbuild.yaml`. The AccuKnox credentials come from the Cloud Build trigger config (Step 3). The DAST-specific values (target URL, scan script, severity threshold, soft-fail) are edited directly in step 3 of the YAML.
 
 ```yaml
-# AccuKnox DAST (OWASP ZAP) — Google Cloud Build Pipeline
+# AccuKnox DAST — Google Cloud Build Pipeline
 
 steps:
 
@@ -87,7 +87,7 @@ steps:
 
   # ---------------------------------------------------------------------------
   # Step 3: Run the DAST scan against the target URL and upload to CSPM
-  # docker.io is installed here so the scanner can spawn the OWASP ZAP container.
+  # docker.io is installed here so the scanner can spawn the DAST scan container.
   # ---------------------------------------------------------------------------
   - id: run-dast-scan
     name: ubuntu:24.04
@@ -110,7 +110,7 @@ steps:
         SOFT_FAIL="true"                      # true to keep pipeline green on findings
         # ====================================================================
 
-        # Install ca-certificates (HTTPS upload) and docker CLI (for ZAP container)
+        # Install ca-certificates (HTTPS upload) and docker CLI (for the DAST scan container)
         export DEBIAN_FRONTEND=noninteractive
         apt-get update -qq
         apt-get install -y -qq --no-install-recommends ca-certificates docker.io
