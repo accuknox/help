@@ -11,7 +11,12 @@
       "Bash(npx firecrawl *)",
       "Bash(Select-Object -First 30)",
       "Skill(firecrawl-scrape)",
-      "Skill(firecrawl-scrape:*)"
+      "Skill(firecrawl-scrape:*)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] SEO Health Monitoring' --body ' *)",
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Content Performance Tracking' --body ' *)",
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Visitor Intelligence Reports' --body ' *)"
     ]
   }
 }
