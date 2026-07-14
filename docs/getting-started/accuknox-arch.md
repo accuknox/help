@@ -101,7 +101,7 @@ Asset and findings data flows from customer environments to the AccuKnox control
 
 ![](./images/deep-arch/integrations.png)
 
-- **CLI-based**: TruffleHog, Sonarqube, Trivy, Zap, Kubebench
+- **CLI-based**: Secret scanning, SAST, container & vulnerability scanning, DAST, and Kubernetes CIS benchmark scanning
 - **API-based**: Checkmarx, Nessus
 - **SIEM**: One-way push (e.g., Splunk, Sentinel)
 - **Ticketing**: Bidirectional (e.g., Jira, ServiceNow)

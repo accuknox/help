@@ -59,7 +59,7 @@ include:
 
 #### Before AccuKnox Integration
 
-Initially, there are no security checks in place, and even if Opengrep is integrated, vulnerabilities might go unnoticed as they must be reviewed manually within the pipeline.
+Initially, there are no security checks in place, and even if SAST scanning is integrated, vulnerabilities might go unnoticed as they must be reviewed manually within the pipeline.
 
 #### After AccuKnox Integration
 

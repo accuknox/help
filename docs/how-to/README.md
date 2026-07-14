@@ -80,6 +80,10 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [sso.md](sso.md) | Step-by-step guide on inviting new users and setting up SSO for secure and streamlined login to the AccuKnox SaaS platform. |
 | [summarized-custom-reports.md](summarized-custom-reports.md) | Generate summarized custom reports with details on risks and vulnerabilities across cloud environments using AccuKnox CSPM for better visibility. |
 | [systemd-nonbtf.md](systemd-nonbtf.md) | This document provides the steps to onboard a node/control plane in a SystemD based non-BTF environment to the AccuKnox SaaS platform. |
+| [terraform-aws-onboarding.md](terraform-aws-onboarding.md) | Onboard a standalone AWS account to the AccuKnox platform using Terraform. Terraform provisions the IAM user, policies, and access keys needed to connect the... |
+| [terraform-azure-onboarding.md](terraform-azure-onboarding.md) | Onboard a standalone Azure subscription to the AccuKnox platform using Terraform. Terraform provisions the Azure AD application, service principal, and role... |
+| [terraform-cloud-onboarding.md](terraform-cloud-onboarding.md) | Onboard standalone AWS, Azure, and GCP cloud accounts to the AccuKnox platform using Terraform. Pick a cloud provider to get the prerequisites, Terraform con... |
+| [terraform-gcp-onboarding.md](terraform-gcp-onboarding.md) | Onboard a standalone GCP project to the AccuKnox platform using Terraform. Terraform provisions the service account, IAM roles, and service account key neede... |
 | [vm-onboard-access-keys.md](vm-onboard-access-keys.md) | Onboard VMs as control plane nodes using access keys in SystemD mode or Docker Container mode. Learn how to onboard and deboard VMs using the access key method. |
 | [vm-onboard-deboard-docker.md](vm-onboard-deboard-docker.md) | Steps to onboard and deboard VMs with Docker to the AccuKnox SaaS platform for monitoring and enforcing security policies. |
 | [vm-onboard-deboard-systemd.md](vm-onboard-deboard-systemd.md) | Step-by-step process to onboard VMs with Systemd/Docker mode on AccuKnox SaaS to enable automated security enforcement and monitoring. |

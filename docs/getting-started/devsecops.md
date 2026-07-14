@@ -40,7 +40,7 @@ AccuKnox supports integration with a wide range of CI/CD tools, enabling smooth 
 
 ## Scanner Integrations
 
-AccuKnox seamlessly integrates with leading, industry-recognized scanning tools to deliver comprehensive security coverage. By leveraging scanners such as OWASP ZAP, SonarQube, and other tools, it performs the following analyses:
+AccuKnox seamlessly integrates with leading, industry-recognized scanning tools to deliver comprehensive security coverage, performing the following analyses:
 
 - Scanning source code for vulnerabilities (SAST).
 

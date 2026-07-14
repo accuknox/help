@@ -1,11 +1,11 @@
 ---
-title: Opengrep SAST Integration with Azure DevOps
-description: Integrate Opengrep SAST scanning into an Azure DevOps Pipeline and automatically forward results to AccuKnox for analysis and mitigation.
+title: SAST Integration with Azure DevOps
+description: Integrate SAST scanning into an Azure DevOps Pipeline and automatically forward results to AccuKnox for analysis and mitigation.
 ---
 
-# Integrating Opengrep SAST with AccuKnox in Azure DevOps
+# Integrating SAST with AccuKnox in Azure DevOps
 
-This guide shows how to integrate **Opengrep SAST scanning** into an **Azure DevOps Pipeline** and automatically forward results to **AccuKnox** for analysis and mitigation.
+This guide shows how to integrate **SAST scanning** into an **Azure DevOps Pipeline** and automatically forward results to **AccuKnox** for analysis and mitigation.
 
 ## Prerequisites
 
@@ -75,11 +75,11 @@ steps:
 
 ## Workflow Execution Without AccuKnox
 
-Initially, Opengrep scans the code for vulnerabilities but does not forward results to AccuKnox, requiring manual review.
+Initially, the SAST extension scans the code for vulnerabilities but does not forward results to AccuKnox, requiring manual review.
 
 ## Workflow Execution With AccuKnox
 
-With AccuKnox integrated, Opengrep scan results are automatically sent to AccuKnox for further risk assessment and remediation.
+With AccuKnox integrated, SAST scan results are automatically sent to AccuKnox for further risk assessment and remediation.
 
 ![image-20250428-025356.png](./images/azure-opengrep-sast/4.png)
 
@@ -95,4 +95,4 @@ With AccuKnox integrated, Opengrep scan results are automatically sent to AccuKn
 
 ## Conclusion
 
-Integrating **OpenGrep SAST** with **Azure DevOps** pipelines enables **automated vulnerability detection** and **centralized security management**. It ensures early detection of issues, risk assessment, and provides actionable insights to maintain code security and quality
+Integrating **SAST scanning** with **Azure DevOps** pipelines enables **automated vulnerability detection** and **centralized security management**. It ensures early detection of issues, risk assessment, and provides actionable insights to maintain code security and quality

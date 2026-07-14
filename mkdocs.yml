@@ -214,6 +214,11 @@ nav:
         - "Azure Organizations" : "how-to/azure-org-onboard.md"
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
+        - "Terraform Onboarding":
+          - "how-to/terraform-cloud-onboarding.md"
+          - "AWS" : "how-to/terraform-aws-onboarding.md"
+          - "Azure" : "how-to/terraform-azure-onboarding.md"
+          - "GCP" : "how-to/terraform-gcp-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
     - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
@@ -373,7 +378,7 @@ nav:
           - "Secret Scan": "integrations/bamboo-secret-scan.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
-          - "SAST (OpenGrep)": "integrations/google-opengrep-sast.md"
+          - "SAST": "integrations/google-opengrep-sast.md"
           - "SQ-SAST (SonarQube)": "integrations/google-sast.md"
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
@@ -404,8 +409,8 @@ nav:
         - "GitHub":
             - "Overview": "integrations/github-overview.md"
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
-            - "SAST": "integrations/github-sast.md"
-            - "SAST (Opengrep)": "integrations/opengrep-sast.md"
+            - "SAST (SonarQube)": "integrations/github-sast.md"
+            - "SAST": "integrations/opengrep-sast.md"
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
             - "DAST": "integrations/github-dast.md"

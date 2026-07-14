@@ -122,7 +122,7 @@ Once the **AccuKnox** scan is integrated:
 
 - Log into **AccuKnox** and navigate to **Issues → Findings**.
 
-- Filter by **Data Type: SAST Scan** and search for the findings related to your repository.
+- Filter by **Data Type: Opengrep SAST Scan** and search for the findings related to your repository.
 
 ![image-20250428-084216.png](./images/sast/2.png)
 

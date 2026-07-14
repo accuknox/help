@@ -19,10 +19,10 @@ hide:
 
 ::cards:: cols=3
 
-- title: SAST (Static Analysis)
+- title: SQ-SAST (SonarQube)
   image: ./cicd-icons/sast.svg
   url: /integrations/gitlab-sast/
-- title: SAST (OpenGrep)
+- title: SAST (Static Analysis)
   image: ./cicd-icons/opengrep-sast.svg
   url: /integrations/gitlab-opengrep/
 - title: Container Scan

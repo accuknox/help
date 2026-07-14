@@ -114,7 +114,7 @@ pipeline {
 
 === "Without AccuKnox"
 
-    Checkov or similar IaC scanners produce a JSON report locally; engineers must manually inspect or wire up dashboards to surface results.
+    IaC scanners typically produce a JSON report locally; engineers must manually inspect or wire up dashboards to surface results.
 
 === "With AccuKnox"
 

@@ -80,7 +80,7 @@ Add the necessary input variables for the script:
 | **Variable Name** | **Type** | **Value / Options**                                                               | **Description**                                                                                                       |
 | ----------------- | -------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | `SEVERITY`        | String   | HIGH / MEDIUM / LOW                                                               | Minimum severity level that will fail the job. Example: `SEVERITY=HIGH` fails only if HIGH vulnerabilities are found. |
-| `TARGET_URL`      | String   | URL (e.g., [https://juice-shop.herokuapp.com](https://juice-shop.herokuapp.com/)) | The web application endpoint that ZAP will scan.                                                                      |
+| `TARGET_URL`      | String   | URL (e.g., [https://juice-shop.herokuapp.com](https://juice-shop.herokuapp.com/)) | The web application endpoint that the DAST scanner will scan.                                                                      |
 | `ZAP_SCRIPT`      | String   | `zap-full-scan.py` / `zap-baseline.py`                                            | `zap-full-scan.py` performs a full active scan (modifies target). `zap-baseline.py` performs a passive scan (safer).  |
 
 
