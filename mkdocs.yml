@@ -271,6 +271,7 @@ nav:
         - "Azure Cloud VM Scan": "how-to/vm-security/agentless/azure-cloud-vm.md"
     - "Application Security (ASPM)":
       - "Overview": "how-to/aspm-overview.md"
+# - "Connect Source Code (App-based)": "how-to/code-source-onboarding.md"  # not ready to publish
       - "DAST Scan Types": "how-to/dast-scan-types.md"
       - "DAST Unauthenticated Scan": "how-to/dast-scan-no-auth.md"
       - "DAST Authenticated Scan": "how-to/dast-authenticated-scans.md"
@@ -648,6 +649,7 @@ nav:
     - "Release Notes":
           - "AccuKnox" :
             - "Overview": "getting-started/accuknox-release-notes.md"
+# - "v3.6": "getting-started/3.6-release.md"  # not ready to publish
             - "v3.5": "getting-started/3.5-release.md"
             - "v3.4": "getting-started/3.4-release.md"
             - "v3.3": "getting-started/3.3-release.md"
