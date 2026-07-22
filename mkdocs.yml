@@ -148,6 +148,7 @@ extra_css:
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js
+  - javascripts/iam-tables.js
 extra:
   analytics:
     provider: google
