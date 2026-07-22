@@ -144,6 +144,7 @@ extra_css:
 - "assets/stylesheets/neoteroi-mkdocs.css"
 - "assets/stylesheets/banner.css"
 - "assets/stylesheets/copy-page.css"
+- "assets/stylesheets/iam-tables.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js
