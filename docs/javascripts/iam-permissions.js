@@ -1,7 +1,12 @@
 // ============================================
 // IAM Permissions Reference — interactive renderer
-// Renders any <div class="iam-perms"> from its inline
-// <script type="application/json" class="iam-perms-data"> payload.
+//
+// Renders any <div class="iam-perms" data-src="…json">. The permission data
+// lives in an EXTERNAL JSON file loaded with fetch(), NOT in an inline
+// <script> — Material's instant navigation re-processes inline <script> tags
+// and strips the data block, which left the table blank until a hard refresh.
+// Fetching sidesteps that entirely.
+//
 // Compatible with Material instant navigation (document$).
 // ============================================
 (function () {
@@ -24,42 +29,66 @@
     return e;
   }
 
-  function slug(s) {
-    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  }
-
   function tagClass(t) {
     return TAG_CLASS[t] || "tag-default";
   }
 
-  function buildOne(container) {
-    if (container.dataset.iamReady === "1") return;
-    var dataNode = container.querySelector("script.iam-perms-data");
-    if (!dataNode) return;
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
 
-    var payload;
-    try {
-      payload = JSON.parse(dataNode.textContent);
-    } catch (e) {
+  // ---- resolve + load the data, then render ----
+  function buildOne(container) {
+    if (container.dataset.iamReady === "1" || container.dataset.iamLoading === "1") return;
+
+    var src = container.getAttribute("data-src");
+    if (src) {
+      container.dataset.iamLoading = "1";
+      var loading = el("div", "iam-empty", "Loading permissions…");
+      container.appendChild(loading);
+      fetch(src)
+        .then(function (r) {
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          return r.json();
+        })
+        .then(function (payload) {
+          container.dataset.iamLoading = "";
+          if (loading.parentNode) loading.remove();
+          render(container, payload);
+        })
+        .catch(function () {
+          container.dataset.iamLoading = "";
+          loading.textContent = "Could not load the permission list — please refresh the page.";
+        });
       return;
     }
-    var records = payload.records || [];
 
-    // ---- group by service, keep original order ----
+    // legacy fallback: inline <script type="application/json" class="iam-perms-data">
+    var dataNode = container.querySelector("script.iam-perms-data");
+    if (!dataNode) return;
+    try {
+      render(container, JSON.parse(dataNode.textContent));
+    } catch (e) { /* no-op */ }
+  }
+
+  // ---- build the UI from a parsed payload ----
+  function render(container, payload) {
+    if (container.dataset.iamReady === "1") return;
+    var records = (payload && payload.records) || [];
+
+    // group by service, keep original order
     var groups = {};
     var order = [];
     records.forEach(function (r) {
       var s = r.s || "Other";
-      if (!groups[s]) {
-        groups[s] = [];
-        order.push(s);
-      }
+      if (!groups[s]) { groups[s] = []; order.push(s); }
       groups[s].push(r);
     });
 
-    // ---- toolbar ----
+    // toolbar
     var toolbar = el("div", "iam-toolbar");
-
     var stats = el("div", "iam-stats");
     stats.innerHTML =
       '<span class="iam-count"><strong>' + records.length + "</strong> permissions</span>" +
@@ -68,7 +97,6 @@
     toolbar.appendChild(stats);
 
     var controls = el("div", "iam-controls");
-
     var search = el("input", "iam-search");
     search.type = "search";
     search.placeholder = "Search permission, service or rationale…";
@@ -89,15 +117,12 @@
     collapseBtn.type = "button";
     controls.appendChild(expandBtn);
     controls.appendChild(collapseBtn);
-
     toolbar.appendChild(controls);
 
     var empty = el("div", "iam-empty", "No permissions match your search.");
     empty.style.display = "none";
 
     var groupsWrap = el("div", "iam-groups");
-
-    // ---- render groups ----
     order.forEach(function (service) {
       var det = el("details", "iam-group");
       det.dataset.service = service;
@@ -106,11 +131,8 @@
         '<span class="iam-group-name">' + escapeHtml(service) + "</span>" +
         '<span class="iam-group-count">' + groups[service].length + "</span>";
       det.appendChild(sum);
-
       var list = el("div", "iam-list");
-      groups[service].forEach(function (r) {
-        list.appendChild(buildRow(r));
-      });
+      groups[service].forEach(function (r) { list.appendChild(buildRow(r)); });
       det.appendChild(list);
       groupsWrap.appendChild(det);
     });
@@ -119,39 +141,28 @@
     container.appendChild(empty);
     container.appendChild(groupsWrap);
 
-    // ---- interactions ----
+    // interactions
     groupsWrap.addEventListener("click", function (e) {
       var perm = e.target.closest(".iam-perm");
-      if (perm && !e.target.closest("a")) {
-        perm.classList.toggle("pinned");
-      }
+      if (perm && !e.target.closest("a")) perm.classList.toggle("pinned");
     });
-
-    // close pinned popovers on outside click / Esc
     document.addEventListener("click", function (e) {
       if (!container.contains(e.target)) {
-        groupsWrap.querySelectorAll(".iam-perm.pinned").forEach(function (p) {
-          p.classList.remove("pinned");
-        });
+        groupsWrap.querySelectorAll(".iam-perm.pinned").forEach(function (p) { p.classList.remove("pinned"); });
       }
     });
     container.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        groupsWrap.querySelectorAll(".iam-perm.pinned").forEach(function (p) {
-          p.classList.remove("pinned");
-        });
+        groupsWrap.querySelectorAll(".iam-perm.pinned").forEach(function (p) { p.classList.remove("pinned"); });
       }
     });
-
     expandBtn.addEventListener("click", function () {
       groupsWrap.querySelectorAll("details.iam-group").forEach(function (d) {
         if (d.style.display !== "none") d.open = true;
       });
     });
     collapseBtn.addEventListener("click", function () {
-      groupsWrap.querySelectorAll("details.iam-group").forEach(function (d) {
-        d.open = false;
-      });
+      groupsWrap.querySelectorAll("details.iam-group").forEach(function (d) { d.open = false; });
     });
 
     var applyTimer;
@@ -159,31 +170,19 @@
       var q = search.value.trim().toLowerCase();
       var svc = filter.value;
       var anyVisible = false;
-
       groupsWrap.querySelectorAll("details.iam-group").forEach(function (grp) {
-        if (svc && grp.dataset.service !== svc) {
-          grp.style.display = "none";
-          return;
-        }
+        if (svc && grp.dataset.service !== svc) { grp.style.display = "none"; return; }
         var shown = 0;
         grp.querySelectorAll(".iam-perm").forEach(function (perm) {
-          var hay = perm.dataset.search;
-          var match = !q || hay.indexOf(q) !== -1;
+          var match = !q || perm.dataset.search.indexOf(q) !== -1;
           perm.style.display = match ? "" : "none";
           if (match) shown++;
         });
-        if (shown === 0) {
-          grp.style.display = "none";
-        } else {
-          grp.style.display = "";
-          anyVisible = true;
-          // auto-open when actively searching/filtering
-          if (q || svc) grp.open = true;
-        }
+        if (shown === 0) { grp.style.display = "none"; }
+        else { grp.style.display = ""; anyVisible = true; if (q || svc) grp.open = true; }
       });
       empty.style.display = anyVisible ? "none" : "";
     }
-
     search.addEventListener("input", function () {
       clearTimeout(applyTimer);
       applyTimer = setTimeout(apply, 120);
@@ -198,12 +197,9 @@
     row.tabIndex = 0;
 
     var head = el("div", "iam-perm-head");
-    var name = el("code", "iam-perm-name", r.n);
-    head.appendChild(name);
-
+    head.appendChild(el("code", "iam-perm-name", r.n));
     (r.t || []).forEach(function (t) {
-      if (!t) return;
-      head.appendChild(el("span", "iam-tag " + tagClass(t), t));
+      if (t) head.appendChild(el("span", "iam-tag " + tagClass(t), t));
     });
     row.appendChild(head);
 
@@ -212,7 +208,6 @@
     popName.appendChild(el("code", null, r.n));
     if (r.s) popName.appendChild(el("span", "iam-pop-svc", r.s));
     pop.appendChild(popName);
-
     (r.d || []).forEach(function (pair) {
       if (!pair[1]) return;
       var block = el("div", "iam-pop-row");
@@ -222,33 +217,21 @@
     });
     row.appendChild(pop);
 
-    // searchable haystack
     var hay = [r.n, r.s].concat(r.t || []);
     (r.d || []).forEach(function (p) { hay.push(p[1]); });
     row.dataset.search = hay.join(" ").toLowerCase();
-
     return row;
-  }
-
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
-    });
   }
 
   function init() {
     document.querySelectorAll("div.iam-perms").forEach(function (c) {
-      // guard each build so one bad page can never kill the subscription
-      try { buildOne(c); } catch (e) { /* no-op */ }
+      try { buildOne(c); } catch (e) { /* keep subscription alive */ }
     });
   }
 
-  // Primary path: Material's instant navigation emits `document$` on the initial
-  // load AND on every in-app navigation. Subscribing once handles all of them.
-  // The catch is that `document$` may not exist yet at the moment this script
-  // runs (script/bundle order), which would otherwise leave us on a one-time
-  // DOMContentLoaded fallback that never fires on instant navigation. So we hook
-  // it as soon as it appears, and still render the current page in the meantime.
+  // Hook Material's instant navigation (fires on initial load + every nav).
+  // Retry until document$ exists so we never fall back to a one-time run that
+  // misses instant navigation.
   var subscribed = false;
   function hookInstantNav() {
     if (subscribed) return true;
@@ -259,12 +242,9 @@
     }
     return false;
   }
-
   if (!hookInstantNav()) {
-    // render whatever is on screen right now...
     if (document.readyState !== "loading") init();
     else document.addEventListener("DOMContentLoaded", init);
-    // ...and keep trying to attach to instant navigation until Material is ready
     var attempts = 0;
     var timer = setInterval(function () {
       attempts++;
