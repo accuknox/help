@@ -620,6 +620,7 @@ nav:
     - "Sample Reports": "resources/sample-reports.md"
     - "Asset Onboarding Deck": "https://docs.google.com/presentation/d/e/2PACX-1vSNns23fmwfVgaoBIvR1fL7fk_Be6GYUJLwRticjlm4cBvIAqzxm4IF7RV7qsV00KrrRFGDjOIVG0Q2/pub?start=false&loop=false&delayms=3000"
     - "Compliance Baseline Data": "resources/compliance-baseline-data.md"
+    - "Data Retention Policy": "resources/data-retention-policy.md"
     - "Essential 8 Compliance": "https://accuknox.com/blog/accuknox-essential-8-compliance-zero-trust"
     # - "Data Usage Policy": "resources/data-usage-policy.md"  # ADD THESE BACK IN LATER
     # - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
