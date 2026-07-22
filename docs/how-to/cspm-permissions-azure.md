@@ -1,6 +1,8 @@
 ---
 title: Azure IAM Permissions Reference
 description: The 209 permissions in the AccuKnox CSPM Azure reader role, with the reason and impact for each.
+hide:
+  - toc
 ---
 
 # Azure Permissions Reference

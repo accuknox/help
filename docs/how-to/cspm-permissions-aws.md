@@ -1,6 +1,8 @@
 ---
 title: AWS IAM Permissions Reference
 description: The 403 read-only IAM permissions the AccuKnox CSPM scanner requests for AWS, with the reason and impact for each.
+hide:
+  - toc
 ---
 
 # AWS IAM Permissions Reference

@@ -1,6 +1,8 @@
 ---
 title: GCP IAM Permissions Reference
 description: The 901 read-only permissions in the AccuKnox CSPM GCP custom role, with the reason for each.
+hide:
+  - toc
 ---
 
 # GCP Permissions Reference
