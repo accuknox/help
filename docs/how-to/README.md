@@ -37,6 +37,10 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [cluster-onboarding.md](cluster-onboarding.md) | Step-by-step guide on onboarding clusters to AccuKnox SaaS, including installing KubeArmor and AccuKnox agents for secure integration. |
 | [code-source-onboarding.md](code-source-onboarding.md) | Connect GitHub, GitLab, or Bitbucket to AccuKnox with a native app and run SCA, Secrets, SAST, and IaC scans from the platform, with no CI/CD pipeline setup.... |
 | [create-access-keys.md](create-access-keys.md) | Guide on creating secure access keys in AccuKnox SaaS to authenticate and authorize user access and manage permissions effectively. |
+| [cspm-permissions-aws.md](cspm-permissions-aws.md) | The 403 read-only IAM permissions the AccuKnox CSPM scanner requests for AWS, with the reason and impact for each. |
+| [cspm-permissions-azure.md](cspm-permissions-azure.md) | The 209 permissions in the AccuKnox CSPM Azure reader role, with the reason and impact for each. |
+| [cspm-permissions-gcp.md](cspm-permissions-gcp.md) | The 901 read-only permissions in the AccuKnox CSPM GCP custom role, with the reason for each. |
+| [cspm-permissions-overview.md](cspm-permissions-overview.md) | The read-only permissions AccuKnox CSPM requests for AWS, Azure, and GCP, and why each is needed. |
 | [cspm-prereq-aws.md](cspm-prereq-aws.md) | Onboarding pre-requisites for AWS accounts, including necessary permissions and configurations for secure integration. |
 | [cspm-prereq-azure.md](cspm-prereq-azure.md) | Pre-requisites and setup instructions for onboarding Azure cloud accounts to AccuKnox SaaS, ensuring automated security configuration. |
 | [cspm-prereq-gcp.md](cspm-prereq-gcp.md) | Pre-requisites and setup instructions for onboarding GCP cloud accounts to AccuKnox SaaS for continuous compliance and security checks. |
