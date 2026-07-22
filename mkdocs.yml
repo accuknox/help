@@ -144,9 +144,11 @@ extra_css:
 - "assets/stylesheets/neoteroi-mkdocs.css"
 - "assets/stylesheets/banner.css"
 - "assets/stylesheets/copy-page.css"
+- "assets/stylesheets/iam-permissions.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js
+  - javascripts/iam-permissions.js
 extra:
   analytics:
     provider: google
@@ -207,6 +209,11 @@ nav:
             - "AWS": "how-to/cspm-prereq-aws.md"
             - "Azure": "how-to/cspm-prereq-azure.md"
             - "GCP": "how-to/cspm-prereq-gcp.md"
+      - "IAM Permissions Reference":
+            - "Overview": "how-to/cspm-permissions-overview.md"
+            - "AWS": "how-to/cspm-permissions-aws.md"
+            - "Azure": "how-to/cspm-permissions-azure.md"
+            - "GCP": "how-to/cspm-permissions-gcp.md"
       - "Onboarding":
         - "AWS" : "how-to/aws-onboarding.md"
         - "AWS Organizations" : "how-to/aws-org-onboard.md"
