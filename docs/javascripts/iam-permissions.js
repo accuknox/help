@@ -237,14 +237,38 @@
   }
 
   function init() {
-    document.querySelectorAll("div.iam-perms").forEach(buildOne);
+    document.querySelectorAll("div.iam-perms").forEach(function (c) {
+      // guard each build so one bad page can never kill the subscription
+      try { buildOne(c); } catch (e) { /* no-op */ }
+    });
   }
 
-  if (window.document$ && typeof window.document$.subscribe === "function") {
-    window.document$.subscribe(init);
-  } else if (document.readyState !== "loading") {
-    init();
-  } else {
-    document.addEventListener("DOMContentLoaded", init);
+  // Primary path: Material's instant navigation emits `document$` on the initial
+  // load AND on every in-app navigation. Subscribing once handles all of them.
+  // The catch is that `document$` may not exist yet at the moment this script
+  // runs (script/bundle order), which would otherwise leave us on a one-time
+  // DOMContentLoaded fallback that never fires on instant navigation. So we hook
+  // it as soon as it appears, and still render the current page in the meantime.
+  var subscribed = false;
+  function hookInstantNav() {
+    if (subscribed) return true;
+    if (window.document$ && typeof window.document$.subscribe === "function") {
+      subscribed = true;
+      window.document$.subscribe(init);
+      return true;
+    }
+    return false;
+  }
+
+  if (!hookInstantNav()) {
+    // render whatever is on screen right now...
+    if (document.readyState !== "loading") init();
+    else document.addEventListener("DOMContentLoaded", init);
+    // ...and keep trying to attach to instant navigation until Material is ready
+    var attempts = 0;
+    var timer = setInterval(function () {
+      attempts++;
+      if (hookInstantNav() || attempts > 50) clearInterval(timer);
+    }, 100);
   }
 })();
