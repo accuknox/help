@@ -15,6 +15,6 @@ Review the full list below before onboarding. See the [overview](cspm-permission
     17 permissions use the fully-qualified `iam.googleapis.com/*` form (Workload Identity Federation and OAuth clients). These are not part of the built-in `roles/viewer` and are included deliberately for full IAM posture visibility.
 
 !!! tip "How to use this reference"
-    Permissions are grouped by service. **Hover** over any permission (or tap it on mobile, or focus it with the keyboard) to see the full rationale: what it does, why AccuKnox needs it, and what you lose if it is not granted. Use the **search box** to find a permission, service, or keyword, and the **service filter** to narrow the list.
+    Permissions are grouped by service. **Hover** over any permission (or tap it on mobile, or focus it with the keyboard) to see the full rationale. Use the **search box** to find a permission, service, or keyword, and the **service filter** to narrow the list.
 
 <div class="iam-perms" data-src="../../assets/data/iam-perms-gcp.json" markdown="0"></div>
