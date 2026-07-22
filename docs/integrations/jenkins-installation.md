@@ -14,7 +14,7 @@ This page walks through the one-time installation and global configuration of th
 - Network egress from the Jenkins agent to the AccuKnox control plane (or a mirrored scanner image for air-gapped agents).
 - Administrator access to Jenkins (`Manage Jenkins` / `Manage Plugins` / `System Configuration`).
 - The built artifact `accuknox-aspm.hpi` (or the published plugin).
-- Download `accuknox-aspm.hpi` from https://accuknox-aspm.s3.us-east-2.amazonaws.com/accuknox-aspm.hpi if you do not already have the file.
+- Download `accuknox-aspm.hpi` from https://accuknox-onprem-artifacts.s3.us-east-2.amazonaws.com/accuknox-aspm.hpi if you do not already have the file.
 
 ## 1. Deploy the `.hpi` to Jenkins
 

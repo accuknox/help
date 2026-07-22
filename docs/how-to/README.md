@@ -35,6 +35,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [cluster-offboarding.md](cluster-offboarding.md) | Instructions for offboarding a cluster from AccuKnox SaaS, ensuring a clean and secure removal process. Follow this step-by-step guide. |
 | [cluster-onboarding-access-keys.md](cluster-onboarding-access-keys.md) | Guide to onboarding multiple clusters using access keys, with options to set expiration times and limit the number of onboarded clusters. |
 | [cluster-onboarding.md](cluster-onboarding.md) | Step-by-step guide on onboarding clusters to AccuKnox SaaS, including installing KubeArmor and AccuKnox agents for secure integration. |
+| [code-source-onboarding.md](code-source-onboarding.md) | Connect GitHub, GitLab, or Bitbucket to AccuKnox with a native app and run SCA, Secrets, SAST, and IaC scans from the platform, with no CI/CD pipeline setup.... |
 | [create-access-keys.md](create-access-keys.md) | Guide on creating secure access keys in AccuKnox SaaS to authenticate and authorize user access and manage permissions effectively. |
 | [cspm-prereq-aws.md](cspm-prereq-aws.md) | Onboarding pre-requisites for AWS accounts, including necessary permissions and configurations for secure integration. |
 | [cspm-prereq-azure.md](cspm-prereq-azure.md) | Pre-requisites and setup instructions for onboarding Azure cloud accounts to AccuKnox SaaS, ensuring automated security configuration. |

@@ -54,6 +54,9 @@ hide:
 - title: Release Notes
   image: ./icons/release-notes.svg
   url: /getting-started/2.1-2.2-release/
+- title: Data Retention Policy
+  image: ./icons/user-guide.svg
+  url: /resources/data-retention-policy/
 - title: Glossary
   image: ./icons/glossary.svg
   url: /resources/glossary/
