@@ -39,7 +39,7 @@ Before setting up this GitHub Action, make sure you have the following in place:
 
 ![ak-unified-code-analysis-0.png](./images/github-unified-code-analysis-tool/ak-unified-code-analysis-0.png)
 
-3. Click **Create Token** and save the value as `Accuknox_token`.
+3. Click **Create Token** and save the token value securely (you will add it to GitHub Secrets as `ACCUKNOX_TOKEN` in Step 2).
 
 ![akuca-1.png](./images/github-unified-code-analysis-tool/akuca-1.png)
 ![akuca-2.png](./images/github-unified-code-analysis-tool/akuca-2.png)
