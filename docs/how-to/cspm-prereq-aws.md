@@ -13,7 +13,7 @@ When the AccuKnox control plane is hosted in a cloud environment, scanning is pe
 
 AWS onboarding requires creating an IAM user. Follow these steps to provide the user with appropriate read access:
 
-**Step 1:** Navigate to IAM → Users and click on Add Users
+**Step 1:** Navigate to IAM → IAM users and click on "Create user"
 
 ![image](images/iam-user-0.png)
 
@@ -25,15 +25,15 @@ AWS onboarding requires creating an IAM user. Follow these steps to provide the 
 
 a. Select "Attach policies directly"
 
-b. Search "ReadOnly", Filter by Type: "AWS managed - job function" and select the policy
+b. Search "ReadOnly", filter by Type: "AWS managed - job function" and select the policy
 
 ![image](images/iam-user-2.png)
 
-c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and select the policy
+c. Search "SecurityAudit", filter by Type: "AWS managed - job function" and select the policy
 
 ![image](images/iam-user-3.png)
 
-**Step 4:** Finish creating the user. Click on the newly created user and create the Access key and Secret Key from the Security Credentials tab to be used in the AccuKnox panel
+**Step 4:** Finish creating the user. Now, click on the newly created user, and create and save the "Access Key" and "Secret Key" from the Security Credentials tab, which is to be used in the AccuKnox panel
 
 ![image](images/iam-user-4.png)
 
