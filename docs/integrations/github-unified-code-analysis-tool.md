@@ -411,10 +411,10 @@ jobs:
 
 ## Benefits of Integration
 
-- Centralized monitoring and reporting across all seven scan types
+- Centralized monitoring and reporting across all six scan types
 - Early detection of issues during the development lifecycle, before code reaches production
 - Actionable remediation guidance for every finding
-- One action to configure instead of stitching together seven separate integrations
+- One action to configure instead of stitching together six separate integrations
 - Drops into an existing GitHub Actions pipeline with minimal setup
 
 ## Support & Documentation
