@@ -1,13 +1,13 @@
 ---
-title: SAST with Opengrep and AccuKnox
-description: Integrate Opengrep SAST with AccuKnox in your CI/CD pipeline to detect SQL Injection and other code vulnerabilities using continuous security monitoring.
+title: SAST Security - Detecting SQL Injection Vulnerabilities
+description: Integrate SAST scanning with AccuKnox in your CI/CD pipeline to detect SQL Injection and other code vulnerabilities using continuous security monitoring.
 ---
 
-# SAST with Opengrep and AccuKnox: Detecting SQL Injection Vulnerabilities
+# SAST Security - Detecting SQL Injection Vulnerabilities
 
-In this guide, we'll walk through integrating **Opengrep** for Static Application Security Testing (SAST) and **AccuKnox** for continuous security monitoring of Python code to detect **SQL Injection** vulnerabilities in your CI/CD pipeline.
+In this guide, we'll walk through integrating **Static Application Security Testing (SAST)** and **AccuKnox** for continuous security monitoring of Python code to detect **SQL Injection** vulnerabilities in your CI/CD pipeline.
 
-🔗 **Check it out on GitHub Marketplace:** [**AccuKnox-Opengrep SAST Scanner**](https://github.com/marketplace/actions/accuknox-sast-opengrep "https://github.com/marketplace/actions/accuknox-sast-opengrep")
+🔗 **Check it out on GitHub Marketplace:** [**AccuKnox SAST Scanner**](https://github.com/marketplace/actions/accuknox-sast-opengrep "https://github.com/marketplace/actions/accuknox-sast-opengrep")
 
 
 <iframe width="620" height="315" src="https://www.youtube.com/embed/ckqZ-vnHq-4" frameborder="0" allowfullscreen></iframe>
@@ -16,11 +16,11 @@ In this guide, we'll walk through integrating **Opengrep** for Static Applicatio
 
 You are maintaining a Python application, and your CI/CD pipeline automatically deploys changes to your application. You want to ensure that your code is checked for security vulnerabilities, especially **SQL Injection** attacks, which can compromise your application and data.
 
-The solution is to integrate **Opengrep** for scanning the Python code in your CI/CD pipeline and forward the results to **AccuKnox** for further analysis and issue tracking.
+The solution is to integrate a **SAST scanner** for scanning the Python code in your CI/CD pipeline and forward the results to **AccuKnox** for further analysis and issue tracking.
 
 ## Objective
 
-Integrate **Opengrep** into your CI/CD pipeline to detect **SQL Injection** vulnerabilities in Python code. Forward the scan results to **AccuKnox** to help track and manage security issues.
+Integrate **SAST scanning** into your CI/CD pipeline to detect **SQL Injection** vulnerabilities in Python code. Forward the scan results to **AccuKnox** to help track and manage security issues.
 
 ## Tools
 
@@ -98,7 +98,7 @@ jobs:
 
 - Triggers on **push** or **pull request** to the `main` branch.
 
-- Runs the **Opengrep** scan on the code.
+- Runs the **SAST** scan on the code.
 
 - Uploads the results to AccuKnox for further analysis.
 
@@ -151,4 +151,4 @@ Once the **AccuKnox** scan is integrated:
 
 ## Conclusion
 
-By integrating **Opengrep** for SAST scans and forwarding the results to **AccuKnox**, you can automate the detection and resolution of security vulnerabilities like **SQL Injection** in your Python codebase. This setup ensures that potential security risks are caught early in the CI/CD pipeline, providing a robust defense for your application.
+By integrating **SAST scanning** and forwarding the results to **AccuKnox**, you can automate the detection and resolution of security vulnerabilities like **SQL Injection** in your Python codebase. This setup ensures that potential security risks are caught early in the CI/CD pipeline, providing a defense for your application.

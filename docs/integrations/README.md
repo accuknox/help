@@ -30,7 +30,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [azure-dast.md](azure-dast.md) | Integrate AccuKnox DAST with Azure DevOps to automate the detection and resolution of runtime vulnerabilities in web applications. |
 | [azure-entra-sso.md](azure-entra-sso.md) | Integrate Azure Entra (formerly Azure Active Directory) with AccuKnox using OIDC for Single Sign-On (SSO) authentication. |
 | [azure-iac.md](azure-iac.md) | Secure Terraform, AWS CloudFormation, and Azure ARM templates in Azure DevOps by integrating AccuKnox IaC scanning for vulnerability detection. |
-| [azure-opengrep-sast.md](azure-opengrep-sast.md) | Integrate Opengrep SAST scanning into an Azure DevOps Pipeline and automatically forward results to AccuKnox for analysis and mitigation. |
+| [azure-opengrep-sast.md](azure-opengrep-sast.md) | Integrate SAST scanning into an Azure DevOps Pipeline and automatically forward results to AccuKnox for analysis and mitigation. |
 | [azure-overview.md](azure-overview.md) | Learn how to integrate azure with Rafay to automate security testing and deployment of your applications. |
 | [azure-pipeline-script.md](azure-pipeline-script.md) | Guide to run AccuKnox ASPM Scanner inside an Azure DevOps pipeline (Secret, Container, IaC, SAST, DAST scans). |
 | [azure-playbook.md](azure-playbook.md) | Step-by-step guide to installing AccuKnox from Azure Marketplace to enable zero trust CNAPP and strengthen cloud security with automated protection. |
@@ -82,6 +82,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [github-devtron-sast.md](github-devtron-sast.md) | Guide to configure AccuKnox ASPM SAST scans using Devtron and GitHub. |
 | [github-iac.md](github-iac.md) | Guide to performing IaC scans for GitHub repositories using AccuKnox SaaS to detect and remediate infrastructure misconfigurations. |
 | [github-overview.md](github-overview.md) | Learn how to integrate github with Rafay to automate security testing and deployment of your applications. |
+| [github-unified-code-analysis-tool.md](github-unified-code-analysis-tool.md) | Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, and SBOM scans in a GitHub CI/CD pipeline using the unified AccuKnox Code Analysis GitHub Action. |
 | [github-sast.md](github-sast.md) | Learn how to integrate Static Application Security Testing (SAST) with AccuKnox in a GitHub CI/CD pipeline. |
 | [gitlab-container-scan.md](gitlab-container-scan.md) | Integrate AccuKnox with GitLab CI/CD to detect and fix vulnerabilities in Docker images before deployment from code to cloud. |
 | [gitlab-container-variables.md](gitlab-container-variables.md) | Variables for the GitLab CI/CD pipeline to scan Docker images for security vulnerabilities. |
@@ -128,8 +129,8 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [nutanix-accuknox.md](nutanix-accuknox.md) | Install AccuKnox agents on a D2iQ managed cluster and onboard to AccuKnox SaaS to get visibility into your Kubernetes clusters. |
 | [nutanix-kubearmor.md](nutanix-kubearmor.md) | Integrate KubeArmor with Nutanix to enforce security policies at the pod and node level for your Nutanix clusters. |
 | [okta-sso.md](okta-sso.md) | Integrate Okta with AccuKnox using OpenID Connect (OIDC) for Single Sign-On (SSO) authentication. |
-| [opengrep-sast-bitbucket.md](opengrep-sast-bitbucket.md) | Integrate Opengrep SAST scanning into Bitbucket Pipelines and automatically forward results to AccuKnox for analysis and mitigation. |
-| [opengrep-sast.md](opengrep-sast.md) | Integrate Opengrep SAST scanning into a GitHub Actions workflow and forward results to AccuKnox for security analysis and mitigation. |
+| [opengrep-sast-bitbucket.md](opengrep-sast-bitbucket.md) | Integrate SAST scanning into Bitbucket Pipelines and automatically forward results to AccuKnox for analysis and mitigation. |
+| [opengrep-sast.md](opengrep-sast.md) | Integrate SAST scanning into a GitHub Actions workflow and forward results to AccuKnox for security analysis and mitigation. |
 | [oracle-playbook.md](oracle-playbook.md) | Step-by-step guide to subscribing and managing AccuKnox via Oracle Marketplace for streamlined deployment and monitoring. |
 | [powerapps-integration.md](powerapps-integration.md) | Integrating AccuKnox Prompt Firewall with Power Apps to secure LLM interactions. |
 | [rafay-accuknox.md](rafay-accuknox.md) | Deploy AccuKnox agents via Rafay to monitor Kubernetes clusters and enhance security with AccuKnox CNAPP following this step-by-step guide |

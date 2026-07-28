@@ -17,7 +17,7 @@ Before beginning, ensure the following:
 
 ### Integration Steps
 
-#### Step 1: Install AccuKnox Opengrep SAST Extension
+#### Step 1: Install AccuKnox Container Scan Extension
 
 1. Visit the **Azure DevOps Marketplace**
 

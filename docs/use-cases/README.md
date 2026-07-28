@@ -56,7 +56,7 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [prompt-firewall-overview.md](prompt-firewall-overview.md) | Real-time inline security for AI applications. Inspect, filter, and enforce policies on every prompt and response flowing between users and LLMs. |
 | [red-teaming.md](red-teaming.md) | Automated adversarial testing for LLMs and ML models. Continuously stress-test your AI applications against prompt injection, jailbreaks, toxicity, hallucina... |
 | [rules-engine-ticket-creation.md](rules-engine-ticket-creation.md) | Automate ticket creation in AccuKnox by defining rules, severity, and data types for a streamlined incident response process. |
-| [sast-sq.md](sast-sq.md) | Integrate Opengrep SAST with AccuKnox in your CI/CD pipeline to detect SQL Injection and other code vulnerabilities using continuous security monitoring. |
+| [sast-sq.md](sast-sq.md) | Integrate SAST scanning with AccuKnox in your CI/CD pipeline to detect SQL Injection and other code vulnerabilities using continuous security monitoring. |
 | [secret-scan-cicd-aws.md](secret-scan-cicd-aws.md) | Integrate AccuKnox Secret Scanning into GitHub Actions to proactively catch AWS credentials and secrets before they leak in your CI/CD pipeline. |
 | [serverless-security.md](serverless-security.md) | Comprehensive security solutions for Serverless functions, images, and platforms including AWS Lambda and Knative. |
 | [subprompts-categories.md](subprompts-categories.md) | Detailed breakdown of subprompt categories used in various detection probes, including sentiment analysis, code safety, hallucination, and prompt injection. |

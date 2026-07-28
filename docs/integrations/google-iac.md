@@ -40,7 +40,7 @@ Save these three values for use in Step 3:
 Drop the following file at the root of your repository as `cloudbuild.yaml`.
 
 ```yaml
-# AccuKnox IaC (Checkov) — Google Cloud Build Pipeline
+# AccuKnox IaC — Google Cloud Build Pipeline
 
 steps:
 
@@ -86,7 +86,7 @@ steps:
         echo "Scanner downloaded to /workspace/accuknox-aspm-scanner"
 
   # ---------------------------------------------------------------------------
-  # Step 3: Install Checkov, run the IaC scan, upload to AccuKnox CSPM
+  # Step 3: Install the IaC scanner, run the IaC scan, upload to AccuKnox CSPM
   # Install + scan run in the same step because ~/.local/bin/accuknox/ does not
   # persist across Cloud Build steps — only /workspace is shared.
   # ---------------------------------------------------------------------------
@@ -110,9 +110,9 @@ steps:
         apt-get update -qq
         apt-get install -y -qq --no-install-recommends ca-certificates
 
-        # Install the IaC tool (Checkov) locally
+        # Install the IaC tool locally
         # Required because we are not using --container-mode
-        echo "Installing IaC tool (Checkov)..."
+        echo "Installing IaC tool..."
         /workspace/accuknox-aspm-scanner tool install --type iac
 
         # Resolve soft-fail flag

@@ -34,7 +34,7 @@ Steps for Integration[¶](https://help.accuknox.com/integrations/gitlab-dast/#st
 |--------------------|-----------------------------------------------------------------------------|----------------|
 | `TARGET_URL`        | The URL of the web application to scan.                                    | N/A (Required) |
 | `SEVERITY_THRESHOLD`| The minimum severity level (e.g., High, Medium, Low) that will cause the pipeline to fail if present in the report. | High           |
-| `DAST_SCAN_TYPE`    | Type of ZAP scan to run: `'baseline'` or `'full-scan'`.                    | baseline       |
+| `DAST_SCAN_TYPE`    | Type of DAST scan to run: `'baseline'` or `'full-scan'`.                    | baseline       |
 | `SOFT_FAIL`         | Do not return an error code if there are failed checks.                    | true (boolean) |
 | `ACCUKNOX_ENDPOINT` | The URL of the CSPM panel to push the scan results to.                     | N/A (Required) |
 | `ACCUKNOX_LABEL`    | The label created in AccuKnox SaaS for associating scan results.           | N/A (Required) |

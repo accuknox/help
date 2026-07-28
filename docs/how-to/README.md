@@ -35,7 +35,12 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [cluster-offboarding.md](cluster-offboarding.md) | Instructions for offboarding a cluster from AccuKnox SaaS, ensuring a clean and secure removal process. Follow this step-by-step guide. |
 | [cluster-onboarding-access-keys.md](cluster-onboarding-access-keys.md) | Guide to onboarding multiple clusters using access keys, with options to set expiration times and limit the number of onboarded clusters. |
 | [cluster-onboarding.md](cluster-onboarding.md) | Step-by-step guide on onboarding clusters to AccuKnox SaaS, including installing KubeArmor and AccuKnox agents for secure integration. |
+| [code-source-onboarding.md](code-source-onboarding.md) | Connect GitHub, GitLab, or Bitbucket to AccuKnox with a native app and run SCA, Secrets, SAST, and IaC scans from the platform, with no CI/CD pipeline setup.... |
 | [create-access-keys.md](create-access-keys.md) | Guide on creating secure access keys in AccuKnox SaaS to authenticate and authorize user access and manage permissions effectively. |
+| [cspm-permissions-aws.md](cspm-permissions-aws.md) | The 403 read-only IAM permissions the AccuKnox CSPM scanner requests for AWS, with the reason for each. |
+| [cspm-permissions-azure.md](cspm-permissions-azure.md) | The 209 permissions in the AccuKnox CSPM Azure reader role, with the reason and impact for each. |
+| [cspm-permissions-gcp.md](cspm-permissions-gcp.md) | The 901 read-only permissions in the AccuKnox CSPM GCP custom role, with the reason for each. |
+| [cspm-permissions-overview.md](cspm-permissions-overview.md) | The read-only permissions AccuKnox CSPM requests for AWS, Azure, and GCP, and why each is needed. |
 | [cspm-prereq-aws.md](cspm-prereq-aws.md) | Onboarding pre-requisites for AWS accounts, including necessary permissions and configurations for secure integration. |
 | [cspm-prereq-azure.md](cspm-prereq-azure.md) | Pre-requisites and setup instructions for onboarding Azure cloud accounts to AccuKnox SaaS, ensuring automated security configuration. |
 | [cspm-prereq-gcp.md](cspm-prereq-gcp.md) | Pre-requisites and setup instructions for onboarding GCP cloud accounts to AccuKnox SaaS for continuous compliance and security checks. |
@@ -80,6 +85,10 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [sso.md](sso.md) | Step-by-step guide on inviting new users and setting up SSO for secure and streamlined login to the AccuKnox SaaS platform. |
 | [summarized-custom-reports.md](summarized-custom-reports.md) | Generate summarized custom reports with details on risks and vulnerabilities across cloud environments using AccuKnox CSPM for better visibility. |
 | [systemd-nonbtf.md](systemd-nonbtf.md) | This document provides the steps to onboard a node/control plane in a SystemD based non-BTF environment to the AccuKnox SaaS platform. |
+| [terraform-aws-onboarding.md](terraform-aws-onboarding.md) | Onboard a standalone AWS account to the AccuKnox platform using Terraform. Terraform provisions the IAM user, policies, and access keys needed to connect the... |
+| [terraform-azure-onboarding.md](terraform-azure-onboarding.md) | Onboard a standalone Azure subscription to the AccuKnox platform using Terraform. Terraform provisions the Azure AD application, service principal, and role... |
+| [terraform-cloud-onboarding.md](terraform-cloud-onboarding.md) | Onboard standalone AWS, Azure, and GCP cloud accounts to the AccuKnox platform using Terraform. Pick a cloud provider to get the prerequisites, Terraform con... |
+| [terraform-gcp-onboarding.md](terraform-gcp-onboarding.md) | Onboard a standalone GCP project to the AccuKnox platform using Terraform. Terraform provisions the service account, IAM roles, and service account key neede... |
 | [vm-onboard-access-keys.md](vm-onboard-access-keys.md) | Onboard VMs as control plane nodes using access keys in SystemD mode or Docker Container mode. Learn how to onboard and deboard VMs using the access key method. |
 | [vm-onboard-deboard-docker.md](vm-onboard-deboard-docker.md) | Steps to onboard and deboard VMs with Docker to the AccuKnox SaaS platform for monitoring and enforcing security policies. |
 | [vm-onboard-deboard-systemd.md](vm-onboard-deboard-systemd.md) | Step-by-step process to onboard VMs with Systemd/Docker mode on AccuKnox SaaS to enable automated security enforcement and monitoring. |

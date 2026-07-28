@@ -23,6 +23,9 @@ hide:
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/github-sast/
+- title: Unified Code Analysis
+  image: ./cicd-icons/UniCodeAnal.svg
+  url: /integrations/github-unified-code-analysis-tool/
 - title: Container Scan
   image: ./cicd-icons/container.svg
   url: /integrations/github-container-scan/

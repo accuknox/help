@@ -88,7 +88,7 @@ steps:
 
   # ---------------------------------------------------------------------------
   # Step 3: Build the image, run vulnerability scan, optionally run SBOM scan
-  # docker.io is installed because the scanner runs Trivy in --container-mode.
+  # docker.io is installed because the scanner runs in --container-mode.
   # ---------------------------------------------------------------------------
   - id: run-container-scan
     name: ubuntu:24.04

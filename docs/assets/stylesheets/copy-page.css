@@ -1,10 +1,27 @@
 /* Copy page split-button — sits above the H1 on every article. */
 
+/* Title row: heading on the left, copy button pinned top-right. Flex (not
+   float) so a long title wraps within its own column and never leaves an
+   empty gap under the heading. */
+.ak-copy-page-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.8em;
+}
+
+.ak-copy-page-row .ak-copy-page-h1 {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .ak-copy-page {
   position: relative;
   display: inline-flex;
-  float: right;
-  margin: 0 0 0.5rem 1rem;
+  flex: 0 0 auto;
+  margin: 0.2rem 0 0;
   font-family: var(--md-text-font-family, inherit);
   font-size: 0.75rem;
 }
@@ -96,11 +113,12 @@
   margin-left: 0.15rem;
 }
 
-/* Make sure the H1 doesn't wrap awkwardly around the floated button on narrow viewports */
+/* On narrow viewports let the button drop below the title instead of squeezing it */
 @media screen and (max-width: 600px) {
+  .ak-copy-page-row {
+    flex-wrap: wrap;
+  }
   .ak-copy-page {
-    float: none;
-    display: inline-flex;
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.5rem;
   }
 }
