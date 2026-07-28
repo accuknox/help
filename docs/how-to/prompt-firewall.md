@@ -34,7 +34,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
     - **Policy Violations**
     - **Active Policies**
 
-![AI-Security-Dashboard](https://accuknox.com/wp-content/uploads/Application-Security-Dashboard-3.png)
+![AI-Security-Dashboard](images/prompt-firewall/ai-security-dashboard.png)
 
 ## Step 2: Review Violations
 
@@ -42,7 +42,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 - Click violation count for details.
 - See breakdown by **Policy**.
 
-![Analyze-Violations-](https://accuknox.com/wp-content/uploads/Analyze-Violations-4-1.png)
+![Analyze-Violations-](images/prompt-firewall/analyze-violations.png)
 
 ## Step 3: Policy Types (Prompt vs. Response)
 
@@ -50,7 +50,7 @@ This guide walks you through configuring input/output policies in AccuKnox for p
   [Details](https://help.accuknox.com/use-cases/subprompts-categories/?h=prompt)
 - **Response Policies**: Output control (e.g., block vulnerable code, data leaks).
 
-![Differentiate-Your-Defenses](https://accuknox.com/wp-content/uploads/Differentiate-Your-Defenses.png)
+![Differentiate-Your-Defenses](images/prompt-firewall/differentiate-your-defenses.png)
 
 | Policy Type      | Example Scenario                                                      | Primary Use Case                                                                 |
 |------------------|-----------------------------------------------------------------------|----------------------------------------------------------------------------------|
@@ -86,8 +86,8 @@ This guide walks you through configuring input/output policies in AccuKnox for p
     - **Global Policies**: Apply across all apps.
     - **Local Policies**: Specific to selected app only.
 
-![Add local policy](https://accuknox.com/wp-content/uploads/add-local-policy-1-1024x482.png)
-![Applied policies](https://accuknox.com/wp-content/uploads/applied-policies-1024x481.png)
+![Add local policy](images/prompt-firewall/add-local-policy.png)
+![Applied policies](images/prompt-firewall/applied-policies.png)
 
 ## Step 5: Audit & Trace
 

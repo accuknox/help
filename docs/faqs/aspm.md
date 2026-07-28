@@ -83,16 +83,16 @@ hide:
     + Scans the full codebase for security flaws including SQL injection, command injection, XSS, insecure cryptographic practices, hardcoded credentials, insecure API usage, and coding standards violations.
     + Analyzes both proprietary application code and the libraries it imports for comprehensive vulnerability coverage.
     + Runs in developer IDEs for real-time feedback during coding, on code commits for pre-merge gates, and in CI/CD pipelines for build-phase security checks.
-    + AccuKnox uses OpenGrep-based SAST scanning with AI-acceleration for faster scan cycles without sacrificing detection quality.
+    + AccuKnox's built-in SAST engine uses AI-acceleration for faster scan cycles without sacrificing detection quality.
     + SAST findings are uploaded to the AccuKnox dashboard and correlated with DAST findings from the same application — so teams can validate which static vulnerabilities are also dynamically exploitable.
     + Supports multiple languages and frameworks for versatile integration across polyglot development environments.
 
     **References:**
     - [SAST Use Case (SonarQube)](https://help.accuknox.com/use-cases/sast-sq/)
 
-??? "**7. How does AccuKnox SAST work with OpenGrep?**"
-    AccuKnox uses OpenGrep as its native SAST engine — no third-party scanner instance required:
-    + OpenGrep is an open-source, high-performance static analysis engine. AccuKnox embeds it directly into the platform, so teams get SAST out of the box without setting up or maintaining a separate SonarQube or SonarCloud instance.
+??? "**7. Does AccuKnox SAST require a separate scanning tool like SonarQube?**"
+    AccuKnox includes a native, built-in SAST engine — no third-party scanner instance required:
+    + AccuKnox's SAST engine is a high-performance static analysis engine built directly into the platform, so teams get SAST out of the box without setting up or maintaining a separate SonarQube or SonarCloud instance.
     + Scans run inside CI/CD pipelines via the AccuKnox GitHub Action, GitLab CI/CD plugin, Jenkins integration, or Azure DevOps task — triggered on every push or pull request.
     + Results are uploaded automatically to the AccuKnox dashboard under Issues → Findings, where they are correlated with DAST, SCA, IaC, and container scan findings from the same application for a unified posture view.
     + AI-accelerated scan mode reduces scan cycle times without sacrificing detection coverage — useful for teams with large codebases that need fast pipeline feedback.

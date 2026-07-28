@@ -144,8 +144,14 @@
     const h1 = article.querySelector("h1");
     const btn = buildButton();
     if (h1) {
+      // Put the H1 and the button in a flex row so a long, wrapping title never
+      // leaves an empty gap under the heading (the old float layout did).
+      const row = document.createElement("div");
+      row.className = "ak-copy-page-row";
       h1.classList.add("ak-copy-page-h1");
-      h1.parentNode.insertBefore(btn, h1);
+      h1.parentNode.insertBefore(row, h1);
+      row.appendChild(h1);
+      row.appendChild(btn);
     } else {
       article.prepend(btn);
     }

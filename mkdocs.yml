@@ -144,9 +144,11 @@ extra_css:
 - "assets/stylesheets/neoteroi-mkdocs.css"
 - "assets/stylesheets/banner.css"
 - "assets/stylesheets/copy-page.css"
+- "assets/stylesheets/iam-tables.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js
+  - javascripts/iam-tables.js
 extra:
   analytics:
     provider: google
@@ -207,6 +209,11 @@ nav:
             - "AWS": "how-to/cspm-prereq-aws.md"
             - "Azure": "how-to/cspm-prereq-azure.md"
             - "GCP": "how-to/cspm-prereq-gcp.md"
+      - "IAM Permissions Reference":
+            - "Overview": "how-to/cspm-permissions-overview.md"
+            - "AWS": "how-to/cspm-permissions-aws.md"
+            - "Azure": "how-to/cspm-permissions-azure.md"
+            - "GCP": "how-to/cspm-permissions-gcp.md"
       - "Onboarding":
         - "AWS" : "how-to/aws-onboarding.md"
         - "AWS Organizations" : "how-to/aws-org-onboard.md"
@@ -214,6 +221,11 @@ nav:
         - "Azure Organizations" : "how-to/azure-org-onboard.md"
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
+        - "Terraform Onboarding":
+          - "how-to/terraform-cloud-onboarding.md"
+          - "AWS" : "how-to/terraform-aws-onboarding.md"
+          - "Azure" : "how-to/terraform-azure-onboarding.md"
+          - "GCP" : "how-to/terraform-gcp-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
     - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
@@ -255,7 +267,10 @@ nav:
         - "PHP-MySQL": "getting-started/php-mysql.md"
     - "VM Security":
       - "Agent Based":
-        - "Linux": "how-to/vm-security/agent-based/linux.md"
+        - "Linux":
+          - "Overview": "how-to/vm-security/agent-based/linux.md"
+          - "Ubuntu": "how-to/vm-security/agent-based/ubuntu.md"
+          - "RHEL": "how-to/vm-security/agent-based/rhel.md"
         - "Windows": "how-to/vm-security/agent-based/windows.md"
         - "Container Image Scanning": "how-to/vm-security/agent-based/container-image-scanning.md"
       - "Agentless":
@@ -263,6 +278,7 @@ nav:
         - "Azure Cloud VM Scan": "how-to/vm-security/agentless/azure-cloud-vm.md"
     - "Application Security (ASPM)":
       - "Overview": "how-to/aspm-overview.md"
+# - "Connect Source Code (App-based)": "how-to/code-source-onboarding.md"  # not ready to publish
       - "DAST Scan Types": "how-to/dast-scan-types.md"
       - "DAST Unauthenticated Scan": "how-to/dast-scan-no-auth.md"
       - "DAST Authenticated Scan": "how-to/dast-authenticated-scans.md"
@@ -370,7 +386,7 @@ nav:
           - "Secret Scan": "integrations/bamboo-secret-scan.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
-          - "SAST (OpenGrep)": "integrations/google-opengrep-sast.md"
+          - "SAST": "integrations/google-opengrep-sast.md"
           - "SQ-SAST (SonarQube)": "integrations/google-sast.md"
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
@@ -404,6 +420,8 @@ nav:
             - "SAST": "integrations/github-sast.md"
             - "SAST (Opengrep)": "integrations/opengrep-sast.md"
             - "Unified Code Analysis Tool": "integrations/github-unified-code-analysis-tool.md"
+            - "SAST (SonarQube)": "integrations/github-sast.md"
+            - "SAST": "integrations/opengrep-sast.md"
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
             - "DAST": "integrations/github-dast.md"
@@ -612,6 +630,7 @@ nav:
     - "Sample Reports": "resources/sample-reports.md"
     - "Asset Onboarding Deck": "https://docs.google.com/presentation/d/e/2PACX-1vSNns23fmwfVgaoBIvR1fL7fk_Be6GYUJLwRticjlm4cBvIAqzxm4IF7RV7qsV00KrrRFGDjOIVG0Q2/pub?start=false&loop=false&delayms=3000"
     - "Compliance Baseline Data": "resources/compliance-baseline-data.md"
+    - "Data Retention Policy": "resources/data-retention-policy.md"
     - "Essential 8 Compliance": "https://accuknox.com/blog/accuknox-essential-8-compliance-zero-trust"
     # - "Data Usage Policy": "resources/data-usage-policy.md"  # ADD THESE BACK IN LATER
     # - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
@@ -641,6 +660,7 @@ nav:
     - "Release Notes":
           - "AccuKnox" :
             - "Overview": "getting-started/accuknox-release-notes.md"
+# - "v3.6": "getting-started/3.6-release.md"  # not ready to publish
             - "v3.5": "getting-started/3.5-release.md"
             - "v3.4": "getting-started/3.4-release.md"
             - "v3.3": "getting-started/3.3-release.md"
