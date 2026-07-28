@@ -90,9 +90,9 @@ jobs:
           scan_type: "sast, sca, secret, iac, ml, sbom"
 
           # AccuKnox credentials
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
 
           # Common options
           soft_fail: true            # Continue the pipeline on findings
@@ -195,9 +195,9 @@ jobs:
         uses: accuknox/accuknox-code-analysis@latest
         with:
           scan_type: "sast"
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
           sast_severity: "HIGH,CRITICAL"
           soft_fail: true
 ```
@@ -218,9 +218,9 @@ jobs:
         uses: accuknox/accuknox-code-analysis@latest
         with:
           scan_type: "sca"
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
           sca_severity: "HIGH,CRITICAL"
           soft_fail: true
 ```
@@ -243,9 +243,9 @@ jobs:
         uses: accuknox/accuknox-code-analysis@latest
         with:
           scan_type: "secret"
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
           soft_fail: true
 ```
 
@@ -265,9 +265,9 @@ jobs:
         uses: accuknox/accuknox-code-analysis@latest
         with:
           scan_type: "iac"
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
           soft_fail: true
 ```
 
@@ -287,9 +287,9 @@ jobs:
         uses: accuknox/accuknox-code-analysis@latest
         with:
           scan_type: "ml"
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
           soft_fail: true
 ```
 
@@ -325,9 +325,9 @@ jobs:
         uses: accuknox/accuknox-code-analysis@latest
         with:
           scan_type: "sbom"
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
           sbom_scan_type: "filesystem"
           sbom_scan_path: "."
           sbom_project_name: "my-project"   # required for SBOM
@@ -358,9 +358,9 @@ jobs:
           scan_type: "sast, sca, secret, iac, ml, sbom"
 
           # AccuKnox credentials
-          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
-          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          accuknox_token: ${{'{{'}} secrets.ACCUKNOX_TOKEN {{'}}'}}
+          accuknox_endpoint: ${{'{{'}} secrets.ACCUKNOX_ENDPOINT {{'}}'}}
+          accuknox_label: ${{'{{'}} secrets.ACCUKNOX_LABEL {{'}}'}}
 
           # Common options
           soft_fail: true
