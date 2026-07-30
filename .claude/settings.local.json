@@ -16,7 +16,10 @@
       "Bash(gh repo *)",
       "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] SEO Health Monitoring' --body ' *)",
       "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Content Performance Tracking' --body ' *)",
-      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Visitor Intelligence Reports' --body ' *)"
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Visitor Intelligence Reports' --body ' *)",
+      "Skill(firecrawl-parse)",
+      "Skill(firecrawl-parse:*)",
+      "Bash(gh api *)"
     ]
   }
 }
