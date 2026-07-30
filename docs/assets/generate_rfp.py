@@ -471,7 +471,7 @@ def add_section_5(doc):
         "Pre-built compliance reporting (SOC 2, PCI, HIPAA, GDPR)",
         "SOC-optimized dark-mode UI designed to reduce analyst fatigue",
         "SOAR integration for automated incident response playbooks",
-        "10,000+ events/second processing, 100GB+ daily ingestion, sub-second search",
+        "10,000+ events/second processing, 1TB / day per tenant ingestion, sub-second search",
         "Hot/warm/cold data tiering for cost efficiency",
     ]:
         add_bullet(doc, b)

@@ -406,6 +406,8 @@ nav:
           - "Secret Scan": "integrations/jenkins-secret-scan.md"
           - "Container Scan": "integrations/jenkins-container-scan.md"
           - "SBOM": "integrations/jenkins-sbom.md"
+          - "SBOM (Filesystem)": "integrations/jenkins-sbom-filesystem.md"
+          - "xBOM": "integrations/jenkins-xbom.md"
           - "Multi-Artifact (SCA)": "integrations/jenkins-artifact-scan.md"
         - "AWS Code Pipeline":
           - "Overview": "integrations/aws-overview.md"
@@ -427,6 +429,7 @@ nav:
             - "Devtron DAST": "integrations/github-devtron-dast.md"
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
+            - "Unified Code Analysis": "integrations/gitlab-unified-code-analysis-tool.md"
             - "SAST": "integrations/gitlab-opengrep.md"
             - "SAST (SonarQube)": "integrations/gitlab-sast.md"
             - "Container Scan": "integrations/gitlab-container-scan.md"
@@ -436,6 +439,7 @@ nav:
             - "Secret Scan": "integrations/gitlab-secret-scan.md"
         - "Bitbucket":
             - "Overview": "integrations/bitbucket-overview.md"
+            - "Unified Code Analysis": "integrations/bitbucket-unified-code-analysis-tool.md"
             - "SAST": "integrations/opengrep-sast-bitbucket.md"
             - "SAST (SonarQube)": "integrations/bitbucket-sast.md"
             - "Container Scan": "integrations/bitbucket-container-scan.md"

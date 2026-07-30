@@ -57,6 +57,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [bitbucket-sast-variables.md](bitbucket-sast-variables.md) | Variables used in the Bitbucket CI/CD pipeline for Static Application Security Testing (SAST) scanning |
 | [bitbucket-sast.md](bitbucket-sast.md) | Integrate SonarQube SAST into Bitbucket CI/CD with AccuKnox to detect and fix code vulnerabilities before deployment. |
 | [bitbucket-secret-scan.md](bitbucket-secret-scan.md) | This guide explains integrating AccuKnox Secret Scanning into your Bitbucket CI/CD Pipeline. The integration enhances code security by detecting hard-coded s... |
+| [bitbucket-unified-code-analysis-tool.md](bitbucket-unified-code-analysis-tool.md) | Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, API Discovery, and SBOM scans in a Bitbucket Pipeline using the AccuKnox Unified Scan pipe. |
 | [checkmarx.md](checkmarx.md) | Use Checkmarx SAST with AccuKnox to detect code flaws in CI/CD pipelines and enrich results with metadata for analysis. |
 | [chrome-browser-integration.md](chrome-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Chrome and real-time prompt and response filtering in ChatGPT, Claude, Gi... |
 | [cicd-overview.md](cicd-overview.md) | Check out the integration mechanisms and feature availability for key DevOps and security functionalities across popular CI/CD platforms. |
@@ -95,6 +96,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [gitlab-sast-variables.md](gitlab-sast-variables.md) | Configure GitLab CI/CD variables for SAST with AccuKnox to automate code vulnerability detection and ensure secure, high-quality code deployment. |
 | [gitlab-sast.md](gitlab-sast.md) | Use SonarQube with AccuKnox in GitLab CI/CD to identify and remediate code vulnerabilities, enhancing code security and improving development workflows. |
 | [gitlab-secret-scan.md](gitlab-secret-scan.md) | This guide walks you through integrating AccuKnox Secret Scanning into your GitLab CI/CD pipeline to improve code security. The integration helps identify ha... |
+| [gitlab-unified-code-analysis-tool.md](gitlab-unified-code-analysis-tool.md) | Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, API Discovery, and SBOM scans in a GitLab CI/CD pipeline using the AccuKnox Unified Scan component. |
 | [google-build.md](google-build.md) | Integrate AccuKnox container image scanning into Google Cloud Build to catch vulnerabilities in your Docker images before they ship to production. The pipeli... |
 | [google-dast.md](google-dast.md) | Integrate AccuKnox DAST scanning into Google Cloud Build to catch runtime vulnerabilities in your live application. The pipeline uses the AccuKnox ASPM Scann... |
 | [google-iac.md](google-iac.md) | Integrate AccuKnox IaC scanning into Google Cloud Build to catch infrastructure misconfigurations before they hit production. The pipeline uses the AccuKnox... |
@@ -115,8 +117,10 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [jenkins-installation.md](jenkins-installation.md) | One-time installation and global configuration of the AccuKnox ASPM Scanner plugin in Jenkins. |
 | [jenkins-overview.md](jenkins-overview.md) | Integrate AccuKnox ASPM scans into Jenkins pipelines for SAST, IaC, Secret, Container, SBOM, and SCA. |
 | [jenkins-sast.md](jenkins-sast.md) | Run Static Application Security Testing in a Jenkins pipeline using the AccuKnox ASPM plugin. |
+| [jenkins-sbom-filesystem.md](jenkins-sbom-filesystem.md) | Generate a CycloneDX SBOM from any Git repository filesystem in a Jenkins pipeline using the AccuKnox ASPM plugin. |
 | [jenkins-sbom.md](jenkins-sbom.md) | Generate a CycloneDX SBOM for a container image from a Jenkins pipeline using the AccuKnox ASPM plugin. |
 | [jenkins-secret-scan.md](jenkins-secret-scan.md) | Walk full git history for committed secrets in a Jenkins pipeline using the AccuKnox ASPM plugin. |
+| [jenkins-xbom.md](jenkins-xbom.md) | Generate SBOM, CBOM, and AIBOM in one Jenkins pipeline using the AccuKnox xBOM plugin for complete supply-chain visibility. |
 | [jira-cloud.md](jira-cloud.md) | Integrate AccuKnox with Jira Cloud for streamlined security incident tracking using a Zero Trust CNAPP approach. |
 | [jira-server-cspm.md](jira-server-cspm.md) | Integrate AccuKnox with Jira to automate the process of generating Jira tickets with your existing security workflow. |
 | [ka-eks-add-on.md](ka-eks-add-on.md) | Install KubeArmor on your EKS cluster using Amazon EKS add-on method for enforcing security policies at the pod and node level. |
