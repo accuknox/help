@@ -1,13 +1,13 @@
 ---
 title: Running Unified Scans with AccuKnox in a GitLab CI/CD Pipeline
-description: Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, API Discovery, and SBOM scans in a GitLab CI/CD pipeline using the AccuKnox Unified Scan component.
+description: Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, and SBOM scans in a GitLab CI/CD pipeline using the AccuKnox Unified Scan component.
 ---
 
 # Running Unified Scans with AccuKnox in a GitLab CI/CD Pipeline
 
 ## Overview
 
-This guide demonstrates how to integrate the **AccuKnox Unified Scan** component into a GitLab CI/CD pipeline. Unlike the individual per-scan GitLab components, Unified Scan runs any combination of ASPM scans, SAST, SCA, Secrets, IaC, ML, API Discovery, and SBOM, from a single component, and forwards the results to AccuKnox for centralized security analysis and remediation.
+This guide demonstrates how to integrate the **AccuKnox Unified Scan** component into a GitLab CI/CD pipeline. Unlike the individual per-scan GitLab components, Unified Scan runs any combination of ASPM scans, SAST, SCA, Secrets, IaC, ML, and SBOM, from a single component, and forwards the results to AccuKnox for centralized security analysis and remediation.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Define the following variables under **Settings → CI/CD → Variables**:
 
 | Parameter | Description |
 |-----------|-------------|
-| `SCAN_TYPE` | Comma or space separated list of scans to run: `sast`, `sca`, `secret`, `iac`, `ml`, `api-discovery`, `sbom`. Required. |
+| `SCAN_TYPE` | Comma or space separated list of scans to run: `sast`, `sca`, `secret`, `iac`, `ml`, `sbom`. Required. |
 | `STAGE` | Pipeline stage in which the scan job runs. |
 | `SOFT_FAIL` | Do not fail the job if a scan finds issues (applies to all scans). |
 | `SAST_SEVERITY` | SAST: comma-separated severities to report (`LOW`, `MEDIUM`, `HIGH`, `CRITICAL`). |
@@ -77,7 +77,7 @@ variables:
 include:
   - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
     inputs:
-      SCAN_TYPE: "sast, sca, secret, iac, ml, api-discovery, sbom"
+      SCAN_TYPE: "sast, sca, secret, iac, ml, sbom"
       SOFT_FAIL: true
       SAST_SEVERITY: "HIGH,CRITICAL"
       SBOM_SCAN_TYPE: "filesystem"
@@ -214,7 +214,7 @@ variables:
 include:
   - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
     inputs:
-      SCAN_TYPE: "sast, sca, secret, iac, ml, api-discovery, sbom"
+      SCAN_TYPE: "sast, sca, secret, iac, ml, sbom"
       SOFT_FAIL: true
       SAST_SEVERITY: "HIGH,CRITICAL"
       SBOM_SCAN_TYPE: "filesystem"
@@ -238,7 +238,7 @@ With Unified Scan integrated, results from every selected scan type are automati
 
 **Step 1**: Log in to the AccuKnox SaaS dashboard.
 
-**Step 2**: Go to **Issues → Findings** and select the finding type that matches the scan you ran (for example, Opengrep Findings for SAST, or the equivalent view for SCA, Secret, IaC, ML, or API Discovery). For SBOM, go to **SBOM → Projects** and open the project named in `SBOM_PROJECT_NAME`.
+**Step 2**: Go to **Issues → Findings** and select the finding type that matches the scan you ran (for example, Opengrep Findings for SAST, or the equivalent view for SCA, Secret, IaC, or ML). For SBOM, go to **SBOM → Projects** and open the project named in `SBOM_PROJECT_NAME`.
 
 ![gitlab-uca-5.png](./images/gitlab-unified-code-analysis-tool/gitlab-uca-5.png)
 
@@ -254,4 +254,4 @@ With Unified Scan integrated, results from every selected scan type are automati
 
 ## Conclusion
 
-Integrating Unified Scan with AccuKnox in GitLab CI/CD consolidates SAST, SCA, Secrets, IaC, ML, API Discovery, and SBOM scanning into a single component. You get centralized monitoring, early detection across the full application security surface, and actionable findings you can act on before code ships.
+Integrating Unified Scan with AccuKnox in GitLab CI/CD consolidates SAST, SCA, Secrets, IaC, ML, and SBOM scanning into a single component. You get centralized monitoring, early detection across the full application security surface, and actionable findings you can act on before code ships.

@@ -1,6 +1,6 @@
 ---
 title: Running Unified Scans with AccuKnox in a Bitbucket Pipeline
-description: Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, API Discovery, and SBOM scans in a Bitbucket Pipeline using the AccuKnox Unified Scan pipe.
+description: Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, and SBOM scans in a Bitbucket Pipeline using the AccuKnox Unified Scan pipe.
 ---
 
 # Running Unified Scans with AccuKnox in a Bitbucket Pipeline
@@ -58,7 +58,7 @@ These apply to every scan.
 
 | Variable | Description |
 |----------|-------------|
-| `SCAN_TYPE` | Comma or space separated list of scans to run: `sast`, `sca`, `secret`, `iac`, `ml`, `api-discovery`, `sbom`. Required. |
+| `SCAN_TYPE` | Comma or space separated list of scans to run: `sast`, `sca`, `secret`, `iac`, `ml`, `sbom`. Required. |
 | `ACCUKNOX_ENDPOINT` | URL of the AccuKnox Console to push scan results to. Required. |
 | `ACCUKNOX_TOKEN` | Token for authenticating with the AccuKnox Console. Required. |
 | `ACCUKNOX_LABEL` | Label created in AccuKnox SaaS for associating scan results. Required. |
@@ -286,7 +286,7 @@ pipelines:
           script:
             - pipe: docker://public.ecr.aws/k9v9d5v2/bitbucket:unified-scan-1.0.12
               variables:
-                SCAN_TYPE: "sast, sca, secret, iac, ml, api-discovery, sbom"
+                SCAN_TYPE: "sast, sca, secret, iac, ml, sbom"
                 SOFT_FAIL: "true"
                 SAST_SEVERITY: "HIGH,CRITICAL"
                 SBOM_PROJECT_NAME: "my-service"
@@ -322,7 +322,7 @@ definitions:
 
 ### Keeping Result Files as Build Artifacts
 
-The secret, SAST, API discovery, and SBOM scans keep their result files (`results*.json`, `results*.jsonl`) in the clone directory. Capture them with a Bitbucket artifacts block:
+The secret, SAST, and SBOM scans keep their result files (`results*.json`, `results*.jsonl`) in the clone directory. Capture them with a Bitbucket artifacts block:
 
 ```yaml
 - step:
@@ -357,7 +357,7 @@ With Unified Scan integrated, results from every selected scan type are automati
 
 **Step 1**: Log in to the AccuKnox SaaS dashboard.
 
-**Step 2**: Go to **Issues → Findings** and select the finding type that matches the scan you ran (for example, IaC Findings, Opengrep Findings for SAST, or the equivalent view for SCA, Secret, ML, or API Discovery). For SBOM, go to **SBOM → Projects** and open the project named in `SBOM_PROJECT_NAME`.
+**Step 2**: Go to **Issues → Findings** and select the finding type that matches the scan you ran (for example, IaC Findings, Opengrep Findings for SAST, or the equivalent view for SCA, Secret, or ML). For SBOM, go to **SBOM → Projects** and open the project named in `SBOM_PROJECT_NAME`.
 
 ![bitbucket-uca-6.png](./images/bitbucket-unified-code-analysis-tool/bitbucket-uca-6.png)
 
@@ -373,4 +373,4 @@ With Unified Scan integrated, results from every selected scan type are automati
 
 ## Conclusion
 
-Integrating Unified Scan with AccuKnox in Bitbucket Pipelines consolidates SAST, SCA, Secrets, IaC, ML, API Discovery, and SBOM scanning into a single pipe step. You get centralized monitoring, early detection across the full application security surface, and actionable findings you can act on before code ships.
+Integrating Unified Scan with AccuKnox in Bitbucket Pipelines consolidates SAST, SCA, Secrets, IaC, ML, and SBOM scanning into a single pipe step. You get centralized monitoring, early detection across the full application security surface, and actionable findings you can act on before code ships.
