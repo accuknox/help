@@ -380,12 +380,12 @@ jobs:
 1. **Developer pushes code**: a push or pull request triggers the GitHub Action.
 2. **Scanner setup (once)**: the action checks credentials, parses `scan_type`, and downloads the `accuknox-aspm-scanner` binary for the requested `scanner_version`.
 3. **Selected scans run**: each enabled scan runs in `--command` mode inside a container, building its arguments from your `<type>_command` and scan specific inputs:
-   - **SAST** → OpenGrep static analysis
-   - **SCA** → Trivy dependency and composition analysis
-   - **Secret** → TruffleHog secret detection
-   - **IaC** → Checkov misconfiguration checks (per framework, if you set one)
-   - **ML** → ModelScan static ML model analysis
-   - **SBOM** → CycloneDX bill of materials for an image or filesystem
+     - **SAST** → OpenGrep static analysis
+     - **SCA** → Trivy dependency and composition analysis
+     - **Secret** → TruffleHog secret detection
+     - **IaC** → Checkov misconfiguration checks (per framework, if you set one)
+     - **ML** → ModelScan static ML model analysis
+     - **SBOM** → CycloneDX bill of materials for an image or filesystem
 4. **Results uploaded to AccuKnox Console**: using the `accuknox_token` and `accuknox_label` you provided.
 5. **Optional artefact upload**: when `upload_artifact: true`, kept result files get saved as a GitHub artifact.
 6. **Review findings**: available in the AccuKnox Console under **Dashboard → Issues → Findings**, filtered by scan type.
@@ -424,4 +424,4 @@ jobs:
 
 ## Conclusion
 
-The AccuKnox Code Analysis GitHub Action brings seven scanners, SAST, SCA, Secret, IaC, ML, and SBOM, into one configurable step. Run them together, review findings in the AccuKnox Console, and enforce policy gates across your CI/CD pipeline from a single action, all the way from commit to cloud.
+The AccuKnox Code Analysis GitHub Action brings six scanners, SAST, SCA, Secret, IaC, ML, and SBOM, into one configurable step. Run them together, review findings in the AccuKnox Console, and enforce policy gates across your CI/CD pipeline from a single action, all the way from commit to cloud.
