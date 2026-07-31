@@ -2,16 +2,16 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "ai-soc-prototype",
+      "name": "homepage-preview",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8137", "--directory", "D:/Atharva/AccuKnox/HelpDocs/AI-SOC/prototype"],
-      "port": 8137
+      "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.preview.yml", "--dirty"],
+      "port": 8010
     },
     {
-      "name": "mkdocs",
-      "runtimeExecutable": "mkdocs",
-      "runtimeArgs": ["serve", "-a", "127.0.0.1:8000"],
-      "port": 8000
+      "name": "full-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.yml", "--dirty"],
+      "port": 8011
     }
   ]
 }

@@ -15,16 +15,90 @@ hide:
   .nt-card-img img{
     color: #00025;
   }
+
+  /* Module chips: the 8 AI security modules as a compact pill row. Wraps
+     naturally on narrow screens, no fixed column count to fight.
+     The selector has to out-specify Material's own
+     `.md-typeset ul:not([hidden]){display:flow-root}`, hence the
+     `ul.ak-modules:not([hidden])` shape rather than a plain class. */
+  .md-typeset ul.ak-modules:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin: .9rem 0 1.4rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .md-typeset ul.ak-modules li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .md-typeset ul.ak-modules li::marker { content: none; }
+
+  .md-typeset .ak-module {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .38rem .8rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 999px;
+    background: var(--md-code-bg-color);
+    color: var(--md-default-fg-color);
+    font-size: .78rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: border-color .15s, background .15s, color .15s;
+  }
+
+  .md-typeset a.ak-module {
+    color: var(--md-default-fg-color);
+  }
+
+  .md-typeset a.ak-module:hover {
+    border-color: var(--md-primary-fg-color);
+    background: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+  }
+
+  .md-typeset a.ak-module::after {
+    content: "→";
+    font-weight: 400;
+    opacity: .55;
+  }
+
+  .md-typeset .ak-module--soon {
+    border-style: dashed;
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    font-weight: 500;
+  }
+
+  .md-typeset .ak-module--soon span {
+    padding: .05rem .35rem;
+    border-radius: 4px;
+    background: var(--md-default-fg-color--lightest);
+    font-size: .64rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
 </style>
 
-- AccuKnox AI-SPM discovers and protects your AI/ML assets.
-- Run every AI security module from one console:
-  - **AI Detect & Respond (AI-DR)**
-  - **Agentic AI Security**
-  - **AI Model & Dataset Security**
-  - **AI Red Teaming & Pen Testing**
-  - **AI Guardrails (Prompt Firewall)**
-- **AI Identity Security** and **AI Compliance & Governance (AI-GRC)** are coming soon.
+AccuKnox AI-SPM discovers and protects your AI/ML assets. Run every AI security module from one console:
+
+<ul class="ak-modules">
+  <li><a class="ak-module" href="/use-cases/aidr/">AI Detect &amp; Respond (AI-DR)</a></li>
+  <li><a class="ak-module" href="/use-cases/modelarmor/">Agentic AI Security</a></li>
+  <li><a class="ak-module" href="/use-cases/modelarmor-pickle-code/">AI Model &amp; Dataset Security</a></li>
+  <li><a class="ak-module" href="/use-cases/red-teaming/">AI Red Teaming &amp; Pen Testing</a></li>
+  <li><a class="ak-module" href="/use-cases/prompt-firewall-overview/">AI Guardrails (Prompt Firewall)</a></li>
+  <li><span class="ak-module ak-module--soon">AI Identity Security <span>Coming soon</span></span></li>
+  <li><span class="ak-module ak-module--soon">AI Compliance &amp; Governance (AI-GRC) <span>Coming soon</span></span></li>
+</ul>
 
 ## Cloud Onboarding
 

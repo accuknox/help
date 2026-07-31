@@ -6,8 +6,19 @@ hide:
   - toc
 ---
 
+<div class="ak-no-copy-page" hidden></div>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+  /* Responsive design tokens.
+     --home-gutter fluidly scales the side padding of every full-bleed section
+     from 16px on small phones up to 60px on desktop, so nothing is cramped on
+     mobile or over-padded on large screens. */
+  :root {
+    --home-gutter: clamp(1rem, 5vw, 3.75rem);
+    --home-maxw: 1200px;
+  }
 
   /* Reset & Base */
   h1 {
@@ -54,8 +65,8 @@ hide:
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
-    padding-left: 60px; /* keep inner spacing */
-    padding-right: 60px;
+    padding-left: var(--home-gutter); /* fluid inner spacing */
+    padding-right: var(--home-gutter);
     box-sizing: border-box;
   }
 
@@ -77,8 +88,6 @@ hide:
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
-    padding-left: 20px; /* keep the original inner spacing */
-    padding-right: 20px;
   }
 
   /* SECTION 1: HERO */
@@ -86,34 +95,69 @@ hide:
     background-color: #000028; /* Dark blue match */
     color: white;
     text-align: center;
-    padding: 60px 20px;
+    padding: clamp(2.5rem, 7vw, 4rem) var(--home-gutter);
     font-family: 'Poppins', sans-serif;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 6vw, 2.75rem);
+    line-height: 1.15;
     font-weight: 700;
     margin-bottom: 1rem;
     color: white;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 2.6vw, 1.05rem);
     color: #cbd5e1;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(1.5rem, 5vw, 3rem);
     font-weight: 300;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* CAROUSEL STYLES */
   .carousel-container {
     perspective: 1000px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
     display: flex;
     justify-content: center;
     position: relative;
-    height: 400px;
+    height: clamp(190px, 42vw, 400px);
   }
+
+  .carousel-card img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Prev/next controls: hidden on desktop (side cards act as controls),
+     shown on phones where the coverflow collapses to a single image. */
+  .carousel-nav {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.92);
+    color: #000028;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .carousel-prev { left: 4px; }
+  .carousel-next { right: 4px; }
 
   .carousel-card {
     background-color: #e6ecf2;
@@ -167,23 +211,23 @@ hide:
 
   /* SECTION 2: EXPLORER */
   .explorer-section {
-    padding: 40px 20px;
+    padding: clamp(2.5rem, 6vw, 3.5rem) var(--home-gutter);
     background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
   }
 
   .explorer-title {
     text-align: center;
-    font-size: 1.75rem;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
     font-weight: 700;
     color: #000;
-    margin-bottom: 30px;
+    margin-bottom: clamp(1.25rem, 4vw, 1.875rem);
   }
 
   /* Tabs */
   .tabs-container {
     display: flex;
-    justify-content: center;
+    justify-content: safe center; /* center when it fits, but keep the first tab reachable when scrolling */
     gap: 6px;
     margin-bottom: 30px;
     flex-wrap: nowrap; /* keep tabs on one line */
@@ -193,26 +237,30 @@ hide:
     padding: 6px;
     border-radius: 32px;
     width: auto;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     white-space: nowrap;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
   }
 
   .tab-btn {
     background: transparent;
     border: none;
-    padding: 6px 10px; /* reduced padding */
-    border-radius: 12px; /* smaller radius */
+    padding: 8px 14px;
+    border-radius: 999px;
     cursor: pointer;
-    font-size: 0.82rem; /* slightly smaller text */
+    font-size: 0.85rem;
     font-weight: 600;
     color: #64748b;
     display: inline-flex;
     align-items: center;
-    gap: 4px; /* reduced gap between icon and text */
-    transition: all 0.18s;
+    gap: 6px;
+    transition: background 0.18s, color 0.18s;
     white-space: nowrap;
-    min-width: 0; /* allow tight shrink */
+    flex: 0 0 auto; /* keep full size inside the horizontal scroller */
+    scroll-snap-align: center;
   }
 
   /* Ensure tab icons transition smoothly and are visible when active */
@@ -241,7 +289,7 @@ hide:
   /* Modules Split View */
   .modules-container {
     display: flex;
-    max-width: 1200px;
+    max-width: var(--home-maxw);
     margin: 0 auto;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -287,13 +335,14 @@ hide:
   .modules-content {
     width: 75%;
     background-color: #f8fafc;
-    padding: 40px;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
     display: flex;
     flex-direction: column;
   }
 
   .content-header {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
   }
@@ -333,11 +382,12 @@ hide:
   }
 
   .module-detail-title {
-    font-size: 1.35rem;
+    font-size: clamp(1.15rem, 3.5vw, 1.35rem);
     font-weight: 700;
     color: #0f172a;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 10px;
   }
@@ -368,6 +418,14 @@ hide:
     align-items: center;
     justify-content: center;
     color: #94a3b8;
+    overflow: hidden;
+  }
+
+  .module-visual-placeholder img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
   }
 
   .learn-more-link {
@@ -384,33 +442,35 @@ hide:
 
   /* SECTION 3: USE CASES (Resyled) */
   .use-cases-section {
-    padding: 60px 40px;
+    padding: clamp(3rem, 7vw, 3.75rem) var(--home-gutter);
     background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
   }
 
   .section-heading-3 {
       text-align: center;
-      font-size: 1.8rem;
+      font-size: clamp(1.4rem, 5vw, 1.8rem);
       font-weight: 800;
       color: #0f172a;
-      margin-bottom: 40px;
+      margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
   }
 
   .use-cases-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
+    /* Fluidly flows 3 -> 2 -> 1 columns as the viewport narrows,
+       without needing per-device breakpoints. */
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(1rem, 2.5vw, 1.875rem);
+    max-width: var(--home-maxw);
     margin: 0 auto;
   }
 
   .use-case-card {
       border: 1px solid #e2e8f0;
       border-radius: 12px;
-      padding: 24px;
+      padding: clamp(1.15rem, 4vw, 1.5rem);
       background: white;
-      transition: all 0.2s ease;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   }
 
   .use-case-card:hover {
@@ -507,27 +567,28 @@ hide:
   .integrations-container {
     display: flex;
     align-items: center;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     background-color: #000025;
-    padding: 80px 40px;
+    padding: clamp(3rem, 8vw, 5rem) var(--home-gutter);
     font-family: 'Poppins', sans-serif;
   }
-  .image-container2 { flex: 1; display: flex; justify-content: center; }
-  .integrations-image { max-width: 100%; height: auto; }
-  .text-container-int { flex: 1; color: #fff; margin-left: 40px; }
-.integrations-title { font-weight: 900; font-size: 2rem; margin-bottom: 1rem; line-height: 1.2; color: white;}
-  .integrations-description { font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; color: #cbd5e1; }
-  .btn-style { background-color: #2563eb; color: white !important; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; border:none; cursor: pointer;}
+  .image-container2 { flex: 1; display: flex; justify-content: center; min-width: 0; }
+  .integrations-image { max-width: min(100%, 520px); height: auto; }
+  .text-container-int { flex: 1; color: #fff; min-width: 0; }
+.integrations-title { font-weight: 900; font-size: clamp(1.5rem, 5vw, 2rem); margin-bottom: 1rem; line-height: 1.2; color: white;}
+  .integrations-description { font-size: clamp(0.9rem, 2.5vw, 0.95rem); line-height: 1.6; margin-bottom: 20px; color: #cbd5e1; }
+  .btn-style { background-color: #2563eb; color: white !important; padding: 12px 24px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; border:none; cursor: pointer;}
 
-  .section5-container { background-color: #f9f9fc; padding: 60px 20px; text-align: center; font-family: 'Poppins', sans-serif;}
-  .section5-card-container { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap;}
-  .section5-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 350px; text-align: center; }
+  .section5-container { background-color: #f9f9fc; padding: clamp(3rem, 7vw, 3.75rem) var(--home-gutter); text-align: center; font-family: 'Poppins', sans-serif;}
+  .section5-card-container { display: flex; justify-content: center; gap: clamp(1.25rem, 3vw, 1.875rem); margin: clamp(1.75rem, 4vw, 2.5rem) auto 0; flex-wrap: wrap; max-width: var(--home-maxw);}
+  .section5-card { background: white; padding: clamp(1.5rem, 4vw, 1.875rem); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); flex: 1 1 260px; max-width: 350px; text-align: center; }
   .section5-card img { width: 60px; margin-bottom: 15px; }
   .section5-card-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; color: #0f172a;}
   .section5-card-link { color: #2563eb; font-weight: 600; text-decoration: none; }
 
-  .home-section-7 { padding: 40px 0; text-align: center; background: white; font-family: 'Poppins', sans-serif;}
-  .section7-nav { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
-  .section7-link { color: #2563eb; font-weight: 700; text-decoration: none; padding-right: 20px; border-right: 1px solid #cbd5e1; }
+  .home-section-7 { padding: clamp(2.5rem, 6vw, 3rem) var(--home-gutter); text-align: center; background: white; font-family: 'Poppins', sans-serif;}
+  .section7-nav { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 0; margin-top: 20px; }
+  .section7-link { color: #2563eb; font-weight: 700; text-decoration: none; padding: 6px 24px; border-right: 1px solid #cbd5e1; white-space: nowrap; }
   .section7-link:last-child { border-right: none; }
 
   .section-heading {
@@ -540,12 +601,84 @@ hide:
   }
 
   @media (max-width: 991px) {
-    .modules-container { flex-direction: column; }
-    .modules-sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; display: flex; overflow-x: auto;}
+    .modules-container { flex-direction: column; min-height: 0; }
+    .modules-sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      overflow-x: auto;
+      padding: 0;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+    /* Sidebar items become a horizontal, swipeable tab strip; the active
+       indicator moves from the left edge to the bottom edge. */
+    .modules-sidebar .module-item {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 3px solid transparent;
+      padding: 14px 18px;
+    }
+    .modules-sidebar .module-item.active {
+      border-bottom-color: #2563eb;
+    }
     .modules-content { width: 100%; }
     .integrations-container { flex-direction: column; text-align: center; }
-    .text-container-int { margin-left: 0; margin-top: 30px; }
-    .use-cases-grid { grid-template-columns: 1fr; }
+    .text-container-int { margin-left: 0; }
+  }
+
+  /* =====================================================
+     PHONE REFINEMENTS (<= 600px)
+     ===================================================== */
+  @media (max-width: 600px) {
+    /* Hero carousel: collapse the 3D coverflow to a single, full-width image
+       with tap controls. The skinny overlapping 3D cards were unreadable here. */
+    .carousel-container {
+      height: auto;
+      perspective: none;
+      margin-top: 1.25rem;
+    }
+    .carousel-card { display: none; }
+    .carousel-card.card-center {
+      display: flex;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      opacity: 1;
+      transform: none;
+    }
+    .carousel-card.card-center img { width: 100%; height: auto; }
+    .carousel-nav { display: inline-flex; }
+
+    /* Find Out More: drop the vertical dividers (they dangle when links wrap)
+       and let the links wrap into a clean, tappable centered cluster. */
+    .section7-nav { gap: 8px 14px; }
+    .section7-link { border-right: none; padding: 8px 12px; }
+  }
+
+  /* Micro-interactions only on devices that truly hover (skip on touch,
+     where hover states get stuck). Transform-based, so no layout thrash. */
+  @media (hover: hover) {
+    .use-case-card:hover { transform: translateY(-3px); }
+    .section5-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .section5-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 40, 0.10);
+    }
+  }
+
+  /* Respect users who ask for less motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .carousel-card,
+    .use-case-card,
+    .section5-card,
+    .action-btn,
+    .action-btn::after { transition: none !important; }
+    .use-case-card:hover,
+    .section5-card:hover { transform: none; }
   }
 
   /* =====================================================
@@ -775,6 +908,10 @@ hide:
     [data-md-color-scheme="slate"] .modules-sidebar {
       border-bottom-color: rgba(148, 163, 184, 0.08);
     }
+    /* Match the horizontal active indicator to the dark-theme blue. */
+    [data-md-color-scheme="slate"] .modules-sidebar .module-item.active {
+      border-bottom-color: #3b82f6;
+    }
   }
 </style>
 
@@ -783,6 +920,8 @@ hide:
   <div class="hero-subtitle">Explore our comprehensive documentation and resources for cloud-native security</div>
 
   <div class="carousel-container" id="heroCarousel">
+      <button type="button" class="carousel-nav carousel-prev" aria-label="Previous screenshot" onclick="rotateCarousel('left')">&#8249;</button>
+      <button type="button" class="carousel-nav carousel-next" aria-label="Next screenshot" onclick="rotateCarousel('right')">&#8250;</button>
       <div class="carousel-card card-left" onclick="rotateCarousel('left')">
          <img src="assets/images/homepage/1.png" alt="Carousel Image 1" style="border-radius: 8px;">
       </div>
@@ -807,7 +946,7 @@ hide:
 </section>
 
 <section class="explorer-section">
-  <div class="explorer-title" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 25px;">AccuKnox - Security for the AI Era</div>
+  <div class="explorer-title" style="font-size: clamp(1.4rem, 5vw, 1.8rem); font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 25px;">AccuKnox - Security for the AI Era</div>
 
   <div class="tabs-container" id="categoryTabs">
     <button class="tab-btn active" onclick="selectCategory('code', this)">
@@ -1177,7 +1316,7 @@ hide:
   </div>
 </section>
 <section class="use-cases-section">
-  <div class="section-heading-3" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 40px;">Popular Resources & Guides</div>
+  <div class="section-heading-3" style="font-size: clamp(1.4rem, 5vw, 1.8rem); font-weight: 800; text-align: center; color: #0f172a; margin-bottom: clamp(1.75rem, 5vw, 2.5rem);">Popular Resources &amp; Guides</div>
   <div class="use-cases-grid">
     <div class="use-case-card">
        <div class="use-case-header">

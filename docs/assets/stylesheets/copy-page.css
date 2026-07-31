@@ -1,20 +1,46 @@
 /* Copy page split-button — sits above the H1 on every article. */
 
-/* Title row: heading on the left, copy button pinned top-right. Flex (not
-   float) so a long title wraps within its own column and never leaves an
-   empty gap under the heading. */
+/* Primary home is the top of the right-hand TOC sidebar, above "Table of
+   contents" — fully outside the content flow, so it can never squeeze a
+   heading. This row is the fallback used when that sidebar is absent
+   (`hide: toc`) or hidden by breakpoint: its own line above the H1, pushed
+   right, with the heading deliberately NOT in it so long titles keep the full
+   content width. */
 .ak-copy-page-row {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 0 0 0.8em;
+  justify-content: flex-end;
+  margin: 0 0 0.5rem;
 }
 
-.ak-copy-page-row .ak-copy-page-h1 {
+/* Sidebar placement: sit flush in the TOC column and read as part of it. */
+.ak-copy-page-row--sidebar {
+  display: block;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ak-copy-page--sidebar {
+  display: flex;
+  width: 100%;
   margin: 0;
+}
+
+/* Let the label take the slack so the caret pins to the right edge of the
+   TOC column instead of leaving a ragged gap. */
+.ak-copy-page--sidebar .ak-copy-page__main {
   flex: 1 1 auto;
-  min-width: 0;
+  justify-content: center;
+}
+
+.ak-copy-page--sidebar .ak-copy-page__caret {
+  flex: 0 0 auto;
+}
+
+/* Fixed-positioned by JS in sidebar mode, so drop the anchored offsets. */
+.ak-copy-page--sidebar .ak-copy-page__menu {
+  right: auto;
+  bottom: auto;
 }
 
 .ak-copy-page {

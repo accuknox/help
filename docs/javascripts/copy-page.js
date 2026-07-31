@@ -113,6 +113,7 @@
       const open = !menu.hidden;
       menu.hidden = open;
       caret.setAttribute("aria-expanded", String(!open));
+      if (!open) positionMenu(wrap, menu);
     });
 
     menu.addEventListener("click", (e) => {
@@ -137,25 +138,102 @@
     return wrap;
   }
 
+  // The menu is wider than the TOC sidebar it hangs off, and Material's
+  // `.md-sidebar__scrollwrap` is `overflow: auto` on both axes, so an
+  // absolutely-positioned menu would be clipped there. In sidebar mode we
+  // switch it to `position: fixed` and place it by hand, right-aligned to the
+  // button and clamped into the viewport.
+  function positionMenu(wrap, menu) {
+    const inSidebar = wrap.classList.contains("ak-copy-page--sidebar");
+    if (!inSidebar) {
+      menu.style.position = "";
+      menu.style.top = "";
+      menu.style.left = "";
+      return;
+    }
+    const b = wrap.getBoundingClientRect();
+    menu.style.position = "fixed";
+    menu.style.top = "auto";
+    menu.style.left = "0px";
+    // Measure after switching to fixed so the width is the real one.
+    const m = menu.getBoundingClientRect();
+    const pad = 8;
+    let left = b.right - m.width;
+    left = Math.min(left, window.innerWidth - m.width - pad);
+    left = Math.max(pad, left);
+    let top = b.bottom + 6;
+    if (top + m.height > window.innerHeight - pad) {
+      top = Math.max(pad, b.top - m.height - 6);
+    }
+    menu.style.left = left + "px";
+    menu.style.top = top + "px";
+  }
+
+  // Where the button goes, in priority order:
+  //   1. Top of the right-hand TOC sidebar, above "Table of contents". Fully
+  //      outside the content flow, so it can never squeeze a heading.
+  //   2. Its own right-aligned row above the H1, used when that sidebar is
+  //      absent (`hide: toc`) or hidden by breakpoint (mobile/tablet).
+  function tocTarget() {
+    const sidebar = document.querySelector(".md-sidebar--secondary");
+    if (!sidebar) return null;
+    if (getComputedStyle(sidebar).display === "none") return null;
+    return sidebar.querySelector(".md-sidebar__inner");
+  }
+
+  function place(wrap) {
+    const target = tocTarget();
+    if (target) {
+      wrap.classList.add("ak-copy-page--sidebar");
+      const host = document.createElement("div");
+      host.className = "ak-copy-page-row ak-copy-page-row--sidebar";
+      host.appendChild(wrap);
+      target.prepend(host);
+      return;
+    }
+    wrap.classList.remove("ak-copy-page--sidebar");
+    const article = document.querySelector("article.md-content__inner");
+    if (!article) return;
+    const row = document.createElement("div");
+    row.className = "ak-copy-page-row";
+    row.appendChild(wrap);
+    const h1 = article.querySelector("h1");
+    if (h1) h1.parentNode.insertBefore(row, h1);
+    else article.prepend(row);
+  }
+
   function inject() {
     if (document.querySelector(".ak-copy-page")) return;
     const article = document.querySelector("article.md-content__inner");
     if (!article) return;
-    const h1 = article.querySelector("h1");
-    const btn = buildButton();
-    if (h1) {
-      // Put the H1 and the button in a flex row so a long, wrapping title never
-      // leaves an empty gap under the heading (the old float layout did).
-      const row = document.createElement("div");
-      row.className = "ak-copy-page-row";
-      h1.classList.add("ak-copy-page-h1");
-      h1.parentNode.insertBefore(row, h1);
-      row.appendChild(h1);
-      row.appendChild(btn);
-    } else {
-      article.prepend(btn);
-    }
+    // Landing pages opt out by dropping an `.ak-no-copy-page` marker in their
+    // body. They are hand-built layouts with no prose to hand to an LLM, and
+    // the button has nowhere sensible to sit.
+    if (article.querySelector(".ak-no-copy-page")) return;
+    place(buildButton());
   }
+
+  // Crossing the sidebar breakpoint has to move the button, otherwise it would
+  // sit inside a display:none sidebar and vanish on narrow viewports.
+  function replaceOnResize() {
+    const wrap = document.querySelector(".ak-copy-page");
+    if (!wrap) return;
+    const wantSidebar = !!tocTarget();
+    const isSidebar = wrap.classList.contains("ak-copy-page--sidebar");
+    if (wantSidebar === isSidebar) return;
+    const oldRow = wrap.closest(".ak-copy-page-row");
+    const menu = wrap.querySelector(".ak-copy-page__menu");
+    menu.hidden = true;
+    wrap.querySelector(".ak-copy-page__caret").setAttribute("aria-expanded", "false");
+    place(wrap);
+    if (oldRow && oldRow.parentNode) oldRow.remove();
+  }
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(replaceOnResize, 120);
+  });
 
   if (window.document$) {
     window.document$.subscribe(() => inject());
