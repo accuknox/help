@@ -20,8 +20,13 @@ Explore all AccuKnox releases. Select a version to view detailed notes, improvem
 
 ::cards:: cols=4
 
+<!-- v3.7 and v3.6 are drafts, not ready to publish
+- title: v3.7
+  url: https://help.accuknox.com/getting-started/3.7-release/
+
 - title: v3.6
   url: https://help.accuknox.com/getting-started/3.6-release/
+-->
 
 - title: v3.5
   url: https://help.accuknox.com/getting-started/3.5-release/
