@@ -75,6 +75,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [email.md](email.md) | This document explains how to integrate Email with AccuKnox to receive alert notifications via mail. |
 | [f5.md](f5.md) | Integrate F5 Big-IP with AccuKnox API Security for API traffic monitoring, observability, and security enforcement. |
 | [firefox-browser-integration.md](firefox-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Firefox and real-time prompt and response filtering in ChatGPT, Claude, G... |
+| [fortigate-siem.md](fortigate-siem.md) | Forward FortiGate firewall Syslog events to an Ubuntu middleware server, convert them to NDJSON, and ingest them into AccuKnox SIEM. |
 | [freshservice-cspm.md](freshservice-cspm.md) | Automate security alerts in Freshservice by integrating AccuKnox to create problem alerts and improve workflow response. |
 | [github-actions-secret-scan.md](github-actions-secret-scan.md) | Integrate AccuKnox Secret Scanning into your GitHub Actions CI/CD workflow to detect hardcoded secrets and sensitive credentials before they reach production. |
 | [github-container-scan.md](github-container-scan.md) | Learn how to integrate container scanning with AccuKnox in a GitHub CI/CD pipeline to identify and remediate vulnerabilities in Docker images. |
