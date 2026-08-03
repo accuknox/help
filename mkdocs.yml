@@ -511,6 +511,8 @@ nav:
         - "Webhook" : "integrations/sumologic-webhook.md"
         - "Syslog (Rsyslog)" : "integrations/sumologic-syslog.md"
       - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+      - "Log Ingestion into AccuKnox SIEM" :
+        - "FortiGate Firewall" : "integrations/fortigate-siem.md"
     - "SSO":
       - "Signup/Login via SSO": "how-to/sso.md"
       - "Azure Entra": "integrations/azure-entra-sso.md"
