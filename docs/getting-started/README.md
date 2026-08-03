@@ -20,7 +20,7 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [3.3-release.md](3.3-release.md) | Discover the latest features, enhancements, and fixes in AccuKnox v3.3, focusing on improved operational efficiency and expanded platform coverage. |
 | [3.4-release.md](3.4-release.md) | Discover the latest features, enhancements, and integrations in AccuKnox v3.4, including SCA, Dashboard V3, AI-powered automation, expanded cloud governance,... |
 | [3.5-release.md](3.5-release.md) | AccuKnox v3.5 adds GitHub Actions pipeline auditing, an AI Widget Builder, parent-child smart tickets, public-asset auto-tagging, Talos cluster support, mult... |
-| [3.6-release.md](3.6-release.md) | Draft release notes for AccuKnox v3.6, covering Policy Builder, Smart Tickets, simplified cloud onboarding, API security scanning, KubeArmor, checks lifecycl... |
+| [3.6-release.md](3.6-release.md) | AccuKnox v3.6 automates the finding lifecycle from Active to Fixed, adds per-account Checks Management, parent-child ticket automation in the Rule Engine, AW... |
 | [3.7-release.md](3.7-release.md) | AccuKnox v3.7 introduces App-based Source Code Security for ASPM. Connect GitHub, GitLab, or Bitbucket once, then run SCA, Secrets, SAST, and IaC scans from... |
 | [accuknox-agents.md](accuknox-agents.md) | AccuKnox Agents are the agents that are part of the AccuKnox solution. These agents are responsible for enforcing the security policies and providing deep vi... |
 | [accuknox-arch.md](accuknox-arch.md) | A concise and detailed overview of AccuKnox's CNAPP architecture, components, and operational workflows. |

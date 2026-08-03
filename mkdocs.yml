@@ -135,6 +135,23 @@ plugins:
       separator: '[\s\-\.]+'
       lang:
         - en
+  # Click any screenshot to open it enlarged in a lightbox.
+  # Add {: .off-glb } after an image to opt it out (used for inline logos and icons).
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      # fade avoids the zoom animation's transform, so the enlarged image is
+      # full size even if the entry animation does not run.
+      effect: fade
+      slide_effect: fade
+      width: 90%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
+      skip_classes:
+        - off-glb
 # Customization
 hooks:
   - hooks/copy_md_source.py
@@ -662,7 +679,7 @@ nav:
           - "AccuKnox" :
             - "Overview": "getting-started/accuknox-release-notes.md"
 # - "v3.7": "getting-started/3.7-release.md"  # draft, not ready to publish
-# - "v3.6": "getting-started/3.6-release.md"  # draft, not ready to publish
+            - "v3.6": "getting-started/3.6-release.md"
             - "v3.5": "getting-started/3.5-release.md"
             - "v3.4": "getting-started/3.4-release.md"
             - "v3.3": "getting-started/3.3-release.md"
