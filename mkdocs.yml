@@ -632,6 +632,7 @@ nav:
     - "Deployment Models": "getting-started/deployment-models.md"
     - "Multi-Tenancy Support": "resources/multitenancy.md"
     - "Sample Reports": "resources/sample-reports.md"
+    - "AWS CDR Deployment Guide (PDF)": "/resources/AccuKnox_AWS_CDR_Deployment_Guide.pdf"
     - "Asset Onboarding Deck": "https://docs.google.com/presentation/d/e/2PACX-1vSNns23fmwfVgaoBIvR1fL7fk_Be6GYUJLwRticjlm4cBvIAqzxm4IF7RV7qsV00KrrRFGDjOIVG0Q2/pub?start=false&loop=false&delayms=3000"
     - "Compliance Baseline Data": "resources/compliance-baseline-data.md"
     - "Data Retention Policy": "resources/data-retention-policy.md"
