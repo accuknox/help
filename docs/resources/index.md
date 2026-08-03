@@ -60,6 +60,9 @@ hide:
 - title: Glossary
   image: ./icons/glossary.svg
   url: /resources/glossary/
+- title: AWS CDR Deployment Guide (PDF)
+  image: ./icons/user-guide.svg
+  url: /resources/AccuKnox_AWS_CDR_Deployment_Guide.pdf
 
 ::/cards::
 

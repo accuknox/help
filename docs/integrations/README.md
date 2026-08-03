@@ -83,8 +83,8 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [github-devtron-sast.md](github-devtron-sast.md) | Guide to configure AccuKnox ASPM SAST scans using Devtron and GitHub. |
 | [github-iac.md](github-iac.md) | Guide to performing IaC scans for GitHub repositories using AccuKnox SaaS to detect and remediate infrastructure misconfigurations. |
 | [github-overview.md](github-overview.md) | Learn how to integrate github with Rafay to automate security testing and deployment of your applications. |
-| [github-unified-code-analysis-tool.md](github-unified-code-analysis-tool.md) | Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, and SBOM scans in a GitHub CI/CD pipeline using the unified AccuKnox Code Analysis GitHub Action. |
 | [github-sast.md](github-sast.md) | Learn how to integrate Static Application Security Testing (SAST) with AccuKnox in a GitHub CI/CD pipeline. |
+| [github-unified-code-analysis-tool.md](github-unified-code-analysis-tool.md) | Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, and SBOM scans in a GitHub CI/CD pipeline using the unified AccuKnox Code Analysis GitHub Action. |
 | [gitlab-container-scan.md](gitlab-container-scan.md) | Integrate AccuKnox with GitLab CI/CD to detect and fix vulnerabilities in Docker images before deployment from code to cloud. |
 | [gitlab-container-variables.md](gitlab-container-variables.md) | Variables for the GitLab CI/CD pipeline to scan Docker images for security vulnerabilities. |
 | [gitlab-dast-variables.md](gitlab-dast-variables.md) | Variables for GitLab CI/CD pipeline to scan web apps for security vulnerabilities using AccuKnox DAST integration. |

@@ -131,7 +131,37 @@
 })();
 
 // ============================================
-// 4. TRAILING SLASH REDIRECT
+// 4. PDF LINKS DOWNLOAD INSTEAD OF OPENING
+// ============================================
+// Any same-origin link to a .pdf gets a download attribute so a click saves the
+// file instead of handing it to the browser's built-in viewer. Re-runs on every
+// page change because navigation.instant swaps the DOM without a full reload.
+(function forcePdfDownloads() {
+  function markPdfLinks() {
+    const links = document.querySelectorAll('a[href$=".pdf"]');
+
+    links.forEach((link) => {
+      // Leave PDFs hosted elsewhere alone, download only works same-origin
+      if (link.origin !== window.location.origin) return;
+      if (link.hasAttribute("download")) return;
+
+      const filename = link.pathname.split("/").pop();
+      link.setAttribute("download", filename || "");
+    });
+  }
+
+  // Material exposes document$ when instant navigation is enabled
+  if (typeof document$ !== "undefined" && document$.subscribe) {
+    document$.subscribe(markPdfLinks);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", markPdfLinks);
+  } else {
+    markPdfLinks();
+  }
+})();
+
+// ============================================
+// 5. TRAILING SLASH REDIRECT
 // ============================================
 // Ensures all help docs URLs have trailing slashes for proper image loading, ticket:CNAPP-24365
 (function ensureTrailingSlash() {
