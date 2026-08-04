@@ -155,6 +155,7 @@ plugins:
 # Customization
 hooks:
   - hooks/copy_md_source.py
+  - hooks/glightbox_skip_linked_images.py
 extra_css:
 - "assets/stylesheets/style.css"
 - "assets/stylesheets/extra.css"
