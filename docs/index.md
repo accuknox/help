@@ -1456,19 +1456,19 @@ hide:
     <h2 class="section-heading">Technical Support</h2>
     <div class="section5-card-container">
         <div class="section5-card">
-            <img src="introduction/cards/badge1.svg" alt="Tech Support Icon">
+            <img class="off-glb" src="introduction/cards/badge1.svg" alt="Tech Support Icon">
             <h3 class="section5-card-title">Raise Ticket</h3>
             <p>Contact our Support Team to quickly resolve any issues.</p>
             <a href="https://accu-knox.atlassian.net/servicedesk/customer/portal/1" target="_blank" class="section5-card-link">CONNECT WITH US &rarr;</a>
         </div>
         <div class="section5-card">
-            <img src="introduction/cards/badge2.svg" alt="Certification Icon">
+            <img class="off-glb" src="introduction/cards/badge2.svg" alt="Certification Icon">
             <h3 class="section5-card-title">AccuKnox Certifications</h3>
             <p>AccuKnox certifications ensure compliance with industry security standards.</p>
             <a href="https://www.accuknox.com/certifications" target="_blank" class="section5-card-link">GET CERTIFIED &rarr;</a>
         </div>
         <div class="section5-card">
-            <img src="introduction/cards/badge3.svg" alt="Downloads Icon">
+            <img class="off-glb" src="introduction/cards/badge3.svg" alt="Downloads Icon">
             <h3 class="section5-card-title">Resources</h3>
             <p>Download and make the most of AccuKnox guides and manuals.</p>
             <a href="/resources/accuknox-manual/" target="_blank" class="section5-card-link">DOWNLOAD NOW &rarr;</a>
