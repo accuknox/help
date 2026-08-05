@@ -120,6 +120,7 @@ extra_css:
 - "assets/stylesheets/extra.css"
 - "assets/stylesheets/neoteroi-mkdocs.css"
 - "assets/stylesheets/banner.css"
+- "assets/stylesheets/integration-matrix.css"
 extra_javascript:
   - javascripts/extra.js
 extra:
@@ -278,6 +279,7 @@ nav:
 
   - "Integrations":
     - "Integrations": "integrations/index.md"
+    - "Integration Support Matrix": "integrations/support-matrix.md"
     - "Create Tokens" : "how-to/how-to-create-tokens.md"
     - "Create Labels" : "how-to/how-to-create-labels.md"
     - "Create Access Keys": "how-to/create-access-keys.md"
@@ -550,6 +552,7 @@ nav:
 
   - "Support Matrix":
     - "Support Matrix": "support-matrix/index.md"
+    - "Integration Support Matrix": "integrations/support-matrix.md"
     - "CI/CD Support Matrix": "support-matrix/cicd-support-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
     - "Cloud Regions Support": "support-matrix/cloud-regions.md"
