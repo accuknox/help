@@ -59,7 +59,7 @@ Users can log in to AccuKnox using two methods:
 
 ## Notes
 
-+ SSO is currently only supported for Google accounts.
++ Google SSO works out of the box with no setup. To connect your own identity provider over SAML 2.0, see [Enterprise SSO (SAML)](../integrations/saml-sso.md). Provider-specific guides exist for [Azure Entra](../integrations/azure-entra-sso.md), [Okta](../integrations/okta-sso.md), and [Auth0](../integrations/auth0-sso.md).
 + Users must be invited with their Gmail address to use Google SSO.
 + For the best experience, use the same email address for invitation and login.
 + If you encounter any issues, contact your AccuKnox administrator or support team.

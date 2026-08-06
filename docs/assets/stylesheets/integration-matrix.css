@@ -76,20 +76,12 @@
   background: #fff;
 }
 
-.ak-int-tile em {
-  /* Lettermark fallback for brands with no published SVG. */
-  display: grid;
-  place-items: center;
-  width: 2rem;
+/* A few brands publish only a wordmark, which would shrink to an unreadable
+   sliver inside a square puck. Give those a wider puck instead. */
+.ak-int-tile img.ak-int-wide {
+  width: 4.4rem;
   height: 2rem;
-  padding: 0.3rem;
-  box-sizing: content-box;
-  border-radius: 0.4rem;
-  background: #fff;
-  color: #005bff;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 0.85rem;
+  padding: 0.3rem 0.4rem;
 }
 
 .ak-int-tile small {

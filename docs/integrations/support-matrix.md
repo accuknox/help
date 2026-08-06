@@ -31,7 +31,7 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
 === "MCP Servers"
 
     AccuKnox secures and proxies MCP traffic, so every server in the catalog is available
-    the moment you add it. Go to **AccuKnox > MCP > Add New MCP** in the platform to see
+    the moment you add it. Go to **AgentZ > MCP > Add New MCP** in the platform to see
     the live list, which updates ahead of this page.
 
     <div class="ak-int-grid">
@@ -120,8 +120,8 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
       <a class="ak-int-tile" href="../ibm-qradar/"><img src="../matrix-icons/ibm.svg" alt="IBM QRadar logo" loading="lazy"><small>IBM QRadar</small></a>
       <a class="ak-int-tile" href="../azure-sentinel/"><img src="../matrix-icons/azure.svg" alt="Microsoft Sentinel logo" loading="lazy"><small>Microsoft Sentinel</small></a>
       <a class="ak-int-tile" href="../aws-cloudwatch/"><img src="../matrix-icons/aws.svg" alt="AWS CloudWatch logo" loading="lazy"><small>AWS CloudWatch</small></a>
-      <a class="ak-int-tile" href="../rsyslog/"><em>RS</em><small>RSyslog</small></a>
-      <a class="ak-int-tile" href="../webhook-integration/"><em>WH</em><small>Webhook</small></a>
+      <a class="ak-int-tile" href="../rsyslog/"><img src="../matrix-icons/rsyslog.png" alt="RSyslog logo" loading="lazy"><small>RSyslog</small></a>
+      <a class="ak-int-tile" href="../webhook-integration/"><img src="../matrix-icons/webhook.svg" alt="Webhook logo" loading="lazy"><small>Webhook</small></a>
     </div>
 
     | Destination | Ingestion method | Guide |
@@ -144,13 +144,13 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
       <div class="ak-int-tile"><img src="../matrix-icons/graylog.svg" alt="Graylog logo" loading="lazy"><small>Graylog</small></div>
       <div class="ak-int-tile"><img src="../matrix-icons/datadog.svg" alt="Datadog logo" loading="lazy"><small>Datadog</small></div>
       <div class="ak-int-tile"><img src="../matrix-icons/grafana.svg" alt="Grafana Loki logo" loading="lazy"><small>Grafana Loki</small></div>
-      <div class="ak-int-tile"><em>SX</em><small>Securonix</small></div>
-      <div class="ak-int-tile"><em>CS</em><small>CrowdStrike</small></div>
-      <div class="ak-int-tile"><em>EX</em><small>Exabeam</small></div>
-      <div class="ak-int-tile"><em>GS</em><small>Google SecOps</small></div>
-      <div class="ak-int-tile"><em>DV</em><small>Devo</small></div>
-      <div class="ak-int-tile"><em>LR</em><small>LogRhythm</small></div>
-      <div class="ak-int-tile"><em>WZ</em><small>Wazuh</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/securonix.png" alt="Securonix logo" loading="lazy"><small>Securonix</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/crowdstrike.png" alt="CrowdStrike logo" loading="lazy"><small>CrowdStrike</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/exabeam.png" alt="Exabeam logo" loading="lazy"><small>Exabeam</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/googlecloud.svg" alt="Google SecOps logo" loading="lazy"><small>Google SecOps</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/devo.png" alt="Devo logo" loading="lazy"><small>Devo</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/logrhythm.png" alt="LogRhythm logo" loading="lazy" class="ak-int-wide"><small>LogRhythm</small></div>
+      <div class="ak-int-tile"><img src="../matrix-icons/wazuh.png" alt="Wazuh logo" loading="lazy"><small>Wazuh</small></div>
     </div>
 
 === "SaaS and Platform"
@@ -161,19 +161,20 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
     <div class="ak-int-grid">
       <a class="ak-int-tile" href="../jira-cloud/"><img src="../matrix-icons/jira.svg" alt="Jira Cloud logo" loading="lazy"><small>Jira Cloud</small></a>
       <a class="ak-int-tile" href="../jira-server-cspm/"><img src="../matrix-icons/jira.svg" alt="Jira Server logo" loading="lazy"><small>Jira Server</small></a>
-      <a class="ak-int-tile" href="../servicenow/"><em>SN</em><small>ServiceNow</small></a>
-      <a class="ak-int-tile" href="../freshservice-cspm/"><em>FS</em><small>Freshservice</small></a>
-      <a class="ak-int-tile" href="../servicedesk-plus/"><em>SD</em><small>ServiceDesk Plus</small></a>
-      <a class="ak-int-tile" href="../connectwise-cspm/"><em>CW</em><small>ConnectWise</small></a>
+      <a class="ak-int-tile" href="../servicenow/"><img src="../matrix-icons/servicenow.png" alt="ServiceNow logo" loading="lazy"><small>ServiceNow</small></a>
+      <a class="ak-int-tile" href="../freshservice-cspm/"><img src="../matrix-icons/freshservice.png" alt="Freshservice logo" loading="lazy"><small>Freshservice</small></a>
+      <a class="ak-int-tile" href="../servicedesk-plus/"><img src="../matrix-icons/manageengine.png" alt="ManageEngine ServiceDesk Plus logo" loading="lazy"><small>ServiceDesk Plus</small></a>
+      <a class="ak-int-tile" href="../connectwise-cspm/"><img src="../matrix-icons/connectwise.png" alt="ConnectWise logo" loading="lazy"><small>ConnectWise</small></a>
       <a class="ak-int-tile" href="../slack/"><img src="../matrix-icons/slack.svg" alt="Slack logo" loading="lazy"><small>Slack</small></a>
-      <a class="ak-int-tile" href="../email/"><em>@</em><small>Email</small></a>
-      <a class="ak-int-tile" href="../webhook-integration/"><em>WH</em><small>Webhook</small></a>
+      <a class="ak-int-tile" href="../email/"><img src="../matrix-icons/email.svg" alt="Email logo" loading="lazy"><small>Email</small></a>
+      <a class="ak-int-tile" href="../webhook-integration/"><img src="../matrix-icons/webhook.svg" alt="Webhook logo" loading="lazy"><small>Webhook</small></a>
+      <a class="ak-int-tile" href="../saml-sso/"><img src="../matrix-icons/saml.svg" alt="SAML 2.0 logo" loading="lazy"><small>SAML 2.0</small></a>
       <a class="ak-int-tile" href="../okta-sso/"><img src="../matrix-icons/okta.svg" alt="Okta SSO logo" loading="lazy"><small>Okta SSO</small></a>
       <a class="ak-int-tile" href="../auth0-sso/"><img src="../matrix-icons/auth0.svg" alt="Auth0 SSO logo" loading="lazy"><small>Auth0 SSO</small></a>
       <a class="ak-int-tile" href="../azure-entra-sso/"><img src="../matrix-icons/microsoft.svg" alt="Entra ID SSO logo" loading="lazy"><small>Entra ID SSO</small></a>
-      <a class="ak-int-tile" href="../rafay-accuknox/"><em>RA</em><small>Rafay</small></a>
+      <a class="ak-int-tile" href="../rafay-accuknox/"><img src="../matrix-icons/rafay.png" alt="Rafay logo" loading="lazy"><small>Rafay</small></a>
       <a class="ak-int-tile" href="../nutanix-accuknox/"><img src="../matrix-icons/nutanix.svg" alt="Nutanix logo" loading="lazy"><small>Nutanix</small></a>
-      <a class="ak-int-tile" href="../spectrocloud/"><em>SC</em><small>Spectro Cloud</small></a>
+      <a class="ak-int-tile" href="../spectrocloud/"><img src="../matrix-icons/spectrocloud.png" alt="Spectro Cloud logo" loading="lazy"><small>Spectro Cloud</small></a>
       <a class="ak-int-tile" href="../kong/"><img src="../matrix-icons/kong.svg" alt="Kong logo" loading="lazy"><small>Kong</small></a>
       <a class="ak-int-tile" href="../f5/"><img src="../matrix-icons/f5.svg" alt="F5 logo" loading="lazy"><small>F5</small></a>
       <a class="ak-int-tile" href="../checkmarx/"><img src="../matrix-icons/checkmarx.svg" alt="Checkmarx logo" loading="lazy"><small>Checkmarx</small></a>
@@ -183,7 +184,7 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
     |---|---|
     | Ticketing | Jira Cloud, Jira Server, ServiceNow, Freshservice, ServiceDesk Plus, ConnectWise |
     | Notification | Slack, email, generic webhook |
-    | Identity and SSO | Okta, Auth0, Microsoft Entra ID, and any SAML or OIDC provider |
+    | Identity and SSO | [Any SAML 2.0 provider](saml-sso.md), plus Okta, Auth0, and Microsoft Entra ID guides |
     | Kubernetes platforms | Rafay, Nutanix, Spectro Cloud, Red Hat OpenShift, Lens |
     | API and gateway | Kong, F5, NGINX, Istio, AWS API Gateway, Azure APIM, Apigee |
     | Code scanning | Checkmarx, Opengrep, and any tool that emits SARIF |
