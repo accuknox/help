@@ -77,7 +77,7 @@ pipeline {
                 }
             }
         }
-        stage('Run ZAP container') {
+        stage('Run DAST scan container') {
             steps {
                 script {
                     sh '''

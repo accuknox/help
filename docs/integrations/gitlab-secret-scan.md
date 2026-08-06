@@ -21,11 +21,9 @@ This guide walks you through integrating AccuKnox Secret Scanning into your GitL
 
 1.  **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
 
-2.  **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+2.  **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com/")).
 
-3.  **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com/")).
-
-4.  **ACCUKNOX_LABEL**: The label for your scan.
+3.  **ACCUKNOX_LABEL**: The label for your scan.
 
 **Step 3**: Set Up GitLab CI/CD Pipeline
 
@@ -38,7 +36,6 @@ This guide walks you through integrating AccuKnox Secret Scanning into your GitL
 | `ADDITIONAL_ARGUMENTS` | Extra parameters for secret scanning.                                       | `""`                     |
 | `SOFT_FAIL`          | Do not return an error code if secrets are found.                           | `true`                   |
 | `ACCUKNOX_TOKEN`     | The token for authenticating with the CSPM panel.                           | `N/A (Required)`         |
-| `ACCUKNOX_TENANT`    | The ID of the tenant associated with the CSPM panel.                        | `N/A (Required)`         |
 | `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to.                      | `cspm.demo.accuknox.com` |
 | `ACCUKNOX_LABEL`     | The label created in AccuKnox SaaS for associating scan results.            | `N/A (Required)`         |
 
@@ -49,9 +46,8 @@ include:
   - component: $CI_SERVER_FQDN/accu-knox/scan/secret-scan@main
     inputs:
       STAGE: test
-      INPUT_SOFT_FAIL: false
+      SOFT_FAIL: false
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```

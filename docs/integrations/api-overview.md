@@ -53,7 +53,7 @@ The **API Security** module provides deep visibility and continuous risk assessm
   description: Secure APIs exposed via F5
 
 - title: Kong
-  image: https://upload.wikimedia.org/wikipedia/en/8/88/Kong_inc.png
+  image: ./kong-logo.svg
   url: ../integrations/kong.md
   description: Secure APIs managed by Kong Gateway
 

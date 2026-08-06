@@ -86,7 +86,82 @@
 })();
 
 // ============================================
-// 3. TRAILING SLASH REDIRECT
+// 3. GIST EMBEDS
+// ============================================
+// Loads GitHub Gists for <div class="gist-embed" data-gist-id="USER/ID"></div>.
+// Uses JSONP to bypass CORS (fetch to gist.github.com is blocked cross-origin).
+(function initGistEmbeds() {
+  var loadedStylesheets = {};
+  var callbackIndex = 0;
+
+  function loadGist(el) {
+    var gistId = el.getAttribute("data-gist-id");
+    if (!gistId) return;
+
+    var cbName = "__gistCb" + callbackIndex++;
+    window[cbName] = function (data) {
+      delete window[cbName];
+      if (data.stylesheet && !loadedStylesheets[data.stylesheet]) {
+        loadedStylesheets[data.stylesheet] = true;
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = data.stylesheet;
+        document.head.appendChild(link);
+      }
+      el.innerHTML = data.div;
+    };
+
+    var s = document.createElement("script");
+    s.src = "https://gist.github.com/" + gistId + ".json?callback=" + cbName;
+    document.body.appendChild(s);
+  }
+
+  function loadGists() {
+    document.querySelectorAll(".gist-embed:not([data-loaded])").forEach(function (el) {
+      el.setAttribute("data-loaded", "true");
+      loadGist(el);
+    });
+  }
+
+  loadGists();
+
+  if (typeof document$ !== "undefined") {
+    document$.subscribe(loadGists);
+  }
+})();
+
+// ============================================
+// 4. PDF LINKS DOWNLOAD INSTEAD OF OPENING
+// ============================================
+// Any same-origin link to a .pdf gets a download attribute so a click saves the
+// file instead of handing it to the browser's built-in viewer. Re-runs on every
+// page change because navigation.instant swaps the DOM without a full reload.
+(function forcePdfDownloads() {
+  function markPdfLinks() {
+    const links = document.querySelectorAll('a[href$=".pdf"]');
+
+    links.forEach((link) => {
+      // Leave PDFs hosted elsewhere alone, download only works same-origin
+      if (link.origin !== window.location.origin) return;
+      if (link.hasAttribute("download")) return;
+
+      const filename = link.pathname.split("/").pop();
+      link.setAttribute("download", filename || "");
+    });
+  }
+
+  // Material exposes document$ when instant navigation is enabled
+  if (typeof document$ !== "undefined" && document$.subscribe) {
+    document$.subscribe(markPdfLinks);
+  } else if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", markPdfLinks);
+  } else {
+    markPdfLinks();
+  }
+})();
+
+// ============================================
+// 5. TRAILING SLASH REDIRECT
 // ============================================
 // Ensures all help docs URLs have trailing slashes for proper image loading, ticket:CNAPP-24365
 (function ensureTrailingSlash() {

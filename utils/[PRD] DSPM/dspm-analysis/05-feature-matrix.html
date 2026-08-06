@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Full Competitive Feature Matrix</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>5. Full Competitive Feature Matrix</h1>
+      <p>Score legend: <span class="score-good">✅ Strong</span> / <span class="score-warn">⚠️ Partial</span> / <span class="score-bad">❌ Missing</span></p>
+      <p><a href="index.html">Back to Modular Index</a></p>
+    </header>
+
+    <section class="panel">
+      <span class="section-label">Scoring Method</span>
+      <p>
+        This matrix scores public evidence, not private product completeness. A vendor gets <span class="score-good">✅ Strong</span> when the capability is explicit,
+        clearly demonstrated, or visually reinforced. <span class="score-warn">⚠️ Partial</span> means the capability is implied or present but not strongly evidenced.
+        <span class="score-bad">❌ Missing</span> means it was not visibly supported in the sampled public materials.
+      </p>
+    </section>
+
+    <section class="panel">
+      <h2>Discovery and Classification</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>AccuKnox</th><th>Sentra</th><th>Cyera</th><th>Varonis</th><th>BigID</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Automated cloud discovery (AWS/GCP/Azure)</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Structured data classification</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Unstructured data classification</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>SaaS data discovery</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Classification confidence in UI</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td></tr>
+          <tr><td>Business context tagging</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-good">✅</td></tr>
+          <tr><td>Large-scale scan proof</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+        </tbody>
+      </table>
+      <div class="subtle">
+        Rationale: AccuKnox likely has more capability depth than the public score suggests, but the current public proof layer is thinner than peer vendors.
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Risk, Exposure, and Lineage</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>AccuKnox</th><th>Sentra</th><th>Cyera</th><th>Varonis</th><th>BigID</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Misconfiguration detection</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Excessive access detection</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Public exposure detection</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Access lineage/timeline</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Cross-cloud flow visibility</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Identity-aware exposure graph</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Investigation-ready evidence drilldown</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Correlated cloud risk with data posture</td><td class="score-warn">⚠️</td><td class="score-bad">❌</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td></tr>
+        </tbody>
+      </table>
+      <div class="quote">
+        The biggest gap for AccuKnox is not generic posture coverage. It is making access and exposure legible enough that a buyer immediately sees why a finding matters.
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Compliance, Reporting, and Workflow Automation</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>AccuKnox</th><th>Sentra</th><th>Cyera</th><th>Varonis</th><th>BigID</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GDPR, CCPA, HIPAA, PCI DSS support</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Explicit RBI, DPDP, TRAI mapping</td><td class="score-bad">❌</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td></tr>
+          <tr><td>Continuous compliance posture UI</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Automated audit reporting</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Evidence export and attestation cues</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Workflow-based remediation approvals</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>AI Security and Governance</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>AccuKnox</th><th>Sentra</th><th>Cyera</th><th>Varonis</th><th>BigID</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI data security narrative</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Shadow AI or browser-level AI visibility</td><td class="score-bad">❌</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-good">✅</td></tr>
+          <tr><td>Prompt or AI interaction risk context</td><td class="score-bad">❌</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-good">✅</td></tr>
+          <tr><td>Agentic remediation framing</td><td class="score-warn">⚠️</td><td class="score-bad">❌</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-good">✅</td></tr>
+          <tr><td>AI governance as first-class buying story</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Integrations, Ops, and Trust Layer</h2>
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>AccuKnox</th><th>Sentra</th><th>Cyera</th><th>Varonis</th><th>BigID</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GCP-native depth</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-warn">⚠️</td><td class="score-good">✅</td></tr>
+          <tr><td>SIEM, SOAR, and ticketing ecosystem evidence</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Published customer outcome density</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Analyst or market recognition visibility</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+          <tr><td>Public screenshot richness</td><td class="score-warn">⚠️</td><td class="score-warn">⚠️</td><td class="score-good">✅</td><td class="score-good">✅</td><td class="score-good">✅</td></tr>
+        </tbody>
+      </table>
+      <div class="inf"><b>Scoring discipline:</b> Scores reflect publicly visible evidence and explicit claims only.</div>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">Strategy Note</span>
+      <h2>What AccuKnox should and should not chase</h2>
+      <div class="grid-2">
+        <div class="prd">
+          <h3>Chase immediately</h3>
+          <ul class="checklist">
+            <li>Landing dashboard proof density</li>
+            <li>Identity-aware exposure analysis</li>
+            <li>RBI, DPDP, and TRAI compliance cockpit</li>
+            <li>Remediation command center and closure evidence</li>
+            <li>Correlated risk with cloud and runtime posture</li>
+          </ul>
+        </div>
+        <div class="prd">
+          <h3>Do not chase in the first wave</h3>
+          <ul class="checklist">
+            <li>BigID-level governance sprawl across every adjacent category</li>
+            <li>Varonis-level product surface breadth across every mature module</li>
+            <li>Excessive feature parity checklists without narrative differentiation</li>
+            <li>AI messaging without visible AI-specific screens or controls</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/nav.js"></script>
+</body>
+</html>

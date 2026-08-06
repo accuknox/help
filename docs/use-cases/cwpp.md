@@ -18,7 +18,18 @@ hide:
 
 # CWPP (Cloud Workload Protection Platform)
 
-CWPP is a Workload-centric security solution protecting server workloads across hybrid/multi-cloud environments. It Operates as final security defense layer, complementing KSPM by providing runtime protection against potential breaches and provides visibility into workload behavior with consistent security for Kubernetes, Virtual Machines, Containers, and Serverless Workloads.
+CWPP is a workload-centric security solution that protects server workloads across hybrid and multi-cloud environments. It acts as the final defense layer, complementing KSPM with runtime protection against breaches, and gives consistent visibility into workload behavior across Kubernetes, virtual machines, containers, and serverless workloads.
+
+## **The AccuKnox Runtime Security Journey**
+
+Every workload moves through the same eight steps, from first onboarding to a fully enforced Zero Trust posture. Steps 1 through 4 build the baseline. Steps 5 through 8 refine it and lock it down.
+
+![AccuKnox Runtime Security Journey, steps 1 to 4](../assets/images/runtime-security-journey-1.png)
+
+![AccuKnox Runtime Security Journey, steps 5 to 8](../assets/images/runtime-security-journey-2.png)
+
+!!! info "Continuous loop"
+    Step 5 loops back to Step 2. As containers spawn cronjobs or new behaviors emerge, AccuKnox keeps learning, you accept or discard the changes, and the golden baseline keeps improving until policies are marked **STABLE** and moved to **BLOCK** mode.
 
 ## **CWPP Use Cases**
 

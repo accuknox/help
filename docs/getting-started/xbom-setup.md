@@ -9,6 +9,8 @@ hide:
 
 xBOM is an umbrella term covering **SBOM** (software dependencies), **CBOM** (cryptographic assets), and **AIBOM** (AI/ML models). Each maps a different layer of the supply chain to track risk, meet compliance requirements like EO 14028 and the EU AI Act, and respond to vulnerabilities faster.
 
+![xBOM Architecture](images/xbom/xbom-architecture.webp)
+
 ## Choose a Generation Method
 
 ::cards:: cols=3
@@ -33,6 +35,13 @@ xBOM is an umbrella term covering **SBOM** (software dependencies), **CBOM** (cr
 ## Common Prerequisites
 
 These setup steps are required regardless of which generation method you choose.
+
+### Step 0: Install knoxctl
+
+Install `knoxctl` before starting xBOM generation.
+
+- Installation guide: [knoxctl documentation](https://help.accuknox.com/knoxctl/)
+- Source and releases: [accuknox-cli-v2 on GitHub](https://github.com/accuknox/accuknox-cli-v2)
 
 ### Step 1: Create Project and Classifier
 

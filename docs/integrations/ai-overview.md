@@ -22,37 +22,23 @@ h2 {
 
 # AI Security Integrations
 
-The **AI Security** module provides prompt firewalling, threat detection, and risk assessment for your AI models and AI application deployments.
+AccuKnox AI Security integrations power two of the eight AI modules: **AI Guardrails (Prompt Firewall)** for inline prompt and response protection, and **Agentic AI Security** for securing AI agents and copilots. Pick the integration that matches how your AI apps are deployed.
 
-## SDK and Platform Integrations
+## AI Guardrails (Prompt Firewall)
+
+Inline prompt and response protection through the SDK, AI gateways, and app platforms.
 
 ::cards:: cols=4
 
 - title: SDK Integration (Python)
   image: https://media.istockphoto.com/id/1163870054/vector/sdk-icon-software-development-kit-icon.jpg?s=612x612&w=0&k=20&c=-eBNBnt5zg7i3fS_vOV8RganMSJbdDvkmvwtFlg9c2E=
-  url: ../use-cases/llm-defense-app-onboard.md
+  url: ../how-to/llm-defense-app-onboard.md
   description: Integrate AccuKnox SDK with your AI applications for prompt scanning and security.
-
-- title: Azure Copilot Studio
-  image: https://trulysmb.com/wp-content/uploads/2025/06/copilot-studio-header.png
-  url: ../integrations/copilot-studio.md
-  description: Integrate with Azure Copilot Studio for AI security
-
-- title: Bedrock-Agentcore
-  image: https://www.missioncloud.com/hubfs/AgentCore-icon3-1.png
-  url: ../integrations/bedrock-agentcore.md
-  description: Integrate Bedrock-Agentcore with AccuKnox for AI asset scanning
 
 - title: Power Apps
   image: https://www.dynamicssquare.com/img/Power-Apps.png
   url: ../integrations/powerapps-integration.md
   description: Secure Microsoft Power Apps with AccuKnox AI Security
-
-::/cards::
-
-## AI Gateway Integrations
-
-::cards:: cols=4
 
 - title: Bifrost AI
   image: ./image-15.png
@@ -67,11 +53,39 @@ The **AI Security** module provides prompt firewalling, threat detection, and ri
 - title: AWS API Gateway
   image: https://raw.githubusercontent.com/pulumi/pulumi-aws-apigateway/main/assets/logo.png
   url: ../how-to/aws-apim.md
+  description: Integrate with AWS API Gateway as a secure proxy in front of Bedrock and other LLM backends
+
+- title: Apigee
+  image: https://cdn.worldvectorlogo.com/logos/apigee.svg
+  url: ../integrations/apigee-integration.md
+  description: Configure an Apigee proxy as an LLM security gateway with prompt validation and resilient error handling
 
 - title: LiteLLM
   image: ./image-16.png
   url: ../integrations/litellm.md
-  description: Integrate with LiteLLM Prompt Firewall for AI security -->
+  description: Integrate with LiteLLM Prompt Firewall for AI security
+
+::/cards::
+
+!!! tip "Browser-based Guardrails"
+    For prompt protection directly in the browser, see the GenAI Browser Plugins for [Chrome](../integrations/chrome-browser-integration.md), [Edge](../integrations/edge-browser-integration.md), and [Firefox](../integrations/firefox-browser-integration.md).
+
+## Agentic AI Security
+
+Secure AI agents, copilots, and agent runtimes.
+
+::cards:: cols=4
+
+- title: Azure Copilot Studio
+  image: https://trulysmb.com/wp-content/uploads/2025/06/copilot-studio-header.png
+  url: ../integrations/copilot-studio.md
+  description: Integrate with Azure Copilot Studio for AI security
+
+- title: Bedrock-Agentcore
+  image: https://www.missioncloud.com/hubfs/AgentCore-icon3-1.png
+  url: ../integrations/bedrock-agentcore.md
+  description: Integrate Bedrock-Agentcore with AccuKnox for AI asset scanning
+
 ::/cards::
 
 !!! tip "**Support Matrix and Use Cases**"

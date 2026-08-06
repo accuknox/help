@@ -39,7 +39,7 @@ Drop the following file at the root of your repository as `cloudbuild.yaml`. The
 
 ```yaml
 # =============================================================================
-# AccuKnox Secret Scan (TruffleHog) — Google Cloud Build Pipeline
+# AccuKnox Secret Scan — Google Cloud Build Pipeline
 # =============================================================================
 
 steps:
@@ -86,7 +86,7 @@ steps:
         echo "Scanner downloaded to /workspace/accuknox-aspm-scanner"
 
   # ---------------------------------------------------------------------------
-  # Step 3: Install TruffleHog, run the secret scan, upload to AccuKnox CSPM
+  # Step 3: Install the secret-scanning tool, run the secret scan, upload to AccuKnox CSPM
   # ---------------------------------------------------------------------------
   - id: run-secret-scan
     name: ubuntu:24.04
@@ -108,7 +108,7 @@ steps:
         SCAN_PATH="."                     # path within /workspace to scan
         # ====================================================================
 
-        # Install ca-certificates (HTTPS upload) and git (required by TruffleHog)
+        # Install ca-certificates (HTTPS upload) and git (required by the secret-scanning tool)
         export DEBIAN_FRONTEND=noninteractive
         apt-get update -qq
         apt-get install -y -qq --no-install-recommends ca-certificates git
@@ -120,9 +120,9 @@ steps:
           git fetch --unshallow || echo "Repo is already unshallow or unshallow failed; continuing."
         fi
 
-        # Install the secret-scanning tool (TruffleHog) locally
+        # Install the secret-scanning tool locally
         # Required because we are not using --container-mode
-        echo "Installing secret scanning tool (TruffleHog)..."
+        echo "Installing secret scanning tool..."
         /workspace/accuknox-aspm-scanner tool install --type secret
 
         # Resolve soft-fail flag

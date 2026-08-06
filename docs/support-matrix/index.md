@@ -24,7 +24,7 @@ hide:
 - title: CSPM Assets Support
   image: ./icons/cspm.svg
   url: /support-matrix/assets-list/
-- title: AI/ML Support Matrix
+- title: AI Security Support Matrix
   image: ./icons/ai-ml.svg
   url: /support-matrix/aiml-support-matrix/
 - title: Compliance Matrix
@@ -48,5 +48,8 @@ hide:
 - title: KubeArmor Support Matrix
   image: ./icons/kubearmor.svg
   url: /support-matrix/kubearmor-support-matrix/
+- title: SAST Language Support
+  image: ./icons/cicd.svg
+  url: /support-matrix/sast-support-matrix/
 
 ::/cards::

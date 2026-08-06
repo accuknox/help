@@ -18,6 +18,11 @@ edit_uri: "https://github.com/accuknox/help-test/edit/main/docs"
 docs_dir: "docs"
 dev_addr: '127.0.0.1:8000'
 
+# Auto-generated folder index files (scripts/gen_docs_readmes.py) live inside
+# docs/ for repo crawlability but must not be published as site pages.
+exclude_docs: |
+  README.md
+
 # Theme
 theme:
   name: "material"
@@ -110,19 +115,59 @@ markdown_extensions:
   - neoteroi.cards
 plugins:
   - external-markdown
+  - redirects:
+      redirect_maps:
+        'use-cases/prompt-firewall.md': 'how-to/prompt-firewall.md'
+        'use-cases/llm-defense-app-onboard.md': 'how-to/llm-defense-app-onboard.md'
+        'use-cases/aiml-runtime-onboard.md': 'how-to/aiml-runtime-onboard.md'
+        'use-cases/prompts-categories.md': 'use-cases/subprompts-categories.md'
+        'use-cases/azure-aidr.md': 'how-to/azure-aidr.md'
+        'getting-started/cspm-prereq-aws.md': 'how-to/cspm-prereq-aws.md'
+        'use-cases/azure-secret-scan.md': 'integrations/azure-secret-scan.md'
+        'use-cases/gitlab-secret-scan.md': 'integrations/gitlab-secret-scan.md'
+        'use-cases/bitbucket-secret-scan.md': 'integrations/bitbucket-secret-scan.md'
+        'use-cases/jenkins-secret-scan.md': 'integrations/jenkins-secret-scan.md'
+        'use-cases/github-secret-scan.md': 'integrations/github-actions-secret-scan.md'
+        'integrations/openai-browser-integration.md': 'integrations/chrome-browser-integration.md'
+        'integrations/claude-browser-integration.md': 'integrations/chrome-browser-integration.md'
+        'integrations/openai-firefox-browser-integration.md': 'integrations/firefox-browser-integration.md'
   - search:
       separator: '[\s\-\.]+'
       lang:
         - en
+  # Click any screenshot to open it enlarged in a lightbox.
+  # Add {: .off-glb } after an image to opt it out (used for inline logos and icons).
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      # fade avoids the zoom animation's transform, so the enlarged image is
+      # full size even if the entry animation does not run.
+      effect: fade
+      slide_effect: fade
+      width: 90%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
+      skip_classes:
+        - off-glb
 # Customization
+hooks:
+  - hooks/copy_md_source.py
+  - hooks/glightbox_skip_linked_images.py
 extra_css:
 - "assets/stylesheets/style.css"
 - "assets/stylesheets/extra.css"
 - "assets/stylesheets/neoteroi-mkdocs.css"
 - "assets/stylesheets/banner.css"
 - "assets/stylesheets/integration-matrix.css"
+- "assets/stylesheets/copy-page.css"
+- "assets/stylesheets/iam-tables.css"
 extra_javascript:
   - javascripts/extra.js
+  - javascripts/copy-page.js
+  - javascripts/iam-tables.js
 extra:
   analytics:
     provider: google
@@ -183,6 +228,11 @@ nav:
             - "AWS": "how-to/cspm-prereq-aws.md"
             - "Azure": "how-to/cspm-prereq-azure.md"
             - "GCP": "how-to/cspm-prereq-gcp.md"
+      - "IAM Permissions Reference":
+            - "Overview": "how-to/cspm-permissions-overview.md"
+            - "AWS": "how-to/cspm-permissions-aws.md"
+            - "Azure": "how-to/cspm-permissions-azure.md"
+            - "GCP": "how-to/cspm-permissions-gcp.md"
       - "Onboarding":
         - "AWS" : "how-to/aws-onboarding.md"
         - "AWS Organizations" : "how-to/aws-org-onboard.md"
@@ -190,15 +240,27 @@ nav:
         - "Azure Organizations" : "how-to/azure-org-onboard.md"
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
+        - "Terraform Onboarding":
+          - "how-to/terraform-cloud-onboarding.md"
+          - "AWS" : "how-to/terraform-aws-onboarding.md"
+          - "Azure" : "how-to/terraform-azure-onboarding.md"
+          - "GCP" : "how-to/terraform-gcp-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
-    - "AI/ML Security (AI-SPM)":
+    - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
       - "SaaS vs On-Prem": "how-to/aiml-saas-vs-onprem.md"
-      - "SDK LLM Defense": "use-cases/llm-defense-app-onboard.md"
+      - "SDK LLM Defense": "how-to/llm-defense-app-onboard.md"
+      - "Runtime Defense (API Method)": "how-to/aiml-runtime-onboard.md"
+      - "Azure AI-DR Setup": "how-to/azure-aidr.md"
       - "AWS AI/ML Onboard": "how-to/aiml-aws-onboard.md"
       - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
-      - "Prompt Firewall Setup": "use-cases/prompt-firewall.md"
+      - "Red Team Custom Models":
+        - "Overview": "how-to/aiml-custom-model-redteaming.md"
+        - "AWS Bedrock": "how-to/aiml-bedrock-collector.md"
+        - "NVIDIA Triton": "how-to/aiml-triton-collector.md"
+        - "vLLM": "how-to/aiml-vllm-collector.md"
+      - "Prompt Firewall Setup": "how-to/prompt-firewall.md"
       - "LLM Static Scans": "how-to/llm-static-scan.md"
       - "ML Static Scans": "how-to/ml-static-scan.md"
     - "Workload Security (CWPP)":
@@ -224,7 +286,10 @@ nav:
         - "PHP-MySQL": "getting-started/php-mysql.md"
     - "VM Security":
       - "Agent Based":
-        - "Linux": "how-to/vm-security/agent-based/linux.md"
+        - "Linux":
+          - "Overview": "how-to/vm-security/agent-based/linux.md"
+          - "Ubuntu": "how-to/vm-security/agent-based/ubuntu.md"
+          - "RHEL": "how-to/vm-security/agent-based/rhel.md"
         - "Windows": "how-to/vm-security/agent-based/windows.md"
         - "Container Image Scanning": "how-to/vm-security/agent-based/container-image-scanning.md"
       - "Agentless":
@@ -232,6 +297,7 @@ nav:
         - "Azure Cloud VM Scan": "how-to/vm-security/agentless/azure-cloud-vm.md"
     - "Application Security (ASPM)":
       - "Overview": "how-to/aspm-overview.md"
+# - "Connect Source Code (App-based)": "how-to/code-source-onboarding.md"  # not ready to publish
       - "DAST Scan Types": "how-to/dast-scan-types.md"
       - "DAST Unauthenticated Scan": "how-to/dast-scan-no-auth.md"
       - "DAST Authenticated Scan": "how-to/dast-authenticated-scans.md"
@@ -262,7 +328,10 @@ nav:
       - "Generate via Container Image Scan": "getting-started/xbom-container-image.md"
       - "Generate via GitHub Actions": "getting-started/xbom-github-actions.md"
     - "SARIF Findings": "getting-started/sarif-findings.md"
-    - "Secrets Management": "getting-started/secrets-management.md"
+    - "Event Trail Logs": "getting-started/audit-trail-logs.md"
+    - "Secrets Management":
+      - "Overview": "getting-started/secrets-management.md"
+      - "On-Prem Deployment Guide": "getting-started/secrets-manager-onprem-deployment.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
@@ -289,11 +358,16 @@ nav:
       - "AI Gateway Method":
         - "Azure APIM": "getting-started/azure-ai-foundry.md"
         - "AWS API Gateway": "how-to/aws-apim.md"
+        - "Apigee": "integrations/apigee-integration.md"
         - "Bifrost": "integrations/bifrost-integration.md"
         - "LiteLLM": "integrations/litellm.md"
       - "Prompt Firewall":
-        - "SDK Method": "use-cases/llm-defense-app-onboard.md"
-        - "OpenAI Browser Plugin": "integrations/openai-browser-integration.md"
+        - "SDK Method": "how-to/llm-defense-app-onboard.md"
+        - "Apigee Proxy": "integrations/apigee-integration.md"
+        - "GenAI Browser Plugin":
+          - "Chrome": "integrations/chrome-browser-integration.md"
+          - "Edge": "integrations/edge-browser-integration.md"
+          - "Firefox": "integrations/firefox-browser-integration.md"
       - "Azure Copilot Studio": "integrations/copilot-studio.md"
       - "BedRock AgentCore": "integrations/bedrock-agentcore.md"
       - "Power Apps": "integrations/powerapps-integration.md"
@@ -332,7 +406,7 @@ nav:
           - "Secret Scan": "integrations/bamboo-secret-scan.md"
         - "Google Cloud Build":
           - "Overview": "integrations/google-overview.md"
-          - "SAST (OpenGrep)": "integrations/google-opengrep-sast.md"
+          - "SAST": "integrations/google-opengrep-sast.md"
           - "SQ-SAST (SonarQube)": "integrations/google-sast.md"
           - "Container Image Scan": "integrations/google-build.md"
           - "IaC Scan": "integrations/google-iac.md"
@@ -346,15 +420,15 @@ nav:
           - "DAST" : "integrations/harness-dast.md"
         - "Jenkins":
           - "Overview": "integrations/jenkins-overview.md"
-          - "SAST SonarQube": "integrations/jenkins-sast.md"
-          - "SAST": "integrations/jenkins-sast-opengrep.md"
-          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "Installation": "integrations/jenkins-installation.md"
+          - "SAST": "integrations/jenkins-sast.md"
           - "IaC Scan": "integrations/jenkins-iac-scan.md"
-          - "DAST": "integrations/jenkins-dast.md"
           - "Secret Scan": "integrations/jenkins-secret-scan.md"
-          - "Pipeline Script":
-            - "SAST": "integrations/jenkins-sast-script.md"
-            - "DAST": "integrations/jenkins-dast-script.md"
+          - "Container Scan": "integrations/jenkins-container-scan.md"
+          - "SBOM": "integrations/jenkins-sbom.md"
+          - "SBOM (Filesystem)": "integrations/jenkins-sbom-filesystem.md"
+          - "xBOM": "integrations/jenkins-xbom.md"
+          - "Multi-Artifact (SCA)": "integrations/jenkins-artifact-scan.md"
         - "AWS Code Pipeline":
           - "Overview": "integrations/aws-overview.md"
           - "SAST": "integrations/aws-sast.md"
@@ -367,6 +441,9 @@ nav:
             - "Onboard Private Repos" : "how-to/private-github-repo-onboarding.md"
             - "SAST": "integrations/github-sast.md"
             - "SAST (Opengrep)": "integrations/opengrep-sast.md"
+            - "Unified Code Analysis Tool": "integrations/github-unified-code-analysis-tool.md"
+            - "SAST (SonarQube)": "integrations/github-sast.md"
+            - "SAST": "integrations/opengrep-sast.md"
             - "Container Scan": "integrations/github-container-scan.md"
             - "IaC Scan": "integrations/github-iac.md"
             - "DAST": "integrations/github-dast.md"
@@ -375,6 +452,7 @@ nav:
             - "Devtron DAST": "integrations/github-devtron-dast.md"
         - "Gitlab":
             - "Overview": "integrations/gitlab-overview.md"
+            - "Unified Code Analysis": "integrations/gitlab-unified-code-analysis-tool.md"
             - "SAST": "integrations/gitlab-opengrep.md"
             - "SAST (SonarQube)": "integrations/gitlab-sast.md"
             - "Container Scan": "integrations/gitlab-container-scan.md"
@@ -384,6 +462,7 @@ nav:
             - "Secret Scan": "integrations/gitlab-secret-scan.md"
         - "Bitbucket":
             - "Overview": "integrations/bitbucket-overview.md"
+            - "Unified Code Analysis": "integrations/bitbucket-unified-code-analysis-tool.md"
             - "SAST": "integrations/opengrep-sast-bitbucket.md"
             - "SAST (SonarQube)": "integrations/bitbucket-sast.md"
             - "Container Scan": "integrations/bitbucket-container-scan.md"
@@ -431,7 +510,12 @@ nav:
       - "Azure Sentinel Feeder Integration" : "integrations/azure-sentinel-feeder-integration.md"
       - "Rsyslog" : "integrations/rsyslog.md"
       - "Rsyslog Feeder Integration" : "integrations/rsyslog_feeder_integration.md"
+      - "Sumo Logic" :
+        - "Webhook" : "integrations/sumologic-webhook.md"
+        - "Syslog (Rsyslog)" : "integrations/sumologic-syslog.md"
       - "AWS Cloudwatch" : "integrations/aws-cloudwatch.md"
+      - "Log Ingestion into AccuKnox SIEM" :
+        - "FortiGate Firewall" : "integrations/fortigate-siem.md"
     - "SSO":
       - "Signup/Login via SSO": "how-to/sso.md"
       - "Azure Entra": "integrations/azure-entra-sso.md"
@@ -452,10 +536,9 @@ nav:
     - "CDR (Cloud Detection and Response)": "use-cases/cdr.md"
     - "API Security": "use-cases/api-security.md"
     - "Serverless Security": "use-cases/serverless-security.md"
-    - "AI/ML Security":
+    - "AI Security":
       - "Overview": "use-cases/aiml-usecases.md"
       - "AI-DR (AI Detection and Response)": "use-cases/aidr.md"
-      - "Azure AI-DR": "use-cases/azure-aidr.md"
       - "Prompt Firewall": "use-cases/prompt-firewall-overview.md"
       - "Red Teaming": "use-cases/red-teaming.md"
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"
@@ -544,7 +627,6 @@ nav:
         - "Reporting":
             - "OnDemand and Scheduled" : "use-cases/vm-reporting.md"
             - "Host Scan Report" : "use-cases/vm-host-scan-report.md"
-    - "Event Trail Logs": "getting-started/audit-trail-logs.md"
     - "Access Keys": "use-cases/access-keys.md"
     - "IoT/Edge Security" : "use-cases/iot-edge-security.md"
     - "5G Security" : "use-cases/5g-security.md"
@@ -563,6 +645,7 @@ nav:
     - "Public Cloud" : "support-matrix/public-cloud.md"
     - "Registry Scan" : "support-matrix/registry.md"
     - "IaC": "support-matrix/iac.md"
+    - "SAST": "support-matrix/sast-support-matrix.md"
     - "KubeArmor Support Matrix" : "support-matrix/kubearmor-support-matrix.md"
 
   - "Resources":
@@ -572,8 +655,10 @@ nav:
     - "Deployment Models": "getting-started/deployment-models.md"
     - "Multi-Tenancy Support": "resources/multitenancy.md"
     - "Sample Reports": "resources/sample-reports.md"
+    - "AWS CDR Deployment Guide (PDF)": "/resources/AccuKnox_AWS_CDR_Deployment_Guide.pdf"
     - "Asset Onboarding Deck": "https://docs.google.com/presentation/d/e/2PACX-1vSNns23fmwfVgaoBIvR1fL7fk_Be6GYUJLwRticjlm4cBvIAqzxm4IF7RV7qsV00KrrRFGDjOIVG0Q2/pub?start=false&loop=false&delayms=3000"
     - "Compliance Baseline Data": "resources/compliance-baseline-data.md"
+    - "Data Retention Policy": "resources/data-retention-policy.md"
     - "Essential 8 Compliance": "https://accuknox.com/blog/accuknox-essential-8-compliance-zero-trust"
     # - "Data Usage Policy": "resources/data-usage-policy.md"  # ADD THESE BACK IN LATER
     # - "AccuKnox Agents" : "getting-started/accuknox-agents.md"
@@ -598,11 +683,13 @@ nav:
       - "CWPP Container Images": "resources/count-registry.md"
       - "CWPP Worker Nodes": "resources/count-nodes.md"
     - "Ticketing Procedures": "resources/ticket-procedure.md"
-    - "Technical Guide": "resources/technical-support-guide.md"
+    - "Technical Support Guide": "resources/technical-support-guide.md"
     - "SLA & Escalation Matrix": "resources/sla-escalation-matrix.md"
     - "Release Notes":
           - "AccuKnox" :
             - "Overview": "getting-started/accuknox-release-notes.md"
+# - "v3.7": "getting-started/3.7-release.md"  # draft, not ready to publish
+            - "v3.6": "getting-started/3.6-release.md"
             - "v3.5": "getting-started/3.5-release.md"
             - "v3.4": "getting-started/3.4-release.md"
             - "v3.3": "getting-started/3.3-release.md"

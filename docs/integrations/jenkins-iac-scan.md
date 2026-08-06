@@ -1,174 +1,139 @@
 ---
 title: Jenkins IaC Scan
-description: Integrate AccuKnox IaC Scan with Jenkins CI/CD pipeline to detect misconfigurations in infrastructure as code.
+description: Scan Terraform, CloudFormation, Kubernetes, Helm, ARM, and Dockerfiles in a Jenkins pipeline with AccuKnox ASPM.
 ---
 
-# Jenkins IaC Scan Plugin
+# IaC Scanning in Jenkins
 
-The AccuKnox IaC Scan Jenkins Plugin is designed to integrate AccuKnox's Infrastructure as Code (IaC) scanning capabilities into your Jenkins pipelines. This plugin allows you to perform IaC scans using Checkov and automatically upload the results to AccuKnox SaaS.
+This guide configures a Jenkins pipeline that scans Infrastructure-as-Code (Terraform, CloudFormation, Kubernetes manifests, Helm charts, ARM templates, Dockerfiles) using the **AccuKnox ASPM Scanner** plugin, with results auto-forwarded to AccuKnox.
 
-## Features
+## Prerequisites
 
-- **Directory and File Scans:** Scan specific directories or files for infrastructure misconfigurations.
+- A Jenkins controller (`2.387.3 LTS` or newer) with at least one build agent.
+- An AccuKnox SaaS account with a tenant / label you can upload findings to.
+- Network egress from the Jenkins agent to the AccuKnox control plane (or a mirrored scanner image for air-gapped agents).
 
-- **Framework Support:** Supports scanning multiple frameworks including Terraform, CloudFormation, Kubernetes, and more.
+## Step 1: Install the AccuKnox ASPM Plugin
 
-- **Soft Fail Option:** Continue the build process even if the scan fails.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the one-time plugin installation steps.
 
-- **Automatic Results Upload:** Upload scan results to AccuKnox SaaS for centralized management and reporting.
+## Step 2: Configure Jenkins credentials and global settings
 
-- **Repository and Branch Information:** Include repository and branch information in the scan results for better traceability.
+- Add the AccuKnox token as a Jenkins **Secret text** credential.
+- Under **Manage Jenkins → System → AccuKnox ASPM**, set the endpoint, label, and select the token credential.
 
-## Installation
+## Step 3: Define the Jenkins Pipeline
 
-### Current Installation Method
+```groovy
+// AccuKnox IaC scan, standalone Jenkinsfile.
+//
+// Clones a repo, runs accuknoxIac inside it. Detects Terraform, CloudFormation,
+// Kubernetes manifests, Helm charts, ARM templates, etc.
 
-1. Download the plugin in `.hpi` format from [here](https://drive.google.com/file/d/1C6v8dovJ2wg83ULvs1_YGhWtX3VpeV1n/view?usp=sharing "https://drive.google.com/file/d/1C6v8dovJ2wg83ULvs1_YGhWtX3VpeV1n/view?usp=sharing").
+pipeline {
+  agent any
 
-2. Navigate to the Jenkins dashboard.
+  parameters {
+    string(name: 'REPO_URL',
+           defaultValue: 'https://github.com/Vickydew1/Testing.git',
+           description: 'Git repo to clone and scan.')
 
-3. Go to `Manage Jenkins` > `Manage Plugins`.
+    string(name: 'DIRECTORY',
+           defaultValue: '.',
+           description: 'Directory inside the repo to scan for IaC files.')
 
-![image-20240718-045659.png](images/jenkins-iac/image-1.png)
+    string(name: 'SEVERITY_THRESHOLD',
+           defaultValue: 'HIGH,CRITICAL',
+           description: 'Comma-separated severities that fail the build.')
 
-4. Click on the `Advanced` tab.
+    booleanParam(name: 'SOFT_FAIL',
+                 defaultValue: true,
+                 description: 'true (default) = run and upload, build stays green; false = fail build on matching severities.')
+  }
 
-![image-20240718-045825.png](images/jenkins-iac/image-2.png)
+  options {
+    timestamps()
+    timeout(time: 20, unit: 'MINUTES')
+    disableConcurrentBuilds()
+  }
 
-5. In the `Deploy Plugin` section, click `Choose File` and select the downloaded `.hpi` file.
+  environment {
+    REPO_URL = "${params.REPO_URL}"
+  }
 
-![image-20240718-062059.png](images/jenkins-iac/image-3.png)
+  stages {
+    stage('Checkout') {
+      steps {
+        sh '''
+          set -eu
+          rm -rf repo
+          git clone --depth=1 "$REPO_URL" repo
+        '''
+      }
+    }
 
-6. Click `Deploy` to install the plugin.
-
-![image-20240718-062223.png](images/jenkins-iac/image-4.png)
-
-7. Restart Jenkins if required.
-
-### Future Availability
-
-!!! info "Upcoming Release"
-    The AccuKnox IaC Scan Jenkins Plugin will be published to the Jenkins Marketplace by August 15th. After this date, you will be able to install the plugin directly from the Jenkins Plugin Manager.
-
-## Configuration
-
-### Job Configuration
-
-1. Open the configuration page of your Jenkins job.
-
-![image-20240718-062946.png](images/jenkins-iac/image-5.png)
-
-2. Under the `Build` section, click on `Add build step` and select `AccuKnox IaC Scan`.
-
-![image-20240718-063203.png](images/jenkins-iac/image-6.png)
-
-![image-20240718-063259.png](images/jenkins-iac/image-7.png)
-
-## Usage
-
-### Parameters
-
-The plugin provides the following parameters:
-
-- **Directory:** The directory to be scanned.
-
-- **Soft Fail:** Whether to continue the build process if the scan fails.
-
-- **Tenant ID:** The tenant ID for the AccuKnox API.
-
-- **AccuKnox Token:** The access token for authenticating with AccuKnox.
-
-- **Framework:** The framework to be used for scanning (default is `all`).
-
-- **File:** Specific file to be scanned (optional).
-
-- **Repository:** URL of the repository being scanned.
-
-- **Branch:** Branch name of the repository.
-
-**Token Generation from AccuKnox SaaS and Viewing Tenant ID which will be used in the AccuKnox IaC Scan Plugin**
-
-Navigate to Tokens within the Settings section in the sidebar:
-
-![image1-20240718-120954.png](images/jenkins-iac/image-8.png)
-
-Click on Create Token: After clicking on 'Create Token,' the Tenant ID will be visible.
-
-![image-20240718-120853.png](images/jenkins-iac/image-9.png)
-
-Click on Generate:
-
-![image-20240718-121053.png](images/jenkins-iac/image-10.png)
-
-### Example Configuration
-
-Here is an example of how to configure the plugin in your Jenkins job:
-
-1. Add a new build step and select `AccuKnox IaC Scan`.
-
-2. Configure the parameters:
-    - **Directory:** `src`
-
-    - **Soft Fail:** `true`
-
-    - **Tenant ID:** `your-tenant-id`
-
-    - **AccuKnox Token:** `your-access-token`
-
-    - **Framework:** `terraform`
-
-    - **File:** `main.tf`
-
-    - **Repository:** `https://github.com/your-repo.git`
-
-    - **Branch:** `main`
-
-### Running the Scan
-
-When you run the Jenkins job, the plugin will:
-
-1. Print the configuration parameters to the Jenkins console output.
-2. Validate the provided AccuKnox Token and Tenant ID.
-3. Execute the Checkov scan using the specified parameters.
-4. Upload the scan results to AccuKnox SaaS.
-5. Mark the build as failed if the scan or upload process encounters errors (unless `soft fail` is enabled).
-
-### Sample Console Output
-
-```sh
-Starting AccuKnox IaC scan.
-Directory: src
-Framework: terraform
-Soft Fail: true
-File: main.tf
-Tenant ID: your-tenant-id
-AccuKnox Token: Provided
-Repository: https://github.com/your-repo.git
-Branch: main
-Running AccuKnox IaC scan...
-AccuKnox IaC scan completed successfully.
-Pushing results to AccuKnox SaaS...
-Scan results uploaded successfully.
-Build completed successfully.
+    stage('IaC') {
+      steps {
+        dir('repo') {
+          accuknoxIac(directory: params.DIRECTORY,
+                      severityThreshold: params.SEVERITY_THRESHOLD,
+                      softFail: params.SOFT_FAIL)
+        }
+      }
+    }
+  }
+}
 ```
 
-**To view the findings in the AccuKnox SaaS, go to issues → findings → select 'IaC findings'**
+## Pipeline inputs
 
-![image-20240718-121901.png](images/jenkins-iac/image-11.png)
+=== "Step parameters"
 
-## Troubleshooting
+    | Parameter | Description | Required | Default |
+    |------|------|------|------|
+    | `directory` | Path inside the workspace to scan. | no | `.` |
+    | `severityThreshold` | CSV of severities that fail the build. | no | `HIGH,CRITICAL` |
+    | `softFail` | `true` = advisory only; `false` = fail build on matching severities. | no | `false` |
+    | `repoUrl` / `repoBranch` | Pass-through metadata for the AccuKnox upload. | no | *(unset)* |
 
-**Missing AccuKnox Token or Tenant ID**
+=== "Common knobs"
 
-- Ensure both fields are filled in the job configuration.
-- Verify the accuracy of the provided credentials.
+    Every `accuknox*` step accepts these:
 
-**Scan Failure**
+    | Parameter | Default | Notes |
+    |------|------|------|
+    | `endpoint` | from global config | Control-plane host (no scheme). Per-step override. |
+    | `label` | from global config | Becomes the `label_id` on the upload. |
+    | `credentialsId` | from global config | Jenkins credential ID holding the AccuKnox bearer token. |
+    | `skipUpload` | `false` | Run the scanner but don't upload. Useful for dry runs. |
+    | `keepResults` | `true` | Keep results JSON on the agent and archive it as a build artifact. |
+    | `containerMode` | `false` | Run the scanner inside Docker on the agent. |
+    | `cliPath` | `auto` | Path to a pre-staged `accuknox-aspm-scanner` binary (air-gapped use). |
 
-- Check the Jenkins console output for detailed error messages.
-- Ensure the specified directory or file exists and is accessible.
+## Without AccuKnox vs With AccuKnox
 
-**Upload Failure**
+=== "Without AccuKnox"
 
-- Verify network connectivity to the AccuKnox SaaS endpoint.
-- Check the accuracy of the Tenant ID and AccuKnox Token.
+    IaC scanners typically produce a JSON report locally; engineers must manually inspect or wire up dashboards to surface results.
+
+=== "With AccuKnox"
+
+    The plugin forwards the IaC report to AccuKnox, where findings are tied to their files and resources, deduplicated across builds, and ticketable from the console.
+
+*Figure 1. IaC findings rendered in the AccuKnox console.*
+![IaC findings in AccuKnox](images/jenkins-iac/iac_1.png)
+
+## Viewing Results in AccuKnox
+
+Once the Jenkins job uploads its report, the findings are available in the AccuKnox SaaS console.
+
+1. Log in to the AccuKnox console and switch to the tenant whose label you configured in Jenkins.
+2. Open **Issues → Findings**, and filter by the data type that matches the scan (SAST, IaC, Secret, Container, SBOM, SCA).
+3. Click any finding to inspect the file, line, CWE, and the recommended remediation.
+4. Use the **ASK AI** button on a finding for an LLM-generated explanation and patch suggestion.
+5. Create a ticket directly from the finding to track remediation.
+6. Re-run the Jenkins job after fixing the issue. The finding flips to **Resolved** on the next ingest.
+
+## Conclusion
+
+Wiring IaC scanning into Jenkins via the AccuKnox ASPM plugin gives you continuous, automated detection of issues on every build, with a single pane of glass in the AccuKnox console for triage, ticketing, and verification. Combine it with the other scan types ([SAST](jenkins-sast.md), [Secret](jenkins-secret-scan.md), [Container](jenkins-container-scan.md), [SBOM](jenkins-sbom.md), [SCA](jenkins-artifact-scan.md)) to get full-coverage ASPM directly from your pipelines.

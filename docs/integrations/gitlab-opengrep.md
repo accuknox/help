@@ -25,8 +25,6 @@ Define the following environment variables in GitLab under **Settings > CI/CD > 
 
 - **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
 
-- **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
-
 - **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com/")).
 
 - **ACCUKNOX_LABEL**: The label for your scan.
@@ -39,7 +37,6 @@ Define the following environment variables in GitLab under **Settings > CI/CD > 
 | `SOFT_FAIL`          | Do not return an error code if vulnerabilities are found.                      | `true`                         |
 | `UPLOAD_ARTIFACT`    | Uploads scan results to AccuKnox CSPM.                                         | `true`                         |
 | `ACCUKNOX_TOKEN`     | Token for authenticating with the CSPM panel.                                  | **N/A (Required)**             |
-| `ACCUKNOX_TENANT`    | The ID of the tenant associated with the CSPM panel.                           | **N/A (Required)**             |
 | `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to.                         | `cspm.demo.accuknox.com`       |
 | `ACCUKNOX_LABEL`     | Label created in AccuKnox SaaS for associating scan results.                   | **N/A (Required)**             |
 
@@ -49,12 +46,11 @@ Create a new pipeline configuration in `.gitlab-ci.yml` with the following setup
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/sast-scan@2.0.0
+  - component: $CI_SERVER_FQDN/accu-knox/scan/sast-scan@2.4.0
     inputs:
       STAGE: test
       SOFT_FAIL: false
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
@@ -63,7 +59,7 @@ include:
 
 #### Before AccuKnox Integration
 
-Initially, there are no security checks in place, and even if Opengrep is integrated, vulnerabilities might go unnoticed as they must be reviewed manually within the pipeline.
+Initially, there are no security checks in place, and even if SAST scanning is integrated, vulnerabilities might go unnoticed as they must be reviewed manually within the pipeline.
 
 #### After AccuKnox Integration
 

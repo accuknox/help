@@ -12,6 +12,19 @@ AccuKnox Runtime Security provides runtime protection for Kubernetes workloads b
 
 It focuses on **process execution**, **file system access**, and **network activity** observed while workloads are running. Runtime security operates during workload execution and provides both kernel-level enforcement as well as detect and respond model where the remedial action is triggered from the control plane.
 
+## The AccuKnox Runtime Security Journey
+
+Every cluster onboarded to AccuKnox follows the same eight-step path, from first connection to a fully enforced Zero Trust posture. The first four steps establish a learned baseline. The next four steps refine that baseline and turn enforcement on.
+
+![AccuKnox Runtime Security Journey, steps 1 to 4](../assets/images/runtime-security-journey-1.png)
+
+![AccuKnox Runtime Security Journey, steps 5 to 8](../assets/images/runtime-security-journey-2.png)
+
+!!! info "This is a continuous loop"
+    Step 5 feeds back into Step 2. Discovery never stops. Cronjobs, scale events, and new application activity surface as discovered policies, you accept or discard them, and the golden baseline keeps improving. Policies stay in **AUDIT** mode for 2-3 weeks until behavior is stable, then move to **BLOCK** mode for true Zero Trust.
+
+## How the Architecture Supports the Journey
+
 ![Runtime Security Architecture](./images/deep-arch/1.png)
 
 The diagram shows that runtime security operates at each node, in both kernel and user space.

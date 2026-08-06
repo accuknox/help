@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "homepage-preview",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.preview.yml", "--dirty", "-a", "127.0.0.1:8010"],
+      "port": 8010
+    },
+    {
+      "name": "full-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.yml", "--dirty", "-a", "127.0.0.1:8011"],
+      "port": 8011
+    }
+  ]
+}

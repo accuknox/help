@@ -5,7 +5,21 @@
       "WebFetch(domain:docs.openshift.com)",
       "WebSearch",
       "Bash(python3)",
-      "WebFetch(domain:docs.redhat.com)"
+      "WebFetch(domain:docs.redhat.com)",
+      "Bash(python -c \"import openpyxl; print\\('openpyxl available'\\)\")",
+      "Bash(pip install *)",
+      "Bash(npx firecrawl *)",
+      "Bash(Select-Object -First 30)",
+      "Skill(firecrawl-scrape)",
+      "Skill(firecrawl-scrape:*)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] SEO Health Monitoring' --body ' *)",
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Content Performance Tracking' --body ' *)",
+      "Bash(gh issue create --repo accuknox/agentz-workflows --title '[MARKETING] Visitor Intelligence Reports' --body ' *)",
+      "Skill(firecrawl-parse)",
+      "Skill(firecrawl-parse:*)",
+      "Bash(gh api *)"
     ]
   }
 }

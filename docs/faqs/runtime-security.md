@@ -65,6 +65,18 @@ hide:
 
     This helps confirm whether KubeArmor or other critical services are active inside the VM for proper enforcement and telemetry.
 
+??? "**9. Onboarding an OpenShift cluster fails with the KubeArmor Operator pod not coming up. What should I check?**"
+    This usually happens when OpenShift's Security Context Constraints (SCC) block the KubeArmor Operator because it isn't identified as a Red Hat certified operator. Symptoms include the operator pod stuck in `CrashLoopBackOff`/`Error` state, or errors such as `unable to validate against any security context constraint`.
+
+    To fix this, add the following flags to the [onboarding helm command](../how-to/cluster-onboarding.md) for OpenShift clusters:
+
+    ```sh
+    --set kubearmor-operator.kubearmorOperator.env[0].name=REDHAT_CERTIFIED_OP \
+    --set kubearmor-operator.kubearmorOperator.env[0].value=true \
+    ```
+
+    These flags mark the operator as Red Hat certified so it satisfies OpenShift's SCC requirements and deploys successfully.
+
 ---
 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

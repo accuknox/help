@@ -26,7 +26,6 @@ Log in to AccuKnox. Navigate to **Settings → Tokens** to create an AccuKnox to
 | **Name**             | **Description**                                                                        |
 | -------------------- | -------------------------------------------------------------------------------------- |
 | `ACCUKNOX_ENDPOINT`  | The URL of the CSPM panel to push the scan results to (e.g., `cspm.demo.accuknox.com`) |
-| `ACCUKNOX_TENANT_ID` | The ID of the tenant associated with the CSPM panel                                    |
 | `ACCUKNOX_TOKEN`     | Token for authenticating with the AccuKnox CSPM panel                                  |
 | `ACCUKNOX_LABEL`     | Label to categorize or tag the scan results                                            |
 
@@ -61,14 +60,13 @@ accuknox-container-scan:
     - docker load -i $IMAGE_TAR
 
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@2.0.0
+  - component: $CI_SERVER_FQDN/accu-knox/scan/container-scan@2.4.0
     inputs:
       STAGE: test
       IMAGE_NAME: $IMAGE
       TAG: $IMAGE_TAG
       SOFT_FAIL: true
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
 ```
@@ -78,7 +76,6 @@ include:
 | **Name**             | **Description**                                                                                               | **Required** | **Default**                        |
 | -------------------- | ------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------- |
 | `ACCUKNOX_ENDPOINT`  | AccuKnox CSPM panel URL                                                                                       | Yes          | `cspm.demo.accuknox.com`           |
-| `ACCUKNOX_TENANT_ID` | AccuKnox Tenant ID                                                                                            | Yes          |                                    |
 | `ACCUKNOX_TOKEN`     | AccuKnox API Token                                                                                            | Yes          |                                    |
 | `ACCUKNOX_LABEL`     | Label for scan results                                                                                        | Yes          |                                    |
 | `INPUT_SOFT_FAIL`    | Continue even if the scan fails                                                                               | No           | `true`                             |

@@ -37,7 +37,7 @@ h2 {
 - title: Secrets Scanning
   image: ./icons/secret-scan.svg
   url: /use-cases/secret-scan-cicd-aws/
-- title: AI/ML Security
+- title: AI Security
   image: ./icons/AIML.svg
   url: /use-cases/aiml-usecases/
 - title: Cloud Security (CSPM)

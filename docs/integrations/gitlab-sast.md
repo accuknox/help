@@ -22,17 +22,15 @@ This guide demonstrates how to incorporate AccuKnox into a CI/CD pipeline using 
 **Step 2:** Configure GitLab CI/CD Variables. For details on configuring variables, refer to [How to Create CI/CD Variables in GitLab](https://docs.gitlab.com/ee/ci/variables/ "https://docs.gitlab.com/ee/ci/variables/").
 1. **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
 
-2. **ACCUKNOX_TENANT**: Your AccuKnox tenant ID.
+2. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
 
-3. **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com")).
+3. **ACCUKNOX_LABEL**: The label for your scan.
 
-4. **ACCUKNOX_LABEL**: The label for your scan.
+4. **SONAR_TOKEN**: Your SonarQube API token.
 
-5. **SONAR_TOKEN**: Your SonarQube API token.
+5. **SONAR_HOST_URL**: The URL of your SonarQube server.
 
-6. **SONAR_HOST_URL**: The URL of your SonarQube server.
-
-7. **SONAR_PROJECT_KEY**: The project key for your SonarQube project.
+6. **SONAR_PROJECT_KEY**: The project key for your SonarQube project.
 
 ## Configuration Parameters
 
@@ -43,7 +41,6 @@ This guide demonstrates how to incorporate AccuKnox into a CI/CD pipeline using 
 | `SONAR_HOST_URL`       | The SonarQube host URL.                                                     | **N/A (Required)**          |
 | `SONAR_PROJECT_KEY`    | The project key in SonarQube.                                               | **N/A (Required)**          |
 | `ACCUKNOX_TOKEN`       | Token for authenticating with the CSPM panel.                               | **N/A (Required)**          |
-| `ACCUKNOX_TENANT`      | The ID of the tenant associated with the CSPM panel.                        | **N/A (Required)**          |
 | `ACCUKNOX_ENDPOINT`    | The URL of the CSPM panel to push the scan results to.                      | `cspm.demo.accuknox.com`    |
 | `ACCUKNOX_LABEL`       | Label created in AccuKnox SaaS for associating scan results.                | **N/A (Required)**          |
 | `SOFT_FAIL`            | Do not return an error code if there are failed checks.                     | `true` *(boolean)*          |
@@ -55,16 +52,16 @@ Create a new pipeline in your GitLab project with the following YAML configurati
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/accu-knox/scan/sq-sast-scan@2.0.0
+  - component: $CI_SERVER_FQDN/accu-knox/scan/sq-sast-scan@2.4.0
     inputs:
       STAGE: test
       SONAR_TOKEN: ${SONAR_TOKEN}
       SONAR_HOST_URL: ${SONAR_HOST_URL}
       SONAR_PROJECT_KEY: ${SONAR_PROJECT_KEY}
       ACCUKNOX_TOKEN: ${ACCUKNOX_TOKEN}
-      ACCUKNOX_TENANT: ${ACCUKNOX_TENANT}
       ACCUKNOX_ENDPOINT: ${ACCUKNOX_ENDPOINT}
       ACCUKNOX_LABEL: ${ACCUKNOX_LABEL}
+
 ```
 
 ## Initial CI/CD Pipeline Without AccuKnox Scan

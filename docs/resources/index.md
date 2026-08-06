@@ -42,7 +42,7 @@ hide:
 - title: Ticketing Procedures
   image: ./icons/ticketing-procedures.svg
   url: /resources/ticket-procedure/
-- title: Technical Guide
+- title: Technical Support Guide
   image: ./icons/technical-guide.svg
   url: /resources/technical-support-guide/
 - title: SLA & Escalation Matrix
@@ -54,9 +54,15 @@ hide:
 - title: Release Notes
   image: ./icons/release-notes.svg
   url: /getting-started/2.1-2.2-release/
+- title: Data Retention Policy
+  image: ./icons/user-guide.svg
+  url: /resources/data-retention-policy/
 - title: Glossary
   image: ./icons/glossary.svg
   url: /resources/glossary/
+- title: AWS CDR Deployment Guide (PDF)
+  image: ./icons/user-guide.svg
+  url: /resources/AccuKnox_AWS_CDR_Deployment_Guide.pdf
 
 ::/cards::
 

@@ -1,11 +1,11 @@
 ---
-title: Google Cloud Build SAST (OpenGrep)
-description: Integrate AccuKnox SAST scanning into Google Cloud Build to catch source code vulnerabilities before they ship. The pipeline uses the AccuKnox ASPM Scanner CLI with OpenGrep and uploads findings directly to your AccuKnox CSPM panel.
+title: Google Cloud Build SAST
+description: Integrate AccuKnox SAST scanning into Google Cloud Build to catch source code vulnerabilities before they ship. The pipeline uses the AccuKnox ASPM Scanner CLI and uploads findings directly to your AccuKnox CSPM panel.
 ---
 
-# Google Cloud Build SAST (OpenGrep)
+# Google Cloud Build SAST
 
-Integrate AccuKnox SAST scanning into Google Cloud Build to catch source code vulnerabilities before they ship. The pipeline uses the AccuKnox ASPM Scanner CLI with OpenGrep, runs in three steps, and uploads findings directly to your AccuKnox CSPM panel.
+Integrate AccuKnox SAST scanning into Google Cloud Build to catch source code vulnerabilities before they ship. The pipeline uses the AccuKnox ASPM Scanner CLI, runs in three steps, and uploads findings directly to your AccuKnox CSPM panel.
 
 ## **Prerequisites**
 
@@ -38,7 +38,7 @@ Save these three values for use in Step 3:
 Drop the following file at the root of your repository as `cloudbuild.yaml`.
 
 ```yaml
-# AccuKnox SAST (Opengrep) — Google Cloud Build Pipeline
+# AccuKnox SAST — Google Cloud Build Pipeline
 
 steps:
 
@@ -84,7 +84,7 @@ steps:
         echo "Scanner downloaded to /workspace/accuknox-aspm-scanner"
 
   # ---------------------------------------------------------------------------
-  # Step 3: Run the AccuKnox SAST (Opengrep) scan and upload to CSPM
+  # Step 3: Run the AccuKnox SAST scan and upload to CSPM
   # ---------------------------------------------------------------------------
   - id: run-sast-scan
     name: ubuntu:24.04
@@ -108,9 +108,9 @@ steps:
         apt-get update -qq
         apt-get install -y -qq --no-install-recommends ca-certificates
 
-        # Install the SAST tool (Opengrep) locally
+        # Install the SAST tool locally
         # Required because we are not using --container-mode
-        echo "Installing SAST tool (Opengrep)..."
+        echo "Installing SAST tool..."
         /workspace/accuknox-aspm-scanner tool install --type sast
 
         # Resolve soft-fail flag
@@ -189,7 +189,7 @@ Save the trigger. The next push to the watched branch runs the pipeline.
 |---|---|
 | 1. validate-inputs | Fails the build in under a second if any required substitution is empty. Saves a wasted scanner download when the token is missing. |
 | 2. download-scanner | Fetches the AccuKnox ASPM Scanner v0.14.2 binary into `/workspace`, which persists across Cloud Build steps. |
-| 3. run-sast-scan | Installs OpenGrep locally via the scanner CLI, runs the scan against the repo root, and uploads findings to AccuKnox CSPM. |
+| 3. run-sast-scan | Installs the SAST tool locally via the scanner CLI, runs the scan against the repo root, and uploads findings to AccuKnox CSPM. |
 
 ![google-sast-integration-accuknox](images/google-build/og-sast/build-log.png)
 

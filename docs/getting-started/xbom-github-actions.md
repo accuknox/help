@@ -8,7 +8,7 @@ description: Use the AccuKnox xBOM Scan Action to generate SBOM, CBOM, and AIBOM
 The **AccuKnox xBOM Scan Action** (`accuknox/xbom-action`) integrates into your GitHub workflow to scan source code, container images, Go projects, or AI/ML models and generate CycloneDX 1.6 BOMs (SBOM, CBOM, AIBOM), upload results to AccuKnox SaaS, and save the BOM as a downloadable GitHub Actions artefact.
 
 [![GitHub Marketplace](https://img.shields.io/badge/Marketplace-AccuKnox%20xBOM%20Scan-blue?logo=github)](https://github.com/marketplace/actions/accuknox-xbom-scan)
-[![knoxctl](https://img.shields.io/badge/powered%20by-knoxctl%20v0.10.0-orange)](https://github.com/accuknox/accuknox-cli-v2)
+[![knoxctl](https://img.shields.io/badge/powered%20by-knoxctl-orange)](https://github.com/accuknox/accuknox-cli-v2)
 
 ## Supported BOM Types
 

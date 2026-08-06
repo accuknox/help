@@ -146,7 +146,7 @@ For complete examples, see the [example repository](https://github.com/accuknox/
 Navigate to **AI/ML** > **Applications** > **Add Application**. Enter a name and tags for your AI application.
 
 !!! warning "Pre-requisite"
-    You must onboard your application with the Prompt Firewall Proxy before configuring policies. See the [App Onboarding Guide](https://help.accuknox.com/use-cases/llm-defense-app-onboard/) for detailed steps.
+    You must onboard your application with the Prompt Firewall Proxy before configuring policies. See the [App Onboarding Guide](https://help.accuknox.com/how-to/llm-defense-app-onboard/) for detailed steps.
 
 ### Step 2: Configure Policies
 
@@ -221,9 +221,9 @@ Both work together: Red teaming finds the gaps, and the Prompt Firewall enforces
 
 ## Related Resources
 
-- [SDK Onboarding Guide](https://help.accuknox.com/use-cases/prompt-firewall/)
-- [App Onboarding (Proxy Setup)](https://help.accuknox.com/use-cases/llm-defense-app-onboard/)
-- [Prompt Policy Categories](https://help.accuknox.com/use-cases/prompts-categories/)
+- [SDK Onboarding Guide](https://help.accuknox.com/how-to/prompt-firewall/)
+- [App Onboarding (Proxy Setup)](https://help.accuknox.com/how-to/llm-defense-app-onboard/)
+- [Prompt Policy Categories](https://help.accuknox.com/use-cases/subprompts-categories/)
 - [Subprompt Probes Reference](https://help.accuknox.com/use-cases/subprompts-categories/)
 - [AI Red Teaming](https://help.accuknox.com/use-cases/red-teaming/)
 - [AI/ML Security Use Cases](https://help.accuknox.com/use-cases/aiml-usecases/)

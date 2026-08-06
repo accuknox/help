@@ -1,73 +1,149 @@
 ---
-title: Jenkins Secret Scanning Integration
-description: Integrate secret scanning in Jenkins pipelines with AccuKnox using TruffleHog to detect and manage sensitive data.
+title: Jenkins Secret Scan
+description: Walk full git history for committed secrets in a Jenkins pipeline using the AccuKnox ASPM plugin.
 ---
 
-# Jenkins Secret Scanning Integration
+# Secret Scanning in Jenkins
 
-## Overview
+This guide adds a Secret scan stage to a Jenkins pipeline using the **AccuKnox ASPM Scanner** plugin. The scanner walks the full git history of the checked-out repo to find committed secrets and uploads results to AccuKnox.
 
-The **AccuKnox Secret Scanner** simplifies integrating secret scanning into Jenkins pipelines. This is used to detect sensitive data such as API keys, tokens, and secrets in the source code. The detected secrets are then uploaded to **AccuKnox SaaS** for centralized visibility and management.
+## Prerequisites
 
-## Key Features
+- A Jenkins controller (`2.387.3 LTS` or newer) with at least one build agent.
+- An AccuKnox SaaS account with a tenant / label you can upload findings to.
+- Network egress from the Jenkins agent to the AccuKnox control plane (or a mirrored scanner image for air-gapped agents).
+- Use a **full git clone** (no `--depth=1`). The secret scanner walks the commit history.
 
-1. **Secret Detection**: Scan repositories for sensitive information.
+## Step 1: Install the AccuKnox ASPM Plugin
 
-2. **Results Upload**: Seamlessly upload scan results to AccuKnox SaaS for centralized monitoring.
+See [Installing the AccuKnox ASPM Jenkins Plugin](jenkins-installation.md) for the one-time plugin installation steps.
 
-3. **Customizable Parameters**: Configure scanning options, including excluded paths, branch selection, and additional TruffleHog arguments.
+## Step 2: Configure Jenkins credentials and global settings
 
-This guide explains how to configure and run AccuKnox Secret scans in Jenkins pipelines.
+- Store the AccuKnox token as a Jenkins **Secret text** credential.
+- Set the endpoint, label, and token credential on the global config screen.
 
-## 1. One-Time Setup in Jenkins
+## Step 3: Define the Jenkins Pipeline
 
-### 1.1 Add Shared Library
-Manage Jenkins → System → Global Trusted Pipeline Libraries
-
-| Field | Value |
-|------|------|
-| Name | jenkins-aspm-scans |
-| Default Version | main |
-| Retrieval Method | Modern SCM |
-| SCM | Git |
-| Repository URL | https://github.com/accuknox/jenkins-aspm-scans |
-
-### 1.2 Add Credentials
-Manage Jenkins → Credentials → Global → Add Credentials
-
-| ID | Type | Description |
-|----|------|------------|
-| accuknox-endpoint | Secret Text | AccuKnox API endpoint |
-| accuknox-label | Secret Text | Project label |
-| accuknox-token | Secret Text | AccuKnox API token |
-
-## 2. Jenkinsfile Example
 ```groovy
-@Library('jenkins-aspm-scans@main') _
+// AccuKnox Secret scan, standalone Jenkinsfile.
+//
+// Clones a repo and scans its git history for committed secrets.
+// SECRET_COMMAND must point at a git working tree the scanner can read.
 
 pipeline {
   agent any
-  environment {
-    ACCUKNOX_ENDPOINT = credentials('accuknox-endpoint')
-    ACCUKNOX_LABEL    = credentials('accuknox-label')
-    ACCUKNOX_TOKEN    = credentials('accuknox-token')
+
+  parameters {
+    string(name: 'REPO_URL',
+           defaultValue: 'https://github.com/Vickydew1/Testing.git',
+           description: 'Git repo to clone and scan.')
+
+    string(name: 'SECRET_COMMAND',
+           defaultValue: 'git file://.',
+           description: 'Secret scanner command. Default scans the current dir as a git repo.')
+
+    string(name: 'SEVERITY_THRESHOLD',
+           defaultValue: 'HIGH,CRITICAL',
+           description: 'Comma-separated severities that fail the build.')
+
+    booleanParam(name: 'SOFT_FAIL',
+                 defaultValue: true,
+                 description: 'true (default) = run and upload, build stays green; false = fail build on matching severities.')
   }
+
+  options {
+    timestamps()
+    timeout(time: 20, unit: 'MINUTES')
+    disableConcurrentBuilds()
+  }
+
+  environment {
+    REPO_URL = "${params.REPO_URL}"
+  }
+
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/your-repo.git'
+        sh '''
+          set -eu
+          rm -rf repo
+          git clone "$REPO_URL" repo   # full history, secret scan reads it
+        '''
       }
     }
-    stage('Secret Scan') {
+
+    stage('Secret') {
       steps {
-        AccuKnoxSecretScan()
+        dir('repo') {
+          accuknoxSecret(secretCommand: params.SECRET_COMMAND,
+                         severityThreshold: params.SEVERITY_THRESHOLD,
+                         softFail: params.SOFT_FAIL)
+        }
       }
     }
   }
 }
 ```
 
+## Pipeline inputs
+
+=== "Step parameters"
+
+    | Parameter | Description | Required | Default |
+    |------|------|------|------|
+    | `secretCommand` | Passed verbatim to the secret scanner. Default scans the current dir as a git repo. | no | `git file://.` |
+    | `severityThreshold` | CSV of severities that fail the build. | no | `HIGH,CRITICAL` |
+    | `softFail` | `true` = advisory only; `false` = fail build on matching severities. | no | `false` |
+
+=== "Common knobs"
+
+    Every `accuknox*` step accepts these:
+
+    | Parameter | Default | Notes |
+    |------|------|------|
+    | `endpoint` | from global config | Control-plane host (no scheme). Per-step override. |
+    | `label` | from global config | Becomes the `label_id` on the upload. |
+    | `credentialsId` | from global config | Jenkins credential ID holding the AccuKnox bearer token. |
+    | `skipUpload` | `false` | Run the scanner but don't upload. Useful for dry runs. |
+    | `keepResults` | `true` | Keep results JSON on the agent and archive it as a build artifact. |
+    | `containerMode` | `false` | Run the scanner inside Docker on the agent. |
+    | `cliPath` | `auto` | Path to a pre-staged `accuknox-aspm-scanner` binary (air-gapped use). |
+
+## Severity model
+
+The underlying secret scanner doesn't classify findings by severity, so the plugin counts every secret as a **HIGH** finding. Committed secrets are inherently high-risk.
+
+!!! info "Default behavior"
+    With `severityThreshold = 'HIGH,CRITICAL'` any detected secret fails the build. Set `'CRITICAL'` only if you explicitly want to allow them through.
+
+## Without AccuKnox vs With AccuKnox
+
+=== "Without AccuKnox"
+
+    Secret-scan output is left as a JSONL file in the workspace. You have to manually inspect or wire downstream tooling.
+
+=== "With AccuKnox"
+
+    Findings are uploaded and grouped by repo, commit, and rule. The AccuKnox console provides remediation guidance and ticketing.
+
+*Figure 1. Secret findings in the AccuKnox console.*
+![Secret findings list](images/jenkins-secret-scan/secret_1.png)
+
+*Figure 2. Drilling into a single secret finding.*
+![Secret finding detail](images/jenkins-secret-scan/secret_2.png)
+
+## Viewing Results in AccuKnox
+
+Once the Jenkins job uploads its report, the findings are available in the AccuKnox SaaS console.
+
+1. Log in to the AccuKnox console and switch to the tenant whose label you configured in Jenkins.
+2. Open **Issues → Findings**, and filter by **Secret**.
+3. Click any finding to inspect the file, line, and the recommended remediation.
+4. Use the **ASK AI** button on a finding for an LLM-generated explanation and patch suggestion.
+5. Create a ticket directly from the finding to track remediation.
+6. Re-run the Jenkins job after rotating the secret. The finding flips to **Resolved** on the next ingest.
 
 ## Conclusion
 
-By integrating the **AccuKnox Secret Scanning** into your CI/CD pipeline, you ensure that sensitive information is identified and securely managed during development. This streamlines secret scanning, centralizes findings in AccuKnox SaaS, and helps strengthen your organization's security posture.
+Wiring Secret scanning into Jenkins via the AccuKnox ASPM plugin gives you continuous, automated detection on every build, with a single pane of glass in the AccuKnox console for triage, ticketing, and verification. Combine it with the other scan types ([SAST](jenkins-sast.md), [IaC](jenkins-iac-scan.md), [Container](jenkins-container-scan.md), [SBOM](jenkins-sbom.md), [SCA](jenkins-artifact-scan.md)) to get full-coverage ASPM directly from your pipelines.

@@ -7,9 +7,6 @@ description: Step-by-step instructions for onboarding an Azure cloud account and
 
 In this section we can find the steps to onboard an Azure cloud account to the AccuKnox SaaS platform.
 
-!!! info "AI/ML Prerequisites for Azure Cloud Accounts"
-    **Please review the [AI/ML Prerequisites for Azure](https://help.accuknox.com/how-to/cspm-prereq-azure/#aiml-security-prerequisites-for-azure-cloud-accounts) before proceeding with the onboarding process.**
-
 ## **Rapid Onboarding (via Azure)**
 
 For Azure Onboarding it is required to register an App and grant Security read access to that App from the Azure portal.
@@ -42,11 +39,17 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 ![image](images/azure5-1.png)
 
-**Step 8:** Next, select Application Permissions and then search for Directory.Read.All and click on Add permissions
+**Step 8:** Select Application Permissions and add each of the following permissions:
+
+- `Directory.Read.All`
+- `Application.Read.All`
+- `AuditLog.Read.All`
+- `AuditLogsQuery-CRM.Read.All`
+- `AuditLogsQuery.Read.All`
 
 ![image](images/azure5-2.png)
 
-**Step 9:** Select ‘Grant Admin Consent’ for Default Directory and click on ‘Yes’
+**Step 9:** Select ‘Grant Admin Consent’ for Default Directory and click on ‘Yes’. Confirm all permissions show a Granted status.
 
 ![image](images/azure5-3.png)
 
@@ -63,22 +66,49 @@ For Azure Onboarding it is required to register an App and grant Security read a
 ![image](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/add-custom-role-menu.png)
 
 Create a custom role with the following actions:
-`Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
-`Microsoft.MachineLearningServices/serverlessEndpoints/listKeys/action`
-`Microsoft.Storage/storageAccounts/listKeys/action`
-`Microsoft.MachineLearningServices/workspaces/batchEndpoints/score/action`
+
+```
+Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action
+Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action
+Microsoft.MachineLearningServices/workspaces/datastores/listSecrets/action
+Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action
+Microsoft.CognitiveServices/accounts/listKeys/action
+Microsoft.CognitiveServices/accounts/deployments/read
+Microsoft.Storage/storageAccounts/listKeys/action
+```
 
 It will look similar to this (use the above listed permissions):
 ![Azure custom role JSON editor view in Azure Portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/json.png)
 
-**Step 13:** Next, we need to apply the Reader role.
-![image](https://i.ibb.co/bwNv5H2/image.png)
+**Step 13:** Apply the following built-in roles to the registered application: **Reader**, **Cognitive Services OpenAI User**, **Cognitive Services User**, and **Storage Blob Data Reader**.
 
-1. Go to the **Azure Portal** → **Subscriptions** (or **Resource Groups**) → select your target scope.
+For each role:
+
+1. Go to **Azure Portal** → **Subscriptions** (or **Resource Groups**) → select your target scope.
 2. Open **Access control (IAM)** → click **Add > Add role assignment**.
-3. In the **Role** tab, select **Reader**, then click **Next**.
-4. Under **Members**, choose the user, service principal, or group → **Review + assign** to apply the Reader role.
+3. In the **Role** tab, search for and select the role, then click **Next**.
 
+    *Example: selecting the Reader role*
+
+    ![image](images/azure-aiml-reader.png)
+
+    *Example: selecting the Storage Blob Data Reader role*
+
+    ![image](images/azure-aiml-blob-role.png)
+
+4. In the **Members** tab, click **Select members** and search for the application you registered.
+
+    ![image](images/azure-aiml-blob-member.png)
+
+5. Select the application (e.g., AccuKnox Azure CSPM Org Scanner) and click **Review + assign**.
+
+    ![image](images/azure-aiml-blob-selected.png)
+
+Repeat this process for all four roles.
+
+
+!!! tip "Using Copilot Studio?"
+    If you're integrating with Microsoft Copilot Studio (CP Studio), complete the [Copilot Studio integration steps](https://help.accuknox.com/integrations/copilot-studio/) before proceeding to the AccuKnox SaaS UI onboarding below.
 
 ## **From AccuKnox SaaS UI**
 
@@ -96,9 +126,9 @@ Configuring your Azure cloud account is complete. Now we need to onboard the clo
 
 ![image](images/azure14.png)
 
-**Step 4:** Enter the details that we saved earlier during the steps for app registration and subscription id from subscriptions in azure portal and click on connect. **Ensure to check the box "AI/ML Assets"** to enable AI/ML asset discovery and monitoring.
+**Step 4:** Enter the details saved during app registration (Application ID, Directory ID, Secret Value) and the Subscription ID from the Azure portal. **Check the "AI/ML Assets" box** to enable AI/ML asset discovery and monitoring. Click Connect.
 
-![image](images/ai-checkbox.png)
+![image](images/azure-onboarding-options.png)
 
 **Step 5:** After successfully connecting your cloud account will show up in the list
 

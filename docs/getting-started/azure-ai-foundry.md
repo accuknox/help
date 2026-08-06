@@ -28,7 +28,7 @@ The solution acts as a **secure proxy** in front of Azure AI Foundry / OpenAI-co
 
 ## Runtime Security Flow
 
-![AccuKnox LLM Defence runtime security flow diagram](image-19.png)
+![AccuKnox LLM Defence runtime security flow diagram](image-57.png)
 
 ## Prerequisites
 
