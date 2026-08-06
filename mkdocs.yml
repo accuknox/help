@@ -518,6 +518,7 @@ nav:
         - "FortiGate Firewall" : "integrations/fortigate-siem.md"
     - "SSO":
       - "Signup/Login via SSO": "how-to/sso.md"
+      - "Enterprise SSO (SAML)": "integrations/saml-sso.md"
       - "Azure Entra": "integrations/azure-entra-sso.md"
       - "Okta": "integrations/okta-sso.md"
       - "Auth0": "integrations/auth0-sso.md"
