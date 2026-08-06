@@ -7,6 +7,12 @@ hide:
 
 # Integrations
 
+!!! tip "Looking for the full list?"
+
+    The [Integration Support Matrix](support-matrix.md) shows every supported tool in one
+    view, including the 174-server MCP catalog, 158 inference providers, and every SIEM
+    that reads syslog or CEF.
+
 <style>
     .nt-card-title {
     text-align: -webkit-center;

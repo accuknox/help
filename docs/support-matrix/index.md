@@ -15,6 +15,9 @@ hide:
 
 ::cards:: cols=3
 
+- title: Integration Support Matrix
+  image: ../assets/icons/grid.svg
+  url: /integrations/support-matrix/
 - title: CI/CD Support Matrix
   image: ./icons/cicd.svg
   url: /support-matrix/cicd-support-matrix/
