@@ -127,7 +127,7 @@ The command may look something like this:
 ```sh
 $ knoxctl onboard vm cp-node \
 --version v0.10.7 \
---join-token=ae0e9974-6a8d-4c4f-9148-fb4e0ca769d9 \ #this may vary
+--join-token=<your-join-token> \ #this may vary
 --spire-host=spire.accuknox.com \
 --pps-host=pps.accuknox.com \
 --knox-gateway=knox-gw.accuknox.com:3000 \

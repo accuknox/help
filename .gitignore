@@ -3,3 +3,6 @@ todos.md
 site/
 .firecrawl
 node_modules
+# Python bytecode
+__pycache__/
+*.pyc
