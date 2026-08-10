@@ -21,6 +21,33 @@
 5. `AccuKnox CISO's Presentation, May 2026` (40 slides), the 12-module feature source.
 6. `utils/content-planning/platform-pages-content-plan.md`, the earlier per-module gap analysis.
 7. `utils/brian-demo-screenshots/DEMO-SUMMARY.md`, 22 captioned product screenshots.
+8. Live DOM of the `/platform/cdr`, `/platform/siem`, `/platform/ai-security`, `/platform/api-security` and `/platform/dspm` module pages, harvested for product screenshots.
+
+The Google Drive folder was not readable from this session (the Drive API returned an insufficient-scope error). Every image the prototype needs was found on the live site instead, so nothing is blocked. See section 4.
+
+---
+
+## 0. SEO framing
+
+The page targets **Zero Trust CNAPP platform** as the primary keyword. Every section heading leads with the term a buyer actually searches for rather than a rhetorical phrase, and each showcase tab headline carries the full expanded product category alongside its acronym, since buyers search both ways.
+
+| Section | Heading | Keyword carried |
+|---|---|---|
+| 1 | Zero Trust CNAPP Platform for Cloud, Application and AI Security | zero trust CNAPP platform |
+| 3 | Code to cloud to AI security on a single control plane | code to cloud security |
+| 4 | Twelve CNAPP modules on one policy engine | CNAPP modules |
+| 5 tabs | "Cloud Security Posture Management for AWS, Azure, GCP and Oracle", "Cloud Workload Protection with eBPF runtime enforcement", "Kubernetes Security Posture Management and CIS benchmark hardening", and so on | CSPM, CWPP, KSPM, ASPM, API security, AI-SPM, DSPM, SBOM, CDR, SIEM |
+| 6 | Runtime security: threat detection versus inline prevention | runtime security, inline prevention |
+| 8 | CNAPP adoption roadmap and security maturity phases | CNAPP adoption, security maturity |
+| 10 | Flexible deployment models: SaaS, private cloud, on-premise and air-gapped | air-gapped security, on-premise CNAPP |
+| 12 | Continuous compliance across 45+ frameworks | continuous compliance |
+| 13 | Security tool consolidation and TCO reduction | security tool consolidation |
+| 14 | CNAPP vendor comparison | CNAPP vendor comparison |
+
+**Meta title:** Zero Trust CNAPP Platform for Cloud, Application and AI Security | AccuKnox
+**Meta description:** AccuKnox Zero Trust CNAPP unifies CSPM, CWPP, KSPM, ASPM, API security, AI-SPM, DSPM, SBOM, CDR, SIEM and compliance on one policy engine. Inline runtime prevention with eBPF and LSM.
+
+Conversational and rhetorical headings are out. The first draft used lines like "You do not deploy twelve modules on a Tuesday" and "Pick where you hurt". Those carry no search intent and read as consumer copy on an enterprise security page. Every one has been replaced.
 
 ---
 
@@ -56,7 +83,6 @@ Three specific failures:
 | Hero | "Why Do Security Breaches Always Seem One Step Ahead?" with no product in it | Platform-first headline plus a stat strip. See content file, Section 1 |
 | AppSec / CloudSec two-box | Two boxes covering six acronyms | Six domain tabs matching the homepage hero, covering all twelve modules |
 | 4-tab pain-point block | Static text, one stock image per tab | The 12-tab product showcase with real dashboards and carousels |
-| "What's New in the security Portfolio" (IoT/Edge, 5G) | Presented as new, both are years old | Fold into a "Specialized environments" strip with Nutanix, OpenShift, VMware, edge, 5G, air-gapped |
 | "Let AccuKnox perform impact analysis" paragraph | Vague, uses "50+ tooling" once | Replace with the consolidation and TCO band carrying real numbers |
 
 ### Remove
@@ -65,12 +91,14 @@ Three specific failures:
 2. The duplicated testimonial carousel block.
 3. The "AccuKnox is the top CNAPP Security Pick" banner above the fold. Same content lives in the proof band.
 4. The lone James Berthoty quote sitting inside a product tab. Quotes belong in the proof band, not inside a feature panel.
+5. The IoT/Edge and 5G two-card block. Both have their own pages and neither is new.
+6. The open source projects grid (KubeArmor, ModelArmor, ClawArmor, K8TLS). KubeArmor still earns a mention inside the IDT Telecom customer quote, which is enough on this page.
 
 ---
 
 ## 3. New page structure
 
-Eighteen sections. Sections 2 and 5 are the two tabbed components, and section 5 is the centerpiece the brief asks for.
+Seventeen sections. Sections 2, 5 and 8 are the tabbed components, and section 5 is the centerpiece the brief asks for.
 
 | # | Section | Component type | Primary source |
 |---|---|---|---|
@@ -84,12 +112,11 @@ Eighteen sections. Sections 2 and 5 are the two tabbed components, and section 5
 | 8 | Security maturity phases | Tabbed matrix, 5 tracks x 3 phases | Maturity deck S9, S12, S15, S16, S17 |
 | 9 | Runtime security journey, 8 steps | Horizontal stepper | Micro deck S15 |
 | 10 | Deploy anywhere, 4 models | Icon row plus coverage table | Micro deck S13, S31 |
-| 11 | Secure across every infrastructure | Five-column table | Homepage section |
+| 11 | Infrastructure coverage | Five-row table plus architecture image | Homepage section |
 | 12 | Compliance, 45+ frameworks | Logo grid plus metrics | Micro deck S30 |
 | 13 | Consolidation and TCO | Logo replacement grid plus stats | CISO deck S38 |
 | 14 | Stack ranking vs competitors | Comparison table | CISO deck S36 |
-| 15 | Integrations, 50+ | Category grid | Homepage plus micro deck S14 |
-| 16 | Open source | Three cards | Mega menu |
+| 15 | Integrations, 50+ | Category cards plus the logo wheel | Homepage plus micro deck S14 |
 | 17 | Proof band, analysts, patents, customers | Mixed | Micro deck S3, S32, S33 |
 | 18 | POC in three weeks plus FAQs plus CTA | Stepper plus accordion | Micro deck S34 |
 
@@ -97,80 +124,89 @@ Eighteen sections. Sections 2 and 5 are the two tabbed components, and section 5
 
 The homepage showcase already works: a left-to-right icon nav, one panel per module, a headline, a support stat, a screenshot carousel, and an "Explore X" button. Buyers land on `/platform` expecting the same interaction at more depth. The platform version keeps the identical shell and adds two things per panel: a four-bullet capability list, and a link into the matching help doc. Reusing the component means Anish builds nothing new, only extends the panel template and adds two tabs.
 
-The homepage has 10 tabs. The platform page gets 12, matching the 12 modules in the deck.
+The homepage has 10 tabs. The platform page gets **13**. Harvesting the module pages closed the two screenshot gaps flagged in the first draft (Agentic AI and CDR) and turned up six SIEM console shots, so SIEM moves onto the tab bar rather than sitting in the overflow row.
 
-| # | Tab | Homepage has it | Screenshots exist |
+| # | Tab | Homepage has it | Screenshots available |
 |---|---|---|---|
-| 1 | Cloud Security (CSPM) | Yes | Yes, CSPM1 to CSPM4 |
-| 2 | Workload Security (CWPP) | Yes | Yes, CWPP1 to CWPP4 |
-| 3 | Kubernetes Security (KSPM) | Yes | Yes, KSPM1 to KSPM4 |
-| 4 | Application Security (ASPM) | Yes | Yes, ASPM1 to ASPM4 |
-| 5 | API Security | Yes | Yes, api1 to api3 |
-| 6 | AI Security (AI-SPM) | Yes | Yes, AI-SPM1 to AI-SPM6 |
-| 7 | Agentic AI Security | **No, new** | **No. Needs capture** |
-| 8 | Data Security (DSPM) | Yes | Yes, 4 DSPM shots |
-| 9 | Supply Chain (SBOM) | Yes | Yes, SBOM1 to SBOM4 |
-| 10 | Secrets Manager | Yes | Yes, 2 shots |
-| 11 | Cloud Detection & Response (CDR) | **No, new** | **No. Needs capture** |
-| 12 | Compliance and GRC | Yes | Yes, COMPLIANCE1 to 3 |
+| 1 | Cloud Security (CSPM) | Yes | 8 |
+| 2 | Workload Security (CWPP) | Yes | 8 |
+| 3 | Kubernetes Security (KSPM) | Yes | 8 |
+| 4 | Application Security (ASPM) | Yes | 7 |
+| 5 | API Security | Yes | 8 |
+| 6 | AI Security (AI-SPM) | Yes | 8 |
+| 7 | Agentic AI Security | **No, new** | 7, from `/platform/ai-security` |
+| 8 | Data Security (DSPM) | Yes | 7, from `/platform/dspm` |
+| 9 | Supply Chain (SBOM) | Yes | 4 |
+| 10 | Secrets Manager | Yes | 3 |
+| 11 | Cloud Detection and Response (CDR) | **No, new** | 5, from `/platform/cdr` |
+| 12 | SIEM | **No, new** | 8, from `/platform/siem` |
+| 13 | Compliance and GRC | Yes | 5 |
 
-SIEM, CIEM, and CTEM stay off the tab bar and appear as a "Also on the platform" row below it, because CIEM and CTEM are Beta and SIEM has no dashboard imagery yet. Putting a Beta module on the main showcase invites a demo request the product cannot fully answer.
+CIEM, CTEM, ASM, SSPM, AI-SOC and AI-GRC stay off the tab bar and appear in an "Also on the platform" row below it, because all six carry a Beta label. Putting a Beta module on the main showcase invites a demo request the product cannot fully answer.
+
+### Layouts retained from the current /platform page
+
+Five components on the current page are well built and worth keeping rather than redesigning. All five are reproduced in the prototype.
+
+| Component | Where it moves | Change |
+|---|---|---|
+| Press and analyst logo marquee | Directly under the hero | Auto-scroll, greyscale until hover |
+| Typed resource cards (eBook, Blog, Help doc, Video) | Above the proof of concept band | Same four-card layout, refreshed titles |
+| Gated asset block with a "what is inside" checklist | Before the proof band | Swap the 2025 guide for the Zero Trust CNAPP guide |
+| Numbered FAQ accordion | Page footer area | Expanded from 5 questions to 10 |
 
 ---
 
 ## 4. Image manifest
 
-### 4a. Already produced, hot-linkable, matches brand
+**The prototype uses 169 unique images and every one of them already exists on accuknox.com.** All 169 URLs were load-tested and none are broken. Base path is `https://accuknox.com/wp-content/uploads/`.
 
-These are live on accuknox.com and used by the homepage showcase. The prototype references them directly so the page renders immediately. Base path is `https://accuknox.com/wp-content/uploads/`.
+The Google Drive folder could not be read from this session, because the Drive API token has insufficient scopes. That turned out not to matter: harvesting the live homepage, the current `/platform` page, and the `/platform/cdr`, `/platform/siem`, `/platform/ai-security`, `/platform/api-security` and `/platform/dspm` module pages produced a full set. If the Drive folder holds higher-resolution originals, they can be swapped in file by file without touching the layout.
 
-| Tab | Files |
+### 4a. Product screenshots, by showcase tab
+
+| Tab | Files | Harvested from |
+|---|---|---|
+| CSPM | `CSPM-Single-Pane-Cloud-Asset-View-platform.webp`, `CSPM-Cloud-Misconfiguration-platform.webp`, `CSPM-Asset-Vulnerabilities-platform.webp`, `CSPM-Drift-Detection-platform.webp`, `CSPM1-` to `CSPM4-dashboard-home.webp` | current /platform + homepage |
+| CWPP | `CWPP-MonitorAppBehaviour.webp`, `CWPP-HardenYourVMs.webp`, `CWPP-Host-Scan-Easily-platform.webp`, `CWPP-Secure-Your-Secrets-Vault-platform.webp`, `CWPP1-` to `CWPP4-dashboard-home.webp` | current /platform + homepage |
+| KSPM | `KSPM-Scan-Cluster-Misconfigurations-platform.webp`, `KSPM-CIS-Benchmark-Findings-platform.webp`, `KSPM-Identity-Entitlements-Management-platform.webp`, `KSPM-Pod-Security-Admission-platform.webp`, `KSPM1-` to `KSPM4-dashboard-home.webp` | current /platform + homepage |
+| ASPM | `ASPM_StaticApplicationSecurity.webp`, `ASPM_ContainerScanning.webp`, `ASPM_IaC_Scanning.webp`, `ASPM_Vulnerability_Management.webp`, `ASPM1-`, `ASPM2-`, `ASPM4-dashboard-home.webp` | current /platform + homepage |
+| API Security | `api-discovery.webp`, `sankey-diagram.webp`, `owasp-ui-1-api.webp`, `owasp-ui-2-api.webp`, `True-Behavioral-Analytics-dashboard.webp`, `Targeted-OWASP-Protection-dashboard.webp`, `api1-`, `api2-dashboard-home.webp` | /platform/api-security |
+| AI Security | `Ai-sec-Inventory-View.webp`, `Ai-sec-AI-Model-View.webp`, `Ai-sec-Unmanaged-Assets-Discovery.webp`, `Ai-sec-Prompt-Firewall.webp`, `Ai-sec-Runtime-Defense.webp`, `Ai-sec-AI-Compliance.webp`, `AI-SPM1-`, `AI-SPM3-dashboard-home.webp` | /platform/ai-security |
+| Agentic AI | `Multi-Cloud-Agent-Visibility-Auditing-agentic.webp`, `Sandbox-Unsafe-Tool-Usage-agentic.webp`, `Sandbox-Auto-Generated-Code-agentic.webp`, `Multi-Platform-Support-agentic.webp`, `Ai-sec-Managed-Agents-View.webp`, `Ai-sec-Runtime-Agent-Sandboxing.webp`, `agentz-tab-home-1.webp` | /platform/ai-security |
+| DSPM | `Discovery-`, `Classification-`, `Access-Review-`, `Monitoring-`, `Remediation-`, `Onboarding-Data-Source-Connection-dashboard-dspm.webp`, `DSPM1-dashboard-home.webp` | /platform/dspm |
+| SBOM | `SBOM1-` to `SBOM4-dashboard-home.webp` | homepage |
+| Secrets | `secrets-manager-dashboard-home.webp`, `secrets-manager-1-dashboard-home.webp`, `CWPP-Secure-Your-Secrets-Vault-platform.webp` | homepage + /platform |
+| CDR | `cdr-solution-dashboard.webp`, `Enforcing-private-access-policy-on-S3-buckets.webp`, `Ensure-public-IP-is-not-enabled-for-VMs.webp`, `Notify-if-AWS-access-from-unknown-regions.webp`, `AccuKnox-cdr-Architecture.webp` | /platform/cdr |
+| SIEM | `Main-Security-Overview-Dashboard.webp`, `Alert-Investigation-Correlation-Details.webp`, `Log-Search-Threat-Hunting-Interface.webp`, `Incident-Threat-Timeline-Visualization.webp`, `Compliance-Reporting-Dashboard-e.g.-PCI.webp`, `Integration-Data-Source-Management.webp`, `siem-architecture.webp`, `noise-reduction.webp` | /platform/siem |
+| Compliance | `COMPLIANCE1-` to `COMPLIANCE3-dashboard-home.webp`, `Achieve-Key-Compliance-dashboard.webp`, `Ai-sec-AI-Compliance.webp` | homepage + /platform/api-security |
+
+### 4b. Diagrams and supporting visuals
+
+| File | Where it goes |
 |---|---|
-| CSPM | `CSPM1-dashboard-home.webp` … `CSPM4-dashboard-home.webp`, `public-cloud-support-home.webp` |
-| ASPM | `ASPM1-dashboard-home.webp`, `ASPM2`, `ASPM4`, `cicd-platform-support-home.webp` |
-| AI-SPM | `AI-SPM1-dashboard-home.webp` … `AI-SPM6-dashboard-home.webp`, `ai-llm-logos-home.webp` |
-| API | `api1-dashboard-home.webp` … `api3-dashboard-home.webp`, `api-sec-logos-home.webp` |
-| CWPP | `CWPP1-dashboard-home.webp` … `CWPP4-dashboard-home.webp`, `k8-engines-support-home.webp` |
-| SBOM | `SBOM1-dashboard-home.webp` … `SBOM4-dashboard-home.webp`, `sbom-support-home.webp` |
-| KSPM | `KSPM1-dashboard-home.webp` … `KSPM4-dashboard-home.webp` |
-| DSPM | `DSPM1-dashboard-home.webp`, `Onboarding-Data-Source-Connection-dashboard-dspm.webp`, `Access-Review-dashboard-dspm.webp`, `Remediation-dashboard-dspm.webp`, `dspm-support-home.webp` |
-| Secrets | `secrets-manager-dashboard-home.webp`, `secrets-manager-1-dashboard-home.webp`, `hashicorp-logo-home.webp` |
-| Compliance | `COMPLIANCE1-dashboard-home.webp` … `COMPLIANCE3-dashboard-home.webp`, `integrated-compliance-frameworks-home.webp` |
-| Domain tab icons | `ASPM-nav-icon.svg`, `CSPM-nav-icon.svg`, `CDR-nav-icon.svg`, `DSPM-nav-icon.svg`, `api-sec-nav-icon.svg`, `sbom-nav-icon.svg`, `siem-nav-icon.svg`, `secrets-nav-icon.svg`, `ai-soc-nav-icon.svg`, `CTEM-nav-icon-1.svg`, `CIEM-nav-icon.svg`, `agent-builder-nav-icon.svg`, `mcp-server-nav-icon.svg` |
+| `AccuKnox-Security-Modules.webp` | Hero visual and the section 3 architecture slot. This replaces the diagram the first draft asked to design. |
+| `deployment-models-differentiators.webp` | Section 10, the primary deployment visual (1672 x 746, verified) |
+| `saas-onprem.webp` | Section 11, SaaS versus on-premise architecture |
+| `ask-ai-platfrom-card.webp` | Section 4, AI Copilot callout |
+| `Ai-sec-Runtime-Defense.webp` | Section 7, runtime layers |
+| `public-cloud-support-home.webp`, `k8-engines-support-home.webp`, `cicd-platform-support-home.webp`, `ai-llm-logos-home.webp`, `api-sec-logos-home.webp`, `sbom-support-home.webp`, `dspm-support-home.webp`, `hashicorp-logo-home.webp`, `integrated-compliance-frameworks-home.webp` | Per-tab support badges |
+| `Iot-Edge-Security.svg`, `5G-Security.svg` | Section 11, specialized environments |
+| 11 `*-press-slider.webp` files | Press marquee |
+| `cnapp-buyers-guide-400x250.webp`, `zero-trust-llm-security-featured.webp`, `help-doc-platform.webp`, `explainer-2.0.webp` | Gated block and resource cards |
+| `David-Billeter-testi.webp`, `golan-ben-oni.webp`, `jamesb.png`, `sonesta-home.webp`, `idt-1.webp`, `latio3.webp` | Testimonial headshots and company logos |
+| ~30 `*-nav-icon.svg` files | Hero domain tab cards and the module grid |
 
-### 4b. In the repo, needs cropping before use
+### 4c. Still worth designing
 
-From `utils/brian-demo-screenshots/`. Crop browser chrome and dead whitespace per the asset-kit rules.
-
-| File | Use it for |
-|---|---|
-| `01-main-dashboard-overview.png` | Section 3 or the CDR tab |
-| `10-ask-ai-copilot-remediation.png` | AI Copilot callout in section 4 |
-| `12-rules-engine-custom-rules.png` | CDR tab, automation slide |
-| `13-compliance-frameworks-list.png` | Compliance tab, slide 1 |
-| `14-hipaa-compliance-detail-view.png` | Compliance tab, slide 2 |
-| `16-ai-pipeline-topology.png` | AI-SPM tab, pipeline visibility |
-| `17-ai-red-teaming-risks.png` | AI-SPM tab, red teaming |
-| `18-prompt-firewall-policy-config.png` | AI-SPM tab, guardrails |
-| `20-runtime-protection-policy-activation.png` | CWPP tab |
-| `21-zero-trust-policy-discovery.png` | Section 9, runtime journey |
-| `22-application-behavior-monitoring.png` | CWPP tab, app behavior |
-
-### 4c. New assets to design
-
-Seven. These are the visual backbone and none of them exist as a web-ready image today.
+Only two items remain genuinely missing, and the page works without either.
 
 | # | Asset | Source to trace | Where it goes |
 |---|---|---|---|
-| 1 | Code to Cognition architecture | Maturity deck S2, CISO deck S4 | Section 3 |
-| 2 | Runtime as a lens vs a shield | Micro deck S25 | Section 6 |
-| 3 | Runtime at every layer, L1 kernel to L4 prompt | Micro deck S19 | Section 7 |
-| 4 | Maturity phases matrix, 5 tracks x 3 phases | Maturity deck S9, S12, S15, S16, S17 | Section 8 |
-| 5 | Runtime security journey, 8 numbered steps | Micro deck S15 | Section 9 |
-| 6 | Four deployment models | Micro deck S13 | Section 10 |
-| 7 | Consolidation grid, AccuKnox vs 10 replaced vendors | CISO deck S38 | Section 13 |
+| 1 | Runtime as a lens versus a shield | Micro deck S25 | Section 6. Currently rendered as a styled two-column comparison in HTML, which may be enough. |
+| 2 | Maturity phases matrix, 5 tracks x 3 phases | Maturity deck S9, S12, S15, S16, S17 | Section 8. Currently rendered as a tabbed card matrix in HTML. |
 
-Two product captures are also needed: an Agentic AI / AgentZ console view and a CDR console view. Without them, tabs 7 and 11 ship with a diagram instead of a screenshot, which reads as weaker than the other ten.
+Optional upgrades, not blockers: cropped versions of `10-ask-ai-copilot-remediation.png`, `17-ai-red-teaming-risks.png` and `21-zero-trust-policy-discovery.png` from `utils/brian-demo-screenshots/` if higher-fidelity captures are wanted than the marketing-site equivalents.
 
 ---
 
