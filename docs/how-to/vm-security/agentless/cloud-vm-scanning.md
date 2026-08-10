@@ -6,8 +6,14 @@ description: How to set up Agentless Cloud Based VM Scanning.
 # Cloud Based VM Scanning (Agentless)
 
 
-Agent-less VM scanning is supported for AWS, GCP, Azure, and Openshift.
+Agent-less VM scanning is supported for AWS, GCP, Azure, and OpenShift.
 Support for OCI and Nutanix is planned.
+
+<!--
+OpenShift uses a different mechanism from the public clouds, an operator installed
+on the cluster instead of Terraform. See
+[OpenShift VM Scanning (Agentless)](openshift-vm-scanning.md) for that flow.
+-->
 
 ![VM Scanning](image.png)
 

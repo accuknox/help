@@ -6,3 +6,10 @@ node_modules
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Source recordings for help docs, kept locally only
+utils/**/*.mp4
+
+utils/content-planning/
+
+utils/private-cloud-onboarding-openshift/
