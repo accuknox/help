@@ -35,7 +35,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [cluster-offboarding.md](cluster-offboarding.md) | Instructions for offboarding a cluster from AccuKnox SaaS, ensuring a clean and secure removal process. Follow this step-by-step guide. |
 | [cluster-onboarding-access-keys.md](cluster-onboarding-access-keys.md) | Guide to onboarding multiple clusters using access keys, with options to set expiration times and limit the number of onboarded clusters. |
 | [cluster-onboarding.md](cluster-onboarding.md) | Step-by-step guide on onboarding clusters to AccuKnox SaaS, including installing KubeArmor and AccuKnox agents for secure integration. |
-| [code-source-onboarding.md](code-source-onboarding.md) | Connect GitHub, GitLab, or Bitbucket to AccuKnox with a native app and run SCA, Secrets, SAST, and IaC scans from the platform, with no CI/CD pipeline setup.... |
+| [code-source-onboarding.md](code-source-onboarding.md) | Install the AccuKnox app on GitHub, GitLab, or Bitbucket and run SCA, Secrets, SAST, SBOM, and IaC scans from the AccuKnox platform. No CI/CD pipeline change... |
 | [create-access-keys.md](create-access-keys.md) | Guide on creating secure access keys in AccuKnox SaaS to authenticate and authorize user access and manage permissions effectively. |
 | [cspm-permissions-aws.md](cspm-permissions-aws.md) | The 403 read-only IAM permissions the AccuKnox CSPM scanner requests for AWS, with the reason for each. |
 | [cspm-permissions-azure.md](cspm-permissions-azure.md) | The 209 permissions in the AccuKnox CSPM Azure reader role, with the reason and impact for each. |
