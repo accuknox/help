@@ -1,120 +1,243 @@
 ---
-title: Connect Source Code for Security Scanning
-description: Connect GitHub, GitLab, or Bitbucket to AccuKnox with a native app and run SCA, Secrets, SAST, and IaC scans from the platform, with no CI/CD pipeline setup. Covers install, scan configuration per repo and branch, automatic sync, scheduled and on-demand scans, and disconnection.
+title: Connect GitHub, GitLab, or Bitbucket for Source Code Scanning
+description: Install the AccuKnox app on GitHub, GitLab, or Bitbucket and run SCA, Secrets, SAST, SBOM, and IaC scans from the AccuKnox platform. No CI/CD pipeline changes. Covers the three-step Connect, Repo and Branches, Scan wizard, per-repo scan overrides, auto connect for new repos, and reading results.
 ---
 
-# Connect Source Code for Security Scanning
+# Connect GitHub, GitLab, or Bitbucket for Source Code Scanning
 
-AccuKnox can scan your repositories directly, without adding a scan step to your CI/CD pipeline. You install the AccuKnox app on your source code manager once, choose which repositories and branches to cover, and pick the scan types. Every scan runs on the AccuKnox platform.
+AccuKnox scans your repositories directly. You install the AccuKnox app on your source code manager once, pick the repositories and branches you care about, choose the scan types, and every scan runs on the AccuKnox platform.
 
-This works for **GitHub**, **GitLab**, and **Bitbucket** using the same flow.
+Nothing goes into your pipeline. There is no workflow file to add, no runner to install, and no build to keep green.
+
+This is the **App Based** integration. AccuKnox also supports **CI/CD** and **CLI** integrations for the same scanners, and you can run more than one at a time.
 
 ## How it works
 
-1. Install the AccuKnox app on your source code organization and grant read access.
-2. AccuKnox lists the repositories it can see.
-3. For each repository and branch, you choose the scan types to run.
-4. Scans run on the platform, on a daily schedule and on demand.
-5. Findings appear in the ASPM dashboard and the Findings pages.
+1. You install the AccuKnox app on your GitHub organization, GitLab group, or Bitbucket workspace and grant read access.
+2. AccuKnox discovers every repository the app can see, along with its branches.
+3. You choose which repositories and branches to onboard, and which scan types to run on each.
+4. Scans run on the AccuKnox platform and rerun as your code changes.
+5. Findings land in the ASPM dashboard and the Findings pages.
 
-Nothing runs inside your pipeline, and nothing is installed in your repositories beyond the app.
+## What you can connect
+
+| Source | Cloud | Self-hosted |
+|---|---|---|
+| **GitHub** | Supported, using the AccuKnox app | Supported, using a personal access token |
+| **GitLab** | Supported, using the AccuKnox app | Supported, using a personal access token |
+| **Bitbucket** | Supported, using the AccuKnox app | Not supported |
+
+Bitbucket Data Center and Bitbucket Server are not covered by the app-based flow. Use the [Bitbucket CI/CD integration](/integrations/bitbucket-overview/) for those.
+
+## Scan types
+
+The same five scan types are available on all three sources.
+
+| Scan type | What it finds |
+|---|---|
+| **SCA** | Known vulnerabilities in your open-source dependencies |
+| **Secrets** | Hardcoded credentials, tokens, and keys committed to the repository |
+| **SAST** | Insecure patterns in your own source code |
+| **SBOM** | The software bill of materials for the repository |
+| **IaC** | Misconfigurations in infrastructure-as-code, selectable by framework |
+
+**AI Enabled SAST** is a separate checkbox that layers AI-assisted analysis on top of the standard static scan.
 
 ## Prerequisites
 
-- Admin rights on the GitHub, GitLab, or Bitbucket organization, so you can install an app.
-- Access to your AccuKnox tenant with permission to manage integrations.
+- Permission to install an app on your GitHub organization, GitLab group, or Bitbucket workspace. On GitHub this means organization owner or an equivalent role.
+- An AccuKnox account with permission to manage integrations.
+- For a self-hosted GitHub or GitLab instance, a personal access token with read scope on the repositories you want to scan, plus network access from AccuKnox to that instance.
 
-## Step 1: Install the AccuKnox app
+## Step 1: Start the integration
 
-Start the connection from **Settings → Integrations → Code Source Configuration** and follow the prompt to install the app on your source code manager.
+Go to **Settings → Integrations**, open the **Integrations** tab, and select **Application Security**. The **Application Security Posture Management (ASPM)** section lists GitHub, GitLab, Bitbucket, and the CI/CD platforms.
 
-During install, choose the scope:
+Find your source and click **Connect**.
 
-- **All repositories** applies to every current and future repository owned by the organization.
-- **Only select repositories** limits the app to the repositories you pick.
+![AccuKnox Settings Integrations page showing the Application Security Posture Management section with GitHub, GitLab, Bitbucket, and Azure DevOps cards](images/code-source-onboarding/01-integrations-application-security.png)
 
-The app requests **read-only** access to the metadata it needs to fetch and scan code.
+A card that already has connections shows a green **Connected** badge with the count. Clicking **Connect** on that card adds another connection rather than replacing the existing one.
 
-![Installing the AccuKnox app on GitHub, choosing all or selected repositories with read-only permissions](images/code-source-onboarding/01-install-app.png)
+## Step 2: Choose the integration type
 
-!!! tip "Choosing a scope"
-    Pick **All repositories** if you want new repositories to be scannable automatically as they are created. Pick **Only select repositories** if you want to keep the app scoped to a known list. See [Automatic repository sync](#automatic-repository-sync) for how each scope behaves.
+The **Select Integration Type** dialog asks how you want to connect. Pick **App Based** and click **Continue**.
 
-## Step 2: Confirm the connection
+![Select GitHub Integration Type dialog with App Based, CI/CD, and CLI options](images/code-source-onboarding/02-select-integration-type.png)
 
-Back in AccuKnox, the connection shows under **Settings → Integrations → Code Source Configuration**. Each connected source lists its status, and you can manage more than one connection from here.
-
-![Code Source connections list showing connection name, auto-onboard, and active status](images/code-source-onboarding/02-manage-connections.png)
-
-## Step 3: Configure scans per repository and branch
-
-Open the connection and use the setup wizard: **Connect → Repo & Branches → Scan**. For each repository and branch, choose which scan types to run.
-
-![Scan configuration wizard with Connect, Repo and Branches, and Scan steps](images/code-source-onboarding/03-scan-wizard.png)
-
-Four scan types are available:
-
-| Scan type | What it checks |
+| Type | When to use it |
 |---|---|
-| **SCA** | Open-source dependencies and their known vulnerabilities |
-| **Secrets** | Hardcoded credentials, tokens, and keys in the codebase |
-| **SAST** | Insecure code patterns in your source |
-| **IaC** | Misconfigurations in infrastructure-as-code, by framework |
+| **App Based** | You want AccuKnox to fetch and scan the code itself. No pipeline work. This is the flow this page covers. |
+| **CI/CD** | You want scans to run as a step inside your existing pipeline. |
+| **CLI** | You want to run the scanner manually or from a script. |
 
-Select **AI Enabled SAST** to add AI-assisted analysis on top of the standard static scan.
+A three-step wizard opens: **Connect → Repo & Branches → Scan**.
 
-![Scan-type selector with SCA, Secrets, SAST, and IaC, and the AI Enabled SAST option](images/code-source-onboarding/04-scan-types.png)
+## Step 3: Connect the source
 
-Scan choices are made per branch, so you can run the full set on `main` and a lighter set on feature branches. Choose the repositories to apply the configuration to, then **Apply**.
+=== "GitHub"
 
-## Step 4: Choose your scan token (optional)
+    Under **Connection Type**, choose how AccuKnox reaches your instance.
 
-For AI-enabled scanning you decide whose token is used. Under your **tenant profile** you can run scans with the **AccuKnox-managed token** or supply **your own token**. Use your own when you want the scan to run under your organization's account and quota.
+    - **GitHub Cloud (Using Application)** for repositories on github.com.
+    - **GitHub Self-Hosted (Using PAT)** for GitHub Enterprise Server. Supply the instance URL and a personal access token with read scope.
 
-## Step 5: Run scans
+    ![Connect step of the GitHub wizard showing GitHub Cloud and GitHub Self-Hosted connection types](images/code-source-onboarding/03-connection-type.png)
 
-Every configured repository runs on a **daily scheduled scan**. You can also start an **on-demand scan** at any time, scoped to a specific repository and branch.
+    For GitHub Cloud, click **Install on GitHub**. AccuKnox opens the app installation page on GitHub in a new tab.
 
-Expand a repository to see its branches, the current severity breakdown, and the per-branch scan action.
+    ![Connect GitHub Organization section with the Install on GitHub button and the read-only access note](images/code-source-onboarding/04-install-on-github.png)
 
-![Connected repositories with a branch expanded, showing severity counts and a per-branch scan trigger](images/code-source-onboarding/05-repos-branches.png)
+    The access AccuKnox asks for is read-only. No write permissions are requested.
 
-## Automatic repository sync
+    On GitHub, pick the organization to install into and choose the repository scope:
 
-New repositories can be picked up without reconfiguring the connection. Behavior depends on the scope you chose at install:
+    - **All repositories** covers every current and future repository owned by that organization.
+    - **Only select repositories** limits the app to the repositories you pick.
 
-- **All repositories:** a daily sync adds any repository created in the last 24 hours, so it becomes scannable automatically.
-- **Only select repositories:** new repositories are not added automatically, since you limited what the app can see. Add them by editing the connection.
+    ![GitHub app install page showing the All repositories and Only select repositories choice with the requested read permissions](images/code-source-onboarding/05-github-app-permissions.png)
 
-For real-time updates, a webhook can notify AccuKnox the moment a repository or branch changes, so new work becomes scannable immediately instead of on the next daily sync.
+    Review the permission list and click **Install**. GitHub sends you back to AccuKnox.
 
-## Review findings
+    !!! tip "Which scope should you pick"
+        Choose **All repositories** if you want new repositories to become scannable on their own. Choose **Only select repositories** if you want the app scoped to a known list. See [Auto connect new repos](#auto-connect-new-repos) for how each scope behaves afterwards.
 
-Findings roll up into the ASPM dashboard and the Findings pages. Secret findings point to the exact place the secret was found: repository, branch, file path, and the precise line and column range.
+    Back in AccuKnox the button turns green and reads **Installed on GitHub**. Give the connection an **Integration Name**, tick **Auto connect new repos** if you want new repositories onboarded automatically, and click **Save & Continue**.
 
-![Secret finding detail with severity, SLA, asset, and a precise code location](images/code-source-onboarding/06-secret-finding.png)
+    ![Connect step after installation, showing Installed on GitHub, the Integration Name field, and the Auto connect new repos checkbox](images/code-source-onboarding/06-integration-name.png)
 
-The location resolves down to the character range within the file, so you can open the finding at the right line in your source code manager instead of searching for it.
+=== "GitLab"
 
-![Zoom on a secret finding location showing file path with line and column range](images/code-source-onboarding/07-secret-location.png)
+    Under **Connection Type**, choose how AccuKnox reaches your instance.
 
-## Disconnect a source
+    - **GitLab Cloud** for projects on gitlab.com. AccuKnox installs its app against your GitLab group and you authorize it in GitLab.
+    - **GitLab Self-Managed** for a GitLab instance you run yourself. Supply the instance URL and a personal access token with `read_api` and `read_repository` scope.
 
-There are two independent places a connection lives: the app on your source code manager, and the connection inside AccuKnox. To fully disconnect, handle both.
+    For GitLab Cloud, start the install from the wizard, sign in to GitLab if prompted, and authorize AccuKnox against the group whose projects you want to scan. The access requested is read-only.
 
-- **Remove the connection in AccuKnox.** The app still exists on your source code manager after this, so AccuKnox cannot delete it for you.
-- **Uninstall the app on your source code manager.** On GitHub, open the app's settings and use **Uninstall** under the Danger zone. **Suspend** blocks access without removing the app.
+    GitLab returns you to AccuKnox once the authorization succeeds. Give the connection an **Integration Name**, tick **Auto connect new repos** if you want new projects onboarded automatically, and click **Save & Continue**.
 
-![GitHub app repository access and Danger zone with Suspend and Uninstall actions](images/code-source-onboarding/08-uninstall.png)
+    !!! note "Projects and repositories"
+        GitLab calls them projects and AccuKnox calls them repositories. They are the same thing in this wizard, and GitLab subgroups appear under the group you authorized.
 
-If you delete the app on the source code manager while the AccuKnox connection is still in place, the connection shows as **Disconnected** with the reason. This status is picked up by a background check, so it may take a short time to appear rather than showing instantly.
+=== "Bitbucket"
 
-## Supported scan types
+    Bitbucket connects through **Bitbucket Cloud** only.
 
-!!! note "Phased rollout"
-    The initial release covers SCA, Secrets, SAST, and IaC. SBOM, CBOM, and container image scanning join the same flow in a later phase. Quality gates, pull-request decoration, and IDE integration are on the roadmap.
+    Start the install from the wizard, sign in to Bitbucket if prompted, and grant AccuKnox access to the **workspace** whose repositories you want to scan. The access requested is read-only.
+
+    Bitbucket returns you to AccuKnox once the grant succeeds. Give the connection an **Integration Name**, tick **Auto connect new repos** if you want new repositories onboarded automatically, and click **Save & Continue**.
+
+    !!! warning "Bitbucket Data Center is not supported here"
+        The app-based flow covers Bitbucket Cloud. For Bitbucket Data Center or Bitbucket Server, run scans through the pipeline instead. See [Bitbucket integrations](/integrations/bitbucket-overview/).
+
+!!! info "Screenshots on this page show GitHub"
+    The wizard is the same for all three sources. Only the connect step and the vocabulary differ: GitHub organization, GitLab group, Bitbucket workspace.
+
+## Step 4: Select repositories and branches
+
+Step 2 of the wizard is **Select Repositories & Branches**. Open the **Select repositories** dropdown and pick the repositories to onboard. The list is searchable, which matters on a large organization.
+
+![Repo and Branches step with the repository dropdown open and a search box](images/code-source-onboarding/07-select-repositories.png)
+
+Selecting a repository loads all of its branches. Each repository then appears under **Selected Repositories** with its own branch dropdown.
+
+The default branch is selected for you. Add more branches from the dropdown, or remove any branch you do not want scanned by clicking the **×** on its chip. The trash icon removes the whole repository from the selection.
+
+![Selected repositories with one expanded, showing three of sixteen branches chosen as chips](images/code-source-onboarding/08-branches.png)
+
+Below the repository list, pick a **Label**. One label applies to every repository in this connection and is how you group and filter these repositories later.
+
+Click **Save & Continue**.
+
+![Label dropdown below the selected repositories list](images/code-source-onboarding/09-label.png)
+
+## Step 5: Configure the scans
+
+Step 3 is **Scan Configuration**. Rather than setting up every repository by hand, you configure one repository and link the rest to it.
+
+Pick a repository under **Scan Configuration Repo** and select its scan types. Click a chip to add or remove that scan type.
+
+![Scan Configuration step with the configuration repository selected and the SCA, Secrets, SAST, SBOM, and IaC chips](images/code-source-onboarding/10-scan-configuration.png)
+
+Two options need a second look:
+
+- **IaC** carries its own dropdown for frameworks. Leave it on **All**, or narrow it to the frameworks your repository actually uses.
+- **AI Enabled SAST** is a checkbox under the chips. Turning it on applies AI-assisted static analysis to every linked repository.
+
+![IaC framework dropdown set to All and the AI Enabled SAST checkbox ticked](images/code-source-onboarding/11-iac-frameworks-ai-sast.png)
+
+Under **Selected Repositories**, the counter shows how many repositories inherit that configuration, for example **2/2 Linked**. Every linked repository runs exactly what the configuration repository runs.
+
+### Give one repository a different configuration
+
+Click the link icon next to a repository to unlink it. Its own set of scan-type chips appears, and you set them independently. The counter drops to **1/2 Linked**.
+
+![One repository unlinked from the shared configuration, showing its own scan-type chips](images/code-source-onboarding/12-unlink-repo.png)
+
+Use **Link All** and **Unlink All** to switch every repository at once.
+
+Click **Apply** to finish. Scanning starts on the repositories you onboarded.
+
+## Read the results
+
+Open the connection from **Settings → Integrations** to see what the scans found. The connection header shows its status, and **Edit / Add Repo** takes you back into the wizard.
+
+The table nests three levels: repository, then branch, then scan type. Every row carries a Critical, High, Medium, and Low count, and each scan type row shows when it last ran.
+
+![Connector detail page showing a repository expanded to its branches and per-scan-type findings counts with last-scanned timestamps](images/code-source-onboarding/13-connector-results.png)
+
+A dash under **Last Scanned** means that scan type has not run yet on that branch.
+
+Click through from a row to reach the Findings page filtered to that scan type, repository, and branch.
+
+![Findings page filtered to SAST findings for the selected repository, showing asset name, vulnerability name, path, location, and risk factor](images/code-source-onboarding/14-findings.png)
+
+Findings also roll up into the ASPM view on the dashboard.
+
+## Auto connect new repos
+
+**Auto connect new repos** is the checkbox on the Connect step. What it can do depends on the scope you gave the app when you installed it.
+
+- App scoped to **all repositories**: a daily sync picks up repositories created in the last 24 hours and onboards them against the connection's configuration.
+- App scoped to **selected repositories**: new repositories are invisible to AccuKnox, because you limited what the app can see. Grant the app access on your source code manager first, then add them through **Edit / Add Repo**.
+
+Leave the checkbox off if you would rather review every new repository before it starts consuming scans.
+
+## Change or remove a connection
+
+To change what a connection covers, open it and click **Edit / Add Repo**. The wizard reopens on the repository step with your current selection intact.
+
+Removing a connection takes two actions, because the connection lives in two places:
+
+1. **In AccuKnox**, delete the connection. This stops the scans.
+2. **On your source code manager**, uninstall the AccuKnox app. AccuKnox cannot do this for you. On GitHub, open the app under your organization's settings and use **Uninstall**. **Suspend** blocks access without removing the app.
+
+If you remove the app on the source code manager while the AccuKnox connection is still there, the connection reports itself as disconnected with the reason. A background check picks this up, so give it a few minutes.
+
+## Troubleshooting
+
+**The repository dropdown is empty.** The app installed but has no repositories in scope. Check the app's repository access on your source code manager, then reopen the wizard.
+
+**A repository you expect is missing.** Either the app is scoped to selected repositories and this one was not among them, or it was created after the last sync. Add it to the app's access list, then use **Edit / Add Repo**.
+
+**A scan type shows a dash under Last Scanned.** That scan type has not completed a first run on that branch yet. Large repositories take longer on the first pass.
+
+**Self-hosted connection fails.** Confirm the instance URL is reachable from AccuKnox and that the personal access token still has read scope and has not expired.
 
 ## Related
 
 - [ASPM Overview](/how-to/aspm-overview/)
-- [AccuKnox v3.6 Release Notes](/getting-started/3.6-release/)
+- [GitHub integrations](/integrations/github-overview/)
+- [GitLab integrations](/integrations/gitlab-overview/)
+- [Bitbucket integrations](/integrations/bitbucket-overview/)
+
+<!--
+## Pending Stakeholder Input
+
+- **GitLab and Bitbucket connect step.** Written from the flow confirmed in the 2026-08-07 walkthrough, which demonstrated GitHub only. Confirm the exact Connection Type labels for GitLab (cloud vs self-managed) and Bitbucket, the exact PAT scopes for GitLab self-managed, and whether Bitbucket exposes a Connection Type selector at all when only Cloud is supported. Then add screenshots for both.
+- **Production GitHub app name.** The install screenshot shows "AccuKnox ASPM DEV" from the dev environment. Reshoot on production if the app name differs.
+- **Auto connect sync interval.** Documented as a daily sync. Confirm the interval and whether a webhook path is customer-configurable.
+- **Scheduled scan cadence.** The earlier draft stated a daily scheduled scan. Confirm the current cadence and whether an on-demand trigger is exposed per branch, then document it.
+- **Label field.** Confirm whether labels are created elsewhere first, or can be created inline in this wizard.
+-->

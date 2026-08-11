@@ -298,7 +298,7 @@ nav:
         # - "OpenShift VM Scan": "how-to/vm-security/agentless/openshift-vm-scanning.md"
     - "Application Security (ASPM)":
       - "Overview": "how-to/aspm-overview.md"
-# - "Connect Source Code (App-based)": "how-to/code-source-onboarding.md"  # not ready to publish
+      - "Connect Source Code (App Based)": "how-to/code-source-onboarding.md"
       - "DAST Scan Types": "how-to/dast-scan-types.md"
       - "DAST Unauthenticated Scan": "how-to/dast-scan-no-auth.md"
       - "DAST Authenticated Scan": "how-to/dast-authenticated-scans.md"
