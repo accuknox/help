@@ -41,14 +41,14 @@ GCP onboarding requires IAM Service Account access. You will create two custom r
 
 ![image](images/gcp/gcp-3.png)
 
-## Create Custom Role: Vertex AI Access
+## Create Custom Role: Agent Platform Access
 
 **Step 5:** Follow the same process (Steps 1 to 4) to create a second custom role.
 
 - Name it something identifiable, such as "AccuKnox-AIML-Role".
 - Add only the permission: `aiplatform.endpoints.predict`
 
-This grants the ability to invoke Vertex AI endpoints without granting permissions to manage or deploy them.
+This grants the ability to invoke Agent Platform endpoints without granting permissions to manage or deploy them.
 
 ## Create and Configure Service Account
 
@@ -75,7 +75,7 @@ This grants the ability to invoke Vertex AI endpoints without granting permissio
 - **Storage Object Viewer**
 - **Storage Bucket Viewer**
 - Your custom **storage role** (created in Step 4)
-- Your custom **Vertex AI role** (created in Step 5)
+- Your custom **Agent Platform role** (created in Step 5)
 
 ![image](images/gcp/gcp-7.png)
 

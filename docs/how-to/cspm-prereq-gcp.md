@@ -80,7 +80,7 @@ For GCP there is a requirement for IAM Service Account Access.
 
 ## AI/ML Security Prerequisites for GCP Cloud Accounts
 
-Permissions for Vertex AI (GCP) Access Control:
+Permissions for Agent Platform (GCP) Access Control:
 
 Ref - [Vertex AI Docs](https://cloud.google.com/vertex-ai/docs/general/access-control#basic-roles)
 
@@ -88,14 +88,14 @@ Ref - [Vertex AI Docs](https://cloud.google.com/vertex-ai/docs/general/access-co
     - Viewer (for general cloud assets)
     - Security Reviewer
 
-- **Predefined roles specific to Vertex AI / Storage**
-    - Vertex AI Viewer
+- **Predefined roles specific to Agent Platform / Storage**
+    - Agent Platform Viewer
     - Storage Bucket Viewer
     - Storage Object Viewer
 
 - **Custom role**
     - A role containing **only** the `aiplatform.endpoints.predict` permission
-        - Grants ability to call (invoke) Vertex AI endpoints
+        - Grants ability to call (invoke) Agent Platform endpoints
         - Does *not* grant permissions to manage or deploy endpoints
 
 !!! note
