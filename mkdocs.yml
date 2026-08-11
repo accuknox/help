@@ -295,7 +295,7 @@ nav:
       - "Agentless":
         - "Cloud VM Scan": "how-to/vm-security/agentless/cloud-vm-scanning.md"
         - "Azure Cloud VM Scan": "how-to/vm-security/agentless/azure-cloud-vm.md"
-        # - "OpenShift VM Scan": "how-to/vm-security/agentless/openshift-vm-scanning.md"
+        - "OpenShift VM Scan": "how-to/vm-security/agentless/openshift-vm-scanning.md"
     - "Application Security (ASPM)":
       - "Overview": "how-to/aspm-overview.md"
       - "Connect Source Code (App Based)": "how-to/code-source-onboarding.md"
