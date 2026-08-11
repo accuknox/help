@@ -74,6 +74,7 @@ This grants the ability to invoke Agent Platform endpoints without granting perm
 - **BigQuery Data Viewer** (Reference: [BigQuery IAM Roles](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer))
 - **Storage Object Viewer**
 - **Storage Bucket Viewer**
+- **Agent Registry Viewer**
 - Your custom **Storage Access** role (created in Step 4)
 - Your custom **Agent Platform Access** role (created in Step 5)
 

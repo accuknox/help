@@ -88,8 +88,9 @@ Ref - [Vertex AI Docs](https://cloud.google.com/vertex-ai/docs/general/access-co
     - Viewer (for general cloud assets)
     - Security Reviewer
 
-- **Predefined roles specific to Agent Platform / Storage**
+- **Predefined roles specific to Agent Platform, Agent Registry, and Storage**
     - Agent Platform Viewer
+    - Agent Registry Viewer
     - Storage Bucket Viewer
     - Storage Object Viewer
 
