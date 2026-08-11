@@ -111,9 +111,8 @@ Switch to the AccuKnox control plane for this step. These two values are the onl
 
 Every finding this schedule produces is tagged with this label, which is how you filter for them later. You will type the same label name into the schedule in Step 4, so it has to match exactly.
 
-### Note your tenant ID
-
-The schedule needs your AccuKnox tenant ID. It is the numeric ID of your tenant, not the token itself. If you are not sure what yours is, ask AccuKnox support before continuing rather than guessing.
+!!! note "No tenant ID needed"
+    You do not have to look up or enter a tenant ID anywhere in this flow. The operator reads the tenant from the token you just created, so the token and the label are the only two values AccuKnox gives you.
 
 ## Step 4: Store the token as a secret in OpenShift
 
@@ -155,7 +154,6 @@ Write down the secret name, the key, and the namespace. All three go into the sc
     | Labels | Kubernetes labels applied to the Schedule object itself. Optional, leave empty. |
     | `artifactAPI → endpoint` | Your AccuKnox artifact API URL, for example `https://cspm.accuknox.com/api/v1/artifact/` |
     | `artifactAPI → label` | The label you created in Step 3, typed exactly |
-    | `artifactAPI → tenantID` | Your AccuKnox tenant ID |
     | `artifactAPI → token → secretRef → key` | The key from the secret in Step 4, for example `token` |
     | `artifactAPI → token → secretRef → name` | The secret name from Step 4, for example `accuknox-token` |
     | `cronJobNamespace` | The namespace the secret lives in, for example `openshift-operators` |
@@ -167,7 +165,7 @@ Write down the secret name, the key, and the namespace. All three go into the sc
 
     ![artifactAPI section with the endpoint field](images/openshift/14-artifactapi-fields.png)
 
-    ![tenantID and secretRef fields](images/openshift/15-tenant-secret-fields.png)
+    ![The secretRef fields under artifactAPI](images/openshift/15-tenant-secret-fields.png)
 
     ![Time zone and scansHistoryLimit fields with the Create button](images/openshift/16-schedule-timezone.png)
 
@@ -221,7 +219,7 @@ Findings already sent to AccuKnox stay in the control plane. Delete the label un
 | Schedule stays in **Awaiting** past its cron time | Check the cron expression and the `timeZone` value. Time zone names are case-sensitive. |
 | Scan pod starts and then fails | The secret name, key, or namespace in the schedule does not match the secret you created, or `cronJobNamespace` points at a different namespace. |
 | Snapshot creation fails | No default `VolumeSnapshotClass`, or the VMs use a CSI driver the default class does not cover. |
-| Scan completes but no findings in AccuKnox | Wrong `endpoint`, `tenantID`, or an expired token. Also confirm you are filtering Findings by the right label. |
+| Scan completes but no findings in AccuKnox | Wrong `endpoint` or an expired token. Also confirm you are filtering Findings by the right label. |
 
 ## Related
 
