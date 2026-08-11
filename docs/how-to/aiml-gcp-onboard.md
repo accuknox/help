@@ -17,8 +17,9 @@ Here, we will see the steps to onboard a GCP cloud account with AI/ML asset scan
 5. KMS API
 6. Kubernetes Engine API
 7. Cloud SQL Admin API
-8. **Vertex AI API** (required for AI/ML asset discovery)
-9. **BigQuery API** (required for BigQuery data scanning)
+8. **Agent Platform API** (required for AI/ML asset discovery)
+9. **Agent Registry API** (required for AI agent)
+10. **BigQuery API** (required for BigQuery data scanning)
 
 GCP onboarding requires IAM Service Account access. You will create two custom roles and a service account with all required permissions.
 
@@ -42,7 +43,7 @@ GCP onboarding requires IAM Service Account access. You will create two custom r
 
 ## Create Custom Role: Vertex AI Access
 
-**Step 5:** Follow the same process (Steps 1–4) to create a second custom role.
+**Step 5:** Follow the same process (Steps 1 to 4) to create a second custom role.
 
 - Name it something identifiable, such as "AccuKnox-AIML-Role".
 - Add only the permission: `aiplatform.endpoints.predict`
@@ -69,7 +70,7 @@ This grants the ability to invoke Vertex AI endpoints without granting permissio
 
 - **Project > Viewer**
 - **Security Reviewer**
-- **Vertex AI Viewer**
+- **Agent Platform Viewer**
 - **BigQuery Data Viewer** (Reference: [BigQuery IAM Roles](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer))
 - **Storage Object Viewer**
 - **Storage Bucket Viewer**
