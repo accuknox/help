@@ -334,12 +334,11 @@ nav:
     - "Secrets Manager":
       - "Overview": "secrets-manager/index.md"
       - "Deployment Guide": "secrets-manager/deployment.md"
-      - "Storing Secrets (KV)": "secrets-manager/kv-secrets.md"
-      - "Encryption as a Service (Transit)": "secrets-manager/transit.md"
-      - "TOTP Authenticator": "secrets-manager/totp.md"
-      - "Sharing Secrets in an Organisation": "secrets-manager/sharing-secrets.md"
-    - "SARIF Findings": "getting-started/sarif-findings.md"
-    - "Event Trail Logs": "getting-started/audit-trail-logs.md"
+      - "Use-Cases":
+        - "Storing Secrets in Secret Manager": "secrets-manager/kv-secrets.md"
+        - "Encryption as a Service - Transit Secret Engine": "secrets-manager/transit.md"
+        - "TOTP Authenticator": "secrets-manager/totp.md"
+        - "Sharing Secrets/Sensitive Information within an Organisation": "secrets-manager/sharing-secrets.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"
@@ -538,6 +537,7 @@ nav:
   - "Use-Cases":
     - "Use Cases": "use-cases/index.md"
     - "CNAPP Dashboard Widgets": "use-cases/cnapp-security-overview.md"
+    - "Event Trail Logs": "getting-started/audit-trail-logs.md"
     - "Vulnerability Management" :
       - "EPSS Scoring": "use-cases/epss-scoring.md"
       - "Rules Engine": "use-cases/rules-engine-ticket-creation.md"
@@ -601,6 +601,7 @@ nav:
         - "DAST (MFA-Enabled)": "use-cases/mfa-dast.md"
         - "DAST XSS Mitigation": "use-cases/dast-xss.md"
         - "Secrets Scan": "use-cases/secret-scan-cicd-aws.md"
+        - "SARIF Findings": "getting-started/sarif-findings.md"
         - "ASPM Reports": "use-cases/aspm-reports.md"
         - "ASPM Scanner CLI": "use-cases/aspm-scanner-cli.md"
     - "K8s Security (KSPM)":
