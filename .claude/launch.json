@@ -12,6 +12,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.yml", "--dirty", "-a", "127.0.0.1:8012"],
       "port": 8012
+    },
+    {
+      "name": "built-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8014", "--directory", "D:/Atharva/AccuKnox/HelpDocs/site"],
+      "port": 8014
     }
   ]
 }

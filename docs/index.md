@@ -1095,7 +1095,7 @@ hide:
         </div>
         <div id="secrets" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/getting-started/secrets-management/" class="action-btn" target="_blank">Getting Started</a>
+                <a href="/secrets-manager/" class="action-btn" target="_blank">Getting Started</a>
             </div>
             <div class="module-detail-title">
                 Secrets Manager
@@ -1106,7 +1106,7 @@ hide:
             <div class="module-visual-placeholder">
                  <img src="assets/images/homepage/secrets-manger.png"  alt="Secrets Manager" />
             </div>
-            <a href="/getting-started/secrets-management/" class="learn-more-link">Learn more about Secrets Manager &rarr;</a>
+            <a href="/secrets-manager/" class="learn-more-link">Learn more about Secrets Manager &rarr;</a>
         </div>
         <div id="cwpp" class="module-detail-block" style="display:none;">
             <div class="content-header">

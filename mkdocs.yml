@@ -131,6 +131,9 @@ plugins:
         'integrations/openai-browser-integration.md': 'integrations/chrome-browser-integration.md'
         'integrations/claude-browser-integration.md': 'integrations/chrome-browser-integration.md'
         'integrations/openai-firefox-browser-integration.md': 'integrations/firefox-browser-integration.md'
+        # Secrets Manager moved out of Getting Started into its own product section.
+        'getting-started/secrets-management.md': 'secrets-manager/index.md'
+        'getting-started/secrets-manager-onprem-deployment.md': 'secrets-manager/deployment.md'
   - search:
       separator: '[\s\-\.]+'
       lang:
@@ -328,11 +331,15 @@ nav:
       - "Generate via knoxctl": "getting-started/xbom-knoxctl.md"
       - "Generate via Container Image Scan": "getting-started/xbom-container-image.md"
       - "Generate via GitHub Actions": "getting-started/xbom-github-actions.md"
+    - "Secrets Manager":
+      - "Overview": "secrets-manager/index.md"
+      - "Deployment Guide": "secrets-manager/deployment.md"
+      - "Storing Secrets (KV)": "secrets-manager/kv-secrets.md"
+      - "Encryption as a Service (Transit)": "secrets-manager/transit.md"
+      - "TOTP Authenticator": "secrets-manager/totp.md"
+      - "Sharing Secrets in an Organisation": "secrets-manager/sharing-secrets.md"
     - "SARIF Findings": "getting-started/sarif-findings.md"
     - "Event Trail Logs": "getting-started/audit-trail-logs.md"
-    - "Secrets Management":
-      - "Overview": "getting-started/secrets-management.md"
-      - "On-Prem Deployment Guide": "getting-started/secrets-manager-onprem-deployment.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"
       - "Summarized Custom Report": "how-to/summarized-custom-reports.md"

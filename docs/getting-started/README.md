@@ -47,8 +47,6 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [php-mysql.md](php-mysql.md) | Learn how to secure a PHP MySQL web application using AccuKnox CWPP runtime security capabilities. |
 | [runtime-sec-arch.md](runtime-sec-arch.md) | Overview of AccuKnox Runtime Security architecture, deployment model, resource requirements, and data flow. |
 | [sarif-findings.md](sarif-findings.md) | Learn how to import and manage SARIF findings in AccuKnox to consolidate security results from various tools. |
-| [secrets-management.md](secrets-management.md) | Learn about AccuKnox Secrets Manager, a Vault-compatible solution for secure secret storage and management across multi-cloud environments. |
-| [secrets-manager-onprem-deployment.md](secrets-manager-onprem-deployment.md) | Install AccuKnox Secrets Manager on Kubernetes using the provided Helm chart, then initialize, unseal, and verify the deployment. |
 | [security-on-openshift.md](security-on-openshift.md) | Guide to deploying KubeArmor runtime security enforcement on OpenShift clusters, including operator installation and Elasticsearch integration. |
 | [wordpress-mysql.md](wordpress-mysql.md) | Guide to securing WordPress-MySQL applications using AccuKnox CWPP security features to detect and block threats. |
 | [xbom-container-image.md](xbom-container-image.md) | Use the AccuKnox container-scan-action GitHub Action to scan container images and generate SBOMs automatically in your CI/CD pipeline. |

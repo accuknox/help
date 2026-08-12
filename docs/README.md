@@ -15,6 +15,7 @@ Root of the AccuKnox help documentation. The top-level sections below each have 
 | [introduction/](introduction/README.md) | Introductory material and open-source vs enterprise comparison. |
 | [knoxctl/](knoxctl/README.md) | knoxctl CLI reference: configuration, commands, and usage. |
 | [resources/](resources/README.md) | Reference resources: architecture, troubleshooting, pricing, manuals, glossary, and release notes. |
+| [secrets-manager/](secrets-manager/README.md) | Pages in the secrets-manager section. |
 | [support-matrix/](support-matrix/README.md) | Supported platforms, versions, cloud regions, and configurations for each module. |
 | [use-cases/](use-cases/README.md) | Use-case walkthroughs that show AccuKnox capabilities applied to real security scenarios. |
 
