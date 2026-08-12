@@ -37,12 +37,14 @@ Run every command in this guide inside the server pod:
 kubectl exec -n accuknox vault-accuknoxsecretmanager-0 -- vault <command...>
 ```
 
-## Step 1: Enable the TOTP Engine
+## Step 1: Enable the Secret Engine
 
 1. Open the Secrets Manager UI at `http://localhost:8200/ui/vault/`.
 2. Under **Secrets Engines**, select **TOTP**.
 3. Set **Path** to `totp`.
 4. Click **Enable Engine**.
+
+![The Enable a Secrets Engine picker, with TOTP in the Generic group](images/sm-select-secret-engine.png)
 
 `totp/` now appears in your Secrets list. Clicking it shows an empty engine, because the TOTP engine has no UI forms. The next steps use the CLI.
 
