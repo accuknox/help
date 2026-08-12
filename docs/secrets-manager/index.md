@@ -9,6 +9,8 @@ AccuKnox Secrets Manager gives you one secure place to store, manage, and read s
 
 It stops hardcoded secrets and secret sprawl. You get central storage, controlled access, encryption, authentication, and full audit logs.
 
+![The Enable a Secrets Engine screen, listing the KV, PKI, SSH, Transit, TOTP, Kubernetes, Databases, and RabbitMQ engines](images/sm-enable-secrets-engine.png)
+
 !!! info "A separate product from the AccuKnox CNAPP platform"
     Secrets Manager ships and installs on its own. You do not need an AccuKnox CNAPP subscription to run it. Contact your AccuKnox point of contact for the Helm chart.
 
