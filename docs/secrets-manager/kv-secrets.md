@@ -35,7 +35,7 @@ Click **Enable new engine** to set up the engine you need.
 
 Under **Secrets Engines**, select **KV (Key/Value)**.
 
-![Choosing KV from the list of secret engines](images/sm-kv-select-engine.png)
+![Choosing KV from the list of secret engines](images/sm-select-secret-engine.png)
 
 Fill in these fields:
 
@@ -72,11 +72,13 @@ The secret path names the thing you are storing. Create one path per component, 
 
 ![The create-secret form with two key/value pairs](images/sm-kv-secret-saved.png)
 
-## Step 4: Read the Secret Back
+## Step 4: Secret Versioning
 
 Go back to `secret/`. The path `myaccuknox/test` now appears in the list. Click it to see the keys.
 
-The UI also gives you **Copy to clipboard** for the whole secret as JSON:
+### Version 1
+
+The original secret version.
 
 ```json
 {
@@ -87,17 +89,25 @@ The UI also gives you **Copy to clipboard** for the whole secret as JSON:
 
 ![Reading version 1 of the stored secret](images/sm-kv-read-secret.png)
 
-## Step 5: Create a New Version
+### Version 2
 
 1. Click **Create new version**.
-2. Change the username or the password.
-3. Click **Save**.
+2. Change the username or the password, then save it.
+
+```json
+{
+  "Password": "<your-password>",
+  "Username": "Admin2"
+}
+```
 
 ![Creating version 2 of the secret](images/sm-kv-new-version.png)
 
-Open the secret again. It now shows **Version 2** with your updated values.
+### Version 3
 
-## Step 6: Delete a Version
+Repeat the same steps to save a third version. Each save adds a version and keeps the ones before it.
+
+## Step 5: Delete a Version
 
 You can delete a single version without losing the rest of the history.
 
@@ -107,17 +117,20 @@ You can delete a single version without losing the rest of the history.
 
 ![Deleting a version of the secret](images/sm-kv-delete-secret.png)
 
-## Secret Versioning
+## Version History
 
-Secrets Manager keeps the version history of every secret. A typical history reads:
-
-1. **Version 1** is the original secret.
-2. **Version 2** is a deleted version, marked with a red cross.
-3. **Version 3** is the updated secret.
-
-This gives you a clear record of every change to the secret.
+AccuKnox Secrets Manager keeps every past version of a secret. You can switch between versions, view the full change history, or diff two versions side by side.
 
 ![The version history of a secret](images/sm-kv-version-history.png)
+
+A typical history reads:
+
+- **Version 1** is the original secret version.
+- **Version 2** is a deleted version, marked with a red cross.
+- **Version 3** is the updated version of the secret.
+
+!!! note
+    Secret Versioning gives you visibility into **secret changes and version history**.
 
 !!! warning "Delete is not destroy"
     A deleted version stays recoverable until you destroy it. Use **Destroy** when you must remove the data for good.
