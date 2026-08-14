@@ -3,7 +3,7 @@ title: Shadow AI Discovery
 description: Shadow AI Discovery finds and classifies AI assets across cloud and on-prem infrastructure, including VMs and Kubernetes, without relying on a declared inventory.
 ---
 
-# Shadow AI Discovery: Uncovering and Categorizing AI Assets in Cloud and On-Prem Environments
+# Shadow AI Discovery
 
 Shadow AI Discovery finds and classifies AI assets across cloud and on-prem infrastructure, including VMs and Kubernetes. It discovers assets automatically instead of reading a declared inventory, and maps each asset to a type: AI Agent, AI Automation, AI Gateway, AI Inference Engine, AI-ML, AI SDK, or MCP.
 
