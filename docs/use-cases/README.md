@@ -59,6 +59,7 @@ Use-case walkthroughs that show AccuKnox capabilities applied to real security s
 | [sast-sq.md](sast-sq.md) | Integrate SAST scanning with AccuKnox in your CI/CD pipeline to detect SQL Injection and other code vulnerabilities using continuous security monitoring. |
 | [secret-scan-cicd-aws.md](secret-scan-cicd-aws.md) | Integrate AccuKnox Secret Scanning into GitHub Actions to proactively catch AWS credentials and secrets before they leak in your CI/CD pipeline. |
 | [serverless-security.md](serverless-security.md) | Comprehensive security solutions for Serverless functions, images, and platforms including AWS Lambda and Knative. |
+| [shadow-ai-discovery.md](shadow-ai-discovery.md) | Shadow AI Discovery finds and classifies AI assets across cloud and on-prem infrastructure, including VMs and Kubernetes, without relying on a declared inven... |
 | [subprompts-categories.md](subprompts-categories.md) | Detailed breakdown of subprompt categories used in various detection probes, including sentiment analysis, code safety, hallucination, and prompt injection. |
 | [vm-audit-log.md](vm-audit-log.md) | Learn how to audit and manage logs efficiently using AccuKnox, ensuring compliance, visibility, and security across your environment. |
 | [vm-aws.md](vm-aws.md) | Identify and fix AWS VM misconfigurations in IAM, network, and disk security with AccuKnox CSPM to enhance cloud security. |

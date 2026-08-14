@@ -548,6 +548,7 @@ nav:
     - "AI Security":
       - "Overview": "use-cases/aiml-usecases.md"
       - "AI-DR (AI Detection and Response)": "use-cases/aidr.md"
+      - "Shadow AI Discovery": "use-cases/shadow-ai-discovery.md"
       - "Prompt Firewall": "use-cases/prompt-firewall-overview.md"
       - "Red Teaming": "use-cases/red-teaming.md"
       - "Jupyter Notebook": "use-cases/jupyter-notebook.md"

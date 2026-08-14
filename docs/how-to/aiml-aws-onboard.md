@@ -7,6 +7,13 @@ description: Step-by-step instructions for onboarding an AWS cloud account and A
 
 In this section we can find the steps to onboard an AWS cloud account with AI/ML asset scanning to the AccuKnox SaaS platform.
 
+!!! info "What cloud onboarding enables"
+    Follow the steps on this page to enable [Shadow AI Discovery](../use-cases/shadow-ai-discovery.md) for your AWS account. Onboarding turns on these AI Security features:
+
+    - Model and Data Security
+    - Shadow AI Discovery
+    - Prompt Firewall for Cloud Assets
+
 ## **AWS IAM User Creation**
 
 Follow these steps to create an IAM user with the permissions required for AI/ML asset scanning:
