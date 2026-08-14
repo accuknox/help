@@ -195,6 +195,9 @@ helm upgrade --install k8s-stig-job oci://public.ecr.aws/k9v9d5v2/k8s-stig-job \
 
 ## In-Cluster Container Image Scanning
 
+!!! info "This flow also enables Shadow AI Discovery"
+    The in-cluster scanner is the same scanner that powers [Shadow AI Discovery](../use-cases/shadow-ai-discovery.md) on-prem. It walks nodes and namespaces and performs package-level discovery, so AI frameworks, agent frameworks, SDKs, and model runtimes inside your container images are classified and reported under the **Unmanaged** tab, mapped to the parent workload.
+
 **Deployment Mode:**
 CronJob (per node job)
 

@@ -15,6 +15,10 @@ In cloud environments, it connects agentlessly through a read-only API and retur
 
 Cloud and on-prem use different discovery mechanisms. Cloud assets appear under the **Managed** tab, and on-prem assets appear under the **Unmanaged** tab.
 
+![AccuKnox AI/ML Security Assets inventory on the Managed tab, listing discovered LLM models with cloud type, region, and last seen date](./images/shadow-ai/managed-assets-models.png)
+
+*The Managed tab groups cloud-discovered assets into Models, Datasets, and Computes, filterable by category, cloud type, and scan status.*
+
 ## Cloud Discovery
 
 After onboarding, the cloud discovery path builds a pipeline view around each AI asset:
@@ -23,7 +27,15 @@ After onboarding, the cloud discovery path builds a pipeline view around each AI
 - **Connectivity context** to show inbound paths and exposure.
 - **Pipeline mapping** to trace how AI assets connect across services, instead of treating them as isolated resources.
 
+![Cloud discovery flow diagram: a read-only API connection to an onboarded cloud account drives asset discovery, which produces asset metadata, a connectivity overview, and a pipeline view](./images/shadow-ai/cloud-discovery-flow.svg)
+
+*Cloud discovery, from read-only onboarding through to metadata, connectivity, and the pipeline view.*
+
 The cloud AI pipeline view shows discovered managed assets with their metadata, connectivity paths, exposure context, and service relationships. You can see where each asset runs, how it is reachable, and which cloud components it connects to.
+
+![Cloud AI pipeline graph showing an Azure subscription linked to a resource group, an AI account, and an OpenAI service, with relationship labels and severity counts](./images/shadow-ai/cloud-pipeline-graph.png)
+
+*The pipeline graph traces relationships between cloud AI assets, so a model endpoint is shown with the subscription, resource group, and services it is reachable through.*
 
 !!! info "Cloud onboarding guides"
     Follow the provider-specific guide to enable Shadow AI Discovery on your cloud account:
@@ -35,6 +47,14 @@ The cloud AI pipeline view shows discovered managed assets with their metadata, 
 ## On-Prem Discovery
 
 On-prem assets appear under the **Unmanaged** tab. Discovery is scanner-driven. AccuKnox runs a VM scanner on virtual machine hosts and an in-cluster scanner inside Kubernetes. Both read the deployed and running state on the host or cluster directly, so results reflect live infrastructure rather than a declared manifest.
+
+![On-prem discovery flow diagram: VM and in-cluster scanners feed package-level discovery, then vulnerability and malware scanning, a categorized asset view, and parent asset mapping](./images/shadow-ai/onprem-discovery-flow.svg)
+
+*On-prem discovery, from the in-cluster and VM scanners through to categorized findings with parent asset context.*
+
+![AccuKnox Unmanaged tab grouped by parent asset type, showing container and virtual machine asset counts with severity-ranked finding totals](./images/shadow-ai/unmanaged-parent-assets.png)
+
+*The Unmanaged tab groups discovered on-prem assets by parent asset type, so you can see how many AI components sit on VMs versus containers, and the findings attached to each.*
 
 ### Where the Scanners Run
 
@@ -68,6 +88,10 @@ Representative package families for each asset type:
 
 The asset detail view shows the detected AI/ML packages, the associated findings, severity, and the parent VM or Kubernetes workload, so you can trace every piece of evidence back to its source.
 
+![Asset detail drawer for a discovered Go package, showing the AI-ML category, version, license, repository URL, PURL, and the raw JSON classification payload](./images/shadow-ai/unmanaged-asset-detail.png)
+
+*Each discovered package opens into an asset detail view with its category, version, license, and the raw classification payload, plus Findings and Parent Asset tabs for tracing the evidence.*
+
 ### Onboarding Steps
 
 !!! info "On-prem onboarding guides"
@@ -82,6 +106,10 @@ The asset detail view shows the detected AI/ML packages, the associated findings
 **Asset Categories** groups scanner-derived AI/ML evidence into normalized technical classifications inside the **Unmanaged** view. Instead of exposing raw package names only, AccuKnox maps detected components into categories such as AI/ML libraries, AI SDKs, AI gateways, agent frameworks, MCP components, model clients, and runtime packages.
 
 The category distribution gives you prevalence and governance context across scanned workloads. Broad categories highlight widespread AI/ML framework or SDK usage. Focused categories such as AI Gateway, Agent, and MCP identify specialized integration patterns that may need ownership review, policy validation, or deeper risk investigation.
+
+![Unmanaged tab grouped by category, listing AI Agent, AI Automation, AI Gateway, AI Inference Engine, AI-ML, AI SDK, and MCP with asset counts and severity-ranked findings](./images/shadow-ai/unmanaged-asset-categories.png)
+
+*Scanner output rolled up into the seven AI/ML asset categories, each with its asset count and findings broken out by severity.*
 
 ## What Shadow AI Discovery Can Do
 
