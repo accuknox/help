@@ -7,6 +7,13 @@ description: Step-by-step instructions for onboarding a GCP cloud account and AI
 
 Here, we will see the steps to onboard a GCP cloud account with AI/ML asset scanning to the AccuKnox SaaS platform.
 
+!!! info "What cloud onboarding enables"
+    Follow the steps on this page to enable [Shadow AI Discovery](../use-cases/shadow-ai-discovery.md) for your GCP account. Onboarding turns on these AI Security features:
+
+    - Model and Data Security
+    - Shadow AI Discovery
+    - Prompt Firewall for Cloud Assets
+
 !!! note
     Make sure the following API libraries are enabled in your GCP account before proceeding:
 

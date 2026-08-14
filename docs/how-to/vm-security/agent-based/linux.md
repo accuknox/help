@@ -17,6 +17,11 @@ description: Comprehensive guide for Agent-based Vulnerability and Malware Scann
 
 This guide provides step-by-step instructions to onboard Linux Virtual Machines (VMs) for agent-based vulnerability and malware scanning using the AccuKnox VM Security agent.
 
+!!! info "This flow also enables Shadow AI Discovery"
+    The same onboarding flow powers [Shadow AI Discovery](../../../use-cases/shadow-ai-discovery.md) on the host. The agent performs package-level discovery, so AI frameworks, agent frameworks, SDKs, and model runtimes installed on the VM are classified and reported under the **Unmanaged** tab, alongside their vulnerability data.
+
+    This includes agentic AI runtimes such as OpenClaw. AccuKnox scans VMs for OpenClaw instances and reports each one as an unmanaged asset, mapped to its parent host.
+
 For a fleet-wide onboarding walkthrough with distribution-specific commands, pick a guide below:
 
 ::cards:: cols=2

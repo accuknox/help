@@ -7,6 +7,13 @@ description: Step-by-step instructions for onboarding an Azure cloud account and
 
 In this section we can find the steps to onboard an Azure cloud account to the AccuKnox SaaS platform.
 
+!!! info "What cloud onboarding enables"
+    Follow the steps on this page to enable [Shadow AI Discovery](../use-cases/shadow-ai-discovery.md) for your Azure account. Onboarding turns on these AI Security features:
+
+    - Model and Data Security
+    - Shadow AI Discovery
+    - Prompt Firewall for Cloud Assets
+
 ## **Rapid Onboarding (via Azure)**
 
 For Azure Onboarding it is required to register an App and grant Security read access to that App from the Azure portal.
