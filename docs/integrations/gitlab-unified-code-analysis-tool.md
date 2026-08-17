@@ -75,7 +75,7 @@ variables:
   GIT_DEPTH: 0
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "sast, sca, secret, iac, ml, sbom"
       SOFT_FAIL: true
@@ -98,7 +98,7 @@ stages:
   - test
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "sast"
       SAST_SEVERITY: "HIGH,CRITICAL"
@@ -112,7 +112,7 @@ stages:
   - test
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "sca"
       SCA_COMMAND: "fs ."
@@ -132,7 +132,7 @@ variables:
   GIT_DEPTH: 0
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "secret"
       SECRET_COMMAND: "git file://."
@@ -146,7 +146,7 @@ stages:
   - test
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "iac"
       IAC_DIRECTORY: "."
@@ -160,7 +160,7 @@ stages:
   - test
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "ml"
       ML_COMMAND: "scan -p . -r json"
@@ -177,7 +177,7 @@ stages:
   - test
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "sbom"
       SBOM_SCAN_TYPE: "filesystem"
@@ -193,7 +193,7 @@ stages:
   - test
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "sbom"
       SBOM_SCAN_TYPE: "image"
@@ -212,7 +212,7 @@ variables:
   GIT_DEPTH: 0
 
 include:
-  - component: $CI_SERVER_FQDN/accuknox/accuknox-code-analysis/unified-scan@~latest
+  - component: $CI_SERVER_FQDN/accu-knox/accuknox-code-analysis/unified-scan@~latest
     inputs:
       SCAN_TYPE: "sast, sca, secret, iac, ml, sbom"
       SOFT_FAIL: true

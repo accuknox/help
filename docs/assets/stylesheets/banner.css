@@ -36,14 +36,14 @@
 /* Link styling in banner */
 .md-banner a,
 .md-banner a:visited {
-  color: #fbbf24;
+  color: #ffffff;
   text-decoration: underline;
   font-weight: 600;
   transition: all 0.2s;
 }
 
 .md-banner a:hover {
-  color: #fde047;
+  color: #ffffff;
   text-decoration-thickness: 2px;
 }
 
@@ -104,12 +104,12 @@
 
 [data-md-color-scheme="slate"] .md-banner a,
 [data-md-color-scheme="slate"] .md-banner a:visited {
-  color: #60a5fa;
+  color: #ffffff;
   font-weight: 700;
 }
 
 [data-md-color-scheme="slate"] .md-banner a:hover {
-  color: #93c5fd;
+  color: #ffffff;
 }
 
 /* Ensure banner doesn't interfere with header */
