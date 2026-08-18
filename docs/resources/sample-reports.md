@@ -34,6 +34,13 @@ Through AccuKnox platform, you can generate various security and compliance repo
     </div>
   </a>
 
+  <a class="card" href="../assets/MS365_CIS_Report.pdf" target="_blank">
+    <div class="card-content">
+      <h3>Microsoft 365 CIS Benchmark</h3>
+      <p class="card-action">Sample Report <span>&rarr;</span></p>
+    </div>
+  </a>
+
   <a class="card" href="../assets/AISPM_Report.pdf" target="_blank">
     <div class="card-content">
       <h3>AI Red Teaming</h3>
