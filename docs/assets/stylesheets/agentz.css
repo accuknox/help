@@ -186,13 +186,14 @@
 }
 
 /* --------------------------------------------------------------------------
-   Screenshot gallery
+   Slide gallery. The slides are square and carry their own headline, so no
+   caption strip sits under them.
    -------------------------------------------------------------------------- */
 
 .az-shots {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 0.9rem;
   margin: 1.2rem 0 2rem;
 }
 
