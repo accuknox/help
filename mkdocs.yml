@@ -167,10 +167,12 @@ extra_css:
 - "assets/stylesheets/integration-matrix.css"
 - "assets/stylesheets/copy-page.css"
 - "assets/stylesheets/iam-tables.css"
+- "assets/stylesheets/agentz.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js
   - javascripts/iam-tables.js
+  - javascripts/agentz-badge.js
 extra:
   analytics:
     provider: google
@@ -716,6 +718,8 @@ nav:
           - "KubeArmor" : "getting-started/kubearmor-release.md"
     - "Glossary": "resources/glossary.md"
 
+
+  - "AgentZ": "agentz/index.md"
 
   - "FAQs":
     - "Overview": "faqs.md"

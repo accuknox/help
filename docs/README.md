@@ -8,6 +8,7 @@ Root of the AccuKnox help documentation. The top-level sections below each have 
 
 | Section | What it covers |
 |---|---|
+| [agentz/](agentz/README.md) | Pages in the agentz section. |
 | [faqs/](faqs/README.md) | Frequently asked questions grouped by product area. |
 | [getting-started/](getting-started/README.md) | Getting-started material: installation, on-prem deployment, architecture, and release notes. |
 | [how-to/](how-to/README.md) | Task-oriented how-to guides: onboarding, configuration, and step-by-step procedures across every AccuKnox module. |
