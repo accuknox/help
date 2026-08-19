@@ -153,44 +153,4 @@ Credentials, scopes, and policy live on AgentZ instead of on the agent. Run a fr
 
 Connectors ship for Slack, Gmail, Microsoft 365, Google Workspace, Jira, Confluence, Notion, GitHub, GitLab, and Bitbucket. Any MCP server works after you authorize it once.
 
-## Free and Enterprise
-
-<div class="az-plans" markdown="1">
-
-| | Free | Enterprise |
-|---|---|---|
-| Price | $0 per month | Priced on what you run |
-| Users | 2 | Sized to your organization |
-| Workspaces | 1 | Unlimited |
-| Sign-in | GitHub, Google, Microsoft | Adds SAML and OIDC |
-| Model | Your own key or subscription | Adds your own private model |
-| Compute | 1 vCPU, 1 GB RAM | Sized to your workload |
-| Guardrails | Platform defaults | Custom for your domain |
-| Hosting | SaaS | SaaS, on-premises, or self-deployed |
-| Data | Shared, multi-tenant | Sandboxed inside your network |
-| Support | Docs and community | A named contact |
-
-</div>
-
-## Next
-
-<div class="az-grid az-grid--4">
-  <a class="az-card az-card--link" href="https://agentzharness.ai/" target="_blank" rel="noopener">
-    <p class="az-card__title">Start free</p>
-    <p class="az-card__body">Sign in and run your first agent.</p>
-  </a>
-  <a class="az-card az-card--link" href="https://docs.agentzharness.ai/" target="_blank" rel="noopener">
-    <p class="az-card__title">Documentation</p>
-    <p class="az-card__body">Install, skills, workflows, policy, API.</p>
-  </a>
-  <a class="az-card az-card--link" href="https://github.com/accuknox/agentZ" target="_blank" rel="noopener">
-    <p class="az-card__title">GitHub</p>
-    <p class="az-card__body">Read the code and star the repository.</p>
-  </a>
-  <a class="az-card az-card--link" href="https://www.accuknox.com/contact-us" target="_blank" rel="noopener">
-    <p class="az-card__title">Talk to AccuKnox</p>
-    <p class="az-card__body">Book a walkthrough for your team.</p>
-  </a>
-</div>
-
 </div>

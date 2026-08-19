@@ -210,20 +210,6 @@
   color: var(--md-default-fg-color--light);
 }
 
-.md-typeset .az-card--link {
-  display: block;
-  text-decoration: none;
-  transition: border-color 0.15s ease;
-}
-
-.md-typeset .az-card--link:hover {
-  border-color: var(--az-cyan);
-}
-
-.md-typeset .az-card--link:hover .az-card__title {
-  color: var(--az-violet);
-}
-
 /* --------------------------------------------------------------------------
    Slide gallery. Three across, and each slide carries its own headline, so
    there is no caption strip.
@@ -285,25 +271,6 @@
   font-weight: 600;
   color: #33334d;
   text-align: center;
-}
-
-/* --------------------------------------------------------------------------
-   Plan table
-   -------------------------------------------------------------------------- */
-
-.az-plans {
-  margin: 1rem 0 1.5rem;
-}
-
-.md-typeset .az-plans table {
-  width: 100%;
-  font-size: 0.82rem;
-}
-
-.md-typeset .az-plans th:first-child,
-.md-typeset .az-plans td:first-child {
-  width: 18%;
-  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
