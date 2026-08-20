@@ -52,8 +52,10 @@ GCP onboarding requires IAM Service Account access. You will create two custom r
 
 **Step 5:** Follow the same process (Steps 1 to 4) to create a second custom role.
 
-- Name it something identifiable, such as "AccuKnox-AIML-Role".
+- Name it "Agent Platform Access".
 - Add only the permission: `aiplatform.endpoints.predict`
+
+![image](images/gcp/gcp-agent-role.png)
 
 This grants the ability to invoke Agent Platform endpoints without granting permissions to manage or deploy them.
 
