@@ -221,6 +221,19 @@ A draft that hand-rolls a CTA duplicates the template.
 No cover image file either. The cover is a prompt in the front matter and a
 blockquote under the H1.
 
+Do write one thing the template does not inject: a YouTube embed from the
+AccuKnox channel, [@AccuKnox](https://www.youtube.com/@AccuKnox). Pick the most
+relevant video for the topic, place it in an H2 before the FAQ, and write it as
+an iframe in a fenced `html` block so the Google Doc converter renders it as a
+copy-paste code cell. `references/blog-layout.md` carries the exact shape. Verify
+the video is on the channel, because a `youtu.be` link from an email is not
+always AccuKnox content.
+
+Not every inline image is AI-generated. Use a real product screenshot from the
+sources in `references/asset-kit.md` for at least one inline image per post, and
+reserve generated prompts for conceptual diagrams. A post of nothing but
+generated art reads as filler.
+
 ## Keep the sources fresh
 
 ```bash

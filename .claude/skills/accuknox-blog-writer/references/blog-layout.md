@@ -35,7 +35,9 @@ CTA block duplicates the template and gets cut in review.
 6. **A closing H2 that lands a position.** `Treat identity as the first control
    plane in Kubernetes` and `Final thoughts` both appear in the sample. Prefer
    the first shape.
-7. **FAQ.** H2 labelled `FAQs` or `Frequently Asked Questions`, three to five
+7. **A video embed H2.** One YouTube embed from [@AccuKnox](https://www.youtube.com/@AccuKnox),
+   the most relevant to the topic. See the Video embed section below.
+8. **FAQ.** H2 labelled `FAQs` or `Frequently Asked Questions`, three to five
    H3 questions, each answered in two or three sentences.
 
 Nothing after the FAQ. The template owns that space.
@@ -89,6 +91,18 @@ In a draft, write each image as a placeholder block rather than a file path:
 Where a real product screenshot fits better than a generated image, say so and
 name the source folder. `references/asset-kit.md` names the four image sources and how to crop a
 screenshot.
+
+## Video embed
+
+Every post carries one YouTube embed from the AccuKnox channel, [@AccuKnox](https://www.youtube.com/@AccuKnox). Pick the single most relevant video for the topic, a webinar, a product demo, or a KubeArmor walkthrough, and place it in a short H2 near the end, before the FAQ. The heading states what the video shows, such as `See runtime enforcement stop an attack in real time`, never `Watch this`.
+
+Write the embed as an HTML iframe inside a fenced ```html block, so `to_gdoc_html.py` renders it as a copy-paste code cell that marketing pastes into WordPress. Keep the `allow` attribute out, because the shared slop scorer flags the semicolons a full `allow` list carries. Follow the iframe with a plain inline link to the watch URL.
+
+```html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="The exact video title" frameborder="0" allowfullscreen></iframe>
+```
+
+Confirm the video exists on the channel before you embed it. The `youtu.be` short link an email hands you is not always an AccuKnox video, so verify the channel, not just that the URL resolves.
 
 ## Links
 
