@@ -18,6 +18,7 @@ WRITING = re.compile(
     r"\b(write|writing|draft|drafting|rewrite|rewriting|redo|revise|compose|"
     r"edit|editing|document|documenting|page|doc|docs|blog|post|guide|"
     r"how-?to|faq|release note|changelog|alt text|caption|readme|"
+    r"press release|case study|announce|comparison|battlecard|"
     r"tighten|proofread|de-?slop|slop|humani[sz]e|clean up)\b",
     re.I,
 )
@@ -34,8 +35,9 @@ AUTHORING = re.compile(
 # Ordered. The first match wins, so the narrow channels come first.
 CHANNELS = [
     ("Blog post", r"\bblog\b|\bpost\b|\barticle\b|\bseries\b",
-     "section 11. Front-load the answer in the first 150 words, then earn the length",
-     "utils/<series>/"),
+     "section 11, plus the accuknox-blog-writer skill, which owns this channel "
+     "end to end. Front-load the answer in the first 150 words, then earn the length",
+     "references/blog-drafts/ or references/<series>/"),
     ("FAQ answer", r"\bfaq\b|\bfrequently asked\b",
      "section 6. The question is the heading, the answer is the first sentence",
      "docs/faqs/"),
@@ -51,9 +53,20 @@ CHANNELS = [
      "sections 1 and 5, with a named scenario", "docs/use-cases/"),
     ("Release note or update", r"\brelease note\b|\bchangelog\b|\bwhat'?s new\b|\bupdate\b|\bv\d+\.\d+\b",
      "section 9. No version, flag or fix claim without a source", "docs/ and updates"),
-    ("Comparison page", r"\bcompar|\bversus\b|\bvs\b|\balternative\b",
-     "section 10. Compare on a named sourced capability, never attack",
-     "utils/comparisons-builder/"),
+    ("Press release", r"\bpress release\b|\bannounce\w*\b|\bnewswire\b",
+     "the accuknox-press-release-writer skill, which owns this channel. Every "
+     "name, title and claim comes from what the user supplied",
+     "references/press-release-drafts/"),
+    ("Case study", r"\bcase stud\w+\b|\bcustomer story\b|\bsuccess story\b|"
+     r"\bcustomer win\b",
+     "the accuknox-case-study-writer skill, which owns this channel. Three "
+     "quantified outcomes minimum, plus the anonymisation check",
+     "references/case-study-drafts/"),
+    ("Comparison page", r"\bcompar|\bversus\b|\bvs\b|\balternative\b|"
+     r"\bstack ranking\b|\bbattlecard\b",
+     "the accuknox-comparison-writer skill, on top of section 10. Compare on a "
+     "named sourced capability, never attack",
+     "references/comparison-drafts/"),
     ("Doc page", r"\bdocs?\b|\bpage\b|\bdocument\b",
      "the whole of writing-rules.md", "docs/"),
 ]

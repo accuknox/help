@@ -13,3 +13,5 @@ utils/**/*.mp4
 utils/content-planning/
 
 utils/private-cloud-onboarding-openshift/
+# Google Docs build output from the writing skills
+*.gdoc.html
