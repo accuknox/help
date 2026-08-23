@@ -30,7 +30,7 @@ To forward the events to Azure Sentinel you must first set up the [Azure Sentine
 -  Click  **Test**  to check the new functionality, You will receive the test message on configured Azure Sentinel.
 -`Test message Please ignore !!`
 - Click **Save** to save the Integration.
-You can now configure [Alert Triggers](./logs_summary/triggers.md) for Azure Sentinel Events
+You can now configure Alert Triggers for Azure Sentinel Events
 
 
 ###  Creating webhook using the Azure Logic App

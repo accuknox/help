@@ -156,11 +156,11 @@ Learn more about KubeArmor [here](https://kubearmor.io/)
 
 		+ [Helm](https://helm.sh/docs/intro/install/)
 
-		**Download the Vagrant setup**
+		**Get the Vagrant setup**
 
-		+ [Click here to download](../quick_start/vagrant-k8s-ubuntu2204.tar.gz)
+		+ [KubeArmor Vagrant environment](https://github.com/kubearmor/KubeArmor/tree/main/contribution/vagrant)
 
-		Untar and goto the Vagrant setup directory, Run the below command
+		Clone the KubeArmor repository, go to the `contribution/vagrant` directory, and run the below command
 
 		```sh
 		vagrant up
