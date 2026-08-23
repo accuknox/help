@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Executive Summary</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>1. Executive Summary</h1>
+      <p>Why this matters for CISO, VP Engineering, and internal executive sponsors.</p>
+      <p><a href="index.html">Back to Modular Index</a></p>
+    </header>
+
+    <section class="panel">
+      <span class="section-label">Category Thesis</span>
+      <div class="hero-grid">
+        <div>
+          <h2>The market has moved from DSPM visibility to DSPM evidence plus action.</h2>
+          <p>
+            Every serious DSPM vendor now tells roughly the same left-to-right story: connect data stores, discover sensitive data, classify,
+            understand who can touch it, prioritize risk, trigger remediation, and prove compliance. The visible battleground is no longer feature
+            coverage. It is proof density. The winning experience shows the fastest path from first scan to a risk-reduction decision that a CISO,
+            architect, and auditor can all understand in under five minutes.
+          </p>
+          <p>
+            Sentra, Cyera, Varonis, and BigID all invest heavily in outcome framing, visual evidence, and analyst-ready workflows. AccuKnox has a
+            stronger technical right to win than its current DSPM presentation suggests, especially where CNAPP context, runtime security, cloud posture,
+            and Kubernetes-native visibility can be stitched into one operating model. The product gap is therefore not category relevance. It is experience
+            packaging, screenshot proof, and a thinner narrative around regulator-grade evidence and executive-ready dashboards.
+          </p>
+          <div class="quote">
+            Best-in-class DSPM UX is not "here are 1,000 findings." It is "here are the 12 issues that matter, here is why they matter, here is how to
+            fix them, and here is the audit evidence that proves the fix happened."
+          </div>
+        </div>
+        <figure class="figure">
+          <img src="assets/images/accuknox-dspm-hero.svg" alt="AccuKnox DSPM hero illustration" />
+          <figcaption>
+            AccuKnox publicly shows conceptual DSPM workflow framing, but far less in-product visual evidence than Cyera or Varonis.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="kpi-row">
+        <div class="metric"><span class="num">5/5</span><span class="lbl">Leaders studied: AccuKnox, Sentra, Cyera, Varonis, BigID</span></div>
+        <div class="metric"><span class="num">3</span><span class="lbl">Winning proof patterns: quantified outcomes, visual evidence, guided remediation</span></div>
+        <div class="metric"><span class="num">4</span><span class="lbl">Core buyer lenses: risk, access, compliance, AI exposure</span></div>
+        <div class="metric"><span class="num">6</span><span class="lbl">Recommended flagship screens for AccuKnox executive demos</span></div>
+      </div>
+
+      <div class="obs"><b>Observed:</b> Competitors foreground quantified outcomes, trust badges, and in-product visuals above architectural explanation.</div>
+      <div class="obs"><b>Observed:</b> AccuKnox foregrounds architecture breadth, deployment mode, and capability scope, but offers lighter public product proof.</div>
+      <div class="inf"><b>Inferred:</b> AccuKnox can close much of the perception gap without inventing net-new category primitives if it upgrades experience packaging and screen design discipline.</div>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">What Changed</span>
+      <h2>What changed in the DSPM landscape in the last cycle</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>1. Data security is now sold with AI risk attached</h3>
+          <p>
+            Sentra talks about AI data readiness and preventing copilot data catastrophes. Cyera pushes AI Guardian, Browser Shield, and MCP.
+            Varonis now frames AI security and AI governance alongside access governance. BigID pushes AI governance, AI TRiSM, AI agents, and
+            identity-aware control. The category is no longer only about S3 buckets, Snowflake tables, and M365 files. It is about whether AI tools,
+            copilots, agents, and shadow AI can reach sensitive data with the wrong context and the wrong permissions.
+          </p>
+        </div>
+        <div class="card">
+          <h3>2. Access and blast radius have become board-level UX objects</h3>
+          <p>
+            Cyera Access Trail, Varonis permissions analysis, and BigID access governance all elevate the question of who can reach what. The user
+            experience is shifting from passive catalogs toward attack-path-style reasoning: which identities, groups, external links, and overly broad
+            access paths create material exposure right now.
+          </p>
+        </div>
+        <div class="card">
+          <h3>3. Compliance is presented as a live operating surface</h3>
+          <p>
+            Sentra's compliance posture views, Varonis compliance management pages, BigID privacy plus governance stack, and Cyera's buyer-guide-based
+            risk framing all treat compliance as continuously evidenced rather than a static report pack. The UX lesson is that compliance screens must
+            answer current status, failing controls, impacted data assets, and remediation ownership in one place.
+          </p>
+        </div>
+        <div class="card">
+          <h3>4. Buyers expect quantified time-to-value claims</h3>
+          <p>
+            Sentra publishes scale, accuracy, and cost comparisons. Cyera publishes rapid deployment, precision, and customer outcomes. Varonis publishes
+            blast-radius reduction and managed outcomes. BigID publishes classifier breadth and automation depth. AccuKnox already has metrics on its site,
+            but they are not yet anchored to a clear sequence of user-visible screens and workflow moments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">Buyer Expectations</span>
+      <h2>What a best-in-class buyer now expects to see in the first eight minutes</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Executive confidence</h3>
+          <ul class="checklist">
+            <li>One risk score with a visible trend and business impact summary.</li>
+            <li>Named proof metrics such as exposed sensitive assets, over-permissioned identities, and unresolved high-risk findings.</li>
+            <li>Clear business narrative by cloud, business unit, or data domain.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Analyst control</h3>
+          <ul class="checklist">
+            <li>Immediate pivot from posture summary into evidence, lineage, and access context.</li>
+            <li>Filters that separate critical from noisy findings fast.</li>
+            <li>One-click movement from finding to remediation recommendation.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Architect trust</h3>
+          <ul class="checklist">
+            <li>Connector list, deployment mode, and data boundaries explained clearly.</li>
+            <li>Proof that classification and discovery work at enterprise scale.</li>
+            <li>Low-friction integration into cloud, data, SIEM, SOAR, and ticketing systems.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Auditor evidence</h3>
+          <ul class="checklist">
+            <li>Control mapping, failing obligations, and remediation proof exported cleanly.</li>
+            <li>Timestamped history and ownership trail.</li>
+            <li>Role-based evidence packages for regulator, DPO, and internal audit review.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>AI-era readiness</h3>
+          <ul class="checklist">
+            <li>Inventory of AI tools touching enterprise data.</li>
+            <li>Prompt, plugin, or connector risk visibility.</li>
+            <li>Ability to constrain sensitive-data access before AI amplifies the blast radius.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Operational action</h3>
+          <ul class="checklist">
+            <li>Recommended fixes with estimated risk reduction.</li>
+            <li>Owner assignment, SLA tracking, and evidence of closure.</li>
+            <li>Low-friction automation for permissions, retention, quarantine, or deletion workflows.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">DSPM Expectations</span>
+      <h2>DSPM Coverage Expansion under Concentric AI (PayNet)</h2>
+      <p>
+        Objective: extend DSPM capabilities beyond Microsoft 365 to AWS environments (starting with S3 buckets), enabling
+        end-to-end visibility, classification, and risk monitoring of sensitive data across PayNet's cloud footprint.
+      </p>
+
+      <h3>1. Objective and Requirements</h3>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Data discovery and classification</h3>
+          <ul class="checklist">
+            <li>Automated discovery of structured and unstructured data.</li>
+            <li>Classification of sensitive data (PII, financial data, credentials, etc.).</li>
+            <li>Coverage: Microsoft 365 (existing) and AWS S3 (Phase 2 scope).</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Data risk identification</h3>
+          <ul class="checklist">
+            <li>Detect over-permissive access, public exposure, and sensitive data in inappropriate locations.</li>
+            <li>Risk scoring based on sensitivity, access exposure, and data location.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Access and governance visibility</h3>
+          <ul class="checklist">
+            <li>Identify data owners, access rights, and sharing patterns.</li>
+            <li>Support least-privilege access review.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>GenAI security capability</h3>
+          <ul class="checklist">
+            <li>Monitor user interaction with GenAI tools (e.g. ChatGPT, web-based AI).</li>
+            <li>Detect sensitive data inputs into AI prompts or uploads.</li>
+            <li>At minimum: visibility and alerting; enforcement if available.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>2. Coverage Expansion Requirements</h3>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Phase 1 (existing)</h3>
+          <ul class="checklist">
+            <li>OneDrive.</li>
+            <li>SharePoint.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Phase 2 (expansion scope)</h3>
+          <ul class="checklist">
+            <li>AWS S3 buckets (priority scope).</li>
+            <li>Future extensibility: AWS data services (RDS, Redshift, etc.) as an optional future phase.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Users and endpoint coverage</h3>
+          <ul class="checklist">
+            <li>Coverage expansion to 750 PayNet staff.</li>
+            <li>Monitor user data interaction behaviour.</li>
+            <li>Integrate with identity systems (e.g. Entra ID).</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>3. Data Protection Capabilities</h3>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Data residency and boundaries</h3>
+          <ul class="checklist">
+            <li>No raw file content leaves the PayNet environment.</li>
+            <li>Only metadata and redacted embeddings are allowed to transit.</li>
+            <li>Deployable as a Private Scan Manager inside PayNet's AWS environment.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Encryption and lifecycle controls</h3>
+          <ul class="checklist">
+            <li>Encryption in transit (TLS).</li>
+            <li>Encryption at rest (AES-256).</li>
+            <li>Data masking and redaction for sensitive fields.</li>
+            <li>Secure deletion processes.</li>
+            <li>Audit trail of data scanning and classification.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>4. Compliance and Regulatory Requirements</h3>
+      <div class="grid-2">
+        <article class="card">
+          <h3>External obligations</h3>
+          <ul class="checklist">
+            <li>PDPA (Malaysia): data protection, retention, and breach risk visibility.</li>
+            <li>BNM RMiT and supervisory expectations: visibility and control over sensitive data in cloud.</li>
+            <li>Must support one of the action plans committed for the BNM supervisory letter.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Internal policies</h3>
+          <ul class="checklist">
+            <li>Data Classification Policy.</li>
+            <li>Data Protection Standard.</li>
+            <li>Information Security Policy.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>5. Reporting Requirements</h3>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Operational reporting</h3>
+          <ul class="checklist">
+            <li>Sensitive data inventory dashboards.</li>
+            <li>Exposure risk dashboards.</li>
+            <li>High-risk data locations (e.g. public S3 objects).</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Management and audit reporting</h3>
+          <ul class="checklist">
+            <li>Trend analysis (data exposure reduction over time).</li>
+            <li>Compliance posture summary.</li>
+            <li>Incident and alert reports.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Granularity</h3>
+          <ul class="checklist">
+            <li>File-level and dataset-level insights.</li>
+            <li>User-level activity insights for GenAI monitoring.</li>
+          </ul>
+        </article>
+      </div>
+
+      <h3>6. Integration Requirements</h3>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Core platforms</h3>
+          <ul class="checklist">
+            <li>Microsoft 365 via Graph API.</li>
+            <li>AWS environment via IAM role-based access.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Security ecosystem</h3>
+          <ul class="checklist">
+            <li>SIEM (e.g. Devo) via API or logs.</li>
+            <li>Microsoft Purview / MIP for classification alignment.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Identity and access</h3>
+          <ul class="checklist">
+            <li>Entra ID / Okta integration.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">India Lens</span>
+      <h2>Airtel-style buyer framing for RBI, DPDP, and TRAI-sensitive organizations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Buyer concern</th>
+            <th>What the screen must prove</th>
+            <th>Why current competitors set the bar</th>
+            <th>AccuKnox implication</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Regulator readiness</td>
+            <td>Continuous evidence, not PDF-only compliance theater</td>
+            <td>Sentra and Varonis present compliance as live posture; BigID ties privacy and governance into operations</td>
+            <td>Build a compliance cockpit with RBI, DPDP, and TRAI mappings, failing controls, evidence bundles, and accountable owners</td>
+          </tr>
+          <tr>
+            <td>Cloud sprawl control</td>
+            <td>AWS, GCP, data lake, SaaS, and warehouse coverage in one view</td>
+            <td>Cyera and Sentra publicly emphasize broad coverage and quick deployment</td>
+            <td>Make connector readiness and multi-cloud discovery status visible from the landing experience</td>
+          </tr>
+          <tr>
+            <td>Identity-driven exposure</td>
+            <td>Who can access sensitive data, why, and whether that access is excessive</td>
+            <td>Cyera Access Trail and Varonis permissions intelligence set a strong expectation</td>
+            <td>Introduce a first-class exposure graph, not just a finding list</td>
+          </tr>
+          <tr>
+            <td>Board and audit communication</td>
+            <td>Risk movement over time with remediation proof</td>
+            <td>All four competitors use executive-friendly outcome framing more aggressively than AccuKnox</td>
+            <td>Design a board-ready scorecard that speaks in resolved risk, protected records, and evidence completion</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">Recommendation</span>
+      <h2>Recommended six-screen demo backbone for AccuKnox DSPM</h2>
+      <div class="grid-2">
+        <div class="prd">
+          <h3>1. Connector and scan readiness</h3>
+          <p>Show what is connected, what is still dark, how long first value takes, and which data systems are in scope by cloud and business domain.</p>
+        </div>
+        <div class="prd">
+          <h3>2. Sensitive data posture cockpit</h3>
+          <p>Summarize crown-jewel assets, regulatory coverage, risk trend, open critical findings, and business-unit breakdowns in a single landing surface.</p>
+        </div>
+        <div class="prd">
+          <h3>3. Exposure and access graph</h3>
+          <p>Visualize who can access which sensitive assets, why that path exists, whether the path is external or over-privileged, and which identities matter most.</p>
+        </div>
+        <div class="prd">
+          <h3>4. Investigation workbench</h3>
+          <p>Allow analysts to pivot from one finding into lineage, asset metadata, exposure path, related identities, similar assets, and remediation choices.</p>
+        </div>
+        <div class="prd">
+          <h3>5. RBI, DPDP, and TRAI compliance cockpit</h3>
+          <p>Map controls to obligations, show pass or fail status, and generate role-specific evidence packages with timestamps and owner attestations.</p>
+        </div>
+        <div class="prd">
+          <h3>6. Remediation command center</h3>
+          <p>Queue fixes, approvals, automation actions, exceptions, SLA breaches, and post-remediation evidence in one operational console.</p>
+        </div>
+      </div>
+      <div class="quote">
+        If these six screens are polished, screenshot-rich, and internally instrumented, AccuKnox can narrow the perception gap with category leaders faster than by adding another long capability checklist.
+      </div>
+    </section>
+
+    <section class="panel">
+      <span class="section-label">Proof Pack</span>
+      <h2>Primary sources and official videos used for the executive thesis</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Official web sources</h3>
+          <ul class="source-list">
+            <li><a href="https://accuknox.com/dspm" target="_blank" rel="noreferrer">AccuKnox DSPM</a></li>
+            <li><a href="https://accuknox.com/cnapp" target="_blank" rel="noreferrer">AccuKnox CNAPP</a></li>
+            <li><a href="https://www.sentra.io" target="_blank" rel="noreferrer">Sentra homepage</a></li>
+            <li><a href="https://www.sentra.io/ai-data-security" target="_blank" rel="noreferrer">Sentra AI data security</a></li>
+            <li><a href="https://www.sentra.io/data-security-compliance" target="_blank" rel="noreferrer">Sentra compliance</a></li>
+            <li><a href="https://cyera.com/platform/data-security-posture-management" target="_blank" rel="noreferrer">Cyera DSPM</a></li>
+            <li><a href="https://cyera.com/platform/access-trail" target="_blank" rel="noreferrer">Cyera Access Trail</a></li>
+            <li><a href="https://www.varonis.com/platform/data-security-posture-management" target="_blank" rel="noreferrer">Varonis DSPM</a></li>
+            <li><a href="https://www.varonis.com/platform/data-access-governance" target="_blank" rel="noreferrer">Varonis access governance</a></li>
+            <li><a href="https://bigid.com/platform/data-security-posture-management" target="_blank" rel="noreferrer">BigID DSPM</a></li>
+            <li><a href="https://bigid.com/platform/data-access-governance" target="_blank" rel="noreferrer">BigID access governance</a></li>
+            <li><a href="https://home.bigid.com/dspm-risk-management-tour" target="_blank" rel="noreferrer">BigID DSPM risk management tour</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Official videos worth referencing in demos and PRDs</h3>
+          <ul class="video-list">
+            <li><a href="https://www.youtube.com/watch?v=LMbxZV3_y1s" target="_blank" rel="noreferrer">AccuKnox: Six Pillars of CyberSecurity and AI Security Guidance from NIST</a></li>
+            <li><a href="https://www.youtube.com/watch?v=o7tAjXZfRno" target="_blank" rel="noreferrer">Cyera: Jason Clark on AI Security and Agentic Risk</a></li>
+            <li><a href="https://www.youtube.com/watch?v=FVcz3i9DdrU" target="_blank" rel="noreferrer">Cyera: The Landing product innovations</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dnAdpXCR8A0" target="_blank" rel="noreferrer">Cyera: Bringing business context to data and AI risk</a></li>
+            <li><a href="https://www.youtube.com/watch?v=lEy9PCt3fZA" target="_blank" rel="noreferrer">BigID: How Data Governance and AI Intersect in Large Enterprises</a></li>
+            <li><a href="https://www.youtube.com/watch?v=fuWL3NtDtSY" target="_blank" rel="noreferrer">BigID: AI Vendor Risk Explained</a></li>
+            <li><a href="https://www.youtube.com/watch?v=ghfIsp__C64" target="_blank" rel="noreferrer">BigID: EU AI Act, DORA, and US AI regulations</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="assets/nav.js"></script>
+</body>
+</html>

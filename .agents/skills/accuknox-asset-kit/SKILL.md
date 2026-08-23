@@ -81,10 +81,10 @@ June 2026):
 
 ### Where they live (in priority order)
 
-1. **Curated demo screenshots** in `utils/brian-demo-screenshots/`
+1. **Curated demo screenshots** in `references/brian-demo-screenshots/`
    22 clean product screenshots (dashboard, findings, AI red teaming, prompt
    firewall, runtime protection, zero-trust discovery). **Captions and a
-   screenshot index are in `utils/brian-demo-screenshots/DEMO-SUMMARY.md`.**
+   screenshot index are in `references/brian-demo-screenshots/DEMO-SUMMARY.md`.**
    Use these first for polished AI-security assets. They are consistent and
    already captioned.
 
@@ -106,7 +106,7 @@ June 2026):
    - Docs diagrams: e.g. `docs/use-cases/images/aidr/1.png` (AI-DR workflow),
      `docs/use-cases/images/ai-overview/1.png` (managed vs on-prem AI map),
      `docs/use-cases/images/modelarmor/` (adversarial diagrams).
-   - The **AI Security macro deck**: `utils/technical-reference/AccuKnox AI
+   - The **AI Security macro deck**: `references/technical-reference/AccuKnox AI
      Security _ Macro Deck _ June_2026.pptx`. Its flowcharts are native slides, so
      render them: convert the pptx to PDF with LibreOffice, rasterise pages with
      PyMuPDF (`fitz`), search slide text for the topic, and crop the slide you
@@ -150,7 +150,7 @@ Product screenshots usually carry junk. Fix it before use:
 Quick approach (PIL on `py -3.11`): find the bottom-most row and right-most
 column that still hold content (ignore the left nav and the right scrollbar),
 then crop to that plus a ~20px margin. Work on copies, never the originals in
-`utils/brian-demo-screenshots/` or `docs/`.
+`references/brian-demo-screenshots/` or `docs/`.
 
 ---
 
@@ -198,7 +198,7 @@ are wanted, because the document's job is a formal clause-by-clause map.
 
 ## 4. Brand (for designed assets: DOCX, PPTX, HTML)
 
-Templates in `utils/doc-ppt-template/`:
+Templates in `references/doc-ppt-template/`:
 `WORD_TEMPLATE_ACCUKNOX.docx`, `AccuKnox_Proposal_Template_BLANK.pptx`.
 
 **Colors** (hex, from the real templates):

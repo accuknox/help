@@ -27,9 +27,9 @@ the repo root, which load every session. Never restate one of them inside anothe
 | A use-case page | sections 1 and 5, plus a named scenario | `docs/use-cases/` |
 | An integration guide | sections 8 and 9. Every version and field comes from an opened source | `docs/integrations/` |
 | A FAQ answer | section 6. The question is the heading, the answer is the first sentence | `docs/faqs/` |
-| A blog post | section 11 owns this one. Front-load the answer in the first 150 words | `utils/<series>/` |
+| A blog post | section 11 owns this one. Front-load the answer in the first 150 words | `references/<series>/` |
 | A release note or an update | section 9. No version, flag or fix claim without a source | `docs/` and `updates` |
-| A comparison page | section 10. Compare on a named sourced capability, never attack | `utils/comparisons-builder/` |
+| A comparison page | section 10. Compare on a named sourced capability, never attack | `references/comparisons-builder/` |
 | Alt text, a caption, a table | section 12 | anywhere |
 
 A page carries one job. Where a request spans two, write them as two pages rather than one page that

@@ -1,0 +1,1123 @@
+1
+00:00:02,180 --> 00:00:04,440
+(Transcribed by TurboScribe. Go Unlimited to remove this message.) अगर हमें किसी का कस्टमर है और हमें
+
+2
+00:00:04,440 --> 00:00:07,920
+उसको ओन्बोर्ड करना है मालो ये एक कस्टमर
+
+3
+00:00:07,920 --> 00:00:10,160
+का environment है अब उसको VM scan करने
+
+4
+00:00:10,160 --> 00:00:11,420
+के लिए अभी हम से एक ही capability
+
+5
+00:00:11,420 --> 00:00:14,160
+प्रोवाद करा रहे हैं VM scanning जो भी
+
+6
+00:00:14,160 --> 00:00:16,540
+Red Hat OpenShift प्लेटफॉर्म के उपर उनके VM
+
+7
+00:00:16,540 --> 00:00:20,020
+से है तो उन्बोर्ड कराने के लिए सबसे
+
+8
+00:00:20,020 --> 00:00:22,100
+पहले तो एक prerequisite है जो हमें required
+
+9
+00:00:22,100 --> 00:00:25,540
+है वो prerequisite यह है कि इसमें एक
+
+10
+00:00:25,540 --> 00:00:30,520
+object होता है volume snapshot class तो user
+
+11
+00:00:30,520 --> 00:00:33,640
+के environment में ये resource होना चाहिए volume
+
+12
+00:00:33,640 --> 00:00:37,320
+snapshot class अवेलेबल होना चाहिए और उनमें से
+
+13
+00:00:37,320 --> 00:00:39,100
+जो भी अवेलेबल है उनमें से कोई ना
+
+14
+00:00:39,100 --> 00:00:43,180
+कोई default mark भी होना चाहिए ये prerequisite
+
+15
+00:00:43,180 --> 00:00:47,100
+है और सारे VMs जो भी हैं उस
+
+16
+00:00:47,100 --> 00:00:53,140
+openShift इसके उपर वो सब भी same CSI
+
+17
+00:00:53,140 --> 00:00:54,960
+driver के तुरी होना चाहिए है वो generally
+
+18
+00:00:54,960 --> 00:00:56,940
+होता है वो same ही होता है अलब
+
+19
+00:00:56,940 --> 00:00:58,800
+कोई दो solution क्यों install करेगा एक single
+
+20
+00:00:58,800 --> 00:01:01,240
+चीज के लिए बलाब specially storage के लिए
+
+21
+00:01:01,240 --> 00:01:04,440
+तो वो तो बेसिकली होना चाहिए volume snapshot
+
+22
+00:01:04,440 --> 00:01:07,860
+required है snapshot class object available होना चाहिए
+
+23
+00:01:07,860 --> 00:01:10,020
+एक कोई ना कोई उनमें से default भी
+
+24
+00:01:10,020 --> 00:01:12,620
+होना चाहिए और same CSI driver यूज़ होना
+
+25
+00:01:12,620 --> 00:01:14,800
+चाहिए उनके बाकी VMs के volumes को create
+
+26
+00:01:14,800 --> 00:01:18,140
+करने के लिए भी तो ये prerequisite है
+
+27
+00:01:18,140 --> 00:01:20,520
+उसके बाद जाधा कुछ नहीं करना है ये
+
+28
+00:01:20,520 --> 00:01:22,380
+prerequisite जैसे हमें पता है कि हो गया
+
+29
+00:01:22,380 --> 00:01:23,940
+इसके लिए मैं कोई script भी provide करा
+
+30
+00:01:23,940 --> 00:01:26,300
+दूँगा कि UI में से user क्लिक कर
+
+31
+00:01:26,300 --> 00:01:29,220
+लेगा उस script को या फिर कोई binary
+
+32
+00:01:29,220 --> 00:01:30,740
+provide करा दूँगा S3 वगारे की और वो
+
+33
+00:01:30,740 --> 00:01:32,840
+अपने cluster भी जागे रन करेगा तो इसको
+
+34
+00:01:32,840 --> 00:01:35,520
+वो बता देगा output में कि ये prerequisite
+
+35
+00:01:35,520 --> 00:01:36,760
+match हो रही है और नहीं हो रही
+
+36
+00:01:36,760 --> 00:01:39,240
+है कोई issue है कि नहीं है वो
+
+37
+00:01:39,240 --> 00:01:41,200
+भी मैं provide करा सकता हूँ बाद में
+
+38
+00:01:41,200 --> 00:01:44,860
+उसको test करने के लिए ठीक है तो
+
+39
+00:01:44,860 --> 00:01:46,640
+basically करना क्या है मैंने जैसे बता है
+
+40
+00:01:46,640 --> 00:01:49,060
+कि operator based है तो हमें operator install
+
+41
+00:01:49,060 --> 00:01:52,580
+करना है हमारा Omni operator तो इसमें operator
+
+42
+00:01:52,580 --> 00:01:55,080
+install करने के लिए इसके अंदर होती है
+
+43
+00:01:55,080 --> 00:01:58,060
+categories जैसे मैं ecosystem में जाओंगो तो यहाँ
+
+44
+00:01:58,060 --> 00:02:00,700
+पर आ जाएगा software catalog कुछ नहीं है
+
+45
+00:02:00,700 --> 00:02:03,540
+operator को लिस्ट करता है और फिर install
+
+46
+00:02:03,540 --> 00:02:05,180
+operators में वो दिखा देगा जब उन्जोन से
+
+47
+00:02:05,180 --> 00:02:08,500
+installed है पर software catalog में भी हमारा
+
+48
+00:02:08,500 --> 00:02:11,360
+नहीं होगा obviously क्योंकि हमारा इनके पर listed
+
+49
+00:02:11,360 --> 00:02:12,920
+नहीं है तो हमें पहले उसको add करना
+
+50
+00:02:12,920 --> 00:02:15,680
+पड़ेगा software catalog में तो सबसे पहला step
+
+51
+00:02:15,680 --> 00:02:18,920
+होगा evidence prediction में जाना है administration में
+
+52
+00:02:18,920 --> 00:02:21,860
+जाएगा cluster settings में जाना है configuration में
+
+53
+00:02:21,860 --> 00:02:27,340
+जाना है और यहाँ पर जाएगा सर्च करना
+
+54
+00:02:27,340 --> 00:02:32,180
+है operator hub में जाके sources में जाएगे
+
+55
+00:02:32,180 --> 00:02:34,720
+यहाँ पर option मिल जाएगा हमें create catalog
+
+56
+00:02:34,720 --> 00:02:37,860
+source यहाँ पर हमें अपना catalog पहले add
+
+57
+00:02:37,860 --> 00:02:40,900
+करना है अपने operator का catalog तो उसको
+
+58
+00:02:40,900 --> 00:02:43,700
+हम नाम देख सकते हैं कुछ भी जैसे
+
+59
+00:02:43,700 --> 00:02:52,240
+equinox या equinox स्कैनर
+
+60
+00:02:52,240 --> 00:02:55,540
+डिस्प्ले नेम भी कुछ भी दे सकते हैं
+
+61
+00:02:55,540 --> 00:03:02,380
+random publisher name equinox ब्लैंग भी जोड़ सकते
+
+62
+00:03:02,380 --> 00:03:06,800
+हैं स्टार वाले खाली डालने और यहाँ पर
+
+63
+00:03:06,800 --> 00:03:10,360
+आएगा image url image url equinox provide कर
+
+64
+00:03:10,360 --> 00:03:16,770
+आएगा जो कि फिलाल यह है इसके बाद
+
+65
+00:03:16,770 --> 00:03:18,810
+basically यहाँ पर कर दिया इसको cluster provide
+
+66
+00:03:18,810 --> 00:03:22,070
+कर सकते हैं और बस just यहाँ पर
+
+67
+00:03:22,070 --> 00:03:29,110
+create बड़न पर click करना जैसे हम create
+
+68
+00:03:29,110 --> 00:03:34,440
+करेंगे यहाँ पर यहाँ आ जाएगा और status
+
+69
+00:03:34,440 --> 00:03:37,820
+ready होने का wait करना status ready हो
+
+70
+00:03:37,820 --> 00:03:39,560
+गया है अब status ready हो गया है
+
+71
+00:03:39,560 --> 00:03:41,500
+मतलब हमने catalog में add कर दिया है
+
+72
+00:03:41,500 --> 00:03:44,380
+तो अभी हमें यह software catalogs में दिख
+
+73
+00:03:44,380 --> 00:03:48,580
+जाना चाहिए जिससे हम इसको install गर पाएंगे
+
+74
+00:03:48,580 --> 00:03:51,060
+अब operator को यहाँ पर search कर लेता
+
+75
+00:03:51,060 --> 00:03:55,980
+हूँ एकको notes यहाँ आ गया ठीक है
+
+76
+00:03:55,980 --> 00:03:58,740
+जहां तक तो clear है अब यह operator
+
+77
+00:03:58,740 --> 00:04:00,700
+हमारे list हो गया है अब list होने
+
+78
+00:04:00,700 --> 00:04:02,480
+के बाद just हमें इसको install गरना है
+
+79
+00:04:02,480 --> 00:04:07,200
+इसको बन गरेता हूँ इसको install गरने के
+
+80
+00:04:07,200 --> 00:04:08,580
+लिए ज़्यादा कुछ नहीं करना सिर्फ क्लिक करना
+
+81
+00:04:08,580 --> 00:04:12,660
+install पर और यह सब default रहेगा सब
+
+82
+00:04:12,660 --> 00:04:15,100
+कुछ default रहेगा name space भी यह वाला
+
+83
+00:04:15,100 --> 00:04:16,839
+रख सकते है कुछ नहीं करना यहाँ पर
+
+84
+00:04:16,839 --> 00:05:25,200
+install बटन पर क्लिक करना स्टेट
+
+85
+00:05:25,200 --> 00:05:26,480
+में आ गया install हो गया यहाँ पर
+
+86
+00:05:26,480 --> 00:05:30,200
+ठीक है उसके बाद simply install operators में
+
+87
+00:05:30,200 --> 00:05:33,420
+जाएंगे तो install वाले category में यह दिखाने
+
+88
+00:05:33,420 --> 00:05:38,500
+लगेगा उसके बाद operator पर जाएंगे और schedule
+
+89
+00:05:38,500 --> 00:05:41,100
+हमें अब हमें स्कैन करने के लिए सिर्फ
+
+90
+00:05:41,100 --> 00:05:44,260
+schedule गरेट करना है अभी तक किस step
+
+91
+00:05:44,260 --> 00:05:46,480
+में सिर्फ हमने उसको software category में पहले
+
+92
+00:05:46,480 --> 00:05:48,760
+लिस्ट किया जिससे हम उसको install कर पड़ा
+
+93
+00:05:48,760 --> 00:05:51,160
+उसके बाद एक click करके install किया install
+
+94
+00:05:51,160 --> 00:05:52,240
+करने के बाद फिर हम यहाँ पर आ
+
+95
+00:05:52,240 --> 00:05:53,840
+गया है installed वाले में आ गया है
+
+96
+00:05:53,840 --> 00:05:55,220
+अब सिर्फ यहाँ पर कुछ नहीं करना है
+
+97
+00:05:55,220 --> 00:05:58,380
+ज़्यादा schedule कराना है scan, scan schedule करना
+
+98
+00:05:58,380 --> 00:06:00,160
+है यह simply create instance पर click करना
+
+99
+00:06:00,160 --> 00:06:02,320
+है अब यहाँ पर हमें थोड़ी बहुत information
+
+100
+00:06:02,320 --> 00:06:06,300
+प्रोवाइड करानी है सबसे पहले name यह कुछ
+
+101
+00:06:06,300 --> 00:06:11,120
+भी दे सकता है, scanner दे सकता है
+
+102
+00:06:11,120 --> 00:06:14,180
+label अगर हमें particular VMs को scan कराना
+
+103
+00:06:14,180 --> 00:06:15,960
+है तो फिर हम labels lables के साथ
+
+104
+00:06:15,960 --> 00:06:18,020
+play कर सकता है यह multiple scheduler भी
+
+105
+00:06:18,020 --> 00:06:20,140
+create कर सकता है एक scheduler में ख़ली
+
+106
+00:06:20,140 --> 00:06:22,820
+यह वाले label add कर दिये उन VMs
+
+107
+00:06:22,820 --> 00:06:24,360
+के साथ जो matching label होंगे ख़ली उन
+
+108
+00:06:24,360 --> 00:06:27,140
+ही को scan करेगा बाकि in general करना
+
+109
+00:06:27,140 --> 00:06:28,280
+है तो हम इसको छोड़ सकते हैं कुछ
+
+110
+00:06:28,280 --> 00:06:35,090
+नहीं करना है इसके अलावा हमें कुछ चीज़ें
+
+111
+00:06:35,090 --> 00:06:37,810
+हमें चाहिए हैं हमें जैसे हमें endpoint प्रोवाइड
+
+112
+00:06:37,810 --> 00:06:40,030
+कराना पड़ेगा जो scan result को कहांपे send
+
+113
+00:06:40,030 --> 00:06:44,110
+करेगा तो endpoint जैसे हमारा हो सकता है
+
+114
+00:06:47,250 --> 00:06:57,330
+exactly cspm.demo.econos.com API
+
+115
+00:06:57,330 --> 00:07:06,920
+V1 Artifact forward slash artifact cspm.demo.econos
+
+116
+00:07:06,920 --> 00:07:10,060
+.com एक label चाहिए label हमें अपने environment
+
+117
+00:07:10,060 --> 00:07:12,980
+में जाके create करना पड़ेगा तो मैं हासे
+
+118
+00:07:12,980 --> 00:07:22,330
+setting में जाके एक token label वना लेता
+
+119
+00:07:22,330 --> 00:07:25,950
+हूँ token वना लेता हूँ इस बार इसको
+
+120
+00:07:28,110 --> 00:07:45,210
+test open shift label
+
+121
+00:07:45,210 --> 00:07:54,440
+एक label वना लेता हूँ label हमें
+
+122
+00:07:54,440 --> 00:07:56,480
+UI से वना रहा है वही same label
+
+123
+00:07:56,480 --> 00:08:17,270
+नहीं पर use करना है open shift label
+
+124
+00:08:17,270 --> 00:08:20,610
+मेरे आपर आ गया है यही same label
+
+125
+00:08:20,610 --> 00:08:26,230
+मेरे आपर डाल दूँगा open shift tenant ID
+
+126
+00:08:26,230 --> 00:08:29,850
+मुझे चाहिए tenant ID मेरे JWT token से
+
+127
+00:08:29,850 --> 00:08:36,179
+मिल जाएगी मुझे मैंने पुराने token की वो
+
+128
+00:08:36,179 --> 00:08:39,120
+भी same ही है यही ID में ले
+
+129
+00:08:39,120 --> 00:08:41,419
+लेता हूँ उसको मैं आपर डालूँगा तो वो
+
+130
+00:08:41,419 --> 00:08:43,760
+सारी information बता देगा जो भी token में
+
+131
+00:08:43,760 --> 00:08:47,740
+available है यहां तक हो गया tenant ID
+
+132
+00:08:47,740 --> 00:08:49,980
+बता दी अब जो हमने token बनाया है
+
+133
+00:08:49,980 --> 00:08:52,640
+उस token के लिए हमें एक secret बनानी
+
+134
+00:08:52,640 --> 00:08:54,560
+है उस secret को हमें पास करना है
+
+135
+00:08:54,560 --> 00:08:59,040
+तो उसके लिए हमें क्या करना पड़ेगा UI
+
+136
+00:08:59,040 --> 00:09:06,740
+से हमें जाना है workloads में मैं जाके
+
+137
+00:09:06,740 --> 00:09:11,800
+देखा देता हूँ यह भी workloads में जाके
+
+138
+00:09:11,800 --> 00:09:15,240
+secrets का एक option मिलेगा secret में जाके
+
+139
+00:09:15,240 --> 00:09:18,160
+simply एक secret create कर लेनी है create
+
+140
+00:09:18,160 --> 00:09:23,380
+secret, key value store, secret name de sakta
+
+141
+00:09:23,380 --> 00:09:30,100
+hoon main kuch bhi omni key value de
+
+142
+00:09:30,100 --> 00:09:32,840
+diya main token, simply here paste kar diya
+
+143
+00:09:32,840 --> 00:09:44,310
+apna token, here
+
+144
+00:09:44,310 --> 00:09:49,510
+token aur here main key daal diya apni
+
+145
+00:09:51,540 --> 00:09:54,800
+aur name suppose default hai default ki bhaja
+
+146
+00:09:54,800 --> 00:09:56,560
+hai main isko omni operator mein hi kar
+
+147
+00:09:56,560 --> 00:09:59,160
+leta hoon same jahan ho jayega sab kuch,
+
+148
+00:10:05,780 --> 00:10:14,100
+openshield operators, dubhara create karna badega yeh mera
+
+149
+00:10:14,100 --> 00:10:18,620
+token aa gaya, keys ki hai, token, omni
+
+150
+00:10:18,620 --> 00:10:22,420
+maine isko naam de diya save kar liya,
+
+151
+00:10:23,420 --> 00:10:25,520
+yeh token, yeh amare secret create ho gayi
+
+152
+00:10:25,520 --> 00:10:31,260
+simply key token name omni paste kar diya
+
+153
+00:10:31,260 --> 00:10:42,470
+aur same namespace paste karna hai openshield
+
+154
+00:10:42,470 --> 00:10:51,140
+operators openshield operators
+
+155
+00:10:51,140 --> 00:11:02,040
+thek hai yeh sab ho gaya schedule timezone
+
+156
+00:11:02,400 --> 00:11:07,680
+timezone koi bhi use kar sakta hai exactly
+
+157
+00:11:07,680 --> 00:11:17,560
+caps lock case sensitive kolkata maximum kitne
+
+158
+00:11:17,560 --> 00:11:20,720
+scan abhi default ke liye ek hi rakh
+
+159
+00:11:20,720 --> 00:11:23,760
+raha hoon abhi 30 45 ho raha na
+
+160
+00:11:23,760 --> 00:11:27,260
+isko 50 pe schedule kar deta hoon 50
+
+161
+00:11:27,260 --> 00:11:29,200
+aur 4 ho gaya na to 12 aur
+
+162
+00:11:29,200 --> 00:11:34,680
+4 16 star star star abhi schedule ho
+
+163
+00:11:34,680 --> 00:11:36,960
+jayega 450 pe har din 450 pe schedule
+
+164
+00:11:36,960 --> 00:11:39,780
+ho gaya isko change bhi kar sakta hai
+
+165
+00:11:39,780 --> 00:11:42,820
+baad mein koi issue nahi hai abh kya
+
+166
+00:11:42,820 --> 00:11:44,340
+cheez pending raha gaya, yeh mari template pending
+
+167
+00:11:44,340 --> 00:11:47,020
+raha gaya baas template mein cluster name daalna
+
+168
+00:11:47,020 --> 00:11:48,640
+hai wo yeh kuch bhi daal sakta hai,
+
+169
+00:11:48,700 --> 00:11:57,310
+UI pe wahi dekhega main daal liya openshield
+
+170
+00:11:57,310 --> 00:11:59,190
+omni baagiye sab default chod sakta hai, kuch
+
+171
+00:11:59,190 --> 00:12:02,710
+karne hi jaudh nahi hai baas itna hi
+
+172
+00:12:02,710 --> 00:12:06,390
+hai uske baad create kar denge create ho
+
+173
+00:12:06,390 --> 00:12:10,270
+gaya thek hai aur main na pehle si
+
+174
+00:12:10,270 --> 00:12:12,030
+ek VM main na bana rakh raha hai
+
+175
+00:12:13,550 --> 00:12:16,430
+yeh ek VM hai default namespace mein usse
+
+176
+00:12:16,430 --> 00:12:18,010
+koi farak nahi padta, VM kisi bhi namespace
+
+177
+00:12:18,010 --> 00:12:20,850
+mein ho aur hamara yeh jaha se schedule
+
+178
+00:12:20,850 --> 00:12:22,930
+ho gaya phase aa raha hai awaiting ek
+
+179
+00:12:22,930 --> 00:12:29,790
+baad check kar leta hoon humne install kiya
+
+180
+00:12:29,790 --> 00:12:31,690
+hai isko operator namespace mein, kisi mein bhi
+
+181
+00:12:31,690 --> 00:12:34,850
+kar sakta hai mujhe haan pe schedule dekh
+
+182
+00:12:34,850 --> 00:12:37,050
+bhi raha hai abh humne wait karna hai
+
+183
+00:12:37,050 --> 00:12:58,600
+4 minute ka edit kar deta hoon 47
+
+184
+00:12:58,600 --> 00:13:01,920
+ho raha hai na 48 kar deta hoon
+
+185
+00:13:01,920 --> 00:13:06,340
+schedule UI pe jaa ke edit kar sakta
+
+186
+00:13:06,340 --> 00:13:07,600
+hai main na to yehise aise kar diya
+
+187
+00:13:07,600 --> 00:13:12,860
+hai yeh UI se edit ho jayega abh
+
+188
+00:13:12,860 --> 00:13:17,960
+humne sirf ek minute wait karna abhi tak
+
+189
+00:13:17,960 --> 00:13:20,800
+kuch hai confusion yaha tak kis types mein
+
+190
+00:13:29,470 --> 00:13:34,950
+aur functioning thik hai to basically yeh karega
+
+191
+00:13:34,950 --> 00:13:39,070
+kya ke yeh operator hai ek operator hai
+
+192
+00:13:39,070 --> 00:13:41,490
+aur ek scheduler hai, scheduler jaisi ek port
+
+193
+00:13:41,490 --> 00:13:44,250
+ko schedule karega is timing pe phir wo
+
+194
+00:13:44,250 --> 00:13:47,090
+port discover karega saare VMs jo bhi is
+
+195
+00:13:47,090 --> 00:13:50,590
+virtualization ke andar available hai phir jitne VMs
+
+196
+00:13:50,590 --> 00:13:53,050
+available honge wo un sab VMs ka ek
+
+197
+00:13:53,050 --> 00:13:56,190
+volume snapshot banayega, phir us volume snapshot ko
+
+198
+00:13:56,190 --> 00:13:58,610
+scan karega scan karega result ko saas pe
+
+199
+00:13:58,610 --> 00:14:00,990
+bhej dega aur jo resource usne banayega unko
+
+200
+00:14:00,990 --> 00:14:15,700
+delete karega yeh process hai time
+
+201
+00:14:15,700 --> 00:14:31,530
+to hogaya let's
+
+202
+00:14:31,530 --> 00:15:11,850
+wait thik
+
+203
+00:15:11,850 --> 00:15:15,010
+hai to isne discover kare liya aur yaha
+
+204
+00:15:15,010 --> 00:15:19,570
+pe ek snapshot banaya liya hai pvc me
+
+205
+00:15:19,570 --> 00:15:23,810
+bhi dekhenge to snapshot banaya liya hai ab
+
+206
+00:15:23,810 --> 00:15:26,570
+yeh ek aur port ko run karega aur
+
+207
+00:15:26,570 --> 00:15:29,190
+us port me isko attach karega scan karega
+
+208
+00:15:30,690 --> 00:15:34,470
+yeh second port run kiya us pvc me
+
+209
+00:15:34,470 --> 00:15:36,210
+attach kiya, ab scan karega aur result humare
+
+210
+00:15:36,210 --> 00:15:41,900
+saas pe send karega usko tail kar sakta
+
+211
+00:15:41,900 --> 00:16:29,220
+hai ok
+
+212
+00:16:30,460 --> 00:16:38,180
+we are done right what no no I
+
+213
+00:16:38,180 --> 00:16:45,630
+am asking, is it done yeah it is
+
+214
+00:16:45,630 --> 00:16:49,130
+done, I was just giving the demo ok
+
+215
+00:16:50,870 --> 00:16:52,990
+ok we can stop the recording if you
+
+216
+00:16:52,990 --> 00:16:57,090
+are recording this I don't think so we
+
+217
+00:16:57,090 --> 00:17:03,000
+are recording this you were recording this pavan
+
+218
+00:17:04,440 --> 00:17:16,260
+then why we were talking ok what's
+
+219
+00:17:16,260 --> 00:17:19,540
+the next step pavan you will deploy this
+
+220
+00:17:19,540 --> 00:17:22,819
+or you got the working only like what
+
+221
+00:17:22,819 --> 00:17:38,860
+is it because yeah ok
+
+222
+00:17:38,860 --> 00:17:41,800
+I hope you are clear because I haven't
+
+223
+00:17:41,800 --> 00:17:50,590
+joined the call so I am not ok
+
+224
+00:17:50,590 --> 00:18:03,580
+it is
+
+225
+00:18:03,580 --> 00:18:24,200
+running the scan finally so
+
+226
+00:18:24,200 --> 00:18:27,600
+basically pavan if you want to take a
+
+227
+00:18:27,600 --> 00:18:30,120
+look, you can take a look right now
+
+228
+00:18:30,120 --> 00:18:33,740
+because like Rahul has been calling me since
+
+229
+00:18:33,740 --> 00:18:37,320
+morning like the vm server where I deployed
+
+230
+00:18:37,320 --> 00:18:39,440
+it is making a lot of noise and
+
+231
+00:18:39,440 --> 00:18:42,020
+he is not able to bear with it
+
+232
+00:18:48,320 --> 00:18:51,260
+so you have the recording right you are
+
+233
+00:18:51,260 --> 00:18:53,860
+still recording right so now you can see
+
+234
+00:18:53,860 --> 00:18:59,440
+scan is completed and here it is clearly
+
+235
+00:18:59,440 --> 00:19:01,700
+saying completed, now it will run tomorrow as
+
+236
+00:19:01,700 --> 00:19:04,000
+per the chrono which we have configured right
+
+237
+00:19:04,000 --> 00:19:09,040
+in the UI we have configured here right
+
+238
+00:19:11,500 --> 00:19:15,000
+so it will run tomorrow or we can
+
+239
+00:19:15,000 --> 00:19:19,960
+edit the schedule as well here whenever you
+
+240
+00:19:19,960 --> 00:19:23,960
+want you can edit it from here so
+
+241
+00:19:23,960 --> 00:19:26,460
+it is completed now it would be in
+
+242
+00:19:26,460 --> 00:19:37,240
+csvm so we can check ayush
+
+243
+00:19:37,980 --> 00:19:40,820
+you must do you have login credentials for
+
+244
+00:19:40,820 --> 00:19:45,080
+csvm just check if the password is done
+
+245
+00:19:45,080 --> 00:19:48,580
+yes it is see you in 10 days
+
+246
+00:19:58,540 --> 00:20:02,560
+storing data storing data means it is received
+
+247
+00:20:03,760 --> 00:20:10,800
+asset id default cr open shift open shift
+
+248
+00:20:10,800 --> 00:20:14,750
+will be omni I think yes omni is
+
+249
+00:20:14,750 --> 00:20:18,090
+open shift label is ok once it is
+
+250
+00:20:18,090 --> 00:20:19,730
+complete let us know then we will check
+
+251
+00:20:19,730 --> 00:20:29,780
+in the UI bro
+
+252
+00:20:29,780 --> 00:20:32,680
+you are from noida right no no I
+
+253
+00:20:32,680 --> 00:20:39,280
+am from farnagar so pawan basically if any
+
+254
+00:20:39,280 --> 00:20:41,220
+new vm is added we don't need to
+
+255
+00:20:41,220 --> 00:20:44,900
+separate when the schedule will run next time
+
+256
+00:20:44,900 --> 00:20:48,700
+it will again discover the available vm so
+
+257
+00:20:48,700 --> 00:20:50,320
+if the number of vm increases or decreases
+
+258
+00:20:50,880 --> 00:20:54,680
+we don't need to change anything it always
+
+259
+00:20:54,680 --> 00:21:05,070
+discovers fresh whenever it runs or
+
+260
+00:21:05,070 --> 00:21:09,930
+otherwise if we want a particular vm to
+
+261
+00:21:09,930 --> 00:21:12,230
+be scanned and another scanner to scan a
+
+262
+00:21:12,230 --> 00:21:15,030
+particular vm at a different time then we
+
+263
+00:21:15,030 --> 00:21:18,410
+can add multiple scheduler and manage it through
+
+264
+00:21:18,410 --> 00:21:24,310
+label right the matching label will scan it
+
+265
+00:21:45,060 --> 00:21:51,960
+storing data 30mb file 30mb file how much
+
+266
+00:21:51,960 --> 00:21:52,360
+will it take?
+
+267
+00:21:52,540 --> 00:21:53,160
+1-2 minutes?
+
+268
+00:21:54,880 --> 00:22:12,820
+yes it will take 1-2 minutes it
+
+269
+00:22:12,820 --> 00:22:37,300
+is consuming the cluster hmm hmm
+
+270
+00:22:37,300 --> 00:23:13,280
+hmm pawan
+
+271
+00:23:13,280 --> 00:23:18,200
+same step to install it simply go to
+
+272
+00:23:18,200 --> 00:23:23,920
+install operator then install it single click to
+
+273
+00:23:23,920 --> 00:23:27,480
+install and then if you want to remove
+
+274
+00:23:27,480 --> 00:23:30,380
+it from catalog then go to cluster settings
+
+275
+00:23:30,380 --> 00:23:36,340
+go to cluster configuration then search for operator
+
+276
+00:23:36,340 --> 00:23:45,790
+hub and sources and remove
+
+277
+00:23:45,790 --> 00:23:48,530
+it from here delete catalog it will be
+
+278
+00:23:48,530 --> 00:23:58,700
+cleaned up tell
+
+279
+00:23:58,700 --> 00:24:39,110
+me ayush hmm ayush
+
+280
+00:24:39,110 --> 00:24:43,910
+i was asking you there are two types
+
+281
+00:24:43,910 --> 00:24:45,170
+of status like
