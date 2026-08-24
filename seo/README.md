@@ -25,7 +25,7 @@ Note: the existing rank tracker config is US-only (location 2840). Extending tra
 
 ## Positioning source of truth
 
-Do **not** use `utils/content-planning/` — outdated. Do not lean on this docs repo generally, since it's the docs site (not accuknox.com) and has stale content.
+Do **not** use `references/content-planning/` — outdated. Do not lean on this docs repo generally, since it's the docs site (not accuknox.com) and has stale content.
 
 **Primary signal source: OpenSEO MCP data** (GSC performance, SERP results, domain/keyword data, rank tracker) — treat this as ground truth over any file in this repo.
 

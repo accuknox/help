@@ -69,10 +69,3 @@ ProcessName: /bin/ls
 ## References
 [MITRE Steal Application Access Token](https://attack.mitre.org/techniques/T1528/)
 
-## Screenshots
-### Hardening policy
-![](../images/cards/protect-sa-token-0.png)
-
-### Policy violation
-![](../images/cards/protect-sa-token-0.png)
-

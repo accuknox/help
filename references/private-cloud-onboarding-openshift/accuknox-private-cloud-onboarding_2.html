@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AccuKnox: Connect private cloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a1120;
+    --bg-2:#101b30;
+    --card:#ffffff;
+    --card-2:#f6f8fc;
+    --line:#e3e8f0;
+    --line-soft:#edf0f5;
+    --ink:#101828;
+    --ink-2:#4d5768;
+    --ink-3:#8a93a6;
+    --accent:#2f5fed;
+    --accent-ink:#1c3fb0;
+    --accent-bg:#eaf0ff;
+    --ok:#0f8a53;
+    --ok-bg:#e8f7ee;
+    --warn:#b5680a;
+    --warn-bg:#fdf1e0;
+    --danger:#c53030;
+    --radius:12px;
+    --radius-sm:8px;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--font);
+    background:
+      radial-gradient(900px 500px at 15% -10%, #16224a 0%, transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    padding:40px 20px 64px;
+    min-height:100vh;
+  }
+  .shell{max-width:720px;margin:0 auto;}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-name{color:#f3f6fc;font-weight:600;font-size:17px;letter-spacing:-0.01em;}
+  .brand-sub{color:#8fa0c9;font-size:12.5px;margin-left:8px;padding-left:8px;border-left:1px solid #2a3a63;}
+  .close-btn{
+    width:30px;height:30px;border-radius:8px;border:1px solid #263457;background:#101b30;
+    color:#8fa0c9;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  }
+  .close-btn:hover{background:#16223f;color:#e8edf7;}
+
+  .stepper{margin-bottom:26px;}
+  .stepper-text{color:#c3cfe8;font-size:13px;margin-bottom:10px;display:flex;justify-content:space-between;}
+  .stepper-text b{color:#fff;font-weight:600;}
+  .stepper-track{height:5px;border-radius:99px;background:#1b2748;overflow:hidden;}
+  .stepper-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#4f7bff,#2f5fed);width:11%;transition:width .35s ease;}
+
+  .card{
+    background:var(--card);
+    border-radius:16px;
+    padding:32px 32px 28px;
+    box-shadow:0 1px 2px rgba(15,23,42,.06), 0 12px 32px -12px rgba(10,17,32,.35);
+  }
+  @media (max-width:560px){ .card{padding:24px 20px;} }
+
+  .scr-title{font-size:20px;font-weight:600;margin:0 0 6px;letter-spacing:-0.01em;}
+  .scr-sub{font-size:14px;color:var(--ink-2);margin:0 0 24px;line-height:1.55;}
+  .group-label{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:600;margin:20px 0 10px;}
+  .group-label:first-of-type{margin-top:0;}
+  .hint{font-size:13px;color:var(--ink-3);margin-top:16px;}
+
+  /* provider cards */
+  .provider-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+  .provider-card{
+    position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;
+    padding:18px 12px 16px;border-radius:var(--radius);border:1px solid var(--line);
+    background:var(--card);cursor:pointer;font-family:inherit;text-align:center;
+  }
+  .provider-card:hover{border-color:#c7d1e6;background:var(--card-2);}
+  .provider-card.selected{border-color:var(--accent);background:var(--accent-bg);}
+  .provider-mark{
+    width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-weight:600;font-size:13px;color:#fff;background:#5b6478;
+  }
+  .provider-card.selected .provider-mark{background:var(--accent);}
+  .provider-name{font-size:13.5px;font-weight:500;color:var(--ink);}
+  .provider-check{
+    position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;
+    background:var(--accent);color:#fff;display:none;align-items:center;justify-content:center;
+  }
+  .provider-card.selected .provider-check{display:flex;}
+
+  /* category cards (infrastructure type) */
+  .category-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media (max-width:520px){ .category-grid{grid-template-columns:1fr;} }
+  .category-card{
+    text-align:left;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+    padding:16px 16px 14px;cursor:pointer;
+  }
+  .category-card:hover{border-color:#c7d1e6;background:var(--card-2);}
+  .category-card.selected{border-color:var(--accent);background:var(--accent-bg);}
+  .category-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .category-card-header{font-size:14px;font-weight:600;display:block;margin-bottom:10px;}
+  .category-bullet-list{margin:0;padding-left:18px;}
+  .category-bullet-list li{font-size:13px;color:var(--ink-2);line-height:1.9;}
+  .footer-tag{display:flex;align-items:center;gap:6px;justify-content:flex-end;font-size:12px;color:var(--ink-3);margin-top:18px;}
+
+  /* fields */
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px;}
+  .field .sub{font-weight:400;color:var(--ink-3);}
+  .field input[type=text],.field input[type=password],.field input[type=url]{
+    width:100%;height:38px;border-radius:var(--radius-sm);border:1px solid var(--line);
+    padding:0 12px;font-size:14px;font-family:var(--mono);color:var(--ink);background:#fff;
+  }
+  .field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg);}
+  .field input[readonly]{background:var(--card-2);color:var(--ink-2);cursor:default;}
+  .field input[readonly]:focus{border-color:var(--line);box-shadow:none;}
+  .field-help{font-size:12.5px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+
+  /* combobox: pick an existing item, or create a new one inline (token / label) */
+  .combo{position:relative;}
+  .combo-trigger{
+    width:100%;height:38px;border-radius:var(--radius-sm);border:1px solid var(--line);
+    padding:0 12px;font-size:14px;font-family:var(--mono);color:var(--ink);background:#fff;
+    display:flex;align-items:center;justify-content:space-between;cursor:pointer;text-align:left;
+  }
+  .combo-trigger:hover{border-color:#c7d1e6;}
+  .combo-trigger.open{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg);}
+  .combo-placeholder{color:var(--ink-3);font-family:var(--font);font-weight:400;}
+  .combo-chevron{flex-shrink:0;margin-left:8px;color:var(--ink-3);transition:transform .15s ease;}
+  .combo-trigger.open .combo-chevron{transform:rotate(180deg);}
+  .combo-panel{
+    position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:20;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+    box-shadow:0 8px 24px -8px rgba(15,23,42,.18);max-height:230px;overflow-y:auto;padding:6px;
+  }
+  .combo-create-row{
+    display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:7px;cursor:pointer;
+    background:var(--accent-bg);margin-bottom:4px;
+  }
+  .combo-create-row:hover{background:#dfe8ff;}
+  .combo-create-icon{
+    width:22px;height:22px;border-radius:6px;background:#fff;color:var(--accent);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .combo-create-row span{font-size:13.5px;font-weight:500;color:var(--accent-ink);}
+  .combo-option{padding:9px 10px;border-radius:7px;cursor:pointer;font-size:13.5px;color:var(--ink);font-family:var(--mono);}
+  .combo-option:hover{background:var(--card-2);}
+  .combo-create-form{
+    border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;margin-top:10px;background:var(--card-2);
+  }
+  .combo-create-form .field{margin-bottom:12px;}
+  .combo-create-form .field:last-of-type{margin-bottom:0;}
+  .select-wrap{position:relative;}
+  .select-wrap select{
+    width:100%;height:38px;border-radius:var(--radius-sm);border:1px solid var(--line);
+    padding:0 34px 0 12px;font-size:14px;font-family:var(--font);color:var(--ink);background:#fff;
+    appearance:none;-webkit-appearance:none;cursor:pointer;
+  }
+  .select-wrap select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg);}
+  .select-wrap::after{
+    content:'';position:absolute;right:14px;top:50%;width:8px;height:8px;
+    border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);
+    transform:translateY(-65%) rotate(45deg);pointer-events:none;
+  }
+
+  /* findings link (Done screen) */
+  .findings-link{
+    display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:var(--radius-sm);
+    border:1px solid var(--line);background:var(--card-2);color:var(--ink);text-decoration:none;
+    font-size:13.5px;font-weight:500;
+  }
+  .findings-link:hover{border-color:#c7d1e6;background:#eef1f6;}
+  .findings-link svg{flex-shrink:0;color:var(--ink-3);}
+
+  /* small inline "opens elsewhere" icon, appended after external references */
+  .icon-link-inline{
+    display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;
+    border-radius:5px;color:var(--ink-3);vertical-align:middle;margin-left:4px;text-decoration:none;
+  }
+  .icon-link-inline:hover{background:var(--card-2);color:var(--accent);}
+
+  .auth-option{
+    display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:12px 14px;margin-bottom:8px;cursor:pointer;
+  }
+  .auth-option:has(input:checked){border-color:var(--accent);background:var(--accent-bg);}
+  .auth-option input{margin-top:3px;accent-color:var(--accent);}
+  .auth-option-main{display:flex;flex-direction:column;gap:5px;flex:1;}
+  .auth-option-title{font-size:14px;font-weight:500;}
+  .auth-option-note{font-size:12.5px;color:var(--ink-3);}
+  .badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:99px;width:fit-content;}
+  .badge-neutral{background:#eef1f6;color:var(--ink-2);}
+  .badge-accent{background:var(--accent-bg);color:var(--accent-ink);}
+
+  .subfields{padding:4px 2px 2px 2px;margin-bottom:8px;}
+
+  .code-block{
+    background:#0d1526;color:#dce6f7;font-family:var(--mono);font-size:12.5px;line-height:1.6;
+    border-radius:var(--radius-sm);padding:14px 16px;margin:0 0 12px;overflow-x:auto;white-space:pre;
+  }
+
+  /* checklist (validating) */
+  .check-list{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:2px;}
+  .check-item{display:flex;align-items:center;gap:12px;padding:10px 4px;font-size:14px;color:var(--ink);}
+  .check-icon{
+    width:20px;height:20px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    border:2px solid var(--line);
+  }
+  .check-item.done .check-icon{border-color:var(--ok);background:var(--ok-bg);color:var(--ok);}
+  .check-item.pending .check-icon{border-top-color:var(--accent);animation:spin .8s linear infinite;}
+  .check-item.pending{color:var(--ink-3);}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* stat grid */
+  .env-banner{
+    display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ok);background:var(--ok-bg);
+    border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:20px;
+  }
+  .ok-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);flex-shrink:0;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  @media (max-width:520px){ .stat-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat-card{background:var(--card-2);border-radius:var(--radius-sm);padding:14px 14px 12px;}
+  .stat-value{font-size:22px;font-weight:600;letter-spacing:-0.02em;font-family:var(--mono);}
+  .stat-label{font-size:12.5px;color:var(--ink-2);margin-top:2px;}
+
+  /* checkbox rows */
+  .check-row{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 2px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .check-row[hidden]{display:none;}
+  .check-row:last-child{border-bottom:none;}
+  .check-row-main{display:flex;align-items:center;gap:10px;}
+  .check-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);}
+  .check-row-title{font-size:14px;}
+  .check-row-note{font-size:12px;color:var(--ink-3);}
+
+  .scope-toolbar{display:flex;gap:8px;margin-bottom:6px;}
+  .scope-search{
+    flex:1;height:34px;border-radius:var(--radius-sm);border:1px solid var(--line);
+    padding:0 12px;font-size:13px;font-family:inherit;color:var(--ink);background:#fff;
+  }
+  .scope-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg);}
+  .scope-bulk{height:34px;padding:0 12px;font-size:12.5px;}
+
+  .switch-row{display:flex;align-items:center;justify-content:space-between;padding:12px 2px 2px;margin-top:6px;}
+  .switch-label{font-size:13.5px;color:var(--ink-2);}
+  .switch{position:relative;width:38px;height:22px;flex-shrink:0;}
+  .switch input{opacity:0;width:100%;height:100%;margin:0;position:absolute;cursor:pointer;z-index:1;}
+  .switch-track{position:absolute;inset:0;background:#d7dce6;border-radius:99px;transition:background .15s;}
+  .switch-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s;}
+  .switch input:checked ~ .switch-track{background:var(--accent);}
+  .switch input:checked ~ .switch-thumb{left:19px;}
+
+  /* runtime radio cards */
+  .runtime-option{
+    display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px;margin-bottom:8px;cursor:pointer;
+  }
+  .runtime-option:has(input:checked){border-color:var(--accent);background:var(--accent-bg);}
+  .runtime-option input{margin-top:3px;accent-color:var(--accent);}
+  .runtime-option-title{font-size:14px;font-weight:500;}
+  .runtime-option-desc{font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.5;}
+
+  /* review */
+  .review-row{display:flex;justify-content:space-between;gap:16px;padding:11px 2px;border-bottom:1px solid var(--line-soft);}
+  .review-row:last-child{border-bottom:none;}
+  .review-label{font-size:13px;color:var(--ink-3);}
+  .review-value{font-size:13.5px;font-weight:500;text-align:right;max-width:60%;}
+  .review-value.mono{font-family:var(--mono);font-weight:400;}
+
+  /* connected */
+  .success-row{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+  .success-icon{
+    width:40px;height:40px;border-radius:50%;background:var(--ok-bg);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .progress-wrap{margin-bottom:8px;}
+  .progress-top{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-2);margin-bottom:8px;}
+  .progress-track{height:8px;border-radius:99px;background:var(--line-soft);overflow:hidden;}
+  .progress-fill{height:100%;width:0%;background:var(--accent);border-radius:99px;transition:width .1s linear;}
+  .updated-note{font-size:12.5px;color:var(--ink-3);margin-top:10px;}
+  .go-note{font-size:13px;color:var(--ink-2);margin-top:14px;}
+
+  /* nav */
+  .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
+  .btn{
+    height:40px;padding:0 18px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;
+    font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-ink);border-color:var(--accent-ink);}
+  .btn-secondary{background:#fff;border-color:var(--line);color:var(--ink);}
+  .btn-secondary:hover{background:var(--card-2);}
+  .btn-ghost{background:transparent;border-color:transparent;color:var(--ink-2);}
+  .btn-ghost:hover{background:var(--card-2);}
+  .btn[hidden]{display:none;}
+  .spacer{flex:1;}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  /* ---------- shared structure used by the OpenShift flow ---------- */
+
+  code{
+    font-family:var(--mono);font-size:12.5px;background:var(--card-2);
+    border:1px solid var(--line-soft);border-radius:5px;padding:1px 5px;
+  }
+
+  /* where this step happens: OpenShift console vs AccuKnox */
+  .where{
+    display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+    letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:99px;
+    margin-bottom:12px;
+  }
+  .where-os{background:#fdeceb;color:#a92a21;}
+  .where-ak{background:var(--accent-bg);color:var(--accent-ink);}
+  .where-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  /* numbered task blocks, one action each */
+  .tasks{list-style:none;margin:4px 0 0;padding:0;counter-reset:task;}
+  .task{
+    position:relative;padding:0 0 20px 38px;counter-increment:task;
+  }
+  .task::before{
+    content:counter(task);position:absolute;left:0;top:0;width:24px;height:24px;
+    border-radius:50%;background:var(--accent-bg);color:var(--accent-ink);
+    font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center;
+  }
+  .task::after{
+    content:'';position:absolute;left:11.5px;top:28px;bottom:2px;width:1px;background:var(--line);
+  }
+  .task:last-child{padding-bottom:0;}
+  .task:last-child::after{display:none;}
+  .task-title{font-size:14px;font-weight:500;color:var(--ink);line-height:1.5;margin:2px 0 0;}
+  .task-note{font-size:12.5px;color:var(--ink-3);margin-top:5px;line-height:1.55;}
+  .task-body{margin-top:10px;}
+
+  /* field reference: label on the left, what to enter on the right */
+  .spec{
+    display:grid;grid-template-columns:minmax(130px,36%) 1fr;
+    border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin:0;
+  }
+  .spec dt,.spec dd{padding:9px 12px;font-size:13px;margin:0;border-top:1px solid var(--line-soft);}
+  .spec dt:first-of-type,.spec dt:first-of-type + dd{border-top:none;}
+  .spec dt{background:var(--card-2);color:var(--ink-2);font-weight:500;}
+  .spec dd{color:var(--ink);line-height:1.5;}
+  @media (max-width:520px){
+    .spec{grid-template-columns:1fr;}
+    .spec dd{border-top:none;padding-top:0;}
+    .spec dt{border-top:1px solid var(--line-soft);}
+  }
+
+  /* inline callout */
+  .callout{
+    display:flex;gap:10px;border-radius:var(--radius-sm);padding:11px 13px;
+    font-size:13px;line-height:1.55;margin-top:16px;
+  }
+  .callout svg{flex-shrink:0;margin-top:1px;}
+  .callout-info{background:var(--accent-bg);color:var(--accent-ink);}
+  .callout-warn{background:var(--warn-bg);color:var(--warn);}
+
+  /* prerequisite list */
+  .prereq{list-style:none;margin:0;padding:0;}
+  .prereq li{
+    display:flex;gap:10px;align-items:flex-start;padding:11px 2px;
+    border-bottom:1px solid var(--line-soft);font-size:13.5px;line-height:1.55;
+  }
+  .prereq li:last-child{border-bottom:none;}
+  .prereq svg{flex-shrink:0;margin-top:2px;color:var(--ok);}
+  .prereq-why{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px;}
+
+  /* waiting-for-findings screen */
+  .waiting{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 0 6px;}
+  .waiting-ring{
+    width:44px;height:44px;border-radius:50%;border:3px solid var(--line);
+    border-top-color:var(--accent);animation:spin .9s linear infinite;margin-bottom:18px;
+  }
+  .waiting-title{font-size:16px;font-weight:600;margin:0 0 6px;}
+  .waiting-sub{font-size:13.5px;color:var(--ink-2);margin:0;max-width:380px;line-height:1.6;}
+  .waiting-steps{margin-top:22px;width:100%;text-align:left;}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="topbar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2L21 6.5V12C21 16.5 17.5 20.7 12 22C6.5 20.7 3 16.5 3 12V6.5L12 2Z" fill="#2f5fed"/>
+        <path d="M8.5 12.4L10.9 15L15.7 9.6" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="brand-name">AccuKnox</span>
+      <span class="brand-sub">Cloud infrastructure</span>
+    </div>
+    <button class="close-btn" id="closeBtn" title="Restart walkthrough" aria-label="Restart walkthrough">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <h2 class="sr-only">Interactive prototype of the AccuKnox onboarding flow for connecting a Nutanix Prism Central environment, across nine steps from choosing an infrastructure type to background inventory sync.</h2>
+
+  <div class="stepper">
+    <div class="stepper-text"><span>Step <b id="stepNum">1</b> of <span id="stepTotalText">9</span></span><span id="stepLabel">Infrastructure type</span></div>
+    <div class="stepper-track"><div class="stepper-fill" id="stepperFill"></div></div>
+  </div>
+
+  <div class="card">
+    <div id="screens">
+
+      <!-- 0: CATEGORY -->
+      <section class="screen" data-step="0">
+        <h1 class="scr-title">Cloud infrastructure</h1>
+        <p class="scr-sub">Choose the type of infrastructure to connect.</p>
+        <div class="category-grid">
+          <div class="category-card" data-category="cloud" role="button" tabindex="0">
+            <span class="category-card-header">Public cloud</span>
+            <ul class="category-bullet-list">
+              <li>AWS</li><li>Azure</li><li>GCP</li><li>OCI</li>
+            </ul>
+          </div>
+          <div class="category-card selected" data-category="private" role="button" tabindex="0">
+            <span class="category-card-header">Private cloud</span>
+            <ul class="category-bullet-list">
+              <li>Nutanix</li><li>Red Hat OpenShift</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg>
+          Cloud choice
+        </div>
+      </section>
+
+      <!-- 1: PLATFORM -->
+      <section class="screen" data-step="1" hidden>
+        <h1 class="scr-title" id="platformTitle">Select a platform</h1>
+        <p class="scr-sub" id="platformSub">Private cloud</p>
+        <div class="provider-grid" id="platformGridPrivate">
+          <button class="provider-card selected" data-provider="Nutanix"><span class="provider-check">✓</span><span class="provider-mark">NTX</span><span class="provider-name">Nutanix</span></button>
+          <button class="provider-card" data-provider="OpenShift"><span class="provider-check">✓</span><span class="provider-mark">OS</span><span class="provider-name">Red Hat OpenShift</span></button>
+        </div>
+        <p class="field-help" id="platformCloudStub" hidden>Existing AWS / Azure / GCP / OCI flow.</p>
+      </section>
+
+      <!-- 2: DEPLOY CONNECTOR -->
+      <section class="screen" data-step="2" hidden>
+        <h1 class="scr-title">Deploy the AccuKnox connector</h1>
+        <p class="scr-sub">Deploy this inside your Nutanix environment, on any host that can reach Prism Central.</p>
+        <div class="field">
+          <label for="connectionName">Connection name</label>
+          <input type="text" id="connectionName" value="Production Nutanix">
+        </div>
+
+        <div class="group-label" style="margin-top:0">Prism Central details</div>
+        <div class="field">
+          <label for="prismUrl">Prism Central URL</label>
+          <input type="url" id="prismUrl" value="https://prism.company.com:9440">
+        </div>
+        <label class="auth-option" data-method="apikey">
+          <input type="radio" name="authMethod" value="apikey" checked>
+          <div class="auth-option-main">
+            <span class="auth-option-title">Service account API key</span>
+            <span class="badge badge-accent">Recommended</span>
+            <span class="auth-option-note">Requires Prism Central 2024.3+ and AOS 7.0+, with a service account configured via IAM API.</span>
+          </div>
+        </label>
+        <label class="auth-option" data-method="password">
+          <input type="radio" name="authMethod" value="password">
+          <div class="auth-option-main">
+            <span class="auth-option-title">Username and password</span>
+            <span class="badge badge-neutral">Compatible with all versions</span>
+          </div>
+        </label>
+        <div class="subfields" id="fieldsApikey">
+          <div class="field" style="margin-bottom:0">
+            <label for="ntxApikey">Service account API key</label>
+            <input type="text" id="ntxApikey" placeholder="pc-key-••••••••••••">
+            <div class="field-help">Not available in the Prism Central UI. Generate via IAM API/SDK.</div>
+          </div>
+        </div>
+        <div class="subfields" id="fieldsPassword" hidden>
+          <div class="field"><label for="ntxUsername">Username</label><input type="text" id="ntxUsername" placeholder="svc-accuknox"></div>
+          <div class="field" style="margin-bottom:0"><label for="ntxPassword">Password</label><input type="password" id="ntxPassword" placeholder="••••••••"></div>
+        </div>
+        <div class="field-help" style="margin-top:-8px;">Used only here in your browser to build the setup snippet below. Never sent to AccuKnox.</div>
+
+        <div class="group-label">Deployment method</div>
+        <label class="auth-option" data-method="ova">
+          <input type="radio" name="deployMethod" value="ova" checked>
+          <div class="auth-option-main">
+            <span class="auth-option-title">Import VM appliance (OVA)</span>
+            <span class="badge badge-accent">Recommended</span>
+          </div>
+        </label>
+        <label class="auth-option" data-method="docker">
+          <input type="radio" name="deployMethod" value="docker">
+          <div class="auth-option-main">
+            <span class="auth-option-title">Docker container</span>
+          </div>
+        </label>
+
+        <div id="deployOva">
+          <div class="group-label" style="margin-top:0">1. Download the appliance</div>
+          <div style="margin:0 0 16px;">
+            <button class="btn btn-primary" type="button" id="downloadOvaBtn" style="height:38px;">Download accuknox-connector.ova</button>
+          </div>
+          <div class="group-label">2. Import it into Prism Central</div>
+          <div class="field-help" style="margin-bottom:16px;">Prism Central: Create VM &gt; Import from file &gt; select the OVA you just downloaded.</div>
+          <div class="group-label">3. Paste this into the "Custom Script" field during import</div>
+          <div style="position:relative;">
+            <pre class="code-block" id="ovaCloudInit">#cloud-config
+accuknox_token: ak_conn_7f3a2b91c4
+prism_url: https://prism.company.com:9440
+auth_mode: apikey
+api_key: ****</pre>
+            <button class="btn btn-ghost" id="copyOvaBtn" type="button" style="position:absolute;top:8px;right:8px;height:28px;padding:0 10px;font-size:12px;color:#dce6f7;">Copy</button>
+          </div>
+          <div class="group-label">4. Power on the VM</div>
+        </div>
+
+        <div id="deployDocker" hidden>
+          <div class="group-label" style="margin-top:0">1. Run this on any host that can reach Prism Central</div>
+          <div style="position:relative;">
+            <pre class="code-block" id="connectorCmd">docker run -d --name accuknox-connector \
+  -e ACCUKNOX_TOKEN=ak_conn_7f3a2b91c4 \
+  -e PRISM_URL=https://prism.company.com:9440 \
+  -e AUTH_MODE=apikey \
+  -e API_KEY=**** \
+  accuknox/connector:latest</pre>
+            <button class="btn btn-ghost" id="copyCmdBtn" type="button" style="position:absolute;top:8px;right:8px;height:28px;padding:0 10px;font-size:12px;color:#dce6f7;">Copy</button>
+          </div>
+        </div>
+
+        <div class="group-label">Connector status</div>
+        <ul class="check-list" id="connectorCheckList">
+          <li class="check-item pending" data-index="0"><span class="check-icon"></span><span id="connectorStatusText">Waiting for connector to check in…</span></li>
+        </ul>
+        <p class="hint" id="connectorTroubleshoot">Taking longer than a minute? Confirm outbound HTTPS to connect.accuknox.com:443 is allowed.</p>
+      </section>
+
+      <!-- 3: VALIDATING -->
+      <section class="screen" data-step="3" hidden>
+        <h1 class="scr-title">Validating connection</h1>
+        <p class="scr-sub">This usually takes a few seconds.</p>
+        <ul class="check-list" id="checkList">
+          <li class="check-item pending" data-index="0"><span class="check-icon"></span><span>Connector → Prism Central reachable</span></li>
+          <li class="check-item pending" data-index="1"><span class="check-icon"></span><span>SSL certificate verified</span></li>
+          <li class="check-item pending" data-index="2"><span class="check-icon"></span><span>Authentication succeeded</span></li>
+          <li class="check-item pending" data-index="3"><span class="check-icon"></span><span>RBAC permissions confirmed</span></li>
+          <li class="check-item pending" data-index="4"><span class="check-icon"></span><span>API version supported</span></li>
+          <li class="check-item pending" data-index="5"><span class="check-icon"></span><span>Inventory retrieved</span></li>
+        </ul>
+      </section>
+
+      <!-- 4: ENVIRONMENT -->
+      <section class="screen" data-step="4" hidden>
+        <h1 class="scr-title">Prism Central connected</h1>
+        <div class="env-banner"><span class="ok-dot"></span><span id="envBannerText">Production Nutanix · Prism Central 2025.1</span></div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-value" data-target="4">0</div><div class="stat-label">Clusters</div></div>
+          <div class="stat-card"><div class="stat-value" data-target="42">0</div><div class="stat-label">Hosts</div></div>
+          <div class="stat-card"><div class="stat-value" data-target="2436">0</div><div class="stat-label">Virtual machines</div></div>
+          <div class="stat-card"><div class="stat-value" data-target="11">0</div><div class="stat-label">Categories</div></div>
+        </div>
+      </section>
+
+      <!-- 5: SCOPE -->
+      <section class="screen" data-step="5" hidden>
+        <h1 class="scr-title">Select discovery scope</h1>
+        <p class="scr-sub">Choose which clusters or Categories to bring into scope.</p>
+
+        <div class="group-label" style="margin-top:0">Scope by</div>
+        <label class="runtime-option" data-scopeby="clusters">
+          <input type="radio" name="scopeBy" value="clusters" checked>
+          <div class="auth-option-main">
+            <span class="runtime-option-title">Clusters</span>
+          </div>
+        </label>
+        <label class="runtime-option" data-scopeby="categories">
+          <input type="radio" name="scopeBy" value="categories">
+          <div class="auth-option-main">
+            <span class="runtime-option-title">Categories</span>
+          </div>
+        </label>
+
+        <div id="scopeByClusters">
+          <div class="scope-toolbar">
+            <input type="text" class="scope-search" id="clusterSearch" placeholder="Search 4 clusters…">
+            <button class="btn btn-ghost scope-bulk" type="button" data-bulk="clusters" data-action="all">All</button>
+            <button class="btn btn-ghost scope-bulk" type="button" data-bulk="clusters" data-action="none">None</button>
+          </div>
+          <div id="scopeList">
+            <label class="check-row" data-searchable="production-east"><span class="check-row-main"><input type="checkbox" data-cluster="prodeast" checked><span class="check-row-title">Production-East</span></span></label>
+            <label class="check-row" data-searchable="production-west"><span class="check-row-main"><input type="checkbox" data-cluster="prodwest" checked><span class="check-row-title">Production-West</span></span></label>
+            <label class="check-row" data-searchable="test"><span class="check-row-main"><input type="checkbox" data-cluster="test"><span class="check-row-title">Test</span></span></label>
+            <label class="check-row" data-searchable="lab"><span class="check-row-main"><input type="checkbox" data-cluster="lab"><span class="check-row-title">Lab</span></span></label>
+          </div>
+          <div class="switch-row">
+            <span class="switch-label">Automatically discover new clusters</span>
+            <label class="switch"><input type="checkbox" id="autoDiscover" checked><span class="switch-track"></span><span class="switch-thumb"></span></label>
+          </div>
+        </div>
+
+        <div id="scopeByCategories" hidden>
+          <div class="scope-toolbar">
+            <input type="text" class="scope-search" id="categorySearch" placeholder="Search categories…">
+            <button class="btn btn-ghost scope-bulk" type="button" data-bulk="categories" data-action="all">All</button>
+            <button class="btn btn-ghost scope-bulk" type="button" data-bulk="categories" data-action="none">None</button>
+          </div>
+          <div id="categoryList">
+            <label class="check-row" data-searchable="uncategorized"><span class="check-row-main"><input type="checkbox" data-category="uncategorized" checked><span class="check-row-title">Uncategorized <span class="badge badge-neutral" style="margin-left:6px;">No category assigned</span></span></span></label>
+            <label class="check-row" data-searchable="environment production"><span class="check-row-main"><input type="checkbox" data-category="env-prod" checked><span class="check-row-title">Environment:Production</span></span></label>
+            <label class="check-row" data-searchable="environment finance"><span class="check-row-main"><input type="checkbox" data-category="env-finance" checked><span class="check-row-title">Environment:Finance</span></span></label>
+            <label class="check-row" data-searchable="team platform-eng"><span class="check-row-main"><input type="checkbox" data-category="team-platform"><span class="check-row-title">Team:Platform-Eng</span></span></label>
+            <label class="check-row" data-searchable="team dev-sandbox"><span class="check-row-main"><input type="checkbox" data-category="team-dev"><span class="check-row-title">Team:Dev-Sandbox</span></span></label>
+          </div>
+          <div class="field-help">"Uncategorized" catches VMs with no Category assigned. Categories have no guaranteed default the way Projects do, so leave it checked or you may miss VMs silently.</div>
+        </div>
+      </section>
+
+      <!-- 6: PROTECTION -->
+      <section class="screen" data-step="6" hidden>
+        <h1 class="scr-title">Enable protection</h1>
+        <div class="group-label" style="margin-top:0">Infrastructure <span class="badge badge-neutral" style="margin-left:4px;">Agentless, active immediately</span></div>
+        <label class="check-row"><span class="check-row-main"><input type="checkbox" data-prot="cspm" checked><span class="check-row-title">CSPM</span></span></label>
+
+        <div class="group-label">Virtual machines <span class="badge badge-neutral" style="margin-left:4px;">Agent-based, installed per VM</span></div>
+        <label class="check-row"><span class="check-row-main"><input type="checkbox" data-prot="vuln" checked><span class="check-row-title">Vulnerability Management</span></span></label>
+        <label class="check-row">
+          <span class="check-row-main" style="align-items:flex-start;">
+            <input type="checkbox" data-prot="runtime" style="margin-top:3px;">
+            <span>
+              <span class="check-row-title">Runtime Security</span>
+              <div class="check-row-note">Real-time threat and malware detection.</div>
+            </span>
+          </span>
+        </label>
+        <p class="field-help">Agentless scanning isn't available for Nutanix yet. Requires the AccuKnox agent inside each VM; setup command after review.</p>
+      </section>
+
+      <!-- 7: REVIEW -->
+      <section class="screen" data-step="7" hidden>
+        <h1 class="scr-title">Review</h1>
+        <p class="scr-sub">Confirm before AccuKnox starts managing this environment.</p>
+        <div class="review-row"><span class="review-label">Connection name</span><span class="review-value" id="revName">Not set</span></div>
+        <div class="review-row"><span class="review-label">Platform</span><span class="review-value" id="revProvider">Not set</span></div>
+        <div class="review-row"><span class="review-label">Prism Central</span><span class="review-value mono" id="revEndpoint">Not set</span></div>
+        <div class="review-row"><span class="review-label">Authentication</span><span class="review-value" id="revAuth">Not set</span></div>
+        <div class="review-row"><span class="review-label">Scope</span><span class="review-value" id="revScope">Not set</span></div>
+        <div class="review-row"><span class="review-label">Infrastructure protections</span><span class="review-value" id="revProtection">Not set</span></div>
+        <div class="review-row"><span class="review-label">VM protections (pending agent install)</span><span class="review-value" id="revRuntime">Not set</span></div>
+        <p class="hint">Scope can be changed anytime from Settings → Cloud Accounts.</p>
+      </section>
+
+      <!-- 8: CONNECTED -->
+      <section class="screen" data-step="8" hidden>
+        <div class="success-row">
+          <span class="success-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <div>
+            <h1 class="scr-title" style="margin-bottom:2px;">Connection successful</h1>
+            <p class="scr-sub" style="margin-bottom:0;">Inventory sync has started. This runs in the background. You can leave this page anytime.</p>
+          </div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-top"><span id="progressStatus">Discovering resources…</span><span id="progressPct">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+        <div class="updated-note" id="updatedNote">Last updated: just now</div>
+        <div id="vmOnboardBlock" hidden>
+          <div class="group-label">VM agent setup command</div>
+          <div style="position:relative;">
+            <pre class="code-block" id="vmOnboardCmd">curl -sSL https://get.accuknox.com/agent | sh -s -- --token=ak_vm_9d21ff40</pre>
+            <button class="btn btn-ghost" id="copyVmCmdBtn" type="button" style="position:absolute;top:8px;right:8px;height:28px;padding:0 10px;font-size:12px;color:#dce6f7;">Copy</button>
+          </div>
+        </div>
+        <div class="go-note" id="goNote" hidden>This would open the AccuKnox dashboard.</div>
+      </section>
+
+      <!-- OS-0: prerequisites -->
+      <section class="screen" data-step="os0" hidden>
+        <h1 class="scr-title">Before you start</h1>
+        <p class="scr-sub">AccuKnox scans your OpenShift Virtualization VMs from inside the cluster, with no agent in the VMs. Confirm these four things first, the scan fails without them.</p>
+        <ul class="prereq">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>A <code>VolumeSnapshotClass</code> object exists in the cluster.
+              <span class="prereq-why">The scanner snapshots each VM's volume instead of touching the running VM.</span>
+            </span>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>At least one <code>VolumeSnapshotClass</code> is marked default.
+              <span class="prereq-why">The scanner uses the default class when it creates snapshots.</span>
+            </span>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>All VMs on the cluster use the same CSI driver.
+              <span class="prereq-why">Usually already true. Clusters rarely run two storage solutions side by side.</span>
+            </span>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>You have <code>cluster-admin</code> on the cluster.
+              <span class="prereq-why">You will add a catalog source and install a cluster-wide operator.</span>
+            </span>
+          </li>
+        </ul>
+        <div class="callout callout-info">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
+          <span>Five steps, about 15 minutes. Four happen in the OpenShift console, one happens here.</span>
+        </div>
+      </section>
+
+      <!-- OS-1: Step 1, add to operator catalog -->
+      <section class="screen" data-step="os1" hidden>
+        <span class="where where-os"><span class="where-dot"></span>In the OpenShift console</span>
+        <h1 class="scr-title">Add AccuKnox to the operator catalog</h1>
+        <p class="scr-sub">
+          The AccuKnox operator isn't in the OpenShift Software Catalog by default, so you add its catalog first.
+          <a href="#" id="osHelpDocsLink" style="color:var(--accent);font-weight:500;text-decoration:none;white-space:nowrap;">Full walkthrough with screenshots<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;vertical-align:-2px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </p>
+        <p class="field-help" id="osHelpDocsNote" hidden style="margin-top:-16px;margin-bottom:20px;">This would open the Help Docs walkthrough in a new tab.</p>
+
+        <ol class="tasks">
+          <li class="task">
+            <p class="task-title">Log in to your OpenShift web console
+              <a href="#" class="icon-link-inline" id="osConsoleLink" aria-label="Open OpenShift console">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </p>
+            <p class="field-help" id="osConsoleNote" hidden>This would open your OpenShift console in a new tab.</p>
+          </li>
+          <li class="task">
+            <p class="task-title">Go to <strong>Administration → Cluster Settings → Configuration</strong> and search for "OperatorHub"</p>
+          </li>
+          <li class="task">
+            <p class="task-title">Open <strong>OperatorHub → Sources</strong>, then click <strong>Create CatalogSource</strong></p>
+          </li>
+          <li class="task">
+            <p class="task-title">Fill in the form</p>
+            <div class="task-body">
+              <dl class="spec">
+                <dt>CatalogSource name</dt><dd>Anything, for example <code>accuknoxscanner</code></dd>
+                <dt>Display name</dt><dd>Anything, for example <code>AccuKnox Scanner</code></dd>
+                <dt>Publisher name</dt><dd><code>accuknox</code></dd>
+                <dt>Availability</dt><dd>Cluster-wide CatalogSource, which is already the default</dd>
+              </dl>
+              <div class="group-label">Image (URL of container image)</div>
+              <div style="position:relative;">
+                <pre class="code-block" id="osCatalogImage">public.ecr.aws/k9v9d5v2/omni-operator-index:v0</pre>
+                <button class="btn btn-ghost" id="osCopyCatalogImgBtn" type="button" style="position:absolute;top:8px;right:8px;height:28px;padding:0 10px;font-size:12px;color:#dce6f7;">Copy</button>
+              </div>
+            </div>
+          </li>
+          <li class="task">
+            <p class="task-title">Click <strong>Create</strong>, then wait for the source to show <strong>READY</strong></p>
+            <p class="task-note">Anything other than READY means the cluster couldn't pull the catalog image. Check egress and any registry mirroring policy.</p>
+          </li>
+        </ol>
+
+        <div class="callout callout-warn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+          <span>Leave Availability on <strong>Cluster-wide</strong>. A namespaced catalog source only exposes the operator in one namespace, and the scan needs to reach VMs across the cluster.</span>
+        </div>
+      </section>
+
+      <!-- OS-2: Step 2, install the operator -->
+      <section class="screen" data-step="os2" hidden>
+        <span class="where where-os"><span class="where-dot"></span>In the OpenShift console</span>
+        <h1 class="scr-title">Install the operator</h1>
+        <p class="scr-sub">Now that the catalog is added, the operator is installable in one click.</p>
+        <ol class="tasks">
+          <li class="task">
+            <p class="task-title">Go to <strong>Ecosystem → Software Catalog</strong> and search for <code>accuknox</code></p>
+            <p class="task-note">The tile is called <strong>AccuKnox VM Scanning</strong>.</p>
+          </li>
+          <li class="task">
+            <p class="task-title">Open the tile and click <strong>Install</strong></p>
+          </li>
+          <li class="task">
+            <p class="task-title">Keep every default on the Install Operator page, then click <strong>Install</strong> again</p>
+            <p class="task-note">That includes the installed namespace, <code>openshift-operators</code>. Note whichever namespace you end up with, you'll need it twice more.</p>
+          </li>
+          <li class="task">
+            <p class="task-title">Wait for it to appear under <strong>Ecosystem → Installed Operators</strong></p>
+            <p class="task-note">Takes a couple of minutes. When it's done the operator lists two provided APIs, <strong>Scan</strong> and <strong>Schedule</strong>.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- OS-3: Step 3, token + label, the only step that happens in AccuKnox -->
+      <section class="screen" data-step="os3" hidden>
+        <span class="where where-ak"><span class="where-dot"></span>Here in AccuKnox</span>
+        <h1 class="scr-title">Create a token and a label</h1>
+        <p class="scr-sub">These two values are the only things AccuKnox generates for this flow. You'll paste both into OpenShift over the next two steps.</p>
+
+        <div class="group-label" style="margin-top:0">1. Token</div>
+        <p class="field-help" style="margin:-4px 0 10px;">Authenticates your cluster when it pushes scan results back to AccuKnox.</p>
+        <div id="osTokenBlock">
+          <button class="btn btn-secondary" id="osTokenGenerateToggle" type="button">Generate token</button>
+          <div class="combo-create-form" id="osTokenCreateForm" hidden style="margin-top:10px;">
+            <div class="field">
+              <label for="osTokenNameInput">Name</label>
+              <input type="text" id="osTokenNameInput" placeholder="e.g. prod-cluster-scanner">
+            </div>
+            <div class="field" style="margin-bottom:0">
+              <label for="osTokenExpirySelect">Expiration</label>
+              <div class="select-wrap">
+                <select id="osTokenExpirySelect">
+                  <option>30 days</option>
+                  <option selected>90 days</option>
+                  <option>1 year</option>
+                  <option>No expiration</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="osTokenGenerateBtn" type="button" style="margin-top:14px;">Generate</button>
+          </div>
+          <div id="osTokenResult" hidden style="position:relative;margin-top:10px;">
+            <pre class="code-block" id="osTokenValue"></pre>
+            <button class="btn btn-ghost" id="osCopyTokenBtn" type="button" style="position:absolute;top:8px;right:8px;height:28px;padding:0 10px;font-size:12px;color:#dce6f7;">Copy</button>
+          </div>
+          <p class="field-help" id="osTokenValueNote" hidden style="margin-top:8px;">Copy this now, you won't be able to view it again.</p>
+        </div>
+
+        <div class="group-label">2. Label</div>
+        <p class="field-help" style="margin:-4px 0 10px;">Tags every finding this cluster produces, so you can filter for them under Issues → Findings.</p>
+        <div class="combo" id="osLabelCombo">
+          <button type="button" class="combo-trigger" id="osLabelTrigger">
+            <span id="osLabelTriggerText" class="combo-placeholder">Select or create a label</span>
+            <svg class="combo-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="combo-panel" id="osLabelPanel" hidden>
+            <div class="combo-create-row" id="osLabelCreateRow">
+              <span class="combo-create-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+              <span>Add a new label</span>
+            </div>
+            <div id="osLabelOptions"></div>
+          </div>
+          <div class="combo-create-form" id="osLabelCreateForm" hidden>
+            <div class="field" style="margin-bottom:0">
+              <label for="osLabelNameInput">Label name</label>
+              <input type="text" id="osLabelNameInput" placeholder="e.g. openshift-prod">
+            </div>
+            <button class="btn btn-primary" id="osLabelAddBtn" type="button" style="margin-top:14px;">Add</button>
+          </div>
+        </div>
+
+        <div class="group-label">3. Tenant ID</div>
+        <div class="field" style="margin-bottom:0">
+          <input type="text" id="osTenantId" value="" readonly>
+          <div class="field-help">Read from your account. Copy it into the schedule in Step 6.</div>
+        </div>
+
+        <p class="hint" id="osTokenHint">Generate a token and pick a label to continue.</p>
+      </section>
+
+      <!-- OS-4: Step 4, store the token as a secret in OpenShift -->
+      <section class="screen" data-step="os4" hidden>
+        <span class="where where-os"><span class="where-dot"></span>In the OpenShift console</span>
+        <h1 class="scr-title">Store the token as a secret</h1>
+        <p class="scr-sub">The operator reads the token from a Kubernetes secret rather than from the schedule, so create that secret before the schedule.</p>
+        <ol class="tasks">
+          <li class="task">
+            <p class="task-title">Go to <strong>Workloads → Secrets</strong> and select <strong>Create → Key/value secret</strong></p>
+          </li>
+          <li class="task">
+            <p class="task-title">Fill in the form</p>
+            <div class="task-body">
+              <dl class="spec">
+                <dt>Project</dt><dd>The namespace the operator is installed in, for example <code>openshift-operators</code></dd>
+                <dt>Secret name</dt><dd>Anything, for example <code>accuknox-token</code></dd>
+                <dt>Key</dt><dd>Anything, for example <code>token</code></dd>
+                <dt>Value</dt><dd>The token you generated in the previous step</dd>
+              </dl>
+            </div>
+          </li>
+          <li class="task">
+            <p class="task-title">Click <strong>Create</strong>, then write down the secret name, the key, and the namespace</p>
+            <p class="task-note">All three go into the schedule in the next step.</p>
+          </li>
+        </ol>
+        <div class="callout callout-warn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+          <span>Create the secret in the same namespace you'll set as <code>cronJobNamespace</code> in the next step. If they differ, the scan job starts and then fails to read the token.</span>
+        </div>
+      </section>
+
+      <!-- OS-5: Step 5, create the scan schedule -->
+      <section class="screen" data-step="os5" hidden>
+        <span class="where where-os"><span class="where-dot"></span>In the OpenShift console</span>
+        <h1 class="scr-title">Create the scan schedule</h1>
+        <p class="scr-sub">The last step. Go to <strong>Installed Operators → AccuKnox VM Scanning</strong>, open the <strong>Schedule</strong> tab, and click <strong>Create Schedule</strong>.</p>
+
+        <div class="group-label" style="margin-top:0">Where the results go</div>
+        <dl class="spec">
+          <dt><code>artifactAPI → endpoint</code></dt><dd id="osSpecEndpoint">https://cspm.accuknox.com/api/v1/artifact/</dd>
+          <dt><code>artifactAPI → label</code></dt><dd id="osSpecLabel">The label you picked in Step 4</dd>
+          <dt><code>artifactAPI → tenantID</code></dt><dd id="osSpecTenant">Your tenant ID from Step 4</dd>
+        </dl>
+
+        <div class="group-label">How it reads the token</div>
+        <dl class="spec">
+          <dt><code>token → secretRef → name</code></dt><dd>The secret name from Step 5</dd>
+          <dt><code>token → secretRef → key</code></dt><dd>The key from Step 5</dd>
+          <dt><code>cronJobNamespace</code></dt><dd>The namespace the secret lives in, for example <code>openshift-operators</code></dd>
+        </dl>
+
+        <div class="group-label">When and how it runs</div>
+        <dl class="spec">
+          <dt><code>schedule</code></dt><dd>A cron expression, for example <code>0 2 * * *</code> for 2 AM daily</dd>
+          <dt><code>timeZone</code></dt><dd>A tz database name such as <code>Asia/Kolkata</code>. Case-sensitive.</dd>
+          <dt><code>concurrency</code></dt><dd>How many VM scans run at once. Start with <code>1</code>.</dd>
+          <dt><code>template → clusterName</code></dt><dd>Any name. Becomes the asset name for these findings in AccuKnox.</dd>
+          <dt><code>scansHistoryLimit</code></dt><dd>How many finished scans to keep. Defaults to <code>3</code>.</dd>
+        </dl>
+
+        <div class="callout callout-info">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
+          <span>Every VM in the cluster is scanned, and discovery reruns on every execution, so new VMs are picked up with no config change. To scan a subset, create more than one schedule and give each a VM label selector.</span>
+        </div>
+
+        <p class="hint">Click <strong>Create</strong> in OpenShift, then continue here.</p>
+      </section>
+
+      <!-- OS-6: waiting for the first findings, then done -->
+      <section class="screen" data-step="os6" hidden>
+        <div id="osWaiting">
+          <div class="waiting">
+            <div class="waiting-ring"></div>
+            <p class="waiting-title">Waiting for your first scan results</p>
+            <p class="waiting-sub">Your cluster is discovering VMs, snapshotting their volumes, and scanning them. Results usually reach AccuKnox about 10 minutes after the schedule fires.</p>
+          </div>
+          <ul class="check-list waiting-steps" id="osWaitList">
+            <li class="check-item pending" data-index="0"><span class="check-icon"></span><span>Schedule registered</span></li>
+            <li class="check-item pending" data-index="1"><span class="check-icon"></span><span>VMs discovered</span></li>
+            <li class="check-item pending" data-index="2"><span class="check-icon"></span><span>Volume snapshots created</span></li>
+            <li class="check-item pending" data-index="3"><span class="check-icon"></span><span>Scan complete, findings received</span></li>
+          </ul>
+          <p class="hint">You can close this. Nothing here needs to stay open for the scan to finish.</p>
+        </div>
+
+        <div id="osDone" hidden>
+          <div class="success-row">
+            <span class="success-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <div>
+              <h1 class="scr-title" style="margin-bottom:2px;">First scan received</h1>
+              <p class="scr-sub" style="margin-bottom:14px;">Every run from here on lands automatically, on the cron you set.</p>
+              <a href="#" class="findings-link" id="osFindingsLink">
+                <span>Issues → Findings → Linux VM Vulnerability Findings, grouped by label</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <p class="field-help" id="osFindingsNote" hidden>This would open Findings, filtered to this label.</p>
+            </div>
+          </div>
+          <p class="hint" id="osGoNote" hidden>This would open the AccuKnox dashboard.</p>
+        </div>
+      </section>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-secondary" id="backBtn">Back</button>
+      <button class="btn btn-ghost" id="restartBtn" hidden>Restart demo</button>
+      <span class="spacer"></span>
+      <button class="btn btn-primary" id="primaryBtn">Next
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var TOTAL = 9;
+  var stepLabels = ['Infrastructure type','Select platform','Deploy connector','Validating','Discovery preview','Discovery scope','Enable protection','Review','Connected'];
+  var primaryLabels = ['Next','Next','Validate connection','Continue','Continue','Continue','Continue','Connect','Go to dashboard'];
+
+  var state = {
+    step: 0,
+    category: 'private',
+    platform: 'Nutanix',
+    authMethod: 'apikey',
+    deployMethod: 'ova',
+    connectorStarted: false,
+    connectorOnline: false,
+    scopeBy: 'clusters',
+    categories: { 'uncategorized': true, 'env-prod': true, 'env-finance': true, 'team-platform': false, 'team-dev': false },
+    scope: { prodeast: true, prodwest: true, test: false, lab: false },
+    protection: { cspm: true, vuln: true, runtime: false },
+    validationStarted: false,
+    validated: false,
+    connectStarted: false,
+    connected: false,
+
+    // --- OpenShift-only flow. Kept separate from everything above, never read by the Nutanix logic. ---
+    osMode: false,
+    osStep: 0,
+    osToken: '',
+    osTokenName: '',
+    osLabel: '',
+    osLabelName: '',
+    osTokenGenerated: false,
+    osLabelGenerated: false,
+    osWaitStarted: false,
+    osScanReceived: false
+  };
+
+  var TOTAL_OS = 7;
+  var osStepLabels = ['Before you start', 'Add to operator catalog', 'Install the operator', 'Token and label', 'Store the secret', 'Create the scan schedule', 'First scan'];
+  var osPrimaryLabels = ['Continue', 'Continue', 'Continue', 'Continue', 'Continue', "I've created the schedule", 'Go to dashboard'];
+
+  var screens = document.querySelectorAll('.screen');
+  var stepNum = document.getElementById('stepNum');
+  var stepLabel = document.getElementById('stepLabel');
+  var stepperFill = document.getElementById('stepperFill');
+  var backBtn = document.getElementById('backBtn');
+  var restartBtn = document.getElementById('restartBtn');
+  var primaryBtn = document.getElementById('primaryBtn');
+
+  function render(){
+    if (state.osMode) { renderOS(); return; }
+    screens.forEach(function(s){
+      s.hidden = String(state.step) !== s.getAttribute('data-step');
+    });
+    stepNum.textContent = state.step + 1;
+    stepLabel.textContent = stepLabels[state.step];
+    document.getElementById('stepTotalText').textContent = TOTAL;
+    stepperFill.style.width = (((state.step + 1) / TOTAL) * 100) + '%';
+
+    // back / restart slot
+    if (state.step === 8) {
+      backBtn.hidden = true;
+      restartBtn.hidden = false;
+    } else {
+      restartBtn.hidden = true;
+      backBtn.hidden = (state.step === 0) ||
+        (state.step === 2 && !state.connectorOnline) ||
+        (state.step === 3 && !state.validated) ||
+        false;
+    }
+
+    // primary button
+    var label = primaryLabels[state.step];
+    primaryBtn.innerHTML = label + ' <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+
+    if (state.step === 1 && state.category === 'cloud') {
+      primaryBtn.style.visibility = 'hidden';
+    } else if (state.step === 2) {
+      primaryBtn.style.visibility = state.connectorOnline ? 'visible' : 'hidden';
+    } else if (state.step === 3) {
+      primaryBtn.style.visibility = state.validated ? 'visible' : 'hidden';
+    } else if (state.step === 8) {
+      primaryBtn.style.visibility = state.connected ? 'visible' : 'hidden';
+    } else {
+      primaryBtn.style.visibility = 'visible';
+    }
+
+    if (state.step === 1) syncPlatformScreen();
+    if (state.step === 2) updateConnectorSnippets();
+    if (state.step === 4) animateStats();
+    if (state.step === 7) renderReview();
+    if (state.step === 2 && !state.connectorStarted) startConnectorCheckIn();
+    if (state.step === 3 && !state.validationStarted) startValidation();
+    if (state.step === 8 && !state.connectStarted) startConnecting();
+  }
+
+  function goNext(){
+    if (!state.osMode && state.step === 1 && state.category !== 'cloud' && state.platform === 'OpenShift') {
+      state.osMode = true;
+      state.osStep = 0;
+      renderOS();
+      return;
+    }
+    if (state.osMode) { goNextOS(); return; }
+    if (state.step === 1 && state.category === 'cloud') return;
+    if (state.step === 2 && !state.connectorOnline) return;
+    if (state.step === 3 && !state.validated) return;
+    if (state.step === 8 && !state.connected) return;
+    if (state.step === 8 && state.connected) {
+      var note = document.getElementById('goNote');
+      note.hidden = false;
+      return;
+    }
+    if (state.step === 2) {
+      // leaving Deploy connector: always re-run validation fresh,
+      // in case the user came back here to change Prism Central details
+      state.validationStarted = false;
+      state.validated = false;
+    }
+    if (state.step < TOTAL - 1) { state.step++; render(); }
+  }
+  function goBack(){
+    if (state.osMode) { goBackOS(); return; }
+    if (state.step > 0) { state.step--; render(); }
+  }
+
+  // --- everything below is OpenShift-only, isolated from the Nutanix functions above ---
+
+  function goNextOS(){
+    if (state.osStep === 3 && !(state.osTokenGenerated && state.osLabelGenerated)) return;
+    if (state.osStep === TOTAL_OS - 1) {
+      if (!state.osScanReceived) return;
+      document.getElementById('osGoNote').hidden = false;
+      return;
+    }
+    if (state.osStep < TOTAL_OS - 1) { state.osStep++; renderOS(); }
+  }
+
+  function goBackOS(){
+    if (state.osStep === 0) {
+      state.osMode = false;
+      render();
+      return;
+    }
+    state.osStep--; renderOS();
+  }
+
+  function renderOS(){
+    screens.forEach(function(s){
+      s.hidden = s.getAttribute('data-step') !== ('os' + state.osStep);
+    });
+    stepNum.textContent = state.osStep + 1;
+    stepLabel.textContent = osStepLabels[state.osStep];
+    document.getElementById('stepTotalText').textContent = TOTAL_OS;
+    stepperFill.style.width = (((state.osStep + 1) / TOTAL_OS) * 100) + '%';
+
+    restartBtn.hidden = true;
+    backBtn.hidden = false;
+
+    var label = osPrimaryLabels[state.osStep];
+    primaryBtn.innerHTML = label + ' <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+
+    if (state.osStep === 3) {
+      var ready = state.osTokenGenerated && state.osLabelGenerated;
+      primaryBtn.style.visibility = ready ? 'visible' : 'hidden';
+      var tokenHint = document.getElementById('osTokenHint');
+      if (tokenHint) {
+        if (ready) tokenHint.textContent = "You're set, continue whenever you're ready.";
+        else if (!state.osTokenGenerated && !state.osLabelGenerated) tokenHint.textContent = 'Generate a token and pick a label to continue.';
+        else if (!state.osTokenGenerated) tokenHint.textContent = 'Generate a token to continue.';
+        else tokenHint.textContent = 'Select or create a label to continue.';
+      }
+    } else if (state.osStep === 5) {
+      primaryBtn.style.visibility = 'visible';
+      syncScheduleSpec();
+    } else if (state.osStep === TOTAL_OS - 1) {
+      primaryBtn.style.visibility = state.osScanReceived ? 'visible' : 'hidden';
+      restartBtn.hidden = !state.osScanReceived;
+      backBtn.hidden = true;
+      if (!state.osWaitStarted) startOSWait();
+    } else {
+      primaryBtn.style.visibility = 'visible';
+    }
+  }
+
+  // step 5 reads back what the user chose in step 3, so they don't have to remember it
+  function syncScheduleSpec(){
+    var labelCell = document.getElementById('osSpecLabel');
+    if (labelCell && state.osLabelName) labelCell.innerHTML = '<code>' + state.osLabelName + '</code>';
+    var tenantCell = document.getElementById('osSpecTenant');
+    var tenantInput = document.getElementById('osTenantId');
+    if (tenantCell && tenantInput && tenantInput.value) tenantCell.innerHTML = '<code>' + tenantInput.value + '</code>';
+  }
+
+  // the ~10 minute gap between "schedule created" and "findings visible", compressed for the demo
+  function startOSWait(){
+    state.osWaitStarted = true;
+    var items = document.querySelectorAll('#osWaitList .check-item');
+    items.forEach(function(item, i){
+      setTimeout(function(){
+        item.classList.remove('pending');
+        item.classList.add('done');
+        item.querySelector('.check-icon').innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        if (i === items.length - 1) {
+          state.osScanReceived = true;
+          document.getElementById('osWaiting').hidden = true;
+          document.getElementById('osDone').hidden = false;
+          renderOS();
+        }
+      }, (i + 1) * 900);
+    });
+  }
+
+  function syncPlatformScreen(){
+    var isPrivate = state.category !== 'cloud';
+    document.getElementById('platformGridPrivate').hidden = !isPrivate;
+    document.getElementById('platformCloudStub').hidden = isPrivate;
+    document.getElementById('platformTitle').textContent = isPrivate ? 'Select a platform' : 'Public cloud';
+    document.getElementById('platformSub').textContent = isPrivate ? 'Private cloud' : 'Public cloud';
+
+    if (isPrivate) {
+      var privateOptions = ['Nutanix', 'OpenShift'];
+      if (privateOptions.indexOf(state.platform) === -1) state.platform = 'Nutanix';
+      document.querySelectorAll('#platformGridPrivate .provider-card').forEach(function(c){
+        c.classList.toggle('selected', c.getAttribute('data-provider') === state.platform);
+      });
+    }
+  }
+
+  primaryBtn.addEventListener('click', goNext);
+  backBtn.addEventListener('click', goBack);
+  restartBtn.addEventListener('click', restartDemo);
+  document.getElementById('closeBtn').addEventListener('click', restartDemo);
+
+  // --- category selection ---
+  document.querySelectorAll('.category-card').forEach(function(card){
+    function selectCategory(){
+      document.querySelectorAll('.category-card').forEach(function(c){ c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.category = card.getAttribute('data-category');
+    }
+    card.addEventListener('click', selectCategory);
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCategory(); }
+    });
+  });
+
+  // --- platform selection ---
+  document.querySelectorAll('.provider-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var group = card.closest('.provider-grid');
+      group.querySelectorAll('.provider-card').forEach(function(c){ c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.platform = card.getAttribute('data-provider');
+    });
+  });
+
+  // --- auth method ---
+  document.querySelectorAll('input[name=authMethod]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      state.authMethod = radio.value;
+      document.getElementById('fieldsPassword').hidden = radio.value !== 'password';
+      document.getElementById('fieldsApikey').hidden = radio.value !== 'apikey';
+      updateConnectorSnippets();
+    });
+  });
+
+  // --- deploy method: OVA vs Docker ---
+  document.querySelectorAll('input[name=deployMethod]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      state.deployMethod = radio.value;
+      document.getElementById('deployOva').hidden = radio.value !== 'ova';
+      document.getElementById('deployDocker').hidden = radio.value !== 'docker';
+    });
+  });
+
+  // --- live-generate both the OVA cloud-init snippet and the Docker command (client-side only) ---
+  function updateConnectorSnippets(){
+    var url = document.getElementById('prismUrl').value || 'https://prism.company.com:9440';
+    var authLine, keyForDocker;
+    if (state.authMethod === 'apikey') {
+      var key = document.getElementById('ntxApikey').value;
+      authLine = 'auth_mode: apikey\napi_key: ' + (key ? key : '****');
+      keyForDocker = '  -e AUTH_MODE=apikey \\\n  -e API_KEY=' + (key ? key : '****') + ' \\';
+    } else {
+      var user = document.getElementById('ntxUsername').value || 'svc-accuknox';
+      authLine = 'auth_mode: password\nusername: ' + user + '\npassword: ****';
+      keyForDocker = '  -e AUTH_MODE=password \\\n  -e USERNAME=' + user + ' \\\n  -e PASSWORD=**** \\';
+    }
+    var cloudInit = '#cloud-config\naccuknox_token: ak_conn_7f3a2b91c4\nprism_url: ' + url + '\n' + authLine;
+    var ovaEl = document.getElementById('ovaCloudInit');
+    if (ovaEl) ovaEl.textContent = cloudInit;
+
+    var dockerCmd = 'docker run -d --name accuknox-connector \\\n  -e ACCUKNOX_TOKEN=ak_conn_7f3a2b91c4 \\\n  -e PRISM_URL=' + url + ' \\\n' + keyForDocker + '\n  accuknox/connector:latest';
+    var dockerEl = document.getElementById('connectorCmd');
+    if (dockerEl) dockerEl.textContent = dockerCmd;
+  }
+  ['prismUrl','ntxApikey','ntxUsername'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', updateConnectorSnippets);
+  });
+
+  var copyOvaBtn = document.getElementById('copyOvaBtn');
+  if (copyOvaBtn) {
+    copyOvaBtn.addEventListener('click', function(){
+      var text = document.getElementById('ovaCloudInit').textContent;
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function(){}); }
+      var original = copyOvaBtn.textContent;
+      copyOvaBtn.textContent = 'Copied';
+      setTimeout(function(){ copyOvaBtn.textContent = original; }, 1400);
+    });
+  }
+  var downloadOvaBtn = document.getElementById('downloadOvaBtn');
+  if (downloadOvaBtn) {
+    downloadOvaBtn.addEventListener('click', function(){
+      var original = downloadOvaBtn.textContent;
+      downloadOvaBtn.textContent = 'Downloading…';
+      setTimeout(function(){ downloadOvaBtn.textContent = original; }, 1400);
+    });
+  }
+
+  // --- scope checkboxes ---
+  document.querySelectorAll('[data-cluster]').forEach(function(box){
+    box.addEventListener('change', function(){
+      state.scope[box.getAttribute('data-cluster')] = box.checked;
+    });
+  });
+
+  // --- protection checkboxes ---
+  document.querySelectorAll('[data-prot]').forEach(function(box){
+    box.addEventListener('change', function(){
+      state.protection[box.getAttribute('data-prot')] = box.checked;
+    });
+  });
+
+  // --- scope by: clusters vs categories (mutually exclusive) ---
+  document.querySelectorAll('input[name=scopeBy]').forEach(function(radio){
+    radio.addEventListener('change', function(){
+      state.scopeBy = radio.value;
+      document.getElementById('scopeByClusters').hidden = radio.value !== 'clusters';
+      document.getElementById('scopeByCategories').hidden = radio.value !== 'categories';
+    });
+  });
+  document.querySelectorAll('[data-category]').forEach(function(box){
+    box.addEventListener('change', function(){
+      state.categories[box.getAttribute('data-category')] = box.checked;
+    });
+  });
+
+  // --- scope search filter ---
+  function wireScopeSearch(inputId, listSelector){
+    var input = document.getElementById(inputId);
+    if (!input) return;
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      document.querySelectorAll(listSelector + ' [data-searchable]').forEach(function(row){
+        row.hidden = q.length > 0 && row.getAttribute('data-searchable').indexOf(q) === -1;
+      });
+    });
+  }
+  wireScopeSearch('clusterSearch', '#scopeList');
+  wireScopeSearch('categorySearch', '#categoryList');
+
+  // --- bulk select all/none ---
+  document.querySelectorAll('.scope-bulk').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var group = btn.getAttribute('data-bulk');
+      var checkAll = btn.getAttribute('data-action') === 'all';
+      var listSelector = group === 'clusters' ? '#scopeList' : '#categoryList';
+      document.querySelectorAll(listSelector + ' .check-row:not([hidden]) input[type=checkbox]').forEach(function(box){
+        box.checked = checkAll;
+        box.dispatchEvent(new Event('change'));
+      });
+    });
+  });
+
+  // --- copy connector command ---
+  var copyBtn = document.getElementById('copyCmdBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function(){
+      var text = document.getElementById('connectorCmd').textContent;
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function(){}); }
+      var original = copyBtn.textContent;
+      copyBtn.textContent = 'Copied';
+      setTimeout(function(){ copyBtn.textContent = original; }, 1400);
+    });
+  }
+  var copyVmBtn = document.getElementById('copyVmCmdBtn');
+  if (copyVmBtn) {
+    copyVmBtn.addEventListener('click', function(){
+      var text = document.getElementById('vmOnboardCmd').textContent;
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function(){}); }
+      var original = copyVmBtn.textContent;
+      copyVmBtn.textContent = 'Copied';
+      setTimeout(function(){ copyVmBtn.textContent = original; }, 1400);
+    });
+  }
+
+  // --- connector check-in animation ---
+  function startConnectorCheckIn(){
+    state.connectorStarted = true;
+    var item = document.querySelector('#connectorCheckList .check-item');
+    var text = document.getElementById('connectorStatusText');
+    setTimeout(function(){
+      item.classList.remove('pending');
+      item.classList.add('done');
+      item.querySelector('.check-icon').innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      text.textContent = 'Connector reachable · ID ntx-conn-7f3a2b';
+      state.connectorOnline = true;
+      render();
+    }, 1600);
+  }
+
+  // --- validating animation ---
+  function startValidation(){
+    state.validationStarted = true;
+    var items = document.querySelectorAll('#checkList .check-item');
+    items.forEach(function(item){
+      item.classList.remove('done');
+      item.classList.add('pending');
+      item.querySelector('.check-icon').innerHTML = '';
+    });
+    items.forEach(function(item, i){
+      setTimeout(function(){
+        item.classList.remove('pending');
+        item.classList.add('done');
+        item.querySelector('.check-icon').innerHTML = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        if (i === items.length - 1) {
+          state.validated = true;
+          render();
+        }
+      }, (i + 1) * 480);
+    });
+  }
+
+  // --- stat count-up ---
+  var statsAnimated = false;
+  function animateStats(){
+    if (statsAnimated) return;
+    statsAnimated = true;
+    var nameInput = document.getElementById('connectionName');
+    var bannerText = document.getElementById('envBannerText');
+    if (nameInput && bannerText) bannerText.textContent = (nameInput.value || 'Production Nutanix') + ' · Prism Central 2025.1';
+    document.querySelectorAll('.stat-value').forEach(function(el){
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var start = 0;
+      var duration = 900;
+      var startTime = null;
+      function frame(ts){
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var value = Math.round(start + (target - start) * progress);
+        el.textContent = value.toLocaleString();
+        if (progress < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  // --- connecting animation ---
+  function startConnecting(){
+    state.connectStarted = true;
+    var fill = document.getElementById('progressFill');
+    var pct = document.getElementById('progressPct');
+    var status = document.getElementById('progressStatus');
+    var value = 0;
+    var timer = setInterval(function(){
+      value = Math.min(value + Math.round(2 + Math.random() * 4), 100);
+      fill.style.width = value + '%';
+      pct.textContent = value + '%';
+      if (value >= 100) {
+        clearInterval(timer);
+        status.textContent = 'All resources indexed';
+        state.connected = true;
+        var vmProtSelected = state.protection.vuln || state.protection.runtime;
+        document.getElementById('vmOnboardBlock').hidden = !vmProtSelected;
+        render();
+      }
+    }, 90);
+  }
+
+  // --- review ---
+  function renderReview(){
+    document.getElementById('revName').textContent = document.getElementById('connectionName').value || 'Not set';
+    document.getElementById('revProvider').textContent = state.platform;
+    var urlInput = document.getElementById('prismUrl');
+    var endpoint = urlInput.value;
+    try { endpoint = new URL(urlInput.value).hostname || urlInput.value; } catch(e) {}
+    document.getElementById('revEndpoint').textContent = endpoint;
+    document.getElementById('revAuth').textContent = state.authMethod === 'apikey' ? 'Service account API key' : 'Username and password';
+
+    if (state.scopeBy === 'categories') {
+      var catCount = Object.keys(state.categories).filter(function(k){ return state.categories[k]; }).length;
+      document.getElementById('revScope').textContent = catCount + (catCount === 1 ? ' Category' : ' Categories');
+    } else {
+      var scopeCount = Object.keys(state.scope).filter(function(k){ return state.scope[k]; }).length;
+      document.getElementById('revScope').textContent = scopeCount + (scopeCount === 1 ? ' cluster' : ' clusters');
+    }
+
+    var protLabels = { cspm:'CSPM' };
+    var protList = Object.keys(protLabels).filter(function(k){ return state.protection[k]; }).map(function(k){ return protLabels[k]; });
+    document.getElementById('revProtection').textContent = protList.length ? protList.join(', ') : 'None selected';
+
+    var vmProtLabels = { vuln:'Vulnerability Management', runtime:'Runtime Security' };
+    var vmProtList = Object.keys(vmProtLabels).filter(function(k){ return state.protection[k]; }).map(function(k){ return vmProtLabels[k]; });
+    document.getElementById('revRuntime').textContent = vmProtList.length ? vmProtList.join(', ') : 'None selected';
+  }
+
+  // --- restart ---
+  function restartDemo(){
+    state.step = 0;
+    state.category = 'private';
+    state.platform = 'Nutanix';
+    state.connectorStarted = false;
+    state.connectorOnline = false;
+    state.validationStarted = false;
+    state.validated = false;
+    state.connectStarted = false;
+    state.connected = false;
+
+    document.querySelectorAll('.category-card').forEach(function(c){
+      c.classList.toggle('selected', c.getAttribute('data-category') === 'private');
+    });
+    document.querySelectorAll('#connectorCheckList .check-item').forEach(function(item){
+      item.classList.remove('done');
+      item.classList.add('pending');
+      item.querySelector('.check-icon').innerHTML = '';
+    });
+    document.getElementById('connectorStatusText').textContent = 'Waiting for connector to check in…';
+    document.querySelectorAll('#checkList .check-item').forEach(function(item){
+      item.classList.remove('done');
+      item.classList.add('pending');
+      item.querySelector('.check-icon').innerHTML = '';
+    });
+    statsAnimated = false;
+    document.querySelectorAll('.stat-value').forEach(function(el){ el.textContent = '0'; });
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressPct').textContent = '0%';
+    document.getElementById('vmOnboardBlock').hidden = true;
+    document.getElementById('progressStatus').textContent = 'Discovering resources…';
+    document.getElementById('goNote').hidden = true;
+
+    // reset the OpenShift flow too
+    state.osMode = false;
+    state.osStep = 0;
+    state.osToken = '';
+    state.osTokenName = '';
+    state.osLabel = '';
+    state.osLabelName = '';
+    state.osTokenGenerated = false;
+    state.osLabelGenerated = false;
+    state.osWaitStarted = false;
+    state.osScanReceived = false;
+    var osLblTrig = document.getElementById('osLabelTrigger');
+    if (osLblTrig) osLblTrig.classList.remove('open');
+    ['osLabelPanel', 'osTokenCreateForm', 'osLabelCreateForm', 'osTokenValueNote', 'osTokenResult', 'osDone'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) el.hidden = true;
+    });
+    var osWaitingEl = document.getElementById('osWaiting');
+    if (osWaitingEl) osWaitingEl.hidden = false;
+    document.querySelectorAll('#osWaitList .check-item').forEach(function(item){
+      item.classList.remove('done');
+      item.classList.add('pending');
+      item.querySelector('.check-icon').innerHTML = '';
+    });
+    var osLblTrigText = document.getElementById('osLabelTriggerText');
+    if (osLblTrigText) { osLblTrigText.textContent = 'Select or create a label'; osLblTrigText.classList.add('combo-placeholder'); }
+    var osTokNameInput = document.getElementById('osTokenNameInput');
+    if (osTokNameInput) osTokNameInput.value = '';
+    var osLblNameInput = document.getElementById('osLabelNameInput');
+    if (osLblNameInput) osLblNameInput.value = '';
+    var osTokenHintEl = document.getElementById('osTokenHint');
+    if (osTokenHintEl) osTokenHintEl.textContent = 'Generate a token and pick a label to continue.';
+    var osSpecLabelEl = document.getElementById('osSpecLabel');
+    if (osSpecLabelEl) osSpecLabelEl.textContent = 'The label you picked in Step 4';
+    var osSpecTenantEl = document.getElementById('osSpecTenant');
+    if (osSpecTenantEl) osSpecTenantEl.textContent = 'Your tenant ID from Step 4';
+    var osGoNoteEl = document.getElementById('osGoNote');
+    if (osGoNoteEl) osGoNoteEl.hidden = true;
+    var osFindingsNoteEl = document.getElementById('osFindingsNote');
+    if (osFindingsNoteEl) osFindingsNoteEl.hidden = true;
+    var osConsoleNoteEl = document.getElementById('osConsoleNote');
+    if (osConsoleNoteEl) osConsoleNoteEl.hidden = true;
+    var osHelpDocsNoteEl = document.getElementById('osHelpDocsNote');
+    if (osHelpDocsNoteEl) osHelpDocsNoteEl.hidden = true;
+
+    render();
+  }
+
+  // --- OpenShift flow: Step 3 label combobox (pick existing, or add new) ---
+  var EXISTING_LABELS = ['AccuknoxFrontend', 'agents', 'AgentsOnPrem', 'awsVM', 'cicd', 'CspmBackend'];
+
+  function closeAllCombos(){
+    var panel = document.getElementById('osLabelPanel');
+    if (panel) panel.hidden = true;
+    ['osTokenCreateForm', 'osLabelCreateForm'].forEach(function(id){
+      var form = document.getElementById(id);
+      if (form) form.hidden = true;
+    });
+    var trig = document.getElementById('osLabelTrigger');
+    if (trig) trig.classList.remove('open');
+  }
+
+  function setupCombo(cfg){
+    var trigger = document.getElementById(cfg.triggerId);
+    var triggerText = document.getElementById(cfg.triggerTextId);
+    var panel = document.getElementById(cfg.panelId);
+    var optionsEl = document.getElementById(cfg.optionsId);
+    var createRow = document.getElementById(cfg.createRowId);
+    var createForm = document.getElementById(cfg.createFormId);
+    if (!trigger) return;
+
+    cfg.items.forEach(function(name){
+      var opt = document.createElement('div');
+      opt.className = 'combo-option';
+      opt.textContent = name;
+      opt.addEventListener('click', function(){
+        closeAllCombos();
+        createForm.hidden = true;
+        cfg.onSelectExisting(name);
+      });
+      optionsEl.appendChild(opt);
+    });
+
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      var willOpen = panel.hidden;
+      closeAllCombos();
+      panel.hidden = !willOpen;
+      trigger.classList.toggle('open', willOpen);
+    });
+
+    createRow.addEventListener('click', function(){
+      closeAllCombos();
+      createForm.hidden = false;
+      cfg.onOpenCreate();
+    });
+  }
+
+  setupCombo({
+    triggerId: 'osLabelTrigger', triggerTextId: 'osLabelTriggerText', panelId: 'osLabelPanel',
+    optionsId: 'osLabelOptions', createRowId: 'osLabelCreateRow', createFormId: 'osLabelCreateForm',
+    items: EXISTING_LABELS,
+    onOpenCreate: function(){},
+    onSelectExisting: function(name){
+      state.osLabelGenerated = true;
+      state.osLabelName = name;
+      document.getElementById('osLabelTriggerText').textContent = name;
+      document.getElementById('osLabelTriggerText').classList.remove('combo-placeholder');
+      renderOS();
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    if (e.target.closest('.combo') || e.target.closest('#osTokenCreateForm')) return;
+    closeAllCombos();
+  });
+
+  var osTokenGenerateToggle = document.getElementById('osTokenGenerateToggle');
+  if (osTokenGenerateToggle) {
+    osTokenGenerateToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var form = document.getElementById('osTokenCreateForm');
+      form.hidden = !form.hidden;
+    });
+  }
+
+  var osTokenGenerateBtn = document.getElementById('osTokenGenerateBtn');
+  if (osTokenGenerateBtn) {
+    osTokenGenerateBtn.addEventListener('click', function(){
+      var nameInput = document.getElementById('osTokenNameInput');
+      if (!nameInput.value.trim()) { nameInput.focus(); return; }
+      var expiry = document.getElementById('osTokenExpirySelect').value;
+      var tok = 'ak_os_' + Math.random().toString(16).slice(2, 10);
+      state.osToken = tok;
+      state.osTokenGenerated = true;
+      document.getElementById('osTokenValue').textContent = tok;
+      document.getElementById('osTokenResult').hidden = false;
+      var expiryText = expiry === 'No expiration' ? 'Copy this now, you won\'t be able to view it again.' : ('Copy this now, you won\'t be able to view it again. Expires in ' + expiry + '.');
+      document.getElementById('osTokenValueNote').textContent = expiryText;
+      document.getElementById('osTokenValueNote').hidden = false;
+      document.getElementById('osTokenCreateForm').hidden = true;
+      renderOS();
+    });
+  }
+
+  var osLabelAddBtn = document.getElementById('osLabelAddBtn');
+  if (osLabelAddBtn) {
+    osLabelAddBtn.addEventListener('click', function(){
+      var nameInput = document.getElementById('osLabelNameInput');
+      var name = nameInput.value.trim();
+      if (!name) { nameInput.focus(); return; }
+      state.osLabelGenerated = true;
+      state.osLabelName = name;
+      document.getElementById('osLabelTriggerText').textContent = name;
+      document.getElementById('osLabelTriggerText').classList.remove('combo-placeholder');
+      document.getElementById('osLabelCreateForm').hidden = true;
+      renderOS();
+    });
+  }
+
+  function wireOSCopy(btnId, sourceId){
+    var btn = document.getElementById(btnId);
+    var source = document.getElementById(sourceId);
+    if (!btn || !source) return;
+    btn.addEventListener('click', function(){
+      var text = ('value' in source) ? source.value : source.textContent;
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function(){}); }
+      var original = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function(){ btn.textContent = original; }, 1400);
+    });
+  }
+  wireOSCopy('osCopyTokenBtn', 'osTokenValue');
+  wireOSCopy('osCopyCatalogImgBtn', 'osCatalogImage');
+
+  var osHelpDocsLink = document.getElementById('osHelpDocsLink');
+  if (osHelpDocsLink) {
+    osHelpDocsLink.addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('osHelpDocsNote').hidden = false;
+    });
+  }
+
+  var osConsoleLink = document.getElementById('osConsoleLink');
+  if (osConsoleLink) {
+    osConsoleLink.addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('osConsoleNote').hidden = false;
+    });
+  }
+
+  var osFindingsLink = document.getElementById('osFindingsLink');
+  if (osFindingsLink) {
+    osFindingsLink.addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('osFindingsNote').hidden = false;
+    });
+  }
+
+  // tenant ID comes from the signed-in account, the user never types it
+  var osTenantEl = document.getElementById('osTenantId');
+  if (osTenantEl) osTenantEl.value = '10111';
+
+  render();
+})();
+</script>
+</body>
+</html>

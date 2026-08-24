@@ -1,0 +1,12 @@
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.pptx filter=lfs diff=lfs merge=lfs -text
+
+# Keep the docs site's own media out of LFS. Neither ci.yml nor workflow.yaml
+# checks out with `lfs: true`, so a pointer here would publish a broken video.
+#
+# Scope this to the media extensions only. `git lfs migrate` writes a blanket
+# `docs/** !text -filter -merge -diff`, which also unsets the diff and merge
+# drivers for every markdown page under docs/. That turns a one-line doc edit
+# into `Bin 3136 -> 3106 bytes` in review and drops three-way merge on conflict.
+docs/**/*.mp4 !filter !diff !merge -text
+docs/**/*.pptx !filter !diff !merge -text

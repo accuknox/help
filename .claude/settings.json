@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/writing-load-order.py",
+            "timeout": 10,
+            "statusMessage": "Resolving the writing load order"
+          }
+        ]
+      }
+    ]
+  }
+}
