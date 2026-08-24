@@ -48,6 +48,9 @@ hide:
 - title: SLA & Escalation Matrix
   image: ./icons/technical-guide.svg
   url: /resources/sla-escalation-matrix/
+- title: Managed Cloud Security Services
+  image: ./icons/technical-guide.svg
+  url: /resources/managed-cloud-security-services/
 - title: Control Plane Architecture
   image: ./icons/user-guide.svg
   url: /resources/control-plane-architecture/
