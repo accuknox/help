@@ -47,7 +47,13 @@ For a fleet-wide onboarding walkthrough with distribution-specific commands, pic
 
 ### 1. Run the Installation Script
 
-Run the following command to download and install the agent. Replace `<REDACTED>` with your actual Artifact API Token and `CHANGEME` with your desired label.
+Before running the command, make the following replacements:
+  - Replace <REDACTED> with your Artifact API Token.
+  - Replace CHANGEME with your desired label.
+  - Update the endpoint URL to match your environment.
+  - Replace 000 with your Tenant ID.
+
+Once these values have been updated, run the command to download and install the agent.
 
 ```bash
 curl https://accuknox-omni.s3.us-east-1.amazonaws.com/latest/agent-install.sh | \
