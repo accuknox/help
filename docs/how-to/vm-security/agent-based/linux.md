@@ -48,6 +48,7 @@ For a fleet-wide onboarding walkthrough with distribution-specific commands, pic
 ### 1. Run the Installation Script
 
 Before running the command, make the following replacements:
+
 - Replace `<REDACTED>` with your Artifact API Token.
 - Replace `CHANGEME` with your desired label.
 - Update the endpoint URL to match your environment.
