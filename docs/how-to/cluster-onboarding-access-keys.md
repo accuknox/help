@@ -43,13 +43,14 @@ helm upgrade --install agents oci://public.ecr.aws/k9v9d5v2/kspm-runtime \
 --set global.enableJobsUrl=true \
 --set global.kiem.enabled=true \
 --set global.riskassessment.enabled=true \
+--set global.inClusterScan.enabled=true \
 --set global.cis.enabled=true \
---set global.agents.clusterName="<existing-cluster-names>" \
+--set global.clusterName="<existing-cluster-names>" \
 --set global.cronTab="20 09 * * *" \
 --set global.label="<label>" \
 --set global.tenantId="<tenant-id>" \
 --set global.agents.accessKey="<access-key>" \
---version v0.1.16
+--version v0.1.49
 ```
 
 !!! info "Note"
