@@ -156,7 +156,46 @@ Group findings by **Asset Type**, **Vulnerability Name**, **Scan Category**, or 
 
 ## Supported Platforms
 
-Red teaming scans are supported across both managed and on-premise AI deployments.
+Red teaming scans are supported across both managed and on-premise AI deployments. Where the model runs decides which collector you configure, and a model reachable over an OpenAI-compatible API is covered even when AccuKnox does not name the vendor.
+
+<div class="ak-dia" role="img" aria-label="Three model locations mapped to collectors. A managed cloud model service uses cloud SDK mode or a collector. An on-premises model server uses the Ollama or OpenAI collector. A SaaS model behind an OpenAI-compatible API uses the OpenAI interface collector.">
+<svg viewBox="0 0 940 262" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="r1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path class="head" d="M0 0 L8 4 L0 8 z"/>
+    </marker>
+  </defs>
+
+  <text class="t-s" x="16" y="22">Where the model runs</text>
+  <text class="t-s" x="396" y="22">Collector to configure</text>
+
+  <rect class="p" x="16" y="30" width="340" height="64" rx="8"/>
+  <text class="t-h" x="32" y="56">Managed cloud model service</text>
+  <text class="t-s" x="32" y="76">Azure AI Foundry, AWS Bedrock, GCP Vertex AI</text>
+  <path class="ln" d="M356 62 H390" marker-end="url(#r1)"/>
+  <rect class="acc" x="396" y="30" width="528" height="64" rx="8"/>
+  <text class="t-acc t-h" x="412" y="56">Cloud SDK mode, or a collector</text>
+  <text class="t-s" x="412" y="76">Onboard the cloud account first, then pick the model to scan</text>
+
+  <rect class="p" x="16" y="106" width="340" height="64" rx="8"/>
+  <text class="t-h" x="32" y="132">On-premises model server</text>
+  <text class="t-s" x="32" y="152">Ollama, vLLM, NVIDIA Triton</text>
+  <path class="ln" d="M356 138 H390" marker-end="url(#r1)"/>
+  <rect class="acc" x="396" y="106" width="528" height="64" rx="8"/>
+  <text class="t-acc t-h" x="412" y="132">Ollama or OpenAI collector</text>
+  <text class="t-s" x="412" y="152">Point the collector at the inference endpoint you already serve</text>
+
+  <rect class="p" x="16" y="182" width="340" height="64" rx="8"/>
+  <text class="t-h" x="32" y="208">SaaS model behind a hosted API</text>
+  <text class="t-s" x="32" y="228">OpenRouter, Anthropic, OpenAI</text>
+  <path class="ln" d="M356 214 H390" marker-end="url(#r1)"/>
+  <rect class="acc" x="396" y="182" width="528" height="64" rx="8"/>
+  <text class="t-acc t-h" x="412" y="208">OpenAI interface collector</text>
+  <text class="t-s" x="412" y="228">Any endpoint that speaks the OpenAI API, whoever hosts it</text>
+</svg>
+</div>
+
+Collector setup is covered in [AWS Bedrock](../how-to/aiml-bedrock-collector.md), [NVIDIA Triton](../how-to/aiml-triton-collector.md) and [vLLM](../how-to/aiml-vllm-collector.md).
 
 ![Supported platforms showing managed deployments (AWS SageMaker, Bedrock, Google AI Studio, Azure AI, Anthropic, OpenAI, Vertex AI, Nutanix) and on-prem deployments (Ollama, vLLM, NVIDIA, Run.ai, Hugging Face, Kubeflow)](./images/ai-overview/1.png)
 

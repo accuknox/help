@@ -24,6 +24,19 @@ The firewall enforces policies in both directions:
 
 If content violates a policy, the firewall can **block** the request entirely, **sanitize** the content (e.g., mask PII), or **monitor** and log it without blocking.
 
+### Stateful Conversation Tracking
+
+A slow jailbreak never sends one prompt that trips a policy. The attacker spreads the setup across many turns:
+
+- Establish a persona in one message.
+- Add a hypothetical framing in the next.
+- Ask for the payload only once the earlier turns have done the work.
+
+Every message in that sequence passes a per-message check. AccuKnox Prompt Firewall is stateful, so it evaluates a policy against the accumulated exchange rather than the newest message alone.
+
+!!! warning "Guardrails are probabilistic, network firewalls are not"
+    Policy evaluation on natural language uses models, so it carries a false-negative rate a deterministic network firewall does not. Treat this as one control among several. Pair it with [red teaming](red-teaming.md) to measure what gets through, and [ModelArmor](modelarmor.md) to contain a bypass.
+
 ## What the Firewall Filters
 
 ### Prompt Policies (Input Controls)
@@ -56,7 +69,7 @@ Response policies inspect what the LLM sends back. These prevent unsafe, non-com
 | **Relevance** | Off-topic inputs/outputs that don't match the application's purpose | Semantic similarity scoring against the application's defined scope | Banking bot asked "How to bake a cake?" -> blocked as irrelevant |
 
 !!! info "Custom Policies"
-    AccuKnox can configure custom prompt firewall policies built around your specific business requirements -- regex-based pattern matching, domain-specific block lists, response filtering rules, or any other criteria your use case demands. Reach out to your AccuKnox representative to discuss a custom setup.
+    AccuKnox can configure custom prompt firewall policies built around your specific business requirements: regex-based pattern matching, domain-specific block lists, response filtering rules, or any other criteria your use case demands. Reach out to your AccuKnox representative to discuss a custom setup.
 
 ## Integrations
 
@@ -176,13 +189,9 @@ The AI-Security Dashboard provides real-time visibility into:
 - **Policy Violations** detected and blocked
 - **Active Policies** currently enforcing
 
-![AI-Security Dashboard showing query volumes, violations, and active policies](https://accuknox.com/wp-content/uploads/Application-Security-Dashboard-3.png)
-
 ### Step 4: Investigate Violations
 
 Click on any violation count to see the full breakdown by policy. Each violation shows which policy was triggered, whether it was blocked or monitored, and the severity.
-
-![Violations breakdown by policy type](https://accuknox.com/wp-content/uploads/Analyze-Violations-4-1.png)
 
 ### Step 5: Audit and Trace
 

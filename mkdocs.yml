@@ -169,6 +169,7 @@ extra_css:
 - "assets/stylesheets/copy-page.css"
 - "assets/stylesheets/iam-tables.css"
 - "assets/stylesheets/agentz.css"
+- "assets/stylesheets/ai-diagrams.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js
@@ -254,6 +255,7 @@ nav:
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
     - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
+      - "Architecture": "getting-started/ai-security-arch.md"
       - "SaaS vs On-Prem": "how-to/aiml-saas-vs-onprem.md"
       - "SDK LLM Defense": "how-to/llm-defense-app-onboard.md"
       - "Runtime Defense (API Method)": "how-to/aiml-runtime-onboard.md"
@@ -269,6 +271,7 @@ nav:
       - "Prompt Firewall Setup": "how-to/prompt-firewall.md"
       - "LLM Static Scans": "how-to/llm-static-scan.md"
       - "ML Static Scans": "how-to/ml-static-scan.md"
+      - "Model Scan in CI/CD": "how-to/model-scan-cicd.md"
     - "Workload Security (CWPP)":
       - "Runtime Security Architecture": "getting-started/runtime-sec-arch.md"
       - "Kubernetes":
