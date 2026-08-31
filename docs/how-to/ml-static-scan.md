@@ -12,9 +12,23 @@ AccuKnox provides static analysis for Machine Learning (ML) models to identify v
     Machine Learning models are becoming integral parts of modern applications, but they also introduce new attack vectors. ML Static Scans are essential for:
 
     * **Vulnerability Detection**: Identifying known vulnerabilities in model files (e.g., pickle deserialization attacks).
-    * **Supply Chain Security**: Ensuring that models imported from public repositories (like Hugging Face) are safe to use.
+    * **Supply Chain Security**: Confirming that models imported from public repositories (like Hugging Face) are safe to use.
     * **Compliance**: Meeting security standards by scanning AI/ML assets for risks.
     * **Model Integrity**: Verifying that model weights and configurations have not been tampered with.
+
+## What the Scan Checks
+
+The scan verifies a public model across four areas before you promote it. Three describe what the publisher disclosed. One describes the artifact.
+
+- **Supply chain and provenance.** Who authored the model, the country of origin, whether the training dataset is disclosed, the license, and how widely the model is used.
+- **Adversarial robustness.** Whether the publisher disclosed robustness evaluations, and whether bias and fairness evaluations exist.
+- **Data and privacy risks.** Whether the model card discloses PII, and whether the model shows elevated membership inference risk.
+- **Model file security.** Whether the artifact uses a safe file format, whether it carries an unsafe pickle, and whether its config files embed scripts.
+
+Treat model file security as blocking. An unsafe pickle executes at load time, before your runtime controls observe the model. The other three describe risk you accept or reject as a business decision. See [Pickle Code Injection](../use-cases/modelarmor-pickle-code.md) for a working demonstration.
+
+!!! tip "Make the scan a gate, not a habit"
+    Running this scan from the console depends on somebody remembering. To require it, wire it into the pull request that proposes the model. See [Gate Model Adoption on a Pull Request](model-scan-cicd.md).
 
 ## Setting up an ML Static Scan
 
@@ -55,7 +69,7 @@ Add **Labels** and **Tags** to categorize your ML models. This helps in filterin
 
 ### Step 4: Validate Connection
 
-Once you have entered the credentials, click on **Test** to validate the connection to your repository. Ensure the validation is successful before proceeding.
+Once you have entered the credentials, click on **Test** to validate the connection to your repository. Confirm the validation succeeds before you continue.
 
 ### Step 5: Schedule the Scan
 

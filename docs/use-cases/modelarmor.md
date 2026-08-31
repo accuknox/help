@@ -7,7 +7,7 @@ description: ModelArmor is a security solution that helps you secure your machin
 
 **ModelArmor** is a Zero Trust security solution purpose-built to protect AI/ML/LLM workloads from runtime threats. It safeguards against the unique risks of agentic AI systems and untrusted models by sandboxing deployments and enforcing granular runtime policies.
 
-**ModelArmor** uses KubeArmor as a sandboxing engine to ensure that the untrusted models execution is constrained and within required checks. AI/ML Models are essentially processes and allowing untrusted models to execute in AI environments have significant risks such as possibility of cryptomining attacks leveraging GPUs, remote command injections, etc. KubeArmor's preemptive mitigation mechanism provides a suitable framework for constraining the execution environment of models.
+**ModelArmor** uses KubeArmor as a sandboxing engine to keep the execution of untrusted models constrained and within required checks. AI/ML Models are essentially processes and allowing untrusted models to execute in AI environments have significant risks such as possibility of cryptomining attacks that use GPUs, remote command injections, etc. KubeArmor's preemptive mitigation mechanism provides a suitable framework for constraining the execution environment of models.
 
 ModelArmor can be used to enforce security policies on the model execution environment.
 
@@ -64,6 +64,53 @@ Crafted prompts can manipulate the agent into performing unauthorized actions:
 
 ModelArmor **isolates agentic AI apps** and ML workloads at runtime, blocking unauthorized actions even if guardrails or code reviews are bypassed.
 
+A model you did not train carries three risks that inspection cannot fully remove:
+
+- A hidden trigger that fires on a particular input.
+- Weights poisoned during training.
+- A training set poisoned before that.
+
+Pre-deployment scanning catches the artifact-level version of these. Sandboxing contains the ones that get through, by constraining what the workload can do rather than predicting what it will do.
+
+<div class="ak-dia" role="img" aria-label="A ModelArmor sandbox containing an untrusted model or AI agent. Four isolation controls block actions leaving the sandbox: process isolation blocks spawning an untrusted binary, file system isolation blocks reading cloud credentials, network isolation blocks raw sockets and ICMP, and domain access isolation blocks reaching a domain outside the allow list.">
+<svg viewBox="0 0 900 268" xmlns="http://www.w3.org/2000/svg">
+  <rect class="hollow" x="16" y="40" width="360" height="208" rx="10" stroke-dasharray="6 4"/>
+  <text class="t-acc t-h" x="32" y="64">ModelArmor sandbox</text>
+  <rect class="p" x="40" y="86" width="312" height="104" rx="8"/>
+  <text class="t-h" x="196" y="114" text-anchor="middle">Untrusted model or AI agent</text>
+  <text class="t-s" x="196" y="140" text-anchor="middle">Ollama, vLLM, NVIDIA Triton</text>
+  <text class="t-s" x="196" y="162" text-anchor="middle">LangGraph, n8n, MCP servers</text>
+  <text class="t-s" x="196" y="222" text-anchor="middle">Running on a VM, a container, or Kubernetes</text>
+
+  <g class="ln-bad">
+    <path d="M376 70 H434"/><path d="M376 122 H434"/>
+    <path d="M376 174 H434"/><path d="M376 226 H434"/>
+    <path d="M399 64 L411 76"/><path d="M411 64 L399 76"/>
+    <path d="M399 116 L411 128"/><path d="M411 116 L399 128"/>
+    <path d="M399 168 L411 180"/><path d="M411 168 L399 180"/>
+    <path d="M399 220 L411 232"/><path d="M411 220 L399 232"/>
+  </g>
+
+  <rect class="p" x="440" y="48" width="444" height="44" rx="8"/>
+  <text class="t-h" x="456" y="68">Process isolation</text>
+  <text class="t-s" x="456" y="84">Blocks an untrusted binary before it executes</text>
+
+  <rect class="p" x="440" y="100" width="444" height="44" rx="8"/>
+  <text class="t-h" x="456" y="120">File system isolation</text>
+  <text class="t-s t-mono" x="456" y="136">/root/.aws/credentials stays unreadable</text>
+
+  <rect class="p" x="440" y="152" width="444" height="44" rx="8"/>
+  <text class="t-h" x="456" y="172">Network isolation</text>
+  <text class="t-s" x="456" y="188">Blocks raw sockets and ICMP, restricts outbound traffic</text>
+
+  <rect class="p" x="440" y="204" width="444" height="44" rx="8"/>
+  <text class="t-h" x="456" y="224">Domain access isolation</text>
+  <text class="t-s" x="456" y="240">Blocks any domain outside the allow list</text>
+</svg>
+</div>
+
+The kernel enforces each control through eBPF and Linux Security Modules, so a workload cannot negotiate past one and your application needs no code change. All four apply to on-premises model servers and locally hosted agents, on a VM, in a container, or under Kubernetes.
+
 ![Zero Trust Policy Enforcement](./images/modelarmor/use3.png)
 
 ### Zero Trust Policy Enforcement
@@ -117,7 +164,7 @@ ModelArmor works across frameworks and environments:
 
 An FGSM attack manipulates input data by adding imperceptible noise, creating adversarial examples that force the TensorFlow model to misclassify (e.g., predicting “5” for an image of “2”).
 
-Traditional container security fails here because the model and container remain unchanged; the attack happens through crafted input.
+Traditional container security fails here because the model and container remain unchanged. The attack happens through crafted input.
 
 **ModelArmor Protection:**
 

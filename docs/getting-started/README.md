@@ -25,6 +25,7 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [accuknox-agents.md](accuknox-agents.md) | AccuKnox Agents are the agents that are part of the AccuKnox solution. These agents are responsible for enforcing the security policies and providing deep vi... |
 | [accuknox-arch.md](accuknox-arch.md) | A concise and detailed overview of AccuKnox's CNAPP architecture, components, and operational workflows. |
 | [accuknox-release-notes.md](accuknox-release-notes.md) | Browse AccuKnox release versions and changelogs. |
+| [ai-security-arch.md](ai-security-arch.md) | How AccuKnox AI Security is put together. The four enforcement layers, the path a model takes from a public registry into production, and the four ways the c... |
 | [audit-trail-logs.md](audit-trail-logs.md) | Learn about EventTrail, its log structure, examples, and how to use the UI. |
 | [aws-ami.md](aws-ami.md) | Steps to install AccuKnox Control Plane using AWS AMI |
 | [aws-cdr.md](aws-cdr.md) | AccuKnox CDR for AWS documentation |

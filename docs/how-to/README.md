@@ -68,6 +68,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [llm-defense-app-onboard.md](llm-defense-app-onboard.md) | Learn how to onboard your application with AccuKnox Prompt Firewall using the Python SDK. This guide covers steps from application registration to scanning p... |
 | [llm-static-scan.md](llm-static-scan.md) | Learn how to perform LLM Static Scans using AccuKnox for OpenAI, Ollama and Custom Large Language Models. |
 | [ml-static-scan.md](ml-static-scan.md) | Learn how to perform ML Model Static Scans using AccuKnox for GitHub and Hugging Face repositories to secure your machine learning models. |
+| [model-scan-cicd.md](model-scan-cicd.md) | Wire the AccuKnox pre-deployment model scan into CI/CD so a public model reaches your registry only after a sandboxed scan and a SecOps approval on the pull... |
 | [oracle-onboarding.md](oracle-onboarding.md) | Step-by-step guide to configure and onboard your Oracle Cloud Infrastructure (OCI) account to AccuKnox. |
 | [playbook-aspm.md](playbook-aspm.md) | ASPM playbook explaining how to secure application development and deployment processes using AccuKnox’s zero trust CNAPP framework. |
 | [playbook-cspm.md](playbook-cspm.md) | CSPM playbook providing guidelines on securing cloud infrastructure and identifying misconfigurations with AccuKnox’s zero trust model. |

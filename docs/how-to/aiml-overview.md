@@ -100,6 +100,12 @@ AccuKnox AI-SPM discovers and protects your AI/ML assets. Run every AI security 
   <li><span class="ak-module ak-module--soon">AI Compliance &amp; Governance (AI-GRC) <span>Coming soon</span></span></li>
 </ul>
 
+New to the platform? Read the [AI security architecture](../getting-started/ai-security-arch.md) first. It maps which collection method reaches which kind of asset, and that decides what you install below.
+
+!!! note "Useful Links"
+    - For supported platforms refer to the [**AI Security Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
+    - For use cases refer to the [**AI Security Use Cases**](https://help.accuknox.com/use-cases/aiml-usecases/)
+
 ## Cloud Onboarding
 
 Onboard a cloud account to discover AI/ML assets and enable red teaming and posture scanning across your models and datasets.
@@ -120,7 +126,7 @@ Onboard a cloud account to discover AI/ML assets and enable red teaming and post
 
 - title: On-Prem Models
   image: ./icons/onprem.svg
-  url:
+  url: /how-to/aiml-saas-vs-onprem/
 
 ::/cards::
 
@@ -156,43 +162,15 @@ Onboard a cloud account to discover AI/ML assets and enable red teaming and post
   image: ./icons/model-safety.svg
   url: /how-to/azure-aidr/
 
+- title: Model Scan in CI/CD
+  image: ./icons/cicd-pipeline.svg
+  url: /how-to/model-scan-cicd/
+
 ::/cards::
-
-## Supported Platforms and Use Cases
-
-!!! note "Useful Links"
-    - For list of supported platforms refer to AccuKnox's [**AI Security Support Matrix**](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
-    - For use cases refer to the [**AI Security Use Cases**](https://help.accuknox.com/use-cases/aiml-usecases/)
 
 ## Featured Videos
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: auto; font-family: Arial, sans-serif;">
-
-  <!-- AI Copilot -->
-  <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
-    <div style="aspect-ratio:16/9;">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OJLkKghtEpQ" title="AI Copilot" frameborder="0" allowfullscreen style="border:0;"></iframe>
-    </div>
-    <div style="padding:8px;">
-      <h4 style="margin:0 0 4px; display:flex; align-items:center; gap:6px;">
-        AI Copilot
-      </h4>
-      <p style="margin:0; font-size:0.75rem; color:#555;">Enhance security operations with AI-driven insights, automated threat detection, and response recommendations.</p>
-    </div>
-  </div>
-
-  <!-- AI Compliance -->
-  <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
-    <div style="aspect-ratio:16/9;">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rMc-fV5kzvs" title="AI Compliance" frameborder="0" allowfullscreen style="border:0;"></iframe>
-    </div>
-    <div style="padding:8px;">
-      <h4 style="margin:0 0 4px; display:flex; align-items:center; gap:6px;">
-        AI Compliance
-      </h4>
-      <p style="margin:0; font-size:0.75rem; color:#555;">Automate policy checks and ensure AI systems align with standards like EU AI Act, NIST, and ISO 42001.</p>
-    </div>
-  </div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: auto; font-family: Arial, sans-serif;">
 
   <!-- Model Safety -->
   <div style="background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.06); overflow:hidden;">
@@ -216,7 +194,7 @@ Onboard a cloud account to discover AI/ML assets and enable red teaming and post
       <h4 style="margin:0 0 4px; display:flex; align-items:center; gap:6px;">
         Securing AI Factories
       </h4>
-      <p style="margin:0; font-size:0.75rem; color:#555;">Implement end-to-end security for AI pipelines—from data ingestion to model deployment.</p>
+      <p style="margin:0; font-size:0.75rem; color:#555;">Implement end-to-end security for AI pipelines, from data ingestion to model deployment.</p>
     </div>
   </div>
 

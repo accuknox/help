@@ -137,6 +137,7 @@ Supports over 30 regulatory standards, including:
 
 ## Additional Resources
 
+- [AI Security Architecture](ai-security-arch.md), the AI-specific view of enforcement layers and collection methods
 - [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
 - [Integrations Playbook](https://help.accuknox.com/how-to/playbook-integrations/)
 - [Telemetry Logs](https://help.accuknox.com/integrations/telemetry-logs/)
