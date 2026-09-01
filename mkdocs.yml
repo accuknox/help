@@ -381,6 +381,7 @@ nav:
           - "Chrome": "integrations/chrome-browser-integration.md"
           - "Edge": "integrations/edge-browser-integration.md"
           - "Firefox": "integrations/firefox-browser-integration.md"
+          - "Intune Deployment": "integrations/intune-browser-plugin-deployment.md"
       - "Azure Copilot Studio": "integrations/copilot-studio.md"
       - "BedRock AgentCore": "integrations/bedrock-agentcore.md"
       - "Power Apps": "integrations/powerapps-integration.md"
