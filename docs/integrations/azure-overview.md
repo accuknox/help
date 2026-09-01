@@ -19,6 +19,12 @@ hide:
 
 ::cards:: cols=3
 
+- title: Unified Code Analysis
+  image: ./cicd-icons/UniCodeAnal.svg
+  url: /integrations/azure-unified-code-analysis/
+- title: xBOM (SBOM, CBOM, AIBOM)
+  image: ./cicd-icons/aspm-container-scan.svg
+  url: /integrations/azure-xbom/
 - title: SAST (Static Analysis)
   image: ./cicd-icons/sast.svg
   url: /integrations/azure-sast/
