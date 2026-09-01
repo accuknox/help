@@ -20,7 +20,7 @@
       "Skill(firecrawl-parse)",
       "Skill(firecrawl-parse:*)",
       "Bash(gh api *)",
-      "Bash(git -C \"D:\\\\Atharva\\\\AccuKnox\\\\HelpDocs\" remote -v)"
+      "Bash(git fetch *)"
     ]
   }
 }

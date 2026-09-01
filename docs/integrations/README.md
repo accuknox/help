@@ -113,6 +113,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [harness-sast.md](harness-sast.md) | Automate SAST in Harness pipelines with AccuKnox to detect vulnerabilities and improve security posture following this step by step guide. |
 | [ibm-qradar.md](ibm-qradar.md) | Forward AccuKnox security alerts to IBM QRadar via webhook and Syslog for centralized SIEM monitoring and incident response. |
 | [index.md](index.md) | Explore AccuKnox's integration capabilities with major CI/CD tools and cloud platforms to enhance security through a zero trust CNAPP framework. |
+| [intune-browser-plugin-deployment.md](intune-browser-plugin-deployment.md) | Use Microsoft Intune to push the AccuKnox Prompt Firewall extension to Chrome and Edge on Windows, and to Chrome on macOS. |
 | [jenkins-artifact-scan.md](jenkins-artifact-scan.md) | Glob-scan jars, wheels, archives, and lockfiles for known CVEs in a Jenkins pipeline using the AccuKnox ASPM plugin. |
 | [jenkins-container-scan.md](jenkins-container-scan.md) | Pull and scan container images for CVEs from a Jenkins pipeline using the AccuKnox ASPM plugin. |
 | [jenkins-iac-scan.md](jenkins-iac-scan.md) | Scan Terraform, CloudFormation, Kubernetes, Helm, ARM, and Dockerfiles in a Jenkins pipeline with AccuKnox ASPM. |
