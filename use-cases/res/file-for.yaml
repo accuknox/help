@@ -1,0 +1,37 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: audit-for-system-paths
+  namespace: wordpress-mysql
+spec:
+  action: Allow
+  file:
+    matchDirectories:
+    - dir: /bin/
+      readOnly: true
+      recursive: true
+      action: Audit
+    - dir: /sbin/
+      readOnly: true
+      recursive: true
+      action: Audit
+    - dir: /usr/sbin/
+      readOnly: true
+      action: Audit
+      recursive: true
+    - dir: /usr/bin/
+      readOnly: true
+      recursive: true
+      action: Audit
+    - dir: /etc/
+      readOnly: true
+      recursive: true
+      action: Audit
+  severity: 5
+  tags:
+  - NIST
+  - PCI-DSS
+  message: Access to network files detected. Possible violation of NIST Controls
+  selector:
+    matchLabels:
+      app: mysql
