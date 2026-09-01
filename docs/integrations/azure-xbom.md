@@ -43,8 +43,6 @@ The `AccuKnox-xBOM@2` task is now available to every pipeline in that organizati
 
 In AccuKnox, go to **Settings > Tokens** and click **Create**.
 
-![AccuKnox sidebar with Tokens highlighted under the expanded Settings menu](./images/azure-xbom/tokens-page.png)
-
 Enter a name, set an expiration period, and click **Generate**.
 
 ![Token creation form showing the name field, expiration period, and Generate button](./images/azure-xbom/create-token.png)
@@ -59,8 +57,6 @@ For the full walkthrough, see [How to Create Tokens](../how-to/how-to-create-tok
 ### Create the label
 
 Labels group and filter BOM results across projects and pipeline runs. Go to **Settings > Labels**.
-
-![AccuKnox sidebar with Labels highlighted under the expanded Settings menu](./images/azure-xbom/labels-page.png)
 
 Click **+ Label**, enter a name such as `azure-xbom`, and click **Save**.
 

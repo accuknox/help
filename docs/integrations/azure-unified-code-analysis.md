@@ -25,8 +25,6 @@ One pipeline task runs SAST, SCA, Secret, IaC, and SBOM scans together and pushe
 
 A label groups the scan results this pipeline sends. In AccuKnox, go to **Settings > Labels**.
 
-![AccuKnox sidebar with Labels highlighted under the expanded Settings menu](./images/azure-unified-code-analysis/labels-page.png)
-
 Click **+ Label**, enter a unique name such as `azure-uca`, and click **Save**. The message *Label name is available* confirms the name is free.
 
 ![Create label dialog showing the name field and the Label name is available confirmation](./images/azure-unified-code-analysis/create-label.png)
@@ -36,8 +34,6 @@ For the full walkthrough, see [How to Create Labels](../how-to/how-to-create-lab
 ## Step 2. Create an API token
 
 The token lets the pipeline push results to AccuKnox. Go to **Settings > Tokens**.
-
-![AccuKnox sidebar with Tokens highlighted under the expanded Settings menu](./images/azure-unified-code-analysis/tokens-page.png)
 
 Click **Create +**, enter a name, choose an expiration period, and click **Generate**.
 
