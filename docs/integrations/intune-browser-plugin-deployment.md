@@ -1,9 +1,9 @@
 ---
-title: Intune Deployment for the Prompt Firewall Browser Plugin
+title: Prompt Firewall Plugin Deployment with Intune
 description: Use Microsoft Intune to push the AccuKnox Prompt Firewall extension to Chrome and Edge on Windows, and to Chrome on macOS.
 ---
 
-# Intune deployment for the Prompt Firewall extension
+# Prompt Firewall plugin deployment with Intune
 
 This guide provides step-by-step instructions to silently install and configure the AccuKnox Prompt Firewall extension for Google Chrome and Microsoft Edge across Windows and macOS devices using Microsoft Intune.
 
