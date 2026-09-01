@@ -92,7 +92,7 @@ Findings land in the AccuKnox activity bar under **Findings**, **Suppressed**, a
 
 After you edit code, run **AccuKnox: Run Scan (Changed Files)** to rescan only what git says changed. It is much faster than a full scan.
 
-![AccuKnox Findings sidebar grouped by High and Medium severity, with the Run Scan (Changed Files) button highlighted](./images/vscode-code-security/changed-files-scan.png)
+![AccuKnox Findings sidebar showing High severity results, with the Run Scan (Changed Files) button highlighted](./images/vscode-code-security/changed-files-scan.png)
 
 ## Commands
 

@@ -25,7 +25,7 @@ One pipeline task runs SAST, SCA, Secret, IaC, and SBOM scans together and pushe
 
 A label groups the scan results this pipeline sends. In AccuKnox, go to **Settings > Labels**.
 
-![AccuKnox Settings > Labels page with the + Label button in the top-right corner](./images/azure-unified-code-analysis/labels-page.png)
+![AccuKnox sidebar with Labels highlighted under the expanded Settings menu](./images/azure-unified-code-analysis/labels-page.png)
 
 Click **+ Label**, enter a unique name such as `azure-uca`, and click **Save**. The message *Label name is available* confirms the name is free.
 
@@ -37,7 +37,7 @@ For the full walkthrough, see [How to Create Labels](../how-to/how-to-create-lab
 
 The token lets the pipeline push results to AccuKnox. Go to **Settings > Tokens**.
 
-![AccuKnox Settings > Tokens page with the Create + button](./images/azure-unified-code-analysis/tokens-page.png)
+![AccuKnox sidebar with Tokens highlighted under the expanded Settings menu](./images/azure-unified-code-analysis/tokens-page.png)
 
 Click **Create +**, enter a name, choose an expiration period, and click **Generate**.
 
@@ -66,7 +66,7 @@ Open **Project Settings > Pipelines > Library > + Variable Group** and add three
 | `ACCUKNOX_TOKEN` | Yes | The token from Step 2 |
 | `ACCUKNOX_LABEL` | No | The label from Step 1 |
 
-![Azure DevOps variables page showing ACCUKNOX_TOKEN stored as a masked secret value](./images/azure-unified-code-analysis/pipeline-variables.png)
+![Azure DevOps Variables panel listing ACCUKNOX_ENDPOINT, ACCUKNOX_LABEL, and ACCUKNOX_TOKEN, with the token value masked](./images/azure-unified-code-analysis/pipeline-variables.png)
 
 !!! warning "Mark the token as secret"
     Set the lock icon on `ACCUKNOX_TOKEN`. Azure DevOps then masks it in logs. Anyone with edit access to the pipeline can still reach the secrets that pipeline consumes, so restrict who can edit it.
