@@ -3,17 +3,25 @@ title: Intune Deployment for the Prompt Firewall Browser Plugin
 description: Use Microsoft Intune to push the AccuKnox Prompt Firewall extension to Chrome and Edge on Windows, and to Chrome on macOS.
 ---
 
-# Silent plugin rollout with Microsoft Intune
+# Intune deployment for the Prompt Firewall extension
 
-Microsoft Intune installs the AccuKnox Prompt Firewall extension on a managed device without asking the user. Intune also pushes the API key, so nobody has to open the extension settings and paste a token. A user cannot remove the extension once the policy applies.
+This guide provides step-by-step instructions to silently install and configure the AccuKnox Prompt Firewall extension for Google Chrome and Microsoft Edge across Windows and macOS devices using Microsoft Intune.
 
-This page covers Chrome and Edge on Windows, and Chrome on macOS. To install the plugin on one machine by hand instead, follow the [Chrome integration guide](chrome-browser-integration.md) or the [Edge integration guide](edge-browser-integration.md).
+Pick your platform.
 
-## What this page does not cover
+::cards:: cols=2
 
-- **Edge on macOS.** The macOS profile below targets Chrome only.
-- **Firefox.** Install it per device with the [Firefox integration guide](firefox-browser-integration.md).
-- **Personal or unmanaged devices.** Intune only reaches a device that is enrolled in your tenant.
+- title: Windows
+  image: icons/windows.svg
+  url: "#windows-deployment-for-chrome-and-edge"
+  description: Chrome and Edge. Three profiles - force install, import the templates, push the API key.
+
+- title: macOS
+  image: icons/macos.svg
+  url: "#macos-deployment-for-chrome"
+  description: Chrome. One custom profile does the install and the settings together.
+
+::/cards::
 
 ## Prerequisites
 
@@ -33,9 +41,15 @@ Chrome and Edge use the same extension identity.
 !!! warning "The API key is a secret"
     The key is a JWT token that reaches your AccuKnox tenant. Keep it inside Intune. Do not paste it into a shared document, a ticket, or a screenshot.
 
-## Windows rollout for Chrome and Edge
+## What this guide does not cover
 
-Windows takes three profiles. The first installs the extension. The second profile uploads the AccuKnox templates. The third sends the API key and the scan settings.
+- **Edge on macOS.** The macOS profile below targets Chrome only.
+- **Firefox.** Install it per device with the [Firefox integration guide](firefox-browser-integration.md).
+- **A single machine.** Install it by hand with the [Chrome guide](chrome-browser-integration.md) or the [Edge guide](edge-browser-integration.md).
+
+## Windows deployment for Chrome and Edge
+
+Windows takes three profiles, in this order.
 
 ### Step 1. Force install the extension
 
@@ -99,7 +113,7 @@ The policy applies to Windows 10 or later. Both the Chrome entry and the Edge en
 
 ![Policy panel with the API key redacted, scanPrompts and scanResponses checked, Response Mode set to overlay, and Timeout set to 2000](images/intune/configure-extension-settings.png)
 
-## macOS rollout for Chrome
+## macOS deployment for Chrome
 
 macOS reads no ADMX file, so the whole rollout arrives as one custom configuration profile. A single `.mobileconfig` file carries both parts. The `ExtensionInstallForcelist` payload installs the extension and stops the user from removing it. The settings payload carries the API key and the timeout.
 
