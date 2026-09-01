@@ -405,6 +405,8 @@ nav:
         - "Azure DevOps":
           - "Overview": "integrations/azure-overview.md"
           - "Pipeline Script": "integrations/azure-pipeline-script.md"
+          - "Unified Code Analysis": "integrations/azure-unified-code-analysis.md"
+          - "xBOM Scan": "integrations/azure-xbom.md"
           - "SAST": "integrations/azure-sast.md"
           - "SQ-SAST": "integrations/azure-sqsast.md"
           - "Container Image Scan": "integrations/azure-container-scan.md"
@@ -492,6 +494,7 @@ nav:
             - "Secret Scan": "integrations/circleci-secret-scan.md"
             - "SQ-SAST": "integrations/circleci-sqsast.md"
             - "Container Scan": "integrations/circleci-container-scan.md"
+    - "IDE Extension (VS Code & Cursor)": "integrations/vscode-code-security.md"
     - "Registry Scan" : "support-matrix/registry.md"
     - "K8s Management":
       - "Rafay": "integrations/rafay-accuknox.md"
