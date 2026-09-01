@@ -83,7 +83,7 @@ Click **+ Create** and fill in the form.
 | Classifier | `application` | Must match `projectClassifier`. Valid values: `application`, `container`, `firmware`, `library`, `machine-learning-model` |
 | Tags | For example `xbom` | Optional, useful for filtering across projects |
 
-![AccuKnox project creation form showing the name, description, classifier, and tags fields](./images/azure-xbom/create-project.png)
+![AccuKnox project creation form showing the name, description, classifier, and tags fields](./images/azure-xbom/create-project.png){ width="440" }
 
 !!! warning "A name mismatch fails the upload"
     `projectName` and `projectClassifier` in the pipeline must match this project exactly. The scan still runs, then the upload fails.
