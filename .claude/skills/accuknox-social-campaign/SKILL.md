@@ -279,9 +279,10 @@ Never hide the actual capability behind marketing language.
 
 ---
 
-# 8. "WHY IT MATTERS" IS MANDATORY
+# 8. Every source-anchored post says what the reader gains
 
-Every source-anchored post needs a practical value explanation.
+A capability with no stated payoff reads as a changelog entry, and the reader
+skips it. Name the practical value.
 
 Possible value categories:
 

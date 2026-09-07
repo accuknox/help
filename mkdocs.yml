@@ -315,6 +315,8 @@ nav:
       - "Github IaC Scan": "how-to/github-iac-scan.md"
       - "AWS CDK IaC Scan": "how-to/aws-cdk-iac-scan.md"
       - "SCA Scan (Collector)": "how-to/sca.md"
+    - "API Security":
+      - "API Security Scan Onboarding": "how-to/api-security-onboarding.md"
     - "Container Registry":
       - "Overview": "how-to/registry-overview.md"
       - "ACR": "how-to/acr.md"

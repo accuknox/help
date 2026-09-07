@@ -10,6 +10,9 @@ AccuKnox Dynamic Application Security Testing (DAST) supports **unauthenticated 
 !!! tip "Authenticated scans"
     If your application requires login credentials to reach protected content, see [DAST Authenticated Scan](dast-authenticated-scans.md).
 
+!!! tip "Scanning an API instead of a web application"
+    The same collector card runs an API scan. Set its dropdown to **API Scan** and supply an OpenAPI specification. See [API Security Scan Onboarding](api-security-onboarding.md).
+
 ---
 
 ## Configuration Steps
