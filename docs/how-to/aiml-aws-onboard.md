@@ -50,6 +50,7 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
             "Action": [
                 "bedrock:InvokeModel",
                 "bedrock:InvokeAgent",
+                "bedrock:ListImportedModels",
                 "sagemaker:InvokeEndpoint",
                 "sagemaker:ListTags",
                 "bedrock-agentcore:InvokeAgentRuntime",
