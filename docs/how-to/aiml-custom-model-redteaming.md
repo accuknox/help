@@ -19,6 +19,10 @@ hide:
 
 The **Custom Model** collector red teams a single model over its HTTP inference endpoint, without onboarding a full cloud account. The flow works for any LLM exposed over HTTP. Pick your serving platform to get started.
 
+![The AccuKnox control plane reaches cloud AI models through a cloud SDK collector, local on-prem models such as Ollama, vLLM and NVIDIA Triton through the Ollama and OpenAI collectors, and SaaS models such as OpenAI, Anthropic and OpenRouter through the OpenAI interface collector](../assets/images/ai-security/red-team-collectors.webp)
+
+The collector you pick depends on where the model is served. Cloud-managed models use the cloud SDK collector. Self-hosted engines use the Ollama or OpenAI collector. A hosted API behind an OpenAI-compatible interface uses the OpenAI interface collector.
+
 ::cards:: cols=3
 
 - title: AWS Bedrock
