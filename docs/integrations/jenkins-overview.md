@@ -31,6 +31,10 @@ The **AccuKnox ASPM Scanner** plugin wires AccuKnox security scans directly into
   content: Static Application Security Testing on source code.
   image: ./cicd-icons/sast.svg
   url: /integrations/jenkins-sast/
+- title: DAST
+  content: Authenticated and unauthenticated scans of a live web app.
+  image: ./cicd-icons/dast.svg
+  url: /integrations/jenkins-dast/
 - title: IaC Scan
   content: Terraform, CloudFormation, Kubernetes, Helm, ARM.
   image: ./cicd-icons/iac.svg
