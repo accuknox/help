@@ -439,6 +439,7 @@ nav:
           - "Installation": "integrations/jenkins-installation.md"
           - "SAST": "integrations/jenkins-sast.md"
           - "IaC Scan": "integrations/jenkins-iac-scan.md"
+          - "DAST": "integrations/jenkins-dast.md"
           - "Secret Scan": "integrations/jenkins-secret-scan.md"
           - "Container Scan": "integrations/jenkins-container-scan.md"
           - "SBOM": "integrations/jenkins-sbom.md"
