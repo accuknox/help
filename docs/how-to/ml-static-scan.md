@@ -18,6 +18,10 @@ AccuKnox provides static analysis for Machine Learning (ML) models to identify v
 
 ## What the Scan Checks
 
+![The AccuKnox control plane runs a sandbox evaluator that pulls models from Hugging Face over the Hugging Face API, from AWS Bedrock over the BOTO3 SDK, and from an on-premises model store in standard file formats, so every model is verified before it reaches the model registry](../assets/images/ai-security/sandbox-evaluator-sources.webp)
+
+The scan runs in the AccuKnox sandbox evaluator, not on your network. It reads the model from its source, so the check applies to what the source serves today.
+
 The scan verifies a public model across four areas before you promote it. Three describe what the publisher disclosed. One describes the artifact.
 
 - **Supply chain and provenance.** Who authored the model, the country of origin, whether the training dataset is disclosed, the license, and how widely the model is used.
