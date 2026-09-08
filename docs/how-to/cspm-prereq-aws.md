@@ -60,6 +60,7 @@ Create an **inline policy** with the following JSON. This covers Bedrock, SageMa
             "Action": [
                 "bedrock:InvokeModel",
                 "bedrock:InvokeAgent",
+                "bedrock:ListImportedModels",
                 "sagemaker:InvokeEndpoint",
                 "sagemaker:ListTags",
                 "bedrock-agentcore:InvokeAgentRuntime",
