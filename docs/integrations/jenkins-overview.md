@@ -17,7 +17,7 @@ hide:
 
 # Jenkins Integrations
 
-The **AccuKnox ASPM Scanner** plugin wires AccuKnox security scans directly into Jenkins pipelines. Install the plugin once (download `accuknox-aspm.hpi` from https://accuknox-aspm.s3.us-east-2.amazonaws.com/accuknox-aspm.hpi), configure your token globally, then drop a single `accuknox*` pipeline step into any Jenkinsfile. All findings flow to the AccuKnox console for triage, ticketing, and verification.
+The **AccuKnox ASPM Scanner** plugin wires AccuKnox security scans directly into Jenkins pipelines. Install the plugin once (download `accuknox-aspm.hpi` from https://accuknox-aspm-hpi.s3.us-east-2.amazonaws.com/accuknox-aspm.hpi), configure your token globally, then drop a single `accuknox*` pipeline step into any Jenkinsfile. All findings flow to the AccuKnox console for triage, ticketing, and verification.
 
 ![AccuKnox ASPM scans on Jenkins](images/jenkins-overview/all.png)
 
