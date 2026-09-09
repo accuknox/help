@@ -171,19 +171,6 @@ pipeline {
     | `softFail` | from build parameter | `true` = advisory only; `false` = gate the build on threshold breaches. |
     | `label` | from build parameter | AccuKnox label. Required, no global default. |
 
-=== "Common knobs"
-
-    Every `accuknox*` step accepts these:
-
-    | Parameter | Default | Notes |
-    |------|------|------|
-    | `endpoint` | from global config | Control-plane host (no scheme). Per-step override. |
-    | `credentialsId` | from global config | Jenkins credential ID holding the AccuKnox bearer token. |
-    | `skipUpload` | `false` | Run the scanner but don't upload. Useful for dry runs. |
-    | `keepResults` | `true` | Keep results JSON on the agent and archive it as a build artifact. |
-    | `containerMode` | `false` | Run the scanner inside Docker on the agent. |
-    | `cliPath` | `auto` | Path to a pre-staged `accuknox-aspm-scanner` binary (air-gapped use). |
-
 ## Step 4: Run the job and read the console output
 
 Click **Build with Parameters**, set `AUTH_TARGET_URL`, `AUTH_URL` and `AUTH_PASSWORD_CREDENTIAL`, then click **Build**. The console log names the stage that its `when` condition skipped, prints the scanner command as it was assembled, and masks the token and the password.
