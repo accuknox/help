@@ -1,0 +1,114 @@
+---
+title: SAST Integration with AccuKnox in GitHub Actions
+description: Integrate SAST scanning into a GitHub Actions workflow and forward results to AccuKnox for security analysis and mitigation.
+---
+
+# Integrating SAST with AccuKnox in GitHub Actions
+
+This guide outlines integrating SAST scanning into a GitHub Actions workflow and forwarding the results to AccuKnox for analysis and mitigation.
+
+### Prerequisites
+
+- GitHub repository with Actions enabled
+
+- AccuKnox SaaS account
+
+### Integration Steps
+
+#### Step 1: Generate AccuKnox API Token
+
+Log in to AccuKnox. Navigate to **Settings → Tokens** to create an AccuKnox token to forward scan results to SaaS. For details on generating tokens, refer to [How to Create Tokens](https://help.accuknox.com/how-to/how-to-create-tokens/?h=token "https://help.accuknox.com/how-to/how-to-create-tokens/?h=token").
+
+#### Step 2: Configure GitHub Secrets
+
+Define the following secrets in GitHub, for details on configuring the secrets/variables, refer to [Using secrets in GitHub Actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions").
+
+- **ACCUKNOX_TOKEN**: AccuKnox API token for authorization.
+
+- **ACCUKNOX_ENDPOINT**: The AccuKnox API URL (e.g., [cspm.demo.accuknox.com](http://cspm.demo.accuknox.com/ "http://cspm.demo.accuknox.com/")).
+
+- **ACCUKNOX_LABEL**: The label for your scan.
+
+#### Step 3: Define GitHub Actions Workflow
+
+Create a new GitHub Actions workflow file `.github/workflows/accuknox-opengrep.yml` with the following configuration:
+
+{% raw %}
+```yaml
+name: Accuknox SAST
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  accuknox-cicd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: "Run AccuKnox SAST"
+        uses: accuknox/sast-scan-opengrep-action@latest
+        with:
+          accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
+          accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
+          accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY}}
+          accuknox_ai_analysis: "false"
+          soft_fail: "true"
+```
+{% endraw %}
+
+### Inputs for AccuKnox SAST Action
+
+| **Name**              | **Description**                 | **Required** | **Default**              |
+| --------------------- | ------------------------------- | ------------ | ------------------------ |
+| **pipeline_id**       | GitHub Run ID                   | No           | `Github RunId`           |
+| **job_url**           | GitHub Job URL                  | No           | `Github Run URL`         |
+| **accuknox_endpoint** | CSPM panel URL                  | Yes          | `cspm.demo.accuknox.com` |                        |
+| **accuknox_token**    | AccuKnox API Token              | Yes          |   None                       |
+| **accuknox_label**    | Label for scan results          | Yes          |      
+None                    |
+| **soft_fail**   | Continue even if scan fails     | No           | `false`                  |
+
+
+### Workflow Execution Without AccuKnox
+
+Initially, the SAST action scans the code for vulnerabilities but does not forward results to AccuKnox, requiring manual review.
+
+### Workflow Execution With AccuKnox
+
+With AccuKnox integrated, SAST scan results are automatically sent to AccuKnox for further risk assessment and remediation.
+
+![image-20250310-030331.png](./images/opengrep-sast/1.png)
+
+### Viewing Results in AccuKnox
+
+1.  After execution, navigate to the AccuKnox dashboard.
+
+2.  Open **Issues > Findings** and check **Opengrep Findings**.
+    ![image-20250310-030536.png](./images/opengrep-sast/2.png)
+
+3.  Select a vulnerability to inspect details.
+    ![image-20250310-030648.png](./images/opengrep-sast/3.png)
+
+4.  Apply fixes based on recommendations under the **Solutions** tab  or use **ASK AI**.
+    ![image-20250310-030726.png](./images/opengrep-sast/4.png)
+
+5.  Generate an issue ticket for tracking the fix.
+    ![image-20250310-050932.png](./images/opengrep-sast/5.png)
+
+6.  Review Updated Results
+
+    - After fixing the vulnerability, rerun the workflow.
+
+    - Navigate to the AccuKnox SaaS dashboard and verify that the vulnerability has been resolved.
+
+### Conclusion
+
+Integrating SAST with AccuKnox in GitHub Actions enables automated vulnerability detection and secure development workflows. It provides centralized monitoring, early issue detection, and actionable remediation insights, ensuring code quality. By leveraging AccuKnox's risk assessment capabilities, developers can seamlessly enhance security while maintaining efficiency in their CI/CD pipeline.

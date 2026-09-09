@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 764" width="1000" height="764" role="img" aria-label="On-prem discovery flow: VM and in-cluster scanners feed package-level discovery, vulnerability and malware scanning, a categorized asset view, and parent asset mapping.">
+  <defs>
+    <marker id="arw2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7b96"/>
+    </marker>
+    <style>
+      .bx    { stroke-width: 1.6; }
+      .src   { fill: #eef1f6; stroke: #c2cad6; }
+      .scan  { fill: #e6f5f0; stroke: #97ccbb; }
+      .step  { fill: #eaf1ff; stroke: #a7c2f6; }
+      .key   { fill: #f1edff; stroke: #a794ea; stroke-width: 2.4; }
+      .t     { font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 19px; fill: #10254f; }
+      .s     { font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14.5px; fill: #5d6d8b; }
+      .tg    { fill: #0d4437; }
+      .sg    { fill: #4d7a6c; }
+      .tk    { fill: #2c1a72; }
+      .sk    { fill: #6a5fa0; }
+      .ln    { stroke: #6b7b96; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="764" fill="#ffffff"/>
+
+  <!-- sources -->
+  <rect class="bx src" rx="12" x="90" y="30" width="360" height="76"/>
+  <text class="t" x="270" y="62" text-anchor="middle">Virtual machines</text>
+  <text class="s" x="270" y="86" text-anchor="middle">Linux and Windows VM hosts</text>
+
+  <rect class="bx src" rx="12" x="550" y="30" width="360" height="76"/>
+  <text class="t" x="730" y="62" text-anchor="middle">Kubernetes cluster</text>
+  <text class="s" x="730" y="86" text-anchor="middle">Nodes and namespaces</text>
+
+  <path class="ln" d="M 270 106 L 270 148" marker-end="url(#arw2)"/>
+  <path class="ln" d="M 730 106 L 730 148" marker-end="url(#arw2)"/>
+
+  <!-- scanners -->
+  <rect class="bx scan" rx="12" x="90" y="154" width="360" height="76"/>
+  <text class="t tg" x="270" y="186" text-anchor="middle">VM scanner</text>
+  <text class="s sg" x="270" y="210" text-anchor="middle">Runs on the host filesystem</text>
+
+  <rect class="bx scan" rx="12" x="550" y="154" width="360" height="76"/>
+  <text class="t tg" x="730" y="186" text-anchor="middle">In-cluster scanner</text>
+  <text class="s sg" x="730" y="210" text-anchor="middle">Runs inside the cluster</text>
+
+  <!-- merge bus -->
+  <path class="ln" d="M 270 230 L 270 272 M 730 230 L 730 272 M 270 272 L 730 272 M 500 272 L 500 296"/>
+  <path class="ln" d="M 500 282 L 500 302" marker-end="url(#arw2)"/>
+
+  <!-- pipeline -->
+  <rect class="bx step" rx="12" x="280" y="308" width="440" height="76"/>
+  <text class="t" x="500" y="340" text-anchor="middle">Package-level discovery</text>
+  <text class="s" x="500" y="364" text-anchor="middle">Every package on every scanned image, container, or host</text>
+
+  <path class="ln" d="M 500 384 L 500 420" marker-end="url(#arw2)"/>
+
+  <rect class="bx step" rx="12" x="280" y="426" width="440" height="76"/>
+  <text class="t" x="500" y="458" text-anchor="middle">Vulnerability and malware scanning</text>
+  <text class="s" x="500" y="482" text-anchor="middle">CVE correlation against each package version</text>
+
+  <path class="ln" d="M 500 502 L 500 538" marker-end="url(#arw2)"/>
+
+  <rect class="bx key" rx="12" x="280" y="544" width="440" height="76"/>
+  <text class="t tk" x="500" y="576" text-anchor="middle">Categorized asset view</text>
+  <text class="s sk" x="500" y="600" text-anchor="middle">Mapped to seven AI/ML asset types, with findings</text>
+
+  <path class="ln" d="M 500 620 L 500 656" marker-end="url(#arw2)"/>
+
+  <rect class="bx step" rx="12" x="280" y="662" width="440" height="76"/>
+  <text class="t" x="500" y="694" text-anchor="middle">Parent asset mapping</text>
+  <text class="s" x="500" y="718" text-anchor="middle">Which VM or workload each finding lives on</text>
+</svg>

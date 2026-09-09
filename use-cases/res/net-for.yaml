@@ -1,0 +1,25 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: ksp-nist-ac-18-1-network-audit
+  namespace: wordpress-mysql
+spec:
+  severity: 3
+  tags: ["NIST-800", "AC-18(1)", "Networking", "Access", "NIST_SA", "NIST_SA-20", "NIST_SA-20-Customized Development of Critical Components", "SA"]
+  message: "Access to network files detected. Possible violation of NIST Controls"
+  selector:
+    matchLabels:
+      app: wordpress
+  file:
+    matchPaths:
+      - path: /proc/net/tcp
+      - path: /proc/net/udp
+      - path: /proc/net/icmp
+      - path: /proc/net/snmp
+      - path: /proc/net/route
+      - path: /proc/net/dev
+      - path: /var/log/syslog
+      - path: /var/log/audit/audit.log
+      - path: /etc/hostapd/hostapd.conf
+      - path: /etc/network/if-up.d
+  action: Audit

@@ -1,0 +1,18 @@
+┌─────────────────────────────────────────────────────────┬────────────────────┬────────────┬─────────┬────────────────────────┬────────┬───────────┬──────────────────────────────────────────────┐
+│                           NAME                          │ ADDRESS            │   STATUS   │ VERSION │ CIPHERSUITE            │ HASH   │ SIGNATURE │ VERIFICATION                                 │
+├─────────────────────────────────────────────────────────┼────────────────────┼────────────┼─────────┼────────────────────────┼────────┼───────────┼──────────────────────────────────────────────┤
+│                default/kubernetes[https]                │ 10.43.0.1:443      │     TLS    │ TLSv1.3 │ TLS_AES_128_GCM_SHA256 │ SHA256 │ ECDSA     │ self-signed certificate in certificate chain │
+│              kube-system/kube-dns[dns-tcp]              │ 10.43.0.10:53      │ PLAIN_TEXT │         │                        │        │           │                                              │
+│              kube-system/kube-dns[metrics]              │ 10.43.0.10:9153    │ PLAIN_TEXT │         │                        │        │           │                                              │
+│            kube-system/metrics-server[https]            │ 10.43.213.123:443  │     TLS    │ TLSv1.3 │ TLS_AES_128_GCM_SHA256 │ SHA256 │ RSA-PSS   │ self-signed certificate in certificate chain │
+│                  kube-system/kubearmor                  │ 10.43.66.242:32767 │ PLAIN_TEXT │         │                        │        │           │                                              │
+│ kube-system/kubearmor-controller-metrics-service[https] │ 10.43.231.238:8443 │     TLS    │ TLSv1.3 │ TLS_AES_128_GCM_SHA256 │ SHA256 │ RSA-PSS   │ self-signed certificate in certificate chain │
+│     kube-system/kubearmor-controller-webhook-service    │ 10.43.172.143:443  │     TLS    │ TLSv1.3 │ TLS_AES_128_GCM_SHA256 │ SHA256 │ RSA-PSS   │ unable to verify the first certificate       │
+│                default/dvwa-mysql-service               │ 10.43.120.37:3306  │ PLAIN_TEXT │         │                        │        │           │                                              │
+│                 default/dvwa-web-service                │ 10.43.109.162:8081 │  CONNFAIL  │         │                        │        │           │                                              │
+│                 kube-system/traefik[web]                │ 10.43.23.112:80    │     TLS    │ TLSv1.3 │ TLS_AES_128_GCM_SHA256 │ SHA256 │ RSA-PSS   │ self-signed certificate                      │
+│              kube-system/traefik[websecure]             │ 10.43.23.112:443   │     TLS    │ TLSv1.3 │ TLS_AES_128_GCM_SHA256 │ SHA256 │ RSA-PSS   │ self-signed certificate                      │
+│      accuknox-agents/agents-operator[health-check]      │ 10.43.246.69:9090  │ PLAIN_TEXT │         │                        │        │           │                                              │
+│       accuknox-agents/agents-operator[spire-agent]      │ 10.43.246.69:9091  │ PLAIN_TEXT │         │                        │        │           │                                              │
+│             accuknox-agents/discovery-engine            │ 10.43.193.125:9089 │ PLAIN_TEXT │         │                        │        │           │                                              │
+└─────────────────────────────────────────────────────────┴────────────────────┴────────────┴─────────┴────────────────────────┴────────┴───────────┴──────────────────────────────────────────────┘

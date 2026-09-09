@@ -1,0 +1,25 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: Auditing Syscalls 
+  namespace: wordpress-mysql
+spec:
+  action: Audit
+  message: Warning! Syscall Alert
+  syscalls:
+    matchSyscalls:
+    - syscall:
+      - unlink
+      - chmod
+      - chown
+      - chroot
+      - mount
+      - ptrace
+      - kill
+      - swapoff
+      - syslog
+      - sethostname
+  selector:
+    matchLabels:
+      app: wordpress
+  tags : ["CIS-4.4,4.3,4.12", "NIST-4.4,4.3,4.12", "MITRE-T1602"]
