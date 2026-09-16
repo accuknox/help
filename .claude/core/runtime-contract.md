@@ -32,6 +32,7 @@ the repo root, which load every session. Never restate one of them inside anothe
 | A comparison page | `.claude/skills/accuknox-comparison-writer/SKILL.md`, on top of section 10 | `references/comparison-drafts/` |
 | A press release | `.claude/skills/accuknox-press-release-writer/SKILL.md`. Every name and title from an opened source | `references/press-release-drafts/` |
 | A case study | `.claude/skills/accuknox-case-study-writer/SKILL.md`. Three quantified outcomes minimum | `references/case-study-drafts/` |
+| An RFP, RFI or security questionnaire | `.claude/skills/accuknox-rfp-filler/SKILL.md`, on top of sections 1, 8, 9 and 12. The gate is `validate.py`, not mkdocs | outside the repo, beside the customer's file |
 | Alt text, a caption, a table | section 12 | anywhere |
 
 A page carries one job. Where a request spans two, write them as two pages rather than one page that
