@@ -19,7 +19,8 @@ WRITING = re.compile(
     r"edit|editing|document|documenting|page|doc|docs|blog|post|guide|"
     r"how-?to|faq|release note|changelog|alt text|caption|readme|"
     r"press release|case study|announce|comparison|battlecard|"
-    r"tighten|proofread|de-?slop|slop|humani[sz]e|clean up)\b",
+    r"tighten|proofread|de-?slop|slop|humani[sz]e|clean up|"
+    r"rfps?|rfis?|rfqs?|tender|questionnaire|fill|fills|filling|filler)\b",
     re.I,
 )
 
@@ -29,11 +30,15 @@ AUDIT = re.compile(
 )
 AUTHORING = re.compile(
     r"\b(write|writing|draft|drafting|rewrite|rewriting|redo|revise|compose|"
-    r"edit|editing|document|tighten|de-?slop|humani[sz]e|clean up)\b", re.I,
+    r"edit|editing|document|tighten|de-?slop|humani[sz]e|clean up|fill|filling)\b", re.I,
 )
 
 # Ordered. The first match wins, so the narrow channels come first.
 CHANNELS = [
+    ("RFP response", r"\brfps?\b|\brfis?\b|\brfqs?\b|\btender\b|\bquestionnaire\b|rfp-filler",
+     "the accuknox-rfp-filler skill, which owns this channel end to end, on top of "
+     "sections 1, 8, 9 and 12. Every answer cites a help page it opened",
+     "outside the repo, beside the customer's RFP file"),
     ("Blog post", r"\bblog\b|\bpost\b|\barticle\b|\bseries\b",
      "section 11, plus the accuknox-blog-writer skill, which owns this channel "
      "end to end. Front-load the answer in the first 150 words, then earn the length",
@@ -71,6 +76,21 @@ CHANNELS = [
      "the whole of writing-rules.md", "docs/"),
 ]
 
+GATES = {
+    "default": (
+        "  mkdocs build --strict\n"
+        "  python \"D:\\Atharva\\NOTES\\SCRIPTS\\slop\\score.py\" \"<file>\"      CRIT must reach 0\n"
+        "  then section 5 of .claude/core/restraint-rules.md",
+        "mkdocs --strict: pass/fail | slop CRIT <n> | restraint pass: done",
+    ),
+    "RFP response": (
+        "  python .claude/skills/accuknox-rfp-filler/scripts/validate.py <workdir>   must pass\n"
+        "  then the three reviewers in the skill's references/review.md",
+        "validate.py: pass/fail | reviewers: accuracy, mechanics, buyer",
+    ),
+}
+
+
 TEMPLATE = """\
 WRITING LOAD ORDER (hook, not optional)
 
@@ -89,9 +109,7 @@ restate one of them inside another file.
 Target path: {path}
 
 Gates, in this order:
-  mkdocs build --strict
-  python "D:\\Atharva\\NOTES\\SCRIPTS\\slop\\score.py" "<file>"      CRIT must reach 0
-  then section 5 of .claude/core/restraint-rules.md
+{gates}
 
 Two rules are hard and outrank every file above. No version, CVE, CVSS score,
 compliance control, CLI flag, API field, default or supported platform without
@@ -104,7 +122,7 @@ Print this block above the draft, filled in with what actually loaded.
     Loaded   runtime-contract -> writing-rules -> restraint-rules
     Channel  {channel}
     Sourced  <the files, docs or advisories opened, by name>
-    Gates    mkdocs --strict: pass/fail | slop CRIT <n> | restraint pass: done
+    Gates    {gate_line}
 
 No block means the chain was skipped.\
 """
@@ -129,7 +147,9 @@ def main() -> int:
     if AUDIT.search(prompt) and not AUTHORING.search(prompt):
         return 0
     channel, focus, path = pick(prompt)
-    sys.stdout.write(TEMPLATE.format(channel=channel, focus=focus, path=path))
+    gates, gate_line = GATES.get(channel, GATES["default"])
+    sys.stdout.write(TEMPLATE.format(channel=channel, focus=focus, path=path,
+                                     gates=gates, gate_line=gate_line))
     return 0
 
 

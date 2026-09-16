@@ -1,0 +1,967 @@
+{
+ "_about": "Routing map for accuknox-rfp-filler. Every page path is relative to docs/ and is checked by scripts/selftest.py. Keywords route a requirement to a module; pages are where the evidence lives; limits are documented gaps with their source. Edit this file, never a copy of it.",
+ "modules": [
+  {
+   "id": "aspm",
+   "name": "Application Security (ASPM)",
+   "covers": "SAST, SCA, DAST, IaC scanning, secret scanning, SBOM and xBOM, CI/CD gating, IDE extension, findings lifecycle for code",
+   "keywords": [
+    "sast",
+    "static analysis",
+    "static application",
+    "source code",
+    "sca",
+    "software composition",
+    "open source",
+    "open-source",
+    "dependency",
+    "dependencies",
+    "transitive",
+    "library",
+    "libraries",
+    "license",
+    "licence",
+    "sbom",
+    "bill of material",
+    "xbom",
+    "cyclonedx",
+    "spdx",
+    "dast",
+    "dynamic application",
+    "web application",
+    "crawl",
+    "spider",
+    "black box",
+    "grey box",
+    "owasp",
+    "cwe",
+    "sans",
+    "iac",
+    "infrastructure as code",
+    "infrastructure-as-code",
+    "terraform",
+    "dockerfile",
+    "helm",
+    "cloudformation",
+    "secret scan",
+    "hardcoded",
+    "credentials in code",
+    "ci/cd",
+    "cicd",
+    "pipeline",
+    "build",
+    "jenkins",
+    "github",
+    "gitlab",
+    "bitbucket",
+    "azure devops",
+    "ide",
+    "vs code",
+    "intellij",
+    "eclipse",
+    "shift-left",
+    "shift left",
+    "false positive",
+    "remediation",
+    "code fix",
+    "sdlc",
+    "devsecops",
+    "scm",
+    "repository",
+    "pull request",
+    "sarif",
+    "language",
+    "framework",
+    "mobile",
+    "android",
+    "ios",
+    "authenticated scan",
+    "mfa",
+    "captcha",
+    "macro",
+    "recorder",
+    "scan policy"
+   ],
+   "pages": [
+    "how-to/aspm-overview.md",
+    "use-cases/aspm.md",
+    "how-to/code-source-onboarding.md",
+    "how-to/sca.md",
+    "how-to/dast-scan-types.md",
+    "how-to/dast-scan-no-auth.md",
+    "how-to/dast-authenticated-scans.md",
+    "use-cases/dast-authenticated.md",
+    "use-cases/mfa-dast.md",
+    "use-cases/dast-xss.md",
+    "use-cases/sast-sq.md",
+    "use-cases/iac-scan.md",
+    "use-cases/container-scan.md",
+    "use-cases/secret-scan-cicd-aws.md",
+    "use-cases/aspm-reports.md",
+    "use-cases/aspm-scanner-cli.md",
+    "getting-started/sarif-findings.md",
+    "getting-started/devsecops.md",
+    "getting-started/xbom-setup.md",
+    "integrations/github-unified-code-analysis-tool.md",
+    "integrations/vscode-code-security.md",
+    "integrations/cicd-overview.md",
+    "how-to/findings-lifecycle.md",
+    "how-to/playbook-aspm.md"
+   ],
+   "matrices": [
+    "support-matrix/sast-support-matrix.md",
+    "support-matrix/iac.md",
+    "support-matrix/cicd-support-matrix.md"
+   ],
+   "faqs": [
+    "faqs/aspm.md",
+    "faqs/sbom.md"
+   ],
+   "image_dirs": [
+    "how-to/images/code-source-onboarding",
+    "how-to/images/dast-auth",
+    "how-to/images/findings",
+    "integrations/images/vscode-code-security",
+    "integrations/images/github-unified-code-analysis-tool",
+    "use-cases/images/aspm-reports"
+   ],
+   "web": [
+    "https://accuknox.com/platform/aspm",
+    "https://accuknox.com/solutions/dast",
+    "https://accuknox.com/solutions/cicd-security"
+   ],
+   "limits": [
+    {
+     "gap": "Native IDE extension is VS Code and Cursor only",
+     "source": "integrations/vscode-code-security.md"
+    }
+   ],
+   "short": "Application Security (ASPM)"
+  },
+  {
+   "id": "cspm",
+   "name": "Cloud Security Posture (CSPM) and Compliance",
+   "covers": "Multi-cloud misconfiguration detection, asset inventory, compliance frameworks, drift, cloud onboarding",
+   "keywords": [
+    "cspm",
+    "cloud posture",
+    "misconfiguration",
+    "aws",
+    "azure",
+    "gcp",
+    "google cloud",
+    "oracle",
+    "oci",
+    "multi-cloud",
+    "multicloud",
+    "cloud account",
+    "subscription",
+    "asset inventory",
+    "inventory",
+    "compliance",
+    "framework",
+    "cis benchmark",
+    "nist",
+    "pci",
+    "hipaa",
+    "iso 27001",
+    "soc 2",
+    "gdpr",
+    "rbi",
+    "cert-in",
+    "drift",
+    "remediation",
+    "auto-remediation",
+    "cloud storage",
+    "s3",
+    "security group",
+    "iam policy",
+    "organization",
+    "terraform onboarding",
+    "agentless"
+   ],
+   "pages": [
+    "use-cases/cspm.md",
+    "use-cases/asset-inventory.md",
+    "use-cases/compliance.md",
+    "use-cases/cloud-misconfigurations.md",
+    "how-to/high-level-onboarding.md",
+    "how-to/aws-onboarding.md",
+    "how-to/azure-onboarding.md",
+    "how-to/gcp-onboarding.md",
+    "how-to/oracle-onboarding.md",
+    "how-to/aws-org-onboard.md",
+    "how-to/azure-org-onboard.md",
+    "how-to/cspm-permissions-overview.md",
+    "how-to/playbook-cspm.md",
+    "resources/compliance-baseline-data.md"
+   ],
+   "matrices": [
+    "support-matrix/assets-list.md",
+    "support-matrix/cloud-regions.md",
+    "support-matrix/public-cloud.md",
+    "support-matrix/compliance-matrix.md"
+   ],
+   "faqs": [
+    "faqs/cspm.md",
+    "faqs/compliance.md"
+   ],
+   "image_dirs": [
+    "how-to/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/cspm",
+    "https://accuknox.com/platform/compliance",
+    "https://accuknox.com/compliance"
+   ],
+   "limits": [
+    {
+     "gap": "CIEM is not available today; KIEM covers Kubernetes identities",
+     "source": "faqs/roadmap.md"
+    },
+    {
+     "gap": "Custom compliance framework is a roadmap item",
+     "source": "faqs/roadmap.md"
+    }
+   ],
+   "short": "Cloud Security Posture (CSPM)"
+  },
+  {
+   "id": "kspm",
+   "name": "Kubernetes Security (KSPM and KIEM)",
+   "covers": "Cluster misconfiguration, CIS Kubernetes benchmark, KIEM, admission control with KnoxGuard, pod security, network micro-segmentation",
+   "keywords": [
+    "kspm",
+    "kubernetes",
+    "k8s",
+    "cluster",
+    "eks",
+    "aks",
+    "gke",
+    "openshift",
+    "rancher",
+    "kiem",
+    "rbac",
+    "service account",
+    "entitlement",
+    "admission",
+    "admission controller",
+    "knoxguard",
+    "kyverno",
+    "opa",
+    "gatekeeper",
+    "pod security",
+    "psa",
+    "cis kubernetes",
+    "kube-bench",
+    "namespace",
+    "network policy",
+    "micro-segmentation",
+    "microsegmentation",
+    "helm",
+    "hardening"
+   ],
+   "pages": [
+    "use-cases/kspm.md",
+    "use-cases/kiem.md",
+    "use-cases/admission-controller-knoxguard.md",
+    "use-cases/pod-security-admission-controller.md",
+    "use-cases/cis-benchmarking.md",
+    "use-cases/cluster-misconfiguration-scanning.md",
+    "use-cases/network-segmentation.md",
+    "use-cases/knoxguard-supply-chain.md",
+    "how-to/k8s-security-onboarding.md",
+    "how-to/cluster-misconfig-scan-onboarding.md",
+    "how-to/cis-benchmarking.md",
+    "how-to/playbook-kspm.md"
+   ],
+   "matrices": [
+    "support-matrix/private-cloud.md",
+    "support-matrix/public-cloud.md"
+   ],
+   "faqs": [
+    "faqs/kspm.md",
+    "faqs/policy-management.md"
+   ],
+   "image_dirs": [
+    "use-cases/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/kspm",
+    "https://accuknox.com/solutions/admission-controller"
+   ],
+   "limits": [],
+   "short": "Kubernetes Security (KSPM)"
+  },
+  {
+   "id": "cwpp",
+   "name": "Runtime Workload Protection (CWPP)",
+   "covers": "eBPF and LSM runtime enforcement with KubeArmor, zero trust policies, process, file and network control, forensics, app behaviour",
+   "keywords": [
+    "cwpp",
+    "runtime",
+    "run-time",
+    "workload",
+    "container runtime",
+    "ebpf",
+    "lsm",
+    "apparmor",
+    "selinux",
+    "kubearmor",
+    "zero trust",
+    "least privilege",
+    "process",
+    "file integrity",
+    "fim",
+    "syscall",
+    "system call",
+    "block",
+    "prevent",
+    "enforce",
+    "anomaly",
+    "behaviour",
+    "behavior",
+    "forensic",
+    "cryptojacking",
+    "crypto mining",
+    "container escape",
+    "exec",
+    "shell",
+    "drift",
+    "policy"
+   ],
+   "pages": [
+    "use-cases/cwpp.md",
+    "use-cases/zero-trust.md",
+    "use-cases/forensics.md",
+    "use-cases/app-behavior.md",
+    "use-cases/hardening.md",
+    "use-cases/app-hardening.md",
+    "use-cases/crypto-mining.md",
+    "use-cases/hildegard.md",
+    "getting-started/runtime-sec-arch.md",
+    "getting-started/cwpp-prereq.md",
+    "how-to/cluster-onboarding.md",
+    "how-to/playbook-cwpp.md",
+    "how-to/cwpp-reports-generation.md"
+   ],
+   "matrices": [
+    "support-matrix/kubearmor-support-matrix.md"
+   ],
+   "faqs": [
+    "faqs/runtime-security.md",
+    "faqs/policy-management.md"
+   ],
+   "image_dirs": [
+    "use-cases/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/cwpp",
+    "https://accuknox.com/platform/runtime-security",
+    "https://accuknox.com/solutions/automated-zero-trust-policy-enforcement"
+   ],
+   "limits": [
+    {
+     "gap": "Windows workload support is a roadmap item",
+     "source": "faqs/roadmap.md"
+    }
+   ],
+   "short": "Runtime Workload Protection (CWPP)"
+  },
+  {
+   "id": "vmsec",
+   "name": "VM and Host Security",
+   "covers": "Agent-based and agentless VM scanning, host vulnerability and malware scanning, VM compliance benchmarking, package manager blocking",
+   "keywords": [
+    "vm",
+    "virtual machine",
+    "host",
+    "bare metal",
+    "bare-metal",
+    "linux",
+    "ubuntu",
+    "rhel",
+    "windows",
+    "server",
+    "endpoint",
+    "malware",
+    "antivirus",
+    "clamav",
+    "stig",
+    "host scan",
+    "agentless scan",
+    "systemd",
+    "package manager",
+    "log4shell"
+   ],
+   "pages": [
+    "use-cases/vm-overview.md",
+    "use-cases/vm-host-scan.md",
+    "use-cases/vm-malware-scan.md",
+    "use-cases/vm-compliance-benchmarking.md",
+    "use-cases/vm-misconfigurations.md",
+    "use-cases/vm-audit-log.md",
+    "use-cases/vm-file-integrity.md",
+    "use-cases/vm-blocking-package-managers.md",
+    "use-cases/vm-reporting.md",
+    "how-to/vm-security/agent-based/linux.md",
+    "how-to/vm-security/agent-based/windows.md",
+    "how-to/vm-security/agentless/cloud-vm-scanning.md",
+    "how-to/playbook-hostsec.md"
+   ],
+   "matrices": [
+    "support-matrix/vms.md"
+   ],
+   "faqs": [],
+   "image_dirs": [
+    "how-to/vm-security/agent-based/images",
+    "how-to/vm-security/agentless/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/hybrid-cloud-security"
+   ],
+   "limits": [
+    {
+     "gap": "Windows and Linux agentless VM scanning is listed on the roadmap",
+     "source": "faqs/roadmap.md"
+    }
+   ],
+   "short": "VM and Host Security"
+  },
+  {
+   "id": "registry",
+   "name": "Container Image and Registry Scanning",
+   "covers": "Image vulnerability scanning in registries and in-cluster, ECR, ACR, GAR, Harbor, Docker Hub, Nexus, JFrog, Quay",
+   "keywords": [
+    "container image",
+    "image scan",
+    "image scanning",
+    "registry",
+    "registries",
+    "ecr",
+    "acr",
+    "gar",
+    "gcr",
+    "harbor",
+    "docker hub",
+    "dockerhub",
+    "nexus",
+    "jfrog",
+    "artifactory",
+    "quay",
+    "base image",
+    "layer",
+    "cve",
+    "vulnerability scan",
+    "sign",
+    "signature",
+    "cosign"
+   ],
+   "pages": [
+    "how-to/registry-overview.md",
+    "how-to/ecr.md",
+    "how-to/acr.md",
+    "how-to/gar.md",
+    "how-to/harbor.md",
+    "how-to/dockerhub.md",
+    "how-to/sonatype-nexus.md",
+    "how-to/jfrog-container.md",
+    "how-to/quay.md",
+    "how-to/in-cluster-image-scan-helm.md",
+    "use-cases/image-scan.md",
+    "use-cases/vulnerability.md",
+    "use-cases/epss-scoring.md"
+   ],
+   "matrices": [
+    "support-matrix/registry.md"
+   ],
+   "faqs": [],
+   "image_dirs": [
+    "how-to/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/container-security"
+   ],
+   "limits": [],
+   "short": "Container Image Scanning"
+  },
+  {
+   "id": "cdr",
+   "name": "Cloud Detection and Response (CDR)",
+   "covers": "Cloud log threat detection from CloudTrail, Azure and GCP audit logs, response and remediation",
+   "keywords": [
+    "cdr",
+    "detection and response",
+    "threat detection",
+    "cloudtrail",
+    "audit log",
+    "activity log",
+    "cloud logs",
+    "incident",
+    "response",
+    "real-time detection",
+    "alerting",
+    "guardduty"
+   ],
+   "pages": [
+    "use-cases/cdr.md",
+    "getting-started/aws-cdr.md",
+    "getting-started/azure-cdr.md",
+    "getting-started/gcp-cdr.md",
+    "getting-started/cdr-setup.md"
+   ],
+   "matrices": [],
+   "faqs": [
+    "faqs/cdr.md"
+   ],
+   "image_dirs": [
+    "getting-started/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/cdr"
+   ],
+   "limits": [],
+   "short": "Cloud Detection and Response (CDR)"
+  },
+  {
+   "id": "apisec",
+   "name": "API Security",
+   "covers": "API discovery and inventory, spec-based API scanning, traffic connectors, OWASP API Top 10",
+   "keywords": [
+    "api security",
+    "api discovery",
+    "api inventory",
+    "openapi",
+    "swagger",
+    "rest api",
+    "soap",
+    "graphql",
+    "owasp api",
+    "shadow api",
+    "zombie api",
+    "api gateway",
+    "kong",
+    "istio",
+    "nginx",
+    "f5",
+    "apigee",
+    "traffic"
+   ],
+   "pages": [
+    "use-cases/api-security.md",
+    "how-to/api-security-onboarding.md",
+    "integrations/api-overview.md",
+    "integrations/api-aws.md",
+    "integrations/api-k8s.md",
+    "integrations/api-istio.md",
+    "integrations/api-nginx.md",
+    "integrations/kong.md",
+    "integrations/f5.md"
+   ],
+   "matrices": [],
+   "faqs": [
+    "faqs/api-sec.md"
+   ],
+   "image_dirs": [
+    "how-to/images/api-sec-onboarding"
+   ],
+   "web": [
+    "https://accuknox.com/platform/api-security"
+   ],
+   "limits": [],
+   "short": "API Security"
+  },
+  {
+   "id": "aisec",
+   "name": "AI Security",
+   "covers": "AI-SPM, AI-DR, shadow AI discovery, AI red teaming, Prompt Firewall, ModelArmor, model and LLM static scans",
+   "keywords": [
+    "ai security",
+    "ai-spm",
+    "aispm",
+    "ai-dr",
+    "llm",
+    "genai",
+    "generative ai",
+    "gen ai",
+    "model",
+    "ml",
+    "machine learning model",
+    "prompt",
+    "prompt injection",
+    "jailbreak",
+    "guardrail",
+    "red team",
+    "red teaming",
+    "shadow ai",
+    "agentic",
+    "agent",
+    "mcp",
+    "bedrock",
+    "vertex",
+    "azure openai",
+    "sagemaker",
+    "hugging face",
+    "pickle",
+    "model scan",
+    "ai bom",
+    "aibom",
+    "nist ai rmf",
+    "iso 42001",
+    "eu ai act",
+    "data leakage",
+    "pii"
+   ],
+   "pages": [
+    "how-to/aiml-overview.md",
+    "getting-started/ai-security-arch.md",
+    "use-cases/aiml-usecases.md",
+    "use-cases/aidr.md",
+    "use-cases/shadow-ai-discovery.md",
+    "use-cases/prompt-firewall-overview.md",
+    "use-cases/red-teaming.md",
+    "use-cases/modelarmor.md",
+    "how-to/prompt-firewall.md",
+    "how-to/llm-static-scan.md",
+    "how-to/ml-static-scan.md",
+    "how-to/model-scan-cicd.md",
+    "how-to/aiml-saas-vs-onprem.md",
+    "integrations/ai-overview.md",
+    "use-cases/subprompts-categories.md"
+   ],
+   "matrices": [
+    "support-matrix/aiml-support-matrix.md"
+   ],
+   "faqs": [
+    "faqs/ai-security.md"
+   ],
+   "image_dirs": [
+    "assets/images/ai-security"
+   ],
+   "web": [
+    "https://accuknox.com/platform/ai-security",
+    "https://accuknox.com/solutions/ai-red-teaming",
+    "https://accuknox.com/solutions/ai-dr"
+   ],
+   "limits": [
+    {
+     "gap": "NIST AI RMF, ISO 42001 and EU AI Act appear under AISPM on the roadmap list. Confirm current status with product before claiming them",
+     "source": "faqs/roadmap.md"
+    }
+   ],
+   "short": "AI Security"
+  },
+  {
+   "id": "secrets",
+   "name": "Secrets Manager",
+   "covers": "Central secret storage, transit encryption as a service, TOTP, secret sharing, on-prem deployment",
+   "keywords": [
+    "secrets manager",
+    "secret management",
+    "secrets management",
+    "vault",
+    "hashicorp",
+    "kms",
+    "key management",
+    "encryption as a service",
+    "transit",
+    "totp",
+    "credential storage",
+    "password vault",
+    "cyberark",
+    "conjur",
+    "rotation"
+   ],
+   "pages": [
+    "secrets-manager/index.md",
+    "secrets-manager/deployment.md",
+    "secrets-manager/kv-secrets.md",
+    "secrets-manager/transit.md",
+    "secrets-manager/totp.md",
+    "secrets-manager/sharing-secrets.md",
+    "use-cases/hashicorp.md",
+    "use-cases/cyberark-conjur.md"
+   ],
+   "matrices": [],
+   "faqs": [
+    "faqs/secrets-manager.md"
+   ],
+   "image_dirs": [
+    "secrets-manager/images"
+   ],
+   "web": [],
+   "limits": [],
+   "short": "Secrets Manager"
+  },
+  {
+   "id": "integrations",
+   "name": "Integrations, SIEM, ticketing, SSO and notifications",
+   "covers": "SIEM forwarding, ticketing and rules engine, SSO and SAML, Slack, email and webhook notifications, MCP server",
+   "keywords": [
+    "siem",
+    "splunk",
+    "sentinel",
+    "qradar",
+    "sumo logic",
+    "syslog",
+    "rsyslog",
+    "cef",
+    "arcsight",
+    "elastic",
+    "soar",
+    "webhook",
+    "ticket",
+    "ticketing",
+    "jira",
+    "servicenow",
+    "freshservice",
+    "connectwise",
+    "servicedesk",
+    "defect tracking",
+    "issue tracking",
+    "sso",
+    "saml",
+    "okta",
+    "entra",
+    "azure ad",
+    "active directory",
+    "ldap",
+    "auth0",
+    "slack",
+    "email notification",
+    "notification",
+    "teams",
+    "api",
+    "rest api",
+    "integration",
+    "waf",
+    "ips",
+    "cloudwatch",
+    "mcp"
+   ],
+   "pages": [
+    "integrations/index.md",
+    "integrations/support-matrix.md",
+    "integrations/splunk.md",
+    "integrations/azure-sentinel.md",
+    "integrations/ibm-qradar.md",
+    "integrations/rsyslog.md",
+    "integrations/webhook-integration.md",
+    "integrations/jira-cloud.md",
+    "integrations/jira-server-cspm.md",
+    "integrations/servicenow.md",
+    "integrations/ticket-template.md",
+    "use-cases/rules-engine-ticket-creation.md",
+    "integrations/saml-sso.md",
+    "integrations/okta-sso.md",
+    "integrations/azure-entra-sso.md",
+    "how-to/sso.md",
+    "integrations/slack.md",
+    "integrations/email.md",
+    "integrations/mcp-server.md",
+    "how-to/playbook-integrations.md"
+   ],
+   "matrices": [
+    "integrations/support-matrix.md"
+   ],
+   "faqs": [],
+   "image_dirs": [
+    "integrations/images"
+   ],
+   "web": [
+    "https://accuknox.com/integrations",
+    "https://accuknox.com/platform/siem"
+   ],
+   "limits": [],
+   "short": "Integrations"
+  },
+  {
+   "id": "platform",
+   "name": "Platform, deployment, operations and commercial",
+   "covers": "SaaS, on-prem and air-gapped deployment, architecture, multi-tenancy, RBAC, audit trail, reporting and dashboards, data retention, SLA and support, licensing and pricing",
+   "keywords": [
+    "deployment",
+    "on-prem",
+    "on-premise",
+    "on-premises",
+    "air-gap",
+    "air-gapped",
+    "airgapped",
+    "saas",
+    "hybrid",
+    "self-hosted",
+    "architecture",
+    "scalab",
+    "scale",
+    "high availability",
+    "uptime",
+    "availability",
+    "disaster recovery",
+    "backup",
+    "multi-tenant",
+    "multitenant",
+    "tenant",
+    "role-based",
+    "rbac",
+    "user management",
+    "access control",
+    "audit trail",
+    "audit log",
+    "logging",
+    "dashboard",
+    "report",
+    "reporting",
+    "pdf",
+    "csv",
+    "export",
+    "data retention",
+    "retention",
+    "data residency",
+    "sla",
+    "support",
+    "24x7",
+    "escalation",
+    "training",
+    "professional services",
+    "license",
+    "licensing",
+    "pricing",
+    "subscription",
+    "concurrent",
+    "upgrade",
+    "patch",
+    "update",
+    "release",
+    "certification",
+    "soc2",
+    "iso"
+   ],
+   "pages": [
+    "getting-started/deployment-models.md",
+    "getting-started/on-prem-overview.md",
+    "getting-started/on-prem-installation-guide.md",
+    "getting-started/accuknox-arch.md",
+    "resources/control-plane-architecture.md",
+    "resources/multitenancy.md",
+    "getting-started/audit-trail-logs.md",
+    "how-to/custom-reports.md",
+    "how-to/summarized-custom-reports.md",
+    "use-cases/cnapp-security-overview.md",
+    "resources/sample-reports.md",
+    "resources/data-retention-policy.md",
+    "resources/scan-data-backup.md",
+    "resources/upgrade-ak-agents.md",
+    "resources/sla-escalation-matrix.md",
+    "resources/technical-support-guide.md",
+    "resources/ticket-procedure.md",
+    "resources/managed-cloud-security-services.md",
+    "how-to/administrators-guide.md",
+    "how-to/create-access-keys.md",
+    "getting-started/accuknox-release-notes.md",
+    "resources/vulnerability-database.md"
+   ],
+   "matrices": [
+    "support-matrix/index.md",
+    "support-matrix/private-cloud.md"
+   ],
+   "faqs": [
+    "faqs/deployment.md",
+    "faqs/general.md",
+    "faqs/pricing.md",
+    "faqs/partnerships.md",
+    "faqs/roadmap.md"
+   ],
+   "image_dirs": [
+    "getting-started/images",
+    "resources/images"
+   ],
+   "web": [
+    "https://accuknox.com/platform/on-premise-security",
+    "https://accuknox.com/pricing"
+   ],
+   "limits": [
+    {
+     "gap": "RBAC enhancements are listed on the roadmap; no published role catalogue or permission matrix",
+     "source": "faqs/roadmap.md"
+    }
+   ],
+   "short": "Platform and Deployment"
+  }
+ ],
+ "fit_risks": [
+  {
+   "topic": "CIEM or cloud entitlement analytics",
+   "pattern": "\\bciem\\b|entitlement (management|analytics)",
+   "status": "roadmap",
+   "source": "faqs/roadmap.md"
+  },
+  {
+   "topic": "DSPM or data security posture",
+   "pattern": "\\bdspm\\b|data security posture|data classification|data discovery",
+   "status": "conflict: roadmap in help docs, accuknox.com/platform/dspm exists. Confirm with product",
+   "source": "faqs/roadmap.md"
+  },
+  {
+   "topic": "SSPM for SaaS apps such as M365 or SAP",
+   "pattern": "\\bsspm\\b|saas security posture|m365|office 365|\\bsap\\b",
+   "status": "conflict: faqs/roadmap.md lists SSPM (m365, sap) as roadmap, getting-started/3.6-release.md ships Microsoft 365 SSPM. Treat M365 as available from v3.6 and SAP as roadmap. Confirm with product",
+   "source": "getting-started/3.6-release.md"
+  },
+  {
+   "topic": "Endpoint EDR or XDR",
+   "pattern": "\\bedr\\b|\\bxdr\\b|endpoint detection",
+   "status": "no help doc coverage found",
+   "source": ""
+  },
+  {
+   "topic": "Email or web gateway security",
+   "pattern": "email security|phishing|secure email gateway|web gateway|\\bswg\\b|\\bcasb\\b",
+   "status": "no help doc coverage found",
+   "source": ""
+  },
+  {
+   "topic": "Network firewall or NGFW appliance",
+   "pattern": "next[- ]generation firewall|\\bngfw\\b|firewall appliance",
+   "status": "no help doc coverage found",
+   "source": ""
+  },
+  {
+   "topic": "Identity governance, IGA or PAM",
+   "pattern": "\\biga\\b|sailpoint|saviynt|privileged access management|\\bpam\\b",
+   "status": "no help doc coverage found",
+   "source": ""
+  },
+  {
+   "topic": "Mobile binary or MAST testing",
+   "pattern": "\\bapk\\b|\\bipa\\b|\\bmast\\b|mobile application security testing",
+   "status": "source-level mobile SAST only. No APK or IPA binary scanning documented",
+   "source": "support-matrix/sast-support-matrix.md"
+  },
+  {
+   "topic": "Penetration testing services",
+   "pattern": "penetration test|pen[- ]?test",
+   "status": "no help doc coverage found. Confirm services scope",
+   "source": ""
+  }
+ ],
+ "_conflicts": [
+  {
+   "topic": "DAST authenticated scan with MFA or OTP",
+   "older": "use-cases/dast-authenticated.md FAQ says 2FA and MFA logins are not supported",
+   "newer": "getting-started/3.6-release.md adds the recorder login method with TOTP MFA",
+   "rule": "cite the newer page, flag AMBER, list the stale page for a docs fix"
+  },
+  {
+   "topic": "SSPM for Microsoft 365",
+   "older": "faqs/roadmap.md lists SSPM (m365, sap) on the roadmap",
+   "newer": "getting-started/3.6-release.md ships Microsoft 365 SSPM",
+   "rule": "M365 available, SAP roadmap, confirm with product"
+  },
+  {
+   "topic": "DSPM",
+   "older": "faqs/roadmap.md lists DSPM on the roadmap",
+   "newer": "accuknox.com/platform/dspm exists",
+   "rule": "do not claim DSPM without product confirmation"
+  }
+ ]
+}
