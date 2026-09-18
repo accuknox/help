@@ -1,0 +1,7 @@
+# Runtime state, not part of the skill.
+# _sent.tsv is the send ledger and holds live Zernio post IDs.
+_sent.tsv
+__pycache__/
+
+# Campaign files are content, written per run. The README documents the format.
+campaigns/*.md

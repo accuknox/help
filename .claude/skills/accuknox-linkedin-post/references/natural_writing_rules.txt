@@ -1,0 +1,69 @@
+NATURAL HUMAN WRITING RULES (from Likhitha, 2026-08-11)
+
+The post must sound like it was written by a real AccuKnox marketer, not an AI trying to sound like a cybersecurity marketer.
+
+Avoid "manufactured insight" sentences that sound impressive but don't sound like something a person would naturally write.
+
+BANNED PATTERNS (not exhaustive — many more like these):
+- "This is what [X] looks like when..."
+- "This is what [X] looks like in the real world."
+- "It's not just [X]. It's [Y]."
+- "Not a demo. Not a proof of concept. The real thing."
+- "[Everything] came through clean."
+- "The results speak for themselves."
+- "This changes everything."
+- "This is where [product] comes in."
+- "And that's the difference."
+- "The takeaway?"
+- "The message is clear."
+- "This isn't just another..."
+- "In the world of..."
+- "At the end of the day..."
+- "What does this mean? ..."
+- "The future of [topic] is..."
+- "That's what real [security/transformation/etc.] looks like."
+
+These are discouraged not because they're grammatically wrong but because they produce generic AI-sounding copy.
+
+1. DON'T FORCE A "PUNCHLINE"
+Don't add a dramatic concluding sentence just because the post "needs" a strong ending. If the facts are already interesting, let them do the work.
+Bad: "This is what SBOM security looks like when it has to work inside a bank's core environment — not a demo."
+Better: "The entire exercise ran inside the bank's air-gapped environment, with no internet connectivity."
+
+2. DON'T TURN FACTS INTO MARKETING SLOGANS
+State what happened, don't dramatize it.
+Bad: "Vulnerability detection, transitive dependency mapping, and CERT-In field mapping all came through clean."
+Better: "The assessment also covered vulnerability detection, transitive dependency mapping, and CERT-In field mapping."
+
+3. REMOVE "AI BRIDGE SENTENCES"
+Don't insert a sentence between two facts just to sound more insightful. If a sentence doesn't add a fact, context, a useful takeaway, a CTA, or a human reaction — remove it.
+
+4. WRITE LIKE SOMEONE WHO KNOWS THE STORY
+Prefer: "The bank evaluated us against CERT-In BOM Guidelines v2.0, line by line."
+Over: "This engagement demonstrates the importance of comprehensive SBOM security in regulated environments."
+
+5. USE SPECIFICITY INSTEAD OF "IMPACT LANGUAGE"
+Strong: "Ten software projects. One week. Fully air-gapped."
+Weak: "A challenging and highly complex security assessment."
+Strong: "SBOM and CBOM were generated automatically, while AI-BOM and HBOM were validated."
+Weak: "We delivered comprehensive visibility across the software supply chain."
+
+6. DON'T OVER-EXPLAIN THE SIGNIFICANCE
+Trust the reader to understand why a public sector bank, an air-gapped environment, CERT-In compliance, or ten projects in one week matter. Don't spell out every implication.
+
+7. SOUNDING NATURAL MATTERS MORE THAN "POLISH"
+Ask: "Would an actual AccuKnox marketer say this sentence to a colleague?" If no, rewrite. Read the post aloud — if it sounds like a keynote, brochure, analyst report, or AI-generated LinkedIn post, simplify it.
+
+8. PREFER PLAIN LANGUAGE
+Use: passed, completed, tested, generated, validated, mapped, ran, worked, covered, evaluated.
+Avoid: "demonstrated robust capabilities," "showcased," "underscored," "leveraged," "enabled comprehensive visibility," "delivered seamless compliance," "validated our ability to...," "empowered organizations to..."
+
+9. DON'T MAKE EVERY POST "EPIC"
+Not every post needs 🔥 Big win / 🚀 Huge milestone / 💡 Important insight / 🎯 Game-changing result. Match emotional intensity to the actual news — a customer win can be exciting without sounding like a press release.
+
+10. FINAL AI-SOUNDING SENTENCE CHECK
+Before returning a post, flag sentences that sound unusually polished, summarize "the lesson," use contrast for dramatic effect, contain abstract nouns, make broad claims, or could appear in almost any cybersecurity company's LinkedIn post. Rewrite or remove them.
+Test: could this exact sentence appear in a competitor's LinkedIn post without changing anything? If yes, it's probably too generic.
+
+CORE RULE
+Do not try to make the post sound impressive. Make the underlying story sound interesting. The facts should create the impact. Don't manufacture the impact with AI-style language.
