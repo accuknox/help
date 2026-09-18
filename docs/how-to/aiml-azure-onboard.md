@@ -60,6 +60,8 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 ![image](images/azure5-3.png)
 
+![image](images/azure-aiml-reader.png)
+
 **Step 10:** Now we need to give Security read permissions to this registered Application , to do that go to subscriptions
 
 ![image](images/azure6.png)
@@ -94,10 +96,6 @@ For each role:
 1. Go to **Azure Portal** → **Subscriptions** (or **Resource Groups**) → select your target scope.
 2. Open **Access control (IAM)** → click **Add > Add role assignment**.
 3. In the **Role** tab, search for and select the role, then click **Next**.
-
-    *Example: selecting the Reader role*
-
-    ![image](images/azure-aiml-reader.png)
 
     *Example: selecting the Storage Blob Data Reader role*
 
