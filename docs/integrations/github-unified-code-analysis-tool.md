@@ -5,7 +5,7 @@ description: Learn how to run SAST, SCA, Secret, IaC, ML Static Scan, and SBOM s
 
 # Running Code Analysis Scans with AccuKnox in a GitHub CI/CD Pipeline
 
-## Overview
+## One Action Runs Six Code Analysis Scans
 
 The **AccuKnox Code Analysis GitHub Action** is a single action that runs any combination of AccuKnox ASPM code analysis scans, SAST, SCA, Secret, IaC, ML Static Scan, and SBOM, and pushes the results to the **AccuKnox Console** for centralized visibility, risk tracking, and remediation.
 
@@ -13,13 +13,13 @@ Rather than setting up a separate action for each scanner, you configure one ste
 
 ## Key Features
 
-- **Six scanners in one action**: SAST (OpenGrep), SCA (Trivy), Secret (TruffleHog), IaC (Checkov), ML Static Scan (ModelScan), and SBOM (image and filesystem).
+- **Six scans in one action**: SAST, SCA, Secret, IaC, ML Static Scan, and SBOM (image and filesystem).
 - **Run any combination**: select one or several scans through a single `scan_type` input, separated by commas or spaces.
-- **A command input per scan**: every scanner has its own `<type>_command` input that maps straight to the CLI's `--command` flag, so you decide exactly what each tool runs.
+- **A command input per scan**: every scan has its own `<type>_command` input that maps straight to the scanner CLI's `--command` flag, so you decide exactly what each scan runs.
 - **IaC scans by framework**: limit IaC scans to one or more frameworks, for example `Kubernetes,Terraform`.
 - **SBOM for image or filesystem**: generate a CycloneDX SBOM from a container image or your source tree.
 - **Shift left security**: run every check directly inside your CI/CD pipeline for early detection.
-- **Seamless AccuKnox Console integration**: findings flow into the AccuKnox dashboard automatically.
+- **AccuKnox Console integration**: findings flow into the AccuKnox dashboard automatically, tagged with the label you set.
 
 ## Prerequisites
 
@@ -37,17 +37,17 @@ Before setting up this GitHub Action, make sure you have the following in place:
 1. Log in to your AccuKnox Console.
 2. Navigate to **Settings → Tokens**.
 
-![ak-unified-code-analysis-0.png](./images/github-unified-code-analysis-tool/ak-unified-code-analysis-0.png)
+![AccuKnox Console sidebar with Settings expanded and Tokens selected](./images/github-unified-code-analysis-tool/ak-unified-code-analysis-0.png)
 
 3. Click **Create Token** and save the token value securely (you will add it to GitHub Secrets as `ACCUKNOX_TOKEN` in Step 2).
 
-![akuca-1.png](./images/github-unified-code-analysis-tool/akuca-1.png)
-![akuca-2.png](./images/github-unified-code-analysis-tool/akuca-2.png)
+![Tokens page in the AccuKnox Console with the Create Token button](./images/github-unified-code-analysis-tool/akuca-1.png)
+![Create API Token dialog with a name and a 90 day expiry set](./images/github-unified-code-analysis-tool/akuca-2.png)
 
 4. Create a label under **Dashboard → Labels** to tag your scan results.
 
-![akuca-3.png](./images/github-unified-code-analysis-tool/akuca-3.png)
-![akuca-4.png](./images/github-unified-code-analysis-tool/akuca-4.png)
+![AccuKnox Console sidebar with Settings expanded and Labels selected](./images/github-unified-code-analysis-tool/akuca-3.png)
+![Labels page in the AccuKnox Console where you create the label for scan results](./images/github-unified-code-analysis-tool/akuca-4.png)
 
 **Step 2: Configure GitHub Secrets**
 
@@ -59,7 +59,7 @@ Go to your repository's **Settings → Secrets and variables → Actions → New
 | `ACCUKNOX_ENDPOINT` | The AccuKnox API URL (for example `cspm.demo.accuknox.com`) |
 | `ACCUKNOX_LABEL` | Label used to tag and group your scan results |
 
-![akuca-5.png](./images/github-unified-code-analysis-tool/akuca-5.png)
+![GitHub repository Actions secrets holding ACCUKNOX_TOKEN, ACCUKNOX_ENDPOINT and ACCUKNOX_LABEL](./images/github-unified-code-analysis-tool/akuca-5.png)
 
 **Step 3: Define Your GitHub Workflow**
 
@@ -296,19 +296,19 @@ jobs:
 ### 6. SBOM
 
 !!! note
-    **Prerequisite; create a Project.** To tie SBOM data to the right entity, you need to create a **Project** in the AccuKnox Console first.
+    **Prerequisite, create a Project.** To tie SBOM data to the right entity, you need to create a **Project** in the AccuKnox Console first.
 
 1. Log in to the **AccuKnox Dashboard**.
 2. Navigate to **SBOM → Projects**.
 3. Click **New Project**.
 4. Fill in the required details:
-   - **Name*** – Project name (use this same value for `sbom_project_name` in the workflow).
-   - **Description** – a short description of the project.
-   - **Classifier*** – choose **Container** for an **image** SBOM, or **Application** for a **filesystem** SBOM.
-   - **Tags** – (Optional) add relevant tags.
+   - **Name***, the project name. Use this same value for `sbom_project_name` in the workflow.
+   - **Description**, a short description of the project.
+   - **Classifier***, choose **Container** for an **image** SBOM, or **Application** for a **filesystem** SBOM.
+   - **Tags**, optional, add relevant tags.
 5. Click **Create**.
 
-![akuca-6.png](./images/github-unified-code-analysis-tool/akuca-6.png)
+![Create Project dialog on the SBOM Projects page, with Name and Classifier required](./images/github-unified-code-analysis-tool/akuca-6.png)
 
 
 ```yaml
@@ -380,11 +380,11 @@ jobs:
 1. **Developer pushes code**: a push or pull request triggers the GitHub Action.
 2. **Scanner setup (once)**: the action checks credentials, parses `scan_type`, and downloads the `accuknox-aspm-scanner` binary for the requested `scanner_version`.
 3. **Selected scans run**: each enabled scan runs in `--command` mode inside a container, building its arguments from your `<type>_command` and scan specific inputs:
-     - **SAST** → OpenGrep static analysis
-     - **SCA** → Trivy dependency and composition analysis
-     - **Secret** → TruffleHog secret detection
-     - **IaC** → Checkov misconfiguration checks (per framework, if you set one)
-     - **ML** → ModelScan static ML model analysis
+     - **SAST** → static analysis of your source code
+     - **SCA** → dependency and composition analysis
+     - **Secret** → secret detection across the working tree or the git history
+     - **IaC** → infrastructure-as-code misconfiguration checks (per framework, if you set one)
+     - **ML** → static analysis of serialized machine learning models
      - **SBOM** → CycloneDX bill of materials for an image or filesystem
 4. **Results uploaded to AccuKnox Console**: using the `accuknox_token` and `accuknox_label` you provided.
 5. **Optional artefact upload**: when `upload_artifact: true`, kept result files get saved as a GitHub artifact.
@@ -397,13 +397,13 @@ jobs:
 
 **Step 2**: Go to **Issues → Findings** and select the finding type that matches the scan you ran (for example, Static Code Analysis Findings for SAST, or the equivalent view for SCA, Secret, IaC, ML, or SBOM).
 
-![akuca-7.png](./images/github-unified-code-analysis-tool/akuca-7.png)
+![Findings page filtered to Static Code Analysis Finding, listing findings by risk factor and status](./images/github-unified-code-analysis-tool/akuca-7.png)
 
 **Step 3**: Click on a finding to see the full detail.
 
 **Step 4**: Fix the finding using the instructions in the Solutions tab, or use Ask AI for a suggested fix.
 
-![akuca-8.png](./images/github-unified-code-analysis-tool/akuca-8.png)
+![Finding detail panel open on the Solution tab, with Create Ticket and Ask AI on the right](./images/github-unified-code-analysis-tool/akuca-8.png)
 
 **Step 5**: Create a ticket in your issue tracking system to assign and track the fix.
 
@@ -422,6 +422,6 @@ jobs:
 - Read more in the [AccuKnox Docs](https://help.accuknox.com/integrations/github-overview/)
 - Contact support at support@accuknox.com
 
-## Conclusion
+## Run the Six Scans From a Single Step
 
 The AccuKnox Code Analysis GitHub Action brings six scanners, SAST, SCA, Secret, IaC, ML, and SBOM, into one configurable step. Run them together, review findings in the AccuKnox Console, and enforce policy gates across your CI/CD pipeline from a single action, all the way from commit to cloud.
