@@ -1,11 +1,11 @@
 ---
-title: AccuKnox Code Security for VS Code and Cursor
-description: Install the AccuKnox Code Security extension to run SAST, SCA, secret, IaC, ML, and container scans inside VS Code or Cursor, with findings and AI fixes in the editor.
+title: AccuKnox Code Security for VS Code, Cursor, and IntelliJ
+description: Install the AccuKnox Code Security extension to run SAST, SCA, secret, IaC, ML, and container scans inside VS Code, Cursor, or IntelliJ, with findings and AI fixes in the editor.
 ---
 
-# AccuKnox Code Security for VS Code and Cursor
+# AccuKnox Code Security for VS Code, Cursor, and IntelliJ
 
-AccuKnox Code Security runs the AccuKnox ASPM Scanner CLI on your machine and shows the findings inside the editor. You fix issues before you commit, without leaving VS Code.
+AccuKnox Code Security runs the AccuKnox ASPM Scanner CLI on your machine and shows the findings inside the editor. You fix issues before you commit, without leaving the editor. AccuKnox supports three editors: VS Code, Cursor, and IntelliJ.
 
 !!! info "Your code stays on your machine"
     The extension runs the scanner locally. Your Access Key only proves who you are before a scan starts. Neither your source code nor your scan results are uploaded to AccuKnox by this extension.
@@ -22,11 +22,13 @@ What you get:
 
 | Requirement | Details |
 |---|---|
-| Editor | VS Code 1.85 or newer. Cursor works the same way, because it is a VS Code fork |
+| Editor | VS Code 1.85 or newer, Cursor, or IntelliJ. Cursor works the same way as VS Code, because it is a VS Code fork |
 | Python | Python 3.9 or newer, needed to install the scanner CLI |
 | AccuKnox account | An Access Key generated from the AccuKnox console |
 
-## Step 1. Install the extension
+## Step 1. Install the Extension
+
+### Install on VS Code or Cursor
 
 Open the Extensions panel, search for `accuknox`, select **AccuKnox Code Security** from AccuKnox, and click **Install**.
 
@@ -41,7 +43,14 @@ code --install-extension accuknox-security.vsix
 !!! tip "The GUI install is spinning forever"
     Use the CLI command above. If the Extensions panel still shows *Installing…* after that, run **Developer: Restart Extension Host** from the Command Palette.
 
-## Step 2. Install the scanner CLI
+### Install on IntelliJ
+
+AccuKnox Code Security also runs in IntelliJ, through a separate plugin. Install that plugin from **Settings > Plugins**.
+
+!!! note "Steps 2 to 5 use the VS Code names"
+    The scanner CLI, the Access Key, and the sign-in flow work the same way in IntelliJ. Only the menu names differ, because IntelliJ has no Command Palette and reaches the same actions from its own menus.
+
+## Step 2. Install the Scanner CLI
 
 The extension prompts you when `accuknox-aspm-scanner` is missing from your PATH.
 
@@ -65,7 +74,7 @@ For the full walkthrough with screenshots, see [How to Create Access Keys](../ho
 !!! danger "An Access Key carries your permissions"
     An Access Key inherits the permissions of the user who created it. An administrator's key can perform nearly any operation in the CNAPP from the CLI. Keep it private and never share it.
 
-## Step 4. Sign in
+## Step 4. Sign In
 
 1. Open the Command Palette and run **AccuKnox: Log In / Set Access Token**.
 2. Paste the Access Key from Step 3 and press Enter.
@@ -78,7 +87,7 @@ The default auth host is `https://cspm.demo.accuknox.com`. Change `accuknox.auth
 
 Two more commands help here: **AccuKnox: Show Authentication Status** and **AccuKnox: Log Out**.
 
-## Step 5. Run a scan
+## Step 5. Run a Scan
 
 Open a project folder, then run **AccuKnox: Run Scan (Full Directory)** from the Command Palette. You can also click the play button on the **AccuKnox > Findings** view.
 
@@ -142,7 +151,7 @@ Open Settings and search for `accuknox`, or edit `settings.json` directly.
 !!! warning "Secrets never go in a settings file"
     Your Access Key, LLM key, and SaaS token are stored in the operating system secret store. Set the LLM key through the Command Palette with **AccuKnox: Set LLM API Key**, never in `settings.json`.
 
-## Configure the AI model
+## Configure the AI Model
 
 `accuknox.llm.model` and `accuknox.llm.apiBase` are ordinary settings you can edit at any time. The API key is separate, and it goes through **AccuKnox: Set LLM API Key**.
 
@@ -168,7 +177,7 @@ Open Settings and search for `accuknox`, or edit `settings.json` directly.
 | **Install from VSIX** spins forever with no error | Run `code --install-extension <path-to-vsix>` instead |
 | The Extensions panel shows *Installing…* forever | The UI is stale. Run **Developer: Restart Extension Host**, or restart the editor |
 
-## Related pages
+## Related Pages
 
 - [How to Create Access Keys](../how-to/create-access-keys.md)
 - [Unified code analysis with Azure DevOps](azure-unified-code-analysis.md)

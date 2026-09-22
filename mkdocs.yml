@@ -494,7 +494,7 @@ nav:
             - "Secret Scan": "integrations/circleci-secret-scan.md"
             - "SQ-SAST": "integrations/circleci-sqsast.md"
             - "Container Scan": "integrations/circleci-container-scan.md"
-    - "IDE Extension (VS Code & Cursor)": "integrations/vscode-code-security.md"
+    - "IDE Extension (VS Code, Cursor & IntelliJ)": "integrations/vscode-code-security.md"
     - "Registry Scan" : "support-matrix/registry.md"
     - "K8s Management":
       - "Rafay": "integrations/rafay-accuknox.md"
