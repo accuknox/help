@@ -21,6 +21,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [aiml-saas-vs-onprem.md](aiml-saas-vs-onprem.md) | A feature-by-feature comparison of AccuKnox AI-SPM across SaaS and On-Premises deployment models. |
 | [aiml-triton-collector.md](aiml-triton-collector.md) | Red team a model served by NVIDIA Triton Inference Server with the AccuKnox Custom Model collector, using either the KServe v2 infer endpoint or the generate... |
 | [aiml-vllm-collector.md](aiml-vllm-collector.md) | Red team a model served by vLLM with the AccuKnox Custom Model collector, using either the OpenAI-compatible chat API or the completions API. |
+| [api-security-onboarding.md](api-security-onboarding.md) | Run an API security scan in AccuKnox two ways. Upload an OpenAPI specification and scan it from API Security, or run an API Scan collector against a live tar... |
 | [aspm-overview.md](aspm-overview.md) | Learn how ASPM helps organizations identify and address security vulnerabilities in their applications throughout the software development lifecycle (SDLC). |
 | [aws-apim.md](aws-apim.md) | Deploy an AWS HTTP API Gateway integrated with AWS Lambda using Terraform, designed for secure and efficient model interactions. |
 | [aws-cdk-iac-scan.md](aws-cdk-iac-scan.md) | Step-by-step guide to scanning AWS CDK projects using AccuKnox SaaS. |

@@ -135,6 +135,8 @@ ModelArmor works across frameworks and environments:
 - Requires no code changes to your application.
 - Lightweight and **cost-efficient**, avoiding the overhead of MicroVMs or full isolation environments.
 
+![ModelArmor sandboxing applied from the AccuKnox control plane to local on-premises AI models such as Ollama, vLLM and NVIDIA Triton Inference Server, and to local on-premises AI agents such as LangGraph, n8n, CrewAI, OpenClaw and Strands Agents, across VMs, containers and Kubernetes](../assets/images/ai-security/modelarmor-onprem-coverage.webp)
+
 ![Granular Policy Enforcement for Process, Network, Volumes and AI flows](./images/modelarmor/use5.png)
 
 ## **PyTorch Based Use Cases**

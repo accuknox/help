@@ -118,6 +118,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [intune-browser-plugin-deployment.md](intune-browser-plugin-deployment.md) | Use Microsoft Intune to push the AccuKnox Prompt Firewall extension to Chrome and Edge on Windows, and to Chrome on macOS. |
 | [jenkins-artifact-scan.md](jenkins-artifact-scan.md) | Glob-scan jars, wheels, archives, and lockfiles for known CVEs in a Jenkins pipeline using the AccuKnox ASPM plugin. |
 | [jenkins-container-scan.md](jenkins-container-scan.md) | Pull and scan container images for CVEs from a Jenkins pipeline using the AccuKnox ASPM plugin. |
+| [jenkins-dast.md](jenkins-dast.md) | Run authenticated and unauthenticated Dynamic Application Security Testing in a Jenkins pipeline using the AccuKnox ASPM plugin. |
 | [jenkins-iac-scan.md](jenkins-iac-scan.md) | Scan Terraform, CloudFormation, Kubernetes, Helm, ARM, and Dockerfiles in a Jenkins pipeline with AccuKnox ASPM. |
 | [jenkins-installation.md](jenkins-installation.md) | One-time installation and global configuration of the AccuKnox ASPM Scanner plugin in Jenkins. |
 | [jenkins-overview.md](jenkins-overview.md) | Integrate AccuKnox ASPM scans into Jenkins pipelines for SAST, IaC, Secret, Container, SBOM, and SCA. |

@@ -12,6 +12,9 @@ Ensure you have completed the integration of your API environment with AccuKnox 
 !!! tip "Integration Guides"
     [**API Security Integrations**](../integrations/api-overview.md) provides detailed instructions for various platforms.
 
+!!! tip "Step-by-step onboarding"
+    For the click-by-click path from a specification upload to the findings page, and for the API Scan collector, see [API Security Scan Onboarding](../how-to/api-security-onboarding.md).
+
 
 ## 2. Real-Time API Inventory in AccuKnox Control Plane
 
@@ -24,7 +27,9 @@ As soon as logs reach the control plane:
 Inventory updates continuously as logs arrive.
 
 ![API endpoint inventory in AccuKnox control plane](image-6.png)
-    A collection is automatically created based on the **Host endpoint** once the API agent receives logs. This provides immediate organization of your API endpoints without manual intervention.
+
+!!! info "Collections are created for you"
+    A collection is created from the **Host endpoint** as soon as the API agent receives logs. Your endpoints are grouped without any manual step.
 
 ## 3. Create API Collections
 
@@ -43,9 +48,11 @@ Collections help organize endpoints before scanning and provide logical grouping
 
 ![API collections view in AccuKnox](image-7.png)
 
-API Specifications (OpenAPI/Swagger format) can be uploaded to define the expected API structure for comparison during scans.
+## 4. Upload API Specifications
 
-### Method 1: Via API Specification Page
+Upload an OpenAPI or Swagger file to define the expected API structure. Scans compare discovered endpoints against it. There are two ways to upload one.
+
+### Method 1: Via the API Specification page
 
 1. Navigate to **API Security → Specification**.
 2. Click on the upload option.
@@ -53,6 +60,8 @@ API Specifications (OpenAPI/Swagger format) can be uploaded to define the expect
 4. Upload the file.
 
 ![Upload OpenAPI specification in AccuKnox](image-8.png)
+
+### Method 2: During scan setup
 
 1. Navigate to **API Security → Scans → New Scan**.
 2. During the scan setup, you'll have the option to upload your specification.
@@ -69,7 +78,7 @@ API Specifications (OpenAPI/Swagger format) can be uploaded to define the expect
 3. Choose the inventory or a collection.
 4. Run the scan.
 
-![Configure and run API scan in AccuKnox](image-9.png) with your specification.
+![Configure and run API scan in AccuKnox](image-9.png)
 
 ## 6. Review Findings
 
