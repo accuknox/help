@@ -31,5 +31,8 @@ Generated reports and design documents: the CWPP report PDF and build script, th
 ### `rfp-generation/`
 RFP response generation scripts (`scripts/`) and output files (`responses/`, including `client-rfps/` for inbound client RFPs). Covers both standard RFP responses and SLA documents.
 
+### `accuknox-summary-and-narrative.md`
+Approved company positioning from Nat Natraj (2026-09-24): a five-point summary, the eight AI Security modules, analyst and customer proof, the three differentiators, and five technical blog links. Use it for intros in blogs, decks, RFPs and sales emails.
+
 ### `technical-reference/`
 Internal reference PDFs: playbooks (CWPP, ASPM, VM security), architecture docs, POC prerequisites, Kubernetes hardening guidance, audit/compliance reports (SOC2, ISO 27001), and the SLA escalation matrix. Read-only, do not edit.
