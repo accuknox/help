@@ -11,7 +11,8 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [RINC.md](RINC.md) | Introduction to RINC (short for Runtime Insights and Network Controls) and how to get started with its features on AccuKnox SaaS. |
 | [acr.md](acr.md) | Instructions for onboarding Azure Container Registry (ACR) to AccuKnox SaaS for image scanning and vulnerability detection. |
 | [administrators-guide.md](administrators-guide.md) | Step-by-step guidance for AccuKnox administrators covering onboarding, deployment, configuration, and task-oriented references for managing the platform. |
-| [aiml-aws-onboard.md](aiml-aws-onboard.md) | Step-by-step instructions for onboarding an AWS cloud account and AI/ML assets within it to AccuKnox SaaS for automated security management. |
+| [aiml-aws-onboard.md](aiml-aws-onboard.md) | Onboard an AWS Organization to AccuKnox AI Security with one CloudFormation stack that deploys a read-only IAM role to the Management Account and to member a... |
+| [aiml-aws-standalone-onboard.md](aiml-aws-standalone-onboard.md) | Connect a standalone AWS account to AccuKnox AI Security for AI/ML asset discovery and security assessment, using access keys that a Terraform script creates. |
 | [aiml-azure-onboard.md](aiml-azure-onboard.md) | Step-by-step instructions for onboarding an Azure cloud account and AI/ML assets within it to AccuKnox SaaS for automated security management. |
 | [aiml-bedrock-collector.md](aiml-bedrock-collector.md) | Red team a specific Amazon Bedrock model with the AccuKnox Custom Model collector, without onboarding the full AWS account or organization. |
 | [aiml-custom-model-redteaming.md](aiml-custom-model-redteaming.md) | Red team a single model on Bedrock, NVIDIA Triton, or vLLM with the AccuKnox Custom Model collector, without onboarding a full cloud account. |

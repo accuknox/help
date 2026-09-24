@@ -260,7 +260,9 @@ nav:
       - "SDK LLM Defense": "how-to/llm-defense-app-onboard.md"
       - "Runtime Defense (API Method)": "how-to/aiml-runtime-onboard.md"
       - "Azure AI-DR Setup": "how-to/azure-aidr.md"
-      - "AWS AI/ML Onboard": "how-to/aiml-aws-onboard.md"
+      - "AWS AI/ML Onboard":
+        - "AWS Organization": "how-to/aiml-aws-onboard.md"
+        - "AWS Standalone": "how-to/aiml-aws-standalone-onboard.md"
       - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
       - "Red Team Custom Models":
