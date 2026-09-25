@@ -1,0 +1,34 @@
+---
+title: Deployment Models
+description: AccuKnox has an expanded offering to cater to diverse deployment needs such as SaaS, Managed OEM/MSSP, AWS On-prem, and Full On-prem/Air-Gapped deployments.
+---
+
+# Deployment Models
+
+AccuKnox has an expanded offering to cater to diverse deployment needs and preferences:
+
+![Deployment Models](images/deployment-models-clean.png)
+
+---
+
+1. **AccuKnox SaaS** - This is our go-to mainstream offering designed for production environments. It provides seamless and scalable security solutions through a SaaS model, ensuring ease of use and quick deployment.
+
+2. **AccuKnox Managed OEM/MSSP** - This model is tailored for managed deployments where AccuKnox oversees upgrades and maintenance while keeping the OEM/MSSP informed. This ensures that our partners, such as Xcitium, can rely on us for smooth operations and continuous improvements without losing control over the deployment.
+
+3. **AWS On-prem** - In this deployment, we leverage managed services from AWS, including S3, RDS, and others, to provide a hybrid solution combining cloud and on-premises deployments. This setup ensures optimal performance and scalability while utilizing AWS's robust infrastructure.
+
+4. **Full On-prem/Air-Gapped**-  For environments requiring maximum security and isolation, we offer full on-premises or air-gapped deployments. This ensures that all data and operations remain within the customer's premises, providing the highest level of control and security, suitable for sensitive and regulated industries.
+
+| Feature | SaaS | On-Prem |
+| --- | --- | --- |
+| **Upgrade and Maintenance to AccuKnox Control Plane** | Managed by AccuKnox | Customer managed with AccuKnox support. |
+| **Technical Support** | Users can choose | AccuKnox Premium support needed |
+| **Air Gapped?** | No | Optionally yes |
+| **Raw Data Retention Period** | AccuKnox Managed (default 60 days) | Customer managed |
+| **Velocity of Feature Updates** | Fast. New features are available much faster. | Customer needs to decide. For security updates, AccuKnox will provide upgrade patches. The patches are applied by the customer DevOps team with AccuKnox support. Typically the release cadence is once per month. |
+| **Security/Isolation** | Shared resources with other customers | No sharing of resources. Except customer DevOps team, no one has direct access to the deployment. |
+| **What Features are Supported?** | All | Except AI CoPilot (AskADA), everything else. |
+
+By offering these diverse deployment options, you can choose the model that best fits your operational needs and security requirements.
+
+[DOWNLOAD CONTROL PLANE ARCHITECTURE](/resources/assets/AccuKnox%20Control%20Plane%20Architecture%20Technical%20v3.4.pdf){ .md-button .md-button--primary download }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="Windows">
+  <g fill="#3b82f6">
+    <path d="M0 3.55 9.5 2.25v9.19H0z"/>
+    <path d="M10.68 2.09 24 .25v11.19H10.68z"/>
+    <path d="M0 12.6h9.5v9.18L0 20.48z"/>
+    <path d="M10.68 12.6H24v11.15l-13.32-1.83z"/>
+  </g>
+</svg>

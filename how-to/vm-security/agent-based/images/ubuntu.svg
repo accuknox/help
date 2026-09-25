@@ -1,0 +1,17 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 8H42V32H8V8Z" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 32V40" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 40H33" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 24C27.7614 24 30 21.7614 30 19C30 16.2386 27.7614 14 25 14C22.2386 14 20 16.2386 20 19C20 21.7614 22.2386 24 25 24Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="25" cy="14.5" r="2.4" stroke="white" stroke-width="2"/>
+<circle cx="17.9" cy="23.5" r="2.4" stroke="white" stroke-width="2"/>
+<circle cx="32.1" cy="23.5" r="2.4" stroke="white" stroke-width="2"/>
+
+<path d="M8 8H42V32H8V8Z" stroke="#000025" stroke-width="2.88462" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 32V40" stroke="#000025" stroke-width="2.88462" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17 40H33" stroke="#000025" stroke-width="2.88462" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 24C27.7614 24 30 21.7614 30 19C30 16.2386 27.7614 14 25 14C22.2386 14 20 16.2386 20 19C20 21.7614 22.2386 24 25 24Z" stroke="#000025" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="25" cy="14.5" r="2.4" fill="#DD4814" stroke="#000025" stroke-width="1.1"/>
+<circle cx="17.9" cy="23.5" r="2.4" fill="#DD4814" stroke="#000025" stroke-width="1.1"/>
+<circle cx="32.1" cy="23.5" r="2.4" fill="#DD4814" stroke="#000025" stroke-width="1.1"/>
+</svg>
