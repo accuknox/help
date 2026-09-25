@@ -1,0 +1,221 @@
+
+## API Keys
+  GET    /api-keys
+  POST   /api-keys  !
+  DELETE /api-keys/{id}  !
+
+## Activities
+  GET    /activities
+  POST   /activities
+  GET    /activities/counts
+  GET    /activities/my-tasks
+  PATCH  /activities/{id}/complete
+
+## Agents
+  GET    /agents
+  GET    /agents/{id}
+  PATCH  /agents/{id}
+  DELETE /agents/{id}  !
+  GET    /agents/{id}/activity
+  POST   /agents/{id}/archive
+  POST   /agents/{id}/deploy
+  GET    /agents/{id}/files
+  GET    /agents/{id}/history
+  POST   /agents/{id}/pause
+  POST   /agents/{id}/restore
+  POST   /agents/{id}/resume
+  POST   /agents/{id}/revise
+  POST   /agents/{id}/run
+  POST   /agents/{id}/runs/{runId}/cancel
+  POST   /agents/{id}/runs/{runId}/retry
+  POST   /agents/{id}/save-file
+
+## Auth
+  GET    /auth/me
+  GET    /auth/session
+
+## Companies
+  POST   /companies
+  POST   /companies/bulk-archive
+  POST   /companies/bulk-assign-owner
+  POST   /companies/bulk-enrich
+  POST   /companies/bulk-purge  !
+  POST   /companies/bulk-restore
+  GET    /companies/options
+  POST   /companies/search
+  POST   /companies/{companyId}/set-primary-contact
+  GET    /companies/{id}
+  PATCH  /companies/{id}
+  DELETE /companies/{id}  !
+  POST   /companies/{id}/archive
+  POST   /companies/{id}/enrich
+  POST   /companies/{id}/research
+  POST   /companies/{id}/restore
+
+## Contacts
+  POST   /contacts
+  POST   /contacts/bulk-archive
+  POST   /contacts/bulk-assign-owner
+  POST   /contacts/bulk-enrich
+  POST   /contacts/bulk-purge  !
+  POST   /contacts/bulk-restore
+  POST   /contacts/bulk-set-company
+  POST   /contacts/decide-fact
+  POST   /contacts/search
+  GET    /contacts/{id}
+  PATCH  /contacts/{id}
+  DELETE /contacts/{id}  !
+  POST   /contacts/{id}/archive
+  POST   /contacts/{id}/enrich
+  POST   /contacts/{id}/restore
+
+## Conversations
+  GET    /api/conversations/attachments/{id}
+  GET    /conversations
+  POST   /conversations
+  GET    /conversations/builder
+  POST   /conversations/builder
+  GET    /conversations/builder-resources
+  GET    /conversations/builder/{id}
+  GET    /conversations/shared/{token}
+  DELETE /conversations/{id}  !
+  POST   /conversations/{id}/answer-builder-question
+  GET    /conversations/{id}/events
+  POST   /conversations/{id}/rate-builder-response
+  PATCH  /conversations/{id}/read
+  GET    /conversations/{id}/share
+  POST   /conversations/{id}/share
+  DELETE /conversations/{id}/share  !
+  POST   /conversations/{id}/submit-builder
+
+## Currency
+  POST   /currency/rates/refresh  !
+  PUT    /currency/rates/{currency}  !
+  DELETE /currency/rates/{currency}  !
+  PATCH  /currency/reporting-currency  !
+  GET    /currency/settings
+
+## Dashboard
+  GET    /dashboard/summary
+
+## Deals
+  POST   /deals
+  POST   /deals/bulk-archive
+  POST   /deals/bulk-assign-owner
+  POST   /deals/bulk-purge  !
+  POST   /deals/bulk-restore
+  POST   /deals/bulk-set-stage
+  POST   /deals/search
+  GET    /deals/{dealId}/contact-options
+  POST   /deals/{dealId}/contacts
+  DELETE /deals/{dealId}/contacts/{contactId}  !
+  PATCH  /deals/{dealId}/contacts/{contactId}/role
+  GET    /deals/{id}
+  PATCH  /deals/{id}
+  DELETE /deals/{id}  !
+  POST   /deals/{id}/archive
+  POST   /deals/{id}/restore
+  PATCH  /deals/{id}/stage
+
+## Enrichment
+  GET    /enrichment/queue
+
+## Fields
+  GET    /fields
+  POST   /fields
+  POST   /fields/reorder
+  GET    /fields/{entity}/filterable
+  GET    /fields/{entity}/{key}
+  PATCH  /fields/{id}
+  DELETE /fields/{id}  !
+  POST   /fields/{id}/archive
+  POST   /fields/{id}/backfill
+  GET    /fields/{id}/coverage
+  POST   /fields/{id}/restore
+
+## Google
+  PATCH  /google/auto-create
+  GET    /google/events/{eventId}
+  POST   /google/purge-synced-data  !
+  POST   /google/revoke  !
+  GET    /google/status
+  POST   /google/suppress-domain
+  POST   /google/sync
+  GET    /google/threads/{threadId}
+
+## Health
+  GET    /health
+
+## Internal — Cron
+  GET    /internal/archive/prune
+  GET    /internal/sync/google
+  GET    /internal/sync/mailboxes
+  GET    /internal/sync/rates
+  GET    /internal/telemetry/rollup
+  GET    /internal/tracking/retention
+
+## Microsoft
+  PATCH  /microsoft/auto-create
+  POST   /microsoft/purge-synced-data  !
+  POST   /microsoft/revoke  !
+  GET    /microsoft/status
+  POST   /microsoft/sync
+
+## SSO
+  GET    /sso
+  POST   /sso  !
+  GET    /sso/settings
+  GET    /sso/sign-in-options
+  DELETE /sso/{providerId}  !
+
+## Saved Views
+  GET    /saved-views
+  POST   /saved-views
+  PATCH  /saved-views/{id}
+  DELETE /saved-views/{id}  !
+
+## Search
+  GET    /search
+
+## Settings
+  GET    /settings/agent-model
+  PATCH  /settings/agent-model  !
+  GET    /settings/archive-retention
+  PATCH  /settings/archive-retention  !
+  GET    /settings/model-catalog
+  GET    /settings/research-key
+  PATCH  /settings/research-key  !
+
+## Slack
+  GET    /slack/channels
+  POST   /slack/channels  !
+  POST   /slack/channels/{channelId}/join  !
+  DELETE /slack/connection  !
+  GET    /slack/matches
+  POST   /slack/people/refresh  !
+  GET    /slack/status
+
+## Tracking
+  GET    /api/t/config/{siteId}
+  POST   /api/t/e
+  GET    /tracking/companies/{companyId}/activity
+  GET    /tracking/contacts/{contactId}/activity
+  PATCH  /tracking/cookie-lifetime  !
+  POST   /tracking/domains  !
+  DELETE /tracking/domains/{id}  !
+  PATCH  /tracking/flags  !
+  GET    /tracking/settings
+  POST   /tracking/site-id/rotate  !
+  GET    /tracking/sources
+  POST   /tracking/verify  !
+
+## Users
+  GET    /users
+
+## Workspace
+  GET    /workspace
+  PATCH  /workspace  !
+  POST   /workspace/members/search  !
+  PATCH  /workspace/members/{memberId}/role  !
+
+! = deletes data or changes workspace settings. The CLI asks for --yes.

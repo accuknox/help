@@ -1,0 +1,6 @@
+.cache/
+.env
+*.state.json
+state.json
+errors.csv
+*.csv
