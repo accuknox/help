@@ -27,16 +27,27 @@ the repo root, which load every session. Never restate one of them inside anothe
 | A use-case page | sections 1 and 5, plus a named scenario | `docs/use-cases/` |
 | An integration guide | sections 8 and 9. Every version and field comes from an opened source | `docs/integrations/` |
 | A FAQ answer | section 6. The question is the heading, the answer is the first sentence | `docs/faqs/` |
-| A blog post | `.claude/skills/accuknox-blog-writer/SKILL.md` owns this channel end to end, on top of section 11 | `references/blog-drafts/` |
+| A blog post | `.claude/skills/accuknox-blog-writer/SKILL.md` owns this channel end to end, on top of section 11 | `references/drafts/blog/` |
 | A release note or an update | section 9. No version, flag or fix claim without a source | `docs/` and `updates` |
-| A comparison page | `.claude/skills/accuknox-comparison-writer/SKILL.md`, on top of section 10 | `references/comparison-drafts/` |
-| A press release | `.claude/skills/accuknox-press-release-writer/SKILL.md`. Every name and title from an opened source | `references/press-release-drafts/` |
-| A case study | `.claude/skills/accuknox-case-study-writer/SKILL.md`. Three quantified outcomes minimum | `references/case-study-drafts/` |
+| A comparison page | `.claude/skills/accuknox-comparison-writer/SKILL.md`, on top of section 10 | `references/drafts/comparison/` |
+| A press release | `.claude/skills/accuknox-press-release-writer/SKILL.md`. Every name and title from an opened source | `references/drafts/press-release/` |
+| A case study | `.claude/skills/accuknox-case-study-writer/SKILL.md`. Three quantified outcomes minimum | `references/drafts/case-study/` |
 | An RFP, RFI or security questionnaire | `.claude/skills/accuknox-rfp-filler/SKILL.md`, on top of sections 1, 8, 9 and 12. The gate is `validate.py`, not mkdocs | outside the repo, beside the customer's file |
 | Alt text, a caption, a table | section 12 | anywhere |
 
 A page carries one job. Where a request spans two, write them as two pages rather than one page that
 does both jobs badly.
+
+## Topic Fact Files Load on Demand
+
+A topic file adds facts, never rules. Load it on top of the channel row above.
+
+| The topic | Fact file | What it holds |
+|---|---|---|
+| AI security of any kind: shadow AI, Prompt Firewall, AI-SPM, managed agents, model security, AIBOM, AI-DR, AgentZ, AI SAST or DAST | `references/source-of-truth/ai-security-data-points.md` | Current data points, each with a source tier. Tier D ships anywhere, tier I on sales assets, tier A only when the requester confirms it |
+| AccuKnox positioning, the one-paragraph pitch | `references/source-of-truth/accuknox-summary-and-narrative.md` | The narrative from Nat Natraj, dated 2026-09-24 |
+
+`.claude/hooks/writing-load-order.py` names the fact file when the prompt matches the topic.
 
 ## Precedence, higher wins
 

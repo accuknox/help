@@ -1,0 +1,122 @@
+{
+  "vendor": "Straiker",
+  "slug": "straiker",
+  "website": "https://www.straiker.ai",
+  "what_it_is": "Agentic AI security: agent discovery, autonomous red teaming, and runtime guardrails for AI agents.",
+  "identity_note": "",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "Discover AI inventories agents, tools and MCP servers with AI-SPM and Agent-SPM, plus endpoint shadow AI discovery.",
+      "url": "https://www.straiker.ai/products/discover-ai",
+      "url_type": "vendor",
+      "evidence": "continuous AI-SPM and Agent-SPM that surfaces misconfigurations, risky permissions, and unsafe MCP integrations.",
+      "verify": "confirmed",
+      "verify_note": "Discover AI page confirms AI-SPM and Agent-SPM for misconfigurations and risky permissions, so 1.3 rises to yes. Covers Bedrock AgentCore, Azure Foundry and Copilot Studio."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Covers Bedrock AgentCore, Foundry, Copilot Studio and Agentforce agents, MCP Threat Database, and an Agentic Kill Switch.",
+      "url": "https://www.straiker.ai/solution/agentic-kill-switch",
+      "url_type": "vendor",
+      "evidence": "Cut off tool access, suspend the session, isolate the agent, or shut it down.",
+      "verify": "confirmed",
+      "verify_note": "Kill switch page confirms tool cutoff and isolation. Discover AI names Bedrock AgentCore and Copilot Studio. Defend AI uses the MCP Threat Database."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "partial",
+        "3.3": "yes"
+      },
+      "reason": "Defend AI detects and blocks agent attacks from traces. Alerts go to Slack, email or webhook.",
+      "url": "https://www.straiker.ai/products/defend-ai",
+      "url_type": "vendor",
+      "evidence": "Dashboards, audit logs, and instant alerts over Slack, email, or webhook keep teams informed and audit-ready.",
+      "verify": "confirmed",
+      "verify_note": "Defend AI page confirms detection and blocking. Alerts go to Slack, email or webhook. SIEM and ServiceNow search found no named integration, 3.2 stays partial."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Defend AI blocks prompt injection and data exfiltration inline via API, SDK or sensor, and filters toxic output.",
+      "url": "https://www.straiker.ai/products/defend-ai",
+      "url_type": "vendor",
+      "evidence": "Stop direct and indirect prompt injection, data exfiltration, and agent manipulation across coding agents, productivity agents",
+      "verify": "confirmed",
+      "verify_note": "Defend AI page confirms API, SDK, webhook or sensor install, injection blocking and toxic output suppression."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "AI Compliance and Governance maps to EU AI Act, NIST AI 600-1 and MITRE ATLAS with audit-grade traceability.",
+      "url": "https://www.straiker.ai/solution/ai-compliance-governance",
+      "url_type": "vendor",
+      "evidence": "Straiker produces audit-grade traceability across every AI interaction, decision, and action",
+      "verify": "confirmed",
+      "verify_note": "Compliance page confirms EU AI Act, NIST AI 600-1, MITRE ATLAS and audit traceability. AI-BOM appears only in LinkedIn posts, 5.1 stays partial."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Ascend AI runs continuous, autonomous multi-turn red teaming of agentic apps, including CI/CD stages.",
+      "url": "https://www.straiker.ai/products/ascend-ai",
+      "url_type": "vendor",
+      "evidence": "Tests your agentic AI apps the way real attackers would, automatically and nonstop.",
+      "verify": "confirmed",
+      "verify_note": "Ascend AI page confirms multi-turn testing, native CI/CD hooks and continuous runs."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "no",
+        "7.2": "partial",
+        "7.3": "no"
+      },
+      "reason": "Discover AI flags over-permissioned agents and the kill switch revokes tool access. No agent identity or NHI product.",
+      "url": "https://www.straiker.ai/products/discover-ai",
+      "url_type": "vendor",
+      "evidence": "Detect over-permissioned agents, risky MCP connections, and misconfigured integrations across your full agentic ecosystem.",
+      "verify": "confirmed",
+      "verify_note": "Searched agent identity and NHI. Only over-permission detection and tool revocation found, subs unchanged."
+    },
+    "8": {
+      "status": "no",
+      "sub": {
+        "8.1": "no",
+        "8.2": "no",
+        "8.3": "no"
+      },
+      "reason": "No model file scanning, dataset scanning or AI SAST found. Straiker secures agent behavior, not code or models.",
+      "url": "https://www.straiker.ai/solution/coding-agents",
+      "url_type": "vendor",
+      "evidence": "Searched 'Straiker model scanning pickle' and 'Straiker RAG data poisoning scan / AI-generated code scanning'. Page says traditional SAST and DAST scan code, Straiker secures the agent.",
+      "verify": "confirmed",
+      "verify_note": "Coding agents page says Straiker is not SAST. Searched model scanning and RAG poisoning again with no product hit."
+    }
+  },
+  "notes": "Re-verified against the live site on 2026-09-25. Changes since the June 2026 research: $64M Series A (June 29, 2026, led by Marathon, total $85M), a new Agentic Kill Switch solution page, and Discover AI now does endpoint-based shadow AI discovery (apps, extensions, local models, MCP servers). Defend AI sees secrets and PII leaving in agent traffic, but that is runtime DLP, not dataset scanning. Gartner Peer Insights reviews are positive for Ascend AI. No G2 page. SaaS only, no on-prem documented."
+}

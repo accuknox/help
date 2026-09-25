@@ -1,0 +1,139 @@
+{
+  "vendor": "AccuKnox",
+  "slug": "accuknox",
+  "website": "https://accuknox.com/platform/ai-security",
+  "what_it_is": "Zero trust AI security platform, from AI-SPM to runtime, plus the AgentZ agentic platform.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "AI-SPM inventories AI assets on AWS, Azure, GCP and on-prem. Shadow AI Discovery scans VMs and Kubernetes.",
+      "url": "https://help.accuknox.com/use-cases/shadow-ai-discovery/",
+      "url_type": "vendor",
+      "evidence": "finds and classifies AI assets across cloud and on-prem infrastructure, including VMs and Kubernetes"
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "AgentZ runs agents in a default-deny sandbox with kernel egress control. Bedrock AgentCore and Copilot Studio integrations.",
+      "url": "https://accuknox.com/platform/agentz/",
+      "url_type": "vendor",
+      "evidence": "Every agent runs in a default deny sandbox, holds no secret, and writes every action to a trace"
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "AI-DR ingests CloudTrail and Event Hub, raises Jira or ServiceNow tickets, and auto-remediates. KubeArmor enforces at runtime.",
+      "url": "https://help.accuknox.com/use-cases/aidr/",
+      "url_type": "vendor",
+      "evidence": "Triggers alerts, creates tickets, and can auto-remediate risky or unauthorized actions"
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Prompt Firewall runs as a browser plugin, gateway proxy or SDK, with LiteLLM and Bifrost. AI Gateway in beta.",
+      "url": "https://help.accuknox.com/integrations/ai-overview/",
+      "url_type": "vendor",
+      "evidence": "Browser plugin, Gateway proxy, SDK integration modes. Blocks injection, jailbreak, PII, toxicity",
+      "beta": "AccuKnox AI Gateway"
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "yes",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "xBOM generates AIBOM. Findings map to NIST AI RMF, ISO 42001, OWASP LLM Top 10 and EU AI Act.",
+      "url": "https://help.accuknox.com/getting-started/xbom-setup/",
+      "url_type": "vendor",
+      "evidence": "xBOM is an umbrella term covering SBOM, CBOM, and AIBOM (AI/ML models)"
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Red teaming runs static and purpose-built intelligent scans on a schedule. AI DAST for AI apps is in beta.",
+      "url": "https://help.accuknox.com/use-cases/red-teaming/",
+      "url_type": "vendor",
+      "evidence": "Scales to hundreds of probes across multiple attack categories in minutes",
+      "beta": "AI DAST"
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "partial"
+      },
+      "reason": "SPIFFE workload identity and OpenFGA authorization per agent step. AgentZ injects scoped credentials at run time.",
+      "url": "https://accuknox.com/solutions/agentic-ai-security",
+      "url_type": "vendor",
+      "evidence": "Enforce least-privilege at every agent step. Built on SPIFFE and OpenFGA."
+    },
+    "8": {
+      "status": "yes",
+      "sub": {
+        "8.1": "yes",
+        "8.2": "yes",
+        "8.3": "yes"
+      },
+      "reason": "Scans Pickle, GGUF, safetensors and ONNX models. Checks datasets for PII and poisoning. AI SAST in beta.",
+      "url": "https://help.accuknox.com/how-to/ml-static-scan/",
+      "url_type": "vendor",
+      "evidence": "Whether the artifact uses a safe file format, whether it carries an unsafe pickle",
+      "beta": "AI SAST"
+    }
+  },
+  "extra_refs": {
+    "1": [
+      "https://help.accuknox.com/how-to/aiml-overview/"
+    ],
+    "2": [
+      "https://help.accuknox.com/agentz/",
+      "https://help.accuknox.com/integrations/bedrock-agentcore/",
+      "https://help.accuknox.com/integrations/copilot-studio/"
+    ],
+    "3": [
+      "https://help.accuknox.com/getting-started/aws-cdr/",
+      "https://help.accuknox.com/getting-started/runtime-sec-arch/"
+    ],
+    "4": [
+      "https://help.accuknox.com/use-cases/prompt-firewall-overview/",
+      "https://help.accuknox.com/integrations/litellm/"
+    ],
+    "5": [
+      "https://help.accuknox.com/faqs/ai-security/"
+    ],
+    "6": [
+      "https://help.accuknox.com/getting-started/3.6-release/"
+    ],
+    "7": [
+      "https://help.accuknox.com/agentz/"
+    ],
+    "8": [
+      "https://help.accuknox.com/how-to/llm-static-scan/",
+      "https://help.accuknox.com/how-to/code-source-onboarding/"
+    ]
+  },
+  "notes": "Beta in v3: AccuKnox AI Gateway (module 4), AI DAST (module 6), AI SAST (module 8). AgentZ is the module 2 agent runtime."
+}

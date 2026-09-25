@@ -1,0 +1,122 @@
+{
+  "vendor": "Aurascape",
+  "slug": "aurascape",
+  "website": "https://aurascape.ai",
+  "what_it_is": "Inline AI usage control and agent gateway: shadow AI discovery, AI DLP, MCP gateway.",
+  "identity_note": "",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "partial"
+      },
+      "reason": "Discovers and risk-scores AI apps, copilots, agents, models and shadow MCP servers across network, endpoints and APIs.",
+      "url": "https://aurascape.ai/product",
+      "url_type": "vendor",
+      "evidence": "Automatically detect new and unsanctioned AI tools, as soon as they appear across your environment.",
+      "verify": "confirmed",
+      "verify_note": "Scraped product page. Discovers apps, agents and shadow MCP servers on network, endpoints and APIs."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Zero-Bypass MCP Gateway signs approved tool calls and blocks unsigned ones. Inline controls for Bedrock AgentCore traffic.",
+      "url": "https://aurascape.ai/secure-agentic-ai",
+      "url_type": "vendor",
+      "evidence": "Tool calls through the MCP Gateway are verified, signed, and controlled before reaching an external system.",
+      "verify": "confirmed",
+      "verify_note": "Scraped agentic page and AgentCore post. Signed MCP Gateway blocks unsigned tool calls."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "partial",
+        "3.3": "yes"
+      },
+      "reason": "Inline blocking of prompt injection and risky agent actions, with forensics. SIEM export appears only in whitepapers.",
+      "url": "https://aurascape.ai/secure-agentic-ai",
+      "url_type": "vendor",
+      "evidence": "Visibility and control across built, bought, and unsanctioned AI agents, with interaction-level forensics for investigating incidents",
+      "verify": "confirmed",
+      "verify_note": "Inline blocking and forensics hold. SIEM, Splunk and ServiceNow search found no named integration."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "AI Proxy inspects prompts and responses inline. Guardrails cover injection, jailbreak, PII, credentials and output sanitization.",
+      "url": "https://aurascape.ai/secure-agentic-ai",
+      "url_type": "vendor",
+      "evidence": "prompt-injection and jailbreak detection, PII filtering, credential guard, code-injection checks, and output sanitization.",
+      "verify": "confirmed",
+      "verify_note": "Scraped agentic page. AI Proxy guardrails cover injection, PII, credentials and output sanitization."
+    },
+    "5": {
+      "status": "partial",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "partial",
+        "5.3": "yes"
+      },
+      "reason": "Audit-ready evidence for every AI interaction. NIST mapping appears only in articles, and no AIBOM export.",
+      "url": "https://aurascape.ai/ai-governance-and-compliance",
+      "url_type": "vendor",
+      "evidence": "Audit-ready evidence for every AI interaction.",
+      "verify": "downgraded",
+      "verify_note": "Only 5.3 is yes. NIST mapping sits in an answers article and one case study, so 5.2 stays partial."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {
+        "6.1": "partial",
+        "6.2": "partial",
+        "6.3": "no"
+      },
+      "reason": "Pre-deployment stress tests of agent guardrails with simulated prompt injection and jailbreaks. No dedicated red teaming product.",
+      "url": "https://aurascape.ai/secure-agentic-ai",
+      "url_type": "vendor",
+      "evidence": "Stress-test guardrails with simulated prompt injection and jailbreak attempts, and surface vulnerabilities before agents ship.",
+      "verify": "confirmed",
+      "verify_note": "Pre-deployment stress tests only. Red teaming search found an Aurascape page that names Noma stronger there."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "partial",
+        "7.2": "yes",
+        "7.3": "no"
+      },
+      "reason": "Enforces boundaries on agent identity and tool access inline. Leaves identity itself to the IdP. No NHI discovery.",
+      "url": "https://aurascape.ai/answers/ai-agent-identity-and-access-management",
+      "url_type": "vendor",
+      "evidence": "Aurascape governs what an AI agent does after it authenticates: which tools it calls, which data it touches",
+      "verify": "confirmed",
+      "verify_note": "Scraped identity answers page. Inline tool-access boundaries hold. Identity itself is left to the IdP."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "no",
+        "8.3": "partial"
+      },
+      "reason": "Coding Assistant Guardrails detect risky generated code and typosquatted packages in session. No model or dataset scanning.",
+      "url": "https://aurascape.ai/resources/blog/coding-assistant-guardrails-live-session/",
+      "url_type": "vendor",
+      "evidence": "When an assistant produces risky code, Aurascape detects it and captures the evidence.",
+      "verify": "confirmed",
+      "verify_note": "Scraped coding blog. Session-level risky code detection only. No model or dataset scanning."
+    }
+  },
+  "notes": "Network and inline-first vendor, similar in shape to an AI-focused SSE, with comparison pages against Netskope, Zscaler, Palo Alto, WitnessAI, Harmonic and Lasso. The inventory in module 1 comes from AI usage and traffic, not from a cloud AI resource posture scan. SIEM export is described in a whitepaper and a buyer guide ('stream evidence to SIEM/GRC'), with no named SIEM integration page found. Searched 'Aurascape red teaming', 'Aurascape model scanning / AI-generated code scanning / training data', 'Aurascape Splunk SIEM ServiceNow'. AuraLabs research found an AgentCore sandbox isolation gap, which AWS fixed."
+}

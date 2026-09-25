@@ -11,8 +11,51 @@ a comparison.
 
 ## `ai-security`
 
-Two live pages, and the Promptfoo one is the current shape. Source:
-`comparisons/accuknox-vs-promptfoo` and `comparisons/accuknox-vs-quilr`.
+Use the two-group set first. It comes from the Netskope battlecard rebuilt on
+2026-09-25, and it is the current shape for any AI security page or PDF.
+`positioning-playbook.md` explains the split.
+
+### Group 1, AI for Security
+
+AccuKnox uses AI to improve its own security workflows.
+
+| # | Parameter | What the row decides |
+| --- | --- | --- |
+| 1 | AI SAST | Whether AI cuts triage with false-positive and severity review |
+| 2 | AI DAST | Whether the running app gets tested, behind MFA logins, in CI/CD |
+| 3 | AgentZ | Whether security teams get sandboxed agents for any job |
+| 4 | AI-powered pentesting | Whether attacks on the app and the model run continuously |
+
+Most AI-security competitors ship no AppSec testing, so these rows are often
+clean wins. Check the competitor docs before you mark one Not supported.
+
+### Group 2, Security for AI
+
+AccuKnox secures the AI the customer runs.
+
+| # | Parameter | What the row decides |
+| --- | --- | --- |
+| 5 | Shadow AI discovery and enforcement | Identify against protect, on browser, hosts, desktop and CLI |
+| 6 | Cloud AI security | Agentless inventory, GA or Preview, and how many clouds |
+| 7 | On-prem and self-hosted AI | Whether the control plane itself runs on-prem or air-gapped |
+| 8 | Managed agents | An agent-first view of Bedrock AgentCore, Copilot Studio, Power Apps |
+| 9 | Prompt Firewall and browser protection | Prompts, files, pastes and replies, with or without traffic steering |
+| 10 | AI Gateway | Enforcement in gateways the customer already runs, or a new appliance |
+| 11 | Agent runtime sandbox | eBPF discovery and eBPF plus LSM enforcement on the host |
+| 12 | Model security and audit | Model file scans before load |
+| 13 | AI BOM | A CycloneDX AIBOM beside the SBOM |
+| 14 | Red teaming | Usually parity. Name the edge, such as on-prem model reach |
+| 15 | Runtime guardrails | Policy classes and multi-turn session scoring |
+| 16 | AI detection and response | Detection on AI cloud control-plane logs, with auto-revert |
+
+Leave out standalone deployment, licensing and AI GRC rows. Fold the deployment
+fact into row 7.
+
+### The Older Single-Group Set
+
+The live web pages use this set. Source: `comparisons/accuknox-vs-promptfoo` and
+`comparisons/accuknox-vs-quilr`. Rows 15 and 16 are the rows to fold or cut when
+the competitor matches them.
 
 | # | Parameter | What the row decides |
 | --- | --- | --- |
@@ -155,8 +198,16 @@ order. Positive first is what keeps the page credible.
 Two sentences. No adjectives. The second sentence is the gap, stated flatly,
 with a link to their documentation showing the scope.
 
+**Each cell also carries a status label**, one of Supported, Not supported, No
+equivalent, Limited or Parity. `positioning-playbook.md` says when to use each.
+
+**A fourth cell, the buyer takeaway**, closes the row in eight words or fewer and
+names what the buyer gets. "Your AI stays in your data center" passes. "Better
+security" fails. Add it on PDFs always, and on web pages when the layout allows.
+
 ## Related
 
 - `references/comparison-layout.md`, the archetype and section order
+- `positioning-playbook.md`, the row test and status labels
 - `assets/comparison-template.md`, the file you copy
-- `references/comparisons-builder/` in the repo root, the existing research
+- `references/competitive/battlecards/` in the repo root, the existing research

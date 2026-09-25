@@ -42,7 +42,7 @@ CHANNELS = [
     ("Blog post", r"\bblog\b|\bpost\b|\barticle\b|\bseries\b",
      "section 11, plus the accuknox-blog-writer skill, which owns this channel "
      "end to end. Front-load the answer in the first 150 words, then earn the length",
-     "references/blog-drafts/ or references/<series>/"),
+     "references/drafts/blog/ or references/<series>/"),
     ("FAQ answer", r"\bfaq\b|\bfrequently asked\b",
      "section 6. The question is the heading, the answer is the first sentence",
      "docs/faqs/"),
@@ -61,19 +61,29 @@ CHANNELS = [
     ("Press release", r"\bpress release\b|\bannounce\w*\b|\bnewswire\b",
      "the accuknox-press-release-writer skill, which owns this channel. Every "
      "name, title and claim comes from what the user supplied",
-     "references/press-release-drafts/"),
+     "references/drafts/press-release/"),
     ("Case study", r"\bcase stud\w+\b|\bcustomer story\b|\bsuccess story\b|"
      r"\bcustomer win\b",
      "the accuknox-case-study-writer skill, which owns this channel. Three "
      "quantified outcomes minimum, plus the anonymisation check",
-     "references/case-study-drafts/"),
+     "references/drafts/case-study/"),
     ("Comparison page", r"\bcompar|\bversus\b|\bvs\b|\balternative\b|"
      r"\bstack ranking\b|\bbattlecard\b",
      "the accuknox-comparison-writer skill, on top of section 10. Compare on a "
      "named sourced capability, never attack",
-     "references/comparison-drafts/"),
+     "references/drafts/comparison/"),
     ("Doc page", r"\bdocs?\b|\bpage\b|\bdocument\b",
      "the whole of writing-rules.md", "docs/"),
+]
+
+# Topic fact files. Mirrors the "Loaded on demand, by topic" table in the contract.
+TOPICS = [
+    (r"\bai\b|\bllm|\bgenai\b|shadow ai|prompt firewall|guardrail|ai-?spm|"
+     r"\bagent|\bmcp\b|\bmodel\b|aibom|ai-?bom|ai-?dr\b|aidr|red team|"
+     r"agentz|modelarmor|copilot|bedrock|netskope|jailbreak|prompt injection",
+     "references/source-of-truth/ai-security-data-points.md",
+     "current AI security data points with source tiers. Tier D ships anywhere, "
+     "tier I on sales assets, tier A only when the requester confirms it"),
 ]
 
 GATES = {
@@ -150,6 +160,11 @@ def main() -> int:
     gates, gate_line = GATES.get(channel, GATES["default"])
     sys.stdout.write(TEMPLATE.format(channel=channel, focus=focus, path=path,
                                      gates=gates, gate_line=gate_line))
+    facts = [(f, why) for pat, f, why in TOPICS if re.search(pat, prompt, re.I)]
+    if facts:
+        sys.stdout.write("\n\nTopic facts, load before you draft:\n")
+        for f, why in facts:
+            sys.stdout.write(f"  {f}  {why}\n")
     return 0
 
 

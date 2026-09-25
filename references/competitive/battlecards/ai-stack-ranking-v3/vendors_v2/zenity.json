@@ -1,0 +1,122 @@
+{
+  "vendor": "Zenity",
+  "slug": "zenity",
+  "website": "https://zenity.io",
+  "what_it_is": "Security and governance platform for AI agents across SaaS, cloud and endpoints.",
+  "identity_note": "",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "AI Observability inventories agents across SaaS, cloud and endpoints. AISPM checks agent config before deployment.",
+      "url": "https://zenity.io/platform",
+      "url_type": "vendor",
+      "evidence": "Builds a live inventory of agents across SaaS, custom, and endpoint deployments",
+      "verify": "confirmed",
+      "verify_note": "Platform page says AISPM evaluates agent configuration and permissions before go-live, so 1.3 moves to yes."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Covers Copilot Studio, Agentforce, Bedrock and Foundry. MCP gateway and Boundaries allow, modify or block tool calls.",
+      "url": "https://zenity.io/platform/mcp-security",
+      "url_type": "vendor",
+      "evidence": "Allow, modify, or block a tool call based on live context, not a static allow-list",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "AIDR finds multi-step agent attacks and blocks inline. ServiceNow SecOps runs remediation workflows.",
+      "url": "https://zenity.io/platform/ai-detection-and-response",
+      "url_type": "vendor",
+      "evidence": "Detecting threats mapped to the OWASP LLM and MITRE ATLAS frameworks and blocking unsafe actions in real time",
+      "verify": "confirmed",
+      "verify_note": "March 2026 ServiceNow partnership release names SecOps remediation workflows, so 3.2 moves to yes."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "AIDR and Inline Prevention block prompt injection and data leaks and filter toxic or risky output.",
+      "url": "https://zenity.io/blog/how-zenity-implements-the-owasp-top-10-for-llm-applications",
+      "url_type": "vendor",
+      "evidence": "Inline Prevention's Risk Filtering covers the toxicity and unsafe-content end of the output surface",
+      "verify": "url-fixed",
+      "verify_note": "Zenity OWASP mapping blog names Risk Filtering for toxicity and output checks for LLM10, so 4.3 moves no to yes. No hallucination control."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Compliance use case gives audit trails and maps to GDPR, NIST and OWASP. Agent inventory, no AIBOM found.",
+      "url": "https://zenity.io/use-cases/business-needs/ai-agents-compliance",
+      "url_type": "vendor",
+      "evidence": "With audit trails and real-time governance, enterprises can prove compliance and protect privacy",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {
+        "6.1": "no",
+        "6.2": "partial",
+        "6.3": "no"
+      },
+      "reason": "AI Exposure Management proves which agent attack paths are reachable. No attack library product found.",
+      "url": "https://zenity.io/platform/ai-exposure-management",
+      "url_type": "vendor",
+      "evidence": "Validates which agents an attacker could actually exploit and prioritizes the risk",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "yes"
+      },
+      "reason": "Agentic Identity maps agent identities from Okta and Entra, enforces scope at runtime, and surfaces NHIs.",
+      "url": "https://zenity.io/platform/agentic-identity-and-access-management",
+      "url_type": "vendor",
+      "evidence": "See every agent's assumed identities, privilege, and managed status, mapped to the OWASP Non-Human Identity Top 10",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "no",
+        "8.3": "partial"
+      },
+      "reason": "AI-assisted development page scans AI-generated code. No model file or dataset scanning found.",
+      "url": "https://zenity.io/ai-assisted-software-development",
+      "url_type": "vendor",
+      "evidence": "Continuously scan AI-generated code for vulnerabilities using secure and automated detection workflows",
+      "verify": "confirmed",
+      "verify_note": "AI-assisted development page is live but reads like an SEO page. Coding agent pages cover posture and runtime only. 8.3 stays partial and weak."
+    }
+  },
+  "notes": "The platform has three layers. Surface holds AI Observability, AISPM and AI Exposure Management. Enforce and Protect hold AIDR and the Boundaries runtime rules. Red teaming: two searches plus an academy page show that Zenity Labs does red team research and hires red teamers, but found no automated red teaming product. AI Exposure Management validates attack paths, so 6 is partial and not no. 8.3 rests on the ai-assisted-software-development page, which looks older than the current platform pages, so treat 8.3 as weak. One search did not confirm SIEM or SOAR integrations, so 3.2 is partial. 4.3 output filtering: no evidence found."
+}
