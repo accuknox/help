@@ -1,0 +1,122 @@
+{
+  "vendor": "PointGuard AI",
+  "slug": "pointguard-ai",
+  "website": "https://www.pointguardai.com",
+  "what_it_is": "AI security platform for discovery, posture, red teaming, guardrails and agent control.",
+  "identity_note": "Formerly AppSOC. Many pages still say AppSOC and the old DevSecOps orchestration platform page remains live.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "AI Discovery inventories models, agents and MCP servers. AI-SPM finds MLOps misconfigs. Workforce control finds Shadow AI.",
+      "url": "https://www.pointguardai.com/ai-discovery",
+      "url_type": "vendor",
+      "evidence": "Discovers models, agents, MCP servers, notebooks, and more",
+      "verify": "confirmed",
+      "verify_note": "AI Discovery page confirms Databricks, Azure and AWS integration, MLOps pipeline visibility and model supply chain risk. Workforce AI Usage Control page confirms shadow AI."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "MCP Security Gateway and Agent Mission Control check tool calls before execution, with sandboxing and kill switches.",
+      "url": "https://www.pointguardai.com/agent-mission-control",
+      "url_type": "vendor",
+      "evidence": "Hypervisor-grade sandboxing with privilege tiers. Emergency kill switches for single agents or groups",
+      "verify": "confirmed",
+      "verify_note": "Agent Mission Control page confirms sandboxing and kill switches. MCP Security Gateway page and Copilot Studio integration page both exist."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "Agent Mission Control contains anomalies at runtime. Guardrails module sends issues to Jira and ServiceNow.",
+      "url": "https://www.pointguardai.com/ai-intelligent-guardrails",
+      "url_type": "vendor",
+      "evidence": "Seamless integration with Jira, ServiceNow, Teams and other operational tools",
+      "verify": "url-fixed",
+      "verify_note": "Governance page names only SOC and IR workflows. Jira and ServiceNow appear on the guardrails page, so the URL moves there. Status unchanged."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Intelligent AI Guardrails inspect prompts and responses via API or proxy and scan output for malicious code.",
+      "url": "https://www.pointguardai.com/ai-intelligent-guardrails",
+      "url_type": "vendor",
+      "evidence": "Stops prompt injection and jailbreak attacks. Scans responses for malware or malicious code",
+      "verify": "confirmed",
+      "verify_note": "Guardrails page says responses are scanned for malware or malicious code, so 4.3 rises to yes."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "yes",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "AI Governance maps to ISO 42001, NIST AI RMF, OWASP LLM. AI Discovery manages the AI BOM.",
+      "url": "https://www.pointguardai.com/ai-governance",
+      "url_type": "vendor",
+      "evidence": "Aligns with ISO 42001, HIPAA, NIST AI RMF, OWASP Top 10 for LLMs",
+      "verify": "confirmed",
+      "verify_note": "Governance page confirms ISO 42001, NIST AI RMF and OWASP LLM alignment. AI Discovery page confirms AI BOM management."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "partial"
+      },
+      "reason": "AI Security Testing runs automated red teaming against models and agents. No CI/CD red teaming detail found.",
+      "url": "https://www.pointguardai.com/ai-security-testing",
+      "url_type": "vendor",
+      "evidence": "Automate model & agent scanning, Red Teaming, and risk & trust validation",
+      "verify": "confirmed",
+      "verify_note": "Testing page confirms automated red teaming of models and agents. CI/CD red teaming search found only an AppSOC DevSecOps blog, 6.3 stays partial."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "partial"
+      },
+      "reason": "Agent Identity & Access gives each agent a cryptographic identity and intent-based least-privilege access to MCP tools.",
+      "url": "https://www.pointguardai.com/agent-identity-access-security",
+      "url_type": "vendor",
+      "evidence": "Assign every AI agent a decentralized cryptographic identity bound to its owner, purpose, permissions, and operating scope",
+      "verify": "confirmed",
+      "verify_note": "Identity page confirms DIDs, intent-based least privilege and MCP tool controls. 7.3 stays partial on OAuth delegation and credential scope control, not the glossary."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "yes",
+        "8.2": "partial",
+        "8.3": "partial"
+      },
+      "reason": "Static and dynamic model scanning finds malware in models. Dataset and AI code scanning are narrower.",
+      "url": "https://www.pointguardai.com/ai-security-testing",
+      "url_type": "vendor",
+      "evidence": "Detects embedded malware, vulnerabilities, and weaknesses. Scans notebooks for vulnerable libraries",
+      "verify": "confirmed",
+      "verify_note": "Testing page confirms embedded malware detection in models and notebook library scans. Dataset work is lineage only, 8.2 stays partial."
+    }
+  },
+  "notes": "Rebranded from AppSOC. Legacy AppSOC ASPM aggregates 130+ SAST, SCA and DAST tools, which a reviewer may count toward 8.3. AI Discovery tracks dataset lineage, but no training-data PII or poisoning scan was found. Newer products: Agent Mission Control, Agentic Endpoint Security, Workforce AI Usage Control. A July 2026 Gartner note quotes Agent Mission Control. NHI support appears only on a glossary page (short-lived per-agent identities), so 7.3 is partial. 6.3 CI/CD red teaming: two searches found nothing."
+}

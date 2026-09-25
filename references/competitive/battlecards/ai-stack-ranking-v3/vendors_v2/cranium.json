@@ -1,0 +1,122 @@
+{
+  "vendor": "Cranium",
+  "slug": "cranium",
+  "website": "https://cranium.ai",
+  "what_it_is": "AI security and governance platform with discovery, AI-BOM, red teaming and runtime controls.",
+  "identity_note": "Cranium AI (cranium.ai), Short Hills NJ. Product is Cranium ONE.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "Detect AI, CodeSensor, CloudSensor and AgentSensor find models, agents and shadow AI across code and cloud.",
+      "url": "https://cranium.ai/platform/discover/",
+      "url_type": "vendor",
+      "evidence": "Cranium Detect AI™ reveals shadow AI across your environment",
+      "verify": "confirmed",
+      "verify_note": "Discover page confirms four sensors. CloudSensor monitors cloud changes, alerts and access controls, so 1.3 rises to yes."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "no",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "AgentSensor lists each agent's tools and MCP servers from code. Runtime layer blocks risky tool calls.",
+      "url": "https://docs.cranium.ai/en/articles/20411-agentsensor-overview",
+      "url_type": "vendor",
+      "evidence": "The table displays each agent's name, model, instructions, tools, handoffs, file paths, guardrails, and MCP servers.",
+      "verify": "upgraded",
+      "verify_note": "AgentSensor docs show MCP servers per agent, so 2.2 rises to yes and the module to yes. Supported frameworks are SDKs, not managed platforms, 2.1 stays no."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "Observe watches 100+ risk signals live. Runtime control blocks or quarantines. Alerts stream to a connected SIEM.",
+      "url": "https://cranium.ai/platform/secure/",
+      "url_type": "vendor",
+      "evidence": "Block, redact, flag or quarantine",
+      "verify": "confirmed",
+      "verify_note": "Docs article How to Connect a SIEM Integration streams alerts to a SIEM, and Arena Shield auto-remediates, so 3.2 rises to yes."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Real-time control layer inspects prompts and responses for injection, jailbreaks, PII leakage and toxicity.",
+      "url": "https://cranium.ai/platform/observe/",
+      "url_type": "vendor",
+      "evidence": "Observe routes every interaction through a real-time control layer",
+      "verify": "confirmed",
+      "verify_note": "Observe page confirms the real-time control layer and signals for PII, injection, jailbreak, leakage and toxicity."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "yes",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Auto AI-BOMs, ComplianceAgent, and AI Cards mapped to EU AI Act, NIST AI RMF and ISO 42001.",
+      "url": "https://cranium.ai/platform/",
+      "url_type": "vendor",
+      "evidence": "AI Cards fuse posture, red-team findings and runtime evidence",
+      "verify": "confirmed",
+      "verify_note": "Discover page confirms auto AI-BOMs, AgentSensor docs confirm CycloneDX export. Platform page names EU AI Act, NIST AI RMF, ISO 42001. ComplianceAgent is beta."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Arena runs automated agent-based red teaming. Arena Shield applies fixes and re-tests continuously.",
+      "url": "https://cranium.ai/platform/secure/",
+      "url_type": "vendor",
+      "evidence": "Cranium Arena™ runs automated, agent-based red teaming",
+      "verify": "confirmed",
+      "verify_note": "Secure page confirms Arena agent-based suites, MITRE ATLAS and OWASP libraries, and continuous re-testing."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "no",
+        "7.2": "no",
+        "7.3": "partial"
+      },
+      "reason": "CloudSensor assesses cloud role-based access controls. No agent identity or NHI governance found.",
+      "url": "https://cranium.ai/cranium-ai-launches-new-ai-security-governance-and-agentic-features-to-enhance-its-award-winning-platform/",
+      "url_type": "vendor",
+      "evidence": "monitor unauthorized changes, and assess role-based access controls",
+      "verify": "confirmed",
+      "verify_note": "Press release confirms CloudSensor RBAC assessment only. Searched agent identity again with no hit."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "partial",
+        "8.3": "yes"
+      },
+      "reason": "CodeSensor scans repos for models, datasets, AI packages and AI-generated code. No model file malware scanning.",
+      "url": "https://cranium.ai/platform/discover/",
+      "url_type": "vendor",
+      "evidence": "Cranium CodeSensor™ scans source code for models, datasets and AI packages",
+      "verify": "confirmed",
+      "verify_note": "Discover page says a repository sweep flags AI-generated code, so 8.3 rises to yes. Dataset discovery is inventory only, 8.2 stays partial. Status unchanged."
+    }
+  },
+  "notes": "Cranium acquired Aiceberg (agentic AI security) on May 21, 2026. Docs show a Cranium Guardian section (Inventory, Activity, Cannon, Observe, Shadow AI) that comes from Aiceberg. ComplianceAgent is marked beta in the docs. Model vulnerability assessments in the docs come from Arena attack categories, not model file scanning. Searched 'Cranium AI MCP server security', 'Cranium AI agent identity permissions non-human identity', 'Cranium Guardian Aiceberg agent permissions identity', and 'Cranium AI model scanning malware backdoor model file'."
+}

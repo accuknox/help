@@ -1,6 +1,6 @@
 # Part 1 recording, English walkthrough
 
-Source: `Part 1.mp4` (24:48) and `Part 1.srt`. The demo is spoken in Hindi. This is the
+Source: `part-1.mp4` (24:48) and `part-1.srt`. The demo is spoken in Hindi. This is the
 English content, condensed to what is actually demonstrated. Timestamps point at the
 video. Presenter is Murtaza (Surya Tyagi's Meet account), with Pavan and Ayush on the call.
 

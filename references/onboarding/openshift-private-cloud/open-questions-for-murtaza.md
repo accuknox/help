@@ -1,7 +1,7 @@
 # OpenShift onboarding, things to confirm before the doc goes public
 
 Raised while writing `docs/how-to/vm-security/agentless/openshift-vm-scanning.md` from
-`Onboarding OpenShift Steps.md`, `Part 1.mp4`, and `Part 2.mp4`. Nothing here blocks
+`onboarding-steps.md`, `part-1.mp4`, and `part-2.mp4`. Nothing here blocks
 publishing the page, but items 1 to 4 change what the doc tells a customer to do.
 
 ## 1. How does a customer find their tenant ID
@@ -86,7 +86,7 @@ at schedule creation or at scan completion.
 
 ## 10. Part 2 recording
 
-`Part 2.mp4` is 2:23 and shows the findings view in the AccuKnox platform, not the
-uninstall flow. The uninstall flow is at 23:10 in `Part 1.mp4` and is verbal, with the
+`part-2.mp4` is 2:23 and shows the findings view in the AccuKnox platform, not the
+uninstall flow. The uninstall flow is at 23:10 in `part-1.mp4` and is verbal, with the
 Installed Operators and Sources screens visible. If a dedicated offboarding recording exists
 somewhere, it did not come through.

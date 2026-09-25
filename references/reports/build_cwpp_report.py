@@ -25,7 +25,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 OUT_DIR = os.path.dirname(os.path.abspath(__file__))
-OUT_PDF = os.path.join(OUT_DIR, "..", "Cloud Workload Protection Management Report (CWPP).pdf")
+OUT_PDF = os.path.join(OUT_DIR, "cwpp-management-report.pdf")
 LOGO_WHITE = r"D:\Atharva\AccuKnox\HelpDocs\docs\assets\images\logo-white.png"
 LOGO_DARK  = r"D:\Atharva\AccuKnox\HelpDocs\docs\assets\images\logo-black.png"
 

@@ -1,0 +1,122 @@
+{
+  "vendor": "Onyx Security",
+  "slug": "onyx-security",
+  "website": "https://www.onyx.security",
+  "what_it_is": "Secure AI control plane that discovers, governs and protects enterprise AI agents.",
+  "identity_note": "Resolved to Onyx Security (onyx.security, New York and Tel Aviv, launched March 2026). This is not the open-source Onyx enterprise search app at onyx.app.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "AI Observability discovers agents, MCP servers and shadow AI across SaaS, cloud, endpoints and code.",
+      "url": "https://www.onyx.security/platform/ai-observability",
+      "url_type": "vendor",
+      "evidence": "Onyx identifies every agent, MCP server, AI tool, copilot, and embedded AI surface in your environment continuously",
+      "verify": "confirmed",
+      "verify_note": "Observability page confirms discovery across SaaS, cloud, endpoints and code. AI Security page scores agent misconfigurations and excessive permissions, so 1.3 rises to yes."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Inline policy on agent tool calls and MCP calls, with Copilot Studio, Bedrock Agents and Gemini integrations.",
+      "url": "https://www.onyx.security/platform/ai-governance",
+      "url_type": "vendor",
+      "evidence": "Specify the tools and MCP servers you trust, and block the rest. Onyx governs every agent tool, not just MCP",
+      "verify": "confirmed",
+      "verify_note": "Governance page confirms MCP and tool allow or block. Integration pages exist for Copilot Studio, Amazon Bedrock Agents and Gemini Enterprise."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "Inline inspection blocks, masks or steers agent actions. Alerts and sessions forward to Splunk and CrowdStrike NG-SIEM.",
+      "url": "https://www.onyx.security/platform/ai-security",
+      "url_type": "vendor",
+      "evidence": "Onyx intervenes at the moment an action would execute, so an unauthorized step is blocked, masked, or redirected",
+      "verify": "confirmed",
+      "verify_note": "AI Security FAQ names Splunk and CrowdStrike NG-SIEM, so 3.2 rises to yes. No ITSM ticketing named."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "partial"
+      },
+      "reason": "Inline inspection of prompts, tool calls and responses with alert, block, mask, steer and ask actions.",
+      "url": "https://www.onyx.security/platform/ai-security",
+      "url_type": "vendor",
+      "evidence": "Onyx inspects every prompt, tool call, and model response inline across browser AI, coding assistants, desktop AI agents",
+      "verify": "confirmed",
+      "verify_note": "Page confirms inline inspection with five actions. Home page shows prompt injection blocking. No named toxicity or hallucination filter, 4.3 stays partial."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Natural-language policies map to OWASP LLM Top 10, NIST AI RMF, MITRE ATLAS, EU AI Act, ISO 42001.",
+      "url": "https://www.onyx.security/platform/ai-governance",
+      "url_type": "vendor",
+      "evidence": "automatic mapping to OWASP LLM Top 10, NIST AI RMF, MITRE ATLAS, EU AI Act, and ISO 42001",
+      "verify": "confirmed",
+      "verify_note": "Governance FAQ confirms five named frameworks and logged decisions. AIBOM appears only in the glossary, 5.1 stays partial."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Autonomous Agentic Red Teaming attacks deployed agents continuously and feeds findings into runtime policy.",
+      "url": "https://www.onyx.security/platform/ai-security",
+      "url_type": "vendor",
+      "evidence": "Red teaming continuously attacks deployed agents to surface what static reviews miss, generating attack plans",
+      "verify": "confirmed",
+      "verify_note": "AI Security page confirms continuous autonomous red teaming of deployed agents."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "partial"
+      },
+      "reason": "Each governed agent gets its own identity, with per-tool-call identity capture and Okta or Entra context.",
+      "url": "https://www.onyx.security/platform/ai-governance",
+      "url_type": "vendor",
+      "evidence": "Onyx gives that agent its own identity, separate from the invoker",
+      "verify": "confirmed",
+      "verify_note": "Governance page confirms per-agent identity and per-tool-call identity capture. NHI appears only in the glossary, 7.3 stays partial on credential handling posture."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "no",
+        "8.3": "partial"
+      },
+      "reason": "Discovers AI components in code repositories, but no model file scanning or dataset scanning found.",
+      "url": "https://www.onyx.security",
+      "url_type": "vendor",
+      "evidence": "Searched 'onyx.security model scanning malicious model files pickle' and 'onyx.security code scanning'. Homepage lists code use cases: introducing AI components",
+      "verify": "confirmed",
+      "verify_note": "Searched model scanning, AIBOM and code scanning again. Only AI component discovery in code, so 8.3 stays partial."
+    }
+  },
+  "notes": "Launched March 2026 with $40M (Conviction, Cyberstarts), then a $113M Series B. Named a representative vendor in the Gartner 2026 Market Guide for Guardian Agents. Posture scoring covers misconfigurations, excessive permissions and credential handling per agent. Framework mapping appears on product pages, AIBOM is only a glossary entry. ITSM ticketing (ServiceNow, Jira) not named on the pages checked."
+}

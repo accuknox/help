@@ -105,7 +105,7 @@ python <harness>/scripts/fetch_md.py \
 
 ```bash
 cp .claude/skills/accuknox-press-release-writer/assets/press-release-template.md \
-   references/press-release-drafts/<slug>.md
+   references/drafts/press-release/<slug>.md
 ```
 
 **5. Write pass 1, read it cold, fix, then gate.**

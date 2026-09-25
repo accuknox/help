@@ -1,0 +1,122 @@
+{
+  "vendor": "Enkrypt AI",
+  "slug": "enkrypt-ai",
+  "website": "https://www.enkryptai.com",
+  "what_it_is": "AI security and compliance: red teaming, guardrails, MCP control. Anaconda acquired it in Aug 2026.",
+  "identity_note": "",
+  "modules": {
+    "1": {
+      "status": "partial",
+      "sub": {
+        "1.1": "partial",
+        "1.2": "partial",
+        "1.3": "yes"
+      },
+      "reason": "Asset Scanner finds misconfigurations in models, endpoints and MCP servers. No cloud or shadow AI discovery.",
+      "url": "https://www.enkryptai.com/ai-asset-scanner",
+      "url_type": "vendor",
+      "evidence": "uncover misconfigurations, detect hidden threats, and enforce policy across models, datasets, endpoints, and external content",
+      "verify": "upgraded",
+      "verify_note": "Asset scanner page confirmed. 1.3 raised to yes for misconfiguration and MCP scans. Module stays partial. Shadow AI search found only a blog."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "partial",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Open-source MCP Gateway approves or blocks tool calls. MCP Scanner vets servers. ClawPatrol guards OpenClaw agents.",
+      "url": "https://www.enkryptai.com/product/mcp-gateway",
+      "url_type": "vendor",
+      "evidence": "sits inline between agents and MCP servers to approve, modify, or block tool calls - enforcing least privilege",
+      "verify": "confirmed",
+      "verify_note": "MCP Gateway page confirmed inline tool-call control. Managed platform search found nothing named."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "Guardrails detect and block attacks at runtime. Logs export to Splunk, Sentinel, Jira and ServiceNow.",
+      "url": "https://www.enkryptai.com/product/agent-policy-engine",
+      "url_type": "vendor",
+      "evidence": "Splunk / Sentinel / Datadog + webhooks ... Jira / ServiceNow",
+      "verify": "upgraded",
+      "verify_note": "Pass 1 marked 3.2 no. Policy Engine and Guardrails pages name Splunk, Sentinel, Jira, ServiceNow and SIEM log export."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Guardrails API and AI Proxy block injection, PII leaks, toxicity and brand-risk outputs.",
+      "url": "https://www.enkryptai.com/product/agent-guardrails",
+      "url_type": "vendor",
+      "evidence": "Prompt injection (direct + indirect), including tool-steering",
+      "verify": "confirmed",
+      "verify_note": "Guardrails page confirmed injection, PII and toxicity blocking."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Policy Engine turns regulation text into controls. Compliance Audit exports evidence packs.",
+      "url": "https://www.enkryptai.com/product/agent-policy-engine",
+      "url_type": "vendor",
+      "evidence": "converts natural-language AI governance policy and regulatory text (including PDFs) into controls",
+      "verify": "confirmed",
+      "verify_note": "Policy Engine page confirmed OWASP, NIST, EU AI Act defaults and evidence exports. Data BOM is not an AIBOM."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Agent Red Teaming tests agents, tools, RAG and MCP across text, audio and vision, with CI regression suites.",
+      "url": "https://www.enkryptai.com/product/agent-red-teaming",
+      "url_type": "vendor",
+      "evidence": "Regression Suite: Pinned tests you can run in CI before each release",
+      "verify": "confirmed",
+      "verify_note": "Red teaming page confirmed CI regression suites and pre-release gates."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "partial",
+        "7.2": "yes",
+        "7.3": "no"
+      },
+      "reason": "Guardrails enforce tool allowlists and least privilege and flag agent impersonation. No NHI governance found.",
+      "url": "https://www.enkryptai.com/product/agent-guardrails",
+      "url_type": "vendor",
+      "evidence": "Allowlist/denylist tools, actions, domains; enforce least privilege",
+      "verify": "confirmed",
+      "verify_note": "Guardrails page confirmed least privilege tool allowlists. NHI search found nothing."
+    },
+    "8": {
+      "status": "yes",
+      "sub": {
+        "8.1": "partial",
+        "8.2": "yes",
+        "8.3": "yes"
+      },
+      "reason": "Data Risk Audit checks training and RAG data for PII and poisoning. Skill Scanner scans agent repos.",
+      "url": "https://www.enkryptai.com/product/ai-data-risk-audit",
+      "url_type": "vendor",
+      "evidence": "PII/PHI/PCI and high-risk identifiers... Hidden prompt-injection attacks and data-poisoning",
+      "verify": "confirmed",
+      "verify_note": "Data Risk Audit page confirmed. Asset scanner has a Model File Scanner tab with no detail, so 8.1 stays partial. Reason shortened to 18 words."
+    }
+  },
+  "notes": "Gartner Cool Vendor in AI security 2025. Docs (docs.enkryptai.com) list Guardrails, Red Team, AI Proxy, MCP Hub (source and hosted MCP scans), MCP Registry and Gateways, Skill Scanner (git repo scans of agent skills, the basis for 8.3) and a Compliance API that scans ChatGPT Enterprise logs. Skyhigh Security embeds Enkrypt guardrails in its CASB, and TrueFoundry lists it as a gateway guardrail. The GenAI Asset Scanner page gives little detail, so 1 and 8.1 stay partial. A red teaming guide for Microsoft Copilot exists in collateral, the basis for 2.1 partial. Two searches each for shadow AI discovery, SIEM integration, model file scanning and NHI found nothing. Pass 2: the site banner says Anaconda acquired Enkrypt AI."
+}

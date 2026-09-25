@@ -6,18 +6,22 @@ description: >
   a stack ranking, a battlecard page, or a migration page for AccuKnox.
   Triggers include "AccuKnox vs X", "compare us with X", "write a 3-way against
   X and Y", "top 5 X alternatives", "stack ranking for AI security", "we need a
-  comparison page for X". Carries the four live archetypes, the parameter sets
-  per product category, the sourcing rule for every competitor claim, and the
-  structural validator.
+  comparison page for X", "edit this battlecard PDF", "make us win against X".
+  Carries the four live archetypes, the parameter sets per product category,
+  the positioning playbook that plays to AccuKnox strengths, the sourcing rule
+  for every competitor claim, the battlecard PDF builder, and the structural
+  validator.
 trigger: /ak-compare
 ---
 
 # AccuKnox comparison writer
 
 A comparison page is read by a buyer with a shortlist and by the competitor's
-sales team. Both are looking for the sentence you cannot back up.
+sales team. The buyer wants to know when to pick AccuKnox. The competitor wants
+the sentence you cannot back up. Write for the first reader without handing the
+second one anything.
 
-Repo root: `D:\Atharva\AccuKnox\HelpDocs`.
+Repo root: `D:\AccuKnox\help`.
 Shared harness: `.claude/skills/accuknox-blog-writer/`, written below as
 `<harness>/`.
 
@@ -27,8 +31,11 @@ Shared harness: `.claude/skills/accuknox-blog-writer/`, written below as
 2. `.claude/core/writing-rules.md`, and section 10 owns this channel
 3. `.claude/core/restraint-rules.md`
 4. `<harness>/references/house-style.md`
-5. `references/comparison-layout.md` and `references/parameter-sets.md` in this
-   skill
+5. `references/comparison-layout.md`, `references/parameter-sets.md` and
+   `references/positioning-playbook.md` in this skill
+6. For an `ai-security` page, `references/source-of-truth/ai-security-data-points.md` at the repo
+   root. It holds the current AccuKnox data points, each with its source tier
+7. For a PDF, `references/battlecard-pdf.md` in this skill
 
 Print the `Loaded` block above the draft.
 
@@ -39,7 +46,15 @@ their pricing page, their release notes. A claim sourced from a competitor's own
 documentation is the only version that survives their legal team reading it. The
 validator fails a draft that names a competitor repeatedly with no link to them.
 
-## Ask five things before you write a word
+**A third rule decides whether the page wins.** Play to AccuKnox strengths.
+Every row shows an AccuKnox advantage, a limitation the competitor documents, or
+a parity the buyer expects to see. Cut every other row.
+`references/positioning-playbook.md` holds the method: the winning frame, the
+row test, the eight gap signals to hunt in competitor docs, discovery versus
+enforcement, the five status labels, and the buyer takeaway. Framing decides which
+true facts appear. It never changes a fact.
+
+## Ask six things before you write a word
 
 1. **Archetype.** Which of the four:
 
@@ -64,10 +79,13 @@ validator fails a draft that names a competitor repeatedly with no link to them.
 
 5. **Depth.** Standard is 10 to 15 parameter rows. The OpenText AppSec page runs
    25 because AppSec has that many distinct capabilities. A page under 6 rows is
-   not a comparison.
+   not a comparison. A PDF battlecard runs 14 to 16 rows in two groups.
+
+6. **Output.** A web comparison page, which goes to a Google Doc, or a PDF
+   battlecard. An attached PDF to edit means a PDF battlecard.
 
 Ask once, in one message. Skip the ask when the user says to go with your
-recommendation, and state the four choices you made instead.
+recommendation, and state the six choices you made instead.
 
 ## Write it
 
@@ -99,7 +117,18 @@ grep -n "aiml-support-matrix\|runtime-sec-arch\|llm-static-scan" mkdocs.yml
 cat docs/support-matrix/README.md
 ```
 
-**4. Build the competitor column from their own documentation.**
+Then read `references/source-of-truth/ai-security-data-points.md` for an `ai-security` page. A
+tier D fact ships anywhere. A tier I fact ships on a sales PDF. A tier A fact
+ships only when the requester confirms it, and the reply lists it as unsourced.
+
+**4. Pick the frame, then hunt for gaps.** Choose the winning frame from the
+table in `references/positioning-playbook.md` and write it as the headline.
+Then read the competitor docs for the eight gap signals: maturity labels,
+separate licenses, traffic steering, stated blind spots, coverage ratios,
+platform gaps, hosting constraints and billing cliffs. A gap the competitor
+states in its own docs beats any gap you infer.
+
+**5. Build the competitor column from their own documentation.**
 
 ```bash
 firecrawl scrape "https://docs.<competitor>.com/<page>"
@@ -113,17 +142,26 @@ Where a capability is genuinely unclear from their docs, write
 `[confirm from <competitor> docs]` and leave it. A bracket cannot ship by
 accident. An invented gap becomes a legal letter.
 
-**5. Copy the template and fill it.**
+**6. Copy the template and fill it.**
 
 ```bash
 cp .claude/skills/accuknox-comparison-writer/assets/comparison-template.md \
-   references/comparison-drafts/<slug>.md
+   references/drafts/comparison/<slug>.md
 ```
 
-`references/comparisons-builder/` in this repo holds the existing competitor
+`references/competitive/battlecards/` in this repo holds the existing competitor
 research. Read it before writing a versus paragraph.
 
-**6. Write pass 1, read it cold, fix, then gate.**
+For a PDF, copy `references/competitive/battlecards/netskope/battlecard/` to a
+folder for the new competitor instead, and edit the row lists in
+`build_battlecard.py`. `references/battlecard-pdf.md` holds the layout.
+
+**7. Run the row test on every row.** Each row must show an AccuKnox advantage, a
+documented competitor limitation, or strategic parity. Cut the rest. Fold a
+deployment fact into the capability it changes. Replace "Not documented" with
+"Not supported" wherever you read the competitor's full docs for that area.
+
+**8. Write pass 1, read it cold, fix, then gate.**
 
 ## The gates
 
@@ -158,6 +196,17 @@ survives the conversion as a real Google Docs table, which is the point.
 Reply with the Doc URL, the markdown path, the gate results, and a list of every
 competitor claim whose source you could not find.
 
+### PDF battlecard
+
+```bash
+python references/competitive/battlecards/<competitor>/battlecard/build_battlecard.py <out.pdf>
+```
+
+Render each page to PNG with `pypdfium2` and look at it before you reply. Reply
+with the PDF path, the page count, and every AccuKnox claim from tier I or tier A
+in `references/source-of-truth/ai-security-data-points.md`, as `R1`, `R2` and on. Write to a new
+file name. Never overwrite the PDF the user attached.
+
 ## What the template already adds
 
 WordPress injects the testimonial carousel, the `See How Customers Accelerate
@@ -174,12 +223,18 @@ it only when marketing produced the PDF.
 | --- | --- |
 | `references/comparison-layout.md` | The four archetypes and the section order for each |
 | `references/parameter-sets.md` | The real parameter rows per category, lifted from the live pages |
+| `references/positioning-playbook.md` | How to play to strengths: the frame, the row test, gap signals, status labels, takeaways |
+| `references/battlecard-pdf.md` | The PDF battlecard layout and the density rules from review |
 | `assets/comparison-template.md` | The file you copy to start a draft |
+
+Outside this skill, `references/source-of-truth/ai-security-data-points.md` holds the AI security
+data points and `references/competitive/battlecards/netskope/battlecard/` holds the
+reference PDF build.
 
 Everything else comes from `<harness>/`.
 
 ## Related
 
-- `references/comparisons-builder/` in this repo, the existing research
+- `references/competitive/battlecards/` in this repo, the existing research
 - `.claude/skills/accuknox-blog-writer/`, the shared harness
 - `.claude/core/writing-rules.md` section 10, no fear, uncertainty and doubt

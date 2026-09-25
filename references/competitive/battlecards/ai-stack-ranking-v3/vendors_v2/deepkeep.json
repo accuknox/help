@@ -1,0 +1,122 @@
+{
+  "vendor": "DeepKeep",
+  "slug": "deepkeep",
+  "website": "https://www.deepkeep.ai",
+  "what_it_is": "AI security platform with firewall, red teaming, model and agent scanning.",
+  "identity_note": "\"DeepLeep\" resolved to DeepKeep (deepkeep.ai), an Israeli AI security platform. No AI security vendor named DeepLeep exists.",
+  "modules": {
+    "1": {
+      "status": "partial",
+      "sub": {
+        "1.1": "partial",
+        "1.2": "yes",
+        "1.3": "partial"
+      },
+      "reason": "AI Lens finds shadow AI use. Model Scanning covers the model supply chain. No cloud AI inventory.",
+      "url": "https://www.deepkeep.ai/capabilities/ai-lens",
+      "url_type": "vendor",
+      "evidence": "Shine a light on shadow AI",
+      "verify": "confirmed",
+      "verify_note": "AI Lens page confirms shadow AI discovery of AI services (usage view, so 1.1 partial). Model Scanning covers supply chain, 1.3 partial."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "partial"
+      },
+      "reason": "AI Agent Scanner maps agent tools and risks. MCP servers get allow or block decisions.",
+      "url": "https://www.deepkeep.ai/use-cases/deepkeep-for-ai-agents",
+      "url_type": "vendor",
+      "evidence": "We identify which MCP servers are being used, recommend whether to allow or block them",
+      "verify": "confirmed",
+      "verify_note": "Use-case page confirms MCP allow or block. Platform list (Agentforce, Bedrock AgentCore, Microsoft) comes from SiliconANGLE 3 Mar 2026, a third-party source, so 2.1 yes rests on press."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "partial",
+        "3.3": "yes"
+      },
+      "reason": "AI Firewall inspects live traffic and blocks or redacts. No SIEM, SOAR or ticketing integration found.",
+      "url": "https://www.deepkeep.ai/capabilities/ai-firewall",
+      "url_type": "vendor",
+      "evidence": "If something violates your standards, we block or redact it before it causes harm. Otherwise, we alert you.",
+      "verify": "confirmed",
+      "verify_note": "Firewall page confirms block or redact. rfp.wiki says DeepKeep integrates with SIEMs and XDRs but names none, so 3.2 moves to partial."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "AI Firewall runs 60+ guardrails for injection, PII, toxicity and hallucination. Plugs into TrueFoundry AI Gateway.",
+      "url": "https://www.deepkeep.ai/llm",
+      "url_type": "vendor",
+      "evidence": "Safeguards against data leakage, protecting sensitive data and personal data or PII",
+      "verify": "confirmed",
+      "verify_note": "LLM page confirms injection, PII, toxicity and hallucination coverage. Home page lists 60+ runtime guardrails."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "yes",
+        "5.2": "partial",
+        "5.3": "yes"
+      },
+      "reason": "Model Scanning produces an MLBOM and firewall events are logged. Named framework mapping is not shown.",
+      "url": "https://www.deepkeep.ai/",
+      "url_type": "vendor",
+      "evidence": "roll up into a single risk posture - mapped to the frameworks your auditors already use",
+      "verify": "confirmed",
+      "verify_note": "Home page mapping line names no framework, so 5.2 drops to partial. Firewall page says everything is logged and auditable, so 5.3 rises to yes. Status unchanged."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "AI Red Teaming tests apps, agents and models. The Vibe red teaming agent adapts attacks live.",
+      "url": "https://www.deepkeep.ai/capabilities/ai-red-teaming",
+      "url_type": "vendor",
+      "evidence": "prompt injection, jailbreaks, data leakage attempts, and unsafe output generation. Tests run contextually and continuously",
+      "verify": "confirmed",
+      "verify_note": "Red teaming page confirms apps, agents, models, continuous runs and the Reddy red teaming agent."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "no",
+        "7.2": "partial",
+        "7.3": "no"
+      },
+      "reason": "AI Lens ties AI tool access to IdP user roles. No agent identity or NHI governance found.",
+      "url": "https://www.deepkeep.ai/capabilities/ai-lens",
+      "url_type": "vendor",
+      "evidence": "By integrating with your existing Identity Provider (IdP), AI Lens allows you to manage access to AI tools by user roles.",
+      "verify": "confirmed",
+      "verify_note": "AI Lens confirms IdP role-based access to AI tools. Search for agent identity found nothing."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "yes",
+        "8.2": "partial",
+        "8.3": "no"
+      },
+      "reason": "Model Scanning checks model files for malware and tampering. No dataset scanner or AI SAST found.",
+      "url": "https://www.deepkeep.ai/capabilities/model-scanning",
+      "url_type": "vendor",
+      "evidence": "Detect embedded malware, known vulnerabilities in model dependencies, signs of tampering",
+      "verify": "confirmed",
+      "verify_note": "Model Scanning page confirms malware and tamper detection. Blog mentions PII scanning of fine-tuning data and vision page covers dataset integrity, so 8.2 stays partial."
+    }
+  },
+  "notes": "Docs at docs.deepkeep.ai are password protected, so claims rest on product pages and press. AI Agent Scanner launched March 2026 (SiliconANGLE, 3 Mar 2026) with runtime protection for select frameworks: Microsoft, Agentforce, OpenAI Agents, CrewAI, Bedrock AgentCore, n8n, Make. SiliconANGLE said an agent red teaming product was forthcoming at that time. Also sells DeepKeep for Vision. The LLM page lists poisoning as a threat, but no dataset scanning product. Press and blog page bodies did not render in scrapes. Two searches for SIEM or SOAR integration and two for agent identity found nothing."
+}
