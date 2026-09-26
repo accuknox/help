@@ -1,0 +1,15 @@
+/* DSPM product highlights gallery. Thumbnails share one crop ratio so each
+   row lines up, and the lightbox shows the full image. */
+.md-typeset .dspm-gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+}
+.md-typeset .dspm-gallery p { font-size: .72rem; margin: .5em 0 0; }
+.md-typeset .grid.dspm-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .grid.dspm-gallery { grid-template-columns: 1fr; }
+}
