@@ -29,6 +29,9 @@ hide:
 - title: AI Security
   image: ./icons/AIML.svg
   url: /how-to/aiml-overview/
+- title: Data Security (DSPM)
+  image: ./icons/dspm.svg
+  url: /getting-started/dspm-overview/
 - title: Container Registry
   image: ./icons/container-reg.svg
   url: /how-to/registry-overview/

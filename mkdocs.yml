@@ -253,6 +253,9 @@ nav:
           - "Azure" : "how-to/terraform-azure-onboarding.md"
           - "GCP" : "how-to/terraform-gcp-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
+    - "Data Security (DSPM)":
+      - "Overview": "getting-started/dspm-overview.md"
+      - "Onboarding": "getting-started/dspm-onboarding.md"
     - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
       - "Architecture": "getting-started/ai-security-arch.md"
