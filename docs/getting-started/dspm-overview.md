@@ -10,7 +10,7 @@ The AccuKnox DSPM scanner finds sensitive data in your buckets, databases and Sa
 !!! abstract "Rows and files never leave your account"
     The scanner discards every row and file after classification. The one file that leaves is the findings file. It holds each matched value cut at 200 characters, and the console shows that value masked to its last four characters. With the on-premises console, the findings file stays inside your boundary too.
 
-::cards:: cols=3
+::cards:: cols=4
 
 - title: Onboard the Scanner
   url: dspm-onboarding.md
@@ -23,6 +23,10 @@ The AccuKnox DSPM scanner finds sensitive data in your buckets, databases and Sa
 - title: Compliance Mapping
   url: "#compliance-mapping-covers-16-framework-groups"
   description: GDPR, PCI DSS, HIPAA, DPDP and 12 more framework groups, per data class.
+
+- title: Product Highlights
+  url: "#product-highlights-preview-the-next-dspm-console"
+  description: Prototype screens for the DSPM dashboard, console onboarding, findings and assets.
 
 ::/cards::
 
@@ -325,3 +329,87 @@ Cyera, Varonis, BigID and IBM Guardium DSPM can each scan inside your cloud. The
 | Air-gapped operation | Yes, console included | No | Offline collector installs only. Analysis stays in Varonis SaaS | Possible on your own Kubernetes | No |
 
 Vendor facts come from each vendor's public documentation as of September 2026. Varonis ends its self-hosted product on 31 December 2026. IBM now lists Guardium Discover and Classify in place of a Guardium DSPM module, so the IBM column shows the last documented DSPM analyzer model.
+
+## Product Highlights Preview the Next DSPM Console
+
+
+!!! warning "Prototype screens"
+    These screens come from the DSPM design prototypes. Some features are not in the product yet, and the shipped screens can differ. The coverage and onboarding sections above describe what the scanner does today. Select a screen to open it at full size.
+
+### The Roadmap Extends Discovery Beyond AWS and Azure
+
+The target design adds GCP, Kubernetes, SaaS platforms such as Snowflake and Microsoft 365, and on-premises file shares. It groups the work in three stages: data discovery, data classification, and data security controls. [Supported Data Stores](#supported-data-stores-span-aws-azure-self-managed-and-saas) lists what the scanner covers today.
+
+![Target DSPM architecture. Sources in AWS, Azure, GCP, Kubernetes, SaaS platforms and on-premises systems feed the DSPM platform, which runs data discovery, data classification and data security controls](images/dspm/preview/dspm-proto-architecture.jpg){ data-gallery="dspm-preview" data-title="Target DSPM architecture" loading=lazy }
+
+### A DSPM Dashboard Summarizes Risk, Records and Coverage
+
+<div class="grid cards dspm-gallery" markdown>
+
+-   ![Data alerts by severity, findings trends, the top 10 data findings, the top assets and accounts with findings, open tickets, and data distribution by store type.](images/dspm/preview/dspm-proto-dashboard-risk.png){ data-gallery="dspm-preview" data-title="Risk overview" loading=lazy }
+
+    **Risk overview**. Data alerts by severity, findings trends, the top 10 data findings, the top assets and accounts with findings, open tickets, and data distribution by store type.
+
+-   ![Findings ranked by country, with the same counts plotted on a world map.](images/dspm/preview/dspm-proto-dashboard-region.png){ data-gallery="dspm-preview" data-title="Sensitive data by region" loading=lazy }
+
+    **Sensitive data by region**. Findings ranked by country, with the same counts plotted on a world map.
+
+-   ![Top sensitive data types, findings by status, and scanned versus unscanned assets, 3,460 of 4,820 in the example.](images/dspm/preview/dspm-proto-dashboard-coverage.png){ data-gallery="dspm-preview" data-title="Coverage and status" loading=lazy }
+
+    **Coverage and status**. Top sensitive data types, findings by status, and scanned versus unscanned assets, 3,460 of 4,820 in the example.
+
+</div>
+
+### Data Security Becomes a Scan Type on the Cloud Account
+
+<div class="grid cards dspm-gallery" markdown>
+
+-   ![Each onboarded account shows its scan types. The shield icon marks Data Security.](images/dspm/preview/dspm-proto-cloud-accounts.png){ data-gallery="dspm-preview" data-title="Cloud Accounts" loading=lazy }
+
+    **Cloud Accounts**. Each onboarded account shows its scan types. The shield icon marks Data Security.
+
+-   ![Data Security sits next to Cloud Assets and AI/ML Assets. Add Source attaches S3, RDS or a Knowledge Base.](images/dspm/preview/dspm-proto-edit-account.png){ data-gallery="dspm-preview" data-title="Data sources per account" loading=lazy }
+
+    **Data sources per account**. Data Security sits next to Cloud Assets and AI/ML Assets. Add Source attaches S3, RDS or a Knowledge Base.
+
+-   ![Include buckets by tag or by name pattern, scan every publicly exposed bucket, and let AccuKnox AI review results for false positives.](images/dspm/preview/dspm-proto-configure-s3.png){ data-gallery="dspm-preview" data-title="Scope an S3 source" loading=lazy }
+
+    **Scope an S3 source**. Include buckets by tag or by name pattern, scan every publicly exposed bucket, and let AccuKnox AI review results for false positives.
+
+</div>
+
+### Findings Group by Finding Name With Evidence per File
+
+<div class="grid cards dspm-gallery" markdown>
+
+-   ![Data Security gets its own Inventory and Findings menu. Findings group by name, with the impacted assets, their status and sensitive record counts.](images/dspm/preview/dspm-proto-findings-list.png){ data-gallery="dspm-preview" data-title="Findings list" loading=lazy }
+
+    **Findings list**. Data Security gets its own Inventory and Findings menu. Findings group by name, with the impacted assets, their status and sensitive record counts.
+
+-   ![Severity, status, tickets, the impacted asset, sensitive record count, compliance frameworks and a recommendation.](images/dspm/preview/dspm-proto-finding-overview.png){ data-gallery="dspm-preview" data-title="Finding overview" loading=lazy }
+
+    **Finding overview**. Severity, status, tickets, the impacted asset, sensitive record count, compliance frameworks and a recommendation.
+
+-   ![Each file behind the finding, with its type, path and the sensitive data types found in it.](images/dspm/preview/dspm-proto-finding-evidence.png){ data-gallery="dspm-preview" data-title="Finding evidence" loading=lazy }
+
+    **Finding evidence**. Each file behind the finding, with its type, path and the sensitive data types found in it.
+
+</div>
+
+### Each Data Asset Shows Its Sensitive Records and Risks
+
+<div class="grid cards dspm-gallery" markdown>
+
+-   ![Total risks, sensitive records by data type, tags, file types, and security configuration such as encryption and public access.](images/dspm/preview/dspm-proto-asset-overview.png){ data-gallery="dspm-preview" data-title="Asset overview" loading=lazy }
+
+    **Asset overview**. Total risks, sensitive records by data type, tags, file types, and security configuration such as encryption and public access.
+
+-   ![The files in the asset that hold sensitive data, with the data types in each file.](images/dspm/preview/dspm-proto-asset-evidence.png){ data-gallery="dspm-preview" data-title="Asset evidence" loading=lazy }
+
+    **Asset evidence**. The files in the asset that hold sensitive data, with the data types in each file.
+
+-   ![Every finding raised on the asset, with its account and location.](images/dspm/preview/dspm-proto-asset-risks.png){ data-gallery="dspm-preview" data-title="Asset risks" loading=lazy }
+
+    **Asset risks**. Every finding raised on the asset, with its account and location.
+
+</div>

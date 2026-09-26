@@ -170,6 +170,7 @@ extra_css:
 - "assets/stylesheets/iam-tables.css"
 - "assets/stylesheets/agentz.css"
 - "assets/stylesheets/ai-diagrams.css"
+- "assets/stylesheets/dspm-gallery.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js

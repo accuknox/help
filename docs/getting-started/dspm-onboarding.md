@@ -76,6 +76,9 @@ Every grant is read-only. The scanner has no code path that writes to a data sto
 | Weeks 2 to 4 | Critical and Restricted findings triaged with tickets, known public values on the allow list, country packs tuned to where you operate |
 | Ongoing | A nightly inventory of sensitive data. Findings disappear as the data is cleaned up |
 
+!!! info "Console onboarding is in preview"
+    A prototype adds Data Security as a scan type on the cloud account, with S3, RDS and Knowledge Base sources scoped by tag or bucket name. See the [onboarding prototype screens](dspm-overview.md#data-security-becomes-a-scan-type-on-the-cloud-account).
+
 ## Review Findings Under Issues, Findings
 
 Go to **Issues > Findings** and select the **Data Security Findings** filter. The list groups findings by name, such as "AWS access key ID in plain text: 5". Open a row to see the detail below.
@@ -98,6 +101,9 @@ The **Solution** tab gives the remediation and its references.
     Start with Critical and Restricted, then the largest match counts, then the oldest findings against their SLA. A Critical finding with thousands of matches in one column is a data store to fix. A single Low finding in a free-text field is a review item.
 
 Every nightly run reads its sample again. **Last detected** stops advancing once the data is masked, moved or deleted, so a data store you clean today reads as clean tomorrow. When you ignore a value, also add it to the scanner's allow list so it does not return.
+
+!!! info "A redesigned finding view is in preview"
+    The prototype adds per-file evidence, compliance framework tags and an AI Analysis tab to each finding. See the [findings prototype screens](dspm-overview.md#findings-group-by-finding-name-with-evidence-per-file).
 
 Every data store the scanner reads is also an asset in the console, even with no findings. Each asset shows its units scanned, clean units, errors and a findings summary. Assets group by account or subscription, by asset type such as `aws_s3_bucket`, and by scanner label.
 
