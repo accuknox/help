@@ -4,20 +4,55 @@
     {
       "name": "homepage-preview",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.preview.yml", "--dirty", "-a", "127.0.0.1:8010"],
+      "runtimeArgs": [
+        "-m",
+        "mkdocs",
+        "serve",
+        "-f",
+        "D:/Atharva/AccuKnox/HelpDocs/mkdocs.preview.yml",
+        "--dirty",
+        "-a",
+        "127.0.0.1:8010"
+      ],
       "port": 8010
     },
     {
       "name": "full-site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "mkdocs", "serve", "-f", "D:/Atharva/AccuKnox/HelpDocs/mkdocs.yml", "-a", "127.0.0.1:8012"],
+      "runtimeArgs": [
+        "-m",
+        "mkdocs",
+        "serve",
+        "-f",
+        "D:/Atharva/AccuKnox/HelpDocs/mkdocs.yml",
+        "-a",
+        "127.0.0.1:8012"
+      ],
       "port": 8012
     },
     {
       "name": "built-site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8014", "--directory", "D:/Atharva/AccuKnox/HelpDocs/site"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8014",
+        "--directory",
+        "D:/Atharva/AccuKnox/HelpDocs/site"
+      ],
       "port": 8014
+    },
+    {
+      "name": "help-built-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8016",
+        "--directory",
+        "D:/AccuKnox/help/site"
+      ],
+      "port": 8016
     }
   ]
 }

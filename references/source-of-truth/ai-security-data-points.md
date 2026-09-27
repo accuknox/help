@@ -115,9 +115,18 @@ for AI, the protection of the customer's AI, in any two-group comparison.
 | AI SAST | An "AI Enabled SAST" option in the scan-type selector adds AI analysis on top of the static scan | D, `docs/getting-started/3.7-release.md` |
 | DAST | 4 scan types, from a passive baseline to Advanced Active Penetration Testing rules | D, `docs/how-to/dast-scan-types.md` |
 | DAST | A recorded browser login scans behind MFA, TOTP codes included | D, `docs/getting-started/3.6-release.md` |
-| AI DAST | AI inside the DAST engine | A. No doc names an AI step in DAST yet. Describe the documented DAST facts instead |
+| AI DAST | AgentZ runs recon, technology fingerprinting, attack vector selection and exploitation, with deterministic validation of each finding | A. No doc names an AI step in DAST yet. Product notes in `references/product-research/ai-security-products/ai-dast.md`. Describe the documented DAST facts on a public page |
 | AgentZ | A job described in one sentence becomes a skill with wired steps. Each agent runs in a default-deny sandbox, holds no secret and writes a replayable trace. It runs from chat, API, CLI or cron | D, `docs/agentz/index.md` |
 | AI-powered pentesting | Automated attacks on the app and the model, run on demand or on a schedule | A for the "AI-powered pentesting" name. D for the parts, `docs/use-cases/red-teaming.md` and `docs/how-to/dast-scan-types.md` |
+
+## Product Notes Hold the Tier A Detail for Five Products
+
+`references/product-research/ai-security-products/` holds the product team's walkthrough of AI
+DAST, AI SAST, the AccuKnox AI Gateway, Shadow AI Discovery and AI-BOM. It also sorts the AI
+gateway and Shadow AI use cases into three groups in `use-cases-by-category.md`. Most rows there
+are tier A. Product settled two status conflicts on 2026-09-26. Public pages show macOS host
+scanning and the desktop telemetry app as "Beta", and round the host-scan counts to "4K+" assets.
+The AccuKnox AI Gateway, AI DAST and IDE-based AI SAST may appear on web pages tagged "Coming soon".
 
 ## Asserted Facts That Need a Source
 

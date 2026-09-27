@@ -21,6 +21,11 @@ Start with `source-of-truth/` for any AccuKnox fact. Use the other folders for d
 | `ai-security-checklist.md` | A Markdown copy of both checklist tabs, with the sheet URL. Search this copy, and refresh both files when the sheet changes. |
 | `shadow-ai-coverage.pdf` | The AccuKnox Shadow AI coverage document. |
 
+## `Website Pages to Build 26 September/` Holds the Web Update Package
+
+The plan to update accuknox.com for AI SAST, AI DAST, the AccuKnox AI Gateway, Shadow AI and DSPM,
+dated 2026-09-26. `Prototype HTMLs/` holds the eight self-contained HTML files to share: `index.html`, five `update-*.html` pages with the live-page shots embedded, and two `new-page-*.html` wireframes for the Shadow AI and DSPM for Indian Banks solution pages. `Scripts/` holds the plan, the source shots, the Excalidraw map and the build scripts.
+
 ## `drafts/` Holds Unpublished Writing by Channel
 
 The writing hook and `.claude/core/runtime-contract.md` send each channel's output to one subfolder.
@@ -47,7 +52,8 @@ The writing hook and `.claude/core/runtime-contract.md` send each channel's outp
 | Folder | Contents |
 |---|---|
 | `ai-soc/` | The AI SOC go-to-market package: `ai-soc-data-package.xlsx`, `ai-soc-pitch-deck.pptx` and `ai-soc-wireframes.pptx`, plus `competitor-screens/` (13 competitor UI captures) and `raw-research/` (market and vendor teardown notes). |
-| `dspm/` | The DSPM competitive analysis site: a 10-page HTML report in `dspm-analysis/` (executive summary, competitor cards, feature matrix, next steps), plus a standalone `dspm-competitive-analysis.html`. |
+| `ai-security-products/` | Product notes for AI DAST, AI SAST, the AccuKnox AI Gateway, Shadow AI Discovery and AI-BOM: onboarding, first-release limits, AE cheat sheets, and `use-cases-by-category.md`, which sorts the use cases into AI gateway, AccuKnox AI Gateway and Shadow AI. Most facts are tier A. |
+| `dspm/` | `india-bank-data-mandates-2026-09.md`, the RBI advisory, RBI directions and DPDP dates behind the DSPM for Indian Banks page. The DSPM competitive analysis site: a 10-page HTML report in `dspm-analysis/` (executive summary, competitor cards, feature matrix, next steps), plus a standalone `dspm-competitive-analysis.html`. |
 | `security-graph/` | The Security Graph UI work: `design-brief.md`, `competitive-analysis.docx`, and 15 competitor graph screenshots in `competitor-screens/`. |
 
 ## `technical-reference/` Holds Internal Product Documents
