@@ -68,6 +68,3 @@ Turn on CIEM when you onboard a cloud account, then open **Identities > CIEM** t
     ![The CIEM identity list with the Cloud Providers filter open on AWS, GCP, Azure and Oracle](images/ciem/ciem-identity-list-all.png)
 
 To read the list, the identity panel and the graphs, see the [CIEM overview](ciem-overview.md).
-
-!!! warning "Known issue"
-    On some cloud accounts, the access graph of an identity does not populate. [confirm the workaround and the fix release before publishing]
