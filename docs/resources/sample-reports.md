@@ -48,6 +48,13 @@ Through AccuKnox platform, you can generate various security and compliance repo
     </div>
   </a>
 
+  <a class="card" href="../assets/SBOM_Report.pdf" target="_blank">
+    <div class="card-content">
+      <h3>SBOM Risk</h3>
+      <p class="card-action">Sample Report <span>&rarr;</span></p>
+    </div>
+  </a>
+
   <div class="card disabled">
     <div class="card-content">
       <h3>CWPP</h3>
