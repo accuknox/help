@@ -52,9 +52,8 @@ Filter the list with **Search by Identity Name**, **Cloud Providers**, **Identit
 
 | Column | What it shows |
 |---|---|
-| Last Seen | [confirm what Last Seen records] |
 | Identity | The identity name, and its type: user, group or role |
-| Resource Identifier No. | The cloud-specific ID. An ARN on AWS, the service account ID on GCP, and the OCID on OCI. [confirm the Azure identifier format] |
+| Resource Identifier No. | The cloud-specific ID. An ARN on AWS, the service account ID on GCP, and the OCID on OCI. |
 | Risk Class | The risk classes from the attached policies |
 | Cloud Account Name | The cloud account that holds the identity |
 | Classification | Human or machine |
@@ -116,6 +115,3 @@ The record holds the same fields as the list and the Overview tab, including `cl
 Select the graph icon at the top right of **Identities > CIEM**. Filter by **Cloud Providers** and **Cloud Account Name**.
 
 The cloud account node sits at the top, with one node each for users, groups, roles and policies. The badge on each node is the count. In the sample AWS account, the badges read 77 users, 22 groups, 637 roles and 504 policies. Select a node to expand its members, then select a member to open that identity's access graph.
-
-!!! warning "Known issue"
-    On some cloud accounts, the access graph of an identity does not populate. [confirm the workaround and the fix release before publishing]
