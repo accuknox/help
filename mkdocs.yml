@@ -257,6 +257,9 @@ nav:
     - "Data Security (DSPM)":
       - "Overview": "getting-started/dspm-overview.md"
       - "Onboarding": "getting-started/dspm-onboarding.md"
+    - "Identity Security (CIEM)":
+      - "Overview": "getting-started/ciem-overview.md"
+      - "Onboarding": "getting-started/ciem-onboarding.md"
     - "AI Security (AI-SPM)":
       - "Overview": "how-to/aiml-overview.md"
       - "Architecture": "getting-started/ai-security-arch.md"

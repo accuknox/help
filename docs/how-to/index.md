@@ -32,6 +32,9 @@ hide:
 - title: Data Security (DSPM)
   image: ./icons/dspm.svg
   url: /getting-started/dspm-overview/
+- title: Identity Security (CIEM)
+  image: ./icons/ciem.svg
+  url: /getting-started/ciem-overview/
 - title: Container Registry
   image: ./icons/container-reg.svg
   url: /how-to/registry-overview/

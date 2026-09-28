@@ -32,6 +32,8 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [azure-ai-foundry.md](azure-ai-foundry.md) | AccuKnox documentation to set up LLM Defense for Azure AI Foundry |
 | [azure-cdr.md](azure-cdr.md) | Accuknox CDR documentation for Azure |
 | [cdr-setup.md](cdr-setup.md) | AccuKnox CDR Setup |
+| [ciem-onboarding.md](ciem-onboarding.md) | Turn on AccuKnox CIEM for a standalone AWS, GCP, Azure or Oracle cloud account in three onboarding steps, then confirm the identities appear under Identities... |
+| [ciem-overview.md](ciem-overview.md) | AccuKnox CIEM lists the users, groups and roles in your AWS, GCP, Azure and Oracle cloud accounts, shows the policies attached to each one, and draws the acc... |
 | [cluster-onboarding-managed.md](cluster-onboarding-managed.md) | Onboarding a managed cluster into the AccuKnox SaaS application. |
 | [cwpp-prereq.md](cwpp-prereq.md) | AccuKnox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS. |
 | [deployment-models.md](deployment-models.md) | AccuKnox has an expanded offering to cater to diverse deployment needs such as SaaS, Managed OEM/MSSP, AWS On-prem, and Full On-prem/Air-Gapped deployments. |
