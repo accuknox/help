@@ -52,9 +52,8 @@ Filter the list with **Search by Identity Name**, **Cloud Providers**, **Identit
 
 | Column | What it shows |
 |---|---|
-| Last Seen | [confirm what Last Seen records] |
 | Identity | The identity name, and its type: user, group or role |
-| Resource Identifier No. | The cloud-specific ID. An ARN on AWS, the service account ID on GCP, and the OCID on OCI. [confirm the Azure identifier format] |
+| Resource Identifier No. | The cloud-specific ID. An ARN on AWS, the service account ID on GCP, and the OCID on OCI. |
 | Risk Class | The risk classes from the attached policies |
 | Cloud Account Name | The cloud account that holds the identity |
 | Classification | Human or machine |

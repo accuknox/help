@@ -19,7 +19,6 @@ Turn on CIEM when you onboard a cloud account, then open **Identities > CIEM** t
 | Account type | A standalone AWS, GCP, Azure or OCI account. CIEM does not support organization accounts yet |
 | Cloud-side setup | The prerequisites for your cloud in [AWS](../how-to/aws-onboarding.md), [GCP](../how-to/gcp-onboarding.md), [Azure](../how-to/azure-onboarding.md) or [Oracle](../how-to/oracle-onboarding.md) onboarding |
 | Terraform | Terraform on your workstation, for the AWS script step |
-| AccuKnox console | [confirm the AccuKnox user role that can onboard a cloud account] |
 
 ## Enable CIEM When You Onboard the Account
 
@@ -51,7 +50,7 @@ Turn on CIEM when you onboard a cloud account, then open **Identities > CIEM** t
 
     ![Step 3 of 3 for AWS, with the Terraform steps, the terraform init, plan and apply command, and the Access Key ID, Secret Access Key and Region fields](images/ciem/ciem-onboard-terraform.png)
 
-    For GCP, Azure and OCI, follow the **Account Setup** in the console and the onboarding guide for your cloud. [confirm the Account Setup steps for GCP, Azure and OCI with CIEM turned on]
+    For GCP, Azure and OCI, follow the **Account Setup** in the console and the onboarding guide for your cloud.
 
 ## Confirm That CIEM Is Active
 
@@ -63,7 +62,7 @@ Turn on CIEM when you onboard a cloud account, then open **Identities > CIEM** t
 
     ![The left navigation open on Identities, with the CIEM and KIEM entries](images/ciem/ciem-nav-identities.png)
 
-3. Select your cloud in the **Cloud Providers** filter. The list shows the identities of the new account. [confirm how long the first collection takes]
+3. Select your cloud in the **Cloud Providers** filter. The list shows the identities of the new account.
 
     ![The CIEM identity list with the Cloud Providers filter open on AWS, GCP, Azure and Oracle](images/ciem/ciem-identity-list-all.png)
 
