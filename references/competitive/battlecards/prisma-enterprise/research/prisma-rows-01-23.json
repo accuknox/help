@@ -1,0 +1,232 @@
+[
+  {
+    "n": 1,
+    "param": "SaaS (Regional / Sovereign Cloud)",
+    "verdict": "accurate",
+    "status": "Limited",
+    "pc_new": "17 regional SaaS tenants incl. AWS GovCloud and China; PAN-operated control plane",
+    "url": "https://docs.prismacloud.io/content-collections/get-started/console-prerequisites",
+    "quote": "The Prisma Cloud URL indicates the region where your tenant is deployed.",
+    "notes": "Tenant list includes app.gov.prismacloud.io (us-gov-west-1) and app.prismacloud.cn (Ningxia). PAN blog dated 2024-12-19 (https://www.paloaltonetworks.com/blog/cloud-security/prisma-cloud-achieves-fedramp-high-authorization/) claims FedRAMP High authorization, module scope not stated. Application Security is not listed as available on app.gov, app5 or app.prismacloud.cn (see https://docs.prismacloud.io/content-collections/application-security/application-security). Status stays Limited because the control plane is always PAN-run."
+  },
+  {
+    "n": 2,
+    "param": "Customer Cloud (BYOC - AWS / Azure / GCP)",
+    "verdict": "accurate",
+    "status": "Not supported",
+    "pc_new": "SaaS only; Palo Alto Networks runs the console, customer runs Defenders",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/pcee-vs-pcce",
+    "quote": "Palo Alto Networks runs, manages, and updates Compute Console for you. You deploy and manage Defenders in your environment.",
+    "notes": "No BYOC option is documented for Enterprise Edition. The only self-hosted option is Compute Edition, which covers CWPP only and is out of scope."
+  },
+  {
+    "n": 3,
+    "param": "On-Prem / Private Cloud",
+    "verdict": "accurate",
+    "status": "Limited",
+    "pc_new": "Defenders run on-prem; the Enterprise Edition control plane is SaaS only",
+    "url": "https://docs.prismacloud.io/content-collections/get-started/welcome-to-prisma-cloud",
+    "quote": "Prisma Cloud is available in two deployment models - SaaS (Prisma Cloud Enterprise Edition) and Self Hosted (Prisma Cloud Compute Edition).",
+    "notes": "A self-hosted console exists only as Compute Edition (CWPP only, with no CSPM, Application Security or DSPM). Do not cite Compute Edition as an Enterprise Edition capability."
+  },
+  {
+    "n": 4,
+    "param": "Air-Gapped Deployment",
+    "verdict": "accurate",
+    "status": "Not supported",
+    "pc_new": "Not available for Enterprise Edition; docs direct air-gapped users to Compute Edition",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/pcee-vs-pcce",
+    "quote": "You’re operating in an air-gapped environment.",
+    "notes": "The quote is a bullet under the heading \"When Should You Use Compute Edition?\". Compute Edition is self-hosted CWPP only, so no full CNAPP air-gap option exists."
+  },
+  {
+    "n": 5,
+    "param": "Secrets Scanning (Repo / IaC)",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Scans VCS repos and CI/CD runs; validates secrets and scans Git history",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/risk-management/monitor-and-manage-code-build/secrets-scanning",
+    "quote": "Application Security scan capability detects secrets in files within your version control system (VCS) repositories and CI/CD executions.",
+    "notes": "Secrets Security is a separately licensed module. Limit: repositories up to 4GB. Validate Secrets and Scan Git History are optional settings, off by default for validation."
+  },
+  {
+    "n": 6,
+    "param": "Secrets Scanning (S3 / Filesystem)",
+    "verdict": "unverifiable",
+    "status": "Limited",
+    "pc_new": "Agentless scans find secrets in host and image filesystems; S3 secrets undocumented",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/compliance/operations/detect-secrets",
+    "quote": "Agentless scanning detects sensitive information inside files in your hosts and container images filesystem.",
+    "notes": "The live claim says cloud storage secrets via data security. DSPM docs (supported-assets, data-types) describe sensitive data classification in S3 and Blob but never name secrets or credentials. The filesystem half is supported (compliance checks 456 and 457). The storage half is unverified, so do not claim S3 secret detection for Prisma, and do not claim a Prisma gap either."
+  },
+  {
+    "n": 7,
+    "param": "Secrets in K8s ConfigMaps",
+    "verdict": "unverifiable",
+    "status": "Limited",
+    "pc_new": "Repo scan covers plaintext files; no documented in-cluster ConfigMap secret scan",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/risk-management/monitor-and-manage-code-build/secrets-scanning",
+    "quote": "Prisma Cloud scans any plaintext files that are not encrypted, not compressed",
+    "notes": "No Enterprise Edition page mentions ConfigMaps. ConfigMap YAML in a repo falls under generic plaintext secrets scanning. Runtime checks cover image and container environment variables (checks 424 and 597), not live ConfigMaps. The live phrase \"limited to compliance checks\" has no source."
+  },
+  {
+    "n": 8,
+    "param": "SBOM / SCA",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "SCA with SBOM inventory, license compliance and PR-based package fixes",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/visibility/sbom",
+    "quote": "provides a comprehensive inventory of third-party dependencies detected in your environment, including vulnerabilities and security insights.",
+    "notes": "SCA is a separate module. SCA skips dev and test dependencies (supported-technologies page). Runtime SBOM export also exists at runtime-security/vulnerability-management/exporting-sboms. The live cell adjective \"Comprehensive\" is removed in pc_new."
+  },
+  {
+    "n": 9,
+    "param": "Code Scanning (Security + Best Practices)",
+    "verdict": "accurate",
+    "status": "Limited",
+    "pc_new": "Scans IaC, SCA, secrets and CI/CD risks; no code quality scanning documented",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/application-security",
+    "quote": "identifying cloud infrastructure misconfigurations and vulnerabilities across IaC, SCA , Secrets, as well as CI/CD risks in the pipeline.",
+    "notes": "No maintainability or code-quality feature appears in the Application Security docs tree. SonarQube ingestion imports SAST findings only."
+  },
+  {
+    "n": 10,
+    "param": "IaC Scanning",
+    "verdict": "outdated",
+    "status": "Parity",
+    "pc_new": "Terraform, OpenTofu, CloudFormation, ARM, Bicep, K8s, Helm, Kustomize, Ansible, SAM, Dockerfile",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/supported-technologies",
+    "quote": "Prisma Cloud Application Security supports the following technologies and frameworks.",
+    "notes": "Full IaC list on the page: ARM, Bicep, CloudFormation, Dockerfile, Helm, Kubernetes, Kustomize, OpenAPI, OpenTofu, Serverless Framework, AWS SAM, Terraform, Terraform Plan, Ansible. The live cell lists four and uses a dash icon. pc_new is 12 words."
+  },
+  {
+    "n": 11,
+    "param": "Container Scanning",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Registry, image and CI image scanning via Defenders, agentless and twistcli",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/vulnerability-management/registry-scanning",
+    "quote": "Configure Prisma Cloud to scan your registries.",
+    "notes": "Registries listed: Sonatype Nexus, Alibaba ACR, ECR, ACR, Docker v2, GitLab, GAR, GCR, Harbor, IBM, JFrog Artifactory, OpenShift, CoreOS Quay. Application Security also lists container image scanning."
+  },
+  {
+    "n": 12,
+    "param": "SARIF Ingestion",
+    "verdict": "outdated",
+    "status": "Parity",
+    "pc_new": "Ingests SARIF 2.0 and 2.1 files via console or API",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/third-party-ingestion/sarif-ingestion",
+    "quote": "Prisma Cloud supports SARIF versions 2.0 and 2.1 and accepts `.zip`, `.json`, and `.sarif` files.",
+    "notes": "The live cell says no native SARIF ingestion. That claim is wrong and must change. SARIF findings map to onboarded repositories only and appear as code weaknesses. Native Veracode and SonarQube ingestion also exist."
+  },
+  {
+    "n": 13,
+    "param": "Repo / CI/CD Integration",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "GitHub, GitLab, Bitbucket, Azure Repos, CodeCommit; Jenkins, Actions, CircleCI, Azure Pipelines",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/ci-cd-runs",
+    "quote": "Integrate Prisma Cloud with your CI/CD runs in order to scan and detect misconfigurations in your infrastructure-as-code (IaC) files",
+    "notes": "VCS list from https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/code-repositories : AWS CodeCommit, Azure Repos, Bitbucket, Bitbucket Server, GitHub, GitHub Server, GitLab, GitLab Self-managed. CI/CD runs add AWS CodeBuild, GitLab Runner, Checkov, Terraform Cloud and Enterprise. Pipeline scans cover IaC, SCA, secrets and license only, with no SAST or DAST."
+  },
+  {
+    "n": 14,
+    "param": "SAST",
+    "verdict": "outdated",
+    "status": "Limited",
+    "pc_new": "No native SAST scanner documented; ingests SAST findings from Veracode, SonarQube, SARIF",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/third-party-ingestion",
+    "quote": "By ingesting static application security testing (SAST) findings from supported third-party tools, Prisma Cloud consolidates and enriches your security vulnerability data",
+    "notes": "Searched the Application Security docs tree and all 81 Enterprise Edition release-note pages (2023 to Aug 2026): no native SAST scanner. The live cell ticks SAST. Native SAST is marketed under Cortex Cloud Application Security, which is out of scope. pc_new is 12 words."
+  },
+  {
+    "n": 15,
+    "param": "DAST",
+    "verdict": "accurate",
+    "status": "Not supported",
+    "pc_new": "No DAST capability in Enterprise Edition docs; WAAS is runtime protection",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/application-security",
+    "quote": "covering the entire software development lifecycle from code to cloud including Infrastructure as Code (IaC) security, Software Composition Analysis (SCA), Secrets Security, CI/CD pipeline security",
+    "notes": "No DAST page exists in the Enterprise Edition docs index (https://docs.prismacloud.io/llms.txt) or release notes. WAAS is a runtime WAF and API protection, not a DAST scanner."
+  },
+  {
+    "n": 16,
+    "param": "AWS Support",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "AWS onboarding with CSPM policies, runtime, DSPM; 67 listed compliance standards",
+    "url": "https://docs.prismacloud.io/content-collections/compliance/compliance-standards",
+    "quote": "The built-in regulatory compliance standards that Prisma Cloud supports are listed in the following table.",
+    "notes": "The count of 67 is a comma split of the AWS row in the table, so verify it before print. The live cell adjective \"Strong\" is removed. Onboarding page: https://docs.prismacloud.io/content-collections/connect/connect-cloud-accounts"
+  },
+  {
+    "n": 17,
+    "param": "Azure Support",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Azure onboarding with CSPM policies, runtime, DSPM; 54 listed compliance standards",
+    "url": "https://docs.prismacloud.io/content-collections/compliance/compliance-standards",
+    "quote": "The built-in regulatory compliance standards that Prisma Cloud supports are listed in the following table.",
+    "notes": "The count of 54 is a comma split of the Azure row, so verify it before print."
+  },
+  {
+    "n": 18,
+    "param": "GCP Support",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "GCP onboarding with CSPM policies, runtime, DSPM; 51 listed compliance standards",
+    "url": "https://docs.prismacloud.io/content-collections/compliance/compliance-standards",
+    "quote": "The built-in regulatory compliance standards that Prisma Cloud supports are listed in the following table.",
+    "notes": "The count of 51 is a comma split of the GCP row, so verify it before print. OCI (32) and Alibaba (40) accounts are also onboardable, see https://docs.prismacloud.io/content-collections/connect/connect-cloud-accounts"
+  },
+  {
+    "n": 19,
+    "param": "Asset Inventory (Multi-Cloud)",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Asset inventory across AWS, Azure, GCP, OCI, Alibaba; refresh SLA within 24 hours",
+    "url": "https://docs.prismacloud.io/content-collections/cloud-and-software-inventory/asset-inventory",
+    "quote": "Use the Asset Inventory dashboard to see up-to-date information on all cloud assets that you are using Prisma Cloud to monitor and secure.",
+    "notes": "The same page says the asset inventory refresh SLA is within 24 hours. The five clouds come from the connect-cloud-accounts page."
+  },
+  {
+    "n": 20,
+    "param": "Private Cloud (OpenShift / Nutanix)",
+    "verdict": "accurate",
+    "status": "Limited",
+    "pc_new": "Defenders support OpenShift v4; Nutanix not listed in system requirements",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/install/deploy-defender/kubernetes/openshift",
+    "quote": "Prisma Cloud Defenders are deployed as a DaemonSet, which ensures that an instance of Defender runs on every node in the cluster.",
+    "notes": "System requirements (https://docs.prismacloud.io/content-collections/runtime-security/install/system-requirements) list tested hypervisors as VMware TKGM and TKGI only. No page in the docs index mentions Nutanix. OpenShift coverage is CWPP only, and CSPM onboarding covers five public clouds."
+  },
+  {
+    "n": 21,
+    "param": "Real-Time Automation (e.g., MFA alert on new user)",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Audit event policies alert on cloud audit logs; alert latency can reach hours",
+    "url": "https://docs.prismacloud.io/content-collections/governance/create-a-policy",
+    "quote": "Event policies monitor audit events in your environment for potential policy violations.",
+    "notes": "Latency source (https://docs.prismacloud.io/content-collections/alerts/view-respond-to-prisma-cloud-alerts): \"The time to alert varies for different alert types and occasionally may take a few hours\". The create-a-policy page says CLI auto-remediation is not supported on Audit Event policies. Consider Limited if the row stresses real-time."
+  },
+  {
+    "n": 22,
+    "param": "Cloud Compliance",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Built-in standards per cloud plus custom standards and scheduled compliance reports",
+    "url": "https://docs.prismacloud.io/content-collections/compliance/custom-compliance-standard",
+    "quote": "You can create your own custom compliance standards that are tailored to your own business needs, standards, and organizational policies.",
+    "notes": "The built-in list at https://docs.prismacloud.io/content-collections/compliance/compliance-standards has about 89 unique standard names across AWS, Azure, GCP, Alibaba and OCI (comma-split count, verify). The live cell says benchmark-based only, but custom standards exist."
+  },
+  {
+    "n": 23,
+    "param": "Security Findings Reporting",
+    "verdict": "accurate",
+    "status": "Parity",
+    "pc_new": "Alert, compliance, cloud security and Command Center reports, on demand or scheduled",
+    "url": "https://docs.prismacloud.io/content-collections/reports/prisma-cloud-reports",
+    "quote": "Create reports based on a cloud compliance standard for immediate viewing or download, or schedule recurring reports to monitor compliance over time.",
+    "notes": "Report types: Alerts, Cloud Security, Command Center, Compliance. Application Security and DSPM have their own dashboards and reports."
+  }
+]

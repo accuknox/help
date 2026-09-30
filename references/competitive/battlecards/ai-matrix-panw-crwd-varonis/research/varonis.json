@@ -1,0 +1,176 @@
+{
+  "vendor": "Varonis",
+  "products": "Varonis Atlas AI Security Platform (AI Inventory and Shadow AI, AI-SPM, AI Pen Testing, AI Runtime Guardrails via AI Gateway, AI Activity Monitoring, AI Detection and Response, AI Compliance Management, AI TPRM, Agent Intent-Based Access Control), sold in three tiers: Atlas AI Security Platform, Atlas + Guardrails, Atlas Complete. Adjacent data-layer offers: Varonis for Microsoft 365 Copilot, Varonis for ChatGPT Enterprise, Varonis for Agentforce, Varonis Data Security Platform (DSPM, Identity Posture), Athena AI, MDDR, Varonis MCP Server, Varonis Interceptor (email and browser anti-phishing, ex-SlashNext)",
+  "licensing": "Atlas is a separate SKU billed per AI system: on AWS Marketplace the 12-month list is $108,000 per AI system (base), $162,000 (+ Guardrails) and $202,500 (Complete), and both guardrail tiers cap at 200k prompts per month per AI system. Source: https://aws.amazon.com/marketplace/pp/prodview-eoyer6g2olf6k",
+  "rows": {
+    "F1": {
+      "status": "limited",
+      "facts": ["Athena AI SOC analyst assistant", "Agentic AI inside Varonis-run MDDR"],
+      "gap": "The agentic AI runs inside the Varonis MDDR managed service. Varonis docs show no customer agent builder and no agent sandbox. The console is SaaS only, because self-hosted Varonis reaches end of life on Dec 31, 2026. The MCP Server lets a customer's own AI client call Varonis APIs.",
+      "url": "https://www.varonis.com/blog/threat-detection-with-agentic-ai",
+      "evidence": "Varonis agents perform tasks such as correlating log data, associating IP addresses with known threat actors, and eliminating noise so human analysts can focus",
+      "extra_urls": ["https://www.varonis.com/blog/varonis-introduces-athena-ai", "https://www.varonis.com/blog/mcp-server", "https://www.varonis.com/blog/why-were-going-all-in-on-saas"]
+    },
+    "F2": {
+      "status": "noeq",
+      "facts": ["Secrets discovery in GitHub repos", "CVE scans of AI libraries"],
+      "gap": "Not shown in Varonis docs: SAST, AI triage of code findings, or false-positive marking. Varonis scans repos for secrets and sensitive data. Atlas flags CVEs in AI code dependencies and can open a remediation pull request.",
+      "url": "https://www.varonis.com/blog/github-secrets-discovery",
+      "evidence": "Varonis is extending our world-class data classification capabilities to discover secrets, keys, and other sensitive data embedded in your GitHub repositories",
+      "extra_urls": ["https://www.varonis.com/solutions/dev-cycle-data-security", "https://www.optiv.com/insights/discover/blog/using-varonis-atlas-secure-enterprise-ai"]
+    },
+    "F3": {
+      "status": "no",
+      "facts": ["No web app DAST offer"],
+      "gap": "Not shown in Varonis docs. Two targeted searches found no DAST or authenticated web app scanning. Atlas testing targets LLM endpoints only.",
+      "url": "https://www.varonis.com/platform/ai-security",
+      "evidence": "AI Pen Testing. Proactively stress test your AI systems for vulnerabilities like prompt injection and jailbreaks.",
+      "extra_urls": []
+    },
+    "F4": {
+      "status": "limited",
+      "facts": ["Live pen tests on LLM endpoints", "Results feed runtime guardrails"],
+      "gap": "Pen testing covers AI models, agents and MCP servers. Not shown in Varonis docs: automated pentest of general web apps or APIs.",
+      "url": "https://www.varonis.com/blog/atlas-ai-security",
+      "evidence": "Pen tests run against real production endpoints, not offline simulations or static rule checks.",
+      "extra_urls": ["https://www.varonis.com/blog/securing-ai"]
+    },
+    "R1": {
+      "status": "yes",
+      "facts": ["Bedrock, AgentCore, Foundry inventory", "Gemini Enterprise Agent Platform coverage"],
+      "gap": "The coverage page lists AWS Bedrock and AgentCore, Microsoft Foundry and Gemini Enterprise Agent Platform. Not shown in Varonis docs: SageMaker, OCI, or whether discovery is agentless. The product help pages sit behind a customer login.",
+      "url": "https://www.varonis.com/coverage",
+      "evidence": "Gain a continuous inventory and control plane over AWS Bedrock and AgentCore AI systems.",
+      "extra_urls": ["https://www.varonis.com/blog/atlas-ai-security", "https://www.varonis.com/blog/claude-coverage"]
+    },
+    "R2": {
+      "status": "limited",
+      "facts": ["Customer-owned gateway data plane", "SaaS-only control plane"],
+      "gap": "The Atlas console is SaaS, and self-hosted Varonis reaches end of life on Dec 31, 2026, so no on-prem or air-gapped control plane is offered. Not shown in Atlas docs: named support for vLLM, Triton, Ollama or self-hosted Hugging Face.",
+      "url": "https://www.varonis.com/blog/atlas-ai-security",
+      "evidence": "Customer-owned data plane: Prompts, responses, and telemetry stay inside the customer's environment, supporting data residency and sovereignty requirements.",
+      "extra_urls": ["https://www.varonis.com/blog/why-were-going-all-in-on-saas", "https://www.softwarereviews.com/vendor-technology-notes/varonis-atlas-ai-security-platform-end-to-end-ai-security-and-governance-platform"]
+    },
+    "R3": {
+      "status": "limited",
+      "facts": ["Shadow AI via DNS, proxy logs", "Hooks for Cursor, Claude Code"],
+      "gap": "Discovery comes from scans of clouds, code and SaaS plus DNS and web proxy logs. Inline control needs a vendor hook or the gateway, and Varonis lists hooks for Claude Code, Cursor, Codex, Kiro and Devin. Not shown in Varonis docs: a browser or endpoint agent for arbitrary GenAI apps, or counts of apps discovered vs apps controlled.",
+      "url": "https://www.varonis.com/blog/shadow-ai",
+      "evidence": "Network monitoring capabilities that detect AI tool usage through DNS and web proxy logs",
+      "extra_urls": ["https://www.varonis.com/blog/cursor", "https://www.varonis.com/coverage", "https://www.varonis.com/blog/atlas-ai-security"]
+    },
+    "R4": {
+      "status": "yes",
+      "facts": ["Agentforce agent, topic, action inventory", "Copilot Studio and Foundry coverage"],
+      "gap": "Agentforce coverage centers on data access, permissions and activity monitoring. The Copilot Studio and Foundry tiles link only to the generic Atlas page. Not shown in Varonis docs: ServiceNow or Power Apps agents.",
+      "url": "https://www.varonis.com/coverage/salesforce-agentforce",
+      "evidence": "Inventory all active agents, topics, and actions",
+      "extra_urls": ["https://www.varonis.com/coverage", "https://www.varonis.com/coverage/microsoft-365-copilot"]
+    },
+    "R5": {
+      "status": "yes",
+      "facts": ["Discovers approved and shadow MCP", "Blocks malicious tool invocations"],
+      "gap": "Info-Tech Research Group (third party) reports that CVE matching for known MCP server vulnerabilities was not demonstrable in the version it reviewed.",
+      "url": "https://www.varonis.com/blog/applying-zero-trust-to-mcp-in-ai-systems",
+      "evidence": "By inventorying AI agents, tools, and MCP servers across code, cloud, and hosted services, teams gain visibility into both approved and shadow MCP usage.",
+      "extra_urls": ["https://www.softwarereviews.com/vendor-technology-notes/varonis-atlas-ai-security-platform-end-to-end-ai-security-and-governance-platform"]
+    },
+    "R6": {
+      "status": "noeq",
+      "facts": ["Inline tool-call gating via hooks", "Session quarantine of identities"],
+      "gap": "Enforcement runs through the gateway or vendor hooks in the prompt and tool-call path. Two searches found no kernel-level (eBPF or LSM) control of process, file or network activity on the host. Not shown in Varonis docs for LangGraph, CrewAI or n8n hosts.",
+      "url": "https://www.varonis.com/blog/agent-intent-based-access-control",
+      "evidence": "Atlas sits inline between the agent and the model that drives it. Every prompt, every model response, and every tool call flows through Atlas",
+      "extra_urls": ["https://www.varonis.com/blog/cursor"]
+    },
+    "R7": {
+      "status": "limited",
+      "facts": ["AIDR alerts on prompt attacks", "Full-session reconstruction for Claude Code"],
+      "gap": "AIDR detections come from gateway, hook and API telemetry. Not shown in Atlas docs: detections on CloudTrail events for Bedrock or SageMaker, detections on Azure AI activity logs, or automated revert of AI cloud configuration.",
+      "url": "https://www.varonis.com/blog/atlas-ai-security",
+      "evidence": "When threats such as prompt injections or jailbreak attempts are detected, Atlas generates actionable alerts, blocks activity inline when needed",
+      "extra_urls": ["https://www.varonis.com/blog/claude-coverage"]
+    },
+    "R8": {
+      "status": "yes",
+      "facts": ["Block, modify, alert or log", "SIEM and SOAR integration"],
+      "gap": "Blocking needs the Atlas gateway, the SDK, or a vendor hook in the request path. Logs-only integrations such as the ChatGPT Enterprise one monitor and alert.",
+      "url": "https://www.varonis.com/blog/atlas-ai-security",
+      "evidence": "Atlas generates actionable alerts, blocks activity inline when needed, and integrates with SIEM and SOAR platforms to support rapid investigation and response.",
+      "extra_urls": ["https://www.varonis.com/blog/claude-coverage", "https://www.varonis.com/coverage/chatgpt-enterprise"]
+    },
+    "R9": {
+      "status": "noeq",
+      "facts": ["Interceptor extension blocks phishing sites", "ChatGPT Enterprise prompt log monitoring"],
+      "gap": "Interceptor Browser Security does anti-phishing only. ChatGPT Enterprise coverage scans collected prompts and alerts after the fact. Not shown in Varonis docs: inline browser inspection of prompts, pastes or uploads, or blocking of personal AI accounts.",
+      "url": "https://www.varonis.com/coverage/chatgpt-enterprise",
+      "evidence": "Continuously collect and enrich ChatGPT audit logs to easily search sessions for keywords and custom terms.",
+      "extra_urls": ["https://www.varonis.com/platform/browser-security"]
+    },
+    "R10": {
+      "status": "yes",
+      "facts": ["Own LLM-agnostic AI gateway", "200k prompts per month cap"],
+      "gap": "Guardrail tiers include up to 200k prompts per month per AI system, and Varonis's own listing does not detail pricing above the cap. Not shown in Varonis docs: named LiteLLM, Kong, APIM, API Gateway or Apigee integrations. Info-Tech (third party) says the SDK plugs into existing gateways.",
+      "url": "https://www.varonis.com/blog/varonis-acquires-alltrue-ai-security",
+      "evidence": "Enforce real-time policies via our LLM and tool-agnostic AI gateway to prevent sensitive data leakage and block malicious and non-compliant use",
+      "extra_urls": ["https://aws.amazon.com/marketplace/pp/prodview-eoyer6g2olf6k", "https://www.varonis.com/blog/securing-ai", "https://www.softwarereviews.com/vendor-technology-notes/varonis-atlas-ai-security-platform-end-to-end-ai-security-and-governance-platform"]
+    },
+    "R11": {
+      "status": "yes",
+      "facts": ["PII, malicious URL, prompt injection", "Full-session multi-turn jailbreak evaluation"],
+      "gap": "Varonis does not publish a count of detection categories. Toxicity detection is not shown in Varonis docs.",
+      "url": "https://www.varonis.com/blog/agent-intent-based-access-control",
+      "evidence": "Reviews every prompt, response, and tool call in a session to catch drift that builds gradually, including multi-turn jailbreak attempts.",
+      "extra_urls": ["https://www.varonis.com/blog/varonis-atlas-claude-inference-hooks-integration", "https://www.varonis.com/blog/cursor"]
+    },
+    "R12": {
+      "status": "yes",
+      "facts": ["Prompt injection, jailbreak, policy bypass", "Tests agents, models, MCP servers"],
+      "gap": "Varonis does not publish the size of the attack library. CI/CD-triggered testing appears in a Varonis position paper, not in product docs. Info-Tech (third party) says pure-play red team vendors may go deeper.",
+      "url": "https://www.varonis.com/blog/atlas-ai-security",
+      "evidence": "Atlas proactively stress tests AI systems by executing adversarial prompts and dynamic attacks against live LLM endpoints.",
+      "extra_urls": ["https://www.varonis.com/blog/securing-ai", "https://www.softwarereviews.com/vendor-technology-notes/varonis-atlas-ai-security-platform-end-to-end-ai-security-and-governance-platform"]
+    },
+    "R13": {
+      "status": "yes",
+      "facts": ["Agent IBAC intent-drift blocking", "Classifies service and non-human accounts"],
+      "gap": "Info-Tech (third party) reports that full agent identity governance depends on the Varonis DSP, not on Atlas alone. Not shown in Varonis docs: API key or OAuth grant inventory for agents as a named feature.",
+      "url": "https://www.varonis.com/blog/agent-intent-based-access-control",
+      "evidence": "When an agent crosses the line, Atlas can quarantine the identity behind it and block everything that follows for a defined window.",
+      "extra_urls": ["https://www.varonis.com/blog/varonis-identity-protection", "https://www.varonis.com/platform/identity-posture"]
+    },
+    "R14": {
+      "status": "limited",
+      "facts": ["Model artifact scanning in AI-SPM", "Malicious skill detection for agents"],
+      "gap": "Not shown in Varonis docs: supported model formats (pickle, safetensors, GGUF, ONNX, HDF5), a Hugging Face registry integration, or a pre-load CI/CD gate.",
+      "url": "https://www.varonis.com/blog/iso/iec-42001-compliance",
+      "evidence": "It combines static analysis with dynamic adversarial testing, including penetration testing for large language model (LLM) endpoints and model artifact scanning.",
+      "extra_urls": ["https://www.varonis.com/blog/cursor"]
+    },
+    "R15": {
+      "status": "yes",
+      "facts": ["Classifies Databricks tables and columns", "Alerts on training data changes"],
+      "gap": "Poisoning coverage consists of change and sensitivity alerts on data stores. Not shown in Varonis docs: content-level poisoning detection.",
+      "url": "https://www.varonis.com/blog/model-poisoning",
+      "evidence": "Tools with AI capabilities like Varonis let organizations detect when sensitive data is added to training sets and trigger alerts when AI training data is modified.",
+      "extra_urls": ["https://www.varonis.com/coverage/databricks"]
+    },
+    "R16": {
+      "status": "limited",
+      "facts": ["Ingests vendor AIBOMs for TPRM", "Lineage graphs for model cards"],
+      "gap": "Not shown in Varonis docs: CycloneDX AIBOM export. On Varonis pages, AIBOM appears only as input for third-party risk assessment.",
+      "url": "https://www.varonis.com/blog/atlas-ai-security",
+      "evidence": "It continuously assesses third-party AI vendors by combining their AI inventory or AI Bills of Materials (AIBOM) with vendor questionnaire responses",
+      "extra_urls": ["https://www.varonis.com/platform/ai-security"]
+    },
+    "R17": {
+      "status": "yes",
+      "facts": ["EU AI Act, NIST RMF, ISO 42001", "Audit-ready reports with evidence"],
+      "gap": "Not shown in Atlas docs: OWASP LLM Top 10 or MITRE ATLAS mapping.",
+      "url": "https://www.varonis.com/platform/ai-security",
+      "evidence": "Altas codifies frameworks such as the EU AI Act, NIST AI RMF, and ISO 42001",
+      "extra_urls": ["https://www.varonis.com/blog/iso/iec-42001-compliance"]
+    }
+  },
+  "notes": "Atlas comes from the AllTrue.ai acquisition (announced Feb 3, 2026, reported at $125M to $150M), and Varonis announced Atlas GA in its launch blog last updated May 28, 2026. Ron Bennatan, AllTrue co-founder and creator of Guardium, is now VP of AI and Data Security Strategy. Agent IBAC shipped Aug 2026, the Claude Inference Hooks integration shipped Aug 7, 2026, and Gartner named Varonis a Pace Setter in the Sept 2026 Emerging Market Quadrant for AI Application Security. Varonis for M365 Copilot, ChatGPT Enterprise and Agentforce are older data-layer products on the DSP (permissions, classification, log monitoring), separate from the Atlas gateway. SlashNext became Varonis Interceptor, which covers email and browser anti-phishing, not AI prompt control. The help site (help.varonis.com) returns only marketing text without a customer login, so no technical docs were public, and several gaps rest on absence from public pages. Info-Tech Research Group (softwarereviews.com, third party) states that Atlas is SaaS, licensed per AI system and modular, and that DSP data context for AI-SPM was scheduled for summer 2026. Use it as corroboration only. AWS Marketplace prices are list prices from the Varonis listing. The Atlas FAQ misspells the product as 'Altas', and the R17 evidence quotes that spelling verbatim."
+}

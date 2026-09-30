@@ -1,0 +1,912 @@
+[
+ {
+  "title": "Deployment Models",
+  "rows": [
+   {
+    "param": "SaaS (Regional / Sovereign)",
+    "ak_icon": "tick",
+    "ak": "SaaS in US, EU, India, Middle East",
+    "ak_src": [
+     "s1"
+    ],
+    "pc_icon": "dash",
+    "pc": "17 SaaS tenants incl. GovCloud, China",
+    "pc_src": [
+     "s2"
+    ]
+   },
+   {
+    "param": "Customer Cloud (BYOC)",
+    "ak_icon": "tick",
+    "ak": "Control plane in your AWS, Azure or GCP",
+    "ak_src": [
+     "s1"
+    ],
+    "pc_icon": "cross",
+    "pc": "SaaS only. PAN runs the console",
+    "pc_src": [
+     "s3"
+    ]
+   },
+   {
+    "param": "On-Prem / Private Cloud",
+    "ak_icon": "tick",
+    "ak": "Full control plane on-prem, all features but AskADA",
+    "ak_src": [
+     "s4"
+    ],
+    "pc_icon": "dash",
+    "pc": "Defenders on-prem. Control plane SaaS only",
+    "pc_src": [
+     "s5"
+    ]
+   },
+   {
+    "param": "Air-Gapped Deployment",
+    "ak_icon": "tick",
+    "ak": "ASPM, CSPM, CWPP, KSPM, GRC fully offline",
+    "ak_src": [
+     "s1"
+    ],
+    "pc_icon": "cross",
+    "pc": "Not in Enterprise Edition. Compute Edition only",
+    "pc_src": [
+     "s3"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Application Security",
+  "rows": [
+   {
+    "param": "SAST",
+    "ak_icon": "tick",
+    "ak": "Pipeline and IDE SAST, AI false-positive triage",
+    "ak_src": [
+     "s23"
+    ],
+    "pc_icon": "dash",
+    "pc": "No native scanner. Imports Veracode, SonarQube, SARIF",
+    "pc_src": [
+     "s24"
+    ]
+   },
+   {
+    "param": "DAST",
+    "ak_icon": "tick",
+    "ak": "4 scan types, incl. authenticated behind MFA",
+    "ak_src": [
+     "s25"
+    ],
+    "pc_icon": "cross",
+    "pc": "No DAST. WAAS is runtime protection",
+    "pc_src": [
+     "s14"
+    ]
+   },
+   {
+    "param": "Code Quality (Best Practices)",
+    "ak_icon": "tick",
+    "ak": "2-engine SAST, 14 languages, SonarQube gates",
+    "ak_src": [
+     "s13"
+    ],
+    "pc_icon": "dash",
+    "pc": "No code quality scanning documented",
+    "pc_src": [
+     "s14"
+    ]
+   },
+   {
+    "param": "IaC Scanning",
+    "ak_icon": "tick",
+    "ak": "Terraform, CFN, ARM, Bicep, Helm, Ansible, CDK + 6",
+    "ak_src": [
+     "s15"
+    ],
+    "pc_icon": "tick",
+    "pc": "Terraform, OpenTofu, CFN, ARM, Bicep, Helm, Ansible + 7",
+    "pc_src": [
+     "s16"
+    ]
+   },
+   {
+    "param": "Container Scanning",
+    "ak_icon": "tick",
+    "ak": "CI/CD, registry, in-cluster, deploy blocking",
+    "ak_src": [
+     "s17"
+    ],
+    "pc_icon": "tick",
+    "pc": "Registry, CI, agentless and twistcli scans",
+    "pc_src": [
+     "s18"
+    ]
+   },
+   {
+    "param": "Secrets (Repo / IaC)",
+    "ak_icon": "tick",
+    "ak": "Repos, pipelines, IaC, correlated in ASPM",
+    "ak_src": [
+     "s6"
+    ],
+    "pc_icon": "tick",
+    "pc": "VCS and CI/CD scans, Git history, validation",
+    "pc_src": [
+     "s7"
+    ]
+   },
+   {
+    "param": "Secrets in K8s ConfigMaps",
+    "ak_icon": "tick",
+    "ak": "ConfigMaps and deployment manifests",
+    "ak_src": [
+     "s10"
+    ],
+    "pc_icon": "dash",
+    "pc": "Repo files only. No in-cluster ConfigMap scan",
+    "pc_src": [
+     "s7"
+    ]
+   },
+   {
+    "param": "SARIF Ingestion",
+    "ak_icon": "tick",
+    "ak": "Any tool: Checkmarx, JFrog, Gitleaks, Sonatype",
+    "ak_src": [
+     "s19"
+    ],
+    "pc_icon": "tick",
+    "pc": "SARIF 2.0 and 2.1 via console or API",
+    "pc_src": [
+     "s20"
+    ]
+   },
+   {
+    "param": "Repo / CI/CD Integration",
+    "ak_icon": "tick",
+    "ak": "GitHub, GitLab, Bitbucket + 9 CI/CD platforms",
+    "ak_src": [
+     "s21"
+    ],
+    "pc_icon": "tick",
+    "pc": "5 VCS + Jenkins, Actions, CircleCI, Azure",
+    "pc_src": [
+     "s22"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Software Supply Chain",
+  "rows": [
+   {
+    "param": "SCA",
+    "ak_icon": "tick",
+    "ak": "Dependency SCA with CVE and license checks",
+    "ak_src": [
+     "s11"
+    ],
+    "pc_icon": "tick",
+    "pc": "SCA, license compliance, PR package fixes",
+    "pc_src": [
+     "s12"
+    ]
+   },
+   {
+    "param": "Generate & Ingest SBOMs",
+    "ak_icon": "tick",
+    "ak": "CycloneDX out, CycloneDX or SPDX in",
+    "ak_src": [
+     "s69"
+    ],
+    "pc_icon": "dash",
+    "pc": "CycloneDX 1.4 export. Ingestion not documented",
+    "pc_src": [
+     "s70"
+    ]
+   },
+   {
+    "param": "Track Vulnerable Components",
+    "ak_icon": "tick",
+    "ak": "CVEs, licenses, outdated versions per component",
+    "ak_src": [
+     "s11"
+    ],
+    "pc_icon": "tick",
+    "pc": "Packages with CVEs and top severity",
+    "pc_src": [
+     "s12"
+    ]
+   },
+   {
+    "param": "Continuous CVE Monitoring",
+    "ak_icon": "tick",
+    "ak": "Live NVD feed, daily EPSS and CISA KEV",
+    "ak_src": [
+     "s71"
+    ],
+    "pc_icon": "tick",
+    "pc": "Intelligence Stream, several updates daily",
+    "pc_src": [
+     "s45"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Cloud Security Posture",
+  "rows": [
+   {
+    "param": "AWS",
+    "ak_icon": "tick",
+    "ak": "CSPM, CDR auto-fix, inventory, GovCloud",
+    "ak_src": [
+     "s26"
+    ],
+    "pc_icon": "tick",
+    "pc": "CSPM, runtime security, DSPM",
+    "pc_src": [
+     "s27"
+    ]
+   },
+   {
+    "param": "Azure",
+    "ak_icon": "tick",
+    "ak": "CSPM, org-level onboarding, CDR auto-fix",
+    "ak_src": [
+     "s28"
+    ],
+    "pc_icon": "tick",
+    "pc": "CSPM, runtime security, DSPM",
+    "pc_src": [
+     "s27"
+    ]
+   },
+   {
+    "param": "GCP",
+    "ak_icon": "tick",
+    "ak": "CSPM, CDR auto-fix, CIS GCP benchmarks",
+    "ak_src": [
+     "s29"
+    ],
+    "pc_icon": "tick",
+    "pc": "CSPM, runtime security, DSPM",
+    "pc_src": [
+     "s27"
+    ]
+   },
+   {
+    "param": "Multi-Cloud Asset Inventory",
+    "ak_icon": "tick",
+    "ak": "One inventory of accounts, assets, workloads",
+    "ak_src": [
+     "s30"
+    ],
+    "pc_icon": "tick",
+    "pc": "AWS, Azure, GCP, OCI, Alibaba. 24h refresh SLA",
+    "pc_src": [
+     "s31"
+    ]
+   },
+   {
+    "param": "Private Cloud (OpenShift / Nutanix)",
+    "ak_icon": "tick",
+    "ak": "OpenShift, Nutanix, VMware Tanzu enforcement",
+    "ak_src": [
+     "s32"
+    ],
+    "pc_icon": "dash",
+    "pc": "OpenShift v4. Nutanix not listed",
+    "pc_src": [
+     "s33"
+    ]
+   },
+   {
+    "param": "Secrets in S3 / Filesystems",
+    "ak_icon": "tick",
+    "ak": "S3, filesystems, Hugging Face datasets",
+    "ak_src": [
+     "s8"
+    ],
+    "pc_icon": "dash",
+    "pc": "Host and image filesystems. S3 undocumented",
+    "pc_src": [
+     "s9"
+    ]
+   },
+   {
+    "param": "Public S3 Detection + Auto-Fix",
+    "ak_icon": "tick",
+    "ak": "CloudTrail detection, reverts bucket to private",
+    "ak_src": [
+     "s34"
+    ],
+    "pc_icon": "tick",
+    "pc": "Config policy plus CLI auto-remediation",
+    "pc_src": [
+     "s35"
+    ]
+   },
+   {
+    "param": "Real-Time Cloud Event Automation",
+    "ak_icon": "tick",
+    "ak": "Real-time CloudTrail alerts trigger remediation",
+    "ak_src": [
+     "s34"
+    ],
+    "pc_icon": "dash",
+    "pc": "Audit events alert only, can lag hours. No CLI auto-fix",
+    "pc_src": [
+     "s35"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Workload & Kubernetes Runtime",
+  "rows": [
+   {
+    "param": "Host Protection (VM, Bare Metal)",
+    "ak_icon": "tick",
+    "ak": "KubeArmor systemd mode on VMs, bare metal",
+    "ak_src": [
+     "s39"
+    ],
+    "pc_icon": "tick",
+    "pc": "Host Defenders, Linux and Windows",
+    "pc_src": [
+     "s40"
+    ]
+   },
+   {
+    "param": "Container & K8s Runtime",
+    "ak_icon": "tick",
+    "ak": "Process, file, network enforcement + microsegmentation",
+    "ak_src": [
+     "s41"
+    ],
+    "pc_icon": "tick",
+    "pc": "Learned models, Alert, Prevent, Block rules",
+    "pc_src": [
+     "s42"
+    ]
+   },
+   {
+    "param": "Preemptive / Inline Blocking",
+    "ak_icon": "tick",
+    "ak": "Kernel LSM stops a process before it runs",
+    "ak_src": [
+     "s43"
+    ],
+    "pc_icon": "tick",
+    "pc": "Prevent effect stops a disallowed process",
+    "pc_src": [
+     "s42"
+    ]
+   },
+   {
+    "param": "eBPF / Kernel Enforcement",
+    "ak_icon": "tick",
+    "ak": "eBPF plus AppArmor, SELinux, BPF-LSM",
+    "ak_src": [
+     "s43"
+    ],
+    "pc_icon": "cross",
+    "pc": "User-space Defender. No eBPF in docs",
+    "pc_src": [
+     "s61"
+    ]
+   },
+   {
+    "param": "Process Allow / Deny",
+    "ak_icon": "tick",
+    "ak": "Per-pod or per-host process policies",
+    "ak_src": [
+     "s41"
+    ],
+    "pc_icon": "tick",
+    "pc": "Allow and deny lists, Prevent or Block",
+    "pc_src": [
+     "s42"
+    ]
+   },
+   {
+    "param": "File Integrity Monitoring",
+    "ak_icon": "tick",
+    "ak": "Monitors and blocks critical path changes",
+    "ak_src": [
+     "s46"
+    ],
+    "pc_icon": "tick",
+    "pc": "Host FIM. Container write Prevent by directory",
+    "pc_src": [
+     "s47"
+    ]
+   },
+   {
+    "param": "Workload Anomaly Detection",
+    "ak_icon": "tick",
+    "ak": "Learns baseline, blocks deviations",
+    "ak_src": [
+     "s48"
+    ],
+    "pc_icon": "tick",
+    "pc": "1h learning, 24h dry run, rule enforcement",
+    "pc_src": [
+     "s42"
+    ]
+   },
+   {
+    "param": "Fileless Malware Protection",
+    "ak_icon": "tick",
+    "ak": "Allow-list blocks unknown processes",
+    "ak_src": [
+     "s48"
+    ],
+    "pc_icon": "dash",
+    "pc": "[confirm from Prisma Cloud docs]",
+    "pc_src": []
+   },
+   {
+    "param": "Continuous Image Scanning",
+    "ak_icon": "tick",
+    "ak": "Scheduled scans of running images",
+    "ak_src": [
+     "s44"
+    ],
+    "pc_icon": "tick",
+    "pc": "Registry, CI, deployed images, several times daily",
+    "pc_src": [
+     "s45"
+    ]
+   },
+   {
+    "param": "Trusted Registry Enforcement",
+    "ak_icon": "tick",
+    "ak": "KnoxGuard admission per cluster or namespace",
+    "ak_src": [
+     "s55"
+    ],
+    "pc_icon": "tick",
+    "pc": "Trusted Images, alert or block",
+    "pc_src": [
+     "s56"
+    ]
+   },
+   {
+    "param": "K8s Misconfiguration",
+    "ak_icon": "tick",
+    "ak": "Findings with fix steps and Jira tickets",
+    "ak_src": [
+     "s49"
+    ],
+    "pc_icon": "tick",
+    "pc": "CIS checks plus OPA admission rules",
+    "pc_src": [
+     "s50"
+    ]
+   },
+   {
+    "param": "K8s CIS Benchmarks",
+    "ak_icon": "tick",
+    "ak": "Scheduled Helm-installed CIS scanner",
+    "ak_src": [
+     "s51"
+    ],
+    "pc_icon": "tick",
+    "pc": "CIS K8s, EKS, AKS, GKE, OpenShift",
+    "pc_src": [
+     "s52"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Kubernetes Identity (KIEM)",
+  "rows": [
+   {
+    "param": "KIEM (K8s Entitlements)",
+    "ak_icon": "tick",
+    "ak": "RBAC search, graph, 15 risk queries",
+    "ak_src": [
+     "s53"
+    ],
+    "pc_icon": "dash",
+    "pc": "CIEM is cloud IAM only. No K8s RBAC",
+    "pc_src": [
+     "s54"
+    ]
+   },
+   {
+    "param": "Service Account Inventory",
+    "ak_icon": "tick",
+    "ak": "Service accounts, roles, bindings per cluster",
+    "ak_src": [
+     "s53"
+    ],
+    "pc_icon": "cross",
+    "pc": "No K8s identity inventory documented",
+    "pc_src": [
+     "s54"
+    ]
+   },
+   {
+    "param": "Over-Permission Detection",
+    "ak_icon": "tick",
+    "ak": "Flags principals with excess privileges",
+    "ak_src": [
+     "s53"
+    ],
+    "pc_icon": "cross",
+    "pc": "Cloud IAM only. K8s RBAC not documented",
+    "pc_src": [
+     "s57"
+    ]
+   },
+   {
+    "param": "Risky Bindings & Cluster-Admin",
+    "ak_icon": "tick",
+    "ak": "Flags roles that modify workloads or read secrets",
+    "ak_src": [
+     "s53"
+    ],
+    "pc_icon": "dash",
+    "pc": "Audit-event alerts. No binding analysis",
+    "pc_src": [
+     "s58"
+    ]
+   },
+   {
+    "param": "Stale K8s Entitlements",
+    "ak_icon": "tick",
+    "ak": "Unused roles and orphan service accounts",
+    "ak_src": [
+     "s53"
+    ],
+    "pc_icon": "cross",
+    "pc": "Cloud IAM only. K8s not documented",
+    "pc_src": [
+     "s54"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "API Security",
+  "rows": [
+   {
+    "param": "North-South (NGINX Ingress)",
+    "ak_icon": "tick",
+    "ak": "NGINX Ingress connector feeds API inventory",
+    "ak_src": [
+     "s62"
+    ],
+    "pc_icon": "dash",
+    "pc": "WAAS per app. No NGINX ingress integration",
+    "pc_src": [
+     "s63"
+    ]
+   },
+   {
+    "param": "TLS Classification at Ingress",
+    "ak_icon": "tick",
+    "ak": "Inspects TLS, flags misconfigurations",
+    "ak_src": [
+     "s64"
+    ],
+    "pc_icon": "dash",
+    "pc": "Decrypts per endpoint. No TLS report",
+    "pc_src": [
+     "s65"
+    ]
+   },
+   {
+    "param": "Sensitive Data in APIs",
+    "ak_icon": "tick",
+    "ak": "Request and response data classification",
+    "ak_src": [
+     "s66"
+    ],
+    "pc_icon": "tick",
+    "pc": "Flags card, PII and session data",
+    "pc_src": [
+     "s67"
+    ]
+   },
+   {
+    "param": "Shadow API Detection",
+    "ak_icon": "tick",
+    "ak": "Traffic vs OpenAPI spec",
+    "ak_src": [
+     "s66"
+    ],
+    "pc_icon": "tick",
+    "pc": "Detects shadow APIs. OpenAPI import",
+    "pc_src": [
+     "s68"
+    ]
+   },
+   {
+    "param": "Zombie API Detection",
+    "ak_icon": "tick",
+    "ak": "Zombie and orphan APIs vs spec",
+    "ak_src": [
+     "s66"
+    ],
+    "pc_icon": "dash",
+    "pc": "Last-seen dates only. No zombie detection",
+    "pc_src": [
+     "s67"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Data Security (DSPM)",
+  "rows": [
+   {
+    "param": "Data Discovery",
+    "ak_icon": "tick",
+    "ak": "S3, Blob, cloud and self-hosted DBs, Drive, Salesforce",
+    "ak_src": [
+     "s72"
+    ],
+    "pc_icon": "tick",
+    "pc": "AWS, Azure, GCP, Snowflake, M365, file shares",
+    "pc_src": [
+     "s73"
+    ]
+   },
+   {
+    "param": "Data Classification",
+    "ak_icon": "tick",
+    "ak": "283 classes, PII, PHI, PCI, secrets, 62 country packs",
+    "ak_src": [
+     "s72"
+    ],
+    "pc_icon": "tick",
+    "pc": "Predefined and custom classifiers",
+    "pc_src": [
+     "s74"
+    ]
+   },
+   {
+    "param": "Data Access Verification",
+    "ak_icon": "dash",
+    "ak": "Coming soon",
+    "ak_src": [],
+    "pc_icon": "tick",
+    "pc": "Read, Write, List, Manage and public access map",
+    "pc_src": [
+     "s75"
+    ]
+   },
+   {
+    "param": "Publicly Exposed Data",
+    "ak_icon": "tick",
+    "ak": "Flags public buckets, CDR makes them private",
+    "ak_src": [
+     "s34"
+    ],
+    "pc_icon": "tick",
+    "pc": "Public access flagged by risk rules",
+    "pc_src": [
+     "s75"
+    ]
+   },
+   {
+    "param": "Data Policy Controls",
+    "ak_icon": "dash",
+    "ak": "Coming soon",
+    "ak_src": [],
+    "pc_icon": "tick",
+    "pc": "Built-in and custom risk rules, DDR alerts",
+    "pc_src": [
+     "s76"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Compliance & Reporting",
+  "rows": [
+   {
+    "param": "Compliance Frameworks",
+    "ak_icon": "tick",
+    "ak": "33+ frameworks, 42 versions, ISO, NIST, PCI, SOC 2",
+    "ak_src": [
+     "s77",
+     "s78",
+     "s36"
+    ],
+    "pc_icon": "tick",
+    "pc": "60+ standards for AWS, plus 4 clouds, custom",
+    "pc_src": [
+     "s27",
+     "s37"
+    ]
+   },
+   {
+    "param": "Compliance Reports",
+    "ak_icon": "tick",
+    "ak": "Audit-ready PDF, CSV, JSON",
+    "ak_src": [
+     "s78"
+    ],
+    "pc_icon": "tick",
+    "pc": "One-time or recurring, emailed",
+    "pc_src": [
+     "s79"
+    ]
+   },
+   {
+    "param": "Findings Reporting",
+    "ak_icon": "tick",
+    "ak": "Deduplicated across CSPM, KSPM, ASPM, runtime",
+    "ak_src": [
+     "s1"
+    ],
+    "pc_icon": "tick",
+    "pc": "Alert, compliance and Command Center reports",
+    "pc_src": [
+     "s38"
+    ]
+   },
+   {
+    "param": "Audit Trail",
+    "ak_icon": "tick",
+    "ak": "EventTrail logs who, when, result",
+    "ak_src": [
+     "s59"
+    ],
+    "pc_icon": "tick",
+    "pc": "120-day platform audit log",
+    "pc_src": [
+     "s60"
+    ]
+   },
+   {
+    "param": "Findings Collaboration",
+    "ak_icon": "tick",
+    "ak": "Jira, ServiceNow, Zendesk + 2, PDF/CSV/JSON",
+    "ak_src": [
+     "s1"
+    ],
+    "pc_icon": "tick",
+    "pc": "Jira, email, Slack, CSV, snooze",
+    "pc_src": [
+     "s80"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "AI Security",
+  "rows": [
+   {
+    "param": "LLM Red Teaming",
+    "ak_icon": "tick",
+    "ak": "Bedrock, Vertex AI, AI Foundry, Triton, vLLM",
+    "ak_src": [
+     "s81"
+    ],
+    "pc_icon": "cross",
+    "pc": "Not in Enterprise Edition. Sold as Prisma AIRS",
+    "pc_src": [
+     "s82"
+    ]
+   },
+   {
+    "param": "Prompt Firewall",
+    "ak_icon": "tick",
+    "ak": "Inline: blocks, masks or logs prompts and responses",
+    "ak_src": [
+     "s83"
+    ],
+    "pc_icon": "cross",
+    "pc": "Not in Enterprise Edition. Sold as Prisma AIRS",
+    "pc_src": [
+     "s82"
+    ]
+   },
+   {
+    "param": "ML Model Scanning",
+    "ak_icon": "tick",
+    "ak": "Pickle, Keras H5, SavedModel, ONNX",
+    "ak_src": [
+     "s84"
+    ],
+    "pc_icon": "cross",
+    "pc": "Finds Hugging Face files. Scanning is AIRS",
+    "pc_src": [
+     "s85"
+    ]
+   },
+   {
+    "param": "OWASP LLM Top 10",
+    "ak_icon": "tick",
+    "ak": "v2025 mapped in AI-SPM and red teaming",
+    "ak_src": [
+     "s77"
+    ],
+    "pc_icon": "dash",
+    "pc": "Posture findings mapped. No runtime control",
+    "pc_src": [
+     "s86"
+    ]
+   },
+   {
+    "param": "AI/ML Runtime Sandboxing",
+    "ak_icon": "tick",
+    "ak": "ModelArmor sandboxes models and agents",
+    "ak_src": [
+     "s87"
+    ],
+    "pc_icon": "dash",
+    "pc": "Generic runtime defense. No AI sandbox",
+    "pc_src": [
+     "s42"
+    ]
+   },
+   {
+    "param": "AI Model & Dataset Exposure",
+    "ak_icon": "tick",
+    "ak": "Detects public endpoints, makes them private",
+    "ak_src": [
+     "s88"
+    ],
+    "pc_icon": "dash",
+    "pc": "Detects exposure. No blocking",
+    "pc_src": [
+     "s89"
+    ]
+   },
+   {
+    "param": "Unknown-Region Model Access",
+    "ak_icon": "tick",
+    "ak": "Alerts outside allowed regions",
+    "ak_src": [
+     "s34"
+    ],
+    "pc_icon": "dash",
+    "pc": "Generic UEBA location alerts",
+    "pc_src": [
+     "s90"
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Integrations",
+  "rows": [
+   {
+    "param": "SIEM",
+    "ak_icon": "tick",
+    "ak": "Splunk, Sentinel, QRadar, Sumo Logic, rsyslog",
+    "ak_src": [
+     "s91"
+    ],
+    "pc_icon": "tick",
+    "pc": "Splunk HEC, Security Lake, webhooks, SQS",
+    "pc_src": [
+     "s92"
+    ]
+   },
+   {
+    "param": "Bi-Directional Ticketing",
+    "ak_icon": "tick",
+    "ak": "Ticket closes finding, recurrence reopens it",
+    "ak_src": [
+     "s1"
+    ],
+    "pc_icon": "dash",
+    "pc": "One-way push to Jira, ServiceNow",
+    "pc_src": [
+     "s93"
+    ]
+   }
+  ]
+ }
+]

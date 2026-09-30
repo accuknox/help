@@ -53,6 +53,18 @@
         "D:/AccuKnox/help/site"
       ],
       "port": 8016
+    },
+    {
+      "name": "dspm-built-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8018",
+        "--directory",
+        "D:/AccuKnox/help-dspm/site"
+      ],
+      "port": 8018
     }
   ]
 }

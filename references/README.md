@@ -24,7 +24,7 @@ Start with `source-of-truth/` for any AccuKnox fact. Use the other folders for d
 ## `Website Pages to Build 26 September/` Holds the Web Update Package
 
 The plan to update accuknox.com for AI SAST, AI DAST, the AccuKnox AI Gateway, Shadow AI and DSPM,
-dated 2026-09-26. `Prototype HTMLs/` holds the eight self-contained HTML files to share: `index.html`, five `update-*.html` pages with the live-page shots embedded, and two `new-page-*.html` wireframes for the Shadow AI and DSPM for Indian Banks solution pages. `Scripts/` holds the plan, the source shots, the Excalidraw map and the build scripts.
+dated 2026-09-26. `Prototype HTMLs/` holds the nine self-contained HTML files to share: `index.html`, five `update-*.html` pages with the live-page shots embedded, and three `new-page-*.html` wireframes: Shadow AI, DSPM for Indian Banks, and CIEM (added 2026-09-29, built from the CIEM help docs and `competitive/ciem-page-study-2026-09.md`). `Scripts/` holds the plan, the source shots, the Excalidraw map and the build scripts.
 
 ## `drafts/` Holds Unpublished Writing by Channel
 
@@ -44,6 +44,8 @@ The writing hook and `.claude/core/runtime-contract.md` send each channel's outp
 1. `netskope/` builds the Netskope spreadsheet and the Markdown draft, and pushes the Google Sheet. `netskope/battlecard/` is the reference PDF battlecard build, with its logos and back page in `assets/`.
 2. `ai-stack-ranking-v3/` builds `ai-security-stack-ranking-v3-beta.xlsx` from one JSON file per vendor in `vendors_v2/`. `ai-stack-ranking-sources.pdf` lists the sources.
 3. `build_promptfoo_battlecard.py` builds the Promptfoo spreadsheet.
+
+`competitive/ciem-page-study-2026-09.md` records the layout and messaging of six competitor CIEM pages: Wiz, Prisma Cloud, Tenable, Sonrai, CrowdStrike and Orca.
 
 `competitive/aspm-comparisons/` holds the ASPM versus pages: Black Duck, HCL AppScan, Invicti and OpenText Fortify.
 

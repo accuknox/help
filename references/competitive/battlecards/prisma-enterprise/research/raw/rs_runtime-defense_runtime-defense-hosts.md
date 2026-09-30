@@ -1,0 +1,206 @@
+> For the complete documentation index, see [llms.txt](https://docs.prismacloud.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-hosts.md).
+
+# Runtime Defense for Hosts
+
+Without secure hosts, you cannot have secure containers. Host machines are a critical component in the container environment, and the hosts must also be secured like containers. Prisma Cloud defender collects data about your hosts for monitoring and analysis.
+
+Runtime host protection is designed to continuously report an up-to-date context for your hosts. You can set detection for malware, network, log inspection, file integrity, activities, and custom events. Some detected events can only be alerted on, while others can be prevented.
+
+## Host runtime policy
+
+By default, Prisma Cloud ships with an empty host runtime policy. An empty policy disables runtime defense entirely.
+
+To enable runtime defense, create a new rule.
+
+**Prerequisites:** Install a [host defender](/content-collections/runtime-security/install/deploy-defender/defender-types.md).
+
+1. Go to **Defend > Runtime > Host Policy** and select **Add rule**.
+
+   <figure><img src="https://3990409212-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyqPwsbMSaogAot23rTIu%2Fuploads%2Fgit-blob-b8ee4831b6ad08ec59ae5839aa24b25f27e88847%2Fhost-runtime-rule.png?alt=media" alt="host runtime rule"><figcaption></figcaption></figure>
+2. Enter a **Rule name** to indicate the target of each rule.
+3. The **Scope** of each rule is determined by the [collection](/content-collections/runtime-security/configure/collections.md) assigned to that rule.
+
+   Prisma Cloud uses [rule order and pattern matching](/content-collections/runtime-security/configure/rule-ordering-pattern-matching.md) to determine which rule to apply for each workload.
+
+   The **Prevent** action for detection of file system events requires a Linux kernel version 4.20 or later.
+
+### Anti-malware
+
+Anti-malware provides a set of capabilities that let you alert or prevent malware activity and exploit attempts.
+
+#### Global settings
+
+* **Alert/prevent processes by path** — Provides the ability to alert on or prevent execution of specific processes based on the processes name or the full path of binary from which the process is executed. Some of the common tools are available for easy addition by selecting their category.
+* **Allow processes by path** — Provides the ability to mark processes as safe to use based on the process name or full path. Processes added to this list will not be alerted on or prevented by any of the Malware runtime capabilities.
+
+  If a process is included in both the allow list and in the deny list, the process will still be allowed by the host runtime policy.
+
+#### Anti-malware and exploit prevention settings
+
+* **Crypto miners** — Apply specific techniques for detection of crypto miners, alert on file creation, and alert or prevent their execution.
+* **Non-packaged binaries created or run by service** — Detect binaries created by a service without a package manager. Alert on file creation, and alert or prevent their execution.
+
+  You need a running Defender, to detect the source when there is a `write` operation on a file.
+
+  To detect binaries that have been deployed without a package manager, Prisma Cloud depends on the package manager on the host. Currently, the `apt`, `yum`, and `dnf` package managers are supported.
+* **Non-packaged binaries created or run by user** — Detect binaries created by a user without a package manager. Alert on file creation, and alert or prevent their execution.
+* **Processes running from temporary storage** — Detect processes running from temporary storage (unexpected behavior for legitimate processes). Alert/prevent on file creation or execution.
+* **Webshell attacks** — Detect abuse of web servers vulnerabilities to create a webshell. Alert on webshell creation and alert or prevent execution of linux command line tools from web servers.
+* **Reverse shell attacks** — Detect usage of [reverse shell](/content-collections/runtime-security/runtime-defense/incident-types/reverse-shell.md) and generate an alert.
+* **Execution flow hijack** — Detect [execution flow hijack attempt](/content-collections/runtime-security/runtime-defense/incident-types/execution-flow-hijack-attempt.md) and generate an alert.
+* **Encrypted/packed binaries** — Detect usage of encrypted/packed binaries and generate an alert. Such files are alerted on as encrypted and packed binaries may be used as a method to deploy malware undetected.
+* **Binaries with suspicious ELF headers** — Detect suspicious binaries for ELF headers and generate an alert.
+* **Malware based on custom feeds** — Generate alerts for files classified as malware by their MD5.
+* **Malware based on Prisma Cloud Advanced Threat Protection** — Generate alerts for files classified as malware by Prisma Cloud advanced intelligence feed.
+
+\-
+
+On operating systems where the defender supports identifying files of unknown origin (a file that wasn’t installed by a known OS package manager) and an intercepted filesystem operation was performed on a file of a known origin, the following host runtime protection rules are skipped:
+
+* Writes of a crypto miner binary to disk
+* Webshell attacks
+* Execution flow hijacking
+* Encrypted/packed binaries
+* Binaries with suspicious ELF headers
+* WildFire malware analysis
+
+#### Advanced malware analysis
+
+* **Malware based on WildFire analysis** — Use WildFire, the malware analysis engine of Palo Alto Networks, to detect malware and generate alerts. Currently Wildfire analysis is provided without additional costs, but this may change in future releases. To use Wildfire, enable it under [Wildfire settings](/content-collections/runtime-security/configure/wildfire.md).
+
+#### Host observations
+
+* **Track SSH events** — As part of the host observation capability, you can completely track all the SSH activities on the host. This feature is enabled by default in new rules and you can choose to disable this feature under host observations.
+
+### Networking
+
+Networking provides a high level of granularity in controlling network traffic based on IP, port, and DNS. You can use your custom rules or use Prisma Cloud Advanced Threat Protection to alert on or prevent access to malicious sites.
+
+#### IP connectivity
+
+* **Allowed IPs**: — create an approved list of IPs which when accessed, will not generate an alert.
+* **Denied IPs and ports** — Create a list of listening ports, outbound internet ports, and outbound IPs which when accessed will generate an alert.
+* **Suspicious IPs based on custom feed** — Generate alerts based on entries added to the list of suspicious or high-risk IP endpoints under **Manage > System > Custom feeds > IP reputation lists**
+* **Suspicious IPs based on Prisma Cloud advanced threat protection** — Generate alerts based on the Prisma Cloud advanced threat protection intelligence stream.
+
+#### DNS
+
+When DNS monitoring is enabled, Prisma Cloud filters DNS lookups. By default, DNS monitoring is disabled in new rules.
+
+* **Allowed domains** — Create an approved list of domains which when accessed will not generate an alert or be prevented.
+* **Denied domains** — Create a list of denied domains which when accessed will be alerted or prevented.
+* **Suspicious domains based on Prisma Cloud Advanced Threat Protection** — Generate alerts or prevent access to domains based on Prisma Cloud Advanced Threat Protection Intelligence Stream.
+
+### Log inspection
+
+Prisma Cloud lets you collect and analyze logs from operating systems and applications for security events. For each inspection rule, specify the log file to parse and any number of inspection expressions. Inspection expressions support the [RE2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
+
+A number of predefined rules are provided for apps such as `sshd`, `mongod`, and `nginx`.
+
+Regardless of the specified inspection expression, log inspection has the following boundaries.
+
+* The maximum amount of bytes read per second is `100`.
+* The maximum amount of bytes in a chunk read per second is `2048`.
+
+These boundaries are non-customizable.
+
+### File integrity management (FIM)
+
+Changes to critical files can reduce your overall security posture, and they can be the first indicator of an attack in progress. The Prisma Cloud FIM from Prisma Cloud continuously monitors your files and directories for changes. You can configure FIM to detect:
+
+* Read or write operations on sensitive files, such as certificates, secrets, and configuration files.
+* Binaries written to the file system.
+* Abnormally installed software. For example, FIM can detect files written to a file system by programs other than `apt-get`.
+
+A monitoring profile consists of rules, where each rule specifies the path to monitor, the file operation, and the exceptions to the rule.
+
+<figure><img src="https://3990409212-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyqPwsbMSaogAot23rTIu%2Fuploads%2Fgit-blob-dae3bff29916cfdd6707e888e392e75be3b671df%2Fruntime-defense-hosts-fim-rule.png?alt=media" alt="runtime defense hosts fim rule"><figcaption></figcaption></figure>
+
+The file operations supported are:
+
+* Writes to files or directories When you specify a directory, recursive monitoring is supported.
+* Read When you specify a directory, recursive monitoring isn’t supported.
+* Attribute changes The attributes watched are permissions, ownership, timestamps, and links. When you specify a directory, recursive monitoring isn’t supported.
+
+### Activities
+
+Set up rules to audit [host events](/content-collections/runtime-security/audit/host-activity.md).
+
+### Custom rules
+
+For details on the custom rules policy refer to [this](/content-collections/runtime-security/runtime-defense/custom-runtime-rules.md) section.
+
+## Monitoring
+
+To view the data collected about each host, go to **Monitor > Runtime > Host observations**, and select a host from the list.
+
+### Apps
+
+The **Apps** tab lists the running programs on the host. New apps are added to the list only on a network event.
+
+Prisma Cloud automatically adds some important apps to the monitoring table even if they don’t have any network activity, including `cron` and `systemd`.
+
+<figure><img src="https://3990409212-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyqPwsbMSaogAot23rTIu%2Fuploads%2Fgit-blob-efdc7f667df7ba901b845017c6de29767250685f%2Fhost-runtime-apps.png?alt=media" alt="host runtime apps"><figcaption></figcaption></figure>
+
+For each app, Prisma Cloud records the following details:
+
+* Running processes (limited to 15).
+* Outgoing ports (limited to 5).
+* Listening ports (limited to 5).
+
+Prisma Cloud keeps a sample of spawned processes and network activity for each monitored app, specifically:
+
+* Spawned process — Processes spawned by the app, including observation timestamps, username, process (and parent process) paths, and the executed command line (limited to 15 processes).
+* Outgoing ports — Ports used by the app for outgoing network activity, including observation timestamps, the process that triggered the network activity, IP address, port, and country resolution for public IPs (limited to 5 ports).
+* Listening ports — Ports used by the app for incoming network activity, including the listening process and observation timestamps (limited to 5 ports).
+
+Proc events will add the proc only to existing apps in the profile. The defender will cache the runtime data, saving timestamps for each of the 15 processes' last spawn time.
+
+Limitations:
+
+* Maximum of 50 apps.
+* Last 10 spawned processes for each app.
+
+### SSH session history
+
+The **SSH events** tab shows `ssh` commands run in interactive sessions, limited to 100 events per hour.
+
+<figure><img src="https://3990409212-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyqPwsbMSaogAot23rTIu%2Fuploads%2Fgit-blob-8cc89a4783365b7317f22417731eb22cb567ee36%2Fhost-runtime-ssh-history.png?alt=media" alt="host runtime ssh history"><figcaption></figcaption></figure>
+
+### Security updates
+
+Prisma Cloud periodically checks for security updates. It’s implemented as a compliance check. This feature is supported only for Ubuntu/Debian distributions with the "apt-get" package installer.
+
+Prisma Cloud probes for security updates every time the scanner runs (every 24 hours, by default). The check is enabled by default in **Defend > Compliance > Hosts** in the **Default - alert on critical and high** rule.
+
+<figure><img src="https://3990409212-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyqPwsbMSaogAot23rTIu%2Fuploads%2Fgit-blob-7295284ea49c24bcdb91afe0ea700c0c642dbc2a%2Fhost-runtime-update-compliance-check.png?alt=media" alt="host runtime update compliance check"><figcaption></figcaption></figure>
+
+The **Security Updates** show the pending security updates (based on a new compliance check that was added for this purpose). Supported for Ubuntu and Debian.
+
+On each host scan, Prisma Cloud checks for available package updates marked as security updates and lists such updates under **Security Updates**.
+
+## Audits
+
+You can view audits about host runtime events under **Monitor > Events > Host audits**.
+
+
+---
+
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+If you need additional information that is not directly available in this page, you can query the documentation dynamically by asking a question.
+
+Perform an HTTP GET request on the current page URL with the `ask` query parameter, and the optional `goal` query parameter:
+
+```
+GET https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-hosts.md?ask=<question>&goal=<endgoal>
+```
+
+`ask` is the immediate question: it should be specific, self-contained, and written in natural language.
+`goal` is optional and describes the broader end goal you are ultimately trying to accomplish on behalf of the user. GitBook uses it to tailor the answer towards what is most useful for that goal.
+
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

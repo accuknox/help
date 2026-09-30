@@ -1,0 +1,44 @@
+{
+ "title": "AccuKnox vs Prisma Cloud Enterprise Edition",
+ "accessed": "2026-09-30",
+ "h2": "AccuKnox vs Prisma Cloud Enterprise Edition: CNAPP & Cloud Security Platform Comparison",
+ "intro": "Compare AccuKnox and Prisma Cloud Enterprise Edition across ASPM, CSPM, KSPM, CWPP, DSPM and AI security. AccuKnox runs the full platform in your cloud, on-prem or air-gapped. It also ships native SAST, DAST and LLM security, which Prisma Cloud Enterprise Edition does not include.",
+ "intro_src_urls": [
+  "https://docs.prismacloud.io/content-collections/runtime-security/pcee-vs-pcce",
+  "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/third-party-ingestion",
+  "https://docs.prismacloud.io/content-collections/application-security/application-security",
+  "https://docs.prismacloud.io/content-collections/ai-security-posture-management/aispmoverview"
+ ],
+ "edition_tag": "Compared with Prisma Cloud Enterprise Edition (SaaS), release 26.8.1. Compute Edition excluded.",
+ "edition_src_urls": [
+  "https://docs.prismacloud.io/release-notes/prisma-cloud-release-information/features-introduced-in-2026/features-introduced-in-august-2026"
+ ],
+ "why_h2": "Why Customers Choose AccuKnox Over Prisma Cloud",
+ "why_cards": [
+  {
+   "title": "Better",
+   "body": "AccuKnox secures code, cloud, Kubernetes, data and AI in one platform, mapped to 33+ compliance frameworks. Its runtime engine, KubeArmor, is a CNCF Sandbox project with 2 million+ downloads.",
+   "src_urls": [
+    "https://help.accuknox.com/faqs/compliance/",
+    "https://help.accuknox.com/faqs/general/"
+   ]
+  },
+  {
+   "title": "Faster",
+   "body": "KubeArmor enforces policy inline at the kernel, so a disallowed process stops before it runs. At one of India's top 3 public sector banks, AccuKnox cut remediation time by 91% and false positives by 89%.",
+   "src_urls": [
+    "https://help.accuknox.com/faqs/runtime-security/",
+    "https://accuknox.com/wp-content/uploads/SBOM-Case-Study.pdf"
+   ]
+  },
+  {
+   "title": "Affordable",
+   "body": "One AccuKnox platform includes SAST, DAST, DSPM and AI security. Prisma Cloud Enterprise Edition documents no native SAST or DAST, and Palo Alto Networks sells AI red teaming and prompt inspection separately as Prisma AIRS.",
+   "src_urls": [
+    "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/third-party-ingestion",
+    "https://docs.prismacloud.io/content-collections/ai-security-posture-management/aispmoverview"
+   ]
+  }
+ ],
+ "sources_note": "Prisma Cloud facts come from Prisma Cloud Enterprise Edition documentation at docs.prismacloud.io and from paloaltonetworks.com, read on 2026-09-30. AccuKnox facts come from help.accuknox.com and one published AccuKnox case study. A cell marked [confirm] had no public source when this was written. Palo Alto Networks offers Cortex Cloud as an upgrade for Prisma Cloud customers, and Cortex Cloud capabilities differ from this table."
+}

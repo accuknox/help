@@ -1,0 +1,482 @@
+[
+ {
+  "id": "s1",
+  "title": "AccuKnox Help, General",
+  "url": "https://help.accuknox.com/faqs/general/"
+ },
+ {
+  "id": "s2",
+  "title": "Prisma Cloud Enterprise Edition docs, console prerequisites",
+  "url": "https://docs.prismacloud.io/content-collections/get-started/console-prerequisites"
+ },
+ {
+  "id": "s3",
+  "title": "Prisma Cloud Enterprise Edition docs, pcee vs pcce",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/pcee-vs-pcce"
+ },
+ {
+  "id": "s4",
+  "title": "AccuKnox Help, Deployment models",
+  "url": "https://help.accuknox.com/getting-started/deployment-models/"
+ },
+ {
+  "id": "s5",
+  "title": "Prisma Cloud Enterprise Edition docs, welcome to prisma cloud",
+  "url": "https://docs.prismacloud.io/content-collections/get-started/welcome-to-prisma-cloud"
+ },
+ {
+  "id": "s6",
+  "title": "AccuKnox Help, Aspm",
+  "url": "https://help.accuknox.com/faqs/aspm/"
+ },
+ {
+  "id": "s7",
+  "title": "Prisma Cloud Enterprise Edition docs, secrets scanning",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/risk-management/monitor-and-manage-code-build/secrets-scanning"
+ },
+ {
+  "id": "s8",
+  "title": "AccuKnox Help, Github actions secret scan",
+  "url": "https://help.accuknox.com/integrations/github-actions-secret-scan/"
+ },
+ {
+  "id": "s9",
+  "title": "Prisma Cloud Enterprise Edition docs, detect secrets",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/compliance/operations/detect-secrets"
+ },
+ {
+  "id": "s10",
+  "title": "AccuKnox Help, Aspm overview",
+  "url": "https://help.accuknox.com/how-to/aspm-overview/"
+ },
+ {
+  "id": "s11",
+  "title": "AccuKnox Help, Xbom setup",
+  "url": "https://help.accuknox.com/getting-started/xbom-setup/"
+ },
+ {
+  "id": "s12",
+  "title": "Prisma Cloud Enterprise Edition docs, sbom",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/visibility/sbom"
+ },
+ {
+  "id": "s13",
+  "title": "AccuKnox Help, Sast support matrix",
+  "url": "https://help.accuknox.com/support-matrix/sast-support-matrix/"
+ },
+ {
+  "id": "s14",
+  "title": "Prisma Cloud Enterprise Edition docs, application security",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/application-security"
+ },
+ {
+  "id": "s15",
+  "title": "AccuKnox Help, Iac",
+  "url": "https://help.accuknox.com/support-matrix/iac/"
+ },
+ {
+  "id": "s16",
+  "title": "Prisma Cloud Enterprise Edition docs, supported technologies",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/supported-technologies"
+ },
+ {
+  "id": "s17",
+  "title": "AccuKnox Help, Container scan",
+  "url": "https://help.accuknox.com/use-cases/container-scan/"
+ },
+ {
+  "id": "s18",
+  "title": "Prisma Cloud Enterprise Edition docs, registry scanning",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/vulnerability-management/registry-scanning"
+ },
+ {
+  "id": "s19",
+  "title": "AccuKnox Help, Sarif findings",
+  "url": "https://help.accuknox.com/getting-started/sarif-findings/"
+ },
+ {
+  "id": "s20",
+  "title": "Prisma Cloud Enterprise Edition docs, sarif ingestion",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/third-party-ingestion/sarif-ingestion"
+ },
+ {
+  "id": "s21",
+  "title": "AccuKnox Help, Cicd support matrix",
+  "url": "https://help.accuknox.com/support-matrix/cicd-support-matrix/"
+ },
+ {
+  "id": "s22",
+  "title": "Prisma Cloud Enterprise Edition docs, ci cd runs",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/ci-cd-runs"
+ },
+ {
+  "id": "s23",
+  "title": "AccuKnox Help, 3.4 release",
+  "url": "https://help.accuknox.com/getting-started/3.4-release/"
+ },
+ {
+  "id": "s24",
+  "title": "Prisma Cloud Enterprise Edition docs, third party ingestion",
+  "url": "https://docs.prismacloud.io/content-collections/application-security/get-started/connect-code-and-build-providers/third-party-ingestion"
+ },
+ {
+  "id": "s25",
+  "title": "AccuKnox Help, Dast scan types",
+  "url": "https://help.accuknox.com/how-to/dast-scan-types/"
+ },
+ {
+  "id": "s26",
+  "title": "AccuKnox Help, Aws",
+  "url": "https://help.accuknox.com/use-cases/cloud/aws/"
+ },
+ {
+  "id": "s27",
+  "title": "Prisma Cloud Enterprise Edition docs, compliance standards",
+  "url": "https://docs.prismacloud.io/content-collections/compliance/compliance-standards"
+ },
+ {
+  "id": "s28",
+  "title": "AccuKnox Help, Azure org onboard",
+  "url": "https://help.accuknox.com/how-to/azure-org-onboard/"
+ },
+ {
+  "id": "s29",
+  "title": "AccuKnox Help, Gcp",
+  "url": "https://help.accuknox.com/use-cases/cloud/gcp/"
+ },
+ {
+  "id": "s30",
+  "title": "AccuKnox Help, Asset inventory",
+  "url": "https://help.accuknox.com/use-cases/asset-inventory/"
+ },
+ {
+  "id": "s31",
+  "title": "Prisma Cloud Enterprise Edition docs, asset inventory",
+  "url": "https://docs.prismacloud.io/content-collections/cloud-and-software-inventory/asset-inventory"
+ },
+ {
+  "id": "s32",
+  "title": "AccuKnox Help, Private cloud",
+  "url": "https://help.accuknox.com/support-matrix/private-cloud/"
+ },
+ {
+  "id": "s33",
+  "title": "Prisma Cloud Enterprise Edition docs, openshift",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/install/deploy-defender/kubernetes/openshift"
+ },
+ {
+  "id": "s34",
+  "title": "AccuKnox Help, Cdr",
+  "url": "https://help.accuknox.com/use-cases/cdr/"
+ },
+ {
+  "id": "s35",
+  "title": "Prisma Cloud Enterprise Edition docs, create a policy",
+  "url": "https://docs.prismacloud.io/content-collections/governance/create-a-policy"
+ },
+ {
+  "id": "s36",
+  "title": "AccuKnox Help, Compliance",
+  "url": "https://help.accuknox.com/use-cases/compliance/"
+ },
+ {
+  "id": "s37",
+  "title": "Prisma Cloud Enterprise Edition docs, custom compliance standard",
+  "url": "https://docs.prismacloud.io/content-collections/compliance/custom-compliance-standard"
+ },
+ {
+  "id": "s38",
+  "title": "Prisma Cloud Enterprise Edition docs, prisma cloud reports",
+  "url": "https://docs.prismacloud.io/content-collections/reports/prisma-cloud-reports"
+ },
+ {
+  "id": "s39",
+  "title": "AccuKnox Help, Kubearmor support matrix",
+  "url": "https://help.accuknox.com/support-matrix/kubearmor-support-matrix/"
+ },
+ {
+  "id": "s40",
+  "title": "Prisma Cloud Enterprise Edition docs, defender types",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/install/deploy-defender/defender-types"
+ },
+ {
+  "id": "s41",
+  "title": "AccuKnox Help, App behavior",
+  "url": "https://help.accuknox.com/use-cases/app-behavior/"
+ },
+ {
+  "id": "s42",
+  "title": "Prisma Cloud Enterprise Edition docs, runtime defense containers",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-containers"
+ },
+ {
+  "id": "s43",
+  "title": "AccuKnox Help, Runtime security",
+  "url": "https://help.accuknox.com/faqs/runtime-security/"
+ },
+ {
+  "id": "s44",
+  "title": "AccuKnox Help, In cluster image scan helm",
+  "url": "https://help.accuknox.com/how-to/in-cluster-image-scan-helm/"
+ },
+ {
+  "id": "s45",
+  "title": "Prisma Cloud Enterprise Edition docs, intelligence stream",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-security-components/intelligence-stream"
+ },
+ {
+  "id": "s46",
+  "title": "AccuKnox Help, Vm file integrity",
+  "url": "https://help.accuknox.com/use-cases/vm-file-integrity/"
+ },
+ {
+  "id": "s47",
+  "title": "Prisma Cloud Enterprise Edition docs, runtime defense hosts",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-hosts"
+ },
+ {
+  "id": "s48",
+  "title": "AccuKnox Help, Zero trust",
+  "url": "https://help.accuknox.com/use-cases/zero-trust/"
+ },
+ {
+  "id": "s49",
+  "title": "AccuKnox Help, Cluster misconfiguration scanning",
+  "url": "https://help.accuknox.com/use-cases/cluster-misconfiguration-scanning/"
+ },
+ {
+  "id": "s50",
+  "title": "Prisma Cloud Enterprise Edition docs, open policy agent",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/access-control/open-policy-agent"
+ },
+ {
+  "id": "s51",
+  "title": "AccuKnox Help, Cis benchmarking",
+  "url": "https://help.accuknox.com/how-to/cis-benchmarking/"
+ },
+ {
+  "id": "s52",
+  "title": "Prisma Cloud Enterprise Edition docs, cis benchmarks",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/compliance/visibility/cis-benchmarks"
+ },
+ {
+  "id": "s53",
+  "title": "AccuKnox Help, Kiem",
+  "url": "https://help.accuknox.com/use-cases/kiem/"
+ },
+ {
+  "id": "s54",
+  "title": "Prisma Cloud Enterprise Edition docs, what is prisma cloud iam security",
+  "url": "https://docs.prismacloud.io/content-collections/administration/configure-iam-security/what-is-prisma-cloud-iam-security"
+ },
+ {
+  "id": "s55",
+  "title": "AccuKnox Help, Admission controller knoxguard",
+  "url": "https://help.accuknox.com/use-cases/admission-controller-knoxguard/"
+ },
+ {
+  "id": "s56",
+  "title": "Prisma Cloud Enterprise Edition docs, trusted images",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/compliance/operations/trusted-images"
+ },
+ {
+  "id": "s57",
+  "title": "Prisma Cloud Enterprise Edition docs, configure iam security",
+  "url": "https://docs.prismacloud.io/content-collections/administration/configure-iam-security"
+ },
+ {
+  "id": "s58",
+  "title": "Prisma Cloud Enterprise Edition docs, kubernetes auditing",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/audit/kubernetes-auditing"
+ },
+ {
+  "id": "s59",
+  "title": "AccuKnox Help, Audit trail logs",
+  "url": "https://help.accuknox.com/getting-started/audit-trail-logs/"
+ },
+ {
+  "id": "s60",
+  "title": "Prisma Cloud Enterprise Edition docs, view audit logs",
+  "url": "https://docs.prismacloud.io/content-collections/administration/view-audit-logs"
+ },
+ {
+  "id": "s61",
+  "title": "Prisma Cloud Enterprise Edition docs, host defender architecture",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/install/deploy-defender/host/host-defender-architecture"
+ },
+ {
+  "id": "s62",
+  "title": "AccuKnox Help, Api overview",
+  "url": "https://help.accuknox.com/integrations/api-overview/"
+ },
+ {
+  "id": "s63",
+  "title": "Prisma Cloud Enterprise Edition docs, deploy waas",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/deploy-waas"
+ },
+ {
+  "id": "s64",
+  "title": "AccuKnox Help, Api sec",
+  "url": "https://help.accuknox.com/faqs/api-sec/"
+ },
+ {
+  "id": "s65",
+  "title": "Prisma Cloud Enterprise Edition docs, oob containers",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/deploy-waas/oob-containers"
+ },
+ {
+  "id": "s66",
+  "title": "AccuKnox Help, Api security",
+  "url": "https://help.accuknox.com/use-cases/api-security/"
+ },
+ {
+  "id": "s67",
+  "title": "Prisma Cloud Enterprise Edition docs, waas api discovery",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/waas-api-discovery"
+ },
+ {
+  "id": "s68",
+  "title": "Prisma Cloud Enterprise Edition docs, api endpoints inventory",
+  "url": "https://docs.prismacloud.io/content-collections/cloud-and-software-inventory/api-endpoints-inventory"
+ },
+ {
+  "id": "s69",
+  "title": "AccuKnox Help, Sbom",
+  "url": "https://help.accuknox.com/faqs/sbom/"
+ },
+ {
+  "id": "s70",
+  "title": "Prisma Cloud Enterprise Edition docs, exporting sboms",
+  "url": "https://docs.prismacloud.io/content-collections/runtime-security/vulnerability-management/exporting-sboms"
+ },
+ {
+  "id": "s71",
+  "title": "AccuKnox Help, Vulnerability database",
+  "url": "https://help.accuknox.com/resources/vulnerability-database/"
+ },
+ {
+  "id": "s72",
+  "title": "AccuKnox Help, Dspm overview",
+  "url": "https://help.accuknox.com/getting-started/dspm-overview/"
+ },
+ {
+  "id": "s73",
+  "title": "Prisma Cloud Enterprise Edition docs, supported assets",
+  "url": "https://docs.prismacloud.io/content-collections/data-security-posture-management/welcome/supported-assets"
+ },
+ {
+  "id": "s74",
+  "title": "Prisma Cloud Enterprise Edition docs, use cases",
+  "url": "https://docs.prismacloud.io/content-collections/data-security-posture-management/welcome/use-cases"
+ },
+ {
+  "id": "s75",
+  "title": "Prisma Cloud Enterprise Edition docs, explore data asset access information",
+  "url": "https://docs.prismacloud.io/content-collections/data-security-posture-management/how-to-articles/explore-data-asset-access-information"
+ },
+ {
+  "id": "s76",
+  "title": "Prisma Cloud Enterprise Edition docs, create and edit custom risks",
+  "url": "https://docs.prismacloud.io/content-collections/data-security-posture-management/how-to-articles/create-and-edit-custom-risks"
+ },
+ {
+  "id": "s77",
+  "title": "AccuKnox Help, Compliance matrix",
+  "url": "https://help.accuknox.com/support-matrix/compliance-matrix/"
+ },
+ {
+  "id": "s78",
+  "title": "AccuKnox Help, Compliance",
+  "url": "https://help.accuknox.com/faqs/compliance/"
+ },
+ {
+  "id": "s79",
+  "title": "Prisma Cloud Enterprise Edition docs, new compliance report",
+  "url": "https://docs.prismacloud.io/content-collections/compliance/new-compliance-report"
+ },
+ {
+  "id": "s80",
+  "title": "Prisma Cloud Enterprise Edition docs, view respond to prisma cloud alerts",
+  "url": "https://docs.prismacloud.io/content-collections/alerts/view-respond-to-prisma-cloud-alerts"
+ },
+ {
+  "id": "s81",
+  "title": "AccuKnox Help, Red teaming",
+  "url": "https://help.accuknox.com/use-cases/red-teaming/"
+ },
+ {
+  "id": "s82",
+  "title": "Prisma Cloud Enterprise Edition docs, aispmoverview",
+  "url": "https://docs.prismacloud.io/content-collections/ai-security-posture-management/aispmoverview"
+ },
+ {
+  "id": "s83",
+  "title": "AccuKnox Help, Prompt firewall overview",
+  "url": "https://help.accuknox.com/use-cases/prompt-firewall-overview/"
+ },
+ {
+  "id": "s84",
+  "title": "AccuKnox Help, Ml static scan",
+  "url": "https://help.accuknox.com/how-to/ml-static-scan/"
+ },
+ {
+  "id": "s85",
+  "title": "Prisma Cloud Enterprise Edition docs, unmanaged ai models",
+  "url": "https://docs.prismacloud.io/content-collections/ai-security-posture-management/unmanaged-ai-models"
+ },
+ {
+  "id": "s86",
+  "title": "Prisma Cloud Enterprise Edition docs, features introduced in december 2024",
+  "url": "https://docs.prismacloud.io/release-notes/prisma-cloud-release-information/features-introduced-in-2024/features-introduced-in-december-2024"
+ },
+ {
+  "id": "s87",
+  "title": "AccuKnox Help, Modelarmor",
+  "url": "https://help.accuknox.com/use-cases/modelarmor/"
+ },
+ {
+  "id": "s88",
+  "title": "AccuKnox Help, Ai security",
+  "url": "https://help.accuknox.com/faqs/ai-security/"
+ },
+ {
+  "id": "s89",
+  "title": "Palo Alto Networks, ai spm",
+  "url": "https://www.paloaltonetworks.com/blog/cloud-security/ai-spm/"
+ },
+ {
+  "id": "s90",
+  "title": "Prisma Cloud Enterprise Edition docs, anomaly policies",
+  "url": "https://docs.prismacloud.io/content-collections/governance/anomaly-policies"
+ },
+ {
+  "id": "s91",
+  "title": "AccuKnox Help, Splunk",
+  "url": "https://help.accuknox.com/integrations/splunk/"
+ },
+ {
+  "id": "s92",
+  "title": "Prisma Cloud Enterprise Edition docs, integrate prisma cloud with splunk",
+  "url": "https://docs.prismacloud.io/content-collections/administration/configure-external-integrations-on-prisma-cloud/integrate-prisma-cloud-with-splunk"
+ },
+ {
+  "id": "s93",
+  "title": "Prisma Cloud Enterprise Edition docs, integrate prisma cloud with servicenow",
+  "url": "https://docs.prismacloud.io/content-collections/administration/configure-external-integrations-on-prisma-cloud/integrate-prisma-cloud-with-servicenow"
+ },
+ {
+  "id": "s94",
+  "title": "Prisma Cloud release notes, features introduced in August 2026 (26.8.1)",
+  "url": "https://docs.prismacloud.io/release-notes/prisma-cloud-release-information/features-introduced-in-2026/features-introduced-in-august-2026"
+ },
+ {
+  "id": "s95",
+  "title": "Palo Alto Networks press release, Cortex Cloud launch (February 2025)",
+  "url": "https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-introduces-cortex-cloud--the-future-of-real-time-cloud-security"
+ },
+ {
+  "id": "s96",
+  "title": "AccuKnox case study, Top 3 Indian public sector bank operationalises SBOM air-gapped",
+  "url": "https://accuknox.com/wp-content/uploads/SBOM-Case-Study.pdf"
+ }
+]

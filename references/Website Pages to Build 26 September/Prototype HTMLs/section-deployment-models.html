@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deployment Models Section</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F1EC;--panel:#FBFAF7;--inner:#ECEAE4;--line:#D8D4CA;--ink:#0E1526;--mute:#5A6072;--blue:#1D5BF0;--blue-soft:#E3EBFD;--blue-line:#A8BFF3;--navy:#0B1B3F;--red:#C2362B;--green:#15803D}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);font-family:Inter,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;
+ background-image:radial-gradient(#CFCAC0 1px,transparent 1.2px);background-size:22px 22px}
+.wrap{max-width:1440px;margin:0 auto;padding:84px 80px 80px}
+.top{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:end}
+.eyebrow{font:500 12.5px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow i{width:8px;height:8px;background:var(--blue);border-radius:2px}
+h2{font:600 62px/1.02 'Inter Tight',sans-serif;letter-spacing:-.035em}
+h2 span{color:var(--blue)}
+.lede{font-size:18px;line-height:1.55;color:#2E3445;max-width:520px}
+.cta{margin-top:22px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.cta a{font:600 15.5px 'Inter Tight';color:var(--ink);text-decoration:none}
+.cta a.p{background:var(--navy);color:#fff;padding:12px 18px;border-radius:10px;transition:background .2s}
+.cta a.p:hover{background:var(--blue)}
+.cta a:not(.p):hover{color:var(--blue)}
+
+.tabs{margin-top:52px;display:inline-flex;background:#E7E4DD;border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;max-width:100%;overflow-x:auto}
+.tab{font:500 14.5px Inter;padding:10px 18px;border-radius:9px;color:var(--mute);display:flex;gap:8px;align-items:center;border:0;background:none;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,box-shadow .2s}
+.tab:hover{color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.tab .dot{width:7px;height:7px;border-radius:50%;background:#B8B3A8;transition:all .2s}
+.tab[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(14,21,38,.08),0 0 0 1px var(--blue-line)}
+.tab[aria-selected=true] .dot{background:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+
+.stage{margin-top:26px;position:relative}
+.diagram{position:relative;width:1280px;height:448px;transform-origin:top left}
+.scene{position:absolute;inset:0;opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+.scene.on{opacity:1;transform:none;pointer-events:auto}
+.abs{position:absolute}
+.folder{background:var(--panel);border:1px solid var(--line);border-radius:0 18px 18px 18px}
+.ftab{background:var(--panel);border:1px solid var(--line);border-bottom:none;border-radius:14px 14px 0 0;font:500 15px Inter;padding:13px 20px;height:46px;display:flex;gap:10px;align-items:center;z-index:2}
+.ftab::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;background:var(--panel)}
+.ghost .folder,.ghost.ftab,.ghost .ftab{background:transparent;border-style:dashed}
+.ghost.ftab::after{background:var(--bg)}
+.innerp{background:var(--inner);border:1px solid #DDD9D0;border-radius:14px}
+.card{background:#fff;border:1px solid var(--blue-line);border-radius:12px;display:flex;align-items:center;gap:13px;padding:0 16px;width:252px;height:64px;left:48px}
+.ic{width:34px;height:34px;border-radius:8px;background:var(--blue-soft);display:grid;place-items:center;flex:none}
+.ic svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ct{font:600 15px 'Inter Tight';letter-spacing:-.01em}
+.cs{font:500 11.5px 'JetBrains Mono';color:var(--mute);margin-top:3px;white-space:nowrap}
+.mid{background:#fff;border:1px solid var(--blue-line);border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;left:394px;top:204px;width:168px;height:96px;z-index:2}
+.cp{background:linear-gradient(180deg,#DCE6FD,#CBDAFC);border:1px solid #7FA2EE;border-radius:14px;padding:18px 12px;box-shadow:0 10px 30px -12px rgba(29,91,240,.45);top:180px;height:144px;z-index:2;text-align:center}
+.cp .ct{font-size:17px}.cp .cs{color:#34529A}
+.chips{display:flex;gap:5px;justify-content:center;margin-top:12px}
+.chip{font:500 10.5px 'JetBrains Mono';background:#fff;border:1px solid #B9CCF6;color:#23409A;border-radius:6px;padding:4px 6px}
+.lock{width:54px;height:54px;border-radius:14px;background:#fff;border:1px solid #BDB8AD;display:grid;place-items:center;box-shadow:0 4px 14px -6px rgba(0,0,0,.2);top:225px;z-index:2}
+.lock svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.lock.off{border-style:dashed;box-shadow:none}.lock.off svg{stroke:var(--red)}
+.lbl{font:600 13px 'Inter Tight';text-align:center;line-height:1.3;width:150px}
+.lbl small{display:block;font:500 11px 'JetBrains Mono';color:var(--mute);margin-top:3px}
+.lbl.r{color:var(--red)}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;gap:13px;padding:0 16px;width:200px;height:60px;left:1060px}
+.rcard .ic{background:#EEF0F4}.rcard .ic svg{stroke:#3B4256}
+.rcard.fade{opacity:.5;border-style:dashed}
+.badge{font:500 11px 'JetBrains Mono';letter-spacing:.06em;color:var(--green);background:#E6F4EA;border:1px solid #BFE3CB;border-radius:999px;padding:6px 11px;display:inline-flex;gap:7px;align-items:center;top:352px;white-space:nowrap}
+.badge i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+svg.wires{position:absolute;left:0;top:0;z-index:1;overflow:visible}
+.flow{stroke-dasharray:5 5;animation:flow 1.1s linear infinite}
+.flow.rev{animation-direction:reverse}
+@keyframes flow{to{stroke-dashoffset:-20}}
+@media (prefers-reduced-motion:reduce){.flow{animation:none}.scene{transition:none}}
+
+.facts{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.fact{padding:22px 26px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0}
+.fk{font:500 11.5px 'JetBrains Mono';letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.fv{font:600 21px 'Inter Tight';letter-spacing:-.015em;margin-top:8px}
+.fv{transition:opacity .25s}
+.foot{margin-top:22px;font-size:14.5px;color:var(--mute)}
+.foot b{color:var(--ink);font-weight:600}
+
+@media (max-width:960px){
+ .wrap{padding:56px 16px}
+ .top{grid-template-columns:1fr;gap:24px}
+ h2{font-size:42px}
+ .tabs{margin-top:32px}
+ .facts{grid-template-columns:1fr}
+ .fact{border-left:0;border-top:1px solid var(--line)}.fact:first-child{border-top:0}
+}
+</style></head><body><section class="wrap" aria-labelledby="dm-title">
+
+<div class="top">
+ <div>
+  <div class="eyebrow"><i></i>Deployment models</div>
+  <h2 id="dm-title">Your cloud. Your data.<br><span>Your AI.</span></h2>
+ </div>
+ <div>
+  <p class="lede">Run AccuKnox as SaaS, in your cloud, on-premise or air-gapped. The platform and the policies stay the same.</p>
+  <div class="cta"><a class="p" href="#">Talk to an architect</a><a href="#">Compare models &rarr;</a></div>
+ </div>
+</div>
+
+<div class="tabs" role="tablist" aria-label="Deployment models">
+ <button class="tab" role="tab" id="t-saas" aria-controls="s-saas" data-m="saas"><span class="dot"></span>SaaS</button>
+ <button class="tab" role="tab" id="t-cloud" aria-controls="s-cloud" data-m="cloud"><span class="dot"></span>Your cloud</button>
+ <button class="tab" role="tab" id="t-onprem" aria-controls="s-onprem" data-m="onprem"><span class="dot"></span>On-premise</button>
+ <button class="tab" role="tab" id="t-air" aria-controls="s-air" data-m="air"><span class="dot"></span>Air-gapped</button>
+</div>
+
+<div class="stage" id="stage"><div class="diagram" id="diagram"></div></div>
+
+<div class="facts" aria-live="polite">
+ <div class="fact"><div class="fk">Control plane</div><div class="fv" id="f1"></div></div>
+ <div class="fact"><div class="fk" id="k2"></div><div class="fv" id="f2"></div></div>
+ <div class="fact"><div class="fk">Best for</div><div class="fv" id="f3"></div></div>
+</div>
+<p class="foot"><b>One control plane, four models.</b> A mixed estate reports into one console.</p>
+
+</section>
+<script>
+const I={
+ cloud:'<path d="M17.5 19H9a7 7 0 1 1 6.7-9h1.8a4.5 4.5 0 1 1 0 9Z"/>',
+ box:'<path d="M21 16V8l-9-5-9 5v8l9 5 9-5Z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/>',
+ server:'<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/>',
+ chip:'<rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>',
+ shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',
+ lock:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+ eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+ unplug:'<path d="m19 5 3-3M2 22l3-3M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4ZM7.5 13.5 10 11M10.5 16.5 13 14M12 6l6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z"/>',
+ pkg:'<path d="m7.5 4.3 9 5.2M21 16V8l-9-5-9 5v8l9 5 9-5Z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/>',
+ data:'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/>'
+};
+const ic=(k,s='')=>`<div class="ic"><svg viewBox="0 0 24 24" ${s}>${I[k]}</svg></div>`;
+const tabIcon=(k,c)=>`<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg>`;
+
+const SRC_CLOUD=[['cloud','Cloud accounts','AWS · Azure · GCP · OCI'],['box','Kubernetes','OpenShift · EKS · AKS'],['server','VMs & bare metal','VMware · Nutanix'],['chip','AI models & agents','vLLM · Hugging Face']];
+const SRC_DC=[['cloud','Private cloud','OpenStack · VMware'],['box','Kubernetes','OpenShift'],['server','VMs & bare metal','Nutanix · Linux'],['chip','AI models & agents','vLLM · Triton']];
+
+const sources=list=>list.map((s,i)=>`<div class="abs card" style="top:${104+i*76}px">${ic(s[0])}<div><div class="ct">${s[1]}</div><div class="cs">${s[2]}</div></div></div>`).join('');
+const fanIn=`<g stroke="#1B2233" stroke-width="1.4" fill="none">
+ <path class="flow" d="M300 136H330Q342 136 342 148V252"/><path class="flow" d="M300 212H330Q342 212 342 224V252"/>
+ <path class="flow" d="M300 288H330Q342 288 342 276V252"/><path class="flow" d="M300 364H330Q342 364 342 352V252"/>
+ <path class="flow" d="M342 252H392" marker-end="url(#a)"/></g>`;
+const defs=`<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1B2233"/></marker>
+ <marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1D5BF0"/></marker></defs>`;
+const folder=(x,w,label,icon,color,ghost)=>`<div class="abs ftab${ghost?' ghost':''}" style="left:${x}px;top:0">${tabIcon(icon,color)}${label}</div>
+ <div class="abs${ghost?' ghost':''}" style="left:${x}px;top:45px;width:${w}px;height:403px"><div class="folder" style="width:100%;height:100%"></div></div>`;
+const cp=(x,w,sub)=>`<div class="abs cp" style="left:${x}px;width:${w}px"><div class="ct">AccuKnox<br>Control Plane</div><div class="cs">${sub}</div>
+ <div class="chips"><span class="chip">Findings</span><span class="chip">Policies</span><span class="chip">AI-BOM</span></div></div>`;
+const sensors=(t,s,k)=>`<div class="abs mid">${ic(k)}<div class="ct">${t}</div><div class="cs">${s}</div></div>`;
+const badge=(x,t)=>`<div class="abs badge" style="left:${x}px"><i></i>${t}</div>`;
+
+/* Self-hosted layout, used by "Your cloud", "On-premise" and "Air-gapped" */
+function selfHosted({label,labelIcon,src,sub,badgeText,gapped}){
+ const right=gapped
+  ?`<g stroke="#1B2233" stroke-width="1.4" fill="none"><path class="flow" d="M562 252H612" marker-end="url(#a)"/><path d="M832 252H890" stroke-dasharray="5 5"/></g>`
+  :`<g stroke-width="1.4" fill="none"><path class="flow" d="M562 252H612" stroke="#1B2233" marker-end="url(#a)"/>
+    <path class="flow" d="M1058 206H960Q946 206 946 220V224" stroke="#1D5BF0"/>
+    <path class="flow" d="M904 224V220Q904 206 890 206H834" stroke="#1D5BF0" marker-end="url(#ab)"/>
+    <path d="M834 300H890Q904 300 904 286V282" stroke="#1B2233" stroke-dasharray="5 5"/>
+    <path d="M946 282V286Q946 300 960 300H1012" stroke="#C2362B" stroke-dasharray="3 5" opacity=".55"/></g>
+    <g transform="translate(1024 300)" stroke="#C2362B" stroke-width="2.2" stroke-linecap="round"><path d="M-6 -6L6 6M6 -6L-6 6"/></g>`;
+ const boundary=gapped
+  ?`<div class="abs lock off" style="left:898px">${`<svg viewBox="0 0 24 24">${I.unplug}</svg>`}</div>
+    <div class="abs lbl r" style="left:850px;top:300px">No connection<small>no call-home</small></div>`
+  :`<div class="abs lbl" style="left:850px;top:148px">Updates in<small>pull only</small></div>
+    <div class="abs lock" style="left:898px"><svg viewBox="0 0 24 24">${I.lock}</svg></div>
+    <div class="abs lbl r" style="left:850px;top:322px">Data out<small>none</small></div>`;
+ const vendor=gapped
+  ?`<div class="abs ftab ghost" style="left:1040px;top:108px;height:44px;padding:12px 18px;color:#8A8578">${tabIcon('shield','#8A8578')}AccuKnox</div>
+    <div class="abs" style="left:1040px;top:151px;width:240px;height:208px;border:1px dashed var(--line);border-radius:0 18px 18px 18px"></div>
+    <div class="abs rcard fade" style="top:224px">${ic('pkg')}<div><div class="ct">Unreachable</div><div class="cs">by design</div></div></div>`
+  :`<div class="abs ftab" style="left:1040px;top:108px;height:44px;padding:12px 18px">${tabIcon('shield','#3B4256')}AccuKnox</div>
+    <div class="abs folder" style="left:1040px;top:151px;width:240px;height:208px"></div>
+    <div class="abs rcard" style="top:176px">${ic('pkg')}<div><div class="ct">Releases</div><div class="cs">images · charts</div></div></div>
+    <div class="abs rcard fade" style="top:272px">${ic('data')}<div><div class="ct">Your data</div><div class="cs">never lands here</div></div></div>`;
+ return `<svg class="wires" width="1280" height="448" viewBox="0 0 1280 448">${defs}${fanIn}${right}</svg>
+  ${folder(0,868,label,labelIcon,'#1D5BF0')}
+  <div class="abs innerp" style="left:24px;top:72px;width:820px;height:350px"></div>
+  ${sources(src)}${sensors('Runtime sensors','KubeArmor · eBPF','shield')}
+  ${cp(614,218,sub)}${badge(614,badgeText)}${boundary}${vendor}`;
+}
+
+function saas(){
+ return `<svg class="wires" width="1280" height="448" viewBox="0 0 1280 448">${defs}${fanIn}
+  <g stroke="#1D5BF0" stroke-width="1.4" fill="none"><path class="flow" d="M562 252H666"/><path class="flow" d="M724 252H858" marker-end="url(#ab)"/></g></svg>
+  ${folder(0,640,'Your cloud accounts','cloud','#1D5BF0')}
+  <div class="abs innerp" style="left:24px;top:72px;width:592px;height:350px"></div>
+  ${sources(SRC_CLOUD)}${sensors('Agentless scan','no install','eye')}
+  <div class="abs lbl" style="left:645px;top:150px;width:110px">Read-only<small>cloud APIs</small></div>
+  <div class="abs lock" style="left:668px"><svg viewBox="0 0 24 24">${I.lock}</svg></div>
+  ${folder(760,520,'AccuKnox cloud','shield','#1D5BF0')}
+  <div class="abs innerp" style="left:784px;top:72px;width:472px;height:350px"></div>
+  ${cp(860,300,'hosted by AccuKnox')}${badge(860,'FINDINGS THE SAME DAY')}`;
+}
+
+const M={
+ saas:{html:saas(),f1:'AccuKnox cloud',k2:'Setup',f2:'Same day, no install',f3:'Fast proof of concept'},
+ cloud:{html:selfHosted({label:'Your cloud account · public or private',labelIcon:'cloud',src:SRC_CLOUD,sub:'in your cloud account',badgeText:'ZERO DATA EGRESS'}),
+  f1:'Your cloud account',k2:'Data egress',f2:'None',f3:'Data residency'},
+ onprem:{html:selfHosted({label:'Your data center · VMs or bare metal',labelIcon:'server',src:SRC_DC,sub:'on your servers',badgeText:'NATIVE INSTALL'}),
+  f1:'Your servers',k2:'Install',f2:'Native, not a SaaS agent',f3:'Banking · healthcare · telecom'},
+ air:{html:selfHosted({label:'Your isolated network',labelIcon:'lock',src:SRC_DC,sub:'inside your network',badgeText:'FULLY ISOLATED',gapped:true}),
+  f1:'Your isolated network',k2:'Outbound traffic',f2:'None',f3:'Federal · defense · ITAR'}
+};
+
+const diagram=document.getElementById('diagram');
+diagram.innerHTML=Object.entries(M).map(([k,v])=>`<div class="scene" id="s-${k}" role="tabpanel" aria-labelledby="t-${k}">${v.html}</div>`).join('');
+const tabs=[...document.querySelectorAll('.tab')];
+
+function show(m,focus){
+ tabs.forEach(t=>{const on=t.dataset.m===m;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;if(on&&focus)t.focus()});
+ document.querySelectorAll('.scene').forEach(s=>s.classList.toggle('on',s.id==='s-'+m));
+ ['f1','k2','f2','f3'].forEach(id=>document.getElementById(id).textContent=M[m][id]);
+}
+tabs.forEach((t,i)=>{
+ t.addEventListener('click',()=>show(t.dataset.m));
+ t.addEventListener('keydown',e=>{
+  const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+  if(d){e.preventDefault();show(tabs[(i+d+tabs.length)%tabs.length].dataset.m,true)}
+ });
+});
+
+/* Scale the fixed 1280px diagram to the container width */
+const stage=document.getElementById('stage');
+function fit(){const s=Math.min(1,stage.clientWidth/1280);diagram.style.transform=`scale(${s})`;stage.style.height=448*s+'px'}
+addEventListener('resize',fit);fit();
+show('cloud');
+</script>
+</body></html>

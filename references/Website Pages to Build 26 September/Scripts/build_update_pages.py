@@ -31,6 +31,7 @@ PAGES = [
 NEW_PAGES = [
     ("new-page-shadow-ai-discovery.html", "New: Shadow AI page"),
     ("new-page-dspm-indian-banks.html", "New: DSPM for Indian Banks page"),
+    ("new-page-ciem.html", "New: CIEM page"),
 ]
 
 
@@ -543,7 +544,8 @@ build("update-sast-dast-aspm.html", "What to Change on the SAST, DAST and ASPM P
 cards = "".join(f'<a href="{f}"><b>{i}. {e(t)}</b><span>{n} changes</span></a>'
                 for i, ((f, _, t), n) in enumerate(zip(PAGES, [len(menu), len(ai), len(plat), len(dspm), len(app)]), 1))
 cards += ('<a href="new-page-shadow-ai-discovery.html"><b>New page: Shadow AI Discovery</b><span>Build from scratch. Address: /solutions/shadow-ai-discovery</span></a>'
-          '<a href="new-page-dspm-indian-banks.html"><b>New page: DSPM for Indian Banks</b><span>Build from scratch. Address: /solutions/dspm-indian-banks</span></a>')
+          '<a href="new-page-dspm-indian-banks.html"><b>New page: DSPM for Indian Banks</b><span>Build from scratch. Address: /solutions/dspm-indian-banks</span></a>'
+          '<a href="new-page-ciem.html"><b>New page: CIEM</b><span>Build from scratch. Address: /platform/ciem</span></a>')
 rules = """<table class="plain"><thead><tr><th>When you see</th><th>Do this</th></tr></thead><tbody>
 <tr><td>A number of AI assets</td><td>Write <b>4K+</b>. Never the exact number.</td></tr>
 <tr><td>AccuKnox AI Gateway, AI DAST, AI SAST in the code editor</td><td>Add a small <b>Coming soon</b> tag.</td></tr>
