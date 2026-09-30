@@ -15,3 +15,8 @@ utils/content-planning/
 utils/private-cloud-onboarding-openshift/
 # Google Docs build output from the writing skills
 *.gdoc.html
+
+# Private data. The repo is public, so these stay local.
+references/CRM exports/
+references/PRODUCT UI/10_reports/customer reports/
+references/PRODUCT UI/*-signals-all-*.xlsx
