@@ -1,0 +1,121 @@
+{
+  "vendor": "Vijil",
+  "slug": "vijil",
+  "website": "https://vijil.ai",
+  "what_it_is": "Agent trust platform: discover, evaluate, guard, and harden AI agents across their lifecycle.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "partial"
+      },
+      "reason": "Vijil Discover scans cloud VPC, on-prem, endpoints, browser and GitHub to register every agent.",
+      "url": "https://vijil.ai/blog/out-of-the-shadows-know-every-agent-govern-every-agent-trust-every-agent",
+      "url_type": "vendor",
+      "evidence": "Discover scans five surfaces continuously, cloud VPC, on-prem, endpoints, browser, and source code",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Dome runs as an MCP proxy that scans tool calls. Trust Runtime adds tool-level access control.",
+      "url": "https://docs.vijil.ai/developer-guide/protect/integrations/mcp",
+      "url_type": "vendor",
+      "evidence": "Dome can protect Model Context Protocol traffic by running as a proxy in front of one or more MCP servers.",
+      "verify": "confirmed",
+      "verify_note": "Docs list AWS Bedrock Agents and Agentforce as agent integrations, so 2.1 moves partial to yes. Module stays yes."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "partial",
+        "3.3": "yes"
+      },
+      "reason": "Dome detects anomalies and blocks in production. Darwin proposes fixes. Telemetry exports over OpenTelemetry.",
+      "url": "https://vijil.ai/platform",
+      "url_type": "vendor",
+      "evidence": "filter harmful inputs and outputs, detect anomalies, and enforce policies",
+      "verify": "confirmed",
+      "verify_note": "Platform page confirms anomaly detection and blocking. Observability doc names only OpenTelemetry, Jaeger and Prometheus, so 3.2 stays partial."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Vijil Dome guardrails wrap LLM calls and block injection, jailbreaks, PII leakage and toxic output.",
+      "url": "https://vijil.ai/dome",
+      "url_type": "vendor",
+      "evidence": "block adversarial prompts, prompt injections, jailbreaks, PII leakage, toxic content, and other policy violations",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "yes",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Agent Registry holds agent records. Trust Audit maps to OWASP LLM Top 10. ISO 42001 evidence mapping.",
+      "url": "https://vijil.ai/trust-audit",
+      "url_type": "vendor",
+      "evidence": "assesses the security of your LLM application using a unique review process designed around the OWASP Top 10",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Vijil Diamond and Evaluate test agents with 200,000+ prompts and red-team engagements, runnable in CI/CD.",
+      "url": "https://vijil.ai/evaluate",
+      "url_type": "vendor",
+      "evidence": "Over 100x faster than open-source engines, making it easy to incorporate comprehensive testing into your CI/CD.",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "partial"
+      },
+      "reason": "Agents get SPIFFE X.509 identities. Trust Runtime enforces tool-level mandatory access control.",
+      "url": "https://vijil.ai/blog/how-exactly-does-vijil-handle-agent-identity",
+      "url_type": "vendor",
+      "evidence": "An agent under Vijil Dome carries a SPIFFE identity: a URI that names the agent, backed by an X.509 certificate",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "partial",
+        "8.3": "no"
+      },
+      "reason": "Dome guardrails can scan data exchanged with knowledge bases. No model file scanning or AI SAST.",
+      "url": "https://docs.vijil.ai/core-concepts/components/guardrail",
+      "url_type": "vendor",
+      "evidence": "designed to scan data exchanged with LLMs, knowledge bases, or other",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    }
+  },
+  "notes": "Vijil Discover was announced September 24, 2026 (one day before this check), so treat module 1 as new. It ships via 'pip install vijil-sdk' and 'vijil discover'. Dome is open source (vijil-dome). Evaluate runs garak. Darwin generates remediation proposals from telemetry. No SIEM, SOAR or ticketing integration named, so 3.2 is partial. Module 8 searches ('site:vijil.ai model scanning / data poisoning / code scanning') found only blog content and the Discover GitHub scan for agent signatures, which is inventory, not AI SAST. Module 8 partial rests on a runtime guardrail that scans knowledge-base traffic, a narrow reading of 8.2. Gartner Cool Vendor, raised $17M. Verify pass: docs.vijil.ai/manage-agents/introduction lists bedrockAgents and agentforce as supported agent hubs."
+}

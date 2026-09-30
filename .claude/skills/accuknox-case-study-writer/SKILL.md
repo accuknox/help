@@ -120,7 +120,7 @@ python scripts/drive_sync.py search "compliance report"
 
 ```bash
 cp .claude/skills/accuknox-case-study-writer/assets/case-study-template.md \
-   references/case-study-drafts/<slug>.md
+   references/drafts/case-study/<slug>.md
 ```
 
 **6. Write pass 1, then read it cold**, then fix, then gate. The three questions

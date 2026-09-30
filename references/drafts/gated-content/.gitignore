@@ -1,0 +1,2 @@
+# Build folders hold copied images, fonts and QA renders. Only the PDFs stay in git.
+*/build/

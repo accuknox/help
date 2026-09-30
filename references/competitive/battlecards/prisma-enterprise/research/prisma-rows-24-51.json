@@ -1,0 +1,282 @@
+[
+  {
+    "n": 24,
+    "param": "Host Protection (VMs, Containers, Bare Metal)",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Container and Host Defenders cover Linux and Windows hosts, bare metal and VMs",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/install/deploy-defender/defender-types",
+    "quote": "Single Host Defenders: Deploy a single Defender to a single bare-metal or virtual host.",
+    "notes": "Live page says limited bare-metal coverage. Docs list Host Defender for Linux (systemd) and Windows (service), plus serverless, App-Embedded and Fargate Defenders. System requirements list Windows Server 2016 to 2025."
+  },
+  {
+    "n": 25,
+    "param": "Container & K8s Runtime Security",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Learned models plus runtime rules with Alert, Prevent and Block effects",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-containers",
+    "quote": "The effect includes the following options: Disabled/Alert/Prevent/Block according to the supported effects for each detection.",
+    "notes": "Live text says detection-focused. Prevent stops the single process (discrete blocking). Block stops the whole container. Prevent is not supported for network activity."
+  },
+  {
+    "n": 26,
+    "param": "Preemptive / Inline Security",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Prevent effect stops a disallowed process before it runs",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-containers",
+    "quote": "Prevent — Defender stops the process (and just the process) that violates your policy from executing. This is known as discrete blocking.",
+    "notes": "Quote is verbatim and contains the source's own em dash. Limits: Prevent is not supported for network activities or on Debian 8. File system Prevent needs Linux kernel 4.20 or later and is not supported on the aufs storage driver. WAAS in-line mode blocks requests on Prevent or Ban. Mechanism is a user-space Defender, not a kernel module."
+  },
+  {
+    "n": 27,
+    "param": "Continuous K8s Image Vulnerability Scanning",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "Registry, CI and deployed image scans matched to Intelligence Stream several times daily",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-security-components/intelligence-stream",
+    "quote": "The Intelligence Stream is updated several times per day, with consoles continuously checking for updates.",
+    "notes": "Scan process page: Console generates periodic scan requests and Defender scans when a new container starts. Vulnerability rules can block containers at start."
+  },
+  {
+    "n": 28,
+    "param": "Process-Level Allow/Deny Lockdown",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Explicit allowed and denied process lists with Prevent or Block effect",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-containers",
+    "quote": "Prisma Cloud runtime rules let you deny specific processes.",
+    "notes": "Live page says limited deterministic process lockdown. Container rules have explicit allowed and denied process lists, and the learned model is an allow list. Host policy has alert/prevent processes by path and allow processes by path."
+  },
+  {
+    "n": 29,
+    "param": "File Integrity Monitoring (FIM)",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Host FIM on writes, reads, attributes; container file-write Prevent by directory",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-hosts",
+    "quote": "The Prisma Cloud FIM from Prisma Cloud continuously monitors your files and directories for changes.",
+    "notes": "Host FIM is monitoring (writes, reads, attribute changes). For containers, file system rules with Prevent block creation and modification of files in specified directories (runtime-defense-containers page). Live text 'monitoring-focused' misses container Prevent. Minor change."
+  },
+  {
+    "n": 30,
+    "param": "Workload Anomaly Detection",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Per-image learned models, 1 hour learning then 24 hour dry run, enforced by rules",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-defense/runtime-defense-containers",
+    "quote": "A model is the \"allow list\" for what a given container image should be doing, across all runtime sensors.",
+    "notes": "Live text says alert-driven response. Model violations can trigger Prevent or Block depending on the rule effect. CSPM also has UEBA anomaly policies for cloud audit logs."
+  },
+  {
+    "n": 31,
+    "param": "Fileless Malware Protection",
+    "verdict": "unverifiable",
+    "status": "Limited",
+    "pc_new": "[confirm from Prisma Cloud docs]",
+    "url": "",
+    "quote": "",
+    "notes": "No EE doc page names fileless or memory-only (memfd) execution. Nearest documented detections: processes running from temporary storage, execution flow hijack (write to /etc/ld.so.preload), encrypted/packed binaries, webshell. The GitBook docs assistant also found no fileless reference. Status is provisional; keep the live tick until a PANW source confirms or denies."
+  },
+  {
+    "n": 32,
+    "param": "K8s Misconfiguration Detection",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "CIS Kubernetes checks plus OPA admission rules that alert or block pods",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/access-control/open-policy-agent",
+    "quote": "Rules can allow or deny (alert or block) pods.",
+    "notes": "Admission control has no Windows support. CIS checks run through Defenders."
+  },
+  {
+    "n": 33,
+    "param": "K8s CIS Benchmarks",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "CIS Kubernetes, EKS, AKS, GKE worker node and OpenShift checks via Defender",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/compliance/visibility/cis-benchmarks",
+    "quote": "Prisma Cloud provides checks that validate the recommendations in the following CIS Benchmarks",
+    "notes": "Defender-based, not agentless. CIS checks marked Not Scored are not implemented. GKE benchmark covers worker nodes only. Host CIS: Distribution Independent Linux."
+  },
+  {
+    "n": 34,
+    "param": "K8s Identity & Entitlements Protection (KIEM)",
+    "verdict": "outdated",
+    "status": "Limited",
+    "pc_new": "CIEM covers cloud IAM; Kubernetes RBAC analysis not documented",
+    "url": "https://docs.prismacloud.io/content-collections/administration/configure-iam-security/what-is-prisma-cloud-iam-security",
+    "quote": "evaluate the effective permissions assigned to users, workloads, and data (also called entitlements) on your cloud provider",
+    "notes": "Live page shows a tick. EE IAM Security docs name AWS, Azure, GCP entitlements only. Kubernetes coverage is limited to Kubernetes audit rules (kubernetes-audit type) that alert on events. Istio compliance checks cover Istio RBAC, not Kubernetes RBAC. Confirm with a PANW source before publishing."
+  },
+  {
+    "n": 35,
+    "param": "Trusted Registry Enforcement",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "Trusted Images rules on registry, repo and image; alert or block untrusted",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/compliance/operations/trusted-images",
+    "quote": "If an untrusted image runs, Prisma Cloud emits an audit, raises an alert, and optionally blocks the container from running.",
+    "notes": "Live text says policy checks and compliance monitoring, which omits block. Trusted Images is disabled by default. OPA admission control can also deny pods."
+  },
+  {
+    "n": 36,
+    "param": "K8s Identity & Service Account Inventory",
+    "verdict": "outdated",
+    "status": "Not supported",
+    "pc_new": "No documented Kubernetes service account or RBAC inventory",
+    "url": "https://docs.prismacloud.io/content-collections/administration/configure-iam-security/what-is-prisma-cloud-iam-security",
+    "quote": "discover the permissions for a specific user in your AWS, Azure, or GCP environment",
+    "notes": "Live page shows a tick. Read EE IAM Security, compliance, access control and Kubernetes auditing pages: none inventory Kubernetes service accounts. Cloud identity inventory pages exist for AWS and Azure only. Confirm with a PANW source before publishing."
+  },
+  {
+    "n": 37,
+    "param": "RBAC Privilege Analysis & Over-Permission Detection",
+    "verdict": "outdated",
+    "status": "Not supported",
+    "pc_new": "Over-permission analysis covers cloud IAM; Kubernetes RBAC not documented",
+    "url": "https://docs.prismacloud.io/content-collections/administration/configure-iam-security",
+    "quote": "automatically calculate effective permissions across cloud service providers, detect overly permissive access, and suggest corrections to reach least privilege entitlements",
+    "notes": "Live page shows a tick. The over-permission feature exists for cloud IAM (AWS, Azure, GCP). No doc applies it to Kubernetes Roles or ClusterRoles."
+  },
+  {
+    "n": 38,
+    "param": "Risky Role Bindings & Cluster-Admin Detection",
+    "verdict": "outdated",
+    "status": "Limited",
+    "pc_new": "Custom Kubernetes audit rules alert on events; no binding risk analysis documented",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/audit/kubernetes-auditing",
+    "quote": "Write custom rules or leverage Prisma Cloud Labs prewritten rules to assess the incoming audit stream and surface suspicious activity.",
+    "notes": "Live cell text describes CIEM stale cloud entitlements, which is a different feature. No doc names cluster-admin binding detection. Audit rules alert only. Coverage depends on the cloud provider audit policy."
+  },
+  {
+    "n": 39,
+    "param": "Stale / Excessive K8s Entitlements",
+    "verdict": "outdated",
+    "status": "Not supported",
+    "pc_new": "Unused privilege monitoring covers cloud IAM; Kubernetes entitlements not documented",
+    "url": "https://docs.prismacloud.io/content-collections/administration/configure-iam-security/what-is-prisma-cloud-iam-security",
+    "quote": "Monitor excess and unused privileges, provide out-of-the-box (default) security best practices policies, and review cloud identity compliance posture.",
+    "notes": "Live page shows a tick. The unused-privilege feature applies to cloud provider IAM, not Kubernetes RBAC."
+  },
+  {
+    "n": 40,
+    "param": "Public S3 Bucket Detection + Auto-Remediation",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "Config policies detect public buckets; alert rules can run CLI auto-remediation",
+    "url": "https://docs.prismacloud.io/content-collections/governance/create-a-policy",
+    "quote": "If you want to enable auto-remediation, Prisma Cloud requires write access to your cloud platform to successfully execute the remediation commands.",
+    "notes": "Default policy 'AWS S3 buckets are accessible to public' exists (PC-AWS-S3-29, per search result). The EE policy reference now redirects to cortex-docs, so the remediable flag for that exact policy is not confirmed. CLI remediation applies to config policies only, up to 5 commands."
+  },
+  {
+    "n": 41,
+    "param": "Cloud Event Automation (e.g., MFA enforcement)",
+    "verdict": "outdated",
+    "status": "Limited",
+    "pc_new": "Audit event policies alert only; CLI auto-remediation limited to config policies",
+    "url": "https://docs.prismacloud.io/content-collections/governance/create-a-policy",
+    "quote": "CLI commands to enable automatic remediation are not supported on Audit Event or Network policy.",
+    "notes": "Live tick overstates event-driven automation. Missing MFA is a config check, so it can be remediated on a later config scan. Serverless auto-remediation (AWS only) exists through the separate Prisma-Enhanced-Remediation GitHub project."
+  },
+  {
+    "n": 42,
+    "param": "Audit Trail Maintenance",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "Platform audit logs kept 120 days; Runtime Security logs admin activity separately",
+    "url": "https://docs.prismacloud.io/content-collections/administration/view-audit-logs",
+    "quote": "The Audit logs list all actions initiated by Prisma Cloud administrators.",
+    "notes": "Audit logs older than 120 days are deleted. Runtime Security admin activity is a separate log (audit/audit-admin-activity). Some runtime audit types keep up to 25,000 entries or 50 MB."
+  },
+  {
+    "n": 43,
+    "param": "eBPF-Based Runtime Checks",
+    "verdict": "accurate",
+    "status": "Not supported",
+    "pc_new": "Defender runs in user space; docs do not mention eBPF",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/install/deploy-defender/host/host-defender-architecture",
+    "quote": "Defender instead runs as a systemd or system module (not a kernel module) in user space, intercepting every syscall interaction and file changes",
+    "notes": "No EE page contains 'eBPF'. Do not describe Prisma as lacking enforcement: it blocks and prevents without eBPF. Suggested cell drops the 'deterministic enforcement' wording. Network monitoring uses iptables rules."
+  },
+  {
+    "n": 44,
+    "param": "North-South Traffic (NGINX Ingress)",
+    "verdict": "accurate",
+    "status": "Limited",
+    "pc_new": "WAAS in-line or out-of-band per app; no NGINX ingress integration documented",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/deploy-waas",
+    "quote": "WAAS Inline proxy will continue to inspect a request until \"Prevent\" or \"Ban\" actions are triggered",
+    "notes": "WAAS protects inbound HTTP to containers, hosts, App-Embedded, serverless and agentless (VPC mirroring). The deploy page uses an app on NGINX as an example, which is not an ingress controller integration."
+  },
+  {
+    "n": 45,
+    "param": "TLS vs Non-TLS Classification at Ingress",
+    "verdict": "accurate",
+    "status": "Limited",
+    "pc_new": "WAAS decrypts TLS per configured endpoint; no TLS classification report documented",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/deploy-waas/oob-containers",
+    "quote": "WAAS must be able to decrypt and inspect HTTPS traffic to function properly.",
+    "notes": "TLS 1.0 to 1.3 for in-line and 1.0 to 1.2 for out-of-band, each with a PEM certificate. No doc describes classifying traffic as TLS or non-TLS."
+  },
+  {
+    "n": 46,
+    "param": "Sensitive Data on Endpoints",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "WAAS API discovery flags endpoints carrying credit card, PII and session data",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/waas-api-discovery",
+    "quote": "Endpoints with sensitive data such as Credit card, PII, ID query parameter, Session cookies, and so on.",
+    "notes": "Live text says limited traffic-level sensitivity analysis, which understates Prisma. Sensitive data types are defined under Defend > WAAS > Sensitive data. Inventory > API Endpoints shows Sensitive Data Exposure per endpoint. Needs WAAS rules or agentless WAAS."
+  },
+  {
+    "n": 47,
+    "param": "Shadow API Detection",
+    "verdict": "outdated",
+    "status": "Supported",
+    "pc_new": "API endpoint inventory detects shadow APIs; OpenAPI import and export",
+    "url": "https://docs.prismacloud.io/content-collections/cloud-and-software-inventory/api-endpoints-inventory",
+    "quote": "Detect shadow APIs that handle sensitive information and lack proper authentication measures.",
+    "notes": "Live text says limited spec-level correlation. WAAS imports Swagger/OpenAPI files, exports discovered endpoints as OpenAPI 3.0, and scans API definitions. No doc states an automatic diff of observed traffic against the imported spec."
+  },
+  {
+    "n": 48,
+    "param": "Zombie API Detection",
+    "verdict": "outdated",
+    "status": "Limited",
+    "pc_new": "API discovery shows last-seen dates; no zombie API detection documented",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/waas/waas-api-discovery",
+    "quote": "the Console uses the 'Last Observed' date to delete the older entries to optimize the available resources.",
+    "notes": "Live page shows a tick. No EE doc uses 'zombie' or flags unused spec endpoints. The endpoint report shows last seen date and API change history."
+  },
+  {
+    "n": 49,
+    "param": "Generate & Ingest SBOMs (CycloneDX)",
+    "verdict": "outdated",
+    "status": "Limited",
+    "pc_new": "Exports CycloneDX 1.4 SBOMs for images, hosts, functions; ingestion not documented",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/vulnerability-management/exporting-sboms",
+    "quote": "Prisma Cloud supports exporting SBOM files in the CycloneDX v1.4 standard (JSON or XML) for function, image, and host scans.",
+    "notes": "Generation is supported (twistcli --SBOM, API, and Application Security SBOM with CycloneDX or CSV output, which needs the SCA module). SPDX export and import of external SBOM files are not documented."
+  },
+  {
+    "n": 50,
+    "param": "Track Vulnerable Components via SBOM",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "SBOM inventory lists packages with CVEs and highest severity",
+    "url": "https://docs.prismacloud.io/content-collections/application-security/visibility/sbom",
+    "quote": "'SBOM' provides a comprehensive inventory of third-party dependencies detected in your environment, including vulnerabilities and security insights.",
+    "notes": "Application Security SBOM needs the SCA module subscription."
+  },
+  {
+    "n": 51,
+    "param": "Continuous CVE Monitoring for SBOM Components",
+    "verdict": "accurate",
+    "status": "Supported",
+    "pc_new": "Intelligence Stream updates several times daily; rescans on newer Defender versions",
+    "url": "https://docs.prismacloud.io/content-collections/runtime-security/runtime-security-components/intelligence-stream",
+    "quote": "The Intelligence Stream is updated several times per day, with consoles continuously checking for updates.",
+    "notes": "Monitoring applies to components Prisma scanned itself, not to imported SBOMs."
+  }
+]

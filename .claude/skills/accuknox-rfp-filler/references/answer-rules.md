@@ -83,7 +83,7 @@ Try the sources in this order and stop at the first one that proves the claim.
 1. **An image embedded in the page you cite.** `ground.py` lists them per page. This is the right
    image by construction.
 2. **The module's image folders** in `assets/modules.json`.
-3. **`references/brian-demo-screenshots/`**, curated AI Security screenshots with captions in
+3. **`references/assets/demo-screenshots/`**, curated AI Security screenshots with captions in
    `DEMO-SUMMARY.md`.
 4. **accuknox.com**, as `web:<url>`. `rfp_lib.py` accepts only accuknox.com hosts.
 5. **A generated diagram** with `diagram.py`, built only from values on the cited page, with that page

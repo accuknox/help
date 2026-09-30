@@ -1,0 +1,1 @@
+{'success': False, 'error': 'Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 15s, resets at Wed Sep 30 2026 05:41:30 GMT+0000 (Coordinated Universal Time)'}

@@ -1,0 +1,546 @@
+[
+ {
+  "n": 1,
+  "param": "SaaS (Regional / Sovereign Cloud)",
+  "ak_icon": "tick",
+  "ak": "Customer-controlled deployment with full data residency",
+  "pc_icon": "dash",
+  "pc": "Regional SaaS available but control plane stays PAN-managed"
+ },
+ {
+  "n": 2,
+  "param": "Customer Cloud (BYOC — AWS / Azure / GCP)",
+  "ak_icon": "tick",
+  "ak": "Control plane deployed inside customer's own cloud account",
+  "pc_icon": "cross",
+  "pc": "No control plane hosting inside the customer's cloud environment"
+ },
+ {
+  "n": 3,
+  "param": "On-Prem / Private Cloud",
+  "ak_icon": "tick",
+  "ak": "Full control plane in on-prem DC or private cloud — air-gap capable",
+  "pc_icon": "dash",
+  "pc": "Defenders run on-prem but full CNAPP control plane is not customer-hosted"
+ },
+ {
+  "n": 4,
+  "param": "Air-Gapped Deployment",
+  "ak_icon": "tick",
+  "ak": "Full platform (ASPM, CSPM, CWPP, KSPM, GRC) in air-gapped environments",
+  "pc_icon": "cross",
+  "pc": "No full air-gapped deployment across all modules"
+ },
+ {
+  "n": 5,
+  "param": "Secrets Scanning (Repo / IaC)",
+  "ak_icon": "tick",
+  "ak": "Secrets scanning with posture and runtime context for correlated remediation",
+  "pc_icon": "tick",
+  "pc": "Repo-level secrets detection within code security workflows"
+ },
+ {
+  "n": 6,
+  "param": "Secrets Scanning (S3 / Filesystem)",
+  "ak_icon": "tick",
+  "ak": "Object storage and filesystem secrets with workload identity correlation",
+  "pc_icon": "tick",
+  "pc": "Cloud storage secrets detection focused on data security monitoring"
+ },
+ {
+  "n": 7,
+  "param": "Secrets in K8s ConfigMaps",
+  "ak_icon": "tick",
+  "ak": "Detects hardcoded secrets in ConfigMaps with workload identity correlation",
+  "pc_icon": "dash",
+  "pc": "K8s config scanning available — ConfigMap secret detection limited to compliance checks"
+ },
+ {
+  "n": 8,
+  "param": "SBOM / SCA",
+  "ak_icon": "tick",
+  "ak": "SBOM generation + SCA with supply chain and runtime risk correlation",
+  "pc_icon": "tick",
+  "pc": "Comprehensive SCA and dependency analysis with developer-focused remediation"
+ },
+ {
+  "n": 9,
+  "param": "Code Scanning (Security + Best Practices)",
+  "ak_icon": "tick",
+  "ak": "Policy-driven code analysis with code-to-cloud correlation",
+  "pc_icon": "dash",
+  "pc": "Security-focused scanning only — limited maintainability or best-practice coverage"
+ },
+ {
+  "n": 10,
+  "param": "IaC Scanning",
+  "ak_icon": "tick",
+  "ak": "Terraform, K8s YAML, Helm, Dockerfile, CloudFormation — with runtime context",
+  "pc_icon": "dash",
+  "pc": "Terraform, CloudFormation, ARM, K8s manifests with predefined policies"
+ },
+ {
+  "n": 11,
+  "param": "Container Scanning",
+  "ak_icon": "tick",
+  "ak": "Image vulnerability scanning with runtime exposure and policy enforcement",
+  "pc_icon": "tick",
+  "pc": "Image scanning with vulnerability intelligence — detection-focused"
+ },
+ {
+  "n": 12,
+  "param": "SARIF Ingestion",
+  "ak_icon": "tick",
+  "ak": "Multi-tool SARIF ingestion for unified findings",
+  "pc_icon": "cross",
+  "pc": "No native SARIF ingestion — proprietary reporting formats only"
+ },
+ {
+  "n": 13,
+  "param": "Repo / CI/CD Integration",
+  "ak_icon": "tick",
+  "ak": "GitHub, GitLab, Bitbucket + full pipeline: SAST, DAST, IaC, secrets, SCA",
+  "pc_icon": "tick",
+  "pc": "VCS and CI/CD visibility (Jenkins, GitHub Actions, CircleCI) with risk and pipeline analysis"
+ },
+ {
+  "n": 14,
+  "param": "SAST",
+  "ak_icon": "tick",
+  "ak": "Static analysis within dev lifecycle with policy enforcement",
+  "pc_icon": "tick",
+  "pc": "SAST focused on vulnerability detection within developer workflows"
+ },
+ {
+  "n": 15,
+  "param": "DAST",
+  "ak_icon": "tick",
+  "ak": "Dynamic and runtime testing with posture correlation",
+  "pc_icon": "cross",
+  "pc": "No DAST capability"
+ },
+ {
+  "n": 16,
+  "param": "AWS Support",
+  "ak_icon": "tick",
+  "ak": "Asset inventory, misconfiguration, 30+ compliance, auto-ticketing, AI remediation, enforcement",
+  "pc_icon": "tick",
+  "pc": "Strong monitoring, benchmark compliance, workflow-based remediation"
+ },
+ {
+  "n": 17,
+  "param": "Azure Support",
+  "ak_icon": "tick",
+  "ak": "Unified posture, enforcement, AI remediation, large-scale tenant onboarding",
+  "pc_icon": "tick",
+  "pc": "Strong monitoring, benchmark compliance, workflow-based remediation"
+ },
+ {
+  "n": 18,
+  "param": "GCP Support",
+  "ak_icon": "tick",
+  "ak": "End-to-end visibility, compliance, AI remediation, runtime correlation",
+  "pc_icon": "tick",
+  "pc": "Strong monitoring, benchmark compliance, workflow-based remediation"
+ },
+ {
+  "n": 19,
+  "param": "Asset Inventory (Multi-Cloud)",
+  "ak_icon": "tick",
+  "ak": "Unified multi-cloud inventory with contextual risk mapping",
+  "pc_icon": "tick",
+  "pc": "Broad cloud asset discovery with strong provider-native integrations"
+ },
+ {
+  "n": 20,
+  "param": "Private Cloud (OpenShift / Nutanix)",
+  "ak_icon": "tick",
+  "ak": "Deep visibility and enforcement on OpenShift and Nutanix",
+  "pc_icon": "dash",
+  "pc": "Cloud-native focused — limited private cloud depth"
+ },
+ {
+  "n": 21,
+  "param": "Real-Time Automation (e.g., MFA alert on new user)",
+  "ak_icon": "tick",
+  "ak": "Policy-driven real-time alerting and enforcement",
+  "pc_icon": "tick",
+  "pc": "Alert-based cloud config monitoring and remediation"
+ },
+ {
+  "n": 22,
+  "param": "Cloud Compliance",
+  "ak_icon": "tick",
+  "ak": "Customizable frameworks with policy-driven governance and runtime visibility",
+  "pc_icon": "tick",
+  "pc": "Benchmark-based compliance monitoring across cloud environments"
+ },
+ {
+  "n": 23,
+  "param": "Security Findings Reporting",
+  "ak_icon": "tick",
+  "ak": "Risk-prioritized reporting unified across code, cloud, and runtime",
+  "pc_icon": "tick",
+  "pc": "Structured findings reporting — segmented by security domain"
+ },
+ {
+  "n": 24,
+  "param": "Host Protection (VMs, Containers, Bare Metal)",
+  "ak_icon": "tick",
+  "ak": "Zero Trust host protection with behavioral detection and policy enforcement",
+  "pc_icon": "dash",
+  "pc": "Workload-focused protection — limited bare-metal coverage"
+ },
+ {
+  "n": 25,
+  "param": "Container & K8s Runtime Security",
+  "ak_icon": "tick",
+  "ak": "K8s-native Zero Trust enforcement with microsegmentation and anomaly detection",
+  "pc_icon": "tick",
+  "pc": "Runtime threat detection and defensive response — detection-focused"
+ },
+ {
+  "n": 26,
+  "param": "Preemptive / Inline Security",
+  "ak_icon": "tick",
+  "ak": "Inline Zero Trust protection before exploit execution",
+  "pc_icon": "dash",
+  "pc": "Runtime protection and blocking available — dependent on Defender config and policy mode"
+ },
+ {
+  "n": 27,
+  "param": "Continuous K8s Image Vulnerability Scanning",
+  "ak_icon": "tick",
+  "ak": "Continuous scanning with runtime-aware risk prioritization and enforcement",
+  "pc_icon": "tick",
+  "pc": "Continuous scanning with vulnerability intelligence and alert monitoring"
+ },
+ {
+  "n": 28,
+  "param": "Process-Level Allow/Deny Lockdown",
+  "ak_icon": "tick",
+  "ak": "Fine-grained process allow/deny enforcement with Zero Trust isolation",
+  "pc_icon": "dash",
+  "pc": "Behavioral detection focused — limited deterministic process lockdown"
+ },
+ {
+  "n": 29,
+  "param": "File Integrity Monitoring (FIM)",
+  "ak_icon": "tick",
+  "ak": "Real-time FIM with policy enforcement and workload context",
+  "pc_icon": "tick",
+  "pc": "FIM detection and alerting — monitoring-focused"
+ },
+ {
+  "n": 30,
+  "param": "Workload Anomaly Detection",
+  "ak_icon": "tick",
+  "ak": "Behavior-based detection with Zero Trust policy enforcement",
+  "pc_icon": "tick",
+  "pc": "Behavioral threat detection with alert-driven response"
+ },
+ {
+  "n": 31,
+  "param": "Fileless Malware Protection",
+  "ak_icon": "tick",
+  "ak": "Detects and prevents fileless attacks via behavior monitoring",
+  "pc_icon": "tick",
+  "pc": "Runtime detection and response for fileless threats"
+ },
+ {
+  "n": 32,
+  "param": "K8s Misconfiguration Detection",
+  "ak_icon": "tick",
+  "ak": "Detect, remediate, and manage K8s misconfiguration lifecycle",
+  "pc_icon": "tick",
+  "pc": "K8s config assessment with compliance benchmark reporting"
+ },
+ {
+  "n": 33,
+  "param": "K8s CIS Benchmarks",
+  "ak_icon": "tick",
+  "ak": "Agentless Helm-based scanner with continuous CIS checks",
+  "pc_icon": "tick",
+  "pc": "CIS Benchmark assessment and compliance reporting"
+ },
+ {
+  "n": 34,
+  "param": "K8s Identity & Entitlements Protection (KIEM)",
+  "ak_icon": "tick",
+  "ak": "Full-text RBAC search, graph-based visibility, predefined risk queries",
+  "pc_icon": "tick",
+  "pc": "Identity risk visibility via configuration and entitlement monitoring"
+ },
+ {
+  "n": 35,
+  "param": "Trusted Registry Enforcement",
+  "ak_icon": "tick",
+  "ak": "Admission controls + runtime validation for approved registries",
+  "pc_icon": "tick",
+  "pc": "Image source validation via policy checks and compliance monitoring"
+ },
+ {
+  "n": 36,
+  "param": "K8s Identity & Service Account Inventory",
+  "ak_icon": "tick",
+  "ak": "Workload identity and access mapping across the cluster",
+  "pc_icon": "tick",
+  "pc": "Identity inventory and entitlement visibility"
+ },
+ {
+  "n": 37,
+  "param": "RBAC Privilege Analysis & Over-Permission Detection",
+  "ak_icon": "tick",
+  "ak": "Risk-based RBAC analysis with policy enforcement",
+  "pc_icon": "tick",
+  "pc": "Visibility and risk assessment of excessive privileges"
+ },
+ {
+  "n": 38,
+  "param": "Risky Role Bindings & Cluster-Admin Detection",
+  "ak_icon": "tick",
+  "ak": "Detects and enforces controls on risky bindings and cluster-admin overuse",
+  "pc_icon": "tick",
+  "pc": "Entitlement usage analysis via CIEM — identifies unused or stale entitlements"
+ },
+ {
+  "n": 39,
+  "param": "Stale / Excessive K8s Entitlements",
+  "ak_icon": "tick",
+  "ak": "Risk-prioritized identification of privilege drift and unused permissions",
+  "pc_icon": "tick",
+  "pc": "Visibility and alerting on unused or over-privileged access"
+ },
+ {
+  "n": 40,
+  "param": "Public S3 Bucket Detection + Auto-Remediation",
+  "ak_icon": "tick",
+  "ak": "Real-time detection with automated access revocation",
+  "pc_icon": "tick",
+  "pc": "Alert-based detection with configurable remediation workflows"
+ },
+ {
+  "n": 41,
+  "param": "Cloud Event Automation (e.g., MFA enforcement)",
+  "ak_icon": "tick",
+  "ak": "Real-time rule-based detection with automated policy actions",
+  "pc_icon": "tick",
+  "pc": "Config monitoring with alert-based remediation workflows"
+ },
+ {
+  "n": 42,
+  "param": "Audit Trail Maintenance",
+  "ak_icon": "tick",
+  "ak": "Centralized tamper-resistant audit trail across code, cloud, and runtime",
+  "pc_icon": "tick",
+  "pc": "Per-domain audit logs — not fully unified across layers"
+ },
+ {
+  "n": 43,
+  "param": "eBPF-Based Runtime Checks",
+  "ak_icon": "tick",
+  "ak": "Kernel-level visibility with inline enforcement and minimal overhead",
+  "pc_icon": "cross",
+  "pc": "No native eBPF-based deterministic enforcement across workloads"
+ },
+ {
+  "n": 44,
+  "param": "North-South Traffic (NGINX Ingress)",
+  "ak_icon": "tick",
+  "ak": "NGINX ingress integration for external traffic visibility and enforcement",
+  "pc_icon": "dash",
+  "pc": "Workload-level monitoring — limited native ingress-layer integration"
+ },
+ {
+  "n": 45,
+  "param": "TLS vs Non-TLS Classification at Ingress",
+  "ak_icon": "tick",
+  "ak": "Real-time TLS handshake analysis and classification at ingress",
+  "pc_icon": "dash",
+  "pc": "Workload/network monitoring — limited native ingress TLS differentiation"
+ },
+ {
+  "n": 46,
+  "param": "Sensitive Data on Endpoints",
+  "ak_icon": "tick",
+  "ak": "Payload-level PII/secret classification mapped to API endpoints",
+  "pc_icon": "tick",
+  "pc": "Workload and config monitoring — limited native traffic-level sensitivity analysis"
+ },
+ {
+  "n": 47,
+  "param": "Shadow API Detection",
+  "ak_icon": "tick",
+  "ak": "Runtime traffic correlated with API specs to surface undocumented APIs",
+  "pc_icon": "tick",
+  "pc": "API discovery via traffic visibility — limited spec-level correlation"
+ },
+ {
+  "n": 48,
+  "param": "Zombie API Detection",
+  "ak_icon": "tick",
+  "ak": "Flags unused endpoints by comparing runtime traffic to API specs",
+  "pc_icon": "tick",
+  "pc": "Runtime API visibility — limited spec-based lifecycle validation"
+ },
+ {
+  "n": 49,
+  "param": "Generate & Ingest SBOMs (CycloneDX)",
+  "ak_icon": "tick",
+  "ak": "CycloneDX SBOM for apps and containers with vulnerability tracking",
+  "pc_icon": "tick",
+  "pc": "SBOM generation and analysis — vulnerability and dependency focused"
+ },
+ {
+  "n": 50,
+  "param": "Track Vulnerable Components via SBOM",
+  "ak_icon": "tick",
+  "ak": "CVE correlation against SBOM components with prioritized remediation",
+  "pc_icon": "tick",
+  "pc": "SBOM-driven vulnerability visibility and reporting"
+ },
+ {
+  "n": 51,
+  "param": "Continuous CVE Monitoring for SBOM Components",
+  "ak_icon": "tick",
+  "ak": "Real-time sync with CVE feeds — alerts on newly impacted components",
+  "pc_icon": "tick",
+  "pc": "CVE tracking for affected components with alert-based risk updates"
+ },
+ {
+  "n": 52,
+  "param": "Data Discovery (Hybrid Cloud)",
+  "ak_icon": "dash",
+  "ak": "Coming soon",
+  "pc_icon": "tick",
+  "pc": "Cloud-native data discovery within DSPM/Data Security modules"
+ },
+ {
+  "n": 53,
+  "param": "Data Classification",
+  "ak_icon": "tick",
+  "ak": "Coming soon",
+  "pc_icon": "tick",
+  "pc": "Sensitive data classification — PII, PCI, PHI — with risk mapping"
+ },
+ {
+  "n": 54,
+  "param": "Data Access Verification",
+  "ak_icon": "tick",
+  "ak": "Coming soon",
+  "pc_icon": "tick",
+  "pc": "Access visibility and monitoring within data security framework"
+ },
+ {
+  "n": 55,
+  "param": "Publicly Exposed Data Assets",
+  "ak_icon": "tick",
+  "ak": "Coming soon",
+  "pc_icon": "tick",
+  "pc": "Publicly exposed data detection"
+ },
+ {
+  "n": 56,
+  "param": "Data Policy Controls",
+  "ak_icon": "tick",
+  "ak": "Coming soon",
+  "pc_icon": "tick",
+  "pc": "Data-aware policy controls based on classification and exposure risk"
+ },
+ {
+  "n": 57,
+  "param": "Cloud Compliance Frameworks (35+)",
+  "ak_icon": "tick",
+  "ak": "ISO 27001, NIST, CIS, PCI-DSS, SOC 2, HIPAA, GDPR, APRA, FedRAMP + more",
+  "pc_icon": "tick",
+  "pc": "Broad benchmark coverage with compliance reporting"
+ },
+ {
+  "n": 58,
+  "param": "Compliance Reports",
+  "ak_icon": "tick",
+  "ak": "Customizable audit-ready reports with posture and runtime validation",
+  "pc_icon": "tick",
+  "pc": "Standardized compliance reporting aligned to supported benchmarks"
+ },
+ {
+  "n": 59,
+  "param": "Findings Collaboration (Notes, Tickets, Export)",
+  "ak_icon": "tick",
+  "ak": "Integrated notes, ticketing, and export across all security domains",
+  "pc_icon": "tick",
+  "pc": "Comments and integrations within individual module workflows"
+ },
+ {
+  "n": 60,
+  "param": "Automated Red Teaming (GenAI / LLMs on AWS, GCP, Azure)",
+  "ak_icon": "tick",
+  "ak": "Simulates prompt injection, data leakage, jailbreaks across cloud AI services",
+  "pc_icon": "cross",
+  "pc": "AI security capabilities limited and cloud-service specific — no LLM red teaming"
+ },
+ {
+  "n": 61,
+  "param": "Prompt Firewall",
+  "ak_icon": "tick",
+  "ak": "Real-time rule-based + AI-driven prompt inspection — blocks before LLM",
+  "pc_icon": "cross",
+  "pc": "Limited native prompt-level enforcement"
+ },
+ {
+  "n": 62,
+  "param": "ML Model Scanning (TensorFlow, Keras, Pickle)",
+  "ak_icon": "tick",
+  "ak": "Scanning for insecure configs, unsafe serialization, and best practices",
+  "pc_icon": "cross",
+  "pc": "ML model scanning capabilities limited — not natively model-level"
+ },
+ {
+  "n": 63,
+  "param": "OWASP LLM Top 10 Coverage",
+  "ak_icon": "tick",
+  "ak": "Runtime enforcement and prompt-level protection for OWASP LLM Top 10",
+  "pc_icon": "cross",
+  "pc": "LLM-specific risk coverage limited and evolving"
+ },
+ {
+  "n": 64,
+  "param": "AI/ML Runtime Sandboxing",
+  "ak_icon": "tick",
+  "ak": "Isolates AI/ML execution with behavior monitoring and threat prevention",
+  "pc_icon": "dash",
+  "pc": "Limited native sandboxing controls for AI/ML frameworks"
+ },
+ {
+  "n": 65,
+  "param": "Prevent Public Exposure of AI Models & Datasets",
+  "ak_icon": "tick",
+  "ak": "Real-time monitoring with rule-based access and exposure controls",
+  "pc_icon": "dash",
+  "pc": "Limited AI-specific exposure prevention controls"
+ },
+ {
+  "n": 66,
+  "param": "Alert on Unknown-Region Model Access",
+  "ak_icon": "tick",
+  "ak": "Real-time geo-context monitoring with policy-driven enforcement",
+  "pc_icon": "tick",
+  "pc": "Limited AI-specific geographic access controls"
+ },
+ {
+  "n": 67,
+  "param": "SIEM (Splunk, Sentinel, etc.)",
+  "ak_icon": "tick",
+  "ak": "Real-time streaming of unified context-enriched events across all layers",
+  "pc_icon": "tick",
+  "pc": "Domain-specific event forwarding to SIEM platforms"
+ },
+ {
+  "n": 68,
+  "param": "Bi-Directional Ticketing Sync",
+  "ak_icon": "tick",
+  "ak": "Real-time two-way sync — status, comments, remediation updates unified",
+  "pc_icon": "tick",
+  "pc": "Ticket integrations via workflow-based updates"
+ }
+]

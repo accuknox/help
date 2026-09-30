@@ -13,7 +13,7 @@ All four AccuKnox writing skills read this file. Repo root for every path:
 | # | Source | What it holds | Reach it with |
 | --- | --- | --- | --- |
 | 1 | `media/INDEX.md` in this skill | 298 product-UI screenshots, diagrams, booth art, event photos, 279 of them images | `scripts/drive_sync.py search` |
-| 2 | `references/brian-demo-screenshots/` | 22 curated, pre-captioned demo screenshots | `DEMO-SUMMARY.md` in that folder |
+| 2 | `references/assets/demo-screenshots/` | 22 curated, pre-captioned demo screenshots | `DEMO-SUMMARY.md` in that folder |
 | 3 | `docs/<section>/images/<topic>/` | The pictures on the live help pages | the generated `README.md` in each image folder |
 | 4 | The AI Security macro deck | Native flowcharts, rendered from the pptx | `references/technical-reference/` |
 
@@ -54,7 +54,7 @@ and a 1902x908 video frame does not survive a 2x upscale.
 
 ## Source 2, the curated demo screenshots
 
-`references/brian-demo-screenshots/` holds 22 clean shots covering the dashboard,
+`references/assets/demo-screenshots/` holds 22 clean shots covering the dashboard,
 findings, AI red teaming, prompt firewall, runtime protection and zero-trust
 discovery. `DEMO-SUMMARY.md` in that folder carries the caption for each one.
 Use these first for a polished AI-security asset, because they are consistent and
@@ -78,7 +78,7 @@ Logos sit in `docs/assets/images/`: `logo-white.png`, `logo-black.png`,
 
 ## Source 4, diagrams out of the deck
 
-`references/technical-reference/AccuKnox AI Security _ Macro Deck _ June_2026.pptx`
+`references/technical-reference/decks/accuknox-ai-security-macro-deck-2026-06.pptx`
 holds the stateful inspection pipeline and the AI-SPM architecture as native
 slides. Convert the pptx to PDF with LibreOffice, rasterise with PyMuPDF
 (`fitz`), search the slide text for your topic, and crop the slide. `pdftoppm` is
@@ -101,7 +101,7 @@ not installed on this machine.
    `.claude/core/runtime-contract.md` and nothing overrides it.
 
 PIL on `py -3.11` does steps 1 and 2 in a few lines. Work on copies. Never touch
-an original under `docs/` or `references/brian-demo-screenshots/`.
+an original under `docs/` or `references/assets/demo-screenshots/`.
 
 To enlarge, use the machine-wide upscaler rather than an image model:
 

@@ -1,0 +1,121 @@
+{
+  "vendor": "Trustwise",
+  "slug": "trustwise",
+  "website": "https://trustwise.ai",
+  "what_it_is": "AI Control Plane that authorizes agent actions at runtime and produces compliance evidence.",
+  "modules": {
+    "1": {
+      "status": "partial",
+      "sub": {
+        "1.1": "partial",
+        "1.2": "partial",
+        "1.3": "no"
+      },
+      "reason": "Assess module inventories and risk-tiers agents. Agent discovery covers business-built agents. No pipeline posture.",
+      "url": "https://trustwise.ai/product/assess-control-optimize",
+      "url_type": "vendor",
+      "evidence": "Classified and bounded AI every agent inventoried, scoped, and risk-tiered before it runs.",
+      "verify": "confirmed",
+      "verify_note": "Scraped Assess page. Agent Registry and risk-tiering hold, no cloud scan or pipeline posture found."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "Governs Copilot Studio, Agentforce and custom agents. MCP Shield scopes tool use. Tool calls authorized pre-execution.",
+      "url": "https://trustwise.ai/solutions/where-ai-runs",
+      "url_type": "vendor",
+      "evidence": "Salesforce Agentforce ... TOOL-CALL AUTHORIZATION",
+      "verify": "confirmed",
+      "verify_note": "Scraped Where AI Runs and Shields post. Copilot Studio, Agentforce, MCP Shield and tool-call authorization hold."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "no",
+        "3.3": "yes"
+      },
+      "reason": "Runtime telemetry and drift monitoring, with actions blocked before execution. No SIEM or SOAR integration found.",
+      "url": "https://trustwise.ai/product",
+      "url_type": "vendor",
+      "evidence": "applies policy before execution, controls agent behavior at runtime, and creates audit-grade evidence for every decision",
+      "verify": "confirmed",
+      "verify_note": "Scraped product page. Pre-execution enforcement holds. Two SIEM and ServiceNow searches found no integration."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Prompt Shield blocks injection and hallucination. SDK scores PII, prompt manipulation, toxicity and faithfulness.",
+      "url": "https://trustwise.ai/introducing-agentic-ai-shields-the-trust-layer-for-modern-enterprise-ai/",
+      "url_type": "vendor",
+      "evidence": "Prompt Shield Blocks injections, hallucinations, and role hijacks.",
+      "verify": "confirmed",
+      "verify_note": "Scraped Shields post. Prompt Shield blocks injection and hallucination, and the product lists an API interface."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "1,100+ controls map to NIST AI RMF, OWASP, EU AI Act, MITRE ATLAS and ISO 42001.",
+      "url": "https://trustwise.ai/product",
+      "url_type": "vendor",
+      "evidence": "1,100+ Controls controls mapped into runtime enforcement",
+      "verify": "confirmed",
+      "verify_note": "Scraped product page. 1,100+ controls mapped to NIST AI RMF, OWASP, EU AI Act, MITRE ATLAS, ISO 42001."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {
+        "6.1": "partial",
+        "6.2": "partial",
+        "6.3": "no"
+      },
+      "reason": "Control stage validates controls against red-team flight paths. No standalone red teaming product documented.",
+      "url": "https://trustwise.ai/product/assess-control-optimize",
+      "url_type": "vendor",
+      "evidence": "Validate controls against red-team flight paths",
+      "verify": "confirmed",
+      "verify_note": "Red-team flight paths and THEO threat simulation only. Red teaming search found SEO glossary pages only."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "partial",
+        "7.2": "yes",
+        "7.3": "no"
+      },
+      "reason": "Allowable Action Graph enforces scoped action authority per agent. No NHI or credential discovery found.",
+      "url": "https://trustwise.ai/product/assess-control-optimize",
+      "url_type": "vendor",
+      "evidence": "Enforce scoped action authority at runtime",
+      "verify": "confirmed",
+      "verify_note": "Scoped action authority holds. Identity search found no NHI discovery or agent identity issuance."
+    },
+    "8": {
+      "status": "no",
+      "sub": {
+        "8.1": "no",
+        "8.2": "no",
+        "8.3": "no"
+      },
+      "reason": "No model, dataset or AI code scanning. Coding-agent governance explicitly leaves SAST to other tools.",
+      "url": "https://trustwise.ai/solutions/where-ai-runs",
+      "url_type": "vendor",
+      "evidence": "Searched 'Trustwise model scanning / dataset security / data poisoning'. Page says: without replacing code review, SAST, or SDLC controls.",
+      "verify": "confirmed",
+      "verify_note": "Model, dataset and poisoning search found only glossary pages. Page leaves SAST to other tools."
+    }
+  },
+  "notes": "Product was called Harmony AI with six Agentic AI Shields (MCP, Prompt, Compliance, Brand, Cost, Carbon), now marketed as the Trustwise AI Control Plane with Assess, Control and Optimize modules, also called AI Control Tower on some pages. The /product/ai-control-tower page returned 503. trustwise.ai hosts many SEO glossary pages (e.g. 'Automated Red Teaming in Asset Management') that claim red teaming and data-poisoning defense. I did not use those as evidence, so module 6 partial and module 8 no should be rechecked with the vendor if the page matters. Public docs are thin: a Python SDK on PyPI with metrics (faithfulness, PII, prompt manipulation, toxicity). Gartner Cool Vendor 2025 for agentic AI in banking. HPE Unleash AI partner."
+}

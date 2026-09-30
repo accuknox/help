@@ -1,0 +1,98 @@
+> For the complete documentation index, see [llms.txt](https://docs.prismacloud.io/llms.txt). Markdown versions of documentation pages are available by appending `.md` to page URLs; this page is available as [Markdown](https://docs.prismacloud.io/content-collections/get-started/access-prisma-cloud.md).
+
+# Access Prisma Cloud
+
+Prisma Cloud offers two different experiences for first time access, based on whether you are a System Administrator or a User. Review the steps for your designated access level:
+
+**Prisma Cloud System Administrators**
+
+* Your Welcome Email from Palo Alto Networks (<noreply@prismacloud.paloaltonetworks.com>) includes a link to where you can access your instance of Prisma Cloud.
+* Log into Prisma Cloud directly and view dashboards and complete other recommended workflows as mentioned in the [Get Started](/content-collections/get-started/get-going.md) section.
+* Set up users manually or with [SSO](https://github.com/PaloAltoNetworks/pc-docs-md/tree/main/enterprise-edition/content-collections/administration/setup-sso-integration-on-prisma-cloud/setup-sso-integration-on-prisma-cloud.md) or JIT provisioning.
+
+**Prisma Cloud Users**
+
+* If you are the first registered user, a Palo Alto Networks Customer Support Portal (CSP) account is created for you and you can log in to Prisma Cloud to start securing your cloud deployments.
+* If a System Administrator added you to a tenant you will receive two emails. Use the *Welcome to Prisma Cloud Support* email to activate the CSP account and set a password to access the Prisma Cloud Support portal. Select Get Started in the *Welcome to Prisma Cloud Support* email to log in to your Prisma Cloud instance.
+* If your Prisma Cloud tenant is set up to authenticate using a third-party identity provider (IdP) for Single Sign-On (SSO), the login URL on Prisma Cloud redirects you to your IdP and you can log in using your IdP credentials. However, if the login URL is not configured on Prisma Cloud, you must navigate to your IdP and log in using your IdP credentials.
+
+**Status Updates**—Use the [Prisma Cloud status](https://status.paloaltonetworks.com) page to view operational status and subscribe to updates about the service.
+
+## Log in Using the Prisma Cloud Hub
+
+1. Launch a web browser to access Prisma Cloud.
+
+   Go to the Palo Alto Networks [hub](https://apps.paloaltonetworks.com/) to access the app.To access the Prisma Cloud administrator console, Chrome version 118 or later provides the optimal user experience. The Prisma Cloud console is not explicitly tested on other browsers and, though we expect it to perform with graceful degradation, it is not guaranteed to work on other browsers.
+
+### Prisma Cloud Domains
+
+* <https://app.prismacloud.io>
+* <https://app2.prismacloud.io>
+* <https://app3.prismacloud.io>
+* <https://app4.prismacloud.io>
+* <https://app5.prismacloud.io>
+* <https://app.anz.prismacloud.io>
+* <https://app.ca.prismacloud.io>
+* <https://app.eu.prismacloud.io>
+* <https://app2.eu.prismacloud.io>
+* <https://app.fr.prismacloud.io>
+* <https://app.gov.prismacloud.io>
+* <https://app.ind.prismacloud.io>
+* <https://app.id.prismacloud.io>
+* <https://app.jp.prismacloud.io>
+* <https://app.sg.prismacloud.io>
+* <https://app.prismacloud.cn>
+* <https://app.uk.prismacloud.io>
+
+  On the hub, if you can see the Prisma Cloud tile in to the app because of a SAML error, it likely means that you do not have an account on that Prisma cloud instance. Contact your system administrator for an account to access that instance.
+
+  1. Accept the EULA.
+
+     After you accept the terms and conditions of use, use the get started guide to learn the basics.
+  2. Select **Licensing** and verify that you have the correct license type.
+  3. Switch between Prisma Cloud instances.
+
+     If you are responsible for monitoring clouds belonging to different organizations (tenants), you can use your Palo Alto Networks login credentials to access all tenants from the [hub](https://apps.paloaltonetworks.com). To enable multitenant login access, your system administrator must add your email address on each Prisma Cloud tenant. You will then receive an email from Palo Alto Networks to get started. By default, an administrator on Prisma cloud is designated as an Instance Administrator for that tenant only on the hub. If you want to change a role or enable access to other apps, see [roles](/content-collections/administration/create-prisma-cloud-roles.md).
+
+     With Palo Alto Networks CSP credentials, you can click the app switcher on the hub and then select a different tenant to which to switch between instances.
+
+     If you see the serial number for your instance and want to change it to a descriptive label, navigate to **Settings > Applications**. Click directly on the serial number and rename it. This new name displays only on the hub and it does not automatically apply to your Prisma Cloud instance name.
+
+## Log in Using the Prisma Cloud URL
+
+Follow the steps below to access the Prisma Cloud app directly.
+
+1. Access the Prisma Cloud App.
+
+   Navigate to {BASE\_URL}/login. Use the [domain-list](#domain-list) list above for domain specific BASE\_URLs.
+2. Enter your username and password.
+3. **Sign in** using one of the following options:
+   * [Sign-in with OIDC SSO](https://github.com/PaloAltoNetworks/pc-docs-md/tree/main/enterprise-edition/content-collections/administration/setup-sso-integration-on-prisma-cloud/get-started-with-oidc-sso/get-started-with-oidc-sso.md) - Authenticate using OpenID Connect (OIDC) Service Provider (SP) initiated SSO.
+   * Sign-in with Palo Alto Networks SSO login
+   * [Sign-in using SAML SSO](https://github.com/PaloAltoNetworks/pc-docs-md/tree/main/enterprise-edition/content-collections/administration/setup-sso-integration-on-prisma-cloud/get-started-with-saml-sso/get-started-with-saml-sso.md) - Authenticate using SSO login using an Identity Provider (IdP) that supports Security Assertion Markup Language (SAML), such as Okta, Microsoft Active Directory Federation Services (AD FS), Azure Active Directory (AD), Google, or OneLogin.
+
+     If you have more than one tenant, select your **Tenant** to sign in.
+
+     If you have forgotten your password and are not using a third-party IdP, use the **Forgot Password** link to receive an email for resetting your password.
+
+
+---
+
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+If you need additional information that is not directly available in this page, you can query the documentation dynamically by asking a question.
+
+Perform an HTTP GET request on the current page URL with the `ask` query parameter, and the optional `goal` query parameter:
+
+```
+GET https://docs.prismacloud.io/content-collections/get-started/access-prisma-cloud.md?ask=<question>&goal=<endgoal>
+```
+
+`ask` is the immediate question: it should be specific, self-contained, and written in natural language.
+`goal` is optional and describes the broader end goal you are ultimately trying to accomplish on behalf of the user. GitBook uses it to tailor the answer towards what is most useful for that goal.
+
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+
+Use this mechanism when the answer is not explicitly present in the current page, you need clarification or additional context, or you want to retrieve related documentation sections.

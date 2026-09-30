@@ -1,0 +1,176 @@
+{
+  "vendor": "CrowdStrike",
+  "products": "Falcon Guardian (the September 2026 evolution of Falcon AI Detection and Response, AIDR, from the Pangea acquisition, sold as AIDR for Workforce and AIDR for Agents), Falcon Cloud Security AI-SPM (with AI Model Scanning and Application Insights for AI), Falcon Data Protection (GenAI data protection, Data Protection for Cloud), Falcon Shield (AI Agent Discovery for SaaS), Falcon Exposure Management AI Discovery (powered by Falcon for IT), Falcon Next-Gen Identity Security (Agentic Identity Provider, Continuous Identity from SGNL), Seraphic Enterprise Browser, Charlotte AI, Charlotte AI AgentWorks, Charlotte Agentic SOAR, Falcon ASPM, AI Red Team Services, Frontier AI Readiness and Resilience (FAIRR) Service",
+  "licensing": "AIDR needs one or more subscriptions, AIDR for Workforce (browser collectors) and AIDR for Agents (Application, Agentic, Gateway, Cloud and OTel collectors), and the Falcon Endpoint collector also needs Falcon Insight XDR (https://aidr-docs.crowdstrike.com/docs/aidr/collectors). Charlotte AI and AgentWorks run on AI credits with credit caps, and OverWatch hunting for Guardian needs both Falcon Adversary OverWatch Cross-Domain and Falcon Guardian (https://www.crowdstrike.com/en-us/platform/charlotte-ai/, https://www.crowdstrike.com/en-us/blog/falcon-guardian-defines-next-generation-of-ai-security/).",
+  "rows": {
+    "F1": {
+      "status": "yes",
+      "facts": ["No-code custom agents in AgentWorks", "Model choice incl. Claude, GPT, Nemotron"],
+      "gap": "AgentWorks agents run inside the Falcon cloud platform. An on-prem or customer-hosted agent runtime is not shown in Charlotte AI pages. Usage is metered by AI credits with credit caps.",
+      "url": "https://www.crowdstrike.com/en-us/platform/charlotte-ai/",
+      "evidence": "Charlotte AI AgentWorks enables security teams to build custom AI agents in plain language, no code and no AI engineering required.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/press-releases/crowdstrike-launches-charlotte-ai-agentworks-ecosystem-for-building-secure-agents/", "https://www.crowdstrike.com/en-us/platform/charlotte-ai/agentic-soar/"]
+    },
+    "F2": {
+      "status": "limited",
+      "facts": ["Frontier AI scanning of code bases", "Red team experts confirm true positives"],
+      "gap": "AI code scanning is delivered as the expert-led FAIRR service, not as a self-serve SAST product. Falcon ASPM analyzes application code in runtime, and a SAST engine with AI triage or AI fix is not shown in Falcon ASPM pages. Code-level fixes go to services partners or the customer's own developers.",
+      "url": "https://www.crowdstrike.com/en-us/services/ai-security-services/frontier-ai-readiness-and-resilience/",
+      "evidence": "on-going AI-driven scanning identifies vulnerabilities across your applications and code bases at the speed the threat landscape demands.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/platform/cloud-security/aspm/"]
+    },
+    "F3": {
+      "status": "noeq",
+      "facts": ["External attack surface management only", "ASPM maps runtime app behavior"],
+      "gap": "A DAST scanner that tests running web apps with authenticated or MFA login is not shown in Falcon Exposure Management or Falcon ASPM pages. Exposure Management covers external asset discovery, not active web app testing.",
+      "url": "https://www.crowdstrike.com/en-us/platform/exposure-management/",
+      "evidence": "Falcon Exposure Management gives teams real-time visibility across external assets, endpoints, cloud, network, OT/IoT, and shadow AI",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/platform/cloud-security/aspm/"]
+    },
+    "F4": {
+      "status": "limited",
+      "facts": ["Human-led AI application penetration tests", "Tested against OWASP Top Ten"],
+      "gap": "Pentesting of apps and models is a professional services engagement. Continuous automated pentesting as a product is not shown in CrowdStrike service pages.",
+      "url": "https://www.crowdstrike.com/en-us/services/ai-security-services/ai-red-team-services/",
+      "evidence": "Get in-depth evaluations of large language model (LLM) applications, tested against the Open Web Application Security Project (OWASP) Top Ten.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/press-releases/crowdstrike-launches-ai-red-team-services-secure-ai-systems/"]
+    },
+    "R1": {
+      "status": "yes",
+      "facts": ["Agentless AI-SPM on AWS, Azure, GCP", "Bedrock, SageMaker, OpenAI, Vertex AI"],
+      "gap": "OCI and OCI Generative AI are not shown in the AI-SPM page. Azure coverage is named as OpenAI and Azure AI services, and Azure AI Foundry agents are not named.",
+      "url": "https://www.crowdstrike.com/en-us/platform/cloud-security/ai-spm/",
+      "evidence": "Falcon Cloud Security delivers agentless visibility across OpenAI, Amazon Bedrock, Amazon SageMaker, and Vertex AI.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/blog/protect-ai-development-with-falcon-cloud-security/", "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-unveils-falcon-cloud-security-innovations/"]
+    },
+    "R2": {
+      "status": "limited",
+      "facts": ["Discovers LLM runtimes on endpoints", "SaaS console, no on-prem equipment"],
+      "gap": "Self-hosted model servers (vLLM, Triton, Ollama) get discovery on endpoints and SDK or gateway guardrails, but named posture checks for them are not shown. The control plane is SaaS only, in CrowdStrike clouds US-1, US-2 and EU-1 for AIDR. An on-prem or air-gapped console is not offered.",
+      "url": "https://www.crowdstrike.com/en-us/products/faq/",
+      "evidence": "With CrowdStrike Falcon® there are no controllers to be installed, configured, updated or maintained: there is no on-premises equipment.",
+      "extra_urls": ["https://aidr-docs.crowdstrike.com/docs/aidr", "https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/"]
+    },
+    "R3": {
+      "status": "limited",
+      "facts": ["Endpoint AI Discovery GA, MCP, IDE extensions", "Desktop app inspection Windows, report only"],
+      "gap": "Discovery is broad, but enforcement is narrow. Network Inspection for desktop AI apps and CLIs runs on Windows only and supports Report only, with output not captured. Browser blocking needs a managed Chrome, Edge or Firefox on Windows or macOS. Claude Code is the only CLI coding agent with a documented enforcement collector. A count of GenAI apps identified versus apps with inline controls is not shown.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors/falcon-endpoint",
+      "evidence": "Monitors AI activity in desktop applications, CLIs, and any browser through network-layer traffic inspection at the sensor level.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/", "https://aidr-docs.crowdstrike.com/docs/aidr/collectors"]
+    },
+    "R4": {
+      "status": "limited",
+      "facts": ["Copilot Studio tool-call allow or block", "SaaS agent inventory via Falcon Shield"],
+      "gap": "Copilot Studio enforcement checks only the tool name and input parameters, not the prompt or history, and does not scan tool outputs. It needs generative orchestration agents and a one-second response limit applies. Falcon Shield discovery covers Power Platform Copilot, Agentforce, ChatGPT Enterprise, OpenAI GPTs and Nexos.ai. Enforcement on Bedrock AgentCore, Azure AI Foundry agents and ServiceNow agents is not shown.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors/agentic/copilot-studio",
+      "evidence": "AIDR analyzes only the tool name and input parameters from the tool invocation payload.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/", "https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-extends-falcon-platform-capabilities-across-google"]
+    },
+    "R5": {
+      "status": "yes",
+      "facts": ["Local MCP proxy via npx", "MCP Validation detects tool poisoning"],
+      "gap": "The MCP proxy runs locally on each MCP client machine, needs Node.js v22.15.0+, and covers stdio servers. It does not see LLM prompts or non-MCP traffic. A central gateway with MCP support is pre-beta, with GA stated for Q4.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors/agentic/",
+      "evidence": "The proxy runs locally as the @crowdstrike/aidr-mcp-proxy npm package, on the same machine as the MCP client.",
+      "extra_urls": ["https://pangea.cloud/docs/aidr/policies/prompt-rules", "https://www.crowdstrike.com/en-us/blog/falcon-guardian-defines-next-generation-of-ai-security/"]
+    },
+    "R6": {
+      "status": "limited",
+      "facts": ["Allow or block agent types", "Prompt linked to endpoint telemetry"],
+      "gap": "Runtime control is stated for supported agent types on managed endpoints. Per-agent process, file and network policies for server-side frameworks such as LangGraph, CrewAI or n8n are not shown in Falcon Guardian pages. The press release names Windows and macOS for agent discovery, and the blog adds Linux.",
+      "url": "https://www.crowdstrike.com/en-us/blog/falcon-guardian-defines-next-generation-of-ai-security/",
+      "evidence": "Falcon Guardian enables organizations to define which supported AI agent types are permitted to operate on managed endpoints",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/press-releases/crowdstrike-unveils-falcon-guardian-ai-agent-security/"]
+    },
+    "R7": {
+      "status": "limited",
+      "facts": ["Ingests Bedrock model invocation logs", "Kubernetes audit log detections"],
+      "gap": "The AIDR Cloud collector reads Amazon Bedrock invocation logs from S3 through a customer-deployed Lambda, and it is AWS only. It monitors content and cannot block. AI-specific detections on CloudTrail or Azure activity logs for AI services, and automated revert, are not shown in AIDR or Falcon Cloud Security pages.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors/cloud/",
+      "evidence": "The AWS integration uses a Lambda function to generate pre-signed URLs for Amazon S3 objects containing Amazon Bedrock model invocation logs.",
+      "extra_urls": ["https://aidr-docs.crowdstrike.com/docs/aidr/collectors", "https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/"]
+    },
+    "R8": {
+      "status": "yes",
+      "facts": ["SDK and gateway block input, output", "Native Next-Gen SIEM first-party data"],
+      "gap": "Only Application and Gateway collectors block and redact on both input and output. Container workload guardrails were pre-beta in March 2026. Export of AIDR events to a third-party SIEM is not shown in AIDR docs, which document Next-Gen SIEM.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors",
+      "evidence": "Some collectors block and redact data in real time. Others only log events for visibility.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/press-releases/crowdstrike-unveils-falcon-guardian-ai-agent-security/", "https://aidr-docs.crowdstrike.com/docs/aidr/visibility/next-gen-siem"]
+    },
+    "R9": {
+      "status": "limited",
+      "facts": ["Chrome, Edge, Firefox extensions", "Responses logged, never blocked"],
+      "gap": "Browser collectors enforce input rules only. Output rules always run in Report Only Mode. The extension needs an enterprise-managed machine (MDM, AD domain or Entra ID) on Windows or macOS. Blocking of personal AI accounts is not shown in AIDR access rules docs. Behavior varies by AI site because the docs say provider sites handle interventions differently.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors/browser/policies",
+      "evidence": "You can use browser collectors to detect threats in AI responses, but they can't modify what users see.",
+      "extra_urls": ["https://aidr-docs.crowdstrike.com/docs/aidr/collectors/browser/users", "https://pangea.cloud/docs/aidr/collectors/browser/chrome", "https://www.crowdstrike.com/en-us/blog/crowdstrike-stops-genai-data-leaks-with-unified-data-protection/"]
+    },
+    "R10": {
+      "status": "limited",
+      "facts": ["Plugs into seven third-party gateways", "Own AI gateway is pre-beta"],
+      "gap": "The native AI gateway is pre-beta, with GA stated for Q4 2026. Documented gateway collectors are Apigee, Azure APIM, Kong, LiteLLM, Portkey, TrueFoundry and JetStream. AWS API Gateway and Bifrost are not listed. The Kong collector does not support streaming responses. Pricing units and sizing are not shown.",
+      "url": "https://aidr-docs.crowdstrike.com/docs/aidr/collectors",
+      "evidence": "Gateway - Apply AIDR policies to data flowing through supported API gateways.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/blog/falcon-guardian-defines-next-generation-of-ai-security/", "https://aidr-docs.crowdstrike.com/docs/aidr/collectors/gateway/litellm"]
+    },
+    "R11": {
+      "status": "yes",
+      "facts": ["11 detectors incl. code, secrets", "200+ prompt injection techniques"],
+      "gap": "Multi-turn or session-level scoring is not shown in the prompt rules docs. The 99% efficacy and 100 ms figures come from internal benchmark testing.",
+      "url": "https://pangea.cloud/docs/aidr/policies/prompt-rules",
+      "evidence": "Each detector identifies a specific risk type, such as PII exposure, malicious entities, prompt injection, or toxic content.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/platform/falcon-guardian-aidr/"]
+    },
+    "R12": {
+      "status": "limited",
+      "facts": ["AI Red Team Services engagement", "Adversary emulation for AI"],
+      "gap": "LLM red teaming is a professional service. An automated red teaming product with an attack library, CI/CD hooks or GA status is not shown in CrowdStrike product pages.",
+      "url": "https://www.crowdstrike.com/en-us/services/ai-security-services/ai-red-team-services/",
+      "evidence": "Simulate real-world attacks against your unique AI environment. Our red team tailors each scenario to your specific use cases and AI implementations",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/blog/crowdstrike-launches-ai-red-team-services/"]
+    },
+    "R13": {
+      "status": "limited",
+      "facts": ["Agentic IdP issues scoped tokens", "Discovers human, non-human, AI identities"],
+      "gap": "Agentic Identity Provider was announced in September 2026, and the blog carries an unreleased-features disclaimer. Continuous Identity comes from the SGNL acquisition, signed January 2026. Per-tool-call least privilege is described as short-lived scoped tokens per task.",
+      "url": "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-agentic-identity-provider-foundation-for-ai-agent-identity-security/",
+      "evidence": "Agentic IdP brokers access through tokens scoped to the minimum access, for the minimum time, required for each task.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/blog/crowdstrike-announces-agentic-identity-provider/", "https://www.crowdstrike.com/en-us/platform/next-gen-identity-security/", "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-to-acquire-sgnl-to-transform-identity-security-for-ai-era/"]
+    },
+    "R14": {
+      "status": "limited",
+      "facts": ["Scans models for trojans, backdoors", "Container image model detection"],
+      "gap": "AI Model Scanning is described for containerized environments and cloud AI platforms. Supported formats, a Hugging Face registry scan and a pre-load CI gate for model files are not shown in Falcon Cloud Security pages.",
+      "url": "https://www.crowdstrike.com/en-us/press-releases/crowdstrike-unveils-new-innovations-to-secure-every-area-of-cloud-risk/",
+      "evidence": "Proactively scans AI models for hidden malware, trojanized models, backdoors, and adversarial manipulations in containerized environments",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/platform/cloud-security/ai-spm/"]
+    },
+    "R15": {
+      "status": "limited",
+      "facts": ["eBPF AI data flow visibility", "Tracks sensitive training data"],
+      "gap": "AI data flow discovery in Falcon Data Protection for Cloud was in early beta in March 2026. Data poisoning detection for training or RAG data is not shown in Falcon Data Protection or AI-SPM pages.",
+      "url": "https://www.crowdstrike.com/en-us/blog/new-crowdstrike-innovations-secure-ai-agents-govern-shadow-ai/",
+      "evidence": "This new capability is in early beta and will be generally available in the coming months.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/press-releases/crowdstrike-unveils-new-innovations-to-secure-every-area-of-cloud-risk/"]
+    },
+    "R16": {
+      "status": "limited",
+      "facts": ["AI model and package inventory", "Surfaces training data, model artifacts"],
+      "gap": "Falcon Cloud Security keeps an AI inventory, but a CycloneDX AIBOM export is not shown in the AI-SPM or SBOM pages.",
+      "url": "https://www.crowdstrike.com/en-us/blog/protect-ai-development-with-falcon-cloud-security/",
+      "evidence": "For homegrown models, Falcon Cloud Security surfaces training data, model artifacts, experiment scripts, and package dependencies.",
+      "extra_urls": ["https://www.crowdstrike.com/en-us/platform/cloud-security/software-bill-of-materials/"]
+    },
+    "R17": {
+      "status": "noeq",
+      "facts": ["Charlotte AI ISO 42001 certified", "Red team tests against OWASP"],
+      "gap": "ISO 42001 applies to CrowdStrike's own Charlotte AI, not to customer AI. Mapping of customer AI findings to NIST AI RMF, ISO 42001, EU AI Act, OWASP LLM Top 10 or MITRE ATLAS is not shown in AIDR or AI-SPM pages. AIDR logs give an audit trail of prompts, detections and actions.",
+      "url": "https://www.crowdstrike.com/en-us/platform/charlotte-ai/",
+      "evidence": "Charlotte AI enables security teams to scale their agentic defense with accountability and control, ISO 42001-certified for AI governance.",
+      "extra_urls": ["https://pangea.cloud/docs/aidr"]
+    }
+  },
+  "notes": "Rebrand: Falcon AIDR became Falcon Guardian on September 1, 2026. The AIDR docs banner says AI Detection and Response reaches end of support on November 30, 2026, and capabilities continue in Falcon Guardian (docs.crowdstrike.com, login required). AIDR docs live at aidr-docs.crowdstrike.com and are mirrored at pangea.cloud/docs/aidr from the Pangea acquisition. Status labels from CrowdStrike's own posts: native AI gateway pre-beta with GA in Q4 2026, Falcon Complete for Guardian later in Q3 2026, container workload guardrails and desktop AI app coverage pre-beta in March 2026 with GA stated for Q2, Data Protection for Cloud AI data flows in early beta. Agentic Identity Provider is announced with an unreleased-features disclaimer. Conflicting pages: the Guardian press release names Windows and macOS for agent discovery, and the Guardian blog names Windows, macOS and Linux. Acquisitions supplying AI capability: Pangea (AIDR), SGNL (Continuous Identity), Seraphic (enterprise browser), Onum (data pipeline). Not covered as products: SAST, DAST, automated pentest and automated LLM red teaming, which are services only. AIDR runs only in CrowdStrike clouds US-1, US-2 and EU-1."
+}

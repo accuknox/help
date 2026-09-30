@@ -1,0 +1,122 @@
+{
+  "vendor": "Levo.ai",
+  "slug": "levo",
+  "website": "https://www.levo.ai",
+  "what_it_is": "eBPF runtime API and AI security: discovery, testing, AI firewall and gateway.",
+  "identity_note": "Levo.ai, the API security vendor at levo.ai, which added AI security modules in 2025 and 2026.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "partial"
+      },
+      "reason": "eBPF sensors map LLMs, MCP servers, agents and AI apps in use, including shadow AI.",
+      "url": "https://www.levo.ai/ai-security/runtime-ai-visibility",
+      "url_type": "vendor",
+      "evidence": "Levo uncovers every AI component in use external and internal LLMs, MCP servers, agents, and AI apps.",
+      "verify": "confirmed",
+      "verify_note": "Runtime visibility page confirmed eBPF discovery of LLMs, MCP and agents, and shadow AI."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "partial",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "MCP Discovery and MCP Security Testing cover MCP servers. AI Firewall limits which tools agents call.",
+      "url": "https://www.levo.ai/ai-security/ai-firewall",
+      "url_type": "vendor",
+      "evidence": "Levo enforces clear boundaries on what agents can do, which tools they can call, and what parameters they can pass",
+      "verify": "confirmed",
+      "verify_note": "AI Firewall page confirmed tool-call limits. Managed platform search found only a founder LinkedIn post, so 2.1 stays partial."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "yes"
+      },
+      "reason": "AI Threat Detection watches AI traffic. AI Firewall blocks inline. Jira ticketing integration ships.",
+      "url": "https://www.levo.ai/resources/product-release/levo-api-security-platform-updates-october-2024",
+      "url_type": "vendor",
+      "evidence": "Create JIRA tickets directly through our UI for seamless and timely resolution of findings",
+      "verify": "upgraded",
+      "verify_note": "Threat detection page confirmed. 3.2 raised to yes: vendor release note names Jira. Docs map lists Splunk and QRadar pages behind login."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "AI Firewall and Gateway enforce inline guardrails and DLP. LLM Security filters hallucinations and toxic output.",
+      "url": "https://www.levo.ai/ai-security/llm-security",
+      "url_type": "vendor",
+      "evidence": "Levo filters user inputs and model outputs in real time to block jailbreaks, prompt misuse, hallucinations, and toxic content.",
+      "verify": "upgraded",
+      "verify_note": "AI Firewall page confirmed. 4.3 raised to yes from the LLM Security page, which names output filtering."
+    },
+    "5": {
+      "status": "partial",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "partial",
+        "5.3": "yes"
+      },
+      "reason": "Immutable audit trails and regulator-ready evidence. Framework mapping shown mainly in blogs and OWASP MCP tests.",
+      "url": "https://www.levo.ai/ai-security/ai-monitoring-governance",
+      "url_type": "vendor",
+      "evidence": "Rely on immutable trails of who, what, and where across every AI interaction.",
+      "verify": "confirmed",
+      "verify_note": "Governance page confirmed audit trails. Framework search found only blogs, so 5.2 stays partial."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Continuous AI red teaming tests agents, LLMs, MCP, RAG and APIs for injection and chained attacks.",
+      "url": "https://www.levo.ai/ai-security/ai-red-teaming",
+      "url_type": "vendor",
+      "evidence": "Continuous, runtime aware security testing for AI applications that spans agents, LLMs, MCP servers, RAG, and APIs.",
+      "verify": "confirmed",
+      "verify_note": "Red teaming page confirmed continuous tests across agents, LLMs, MCP, RAG and APIs."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "partial"
+      },
+      "reason": "Ties every agent action to a verified identity and blocks agents that exceed access boundaries.",
+      "url": "https://www.levo.ai/ai-security/ai-agent-security-platform",
+      "url_type": "vendor",
+      "evidence": "Identity-based and context-aware policies stop exploits before they spread.",
+      "verify": "confirmed",
+      "verify_note": "Agent security page confirmed identity-based policies and access limits. NHI discovery evidence is page wording only."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "yes",
+        "8.3": "no"
+      },
+      "reason": "RAG Security labels sensitive data in vector stores and redacts it. No model file scanning or AI SAST.",
+      "url": "https://www.levo.ai/ai-security/rag-security",
+      "url_type": "vendor",
+      "evidence": "Levo identifies and labels sensitive data flowing into vector stores and RAG pipelines",
+      "verify": "confirmed",
+      "verify_note": "RAG security page confirmed. Model and code scanning search found only API testing."
+    }
+  },
+  "notes": "Core product is API security (eBPF discovery, API DAST, API protection). AI modules launched in Launch Week 2026 (Feb 2026): AI Firewall, AI Gateway, MCP Discovery, MCP Security Testing (OWASP MCP Top 10), LiteLLM integration. docs.levo.ai is behind a login, so evidence comes from product pages and release posts. AI threat detection is passive by default. Blocking comes from AI Firewall. Integrations listed include Jira, Slack, GitHub, GitLab, Jenkins. No SIEM found in two searches. Checkmarx partnership is API testing, not AI SAST. Module 7 rests on product-page and blog wording, not docs. A reviewer may downgrade 7.1 if stricter proof is needed."
+}

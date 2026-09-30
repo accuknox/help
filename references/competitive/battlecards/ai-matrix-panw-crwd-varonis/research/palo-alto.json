@@ -1,0 +1,300 @@
+{
+  "vendor": "Palo Alto Networks",
+  "products": "Prisma AIRS (AI Runtime Security with API Intercept and Network Intercept firewall, AI Gateway, AI Supply Chain Security with AI Model Security and AI Skill Security (Preview), AI Red Teaming, AI Inventory and Agent Discovery, AI Agent Identity with SaaS Agent Security and the Prisma AIRS MCP Server), AI Access Security, Prisma Browser (formerly Prisma Access Browser) and Prisma Browser Extension, Cortex Cloud AI Security (AI-SPM), Cortex AgentiX and XSIAM, Cortex Cloud Application Security with AppSec Agent, Cortex Agentic Endpoint Security (AES, formerly Koi), Idira (formerly CyberArk) Secure AI Agents",
+  "licensing": "Prisma AIRS is BYOL funded by Software NGFW credits, with separate licenses for AI Runtime (Network and API Intercept), AI Supply Chain Security, AI Red Teaming and AI Gateway. API Intercept and AI Gateway meter monthly tokens (1 token = 4 characters, profiles in steps of 1 billion). AI Access Security needs its own license or CASB-X, CASB-PA or Prisma Browser, plus Strata Logging Service. AI-SPM posture needs a Cortex Cloud C1 license bought separately, AES needs its own subscription, and AgentiX is licensed per user with compute units. Sources: https://docs.paloaltonetworks.com/prisma-airs/activation-and-onboarding/prisma-airs-licenses , https://docs.paloaltonetworks.com/prisma-airs/activation-and-onboarding/token-based-licensing , https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery/ai-agent-discovery-with-cortex-cloud",
+  "rows": {
+    "F1": {
+      "status": "yes",
+      "facts": [
+        "Custom agents in Agentic Assistant Hub",
+        "Sensitive actions need manual approval"
+      ],
+      "gap": "AgentiX runs as a SaaS tenant in 11 listed regions. An on-prem or air-gapped AgentiX tenant is not shown in AgentiX docs. The license is per user with a yearly compute unit quota (400 Base, 800 Enterprise). The model selector exists only in EU and US regions. Agent control is described as RBAC plus approval, not an isolated sandbox.",
+      "url": "https://cortex-docs.paloaltonetworks.com/cortex-agentix/learn-about-cortex-agentix/agentic-ai-in-cortex-agentix/manage-cortex-agentix-agents",
+      "evidence": "Create, edit, and delete custom agents. Custom agents can include system actions as well as custom actions.",
+      "extra_urls": [
+        "https://cortex-docs.paloaltonetworks.com/cortex-agentix/learn-about-cortex-agentix/agentic-ai-in-cortex-agentix",
+        "https://cortex-docs.paloaltonetworks.com/cortex-agentix/learn-about-cortex-agentix/understand-cortex-agentix-licenses"
+      ]
+    },
+    "F2": {
+      "status": "limited",
+      "facts": [
+        "Ingests third-party SAST findings",
+        "AppSec Agent drafts fix pull requests"
+      ],
+      "gap": "Cortex Cloud has no native SAST scanner. It ingests SAST from Semgrep, Snyk, SonarQube, Veracode or SARIF, then prioritizes. AI false-positive marking of SAST findings is not shown in Cortex Cloud AppSec docs. The AppSec Agent source is a March 2026 blog, not a docs page.",
+      "url": "https://cortex-docs.paloaltonetworks.com/application-security/application-security-posture-management-aspm/manage-code-weakness-issues",
+      "evidence": "Currently, Cortex Cloud does not support native SAST scanners. You can ingest Static Application Security Testing (SAST) findings from supported third-party vendors.",
+      "extra_urls": [
+        "https://www.paloaltonetworks.com/blog/cloud-security/cloud-security-appsec-agent-aspm/"
+      ]
+    },
+    "F3": {
+      "status": "no",
+      "facts": [
+        "No DAST page in Cortex docs",
+        "AppSec covers SAST, SCA, CI/CD"
+      ],
+      "gap": "Not shown in Cortex Cloud Application Security docs. The Cortex documentation index (llms.txt, about 4.5 MB, checked 2026-09-29) has no DAST or web app scanning page. Two web searches found no Palo Alto Networks DAST product.",
+      "url": "https://cortex-docs.paloaltonetworks.com/application-security/application-security-posture-management-aspm/manage-code-weakness-issues",
+      "evidence": "Currently, Cortex Cloud Application Security supports SAST data integration from the following vendors",
+      "extra_urls": [
+        "https://cortex-docs.paloaltonetworks.com/llms.txt"
+      ]
+    },
+    "F4": {
+      "status": "limited",
+      "facts": [
+        "Continuous AI red teaming via API",
+        "Targets models, apps and agents"
+      ],
+      "gap": "Automated testing covers AI endpoints (LLM, app, agent) through AI Red Teaming. Automated pentesting of general web apps or infrastructure is not shown in Prisma AIRS or Cortex docs. It needs the separate AI Red Teaming license.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-red-teaming/identify-ai-system-risks-with-ai-red-teaming",
+      "evidence": "Capability to red team agentic and non-agentic systems.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/activation-and-onboarding/license-ai-red-teaming"
+      ]
+    },
+    "R1": {
+      "status": "yes",
+      "facts": [
+        "AWS, Azure, GCP AI services",
+        "Bedrock, SageMaker, Foundry, Vertex"
+      ],
+      "gap": "OCI is not listed as a supported AI-SPM cloud. Azure full AI discovery needs outpost scan mode and DSPM enabled. Posture data inside Prisma AIRS needs a separate Cortex Cloud Posture Security (C1) license and a Prisma Cloud to Cortex Cloud migration.",
+      "url": "https://cortex-docs.paloaltonetworks.com/cortex-cloud-posture-management/cortex-cloud-ai-security/supported-services-in-cortex-cloud-ai-security",
+      "evidence": "AWS: Amazon Bedrock, Amazon SageMaker, Amazon S3 Vectors. Azure: Azure AI Foundry, Azure OpenAI, Azure AI Search",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery/ai-agent-discovery-with-cortex-cloud",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/cloud-resource-discovery/discover-your-cloud-resources"
+      ]
+    },
+    "R2": {
+      "status": "limited",
+      "facts": [
+        "Firewall runs on ESXi, KVM, OpenShift",
+        "Gateway hybrid data plane on Kubernetes"
+      ],
+      "gap": "Self-managed model discovery covers models on self-managed cloud infrastructure. vLLM, Triton or Ollama on own servers are not named. The management plane is Strata Cloud Manager (SaaS) for AI Gateway and AI Runtime. An air-gapped Prisma AIRS console is not shown in docs. Private cloud firewalls inspect traffic to listed public cloud model APIs.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-managed-saas-firewall/deploy-airs-on-private-clouds",
+      "evidence": "Prisma AIRS AI Runtime Firewall is supported on private clouds, such as ESXi, KVM, OpenShift, and Rancher.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-gateway/ai-gateway-overview/ai-gateway-deployment-models",
+        "https://cortex-docs.paloaltonetworks.com/cortex-cloud-posture-management/cortex-cloud-ai-security/cortex-cloud-ai-security-use-cases",
+        "https://docs.paloaltonetworks.com/prisma-airs/getting-started/ai-models-public-clouds-support"
+      ]
+    },
+    "R3": {
+      "status": "limited",
+      "facts": [
+        "About 2,286 GenAI apps visible",
+        "About 378 apps with inline DLP"
+      ],
+      "gap": "Enforcement needs NGFW, Prisma Access or Prisma Browser. Visibility lists about 2,286 GenAI apps, but the E-DLP table lists about 378, and about 104 of those support file inspection (row counts from the docs tables). Coding agents (Claude Code, Cursor, Codex) need the separate Cortex AES subscription.",
+      "url": "https://docs.paloaltonetworks.com/ai-access-security/getting-started/whats-supported-with-ai-access-security",
+      "evidence": "All GenAI apps support only nonfile inspection unless otherwise specified in the list of supported GenAI apps.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/prisma-airs-integration-with-cortex-aes",
+        "https://docs.paloaltonetworks.com/ai-access-security/getting-started/introducing-ai-access-security"
+      ]
+    },
+    "R4": {
+      "status": "yes",
+      "facts": [
+        "10 SaaS agent platforms listed",
+        "Bedrock Agents and Foundry discovery"
+      ],
+      "gap": "Amazon Bedrock AgentCore and Google Agent Engine are not listed for inventory. Azure Foundry discovery shows static configuration only, with no runtime logs. Bedrock supports only optimized models. The Cortex Cloud SaaS AI Agent Security version is Beta with limited availability. It needs a CASB-X, CASB-PA or SSPM license.",
+      "url": "https://docs.paloaltonetworks.com/saas-agent-security/getting-started/whats-supported-with-saas-agent-security",
+      "evidence": "SaaS Agent Security supports the following AI Agentic platforms: Atlassian Rovo, Box AI Studio, ChatGPT Enterprise, Cursor Enterprise, Gemini Enterprise",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery/ai-agent-discovery-limitations",
+        "https://cortex-docs.paloaltonetworks.com/cortex-cloud-posture-management/saas-security/saas-security/saas-ai-agent-security"
+      ]
+    },
+    "R5": {
+      "status": "yes",
+      "facts": [
+        "MCP Registry behind MCP Gateway proxy",
+        "Scans MCP tool definitions and outputs"
+      ],
+      "gap": "The Prisma AIRS MCP Server model depends on the agent calling pan_inline_scan as its system prompt instructs. MCP threat detection does not support contextual grounding. AI Gateway is listed for the Americas region.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-gateway/ai-gateway-integrations",
+      "evidence": "Registering an MCP server here makes it available to workspaces through the MCP Gateway proxy, so tool calls are logged and subject to workspace access policy.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-vm-firewall/detect-mcp-threats",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-agent-identity/understanding-the-prisma-airs-mcp-server"
+      ]
+    },
+    "R6": {
+      "status": "limited",
+      "facts": [
+        "AES hooks on coding agent endpoints",
+        "Verdicts on prompts, MCP, network"
+      ],
+      "gap": "Host enforcement covers AI coding tools through Cortex AES hooks (Koi acquisition, separate subscription, separate docs site). Kernel-level (eBPF or LSM) process and file controls for agent frameworks such as LangGraph, CrewAI or n8n are not shown in Prisma AIRS docs. Other agents get API or network inspection.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/prisma-airs-integration-with-cortex-aes",
+      "evidence": "to secure AI coding tools such as Claude Code, Cursor, Codex, GitHub Copilot, and Antigravity on developer endpoints.",
+      "extra_urls": [
+        "https://www.paloaltonetworks.com/cortex/agentic-endpoint-security"
+      ]
+    },
+    "R7": {
+      "status": "yes",
+      "facts": [
+        "Cloud AI Infrastructure Analytics detectors",
+        "Bedrock, SageMaker audit log alerts"
+      ],
+      "gap": "The sampled AI analytics alert lists AWS or Azure audit logs only, and GCP is not listed. Detections need a 14-day activation and a 30-day training period. Automated revert depends on playbooks, and an AI-specific revert action is not shown in the alert docs.",
+      "url": "https://cortex-docs.paloaltonetworks.com/analytics-alerts/alerts-by-name/ai-safeguards-deletion-attempt",
+      "evidence": "Requires one of the following data sources: AWS Audit Log OR Azure Audit Log",
+      "extra_urls": [
+        "https://cortex-docs.paloaltonetworks.com/analytics-alerts/alerts-by-name/aws-bedrock-model-invocation-logging-deletion",
+        "https://cortex-docs.paloaltonetworks.com/analytics-alerts/alerts-by-name/unusual-aws-sagemaker-notebook-access"
+      ]
+    },
+    "R8": {
+      "status": "yes",
+      "facts": [
+        "Allow or Block per detection",
+        "Latency threshold with block action"
+      ],
+      "gap": "Inline blocking needs API Intercept code changes or traffic steered through the AI Runtime Firewall. Sync scans cap at a 2 MB payload and async scans at 5 MB. API keys work only in the region where they were created.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/api-intercept-create-configure-security-profile",
+      "evidence": "Enable Prompt Injection Detection and set it to Allow or Block.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/ai-runtime-security-api-intercept-overview"
+      ]
+    },
+    "R9": {
+      "status": "limited",
+      "facts": [
+        "Prompts, uploads, clipboard in Prisma Browser",
+        "Enterprise accounts allowed, public blocked"
+      ],
+      "gap": "AI Access Security does not scan or log GenAI responses. It needs NGFW, Prisma Access or Prisma Browser. The Prisma Browser Extension runs on Chromium browsers only (Chrome, Edge, Arc, Brave) and applies some of the full browser functions.",
+      "url": "https://docs.paloaltonetworks.com/ai-access-security/getting-started/introducing-ai-access-security",
+      "evidence": "AI Access Security does not scan or log responses from GenAI apps.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-browser/administration/the-prisma-browser-extension",
+        "https://docs.paloaltonetworks.com/ai-access-security/administration/discover-risks-posed-by-genai-apps-on-prisma-access-browser"
+      ]
+    },
+    "R10": {
+      "status": "yes",
+      "facts": [
+        "Own AI Gateway, SaaS or Hybrid",
+        "Token metering on NGFW credits"
+      ],
+      "gap": "AI Gateway (Portkey acquisition, SaaS endpoint aigw.portkey.ai) is listed for the Americas region. Management stays in Strata Cloud Manager for Hybrid. Plug-ins for LiteLLM, Kong, Bifrost and TrueFoundry live in a GitHub repo labeled community examples, supported as best effort.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-gateway/ai-gateway-overview/ai-gateway-deployment-models",
+      "evidence": "Hybrid deployment hosts the data plane in your own Kubernetes cluster. Request and response payloads pass through your infrastructure",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-gateway/ai-gateway-overview",
+        "https://docs.paloaltonetworks.com/prisma-airs/activation-and-onboarding/license-ai-gateway",
+        "https://github.com/PaloAltoNetworks/prisma-airs-integrations"
+      ]
+    },
+    "R11": {
+      "status": "yes",
+      "facts": [
+        "Nine detection services per profile",
+        "Prompt injection in 9 languages"
+      ],
+      "gap": "Custom topic guardrails support English only. Contextual grounding scans responses only. Session-level or multi-turn scoring at runtime is not shown in API Intercept docs. Secrets detection runs through DLP patterns.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-vm-firewall/detect-mcp-threats",
+      "evidence": "Validating tool definitions, inputs and outputs using multiple detection services, including: Prompt injection detection, Toxic content detection, AI agent protection, Database security",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/api-intercept-create-configure-security-profile",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/prisma-airs-supported-regions"
+      ]
+    },
+    "R12": {
+      "status": "yes",
+      "facts": [
+        "500+ attacks across 50+ techniques",
+        "Multi-turn and agent scans"
+      ],
+      "gap": "It needs the separate AI Red Teaming license on NGFW credits. File-based attacks cover PDF and Markdown only. CI/CD examples (GitHub Actions, Jenkins) sit in the community GitHub repo.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-red-teaming/identify-ai-system-risks-with-ai-red-teaming",
+      "evidence": "500+ attack vectors across 50+ techniques.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/content/techdocs/en_US/prisma-airs/new-features/by-date/prisma-airs/february-2026.html",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-red-teaming/identify-ai-system-risks-with-ai-red-teaming/get-started-with-prisma-airs-ai-red-teaming/targets",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-red-teaming/identify-ai-system-risks-with-ai-red-teaming/get-started-with-prisma-airs-ai-red-teaming/scans/scan-modalities"
+      ]
+    },
+    "R13": {
+      "status": "limited",
+      "facts": [
+        "CyberArk sold standalone, integration underway",
+        "Gateway virtual keys scope LLM access"
+      ],
+      "gap": "Agent identity and least privilege come from CyberArk (Idira), a separate platform. Per-tool-call least privilege and NHI discovery of API keys or OAuth grants are not shown in Prisma AIRS docs. The Idira Secure AI Agents docs page returned 404 during research.",
+      "url": "https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-cyberark-to-secure-the-ai-era",
+      "evidence": "CyberArk's Identity Security solutions will continue to be available as a standalone platform. In addition, integration is underway",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-gateway/ai-gateway-overview",
+        "https://www.paloaltonetworks.com/resources/techbriefs/secure-ai-agents"
+      ]
+    },
+    "R14": {
+      "status": "yes",
+      "facts": [
+        "50+ model formats incl. GGUF, ONNX",
+        "CLI exits non-zero on unsafe"
+      ],
+      "gap": "Private Hugging Face repositories are not supported, so the model must be downloaded and scanned locally. Scans cap at 1,000 files and cannot be deleted. With the SDK the customer must enforce allow or block. It needs the AI Supply Chain Security license.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-supply-chain-security/ai-supply-chain-security/model-security-to-secure-your-ai-models/get-started-with-ai-model-security/scanning-models",
+      "evidence": "We don’t support private Hugging Face repositories. You can only scan public Hugging Face repositories.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-supply-chain-security/ai-supply-chain-security/model-security-to-secure-your-ai-models/supported-model-formats",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-supply-chain-security/ai-supply-chain-security/model-security-to-secure-your-ai-models"
+      ]
+    },
+    "R15": {
+      "status": "yes",
+      "facts": [
+        "PII classification on training datasets",
+        "Dataset modification analytics alerts"
+      ],
+      "gap": "Dataset classification in Prisma AIRS needs an active Cortex Cloud AI-SPM license. Azure needs DSPM and outpost scan mode.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery/ai-agent-discovery-with-cortex-cloud",
+      "evidence": "Training datasets display whether they contain PII or sensitive data, identified through Cortex data profiling.",
+      "extra_urls": [
+        "https://cortex-docs.paloaltonetworks.com/analytics-alerts/alerts-by-name/suspicious-ai-dataset-label-modification",
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-runtime-security/airs-api/ai-runtime-security-api-intercept-overview"
+      ]
+    },
+    "R16": {
+      "status": "limited",
+      "facts": [
+        "AI-BOM from supply chain mapping",
+        "Unified asset ID per model"
+      ],
+      "gap": "A CycloneDX AIBOM export is not shown in Cortex Cloud AI Security docs. The SBOM export pages cover workloads only.",
+      "url": "https://cortex-docs.paloaltonetworks.com/cortex-cloud-posture-management/cortex-cloud-ai-security/what-is-cortex-cloud-ai-security",
+      "evidence": "Maintains the integrity of your AI bill of materials (AI-BOM).",
+      "extra_urls": [
+        "https://cortex-docs.paloaltonetworks.com/cortex-cloud-posture-management/cortex-cloud-ai-security/cortex-cloud-ai-security-use-cases"
+      ]
+    },
+    "R17": {
+      "status": "yes",
+      "facts": [
+        "OWASP LLM, EU AI Act, NIST, MITRE",
+        "Red team reports map to ATLAS"
+      ],
+      "gap": "ISO 42001 mapping is not shown in Prisma AIRS or Cortex Cloud AI Security docs. Posture compliance data needs the Cortex Cloud AI-SPM license.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery/ai-agent-discovery-with-cortex-cloud",
+      "evidence": "Evaluate AI assets against OWASP Top 10 for LLMs, EU AI Act, NIST, and MITRE frameworks.",
+      "extra_urls": [
+        "https://docs.paloaltonetworks.com/prisma-airs/ai-red-teaming/identify-ai-system-risks-with-ai-red-teaming",
+        "https://cortex-docs.paloaltonetworks.com/analytics-alerts/alerts-by-name/ai-safeguards-deletion-attempt"
+      ]
+    }
+  },
+  "notes": "Acquisitions: Protect AI (closed July 2025) supplies AI Model Security and the huntr researcher community cited in AI Red Teaming. CyberArk (closed Feb 2026) is rebranded Idira and stays a standalone platform with integration underway. Portkey (closed 2026) is the AI Gateway. Its SaaS endpoint is still aigw.portkey.ai and its detailed docs sit at docs.gw.prismaairs.com. Koi (closed April 2026) is Cortex AES and connects to Prisma AIRS by service account, with docs on docs.koi.ai. Rebrand: Prisma Access Browser is now Prisma Browser. Beta or Preview items: AI Skill Security (Preview, no license), Cortex Cloud SaaS AI Agent Security (Beta, limited availability), Automation Engineer playbook agent (preview), Hindi and Traditional Chinese prompt injection (preview). Two overlapping SaaS agent products exist: Prisma SaaS Agent Security in Strata Cloud Manager (10 platforms) and Cortex Cloud SaaS AI Agent Security (Beta). Region gaps: AI Gateway lists Americas only. API Intercept regions are Americas, EU-Germany, India, Singapore and Japan, so UK and Canada tenants get Agent Discovery but no API Intercept. The AI Access app counts (about 2,286 visible, about 378 with E-DLP, about 104 with file inspection) are row counts taken from the docs tables on 2026-09-29, not a figure Palo Alto publishes. F3 evidence is a nearby AppSec sentence because DAST has no page to quote. The Cortex docs llms.txt index was fetched with curl once, and all other pages came through fc.py. Not covered in docs: DAST, native SAST, CycloneDX AIBOM export, ISO 42001 mapping, kernel-level sandboxing of agent frameworks, air-gapped console, OCI AI services."
+}

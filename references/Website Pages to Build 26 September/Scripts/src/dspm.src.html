@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSPM for Indian Banks Wireframe</title>
+<style>/*CSS*/</style>
+</head>
+<body class="hide-notes">
+<div class="bar"><div class="wrap">
+  <span><a href="index.html">Back to start</a> · <b>Wireframe</b> · /solutions/dspm-indian-banks</span>
+  <label><input type="checkbox" id="notes"> Show designer notes</label>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <span class="logo">ACCUKNOX</span>
+  <nav class="top" aria-label="Site"><ul>
+    <li>Platform</li><li><b>Solutions</b></li><li>Case Studies</li><li>Partners</li><li>Resources</li><li>About</li>
+  </ul></nav>
+  <a class="btn" href="#cta">Contact us</a>
+</div></header>
+
+<main>
+<div class="wrap crumb">Solutions / Industries / Finance / DSPM for Indian Banks</div>
+
+<!-- 1 HERO -->
+<section aria-labelledby="h-hero"><div class="wrap hero">
+  <div>
+    <div class="eyebrow">RBI Advisory 3/2026 and DPDP Rules 2025</div>
+    <h1 id="h-hero">Find Aadhaar, PAN and Card Data in Every Bank Data Store Before the Regulator Asks</h1>
+    <p class="lead">An RBI advisory now asks banks to tag and classify customer data with automated tools, and DPDP obligations fall due by May 2027. AccuKnox DSPM classifies Indian identifiers inside the region that holds the data, and the console runs on premises or fully air-gapped.</p>
+    <div class="btns"><a class="btn primary" href="#cta">Book a DSPM assessment</a><a class="btn" href="#matrix">See the control mapping</a></div>
+    <p class="note"><b>Wording rule.</b> Advisory No. 3/2026 is an RBI advisory, not a regulation. RBI has not published its text, so summarize it and never quote it.</p>
+  </div>
+  <!--IMG:docs/getting-started/images/dspm/dspm-finding-detail.png|A DSPM finding for an AWS access key stored in plain text, with severity, SLA, sensitivity and a redacted location|A DSPM finding shows the data type, severity, sensitivity and where the data sits.-->
+</div></section>
+
+<!-- 2 MANDATE STRIP -->
+<section aria-labelledby="h-mand"><div class="wrap">
+  <h2 id="h-mand">Four 2026 Items Ask Indian Banks to Know Where Customer Data Sits</h2>
+  <div class="grid g4 keep2">
+    <div class="card"><span class="chip">Advisory</span><h3>RBI Advisory No. 3/2026</h3><p>25 March 2026. Asks banks to tag and classify customer data with automated tools, across in-house, cloud and third-party systems.</p></div>
+    <div class="card"><span class="chip">Regulation</span><h3>DPDP Rules 2025</h3><p>Notified 13 November 2025. Full obligations due around 13 May 2027. MeitY has proposed an earlier date.</p></div>
+    <div class="card"><span class="chip">Regulation</span><h3>RBI Cybersecurity and Technology Risk Directions</h3><p>Issued and effective 31 July 2026. Consolidates RBI technology rules for commercial banks.</p></div>
+    <div class="card"><span class="chip hollow">Draft guidance</span><h3>RBI model risk management draft</h3><p>24 June 2026. Covers AI and ML models, third-party models included.</p></div>
+  </div>
+  <p style="font-size:13px;color:var(--mute)">AccuKnox also maps RBI MD-ITF, the RBI-UCB framework, SEBI CSCRF and CERT-In reporting in the compliance module.</p>
+  <p class="note"><b>Sources.</b> <code>references/product-research/dspm/india-bank-data-mandates-2026-09.md</code>. Link RBI's own pages for the Directions and the draft. Link the MediaNama summary for the advisory. [confirm the clause numbers in the 31 July 2026 Directions before any card cites a clause]</p>
+</div></section>
+
+<!-- 3 VALUE -->
+<section aria-labelledby="h-value"><div class="wrap">
+  <h2 id="h-value">Bank Data Never Leaves Your Region to Get Classified</h2>
+  <div class="grid g4 keep2">
+    <div class="card"><h3>Classify in place</h3><p>The scanner runs on a VM or cluster in your account, in the region that holds the data.</p></div>
+    <div class="card"><h3>Read-only by design</h3><p>A reader role or a read-only login. The code has no write path.</p></div>
+    <div class="card"><h3>Only findings leave</h3><p>One findings file per store, over HTTPS. Nothing leaves with the on-premises console.</p></div>
+    <div class="card"><h3>No cross-region moves</h3><p>The AWS role denies other regions by condition. Azure storage firewalls scope the scanner to its region.</p></div>
+  </div>
+  <p class="note"><b>Source.</b> All four tiles are tier D, from the data-handling table in <code>docs/getting-started/dspm-overview.md</code>.</p>
+</div></section>
+
+<!-- 4 SOLUTIONS BY JOB -->
+<section aria-labelledby="h-sol"><div class="wrap tabs" data-tabs>
+  <h2 id="h-sol">Four Bank Teams Get a Different Answer From the Same Scan</h2>
+  <div role="tablist" aria-label="Solutions by team">
+    <button role="tab" aria-selected="true" aria-controls="s1" id="t-s1">CISO</button>
+    <button role="tab" aria-selected="false" aria-controls="s2" id="t-s2" tabindex="-1">Data protection officer</button>
+    <button role="tab" aria-selected="false" aria-controls="s3" id="t-s3" tabindex="-1">Cloud and platform</button>
+    <button role="tab" aria-selected="false" aria-controls="s4" id="t-s4" tabindex="-1">Internal audit</button>
+  </div>
+  <div role="tabpanel" id="s1" aria-labelledby="t-s1" class="grid g3">
+    <div class="card"><h3>Where is customer data</h3><p>Every S3 bucket, database and drive that holds Aadhaar, PAN or card numbers.</p></div>
+    <div class="card"><h3>Who can reach it</h3><p>User-to-asset mapping and over-permission detection.</p></div>
+    <div class="card"><h3>What is public</h3><p>Sensitive data in publicly exposed stores, with an alert.</p></div>
+  </div>
+  <div role="tabpanel" id="s2" aria-labelledby="t-s2" class="grid g3" hidden>
+    <div class="card"><h3>DPDP data classes</h3><p>17 data classes map to the DPDP Act 2023 and SPDI Rules 2011.</p></div>
+    <div class="card"><h3>Section-level posture</h3><p>The DPDP framework in the compliance module scores 18 sections of the Act.</p></div>
+    <div class="card"><h3>Evidence per finding</h3><p>Data type, confidence, location and a hash of the value. The value is cut at 200 characters.</p></div>
+  </div>
+  <div role="tabpanel" id="s3" aria-labelledby="t-s3" class="grid g3" hidden>
+    <div class="card"><h3>Pick a deployment form</h3><p>A VM with systemd timers, a Kubernetes CronJob or an AWS Lambda function.</p></div>
+    <div class="card"><h3>Grant read-only access</h3><p>One read-only grant per data store. Platform identity where possible.</p></div>
+    <div class="card"><h3>Pin the image</h3><p>Mirror the scanner image into your own registry.</p></div>
+  </div>
+  <div role="tabpanel" id="s4" aria-labelledby="t-s4" class="grid g3" hidden>
+    <div class="card"><h3>Nightly evidence</h3><p>Each data store rescans every night.</p></div>
+    <div class="card"><h3>Framework reports</h3><p>Findings grouped by framework for the auditor.</p></div>
+    <div class="card"><h3>Trend over time</h3><p>Compliance score and baseline tracking per framework.</p></div>
+  </div>
+  <p class="note"><b>Sources.</b> DSPM cards are tier D from the DSPM help docs, except "Who can reach it" and "What is public", which come from the live DSPM page. The 18-section DPDP score comes from the AccuKnox DPDP blog and belongs to the CNAPP compliance module, not DSPM.</p>
+</div></section>
+
+<!-- 5 MATRIX -->
+<section id="matrix" aria-labelledby="h-mx"><div class="wrap">
+  <h2 id="h-mx">Each Indian Rule and Advisory Maps to an AccuKnox Module and an Evidence File</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th scope="col">Rule</th><th scope="col">What the bank must show</th><th scope="col">AccuKnox module</th><th scope="col">Evidence for the auditor</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">RBI Advisory No. 3/2026 (advisory)</th><td>Automated tagging and classification of customer data across in-house, cloud and third-party systems</td><td>DSPM discovery and classification</td><td>Data store inventory with a sensitivity label per finding. Nightly rescans</td></tr>
+      <tr><th scope="row">RBI Cybersecurity and Technology Risk Directions, 2026</th><td>[confirm the data classification and data leak prevention clauses]</td><td>CSPM framework mapping. DSPM</td><td>Control pass and fail per asset. Sensitive data location report</td></tr>
+      <tr><th scope="row">DPDP Act 2023, SPDI Rules 2011</th><td>Personal data is protected by reasonable security safeguards</td><td>DSPM classification. CNAPP DPDP framework</td><td>Findings for 17 data classes, including Aadhaar, PAN and GST. Section-level compliance score</td></tr>
+      <tr><th scope="row">RBI MD-ITF</th><td>[confirm the MD-ITF data security control IDs]</td><td>CSPM framework mapping on AWS, Azure, GCP and Oracle. DSPM</td><td>Control pass and fail per asset. Sensitive data location report</td></tr>
+      <tr><th scope="row">RBI-UCB framework</th><td>Graded controls, levels I to IV</td><td>CSPM framework mapping. DSPM</td><td>Compliance score and trend</td></tr>
+      <tr><th scope="row">SEBI CSCRF</th><td>[confirm the data protection clauses]</td><td>Compliance module</td><td>Framework report</td></tr>
+      <tr><th scope="row">PCI DSS v4.0</th><td>Protect stored account data</td><td>DSPM</td><td>107 data classes under Requirements 3.4 and 3.5.1, plus credential classes</td></tr>
+      <tr><th scope="row">CERT-In</th><td>Software and AI inventory</td><td>SBOM and AI-BOM</td><td>CERT-In fields populated automatically</td></tr>
+      <tr><th scope="row">RBI AI model risk draft</th><td>A live inventory of AI and ML models</td><td>AI-SPM, Shadow AI Discovery, AI red teaming</td><td>Model inventory, red team results</td></tr>
+    </tbody>
+  </table></div>
+  <!--IMG:docs/getting-started/images/dspm/dspm-finding-solution.png|The Solution tab of a DSPM finding, with the fix and links to CWE-312 and the AWS access key guide|Each finding carries the fix and the reference links an auditor asks for.-->
+  <p class="note"><b>Accuracy rule.</b> Two cells stay in brackets until compliance or product names the exact control. Never invent an RBI or SEBI control number.</p>
+</div></section>
+
+<!-- 6 DATA CLASSES -->
+<section aria-labelledby="h-dc"><div class="wrap">
+  <h2 id="h-dc">283 Data Classes Include the Identifiers Indian Banks Hold</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Indian identifiers</h3><ul><li>Aadhaar</li><li>PAN</li><li>GST</li><li>Indian passport</li></ul><p>Checked with the public check-digit algorithm where one exists.</p></div>
+    <div class="card"><h3>Financial data</h3><ul><li>Card numbers by issuer prefix and checksum</li><li>Bank account numbers</li><li>SWIFT/BIC, IBAN</li></ul></div>
+    <div class="card"><h3>Credentials and secrets</h3><ul><li>114 classes</li><li>Cloud keys, vendor tokens, private keys</li></ul></div>
+  </div>
+  <p class="note"><b>Gap.</b> The docs do not list UPI IDs, IFSC codes or Indian mobile numbers as data classes. [confirm before the page names them]</p>
+</div></section>
+
+<!-- 7 DEPLOYMENT -->
+<section aria-labelledby="h-dep"><div class="wrap">
+  <h2 id="h-dep">The Console and the Scanner Both Run Inside an Air-Gapped Bank</h2>
+  <div class="grid g4 keep2">
+    <div class="card"><span class="chip">Banks start here</span><h3>Air-gapped console</h3><p>Console on premises. Nothing leaves the environment.</p></div>
+    <div class="card"><h3>VM with systemd timers</h3><p>The default. One timer per data store.</p></div>
+    <div class="card"><h3>Kubernetes CronJob</h3><p>For EKS or AKS, with IRSA or workload identity.</p></div>
+    <div class="card"><h3>Event-driven function</h3><p>AWS Lambda scans objects as they land.</p></div>
+  </div>
+  <p class="note"><b>Differentiator.</b> The DSPM overview comparison shows Cyera and IBM Guardium DSPM with no air-gapped option, and Varonis with analysis in its SaaS. Add those three rows here as a small table, sourced from the doc.</p>
+</div></section>
+
+<!-- 8 AI DATA RISK -->
+<section aria-labelledby="h-ai"><div class="wrap">
+  <h2 id="h-ai">Customer Data Also Reaches AI Through Datasets, Prompts and Shadow Tools</h2>
+  <div class="grid g4 keep2">
+    <div class="card"><h3>Training datasets</h3><p>Scan datasets for PII and PHI before a model trains on them.</p></div>
+    <div class="card"><h3>Prompts</h3><p>The Prompt Firewall masks PII and card numbers before they reach a model.</p></div>
+    <div class="card"><h3>Shadow AI</h3><p>Find the AI tools and agents that staff use without approval.</p></div>
+    <div class="card"><h3>AI gateway and AI-BOM</h3><p>Govern which model receives which data, and list every model in an AI-BOM.</p><span class="chip hollow">Gateway coming soon</span></div>
+  </div>
+  <div class="btns"><a class="btn" href="#">Shadow AI Discovery</a><a class="btn" href="#">AI Security Platform</a></div>
+</div></section>
+
+<!-- 9 PROOF -->
+<section aria-labelledby="h-proof"><div class="wrap">
+  <h2 id="h-proof">A Top 3 Indian Public Sector Bank Deployed AccuKnox Air-Gapped in 7 Days</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Outcomes</h3><ul><li>7-day deployment, fully air-gapped, on premises</li><li>10 projects scanned</li><li>CERT-In fields populated automatically</li><li>Validated against CERT-In and the RBI IT Framework</li></ul></div>
+    <blockquote class="card" style="margin:0;font-size:17px">&ldquo;AccuKnox gave us a complete picture of our software supply chain inside a fully air-gapped environment, in a week. CERT-In evidence that previously took manual effort is now generated automatically across every project.&rdquo;<p style="margin-top:10px"><b>Security Leadership</b>, Top #3 Indian Public Sector Bank</p></blockquote>
+  </div>
+  <p class="note"><b>Label it honestly.</b> This case study covers SBOM on the same air-gapped platform, not DSPM. Say so in the caption. Replace it with a DSPM bank reference when one exists.</p>
+</div></section>
+
+<!-- 10 INTEGRATIONS -->
+<section aria-labelledby="h-int"><div class="wrap">
+  <h2 id="h-int">DSPM Reads Object Stores, Databases and SaaS Apps Across AWS, Azure and Your Own Hosts</h2>
+  <div class="group"><h3>AWS</h3><div class="logos"><span>S3</span><span>RDS and Aurora</span><span>DynamoDB</span><span>DocumentDB</span><span>Secrets Manager</span></div></div>
+  <div class="group"><h3>Azure</h3><div class="logos"><span>Blob Storage</span><span>ADLS Gen2</span><span>Azure SQL</span><span>Azure Database for PostgreSQL and MySQL</span><span>Cosmos DB</span><span>Key Vault</span></div></div>
+  <div class="group"><h3>Self-managed, any host</h3><div class="logos"><span>PostgreSQL</span><span>MySQL</span><span>MariaDB</span><span>SQL Server</span><span>MongoDB</span></div></div>
+  <div class="group"><h3>SaaS</h3><div class="logos"><span>Google Drive</span><span>Salesforce</span></div></div>
+  <p class="note"><b>Scope.</b> GCP data stores and Oracle Cloud are not in the DSPM store list, so leave them off this section.</p>
+</div></section>
+
+<!-- 11 FAQ -->
+<section aria-labelledby="h-faq"><div class="wrap">
+  <h2 id="h-faq">DSPM for Indian Banks FAQs</h2>
+  <details><summary>Does customer data leave India?</summary><p>No. Classification runs in the region that holds the data. Only a findings file leaves, and nothing leaves with the on-premises console.</p></details>
+  <details><summary>Can AccuKnox DSPM run air-gapped?</summary><p>Yes. The console and the scanner both run on premises with no internet connection.</p></details>
+  <details><summary>Which Indian identifiers does it detect?</summary><p>Aadhaar, PAN, GST and Indian passport numbers, checked with a check-digit algorithm where one exists.</p></details>
+  <details><summary>Does it help with the DPDP Act?</summary><p>Yes. 17 data classes map to the DPDP Act 2023 and SPDI Rules 2011. The compliance module scores the Act section by section.</p></details>
+  <details><summary>Can the scanner change or delete data?</summary><p>No. It holds read-only grants, and the code has no write path.</p></details>
+</div></section>
+
+<!-- 12 CTA -->
+<section id="cta" class="cta" aria-labelledby="h-cta"><div class="wrap">
+  <h2 id="h-cta">Map Your Sensitive Data to RBI and DPDP Controls</h2>
+  <p class="lead" style="margin:0 auto">Start with one data store in one region. Read the onboarding guide first.</p>
+  <div class="btns"><a class="btn primary" href="#">Book a DSPM assessment</a><a class="btn" href="#">DSPM onboarding guide</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Wireframe for review. No brand color, imagery or final copy. Related pages: DSPM · Compliance for Finance · Shadow AI Discovery · AI Security</div></footer>
+
+<script>/*JS*/</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+{
+  "vendor": "Airia",
+  "slug": "airia",
+  "website": "https://airia.com",
+  "what_it_is": "Enterprise AI platform to build, orchestrate, secure and govern AI agents.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "partial"
+      },
+      "reason": "AI Discovery and Security Posture Management find shadow AI via IdP, browser, endpoint, network, MCP and code scanning.",
+      "url": "https://airia.com/ai-platform/security-posture-management",
+      "url_type": "vendor",
+      "evidence": "Identify AI agents, LLM API calls, and integrations across your organization, including shadow deployments",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "2": {
+      "status": "yes",
+      "sub": {
+        "2.1": "partial",
+        "2.2": "yes",
+        "2.3": "yes"
+      },
+      "reason": "MCP Gateway plus Agent Constraints that limit tool access and validate tool parameters at the execution layer.",
+      "url": "https://airia.com/ai-platform/agent-constraints",
+      "url_type": "vendor",
+      "evidence": "Control which tools agents can invoke and restrict the conditions under which they can act.",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "3": {
+      "status": "yes",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "partial",
+        "3.3": "yes"
+      },
+      "reason": "Inline Security Runbooks intercept agent tool calls and return resume, block or escalate. SIEM export not found.",
+      "url": "https://airia.com/blog/airia-announces-inline-security-runbooks-to-intercept-risky-ai-agent-actions-in-real-time",
+      "url_type": "vendor",
+      "evidence": "Security Runbooks that trigger inline, at the exact moment an AI agent attempts a tool call",
+      "verify": "confirmed",
+      "verify_note": "Runbook blog confirms inline block. The Sentinel page is an MCP tool connector, not alert export, so 3.2 stays partial."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "Responsible AI Guardrails block prompt injection and jailbreaks, mask PII and check outputs for toxicity and bias.",
+      "url": "https://airia.com/ai-platform/guardrails/",
+      "url_type": "vendor",
+      "evidence": "Block prompt injection, jailbreak attempts, and manipulation patterns before they reach the model.",
+      "verify": "confirmed",
+      "verify_note": "Guardrails page failed once with Bad Gateway, then loaded on retry and confirms all three subs."
+    },
+    "5": {
+      "status": "yes",
+      "sub": {
+        "5.1": "yes",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Compliance Reporting maps AI assets to EU AI Act, NIST AI RMF and ISO 42001, with audit trails.",
+      "url": "https://airia.com/ai-platform/risk-classifications/",
+      "url_type": "vendor",
+      "evidence": "Map to EU AI Act risk tiers, NIST AI RMF functions, internal compliance policies",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "yes"
+      },
+      "reason": "Agent Red Teaming runs continuous multi-step attack campaigns with framework-aligned attack libraries.",
+      "url": "https://airia.com/ai-platform/agent-red-teaming",
+      "url_type": "vendor",
+      "evidence": "Simulate multi-step attacks across prompts, tools, APIs, and memory layers. Run continuous campaigns",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "partial",
+        "7.2": "yes",
+        "7.3": "no"
+      },
+      "reason": "Agent Constraints scope tool access and a credential store secures MCP credentials. No NHI discovery found.",
+      "url": "https://airia.com/blog/why-ai-agents-need-scoped-access/",
+      "url_type": "vendor",
+      "evidence": "enforcing least privilege at the agent level, the tool level",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "no",
+        "8.2": "no",
+        "8.3": "partial"
+      },
+      "reason": "Code repository scanning finds LLM integrations in source. No model file or dataset scanning found.",
+      "url": "https://airia.com/ai-platform/ai-discovery/",
+      "url_type": "vendor",
+      "evidence": "Searched 'airia.com model scanning Hugging Face malicious model' and 'airia.com code repository scanning'. Page lists Code Repository Scanning, LLM integrations in repositories",
+      "verify": "confirmed",
+      "verify_note": "Cited page loads and supports the claim. Subs re-scored with the strict tests, no change."
+    }
+  },
+  "notes": "Airia is an agent build and orchestration platform first, with security and governance modules on top. Raised $100M. Has an 'Airia vs Noma Security' comparison page. Managed-platform agent coverage (Copilot, Agentforce, ServiceNow) is discussed in blogs, a dedicated integration page was not found. Also integrates Semgrep as an agent tool, which is not AI SAST by Airia itself."
+}

@@ -128,7 +128,7 @@ the comparison. `writing-rules.md` section 10 is hard on this, and a comparison
 sourced from a competitor's own documentation is the only version that survives
 their legal team reading it.
 
-`references/comparisons-builder/` in this repo holds the existing comparison
+`references/competitive/battlecards/` in this repo holds the existing comparison
 work. Read it before you write a versus paragraph.
 
 ## Related

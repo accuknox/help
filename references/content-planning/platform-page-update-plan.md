@@ -20,7 +20,7 @@
 4. `AccuKnox Security Maturity Phases` (19 slides), the Phase I/II/III source.
 5. `AccuKnox CISO's Presentation, May 2026` (40 slides), the 12-module feature source.
 6. `references/content-planning/platform-pages-content-plan.md`, the earlier per-module gap analysis.
-7. `references/brian-demo-screenshots/DEMO-SUMMARY.md`, 22 captioned product screenshots.
+7. `references/assets/demo-screenshots/DEMO-SUMMARY.md`, 22 captioned product screenshots.
 8. Live DOM of the `/platform/cdr`, `/platform/siem`, `/platform/ai-security`, `/platform/api-security` and `/platform/dspm` module pages, harvested for product screenshots.
 
 The Google Drive folder was not readable from this session (the Drive API returned an insufficient-scope error). Every image the prototype needs was found on the live site instead, so nothing is blocked. See section 4.
@@ -206,7 +206,7 @@ Only two items remain genuinely missing, and the page works without either.
 | 1 | Runtime as a lens versus a shield | Micro deck S25 | Section 6. Currently rendered as a styled two-column comparison in HTML, which may be enough. |
 | 2 | Maturity phases matrix, 5 tracks x 3 phases | Maturity deck S9, S12, S15, S16, S17 | Section 8. Currently rendered as a tabbed card matrix in HTML. |
 
-Optional upgrades, not blockers: cropped versions of `10-ask-ai-copilot-remediation.png`, `17-ai-red-teaming-risks.png` and `21-zero-trust-policy-discovery.png` from `references/brian-demo-screenshots/` if higher-fidelity captures are wanted than the marketing-site equivalents.
+Optional upgrades, not blockers: cropped versions of `10-ask-ai-copilot-remediation.png`, `17-ai-red-teaming-risks.png` and `21-zero-trust-policy-discovery.png` from `references/assets/demo-screenshots/` if higher-fidelity captures are wanted than the marketing-site equivalents.
 
 ---
 
