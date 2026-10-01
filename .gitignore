@@ -20,3 +20,6 @@ utils/private-cloud-onboarding-openshift/
 references/CRM exports/
 references/PRODUCT UI/10_reports/customer reports/
 references/PRODUCT UI/*-signals-all-*.xlsx
+
+# Video edit workspaces hold customer recordings. Never commit.
+references/video-edits/
