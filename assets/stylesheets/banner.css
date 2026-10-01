@@ -1,0 +1,135 @@
+/* 
+ * Custom Banner Styling for AccuKnox Documentation
+ * This follows Material for MkDocs design principles
+ */
+
+/* Banner container */
+.md-banner, .banner-content {
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 0.8125rem;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 100%;
+}
+
+.banner-content {
+  background: transparent;
+  padding: 0;
+}
+
+/* Banner text */
+.md-banner__text {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  flex: 1;
+}
+
+/* Link styling in banner */
+.md-banner a,
+.md-banner a:visited {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.md-banner a:hover {
+  color: #ffffff;
+  text-decoration-thickness: 2px;
+}
+
+/* Close button styling */
+.md-banner__close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.md-banner__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.md-banner__close:active {
+  transform: scale(0.95);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 76.1875em) {
+  .md-banner, .banner-content {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-banner, .banner-content {
+    gap: 1rem;
+    font-size: 0.7rem;
+  }
+  
+  .md-banner__text {
+    display: block;
+  }
+  
+  .md-banner__close {
+  }
+  
+  .md-banner__close svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Dark mode specific adjustments */
+[data-md-color-scheme="slate"] .md-banner {
+  background: linear-gradient(135deg, #1e3a5f 0%, #172554 100%);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+[data-md-color-scheme="slate"] .md-banner a,
+[data-md-color-scheme="slate"] .md-banner a:visited {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .md-banner a:hover {
+  color: #ffffff;
+}
+
+/* Ensure banner doesn't interfere with header */
+.md-header {
+  position: relative;
+  z-index: 3;
+}
+
+/* Add slight animation on page load */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.md-banner {
+  animation: slideDown 0.3s ease-out;
+}

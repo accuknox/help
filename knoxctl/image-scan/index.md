@@ -1,0 +1,129 @@
+---
+title: "Container Image Scanner"
+description: "Scan container images running on a VM using knoxctl and submit vulnerability results directly to the AccuKnox SaaS platform."
+weight: 4
+summary: "Knoxctl can scan container images running on a perticular VM and submit the results to SaaS"
+hide:
+  - toc
+---
+
+# Container Image Scanner
+
+AccuKnox offers a container image scanning solution designed to periodically inspect container images running on your machine.
+
+## 🛠 Installation Guide
+
+Follow these steps to deploy the container image scanner:
+
+### 1. Create a Label
+
+In the AccuKnox Control Plane, create a unique [**Label**](./../how-to/how-to-create-labels.md). This will be associated with the container image scan reports.
+
+### 2. Generate a Token
+
+From the AccuKnox Control Plane:
+
+- Generate an [**Artifact Token**](./../how-to/how-to-create-tokens.md)
+- Note the **Token**
+
+### 3. Scan your machine
+
+Use the following command to scan your machine:
+
+```bash
+knoxctl image-scan --artifactEndpoint="<url>" \
+    --token="<authToken>" \
+    --label="<label>"
+```
+
+Replace the parameters (`<authToken>`, `<url>` and `<label>`) with the appropriate values.
+
+if you want to scan the machine on a regular basis you can configure the scan to be run by systemd timers by running the following script.
+
+Before running the script you need to replace the parameters (`<authToken>`, `<url>` and `<label>`) with their appropriate values.
+
+```bash
+#!/bin/bash
+
+export AK_BASE_URL="<url>"
+export AK_TOKEN="<authToken>"
+export AK_LABEL="<label>"
+
+cat <<EOF | sudo tee /etc/systemd/system/accuknox-container-scan.service
+# This service unit is for container image scanning
+# By AccuKnox Inc
+#
+
+[Unit]
+Description=Scan running container images and post results to AccuKnox SaaS
+Wants=accuknox-container-scan.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/knoxctl image-scan --artifactEndpoint="$AK_BASE_URL" --token="$AK_TOKEN" --label="$AK_LABEL"
+MemoryHigh=1800M
+MemoryMax=2G
+KillMode=control-group
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cat <<EOF | sudo tee /etc/systemd/system/accuknox-container-scan.timer
+# This service unit is for container image scanning
+# By AccuKnox Inc
+#
+
+[Unit]
+Description=Scan running container images and post results to AccuKnox SaaS
+Requires=accuknox-container-scan.service
+
+[Timer]
+Unit=accuknox-container-scan.service
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+
+systemctl daemon-reload
+systemctl enable --now accuknox-container-scan.timer
+```
+
+The above will run the scan daily at midnight, you can change the execution time by modifying the value of `OnCalendar` in the systemd timer configuration.
+
+### ⚙️ Parameters:
+
+| Variable  | Sample Value      | Description                |
+| --------- | ----------------- | -------------------------- |
+| authToken | eyJhbGc...        | AccuKnox Token {JWT}       |
+| url       | cspm.accuknox.com | AccuKnox CSPM API Endpoint |
+| label     | kubeshield        | AccuKnox Label             |
+
+### ✅ Post-Installation
+
+Once the scan is completed, results will be visible in the [**Findings**](https://app.accuknox.com/issues/findings/findings-summary) or [**Registry Scan**](https://app.accuknox.com/issues/registry-scan) sections within the AccuKnox Control Plane.
+
+- Navigate to [**Issues -> Findings**](https://app.accuknox.com/issues/findings/findings-summary)
+- Switch to **Findings** tab
+- Select **Container Image Findings** & do **Group by** based on **Label Name**
+- You should be able to see the data for the **Label** used in above command
+
+## Check Services in a VM
+
+- See if a service is running:
+
+  ```sh
+  sudo systemctl status <service_name> # e.g., kubearmor, vm-adapter
+
+  sudo systemctl status accuknox-container-scan
+  sudo systemctl status accuknox-container-scan.timer
+  ```
+
+- List all running services:
+
+  ```sh
+  systemctl --type=service --state=running
+  ```
