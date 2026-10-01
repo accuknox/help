@@ -1,0 +1,14 @@
+{
+  "linkedin_ad_account_id": "<ad account id, Campaign Manager > Account settings>",
+  "usd_ad_account_id": "<USD ad account id, if it differs>",
+  "campaign_manager_url": "https://www.linkedin.com/campaignmanager/accounts?businessId=<business id>",
+  "business_id": "<business id from the Campaign Manager URL>",
+  "insight_tag_partner_id": "<partner id from the Insight Tag snippet>",
+  "analytics_sheet_url": "<Google Sheet that logs paid ad results>",
+  "booking_url": "<Cal.com or demo booking page for the lead form thank-you step>",
+  "deck_url": "<Google Slides playbook deck, filled in after the first build>",
+  "share_domain": "accuknox.com",
+  "monthly_budget_per_campaign_usd": 1000,
+  "past_ads_csv": "private/<export of the LinkedIn Paid Ads tab>.csv",
+  "past_ads_snapshot": "<YYYY-MM-DD, the latest Report Date in the tab>"
+}
