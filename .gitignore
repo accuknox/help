@@ -23,3 +23,14 @@ references/PRODUCT UI/*-signals-all-*.xlsx
 
 # Video edit workspaces hold customer recordings. Never commit.
 references/video-edits/
+
+# LinkedIn ads skill. The vendored plugin has no license, and the local config
+# holds the ad account IDs, the analytics sheet link and past spend.
+.claude/skills/accuknox-linkedin-ads/vendor/
+.claude/skills/accuknox-linkedin-ads/config.local.json
+references/campaigns/paid-ads-q4-2026/private/
+references/campaigns/paid-ads-q4-2026/out/
+# Pexels photos stay local (the license bars redistribution as stock). LICENSES.md lists the sources.
+references/campaigns/paid-ads-q4-2026/photos/*.jpg
+# AgentZ ad images carry third-party model logos. The Drive folder is the source.
+references/campaigns/paid-ads-q4-2026/agentz/images/
