@@ -244,8 +244,17 @@ def url_status(url, tries=3):
 
 # ------------------------------------------------------------- images ------
 
-def image_bytes(src, target_w=270, max_h=210):
-    """Resize any image file to evidence size. Returns (PNG buffer, w, h)."""
+EVIDENCE_W, EVIDENCE_H = 400, 300   # display box in the cell, in pixels
+EMBED_MAX = 1200                    # longest embedded edge; the cell only scales the display
+
+
+def image_bytes(src, target_w=EVIDENCE_W, max_h=EVIDENCE_H):
+    """Prepare an evidence image. Returns (PNG buffer, display w, display h).
+
+    The pixels stay at source resolution up to EMBED_MAX, so the picture stays sharp when the
+    reader zooms. Only the display size is fitted to the cell. Shrinking the pixels to the display
+    size is what made earlier evidence images blurry.
+    """
     from PIL import Image
     im = Image.open(src)
     if im.mode not in ("RGB", "RGBA"):
@@ -255,21 +264,24 @@ def image_bytes(src, target_w=270, max_h=210):
         bg.paste(im, mask=im.split()[3])
         im = bg
     w, h = im.size
-    nw, nh = target_w, max(1, int(h * target_w / w))
-    if nh > max_h:
-        nw, nh = max(1, int(w * max_h / h)), max_h
-    im = im.resize((nw, nh), Image.LANCZOS)
+    scale = min(1.0, EMBED_MAX / max(w, h))
+    if scale < 1.0:
+        im = im.resize((max(1, int(w * scale)), max(1, int(h * scale))), Image.LANCZOS)
+    dw, dh = min(target_w, w), max(1, int(h * min(target_w, w) / w))
+    if dh > max_h:
+        dw, dh = max(1, int(w * max_h / h)), max_h
     buf = io.BytesIO()
-    im.save(buf, format="PNG")
+    im.save(buf, format="PNG", optimize=True)
     buf.seek(0)
-    return buf, nw, nh
+    return buf, dw, dh
 
 
-def add_image(ws, row, col, src, target_w=270, max_h=210):
-    """Anchor an image at (row, col) with a one-cell anchor, and grow the row to fit."""
+def add_image(ws, row, col, src, target_w=EVIDENCE_W, max_h=EVIDENCE_H):
+    """Anchor an image at (row, col) with a one-cell anchor, and grow the row and column to fit."""
     from openpyxl.drawing.image import Image as XLImage
     from openpyxl.drawing.spreadsheet_drawing import AnchorMarker, OneCellAnchor
     from openpyxl.drawing.xdr import XDRPositiveSize2D
+    from openpyxl.utils import get_column_letter
     from openpyxl.utils.units import pixels_to_EMU
 
     buf, w, h = image_bytes(src, target_w, max_h)
@@ -283,6 +295,10 @@ def add_image(ws, row, col, src, target_w=270, max_h=210):
     need = h * 0.75 + 12
     if (ws.row_dimensions[row].height or 15) < need:
         ws.row_dimensions[row].height = need
+    letter = get_column_letter(col)  # row 1 is often a merged title cell
+    need_w = (target_w + 12) / 7   # about 7 px per width unit
+    if (ws.column_dimensions[letter].width or 10) < need_w:
+        ws.column_dimensions[letter].width = need_w
     return w, h
 
 

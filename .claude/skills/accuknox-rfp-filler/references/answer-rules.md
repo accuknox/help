@@ -92,6 +92,15 @@ Try the sources in this order and stop at the first one that proves the claim.
 Open every image before you use it. Check that it shows the claimed capability, that it carries no
 customer or tenant data, and that it is not under `release-notes/v3.7/` or any other unpublished draft.
 
+Only a strictly relevant image goes in. A logo, an icon, a marketing banner, a release-highlights
+collage or a generic architecture picture on a non-architecture row does not count. When nothing
+fits, set `"image": null` and `"image_missing": true`. `fill.py` then leaves the evidence cell blank
+and fills it red in both copies, so someone finds or makes the image before sending. Clear those red
+fills in the customer copy before it goes out.
+
+`rfp_lib.add_image` embeds the source pixels, up to 1200 px on the long side, and fits only the
+display size to the cell.
+
 ## 6. Links
 
 - `help.accuknox.com` is the primary source. `rfp_lib.doc_url()` maps a docs path to its live URL.
@@ -133,3 +142,4 @@ A wrong GREEN is worse than an honest RED.
 | Researched reporting for a delta-analysis row | TDM SAST row 35 | Section 2 |
 | Saving without Pillow deleted every image | TDM, first pass | `rfp_lib.require_pillow()` |
 | A dropdown value with a double space looked illegal | TDM | Compare raw cell values |
+| Evidence images downscaled to 270 px, and a bare Jenkins logo used as evidence | CIMARG v4 | Section 5, `rfp_lib.image_bytes` |

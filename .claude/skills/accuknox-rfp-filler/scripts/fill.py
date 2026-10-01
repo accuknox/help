@@ -80,6 +80,7 @@ def compose(bullets, urls, existing=""):
 
 def apply(wb, prof, answers, workdir, internal):
     from openpyxl.styles import Alignment, Font, PatternFill
+    from openpyxl.utils import get_column_letter
 
     by_sheet = {s["sheet"]: s for s in prof["sheets"] if "rows" in s}
     log = []
@@ -106,11 +107,13 @@ def apply(wb, prof, answers, workdir, internal):
         cur = L.cell_text(ws.cell(a["row"], rc).value)
         entry["orig_response"] = cur or None
         if a.get("verdict") and (not cur or mode == "override"):
-            resp, degraded = L.resolve_response(a["verdict"], sp["vocab"])
             if a.get("response"):
-                if a["response"] not in sp["options"]:
+                # an explicit dropdown string wins, which also covers scales like S/C that map to no verdict
+                if sp["options"] and a["response"] not in sp["options"]:
                     raise Stop(f"{a['sheet']} r{a['row']}: response {a['response']!r} is not a dropdown option")
-                resp = a["response"]
+                resp, degraded = a["response"], None
+            else:
+                resp, degraded = L.resolve_response(a["verdict"], sp["vocab"])
             if degraded:
                 note = (note + " | " if note else "") + degraded
                 if "sign-off" in degraded:
@@ -155,6 +158,10 @@ def apply(wb, prof, answers, workdir, internal):
                 L.add_image(ws, a["row"], ec, src)
                 entry["changed"].append("image")
                 entry["image"] = a["image"]
+        elif a.get("image_missing") and ec and a["row"] not in L.anchored_rows(ws):
+            # no strictly relevant image exists: leave the cell blank and mark it red in both copies
+            ws.cell(a["row"], ec).fill = PatternFill("solid", fgColor=L.FLAG_FILL["RED"])
+            entry["image"] = "none relevant (cell marked red)"
 
         # review note, internal copy only
         if internal:
@@ -178,7 +185,7 @@ def apply(wb, prof, answers, workdir, internal):
             c.font = Font(bold=True, color="FFFFFF", size=10)
             c.fill = PatternFill("solid", fgColor=L.NAVY)
             c.alignment = Alignment(wrap_text=True, vertical="center")
-            ws.column_dimensions[ws.cell(1, nc).column_letter].width = 52
+            ws.column_dimensions[get_column_letter(nc)].width = 52
     return log
 
 
