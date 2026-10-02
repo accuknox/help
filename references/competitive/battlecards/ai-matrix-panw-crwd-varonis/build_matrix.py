@@ -1,4 +1,4 @@
-"""Build the AccuKnox vs Palo Alto Networks, CrowdStrike and Varonis AI security matrix PDF.
+"""Build the AccuKnox vs Palo Alto Networks, CrowdStrike, Varonis and Zscaler AI security matrix PDF.
 
 The PDF is a 16:9 document. The cover and the closing page are the fixed
 layouts 0 and 1 from doc-ppt-template/PPT Template.pptx, exported through
@@ -25,7 +25,10 @@ A = HERE / "assets"
 BUILD = HERE / "build"
 TPL = pathlib.Path(r"D:\AccuKnox\doc-ppt-template")
 OUT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(
-    r"D:\AccuKnox\AccuKnox_vs_PaloAlto_CrowdStrike_Varonis_AI_Security.pdf")
+    r"D:\AccuKnox\AccuKnox_vs_PaloAlto_CrowdStrike_Varonis_Zscaler_AI_Security.pdf")
+
+
+COVER_TITLE = r"AccuKnox vs Palo Alto,\nCrowdStrike, Varonis\nand Zscaler AI Security"
 
 
 def b64(name):
@@ -103,7 +106,7 @@ def ul(items):
     return "<ul>" + "".join(f"<li>{i}</li>" for i in items) + "</ul>"
 
 
-VENDORS = [("panw", "Palo Alto Networks"), ("crwd", "CrowdStrike"), ("vrns", "Varonis")]
+VENDORS = [("panw", "Palo Alto Networks"), ("crwd", "CrowdStrike"), ("vrns", "Varonis"), ("zs", "Zscaler")]
 
 
 def vhead():
@@ -111,7 +114,7 @@ def vhead():
 
 
 def thead():
-    return (f'<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c3"><col class="c3"></colgroup>'
+    return (f'<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c3"><col class="c3"><col class="c3"></colgroup>'
             f'<thead><tr><th class="h-cap">Capability</th><th class="h-ak"><img src="{b64("accuknox-logo.png")}"></th>'
             f'{vhead()}</tr></thead>')
 
@@ -142,7 +145,7 @@ def page(mod, title, body, sub=None):
 <header><div class="hl"><span class="mod">{mod}</span><h1>{title}</h1>{s}</div>
 <img class="hlogo" src="{b64('accuknox-logo.png')}"></header>
 <div class="body">{body}</div>
-<footer><span>AccuKnox vs Palo Alto Networks, CrowdStrike and Varonis &middot; AI Security</span><span>{PAGE_NO[0]}</span></footer>
+<footer><span>AccuKnox vs Palo Alto Networks, CrowdStrike, Varonis and Zscaler &middot; AI Security</span><span>{PAGE_NO[0]}</span></footer>
 </section>"""
 
 
@@ -160,7 +163,7 @@ def glance():
     proof = "".join(f'<div class="pf">{ic("award", "pfi")}<span>{t}</span></div>' for t in D.PROOF)
     return f"""<div class="verdict"><div class="lbl">Choose AccuKnox to</div><div class="picks">{picks}</div></div>
 <div class="tally">{tally}</div>
-<table class="glance"><colgroup><col style="width:24.5%"><col style="width:21.5%"><col style="width:18%"><col style="width:18%"><col style="width:18%"></colgroup>
+<table class="glance"><colgroup><col style="width:22.5%"><col style="width:19.5%"><col style="width:14.5%"><col style="width:14.5%"><col style="width:14.5%"><col style="width:14.5%"></colgroup>
 <thead><tr><th>Module</th><th class="h-ak"><img src="{b64('accuknox-logo.png')}"></th>{head}</tr></thead><tbody>{body}</tbody></table>
 <div class="proof">{proof}</div>"""
 
@@ -258,22 +261,22 @@ footer{display:flex;justify-content:space-between;font-size:7.4pt;color:#8A92AA;
 
 /* matrix table */
 table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}
-col.c1{width:17%}col.c2{width:29%}col.c3{width:18%}
+col.c1{width:13.5%}col.c2{width:25.5%}col.c3{width:15.25%}
 thead th{padding:5px 9px 6px;text-align:left;border-bottom:2px solid var(--navy);font-size:7.6pt;text-transform:uppercase;letter-spacing:.5px;color:var(--mute);vertical-align:bottom}
 th.h-ak{background:#EEF3FF;border-radius:8px 8px 0 0;border-bottom-color:var(--blue)}
 th.h-ak img{height:19px}
-.vn{font-size:11.5pt;font-weight:700;color:#3A4262;text-transform:none;letter-spacing:0}
+.vn{font-size:10.5pt;font-weight:700;color:#3A4262;text-transform:none;letter-spacing:0}
 tbody tr{break-inside:avoid}
-td{vertical-align:top;padding:11px 10px 10px;border-bottom:1px solid var(--line)}
-td.cap .capw{display:flex;gap:7px;align-items:flex-start;font-weight:700;font-size:13.5pt;line-height:1.12;color:var(--navy)}
+td{vertical-align:top;padding:8px 8px 7px;border-bottom:1px solid var(--line)}
+td.cap .capw{display:flex;gap:7px;align-items:flex-start;font-weight:700;font-size:12.5pt;line-height:1.12;color:var(--navy)}
 .capi{width:21px;height:21px;flex:none;color:var(--blue);margin-top:1px}
 td.cap .tk{margin:7px 0 0 28px;font-weight:700;font-size:9.6pt;color:var(--blue);line-height:1.22}
 td.ak{background:#F3F7FF;border-left:3px solid var(--win)}
 td.vd{border-left:3px solid var(--line)}
 td.vd.no,td.vd.noeq{border-left-color:var(--no)} td.vd.lim{border-left-color:#E0A340} td.vd.par{border-left-color:var(--par)} td.vd.yes{border-left-color:#7CC4A0}
-td ul{margin:7px 0 0;padding-left:14px} td li{margin:0 0 4px} td li::marker{color:#9AA3BD}
-td.vd li{color:#4A5270;font-size:10pt}
-td.ak li{font-size:10.8pt}
+td ul{margin:5px 0 0;padding-left:13px} td li{margin:0 0 3px} td li::marker{color:#9AA3BD}
+td.vd li{color:#4A5270;font-size:9.2pt}
+td.ak li{font-size:10pt}
 .chip{display:inline-flex;align-items:center;gap:3px;font-weight:700;font-size:7.4pt;letter-spacing:.3px;padding:1.5px 7px 1.5px 5px;border-radius:9px;text-transform:uppercase;white-space:nowrap}
 .ci{width:9px;height:9px;stroke-width:3}
 .c-win{background:var(--win-bg);color:var(--win)} .c-no{background:var(--no-bg);color:var(--no)}
@@ -295,7 +298,7 @@ b.k{color:var(--navy)}
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
 table.glance th{font-size:8pt}
 table.glance thead th:not(.h-ak){font-size:10pt;font-weight:700;color:#3A4262;text-transform:none;letter-spacing:0}
-table.glance td{padding:6.5px 9px;vertical-align:middle}
+table.glance td{padding:5px 8px;vertical-align:middle}
 td.gm{font-size:10.6pt;color:var(--navy);line-height:1.15}
 td.gm .capi{width:15px;height:15px;margin:0 6px 0 0}
 .gnum{display:inline-block;width:22px;font-size:7.6pt;font-weight:700;color:#8A92AA}
@@ -308,25 +311,25 @@ td.g.ak .gn{color:var(--ink);font-weight:600}
 .pfi{width:15px;height:15px;color:var(--blue);flex:none}
 
 /* shadow AI panel */
-.panel{border:1.5px solid var(--navy);border-radius:10px;padding:11px 12px;break-inside:avoid;background:linear-gradient(180deg,#F4F7FF,#fff 55%);margin-top:10px}
-.panel .hd{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.panel{border:1.5px solid var(--navy);border-radius:10px;padding:8px 10px;break-inside:avoid;background:linear-gradient(180deg,#F4F7FF,#fff 55%);margin-top:7px}
+.panel .hd{display:flex;align-items:center;gap:8px;margin-bottom:5px}
 .panel h3{margin:0;font-size:14pt;color:var(--navy)}
 .panel h3 .neq{color:var(--no)}
-.vs3{display:grid;grid-template-columns:40fr 20fr 20fr 20fr;gap:8px}
-.col{border-radius:8px;padding:7px 9px;background:#fff}
+.vs3{display:grid;grid-template-columns:36fr 16fr 16fr 16fr 16fr;gap:6px}
+.col{border-radius:8px;padding:6px 8px;background:#fff}
 .col.akc{border:1px solid #BFD0FF} .col.vcol{border:1px solid #F0D2B8}
-.col .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:4px}
+.col .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;gap:4px}
 .col .top img{height:14px}
 .col .vn{font-size:9.4pt}
-.surfs{display:grid;grid-template-columns:1fr 1fr;gap:7px 10px}
+.surfs{display:grid;grid-template-columns:1fr 1fr;gap:5px 10px}
 .surf{display:flex;gap:7px;align-items:flex-start}
 .surf .ti{width:15px;height:15px}
 .surf b{display:block;font-size:10.4pt;color:var(--navy)}
-.surf span{font-size:9.2pt;color:#3A4262}
+.surf span{font-size:8.8pt;color:#3A4262}
 .surf .logos{display:block;margin-top:2px}
-.col.vcol ul{margin:0;padding-left:13px;font-size:9.4pt} .col.vcol li{margin:0 0 3px;color:#4A5270}
+.col.vcol ul{margin:0;padding-left:12px;font-size:8.6pt} .col.vcol li{margin:0 0 3px;color:#4A5270}
 .col.vcol li b{color:var(--ink)}
-.ptk{margin-top:9px;font-weight:700;color:var(--blue);font-size:10.6pt}
+.ptk{margin-top:6px;font-weight:700;color:var(--blue);font-size:10.6pt}
 
 /* gateway */
 .gwrap{display:grid;grid-template-columns:58fr 42fr;gap:12px}
@@ -356,14 +359,14 @@ td.g.ak .gn{color:var(--ink);font-weight:600}
 .tn{grid-row:1/3;font-size:20pt;font-weight:700;color:var(--blue)}
 .tm{font-size:8pt;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--mute)}
 .tt{font-size:11.5pt;font-weight:700;color:var(--navy);line-height:1.2}
-.srcs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:4px}
+.srcs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:4px}
 .scol{min-width:0}
 .sh{font-size:11pt;font-weight:700;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:4px;margin-bottom:5px}
 .scol a{display:block;font-size:7.6pt;line-height:1.55;color:var(--blue);text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 code{font-family:Consolas,monospace;font-size:8.4pt;background:#fff;border:1px solid #D5DEF7;border-radius:3px;padding:0 3px}
 .deploy{margin-top:18px;border:1.5px solid var(--navy);border-radius:10px;padding:9px 11px;background:linear-gradient(180deg,#F4F7FF,#fff 60%)}
 .dl{display:flex;gap:8px;align-items:center;font-size:13pt;font-weight:700;color:var(--navy);margin-bottom:7px}
-.dps{display:grid;grid-template-columns:29fr 23.6fr 23.6fr 23.6fr;gap:8px}
+.dps{display:grid;grid-template-columns:24fr 19fr 19fr 19fr 19fr;gap:8px}
 .dp{border:1px solid var(--line);border-left:3px solid var(--no);border-radius:8px;padding:7px 10px;background:#fff}
 .dp.akd{border-left-color:var(--win);background:#F3F7FF}
 .dp img{height:15px;display:block;margin-bottom:4px}
@@ -396,7 +399,7 @@ def build_html():
 def covers():
     pptx = BUILD / "covers.pptx"
     pdf = BUILD / "covers.pdf"
-    subprocess.run(["py", "-3.11", str(TPL / "scripts" / "build_ai_matrix_covers.py"), str(pptx)],
+    subprocess.run(["py", "-3.11", str(TPL / "scripts" / "build_ai_matrix_covers.py"), str(pptx), COVER_TITLE],
                    check=True, capture_output=True)
     ps = BUILD / "topdf.ps1"
     ps.write_text("param([string]$Pptx,[string]$Pdf)\n$pp = New-Object -ComObject PowerPoint.Application\n"
@@ -433,7 +436,7 @@ def main():
     for pg in body.pages:
         w.add_page(pg)
     w.add_page(scaled(cov.pages[1]))
-    w.add_metadata({"/Title": "AccuKnox vs Palo Alto Networks, CrowdStrike and Varonis: AI Security",
+    w.add_metadata({"/Title": "AccuKnox vs Palo Alto Networks, CrowdStrike, Varonis and Zscaler: AI Security",
                     "/Author": "AccuKnox"})
     w.write(OUT)
     print(f"{OUT}: {len(body.pages) + 2} pages")
