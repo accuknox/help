@@ -195,6 +195,8 @@ Red teaming scans are supported across both managed and on-premise AI deployment
 </svg>
 </div>
 
+To red team a model or agent in Azure AI Foundry, onboard the Azure account with the custom role and the **Foundry Agent Consumer** role from the [Azure AI/ML onboarding guide](../how-to/aiml-azure-onboard.md).
+
 Collector setup is covered in [AWS Bedrock](../how-to/aiml-bedrock-collector.md), [NVIDIA Triton](../how-to/aiml-triton-collector.md) and [vLLM](../how-to/aiml-vllm-collector.md).
 
 ![Supported platforms showing managed deployments (AWS SageMaker, Bedrock, Google AI Studio, Azure AI, Anthropic, OpenAI, Vertex AI, Nutanix) and on-prem deployments (Ollama, vLLM, NVIDIA, Run.ai, Hugging Face, Kubeflow)](./images/ai-overview/1.png)
