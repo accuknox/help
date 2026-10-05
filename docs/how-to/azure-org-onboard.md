@@ -97,32 +97,23 @@ After approximately **30 minutes**, the subscription will be automatically deleg
 ---
 ## 3. Roles and Permissions Assigned to the AccuKnox Service Principal
 
-Onboarding assigns the following AI/ML roles and Power Platform access to the AccuKnox Service Principal.
+Onboarding assigns the following roles and permissions to the AccuKnox Service Principal.
 
-**AI/ML built-in roles**
+### Standard Permissions
 
-- Storage Blob Data Reader
-- Cognitive Services Data Reader
-- Foundry Agent Consumer
+| Area | Type | Role or permission |
+|---|---|---|
+| AI/ML | Built-in role | Storage Blob Data Reader |
+| AI/ML | Built-in role | Cognitive Services Data Reader |
+| Power Platform | Dataverse Application User | Registers the AccuKnox Service Principal as a Dataverse Application User |
+| Power Platform | Security role | Assigns the Service Reader security role to the Dataverse Application User |
 
-**Custom role: AccuKnox ML Scanner**
+### AI/ML Red Teaming Permissions
 
-- Actions:
-    - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
-    - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`
-    - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action`
-    - `Microsoft.MachineLearningServices/workspaces/agents/action`
-- Data Actions:
-    - `Microsoft.CognitiveServices/accounts/AIServices/agents/write`
-    - `Microsoft.CognitiveServices/accounts/MaaS/*/action`
-    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write`
-    - `Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action`
-    - `Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`
-    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write`
-    - `Microsoft.CognitiveServices/accounts/AIServices/evaluations/write`
-    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write`
+AI/ML red teaming uses the Foundry Agent Consumer role and the AccuKnox ML Scanner custom role.
 
-**Power Platform**
-
-- Registers the AccuKnox Service Principal as a Dataverse Application User.
-- Assigns the Service Reader security role to the Dataverse Application User.
+| Type | Role or permission |
+|---|---|
+| Built-in role | Foundry Agent Consumer |
+| Custom role `AccuKnox ML Scanner`, actions | `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`<br>`Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`<br>`Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action`<br>`Microsoft.MachineLearningServices/workspaces/agents/action` |
+| Custom role `AccuKnox ML Scanner`, data actions | `Microsoft.CognitiveServices/accounts/AIServices/agents/write`<br>`Microsoft.CognitiveServices/accounts/MaaS/*/action`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write`<br>`Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action`<br>`Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write`<br>`Microsoft.CognitiveServices/accounts/AIServices/evaluations/write`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write` |
