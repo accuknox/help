@@ -54,6 +54,9 @@ hide:
 - title: Control Plane Architecture
   image: ./icons/user-guide.svg
   url: /resources/control-plane-architecture/
+- title: Deployment
+  image: ./icons/onprem.svg
+  url: /resources/deployment/
 - title: Release Notes
   image: ./icons/release-notes.svg
   url: /getting-started/2.1-2.2-release/

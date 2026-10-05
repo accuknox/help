@@ -134,6 +134,8 @@ plugins:
         # Secrets Manager moved out of Getting Started into its own product section.
         'getting-started/secrets-management.md': 'secrets-manager/index.md'
         'getting-started/secrets-manager-onprem-deployment.md': 'secrets-manager/deployment.md'
+        # Deployment Models moved from Getting Started into Resources as Deployment.
+        'getting-started/deployment-models.md': 'resources/deployment.md'
   - search:
       separator: '[\s\-\.]+'
       lang:
@@ -214,6 +216,7 @@ nav:
   - "Getting Started":
     - "Getting Started": "how-to/index.md"
     - "Administrator's Guide": "how-to/administrators-guide.md"
+    - "Deployment": "/resources/deployment/"
     - "Onboarding Playbooks":
       - "Overview" : "how-to/playbook-overview.md"
       - "ASPM Playbook": "how-to/playbook-aspm.md"
@@ -685,7 +688,7 @@ nav:
     - "Resources": "resources/index.md"
     - "Enterprise Architecture" : "getting-started/accuknox-arch.md"
     - "Control Plane Architecture": "resources/control-plane-architecture.md"
-    - "Deployment Models": "getting-started/deployment-models.md"
+    - "Deployment": "resources/deployment.md"
     - "Multi-Tenancy Support": "resources/multitenancy.md"
     - "Sample Reports": "resources/sample-reports.md"
     - "AWS CDR Deployment Guide (PDF)": "/resources/AccuKnox_AWS_CDR_Deployment_Guide.pdf"

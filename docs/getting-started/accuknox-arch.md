@@ -52,7 +52,7 @@ AccuKnox's Cloud-Native Application Protection Platform (CNAPP) offers a unified
 - No reliance on AWS managed services
 - Designed for high-security & compliance environments
 
-[Deployment Models →](/getting-started/deployment-models/)
+[Deployment Models →](/resources/deployment/)
 
 ## Scaling & High Availability
 
@@ -138,7 +138,7 @@ Supports over 30 regulatory standards, including:
 ## Additional Resources
 
 - [AI Security Architecture](ai-security-arch.md), the AI-specific view of enforcement layers and collection methods
-- [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
+- [Deployment Models](https://help.accuknox.com/resources/deployment/)
 - [Integrations Playbook](https://help.accuknox.com/how-to/playbook-integrations/)
 - [Telemetry Logs](https://help.accuknox.com/integrations/telemetry-logs/)
 - [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)

@@ -913,6 +913,56 @@ hide:
       border-bottom-color: #3b82f6;
     }
   }
+
+  /* Deployment Guide: four model cards that link into /resources/deployment/. */
+  .deploy-section {
+    background-color: #f8fafc;
+  }
+  .deploy-subtitle {
+    text-align: center;
+    color: #64748b;
+    max-width: 640px;
+    margin: 0 auto clamp(1.75rem, 5vw, 2.5rem) !important;
+  }
+  .deploy-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  }
+  .md-typeset a.deploy-card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+  .md-typeset a.deploy-card:hover {
+    transform: translateY(-2px);
+  }
+  .deploy-facts {
+    margin: 0;
+  }
+  .md-typeset .deploy-facts dt {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #64748b;
+    margin: 0;
+  }
+  .md-typeset .deploy-facts dd {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #0f172a;
+    margin: 0 0 12px 0;
+  }
+  .md-typeset .deploy-facts dd:last-child {
+    margin-bottom: 0;
+  }
+  [data-md-color-scheme="slate"] .deploy-section {
+    background-color: #0f1422;
+  }
+  [data-md-color-scheme="slate"] .deploy-subtitle,
+  [data-md-color-scheme="slate"] .md-typeset .deploy-facts dt {
+    color: #94a3b8;
+  }
+  [data-md-color-scheme="slate"] .md-typeset .deploy-facts dd {
+    color: #e2e8f0;
+  }
 </style>
 
 <section class="hero-section">
@@ -977,6 +1027,9 @@ hide:
       <div class="module-item" data-cat="code" onclick="selectModule('api', this)">
          <img src="assets/icons/api.svg" alt="API Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> API Security
       </div>
+      <div class="module-item" data-cat="code" style="display:none;" onclick="selectModule('xbom', this)">
+         <img src="assets/icons/container.svg" alt="xBOM" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> xBOM (SBOM, CBOM, AIBOM)
+      </div>
       <div class="module-item" data-cat="cloud" style="display:none;" onclick="selectModule('cspm', this)">
          <img src="assets/icons/cloud.svg" alt="Cloud Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Cloud Security (CSPM)
       </div>
@@ -985,6 +1038,12 @@ hide:
       </div>
       <div class="module-item" data-cat="cloud" style="display:none;" onclick="selectModule('secrets', this)">
          <img src="assets/icons/key.svg" alt="Secrets Manager" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Secrets Manager
+      </div>
+      <div class="module-item" data-cat="cloud" style="display:none;" onclick="selectModule('dspm', this)">
+         <img src="assets/icons/eye.svg" alt="Data Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Data Security (DSPM)
+      </div>
+      <div class="module-item" data-cat="cloud" style="display:none;" onclick="selectModule('ciem', this)">
+         <img src="assets/icons/user_check.svg" alt="Identity Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Identity Security (CIEM)
       </div>
       <div class="module-item" data-cat="workloads" style="display:none;" onclick="selectModule('cwpp', this)">
          <img src="assets/icons/shield.svg" alt="Runtime Protection" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Runtime Protection (CWPP)
@@ -1003,6 +1062,9 @@ hide:
       </div>
       <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('agentic-ai', this)">
          <img src="assets/icons/ai.svg" alt="Agentic AI Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Agentic AI Security
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('agentz', this)">
+         <img src="assets/icons/shield.svg" alt="AgentZ" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AgentZ (Agent Runtime)
       </div>
       <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('model-dataset', this)">
          <img src="assets/icons/ai.svg" alt="AI Model & Dataset Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Model &amp; Dataset Security
@@ -1060,6 +1122,24 @@ hide:
             </div>
             <a href="/use-cases/api-security/" class="learn-more-link">Learn more about API Security &rarr;</a>
         </div>
+        <div id="xbom" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/getting-started/xbom-setup/" class="action-btn" target="_blank">Getting Started</a>
+                <a href="/getting-started/xbom-knoxctl/" class="action-btn" target="_blank">knoxctl</a>
+                <a href="/getting-started/xbom-container-image/" class="action-btn" target="_blank">Container Image Scan</a>
+                <a href="/getting-started/xbom-github-actions/" class="action-btn" target="_blank">GitHub Actions</a>
+            </div>
+            <div class="module-detail-title">
+                xBOM (SBOM, CBOM, AIBOM)
+            </div>
+            <div class="module-description">
+                Generate an SBOM for software dependencies, a CBOM for cryptographic assets, and an AIBOM for AI/ML models, with knoxctl, container image scanning, or GitHub Actions.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="getting-started/images/xbom/xbom-architecture.webp"  alt="xBOM architecture" />
+            </div>
+            <a href="/getting-started/xbom-setup/" class="learn-more-link">Learn more about xBOM &rarr;</a>
+        </div>
         <div id="cspm" class="module-detail-block" style="display:none;">
             <div class="content-header">
                 <a href="/how-to/high-level-onboarding/" class="action-btn" target="_blank">Getting Started</a>
@@ -1107,6 +1187,38 @@ hide:
                  <img src="assets/images/homepage/secrets-manger.png"  alt="Secrets Manager" />
             </div>
             <a href="/secrets-manager/" class="learn-more-link">Learn more about Secrets Manager &rarr;</a>
+        </div>
+        <div id="dspm" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/getting-started/dspm-overview/" class="action-btn" target="_blank">Overview</a>
+                <a href="/getting-started/dspm-onboarding/" class="action-btn" target="_blank">Onboarding</a>
+            </div>
+            <div class="module-detail-title">
+                Data Security (DSPM)
+            </div>
+            <div class="module-description">
+                Find sensitive data in cloud storage, databases and SaaS apps. The scanner runs in your region with read-only access, and only a findings file leaves.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="getting-started/images/dspm/preview/dspm-proto-dashboard-risk.png"  alt="DSPM risk overview dashboard" />
+            </div>
+            <a href="/getting-started/dspm-overview/" class="learn-more-link">Learn more about DSPM &rarr;</a>
+        </div>
+        <div id="ciem" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/getting-started/ciem-overview/" class="action-btn" target="_blank">Overview</a>
+                <a href="/getting-started/ciem-onboarding/" class="action-btn" target="_blank">Onboarding</a>
+            </div>
+            <div class="module-detail-title">
+                Identity Security (CIEM) <span class="agentless-badge">Coming Soon</span>
+            </div>
+            <div class="module-description">
+                List the users, groups and roles in your AWS, GCP, Azure and Oracle cloud accounts, see the policies attached to each one, and follow the access chain as a graph.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="getting-started/images/ciem/ciem-org-graph.png"  alt="CIEM organization graph" />
+            </div>
+            <a href="/getting-started/ciem-overview/" class="learn-more-link">Learn more about CIEM &rarr;</a>
         </div>
         <div id="cwpp" class="module-detail-block" style="display:none;">
             <div class="content-header">
@@ -1243,6 +1355,22 @@ hide:
             </div>
             <a href="/use-cases/modelarmor/" class="learn-more-link">Learn more about Agentic AI Security &rarr;</a>
         </div>
+        <div id="agentz" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/agentz/" class="action-btn" target="_blank">Overview</a>
+                <a href="https://github.com/accuknox/agentZ" class="action-btn" target="_blank">GitHub</a>
+            </div>
+            <div class="module-detail-title">
+                AgentZ <span class="agentless-badge">Open Source</span>
+            </div>
+            <div class="module-description">
+                A zero trust runtime for AI agents. Every agent runs in a default deny sandbox, holds no secret, and writes every action to a trace you can replay.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="assets/images/agentz/slide-03.webp"  alt="AgentZ sandbox screen with per-tool toggles for each connected MCP server" />
+            </div>
+            <a href="/agentz/" class="learn-more-link">Learn more about AgentZ &rarr;</a>
+        </div>
         <div id="model-dataset" class="module-detail-block" style="display:none;">
             <div class="content-header">
                 <a href="/how-to/llm-static-scan/" class="action-btn" target="_blank">LLM Static Scan</a>
@@ -1314,6 +1442,57 @@ hide:
         </div>
     </div>
   </div>
+</section>
+<section class="use-cases-section deploy-section">
+  <div class="section-heading-3" style="margin-bottom: 0.75rem;">Deployment Guide</div>
+  <p class="deploy-subtitle">Run AccuKnox as SaaS, in your cloud, on premises or air-gapped. The platform and the policies stay the same.</p>
+  <div class="use-cases-grid deploy-grid">
+    <a class="use-case-card deploy-card" href="/resources/deployment/#saas">
+       <div class="use-case-header">
+         <img class="off-glb" src="assets/icons/deploy-saas.svg" width="40" height="40" alt="" />
+         <h3 class="use-case-title">SaaS</h3>
+       </div>
+       <dl class="deploy-facts">
+         <dt>Control plane</dt><dd>AccuKnox cloud</dd>
+         <dt>Setup</dt><dd>Same day, no install</dd>
+         <dt>Best for</dt><dd>Fast proof of concept</dd>
+       </dl>
+    </a>
+    <a class="use-case-card deploy-card" href="/resources/deployment/#your-cloud">
+       <div class="use-case-header">
+         <img class="off-glb" src="assets/icons/deploy-your-cloud.svg" width="40" height="40" alt="" />
+         <h3 class="use-case-title">Your Cloud</h3>
+       </div>
+       <dl class="deploy-facts">
+         <dt>Control plane</dt><dd>Your cloud account</dd>
+         <dt>Data egress</dt><dd>None</dd>
+         <dt>Best for</dt><dd>Data residency</dd>
+       </dl>
+    </a>
+    <a class="use-case-card deploy-card" href="/resources/deployment/#on-premises">
+       <div class="use-case-header">
+         <img class="off-glb" src="assets/icons/deploy-onprem.svg" width="40" height="40" alt="" />
+         <h3 class="use-case-title">On-Premises</h3>
+       </div>
+       <dl class="deploy-facts">
+         <dt>Control plane</dt><dd>Your servers</dd>
+         <dt>Install</dt><dd>Native, not a SaaS agent</dd>
+         <dt>Best for</dt><dd>Banking, healthcare, telecom</dd>
+       </dl>
+    </a>
+    <a class="use-case-card deploy-card" href="/resources/deployment/#air-gapped">
+       <div class="use-case-header">
+         <img class="off-glb" src="assets/icons/deploy-airgapped.svg" width="40" height="40" alt="" />
+         <h3 class="use-case-title">Air-Gapped</h3>
+       </div>
+       <dl class="deploy-facts">
+         <dt>Control plane</dt><dd>Your isolated network</dd>
+         <dt>Outbound traffic</dt><dd>None</dd>
+         <dt>Best for</dt><dd>Federal, defense, ITAR</dd>
+       </dl>
+    </a>
+  </div>
+  <a href="/resources/deployment/" class="view-all-btn">VIEW DEPLOYMENT GUIDE &rarr;</a>
 </section>
 <section class="use-cases-section">
   <div class="section-heading-3" style="font-size: clamp(1.4rem, 5vw, 1.8rem); font-weight: 800; text-align: center; color: #0f172a; margin-bottom: clamp(1.75rem, 5vw, 2.5rem);">Popular Resources &amp; Guides</div>
@@ -1405,7 +1584,7 @@ hide:
        </div>
        <ul class="use-case-list">
          <li><a href="/getting-started/accuknox-arch/" target="_blank">Enterprise Architecture</a></li>
-         <li><a href="/getting-started/deployment-models/" target="_blank">Deployment Models</a></li>
+         <li><a href="/resources/deployment/" target="_blank">Deployment Models</a></li>
          <li><a href="/resources/multitenancy/" target="_blank">Multi-Tenancy Support</a></li>
        </ul>
     </div>
