@@ -103,8 +103,7 @@ def transcript(P, work):
     with open(os.path.join(work, "cues.txt"), "w", encoding="utf-8") as fh:
         for (ts, line), (k, conf) in zip(rows, kinds):
             mark = "  <-- check for a cut" if k in ("setup", "off_track", "wrap_up") else ""
-            fh.write(f"{ts[3:8]}  {k:<10} {conf:.2f}  {' '.join(line.split())}{mark}
-")
+            fh.write(f"{ts[3:8]}  {k:<10} {conf:.2f}  {' '.join(line.split())}{mark}\n")
     print(f"cue triage by Jev in {os.path.join(work, 'cues.txt')}. A label is a lead, the frame decides.")
 
 

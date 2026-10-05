@@ -132,7 +132,8 @@ plugins:
         'integrations/claude-browser-integration.md': 'integrations/chrome-browser-integration.md'
         'integrations/openai-firefox-browser-integration.md': 'integrations/firefox-browser-integration.md'
         # Secrets Manager moved out of Getting Started into its own product section.
-        'getting-started/secrets-management.md': 'secrets-manager/index.md'
+        'getting-started/secrets-management.md': 'secrets-manager/overview.md'
+        'secrets-manager/index.md': 'secrets-manager/overview.md'
         'getting-started/secrets-manager-onprem-deployment.md': 'secrets-manager/deployment.md'
         # Deployment Models moved from Getting Started into Resources as Deployment.
         'getting-started/deployment-models.md': 'resources/deployment.md'
@@ -352,9 +353,17 @@ nav:
       - "Generate via Container Image Scan": "getting-started/xbom-container-image.md"
       - "Generate via GitHub Actions": "getting-started/xbom-github-actions.md"
     - "Secrets Manager":
-      - "Overview": "secrets-manager/index.md"
+      - "Overview": "secrets-manager/overview.md"
+      - "Architecture": "secrets-manager/architecture.md"
       - "Deployment Guide": "secrets-manager/deployment.md"
+      - "Air-Gapped Deployment": "secrets-manager/air-gapped.md"
+      - "High Availability and Backup": "secrets-manager/high-availability.md"
+      - "Connect Applications":
+        - "secrets-manager/connect-applications.md"
+        - "Direct SDK and REST API": "secrets-manager/sdk-integration.md"
+        - "External Secrets Operator": "secrets-manager/external-secrets.md"
       - "Use-Cases":
+        - "Sync a Database Password Into a Kubernetes App": "secrets-manager/use-case-wordpress-mysql.md"
         - "Storing Secrets in Secret Manager": "secrets-manager/kv-secrets.md"
         - "Encryption as a Service - Transit Secret Engine": "secrets-manager/transit.md"
         - "TOTP Authenticator": "secrets-manager/totp.md"
