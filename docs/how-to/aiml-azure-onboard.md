@@ -71,10 +71,10 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 ![image](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/add-custom-role-menu.png)
 
-Create a custom role with the following actions:
+Create a custom role with the following JSON:
 
-```
- {
+```json
+{
     "actions": [
         "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action",
         "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action",
@@ -94,7 +94,6 @@ Create a custom role with the following actions:
     ],
     "notDataActions": []
 }
-
 ```
 
 It will look similar to this (use the above listed permissions):
