@@ -99,7 +99,7 @@ Create a custom role with the following JSON:
 It will look similar to this (use the above listed permissions):
 ![Azure custom role JSON editor view in Azure Portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/json.png)
 
-**Step 13:** Apply the following built-in roles to the registered application: **Reader**, **Cognitive Services OpenAI User**, **Cognitive Services User**, and **Storage Blob Data Reader**.
+**Step 13:** Apply the following built-in roles to the registered application: **Reader**, **Storage Blob Data Reader**, **Cognitive Services Data Reader**, and **Foundry Agent Consumer**.
 
 For each role:
 
