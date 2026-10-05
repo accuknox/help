@@ -30,7 +30,7 @@ AccuKnox provides a flexible way to selectively onboard your Azure environment. 
 ![Azure org onboarding - connection method and label configuration](image-39.png)
 
 **Step 3:** Enter Tenant ID, Management Group, and Subscription scope details to define what the Azure org connection will monitor.
-![Azure org onboarding - tenant ID and subscription scope configuration](image-40.png)
+![Azure org onboarding - labels, tags, Terraform connection method, tenant ID, Management Group and subscription scope configuration](images/azure-org-aiml-scope.png)
 
 Choose the mode that best fits your organizational structure:
 
