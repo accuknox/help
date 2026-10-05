@@ -44,7 +44,10 @@ Choose the mode that best fits your organizational structure:
     *   **Excluded Subscriptions (`excluded_subscription_ids`)**: [**Optional**]
         Specify individual Subscription IDs that you want to **skip**, even if their Management Group is being onboarded.
 
-**Step 4:** Run the provided Terraform script to establish secure connectivity and complete Azure organization onboarding in the Control Plane.
+**Step 4:** Click **Approve APP Registration Graph Permission** to approve the Microsoft Graph permissions for the AccuKnox app registration.
+![Azure org onboarding - scope fields filled in, with the Approve APP Registration Graph Permission button below them](images/azure-org-approve-graph-permission.png)
+
+**Step 5:** Run the provided Terraform script to establish secure connectivity and complete Azure organization onboarding in the Control Plane.
 ![Azure org onboarding - generate and run Terraform script](image-41.png)
 
 ### 2. Generate & Run Terraform Script
@@ -90,3 +93,36 @@ After approximately **30 minutes**, the subscription will be automatically deleg
 
 - **User's Azure Account**
 ![User's Azure Account](image-36.png)
+
+---
+## 3. Roles and Permissions Assigned to the AccuKnox Service Principal
+
+Onboarding assigns the following AI/ML roles and Power Platform access to the AccuKnox Service Principal.
+
+**AI/ML built-in roles**
+
+- Storage Blob Data Reader
+- Cognitive Services Data Reader
+- Foundry Agent Consumer
+
+**Custom role: AccuKnox ML Scanner**
+
+- Actions:
+    - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
+    - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`
+    - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action`
+    - `Microsoft.MachineLearningServices/workspaces/agents/action`
+- Data Actions:
+    - `Microsoft.CognitiveServices/accounts/AIServices/agents/write`
+    - `Microsoft.CognitiveServices/accounts/MaaS/*/action`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action`
+    - `Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write`
+    - `Microsoft.CognitiveServices/accounts/AIServices/evaluations/write`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write`
+
+**Power Platform**
+
+- Registers the AccuKnox Service Principal as a Dataverse Application User.
+- Assigns the Service Reader security role to the Dataverse Application User.
