@@ -49,10 +49,7 @@ For Azure Onboarding it is required to register an App and grant Security read a
 **Step 8:** Select Application Permissions and add each of the following permissions:
 
 - `Directory.Read.All`
-- `Application.Read.All`
-- `AuditLog.Read.All`
 - `AuditLogsQuery-CRM.Read.All`
-- `AuditLogsQuery.Read.All`
 
 ![image](images/azure5-2.png)
 
@@ -74,22 +71,35 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 ![image](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/add-custom-role-menu.png)
 
-Create a custom role with the following actions:
+Create a custom role with the following JSON:
 
-```
-Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action
-Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action
-Microsoft.MachineLearningServices/workspaces/datastores/listSecrets/action
-Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action
-Microsoft.CognitiveServices/accounts/listKeys/action
-Microsoft.CognitiveServices/accounts/deployments/read
-Microsoft.Storage/storageAccounts/listKeys/action
+```json
+{
+    "actions": [
+        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action",
+        "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action",
+        "Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action",
+        "Microsoft.MachineLearningServices/workspaces/agents/action"
+    ],
+    "notActions": [],
+    "dataActions": [
+        "Microsoft.CognitiveServices/accounts/AIServices/agents/write",
+        "Microsoft.CognitiveServices/accounts/MaaS/*/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action",
+        "Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write",
+        "Microsoft.CognitiveServices/accounts/AIServices/evaluations/write",
+        "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write"
+    ],
+    "notDataActions": []
+}
 ```
 
 It will look similar to this (use the above listed permissions):
 ![Azure custom role JSON editor view in Azure Portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/json.png)
 
-**Step 13:** Apply the following built-in roles to the registered application: **Reader**, **Cognitive Services OpenAI User**, **Cognitive Services User**, and **Storage Blob Data Reader**.
+**Step 13:** Apply the following built-in roles to the registered application: **Reader**, **Storage Blob Data Reader**, **Cognitive Services Data Reader**, and **Foundry Agent Consumer**.
 
 For each role:
 
