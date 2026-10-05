@@ -26,11 +26,7 @@ description: Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enh
     Refer to [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure) **Steps 1 to 8** here for a more detailed guide with screenshots.
 
 - **After adding the permissions as per above until step 8**, add few more Application permissions:
-    - Application.Read.All
-    - AuditLog.Read.All
     - AuditLogsQuery-CRM.Read.All
-    - AuditLogsQuery.Read.All
-
 <!-- ![Copilot Studio Logo](./images/copilot-studio/3.png) -->
 
 - Now, select `Grant Admin Consent` for Default Directory and say Yes to confirm. Confirm that all permissions show a Granted status.
