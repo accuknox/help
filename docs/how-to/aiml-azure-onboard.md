@@ -46,9 +46,8 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 ![image](images/azure5-1.png)
 
-**Step 8:** Select Application Permissions and add each of the following permissions:
+**Step 8:** Select Application Permissions and add the following permission:
 
-- `Directory.Read.All`
 - `AuditLogsQuery-CRM.Read.All`
 
 ![image](images/azure5-2.png)
