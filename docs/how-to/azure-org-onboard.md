@@ -44,10 +44,7 @@ Choose the mode that best fits your organizational structure:
     *   **Excluded Subscriptions (`excluded_subscription_ids`)**: [**Optional**]
         Specify individual Subscription IDs that you want to **skip**, even if their Management Group is being onboarded.
 
-**Step 4:** Click **Approve APP Registration Graph Permission** to approve the Microsoft Graph permissions for the AccuKnox app registration.
-![Azure org onboarding - scope fields filled in, with the Approve APP Registration Graph Permission button below them](images/azure-org-approve-graph-permission.png)
-
-**Step 5:** Run the provided Terraform script to establish secure connectivity and complete Azure organization onboarding in the Control Plane.
+**Step 4:** Run the provided Terraform script to establish secure connectivity and complete Azure organization onboarding in the Control Plane.
 ![Azure org onboarding - generate and run Terraform script](image-41.png)
 
 ### 2. Generate & Run Terraform Script
@@ -93,27 +90,3 @@ After approximately **30 minutes**, the subscription will be automatically deleg
 
 - **User's Azure Account**
 ![User's Azure Account](image-36.png)
-
----
-## 3. Roles and Permissions Assigned to the AccuKnox Service Principal
-
-Onboarding assigns the following roles and permissions to the AccuKnox Service Principal.
-
-### Standard Permissions
-
-| Area | Type | Role or permission |
-|---|---|---|
-| AI/ML | Built-in role | Storage Blob Data Reader |
-| AI/ML | Built-in role | Cognitive Services Data Reader |
-| Power Platform | Dataverse Application User | Registers the AccuKnox Service Principal as a Dataverse Application User |
-| Power Platform | Security role | Assigns the Service Reader security role to the Dataverse Application User |
-
-### AI/ML Red Teaming Permissions
-
-AI/ML red teaming uses the Foundry Agent Consumer role and the AccuKnox ML Scanner custom role.
-
-| Type | Role or permission |
-|---|---|
-| Built-in role | Foundry Agent Consumer |
-| Custom role `AccuKnox ML Scanner`, actions | `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`<br>`Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`<br>`Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action`<br>`Microsoft.MachineLearningServices/workspaces/agents/action` |
-| Custom role `AccuKnox ML Scanner`, data actions | `Microsoft.CognitiveServices/accounts/AIServices/agents/write`<br>`Microsoft.CognitiveServices/accounts/MaaS/*/action`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write`<br>`Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action`<br>`Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write`<br>`Microsoft.CognitiveServices/accounts/AIServices/evaluations/write`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write` |
