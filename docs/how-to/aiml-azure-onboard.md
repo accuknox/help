@@ -71,7 +71,7 @@ For Azure Onboarding it is required to register an App and grant Security read a
 
 ![image](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/add-custom-role-menu.png)
 
-Create a custom role with the following JSON:
+Create a custom role with the following JSON. Paste the whole JSON, because the role needs both the `actions` and the `dataActions` lists. The `Microsoft.MachineLearningServices` permissions go under `actions`, and the `Microsoft.CognitiveServices` permissions go under `dataActions`.
 
 ```json
 {
@@ -99,7 +99,21 @@ Create a custom role with the following JSON:
 It will look similar to this (use the above listed permissions):
 ![Azure custom role JSON editor view in Azure Portal](https://learn.microsoft.com/en-us/azure/role-based-access-control/media/custom-roles-portal/json.png)
 
+??? info "What each permission does for AI/ML red teaming"
+    AI/ML red teaming uses these permissions. Each group lets AccuKnox do one task against your Azure AI resources:
+
+    | What AccuKnox does | Permissions |
+    |---|---|
+    | Access and evaluate Foundry Agents | `Microsoft.MachineLearningServices/workspaces/agents/action`<br>`Microsoft.CognitiveServices/accounts/AIServices/agents/write` |
+    | Invoke and score online and serverless model endpoints | `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`<br>`Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`<br>`Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action` |
+    | Invoke AI Services applications and MaaS models | `Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`<br>`Microsoft.CognitiveServices/accounts/MaaS/*/action` |
+    | Create assistant threads, messages and runs | `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write`<br>`Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write` |
+    | Run AI evaluations and validate red team results | `Microsoft.CognitiveServices/accounts/AIServices/evaluations/write` |
+    | Perform OpenAI deployment operations | `Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action` |
+
 **Step 13:** Apply the following built-in roles to the registered application: **Reader**, **Storage Blob Data Reader**, **Cognitive Services Data Reader**, and **Foundry Agent Consumer**.
+
+**Foundry Agent Consumer** is for AI/ML red teaming. AccuKnox uses this role to access and interact with your Foundry Agents during a red team scan.
 
 For each role:
 

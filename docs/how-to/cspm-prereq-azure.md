@@ -87,16 +87,25 @@ Permissions for AI Asset Scanning (Azure):
 
 - **Assign the following built-in roles** at the subscription or resource group level:
     - **Reader**
-    - **Cognitive Services OpenAI User**
-    - **Cognitive Services User**
     - **Storage Blob Data Reader**
+    - **Cognitive Services Data Reader**
+    - **Foundry Agent Consumer**, which AI/ML red teaming needs to access and interact with Foundry Agents
 
 - **Create a custom role** with the following actions:
     - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/score/action`
+    - `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action`
     - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/listKeys/action`
-    - `Microsoft.MachineLearningServices/workspaces/datastores/listSecrets/action`
-    - `Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action`
-    - `Microsoft.CognitiveServices/accounts/listKeys/action`
-    - `Microsoft.CognitiveServices/accounts/deployments/read`
-    - `Microsoft.Storage/storageAccounts/listKeys/action`
+    - `Microsoft.MachineLearningServices/workspaces/agents/action`
+
+- **Add the following data actions** to the same custom role:
+    - `Microsoft.CognitiveServices/accounts/AIServices/agents/write`
+    - `Microsoft.CognitiveServices/accounts/MaaS/*/action`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/deployments/*/action`
+    - `Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write`
+    - `Microsoft.CognitiveServices/accounts/AIServices/evaluations/write`
+    - `Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write`
+
+The [Azure AI/ML onboarding guide](aiml-azure-onboard.md) has the custom role JSON and the purpose of each permission.
 
