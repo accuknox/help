@@ -247,6 +247,7 @@ nav:
         - "Azure" : "how-to/azure-onboarding.md"
         - "Azure Organizations" : "how-to/azure-org-onboard.md"
         - "GCP" : "how-to/gcp-onboarding.md"
+        - "GCP Organizations" : "how-to/gcp-org-onboard.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
         - "Terraform Onboarding":
           - "how-to/terraform-cloud-onboarding.md"
