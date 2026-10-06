@@ -7,6 +7,12 @@ description: Shadow AI Discovery finds and classifies AI assets across cloud and
 
 Shadow AI Discovery finds and classifies AI assets across cloud and on-prem infrastructure, including VMs and Kubernetes. It discovers assets automatically instead of reading a declared inventory, and maps each asset to a type: AI Agent, AI Automation, AI Gateway, AI Inference Engine, AI-ML, AI SDK, or MCP.
 
+## Watch the Two-Minute Tour
+
+Watch AccuKnox find AI agents, SDKs and MCP servers on VMs and containers.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rxs4fX6yKz0" title="AccuKnox Shadow AI Discovery product tour" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## What Shadow AI Discovery Is
 
 Shadow AI Discovery covers three things: discovery, scanning, and containment. It detects AI frameworks, agents, SDKs, and libraries wherever they run.

@@ -36,7 +36,6 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [ciem-overview.md](ciem-overview.md) | AccuKnox CIEM lists the users, groups and roles in your AWS, GCP, Azure and Oracle cloud accounts, shows the policies attached to each one, and draws the acc... |
 | [cluster-onboarding-managed.md](cluster-onboarding-managed.md) | Onboarding a managed cluster into the AccuKnox SaaS application. |
 | [cwpp-prereq.md](cwpp-prereq.md) | AccuKnox CNAPP will be hosted in our cloud environment and the agents deployed on the workloads will connect with the SaaS. |
-| [deployment-models.md](deployment-models.md) | AccuKnox has an expanded offering to cater to diverse deployment needs such as SaaS, Managed OEM/MSSP, AWS On-prem, and Full On-prem/Air-Gapped deployments. |
 | [devsecops.md](devsecops.md) | Integrate AccuKnox with CI pipeline and perform the scans and show the reports in the SaaS Dashboard. |
 | [dspm-onboarding.md](dspm-onboarding.md) | Set up the AccuKnox DSPM scanner in five steps: prerequisites, read-only grants per data store, install, first scan, and reading findings in the console. |
 | [dspm-overview.md](dspm-overview.md) | AccuKnox DSPM finds sensitive data in cloud storage, databases and SaaS apps. The scanner runs in your region with read-only access, and only a findings file... |

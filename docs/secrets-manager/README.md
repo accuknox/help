@@ -8,9 +8,16 @@ Pages in the secrets-manager section.
 
 | File | What it covers |
 |---|---|
+| [air-gapped.md](air-gapped.md) | Install AccuKnox Secrets Manager on a Kubernetes cluster with no internet access, from an internal registry, and unseal it with your own key holders. |
+| [architecture.md](architecture.md) | What runs where in AccuKnox Secrets Manager, how an application reaches a secret, and which components the Helm chart deploys. |
+| [connect-applications.md](connect-applications.md) | Two ways to give an application its secrets from AccuKnox Secrets Manager. Call the API from your code, or let the External Secrets Operator sync secrets int... |
 | [deployment.md](deployment.md) | Install AccuKnox Secrets Manager on Kubernetes with the Helm chart, then initialize, unseal, and sign in to the UI. |
-| [index.md](index.md) | AccuKnox Secrets Manager stores, rotates, and audits secrets from one place. It is API-compatible with HashiCorp Vault, so most applications need no code cha... |
+| [external-secrets.md](external-secrets.md) | Sync a secret from AccuKnox Secrets Manager into a Kubernetes secret with the External Secrets Operator, so an application reads it with no code change. |
+| [high-availability.md](high-availability.md) | Run AccuKnox Secrets Manager on three nodes, back it up with Raft snapshots, restore it, and handle the routine jobs after go-live. |
 | [kv-secrets.md](kv-secrets.md) | Enable the KV secret engine in AccuKnox Secrets Manager, then create, read, version, and delete a secret from the UI. |
+| [overview.md](overview.md) | AccuKnox Secrets Manager stores, rotates, and audits secrets from one place. Start here to deploy it, connect applications, and follow a use case. |
+| [sdk-integration.md](sdk-integration.md) | Read a secret from AccuKnox Secrets Manager inside your application code, so the value never lands in a Kubernetes secret or an environment variable. |
 | [sharing-secrets.md](sharing-secrets.md) | Give each teammate a scoped account in AccuKnox Secrets Manager, attach a least-privilege ACL policy, and verify that the account reads only its own secret p... |
 | [totp.md](totp.md) | Use the AccuKnox Secrets Manager TOTP secret engine to generate and validate Time-based One-Time Passwords under policy control and with full audit logs. |
 | [transit.md](transit.md) | Use the AccuKnox Secrets Manager Transit engine to encrypt, decrypt, sign, and verify data without handling encryption keys in your application. |
+| [use-case-wordpress-mysql.md](use-case-wordpress-mysql.md) | A WordPress and MySQL walkthrough. The database password lives in AccuKnox Secrets Manager, the External Secrets Operator syncs it into Kubernetes, and WordP... |
