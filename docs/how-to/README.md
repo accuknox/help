@@ -59,6 +59,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [findings-lifecycle.md](findings-lifecycle.md) | Understand the lifecycle of findings in AccuKnox and how to manage them effectively. |
 | [gar.md](gar.md) | Instructions for onboarding Google Artifact Registry (GAR) to AccuKnox SaaS to enable secure scanning and vulnerability detection. |
 | [gcp-onboarding.md](gcp-onboarding.md) | Step-by-step guide for onboarding GCP (Google Cloud Platform) accounts to AccuKnox SaaS for automated security and compliance monitoring. |
+| [gcp-org-onboard.md](gcp-org-onboard.md) | Connect a whole Google Cloud organization to AccuKnox with one Terraform script, so every folder and project shows up under Cloud Accounts. |
 | [github-iac-scan.md](github-iac-scan.md) | This document provides the steps to perform IaC scans for GitHub repositories on AccuKnox SaaS. |
 | [harbor.md](harbor.md) | Step-by-step instructions for onboarding Harbor Registry to AccuKnox SaaS for secure scanning and monitoring of container images. |
 | [high-level-onboarding.md](high-level-onboarding.md) | High-level overview of onboarding assets to AccuKnox, covering cloud accounts, Kubernetes clusters, VM workloads, container registries, and AI/ML environments. |
