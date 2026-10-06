@@ -55,6 +55,21 @@
       "port": 8016
     },
     {
+      "name": "help-live",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "mkdocs",
+        "serve",
+        "-f",
+        "D:/AccuKnox/help/mkdocs.yml",
+        "--dirty",
+        "-a",
+        "127.0.0.1:8020"
+      ],
+      "port": 8020
+    },
+    {
       "name": "dspm-built-site",
       "runtimeExecutable": "python",
       "runtimeArgs": [

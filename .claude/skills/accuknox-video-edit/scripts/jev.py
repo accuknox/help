@@ -24,7 +24,9 @@ import re
 import sys
 
 ENV_FILE = r"D:\Atharva\NOTES\.env"
-THRESHOLDS = {"identifier": 0.5, "pronounce": 0.6}
+# Plain product lines score 0.51 to 0.57 on identifier and real ones score about 0.98, so 0.7
+# blocks the real ones with margin. The code patterns still catch IPs, hostnames, IDs and paths.
+THRESHOLDS = {"identifier": 0.7, "pronounce": 0.6}
 CUE_KINDS = {
     "setup": "Joining, recording, screen-share or audio checks before the demo starts.",
     "navigation": "Telling the presenter where to click, scroll or go next.",
@@ -62,13 +64,22 @@ def _ask(state, questions):
         return None
 
 
-def narration(lines):
+# Generic words of the products and the stacks they run on. Without them Jev reads a plain
+# line such as "copies it into a Kubernetes secret" as naming a resource (p=0.69 in testing).
+PRODUCT_TERMS = ["AccuKnox", "KubeArmor", "Kubernetes", "cluster", "namespace", "workload", "pod",
+                 "policy", "finding", "alert", "service account", "role binding", "role", "identity",
+                 "Secrets Manager", "secret", "External Secret", "secret store", "operator",
+                 "WordPress", "MySQL", "database", "AWS", "Azure", "GCP", "Oracle", "Terraform",
+                 "CIEM", "CSPM", "CWPP", "DSPM", "AI security", "access graph"]
+
+
+def narration(lines, terms=()):
     """Per line: {"identifier": p, "pronounce": p} probabilities, or None."""
     from typesafe_sdk import Noul
     state = {
-        "purpose": "Voiceover script for an internal screen-recording of a security platform demo.",
-        "product_terms": ["AccuKnox", "KubeArmor", "Kubernetes", "cluster", "namespace", "workload",
-                          "policy", "finding", "alert", "service account", "role binding"],
+        "purpose": "Voiceover script for a product video of a security platform, voiced over the "
+                   "product's own screens. Generic product and technology words are expected.",
+        "product_terms": PRODUCT_TERMS + list(terms),
         "lines": lines,
     }
     q = {}
@@ -103,10 +114,10 @@ def narration_fallback(line):
     return hits
 
 
-def gate(lines):
+def gate(lines, terms=()):
     """Check every narration line. Returns (blocked, warnings), each a list of (index, reason)."""
     blocked, warns = [], []
-    scores = narration(lines)
+    scores = narration(lines, terms)
     for i, line in enumerate(lines):
         hits = narration_fallback(line)
         for h in hits:

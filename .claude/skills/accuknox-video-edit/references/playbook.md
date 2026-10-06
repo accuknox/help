@@ -4,6 +4,45 @@ The detail behind each step in `SKILL.md`. Every rule here came from a real edit
 customer onboarding review in October 2026. That project stays on the local machine and out
 of git, because it holds customer data.
 
+## The First 5 Seconds Decide Whether Anyone Watches
+
+The old cuts opened on a title card and a 25-word intro line, so the product appeared at
+0:15. Viewers leave before that. Every video now opens on `HOOK`, and `qc.py hook` fails the
+render when it does not hold.
+
+1. Open on product, never on black or a title. Shot 1 starts at 0.0 s on a flash.
+2. Use 2 or 3 shots of about 1.2 s each. Each floats the product screen in 3D, pushes the
+   camera toward one fact, and punches that fact in as a 2 to 3 word headline.
+3. Pick the most striking proof in the recording: a big number, a blocked attack, a success
+   toast, a synced value. The headline names what the frame shows. "637 roles" sat over a
+   ROLE node with a 637 badge. Never put a claim in a headline that the frame does not prove.
+4. Zoom past the 1.5x body limit when the fact needs it. A shot lasts about a second, so 2.6x
+   on a badge reads. Keep the fact clear of the lower-left third, where the headline sits.
+5. Keep the hook line to about 10 words, so it ends by 4.5 s. A 15-word CIEM line ran 6.6 s
+   and pushed the walkthrough to 7 s. Open it with a v4 tag such as `[intrigued]`.
+6. End on the logo slam with the product name and a 3 to 5 word tagline. That replaces the
+   old intro card, so set `INTRO = None`. Put any legal footer in `HOOK["footer"]`.
+7. The walkthrough starts by 6.5 s, on a white flash out of the logo.
+
+`OUTRO` adds the end card: the logo, a one-line title, a call-to-action pill and the closing
+voice line. `BRAND = dict(watermark="br")` puts the colour logo on a white pill in the corner
+of every product frame. The speed badge moves beside it.
+
+The sound design is synthesized in `brand.py`: a low pad, a sub hit on the first frame,
+whooshes on cuts, a riser and a hit on the logo. It sits about 9 dB under the voice. At
+5 dB under, it masked the hook line.
+
+| Test | Pass when |
+|---|---|
+| H1 opens bright | The first frame has mean luma above 40 |
+| H2 product by 0.5 s | A hook shot or a product frame is on screen by 0.5 s |
+| H3 motion | The median frame-to-frame change in the first 5 s is above 3, with 2 or more cuts |
+| H4 voice by 0.8 s | Speech-band energy starts by 0.8 s |
+| H5 body by 6.5 s | The walkthrough starts by 6.5 s |
+| H6 logo in the hook | The white logo matches above 0.5 in the hook's last second |
+| H7 watermark | The logo inside the pill matches on 90% or more of product frames |
+| H8 logo on the end card | The logo matches above 0.5 on the end card |
+
 ## A Timestamp From the Brief Is a Hint, the Frame Is the Fact
 
 The person who asks for the edit remembers the call, not the file. In the first brief,
@@ -84,6 +123,9 @@ mistakes a fast-forward for real time.
    the script claimed only "a new alert at the top".
 7. Write in plain American English for a listener. "This time it is blocked, with permission
    denied" beats "the execution is subsequently prevented".
+8. Tell it as a story, not a feature list. Open a section on the problem or the source of
+   truth, then the reveal. "Start with one list. Every user, group and role across your cloud
+   accounts" beats "The identity list shows every user, group and role".
 
 ## Jev Judges the Narration Before It Leaves the Machine
 
@@ -94,7 +136,7 @@ Plain product lines scored under 0.1.
 
 | Judgment | Primitive | Policy in code |
 |---|---|---|
-| The line names a person, company, host, IP, ID, image path, or a named cluster, pod or namespace | Noul per line | Block the voice run at 0.5 or above |
+| The line names a person, company, host, IP, ID, image path, or a named cluster, pod or namespace | Noul per line | Block the voice run at 0.7 or above. Plain lines scored 0.51 to 0.57 at the old 0.5 |
 | A voice may mispronounce or spell out a term in the line | Noul per line | Warn at 0.6 or above |
 | A caption cue is setup, navigation, content, off-track or wrap-up | Choice per cue | Mark setup, off-track and wrap-up as cut leads |
 
@@ -107,9 +149,17 @@ rectangles, speeds and every frame decision.
 
 ## The Voice Settings That Worked
 
-`eleven_v3` with the premade voice "Brian" (`nPczCjzI2devNBz1zQrb`), stability 0.5, sounded
-natural. Run `python scripts/eleven.py sample "<neutral sentence>"` to hear the shortlist
-before picking another voice. Use a sentence with no customer detail.
+The house voice is Alice (`Xb7hH8MSUJpSbSDYk0k2`), British female, on `eleven_v4`, with
+stability 0.45, similarity 0.8, style 0.35 and speed 1.0. It reads about 148 words a minute,
+so `PACE.vo_tempo` stays at 1.0. The old Brian voice on v3 needed 1.08 and still sounded slow.
+v4 accepts audio tags such as `[intrigued]`, `[confident]` and `[excited]` at the start of a
+line, and does not speak them. Run `python scripts/eleven.py sample "<neutral sentence>"` to
+hear the shortlist. Use a sentence with no customer detail.
+
+The Jev gate needs the product's generic words in `PRODUCT_TERMS` in `jev.py`. Without them,
+"copies it into a Kubernetes secret" scored 0.69 as a customer identifier. Add words for one
+project with `JEV_TERMS = [...]` in its `edit.py`. A resource name such as "mysql pass" still
+scores above 0.5, so describe the thing instead of naming it.
 
 The `qc.py voice` command transcribes each line locally. A mismatch on a word means rewrite the line:
 "Policies lists the policies" was heard as "Policies list", so the line became "The policies
@@ -120,7 +170,12 @@ tab lists". A mismatch on digits ("94" for "ninety four") is the transcriber, no
 - `ffmpeg` on PATH is ImageMagick's 4.2 build. The scripts pick the chocolatey 7.x build
   first. Set `FFMPEG` and `FFPROBE` to override.
 - The ElevenLabs keys cannot read models or voices (`models_read`, `voices_read` missing).
-  Synthesis works. Use premade voice IDs.
+  Synthesis works. Use premade voice IDs. `eleven_v4` exists, which was confirmed by a test call on
+  2026-10-05.
+- `keys.py elevenlabs` can return a slot with 2 credits left, because its 1-character probe
+  still fits. `eleven.py` reads slots 1 to 6 from the `.env` itself and moves to the next slot
+  on `quota_exceeded`, so a run never stops on a nearly empty slot.
+- `faster-whisper` on this machine has no CUDA `cublas64_12.dll`. Pass `device="cpu"`.
 - The free plan blocks `mp3_44100_192`. `eleven.py` falls back to 128 kbps on its own.
 - A Bash heredoc that holds a Python script with nested quotes can fail to parse. Write the
   patch to a `.py` file and run it.

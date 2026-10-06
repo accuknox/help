@@ -10,6 +10,10 @@ description: "AccuKnox CIEM lists the users, groups and roles in your AWS, GCP, 
 
 AccuKnox Cloud Infrastructure Entitlement Management (CIEM) lists the users, groups and roles in your AWS, GCP, Azure and Oracle cloud accounts. For each identity, CIEM shows the attached policies, the risk classes those policies carry, and the last time the identity was used. The access graph draws the chain from an identity through its groups to its policies. To turn on CIEM for a cloud account, see [Onboard a Cloud Account for CIEM](ciem-onboarding.md).
 
+Watch the two-minute tour of AccuKnox CIEM.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5RnjnIauJow" title="AccuKnox CIEM product tour" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <div class="dspm-tour" markdown>
 
 === "Organization Graph"

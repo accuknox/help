@@ -257,6 +257,17 @@ whenever the image already lives on a site. `li.py plan` marks every uploaded
 image that fires after the TTL, and `sync-media --live` re-uploads onto posts
 that are already scheduled.
 
+## Product Video Posts Follow Six Rules
+
+Set on 2026-10-06 for the five product tours. They apply to every video post on the page.
+
+1. **One post per weekday.** The page posts once a day, Monday to Friday. `li.py` refuses a second post on the same IST date, whether the clash is inside the file or already in the Zernio queue.
+2. **Attach the video, never the YouTube link.** Put an `.mp4` URL or path in `media:` and the post carries a native LinkedIn video. Use the permanent `media.zernio.com/media/` URL from an existing Zernio post. A `/temp/` URL deletes itself after 7 days.
+3. **Keep the body short.** One hook line, one or two facts from the video, one CTA line. About 350 to 450 characters before the roster.
+4. **The CTA says "Book a demo" or "Contact us".** The body points at the comment, and the link sits in `comment:`.
+5. **The first comment links `https://accuknox.com/demo` with UTMs.** Use `utm_source=linkedin`, `utm_medium=social`, `utm_campaign=<campaign-slug>` and `utm_content=<video-slug>`.
+6. **Take every fact from the video.** Use the narration or the approved YouTube description. Call demo-environment numbers demo data. LinkedIn offers no thumbnail picker, so the video's first frame is the thumbnail.
+
 ## Lead With the Post, Then One Line of Internal Note
 
 Give the finished post first, then a short internal note: post type, audience,

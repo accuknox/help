@@ -6,6 +6,8 @@
     python vedit.py <project> qc B12:3 ...   render chosen frames (beat id : seconds into beat) + a grid
     python vedit.py <project> map            write EDIT_MAP_beats.md from edit.py
     python vedit.py <project> render         render, mix narration, mux the MP4 with chapters
+    python vedit.py <project> render --until 20   render only the first 20 s, a preview
+    python vedit.py <project> tts --until 20      voice only the lines a 20 s preview needs
 
 <project> is a folder holding edit.py. edit.py is the only file you edit. Every source
 time in it is a source-video second, and every rect and view is in source pixels.
@@ -25,6 +27,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+import brand  # noqa: E402
+import eleven  # noqa: E402
 
 
 # ---------------------------------------------------------------- tools
@@ -85,12 +89,18 @@ class Project:
         self.vo_tempo = float(pace.get("vo_tempo", 1.0))
         self.badge_from = float(pace.get("badge_from", 1.6))
         voice = g("VOICE", {})
-        self.voice_id = voice.get("voice_id", "nPczCjzI2devNBz1zQrb")    # premade "Brian"
-        self.model = voice.get("model", "eleven_v3")
-        self.voice_settings = voice.get("settings", {"stability": 0.5, "similarity_boost": 0.75})
+        self.voice_id = voice.get("voice_id", eleven.DEFAULT_VOICE)     # Alice, British female
+        self.model = voice.get("model", eleven.MODEL)                   # eleven_v4
+        self.voice_settings = voice.get("settings", eleven.DEFAULT_SETTINGS)
         self.vo_dir = self.path(g("VO_DIR", "vo"))
         self.intro = g("INTRO")
+        self.hook = g("HOOK")             # the first 5 s: floating product shots, then the logo slam
+        self.outro = g("OUTRO")           # the end card: logo, title, call to action
+        b = g("BRAND", {})
+        self.watermark = b.get("watermark", "br")    # corner of the logo on every product frame, or None
+        self.sfx = b.get("sfx", True)                # whooshes, hits and the pad under hook and end card
         self.jev = g("JEV", "narration")                   # off | narration | all (see jev.py)
+        self.redact = list(g("REDACT", []))             # (t0, t1, x, y, w, h) source seconds and pixels
         self.sections = g("SECTIONS", {})
         self.beats = g("BEATS")
         self.xfade = int(g("XFADE", 6))
@@ -170,12 +180,7 @@ def speech_bounds(path):
 
 
 def all_lines():
-    out = []
-    if P.intro and P.intro.get("line"):
-        out.append(P.intro["line"])
-    for b in P.beats:
-        out += [t for _, t in b.get("lines", [])]
-    return out
+    return [t for b in beat_list() for _, t in b.get("lines", [])]
 
 
 def check(lines=None, strict=True):
@@ -184,12 +189,16 @@ def check(lines=None, strict=True):
     lines = all_lines() if lines is None else lines
     if not lines:
         return True
+    # A v4 audio tag such as "[confident]" is direction for the voice, not text, so the gate
+    # judges the words alone. The tag still goes to ElevenLabs.
+    import re
+    lines = [re.sub(r"\[[a-z ]+\]\s*", "", l).strip() for l in lines]
     if P.jev == "off":
         blocked = [(i, f"pattern: {h}") for i, l in enumerate(lines) for h in jev.narration_fallback(l) if h != "acronym"]
         warns = [(i, "pattern: acronym") for i, l in enumerate(lines) if "acronym" in jev.narration_fallback(l)]
         used = False
     else:
-        blocked, warns, used = jev.gate(lines)
+        blocked, warns, used = jev.gate(lines, getattr(P.m, "JEV_TERMS", ()))
     print(f"narration check over {len(lines)} lines, {'Jev + patterns' if used else 'patterns only'}")
     for i, why in blocked:
         print(f"  BLOCK  {why:<40} {lines[i]}")
@@ -201,29 +210,45 @@ def check(lines=None, strict=True):
     return True
 
 
-def tts():
-    import eleven
+def tts(until=None):
+    """Voice every line not yet cached. With `until`, only lines that start before that output
+    second, re-planned after each pass because a voiced line moves the ones after it."""
     os.makedirs(P.vo_dir, exist_ok=True)
-    new = [t for t in all_lines() if not (os.path.exists(raw_path(t)) or os.path.exists(legacy_path(t)))]
-    if not check(new):
-        sys.exit(1)
-    for text in new:
-        eleven.tts(text, P.voice_id, raw_path(text), P.model, P.voice_settings)
-        print(f"  {duration(raw_path(text)):5.2f}s  {text[:72]}")
+
+    def have(t):
+        return os.path.exists(raw_path(t)) or os.path.exists(legacy_path(t))
+    for _ in range(4):
+        want = all_lines() if until is None else [l["text"] for l in plan()[1] if l["t"] < until]
+        new = [t for t in dict.fromkeys(want) if not have(t)]
+        if not new:
+            return
+        if not check(new):
+            sys.exit(1)
+        for text in new:
+            eleven.tts(text, P.voice_id, raw_path(text), P.model, P.voice_settings)
+            print(f"  {duration(raw_path(text)):5.2f}s  {text[:72]}")
+        if until is None:
+            return
 
 
 # ---------------------------------------------------------------- timeline
 def clip_len(c):
-    return c["dur"] if ("hold" in c or "intro" in c) else (c["b"] - c["a"]) / c["speed"]
+    return c["dur"] if any(k in c for k in ("hold", "intro", "hook", "outro")) else (c["b"] - c["a"]) / c["speed"]
+
+
+def card(c):
+    return any(k in c for k in ("intro", "hook", "outro"))
 
 
 def paced(c):
     c = dict(c)
-    if c.get("view") is None and "intro" not in c:
+    if card(c):
+        return c
+    if c.get("view") is None:
         c["view"] = P.default_view
     if "hold" in c:
         c["dur"] = c["dur"] / P.base
-    elif "intro" not in c:
+    else:
         c["speed"] = c["speed"] * P.base
     return c
 
@@ -231,8 +256,14 @@ def paced(c):
 def beat_list():
     beats = list(P.beats)
     if P.intro:
-        beats.insert(0, dict(id="B00", intro=True, clips=[dict(intro=True, dur=P.intro.get("dur", 4.6))],
-                             lines=[(P.intro.get("line_at", 0.9), P.intro["line"])] if P.intro.get("line") else []))
+        beats.insert(0, dict(id="B00", intro=True, clips=[dict(intro=True, dur=P.intro.get("dur", 2.0))],
+                             lines=[(P.intro.get("line_at", 0.3), P.intro["line"])] if P.intro.get("line") else []))
+    if P.hook:
+        beats.insert(0, dict(id="HOOK", intro=True, clips=[dict(hook=True, dur=P.hook.get("dur", 5.0))],
+                             lines=[(P.hook.get("line_at", 0.12), P.hook["line"])] if P.hook.get("line") else []))
+    if P.outro:
+        beats.append(dict(id="END", intro=True, clips=[dict(outro=True, dur=P.outro.get("dur", 4.5))],
+                          lines=[(P.outro.get("line_at", 0.5), P.outro["line"])] if P.outro.get("line") else []))
     return beats
 
 
@@ -247,7 +278,7 @@ def plan():
         for off, text in b.get("lines", []):
             p = line_path(text)
             lead, end = speech_bounds(p) if os.path.exists(p) else (0.0, len(text) / 15.0)
-            start = max(off if b.get("intro") else off / P.base, cursor) - lead
+            start = max(0.0, max(off if b.get("intro") else off / P.base, cursor) - lead)
             placed.append((start, p, text, lead, end))
             cursor = start + end + P.gap
             need = start + end + P.tail
@@ -312,6 +343,27 @@ class Source:
             if len(self.cache) > 80:
                 self.cache.popitem(last=False)
         return self.cache[min(want, self.idx)]
+
+
+# ---------------------------------------------------------------- redaction
+def redact(frame, t):
+    """Pixelate then blur every REDACT rect live at source time t. Runs before any zoom, so rects
+    stay in source pixels. Returns a copy, so the reader cache keeps the clean frame."""
+    hits = [r for r in P.redact if r[0] - 1e-3 <= t <= r[1] + 1e-3]
+    if not hits:
+        return frame
+    out = frame.copy()
+    H, W = out.shape[:2]
+    for _, _, x, y, w, h in hits:
+        x0, y0 = max(0, int(x - P.share[0])), max(0, int(y - P.share[1]))
+        x1, y1 = min(W, int(x - P.share[0] + w)), min(H, int(y - P.share[1] + h))
+        if x1 <= x0 or y1 <= y0:
+            continue
+        roi = out[y0:y1, x0:x1]
+        small = cv2.resize(roi, (max(1, (x1 - x0) // 14), max(1, (y1 - y0) // 14)), interpolation=cv2.INTER_AREA)
+        big = cv2.resize(small, (x1 - x0, y1 - y0), interpolation=cv2.INTER_NEAREST)
+        out[y0:y1, x0:x1] = cv2.GaussianBlur(big, (0, 0), 4)
+    return out
 
 
 # ---------------------------------------------------------------- drawing
@@ -417,8 +469,11 @@ def overlay(frame, anns, v, src_t, rng, title, speed, t_out):
         f = font(FONT_SB, 20)
         txt = f"{round(speed, 1):g}x speed"
         tw = d.textlength(txt, font=f)
-        d.rounded_rectangle((W - tw - 44, H - 52, W - 16, H - 16), 9, fill=(17, 24, 39, 190))
-        d.text((W - tw - 30, H - 34), txt, font=f, fill=(255, 255, 255, 235), anchor="lm")
+        right = W - 16
+        if P.watermark and P.watermark[0] == "b" and P.watermark[1] == "r":
+            right = brand.watermark_box(W, H, P.watermark)[0] - 14
+        d.rounded_rectangle((right - tw - 28, H - 52, right, H - 16), 9, fill=(17, 24, 39, 190))
+        d.text((right - tw - 14, H - 34), txt, font=f, fill=(255, 255, 255, 235), anchor="lm")
         drew = True
     if title is not None:
         num, name, tt = title
@@ -448,7 +503,8 @@ def intro_frame(src, lt, dur):
     """Opening card over a blurred, dimmed frame of the recording itself. No outside imagery."""
     W, H, cfg = P.W, P.H, P.intro
     if "img" not in _intro_base:
-        fr = warp(src.get(cfg.get("backdrop_t", 0.0)), cfg.get("backdrop_view", P.default_view))
+        bt = cfg.get("backdrop_t", 0.0)
+        fr = warp(redact(src.get(bt), bt), cfg.get("backdrop_view", P.default_view))
         fr = cv2.GaussianBlur(fr, (0, 0), 14)
         fr = cv2.addWeighted(fr, 0.2, np.full_like(fr, (34, 20, 12)), 0.8, 0)
         _intro_base["img"] = fr
@@ -492,27 +548,70 @@ def intro_frame(src, lt, dur):
     d.text((120 * sx, H - 70 * sx), cfg.get("footer", ""), font=font(FONT_R, int(18 * sx)),
            fill=(160, 170, 185, int(255 * k)))
     base.alpha_composite(ov)
+    K = brand.kit(W, H)
+    if K.logo is not None:   # the logo on the title card, top left above the kicker
+        lg = K.logo_at(260 * sx).copy()
+        k, _ = a(0.0)
+        lg.putalpha(lg.getchannel("A").point(lambda v: int(v * k)))
+        base.alpha_composite(lg, (int(120 * sx), int(120 * sx)))
     return cv2.cvtColor(np.array(base.convert("RGB")), cv2.COLOR_RGB2BGR)
 
 
+# ---------------------------------------------------------------- hook and end card
+def hook_ctx(src, dur):
+    shots = P.hook["shots"]
+
+    def screen(i, p):
+        sh = shots[i]
+        st = sh["t"] if "t" in sh else sh["a"] + p * (sh["b"] - sh["a"])
+        v = sh.get("view") or P.default_view
+        if isinstance(v[0], tuple):
+            v = tuple(v[0][j] + (v[1][j] - v[0][j]) * p for j in range(3))
+        return warp(redact(src.get(st), st), v)
+    return dict(K=brand.kit(P.W, P.H), cfg=P.hook, dur=dur, screen=screen)
+
+
+def outro_ctx(src, dur):
+    bd = None
+    if P.outro.get("backdrop_t") is not None:
+        bt = P.outro["backdrop_t"]
+        bd = warp(redact(src.get(bt), bt), P.outro.get("backdrop_view", P.default_view))
+    return dict(K=brand.kit(P.W, P.H), cfg=P.outro, dur=dur, backdrop=bd)
+
+
 # ---------------------------------------------------------------- frames
-def frames(beats, total, wanted=None):
-    """Yield (frame_index, image). With `wanted`, only those indices are drawn (fast QC)."""
+def frames(beats, total, wanted=None, until=None):
+    """Yield (frame_index, image). With `wanted`, only those indices are drawn (fast QC).
+    With `until`, stop at that output second and fade out there."""
     src = Source()
     prev = None
     fi = 0
+    flash_to = -1
+    end = min(total, until) if until else total
+    stop = int(round(end * P.fps))
     for b in beats:
         sec = b["section"]
         beat_t = 0.0
         for ci, c in enumerate(b["clips"]):
             n = int(round(clip_len(c) * P.fps))
             hold = "hold" in c
+            if "hook" in c:
+                ctx = hook_ctx(src, clip_len(c))
+                flash_to = fi + n + 5
+            elif "outro" in c:
+                ctx = outro_ctx(src, clip_len(c))
             for k in range(n):
+                if fi >= stop:
+                    return
                 lt = k / P.fps
                 t_now = fi / P.fps
                 draw = wanted is None or fi in wanted
                 if draw:
-                    if "intro" in c:
+                    if "hook" in c:
+                        fr = brand.hook_frame(ctx, lt)
+                    elif "outro" in c:
+                        fr = brand.outro_frame(ctx, lt)
+                    elif "intro" in c:
                         fr = intro_frame(src, lt, clip_len(c))
                     else:
                         if hold:
@@ -520,30 +619,39 @@ def frames(beats, total, wanted=None):
                         else:
                             st, sp, rng = c["a"] + lt * c["speed"], c["speed"], (c["a"], c["b"])
                         v = view_at(c["view"], lt)
-                        fr = warp(src.get(st), v)
-                        if wanted is None and k < P.xfade and prev is not None and not hold:
+                        fr = warp(redact(src.get(st), st), v)
+                        if wanted is None and k < P.xfade and prev is not None and not hold and fi >= flash_to:
                             al = (k + 1) / (P.xfade + 1)
                             fr = cv2.addWeighted(fr, al, prev, 1 - al, 0)
                         title = (sec, P.sections[sec], beat_t) if sec else None
                         fr = overlay(fr, c["ann"], v, st, rng, title, sp, t_now)
-                    if t_now < 0.6:
+                        if fi < flash_to:   # land out of the hook on a white flash
+                            kf = (flash_to - fi) / 5.0
+                            fr = np.clip(fr.astype(np.float32) + 255 * 0.5 * kf, 0, 255).astype(np.uint8)
+                        if P.watermark:
+                            fr = brand.watermark(fr, P.watermark)
+                    if not P.hook and t_now < 0.6:
                         fr = (fr * (t_now / 0.6)).astype(np.uint8)
-                    if t_now > total - 1.2:
-                        fr = (fr * max(0.0, (total - t_now) / 1.2)).astype(np.uint8)
+                    if t_now > end - 1.2:
+                        fr = (fr * max(0.0, (end - t_now) / 1.2)).astype(np.uint8)
                     prev = fr
                     yield fi, fr
                 fi += 1
                 beat_t += 1 / P.fps
 
 
-def render(beats, lines, chapters, total):
+def render(beats, lines, chapters, total, until=None):
     os.makedirs(P.out_dir, exist_ok=True)
+    if until:
+        total = min(total, until)
+        lines = [l for l in lines if l["t"] < total]
+        chapters = [ch for ch in chapters if ch[0] < total]
     silent = os.path.join(P.out_dir, "_video.mp4")
     p = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{P.W}x{P.H}",
                           "-r", f"{P.fps:g}", "-i", "-", "-c:v", "libx264", "-preset", "slow", "-crf", "15",
                           "-pix_fmt", "yuv420p", "-movflags", "+faststart", silent], stdin=subprocess.PIPE)
     last = -1
-    for fi, fr in frames(beats, total):
+    for fi, fr in frames(beats, total, until=until):
         p.stdin.write(fr.tobytes())
         t = fi / P.fps
         if int(t) // 30 != last:
@@ -553,14 +661,27 @@ def render(beats, lines, chapters, total):
     p.wait()
 
     audio = os.path.join(P.out_dir, "_narration.wav")
-    if lines:
+    ins = [l["path"] for l in lines]
+    delays = [l["t"] for l in lines]
+    events = []
+    if P.sfx:
+        for b in beats:
+            if b["id"] == "HOOK":
+                events += brand.hook_sfx(b["start"], P.hook, b["dur"])
+            elif b["id"] == "END":
+                events += brand.outro_sfx(b["start"], b["dur"])
+    if events:
+        ins.append(brand.sfx_track(events, total, os.path.join(P.out_dir, "_sfx.wav")))
+        delays.append(0.0)
+    if ins:
         args = [FF, "-v", "error", "-y"]
-        for l in lines:
-            args += ["-i", l["path"]]
-        fc = [f"[{i}:a]aresample=48000,aformat=channel_layouts=mono,adelay={int(round(l['t'] * 1000))}:all=1[a{i}]"
-              for i, l in enumerate(lines)]
-        fc.append("".join(f"[a{i}]" for i in range(len(lines))) +
-                  f"amix=inputs={len(lines)}:normalize=0,apad,atrim=0:{total:.3f},"
+        for pth in ins:
+            args += ["-i", pth]
+        fc = [f"[{i}:a]aresample=48000,aformat=channel_layouts=mono,adelay={int(round(d * 1000))}:all=1[a{i}]"
+              for i, d in enumerate(delays)]
+        fc.append("".join(f"[a{i}]" for i in range(len(ins))) +
+                  f"amix=inputs={len(ins)}:normalize=0,apad,atrim=0:{total:.3f},"
+                  f"afade=t=out:st={max(0, total - 1.2):.3f}:d=1.2,"
                   "loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[out]")
         subprocess.run(args + ["-filter_complex", ";".join(fc), "-map", "[out]", "-ac", "2", audio], check=True)
     else:
@@ -573,7 +694,8 @@ def render(beats, lines, chapters, total):
         for i, (t0, num, name) in enumerate(chapters):
             t1 = chapters[i + 1][0] if i + 1 < len(chapters) else total
             f.write(f"[CHAPTER]\nTIMEBASE=1/1000\nSTART={int(t0 * 1000)}\nEND={int(t1 * 1000)}\ntitle={num}. {name}\n")
-    final = os.path.join(P.out_dir, P.out_name)
+    # A preview never overwrites the full render.
+    final = os.path.join(P.out_dir, P.out_name if not until else P.out_name[:-4] + "_preview.mp4")
     subprocess.run([FF, "-v", "error", "-y", "-i", silent, "-i", audio, "-i", meta, "-map", "0:v", "-map", "1:a",
                     "-map_metadata", "2", "-map_chapters", "2", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
                     "-shortest", "-movflags", "+faststart", final], check=True)
@@ -617,8 +739,13 @@ def edit_map():
     out = ["# Edit Map, Generated From edit.py", "",
            f"Source `{os.path.basename(P.src)}`. Times are source m:ss. Base pace {P.base}x, "
            f"narration tempo {P.vo_tempo}x. Do not hand-edit, rerun `vedit.py <project> map`.", ""]
+    if P.hook:
+        shots = " / ".join(sh.get("text", "") for sh in P.hook["shots"])
+        out += [f"Hook, {P.hook.get('dur', 5.0)} s: {shots}, then the logo and '{P.hook.get('tagline', '')}'", ""]
+        if P.hook.get("line"):
+            out += [f"VO: \"{P.hook['line']}\"", ""]
     if P.intro:
-        out += [f"Intro card, {P.intro.get('dur', 4.6)} s: {P.intro.get('title', '')}", ""]
+        out += [f"Intro card, {P.intro.get('dur', 2.0)} s: {P.intro.get('title', '')}", ""]
         if P.intro.get("line"):
             out += [f"VO: \"{P.intro['line']}\"", ""]
     for b in P.beats:
@@ -644,8 +771,11 @@ def main():
         sys.exit(__doc__)
     P = Project(sys.argv[1])
     cmd = sys.argv[2]
+    until = None
+    if "--until" in sys.argv:
+        until = float(sys.argv[sys.argv.index("--until") + 1])
     if cmd == "tts":
-        return tts()
+        return tts(until)
     if cmd == "check":
         return check(strict=False)
     if cmd == "map":
@@ -660,9 +790,9 @@ def main():
             print(f"{len(missing)} lines not voiced yet, timings are estimates. Run: tts")
         print("total", fmt(total), f"| output {P.W}x{P.H} @ {P.fps:g} fps")
     elif cmd == "render":
-        render(beats, lines, chapters, total)
+        render(beats, lines, chapters, total, until)
     elif cmd == "qc":
-        qc(beats, total, sys.argv[3:])
+        qc(beats, total, [a for a in sys.argv[3:] if ":" in a])
     else:
         sys.exit(f"unknown command {cmd}\n{__doc__}")
 

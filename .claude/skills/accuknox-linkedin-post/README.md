@@ -94,7 +94,7 @@ media: references/li-images/2026-09-23-post-04.png
 |---|---|---|
 | `when:` | yes | `YYYY-MM-DD HH:MM` in IST. A past date or a collision is an error. |
 | `comment:` | no, but warned | The auto first comment. This is where the link goes. |
-| `media:` | no, but warned | A public URL or a repo-relative path. |
+| `media:` | no, but warned | A public URL or a repo-relative path. An `.mp4`, `.mov` or `.avi` posts as a native video. |
 | `alt:` | no | Accessibility text on the image. |
 | `tag:` | no, repeats | `Display Name \| https://www.linkedin.com/in/handle`. An extra tag, placed above the roster. |
 | `roster:` | no | `no` drops the standard 15-name roster line. Defaults to yes. |

@@ -21,7 +21,7 @@ OUTPUT = dict(
     height=__OUTH__,
 )
 
-PACE = dict(base=1.15, vo_tempo=1.10)   # vo_tempo above 1.10 starts to sound rushed
+PACE = dict(base=1.15, vo_tempo=1.0)    # Alice on v4 sets her own pace. Above 1.05 sounds rushed
 
 # Jev, the TypeSafe judgment model. "narration" checks every voiceover line for customer
 # identifiers and hard-to-voice words before ElevenLabs sees it. "all" also triages the
@@ -29,18 +29,33 @@ PACE = dict(base=1.15, vo_tempo=1.10)   # vo_tempo above 1.10 starts to sound ru
 # A brief that allows no outside service except ElevenLabs means "off".
 JEV = "narration"
 
-VOICE = dict(voice_id="nPczCjzI2devNBz1zQrb", model="eleven_v3",
-             settings={"stability": 0.5, "similarity_boost": 0.75})
+# Voice: Alice, British female, on eleven_v4, the skill default. Set VOICE = dict(...) only
+# to change it.
 
-# Opening card over a blurred frame of the recording. Set INTRO = None to skip it.
-INTRO = dict(
-    kicker="Internal review  ·  __DATE__",
-    title="__TITLE__",
-    subtitle="[one line: what the viewer will see]",
+# The first 5 s. 2 or 3 shots of the strongest proof in the recording, then the logo slam.
+# Each shot: t= a still second, or a= b= a range played across the shot. view= one view or a
+# (FROM, TO) pair the camera pushes through. The headline names what that frame shows.
+HOOK = dict(
+    line="[intrigued] [about ten words that end by 4.5 s]",
+    shots=[
+        dict(t=0.0, view=None, kicker="[where we are]", text="[2 to 3 word fact]"),
+        dict(t=0.0, view=None, kicker="[where we are]", text="[2 to 3 word fact]"),
+    ],
+    product="[product name]",
+    tagline="[3 to 5 word promise]",
     footer="Confidential. Contains customer environment details. Not for external distribution.",
-    backdrop_t=0.0,                      # a source second with a clean, representative screen
-    line="[intro narration, one sentence]",
 )
+INTRO = None                             # the hook replaces the old title card
+
+# The end card: logo, one line, a call to action and the closing voice line.
+OUTRO = dict(
+    title="[one line the viewer should remember]",
+    cta="help.accuknox.com",
+    sub="accuknox.com",
+    backdrop_t=0.0,                      # a source second with a clean, representative screen
+    line="[closing narration, one sentence]",
+)
+BRAND = dict(watermark="br")             # the logo corner on every product frame, or None
 
 # Views: (x, y, w). Height follows the output aspect ratio. Name every view you reuse,
 # because the edit map prints these names.
