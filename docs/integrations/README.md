@@ -71,7 +71,7 @@ Integration guides for CI/CD, SIEM, ticketing, registries, SSO, AI gateways, K8s
 | [circleci-secret-scan.md](circleci-secret-scan.md) | Detect hardcoded secrets and sensitive credentials in your codebase using AccuKnox Secret Scanning integrated into CircleCI pipelines. |
 | [circleci-sqsast.md](circleci-sqsast.md) | Integrate SonarQube-based SAST into CircleCI with AccuKnox for centralized vulnerability visibility, analysis, and triage. |
 | [connectwise-cspm.md](connectwise-cspm.md) | Automate security alerts in Connectwise by integrating AccuKnox to generate tickets and enhance security workflows. |
-| [copilot-studio.md](copilot-studio.md) | Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enhanced AI-driven security management. |
+| [copilot-studio.md](copilot-studio.md) | Steps to integrate AccuKnox with Power Platform for enhanced AI-driven security management. |
 | [edge-browser-integration.md](edge-browser-integration.md) | A step-by-step guide to configuring the AccuKnox Prompt Firewall browser plugin for Microsoft Edge and real-time prompt and response filtering in ChatGPT, Cl... |
 | [email-backend.md](email-backend.md) | The Email Backend Integration allows making use of your own SMTP server to send all Emails that originate from the AccuKnox platform. |
 | [email.md](email.md) | This document explains how to integrate Email with AccuKnox to receive alert notifications via mail. |

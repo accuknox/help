@@ -1342,7 +1342,7 @@ hide:
             <div class="content-header">
                 <a href="/use-cases/modelarmor/" class="action-btn" target="_blank">Use Case</a>
                 <a href="/integrations/bedrock-agentcore/" class="action-btn" target="_blank">Bedrock AgentCore</a>
-                <a href="/integrations/copilot-studio/" class="action-btn" target="_blank">Copilot Studio</a>
+                <a href="/integrations/copilot-studio/" class="action-btn" target="_blank">Power Platform</a>
             </div>
             <div class="module-detail-title">
                 Agentic AI Security

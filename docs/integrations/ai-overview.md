@@ -131,10 +131,10 @@ h2 {
 
 ::cards:: cols=4
 
-- title: Azure Copilot Studio
+- title: Azure Power Platform
   image: https://trulysmb.com/wp-content/uploads/2025/06/copilot-studio-header.png
   url: ../integrations/copilot-studio.md
-  description: Integrate with Azure Copilot Studio for AI security
+  description: Integrate with Azure Power Platform for AI security
 
 - title: Bedrock-Agentcore
   image: https://www.missioncloud.com/hubfs/AgentCore-icon3-1.png
