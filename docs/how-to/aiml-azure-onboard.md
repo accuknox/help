@@ -136,8 +136,8 @@ For each role:
 Repeat this process for all four roles.
 
 
-!!! tip "Using Copilot Studio?"
-    If you're integrating with Microsoft Copilot Studio (CP Studio), complete the [Copilot Studio integration steps](https://help.accuknox.com/integrations/copilot-studio/) before proceeding to the AccuKnox SaaS UI onboarding below.
+!!! tip "Using Power Platform?"
+    If you're integrating with Microsoft Power Platform, complete the [Power Platform integration steps](https://help.accuknox.com/integrations/copilot-studio/) before proceeding to the AccuKnox SaaS UI onboarding below.
 
 ## **From AccuKnox SaaS UI**
 

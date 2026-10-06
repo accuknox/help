@@ -1,11 +1,11 @@
 ---
-title: Copilot Studio Integration
-description: Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enhanced AI-driven security management.
+title: Power Platform Integration
+description: Steps to integrate AccuKnox with Power Platform for enhanced AI-driven security management.
 ---
 
-# Integration with Copilot Studio (CP Studio)
+# Integration with Power Platform
 
-![Copilot Studio Logo](./images/copilot-studio/1.png)
+![Power Platform Logo](./images/copilot-studio/1.png)
 
 ## 1. Azure Portal Configuration (Registering App & API Permissions)
 
@@ -42,7 +42,7 @@ description: Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enh
 - Click New app user.
 - Select the Azure application created earlier.
 
-![Copilot Studio Logo](./images/copilot-studio/4.png)
+![Power Platform application user](./images/copilot-studio/4.png)
 
 ### 2.2 Assign Security Role
 
@@ -50,4 +50,4 @@ description: Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enh
 - Save the changes.
 
 !!! note "Detailed Steps"
-    Once the above is done complete **Steps 10 to 17** from [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure)  to complete the Copilot studio integration.
+    Once the above is done complete **Steps 10 to 17** from [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure)  to complete the Power Platform integration.
