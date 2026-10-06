@@ -21,6 +21,10 @@ Start with `source-of-truth/` for any AccuKnox fact. Use the other folders for d
 | `ai-security-checklist.md` | A Markdown copy of both checklist tabs, with the sheet URL. Search this copy, and refresh both files when the sheet changes. |
 | `shadow-ai-coverage.pdf` | The AccuKnox Shadow AI coverage document. |
 
+## `compliance-evidence/` Holds the Security and Risk Documents Buyers Ask For
+
+SOC 2, ISO 27001 audit, pen test, policies, sub-processor and SBOM evidence, insurance, the DPA and SLA, and completed vendor questionnaires, sorted by FirstOntario's request (built 2026-10-05). Read its `README.md` first. It lists the latest version of each file, the gaps, and the documents that must not be sent as they are. The folder is in `.gitignore`, so it exists only on this machine.
+
 ## `Website Pages to Build 26 September/` Holds the Web Update Package
 
 The plan to update accuknox.com for AI SAST, AI DAST, the AccuKnox AI Gateway, Shadow AI and DSPM,
@@ -73,6 +77,7 @@ These files are read-only. Do not edit them.
 
 | Folder | Contents |
 |---|---|
+| `poc-decks/cwpp-poc-exec-summary/` | The anonymized CWPP POC executive summary deck (64 slides, PPTX and PDF). It covers CSPM, KSPM, VM and runtime protection for the fictional "ACME Corp". Use it as the model for every POC readout. `README.md` holds the slide map, the anonymization rules and the open number checks. |
 | `assets/demo-screenshots/` | 22 curated, captioned product screenshots for AI security assets: dashboard, findings, AI red teaming, prompt firewall, runtime protection and zero-trust discovery. `DEMO-SUMMARY.md` indexes the captions. Use these first for blog and deck images. |
 | `campaigns/prompt-guardrails-blog-series/` | The 3-part prompt guardrails blog series (voice agents, multi-turn jailbreaks, indirect prompt injection): `series-brief.docx`, the three blog Markdown files, chart images in `images/`, and the research PDFs and documents in `reference-files/`. |
 | `onboarding/openshift-private-cloud/` | The OpenShift private cloud onboarding walkthrough: `onboarding-steps.md`, `part-1-walkthrough.md`, two screen recordings (`part-1.mp4`, `part-2.mp4`), the `part-1.srt` transcript, and open questions for Murtaza. |
