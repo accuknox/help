@@ -275,7 +275,9 @@ nav:
       - "AWS AI/ML Onboard":
         - "AWS Organization": "how-to/aiml-aws-onboard.md"
         - "AWS Standalone": "how-to/aiml-aws-standalone-onboard.md"
-      - "Azure AI/ML Onboard": "how-to/aiml-azure-onboard.md"
+      - "Azure AI/ML Onboard":
+        - "Azure Organization": "how-to/aiml-azure-org-onboard.md"
+        - "Azure Standalone": "how-to/aiml-azure-onboard.md"
       - "GCP AI/ML Onboard": "how-to/aiml-gcp-onboard.md"
       - "Red Team Custom Models":
         - "Overview": "how-to/aiml-custom-model-redteaming.md"

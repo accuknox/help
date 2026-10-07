@@ -9,6 +9,10 @@ AccuKnox Data Security Posture Management (DSPM) finds sensitive data in your bu
 
 ## Product Tour
 
+Watch the two-minute tour of AccuKnox DSPM.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8foYZBdQtDQ" title="AccuKnox DSPM product tour" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <div class="dspm-tour" markdown>
 
 === "Risk"

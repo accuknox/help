@@ -25,7 +25,7 @@ ROLE_PATTERNS = {
     "category": r"category|main group|group|section|domain|area|module|capability area",
     "requirement": r"requirement|specification|description|question|criteria|feature|capability|functional",
     "priority": r"mandatory|priority|desirable|must|weight|importance|criticality",
-    "response": r"compliance|comply|support|status|answer|response|meets|yes\s*/\s*no",
+    "response": r"compliance|comply|support|status|answer|response|meets|yes\s*/\s*no|checklist",
     "comment": r"comment|detail|explanation|remark|justification|additional|notes?\b|specify|how|approach",
     "evidence": r"evidence|screenshot|proof|attachment|reference|artefact|artifact|document",
 }
@@ -101,6 +101,10 @@ def _assign_columns(ws, labels, dv_cols, header_end):
         cands = [c for c, t in labels.items()
                  if re.search(ROLE_PATTERNS["response"], t, re.I) and not re.search(ROLE_PATTERNS["comment"], t, re.I)]
         roles["response"] = cands[0] if cands else pick("response")
+    if roles["response"] is None:
+        taken = {c for c, t in labels.items() if re.search(ROLE_PATTERNS["comment"], t, re.I)}
+        remaining = [c for c in labels if c not in taken]
+        roles["response"] = remaining[-1] if remaining else max(labels)
     used = {roles["response"]}
     for role in ("comment", "evidence", "requirement", "id", "category", "priority"):
         c = pick(role, exclude=used)

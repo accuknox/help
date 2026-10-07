@@ -11,11 +11,7 @@ The walkthrough runs on any Kubernetes cluster with one namespace and two deploy
 
 ## Watch the Two-Minute Demo
 
-[YouTube video: replace this line with the embed for the WordPress and MySQL demo.]
-
-<!-- Embed template. Swap VIDEO_ID, then delete the bracket line above.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
--->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kuiPcejfcHU" title="Sync a database password into a Kubernetes app with AccuKnox Secrets Manager" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## What You Need
 

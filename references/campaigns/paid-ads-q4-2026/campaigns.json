@@ -1,0 +1,320 @@
+{
+  "quarter": "Q4 2026",
+  "campaigns": [
+    {
+      "id": "agentz",
+      "name": "AgentZ",
+      "channel": "X and Reddit",
+      "goal": "Free-tier signups at agentzharness.ai",
+      "offer": "Free tier, no card. Enterprise ICP gets Contact Us.",
+      "cta": "Sign Up on both platforms. Contact Us returns with I4 in month 2.",
+      "budget": "$1,000 total. Our change to the plan: I2 on Reddit $600 and I1 on X $400. I3 and I4 wait for month 2.",
+      "flight": "14 days, [start date, proposed 2026-10-12]",
+      "flight_bar": [
+        0,
+        2
+      ],
+      "icp": [
+        "**I2, Reddit, $600** Zero Trust and security-first teams. The no-credential proxy is the claim no framework can copy",
+        "**I1, X, $400** Developers, MLOps engineers and agencies. Time to first agent",
+        "**I3 and I4 wait** Four ICPs on two platforms gives $75 to $210 per cell, too little to learn from",
+        "**How AgentZ relates to AccuKnox** AgentZ is the AccuKnox agentic AI harness, sold self-serve at agentzharness.ai"
+      ],
+      "targeting": "Reddit for I2 by subreddit: r/cybersecurity, r/netsec, r/devsecops, r/sysadmin, r/kubernetes. X for I1 by keyword: \"AI agents\", \"MCP server\", \"OpenCode\", \"agent framework\".",
+      "kpi": "Cost per signup [set the target with the AgentZ owner]. Day-7 cut, judged per ICP.",
+      "why": "The plan already pairs one claim with one ICP. A 14-day test at $1,000 finds the winning ICP fast, and next month's $1,000 goes only to the top one or two ICPs.",
+      "fixes": [
+        "Add the X pixel, the Reddit pixel and a signup conversion event before launch.",
+        "Add UTMs on every link: source x or reddit, medium paid-social, campaign agentz-q4, content set to the ICP and variant.",
+        "Ad 3 labels the OpenAI logo as Claude, and its headline calls Claude and Gemini free open-source models. Fix both.",
+        "Ad 2 uses \"Do You Like Agents That Break Free?!\". The brief line \"A leaked prompt leaks nothing.\" matches the copy, so use it.",
+        "Ad 4 says Try it Free, but the I4 button is Contact Us. I4 waits for month 2, so fix it before then.",
+        "Every I3 ad keeps \"one workflow\" beside the 90.2K to 8K token claim.",
+        "Remove the third-party model logos from Ads 1 and 3, or get a legal OK, because they are other companies' trademarks."
+      ],
+      "pick": "**Our bet: Ad 2 on Reddit for I2,** because r/cybersecurity rewards a mechanism and the proxy is unique. **Ad 1 on X for I1** is the volume bet. The button says Sign Up and the image says Try it Free. Both lead to the free tier, because AgentZ sells self-serve.",
+      "ads": [
+        {
+          "id": "agentz-1",
+          "image_only": "agentz/images/Ad 1.png",
+          "label": "I1, time to first agent",
+          "li_headline": "Your first agent runs in minutes.",
+          "intro": "Most agent setups start with a VM, an install, provider keys, a security pass and MCP wiring by hand. AgentZ takes three steps in the UI.",
+          "cta_button": "Sign Up"
+        },
+        {
+          "id": "agentz-2",
+          "image_only": "agentz/images/Ad 2.png",
+          "label": "I2, no credential in the agent",
+          "li_headline": "Your agents never hold a credential.",
+          "intro": "A prompt injection cannot leak a key the agent never had. The proxy swaps in the real key at the door, only for its own host.",
+          "cta_button": "Sign Up"
+        },
+        {
+          "id": "agentz-3",
+          "image_only": "agentz/images/Ad 3.png",
+          "label": "I3, any model, no markup",
+          "li_headline": "Any model, with governance built in.",
+          "intro": "Bring your own key or subscription. AgentZ adds no markup and puts no proxy in the model path.",
+          "cta_button": "Sign Up"
+        },
+        {
+          "id": "agentz-4",
+          "image_only": "agentz/images/Ad 4.png",
+          "label": "I4, one org policy",
+          "li_headline": "One org policy, every team's agents.",
+          "intro": "Configure models, tools and sandboxes once at the org level. Every workspace inherits them, on-prem or air-gapped.",
+          "cta_button": "Contact Us"
+        }
+      ]
+    },
+    {
+      "id": "ai-security",
+      "name": "AI Security",
+      "channel": "LinkedIn",
+      "goal": "Demo requests from security and AI platform leaders",
+      "offer": "30-minute session. A security engineer maps your models, agents and prompts to live Zero Trust controls.",
+      "cta": "Request Demo",
+      "budget": "$1,000 group cap. Prospecting $850 lifetime, 28 days. Retargeting $150 lifetime, days 15 to 28.",
+      "flight": "4 weeks, [start date, proposed 2026-10-12 to 2026-11-08]",
+      "flight_bar": [
+        0,
+        4
+      ],
+      "icp": [
+        "**Titles** CISO, VP or Head of Security, Security Architect, Head of AI or ML Platform, AI Governance Lead",
+        "**Targeting rule** Job titles only, no seniority facet. Forecast [paste the number, target 50,000 to 150,000]",
+        "**Company size** 1,001+ employees, plus 501-1,000 if the forecast falls under 50,000",
+        "**Industries** Financial services, insurance, healthcare, telecom, software, IT services",
+        "**Geography** US, Canada, UK, and Western Europe as countries: DE, FR, NL, BE, LU, AT, CH, IE [confirm Nordics]"
+      ],
+      "form": {
+        "headline": "Where is your AI stack exposed?",
+        "questions": [
+          "What is your top AI security priority? (Just exploring, Shadow AI, Prompt injection, Agent permissions, AI compliance)",
+          "When do you plan to act? (Just researching, Next 6 months, This quarter)"
+        ]
+      },
+      "kpi": "3+ leads and 1+ demo held by week 4. CTR 0.6%+, CPC under $15, CPL under $400.",
+      "why": "Buyers already fear AI agents with broad access. The parable stops the scroll, and the product ad gives the proof a CISO needs before a meeting.",
+      "pick": "**Our bet: Ad C, the prompt firewall,** for demos, because it shows the product and a named #1 ranking [get written OK to cite the report]. Ads A and B run as challengers, and LinkedIn moves spend to the winner. **CTA: Request Demo** on every ad, because the goal is a meeting.",
+      "ads": [
+        {
+          "id": "ai-sec-a",
+          "layout": "photo",
+          "image": "photos/02-wolf-a.jpg",
+          "focus": "60% 35%",
+          "dim": 0.8,
+          "kicker": "AI SECURITY",
+          "headline": "The wolf won't knock.",
+          "body": "It will look like one of the flock. AccuKnox verifies every prompt and tool call your AI agents make.",
+          "tagline": "Trust nothing. Verify everything.",
+          "cta": "Request Demo",
+          "label": "A. The wolf in the flock",
+          "li_headline": "Zero Trust for every prompt, model and agent",
+          "intro": "Your AI agents already hold your credentials. The next attacker will look like one of your own agents.",
+          "cta_button": "Request Demo"
+        },
+        {
+          "id": "ai-sec-b",
+          "layout": "photo",
+          "image": "photos/04-trojan-horse-a.jpg",
+          "focus": "35% 45%",
+          "dim": 0.75,
+          "kicker": "AI SECURITY",
+          "headline": "Every gift gets inspected.",
+          "body": "Open models, third-party agents and plug-ins get scanned before they reach production.",
+          "tagline": "Zero Trust for AI.",
+          "cta": "Request Demo",
+          "label": "B. The Trojan horse",
+          "li_headline": "Scan every model and agent before it ships",
+          "intro": "That open-source model your team pulled last week came from a stranger. Scan it before it reaches production.",
+          "cta_button": "Request Demo"
+        },
+        {
+          "id": "ai-sec-c",
+          "layout": "ui",
+          "image": "../../PRODUCT UI/4_AI ML security/Agentic AI - Mar 6/dashboard_promptfirewall.png",
+          "focus": "0% 0%",
+          "kicker": "STATEFUL PROMPT FIREWALL",
+          "headline": "It only takes one conversation.",
+          "body": "Prompt attacks talk their way in. The Stateful Prompt Firewall remembers what the model forgets.",
+          "tagline": "Ranked #1 by analyst Andrew Green.",
+          "cta": "Request Demo",
+          "proof": "#1 in AI Firewall Architectures",
+          "label": "C. Product proof",
+          "li_headline": "The prompt firewall ranked #1 in AI Firewall Architectures",
+          "intro": "Prompt injection talks its way in, one message at a time. Analyst Andrew Green ranked this stateful firewall #1.",
+          "cta_button": "Request Demo",
+          "zoom": 1.7
+        }
+      ],
+      "fallback": "Free AI red-team assessment of one model endpoint [confirm delivery]. Same Request Demo form."
+    },
+    {
+      "id": "agent-security",
+      "name": "Agent Security",
+      "channel": "LinkedIn",
+      "goal": "Demo requests from teams that run AI agents in production",
+      "offer": "30-minute agent review on the AccuKnox platform. See every agent, the tools it can call and the data it reads. [Confirm with product which agent controls ship today.]",
+      "cta": "Request Demo",
+      "budget": "$1,000 group cap. Prospecting $850 lifetime, 28 days. Retargeting $150 lifetime, days 15 to 28, to the combined audience.",
+      "flight": "4 weeks, [start date, proposed 2026-11-09 to 2026-12-06]",
+      "flight_bar": [
+        4,
+        8
+      ],
+      "icp": [
+        "**Titles** CISO, Head of AppSec, Head of Platform Engineering, Head of AI, VP Engineering, CTO",
+        "**Targeting rule** Job titles only, no seniority facet. Forecast [paste the number, target 50,000 to 150,000]",
+        "**Company size** 501+ employees",
+        "**Industries** Software, financial services, IT services, telecom",
+        "**Skills** AI agents, Large Language Models, Kubernetes, one OR group, only if the forecast tops 100,000",
+        "**Geography** US, Canada, UK, and Western Europe as countries: DE, FR, NL, BE, LU, AT, CH, IE [confirm Nordics]"
+      ],
+      "form": {
+        "headline": "Can you list every AI agent and what it can reach?",
+        "questions": [
+          "How many AI agents run in production today? (None yet, 1-10, 11-50, 50+)",
+          "When do you plan to act? (Just researching, Next 6 months, This quarter)"
+        ]
+      },
+      "kpi": "3+ leads and 1+ demo held by week 4. CTR 0.6%+, CPC under $15, CPL under $400.",
+      "why": "Agents run with employee permissions and no manager. The audit framing turns a vague fear into three questions a CISO must answer this year.",
+      "pick": "**Our bet: Ad C, the three audit questions,** for demos, because an auditor asks exactly these questions and the screenshot answers two of them. Ads A and B run as challengers. **CTA: Request Demo** on every ad, because the goal is a meeting.",
+      "ads": [
+        {
+          "id": "agent-sec-a",
+          "layout": "photo",
+          "image": "photos/03-sheepdog-a.jpg",
+          "focus": "25% 75%",
+          "dim": 0.9,
+          "kicker": "AGENT SECURITY",
+          "headline": "Even the sheepdog\ngets a leash.",
+          "body": "Your AI agents work for you. Least privilege on every tool call keeps it that way.",
+          "tagline": "Zero Trust. Zero exceptions.",
+          "cta": "Request Demo",
+          "label": "A. The sheepdog on a leash",
+          "li_headline": "Least privilege for every AI agent, per tool call",
+          "intro": "Your AI agents act with employee permissions. Do they follow employee rules? Put a leash on every tool call.",
+          "cta_button": "Request Demo"
+        },
+        {
+          "id": "agent-sec-b",
+          "layout": "ui",
+          "kicker": "AGENT SECURITY",
+          "headline": "Your AI agents need\nan org chart.",
+          "body": "See every agent, the cloud project it runs in, the data it reads and the tools it calls.",
+          "tagline": "Zero Trust for agentic AI.",
+          "cta": "Request Demo",
+          "label": "B. The agent org chart",
+          "li_headline": "See every AI agent, its data and its tools in one place",
+          "intro": "Copilot Studio, Bedrock and AI Foundry agents already reach SharePoint, Salesforce and Teams. Can you list yours today?",
+          "cta_button": "Request Demo",
+          "image": "../../PRODUCT UI/4_AI ML security/Agentic AI - Mar 6/agent_graph.png",
+          "focus": "40% 30%",
+          "zoom": 1.35
+        },
+        {
+          "id": "agent-sec-c",
+          "layout": "ui",
+          "image": "../../PRODUCT UI/4_AI ML security/Agentic AI - Mar 6/agent_list.png",
+          "focus": "0% 0%",
+          "kicker": "AGENT SECURITY",
+          "headline": "An auditor will ask\nthree questions.",
+          "body": "Which agents exist, what can each one reach, and what did each one do? Answer the first two in one inventory.",
+          "tagline": "Audit-ready agents.",
+          "cta": "Request Demo",
+          "label": "C. The three audit questions",
+          "li_headline": "Answer the three agent audit questions in one console",
+          "intro": "Your auditor will ask which AI agents exist, what each one can reach, and what each one did. Can you answer today?",
+          "cta_button": "Request Demo",
+          "zoom": 1.7
+        }
+      ],
+      "fallback": "Free agent permission audit of one environment [confirm delivery]. Same Request Demo form."
+    },
+    {
+      "id": "ctem",
+      "name": "CTEM",
+      "channel": "LinkedIn",
+      "goal": "Demo requests from security leaders who still test with a yearly pentest",
+      "offer": "Demo plus a free external attack-surface scan of the domain in the lead's work email [confirm sales can deliver the scan]",
+      "cta": "Request Demo",
+      "budget": "$1,000 group cap. Prospecting $850 lifetime, 28 days. Retargeting $150 lifetime, days 15 to 28.",
+      "flight": "4 weeks, [start date, proposed 2026-10-19 to 2026-11-15]",
+      "flight_bar": [
+        1,
+        5
+      ],
+      "icp": [
+        "**Titles** Head of Vulnerability Management, Director of Security Engineering, Security Operations Manager, Head of Cloud Security, Head of Offensive Security. CISO and VP Security stay out while AI Security runs",
+        "**Targeting rule** Job titles only, no seniority facet. Forecast [paste the number, target 50,000 to 150,000]",
+        "**Company size** 501+ employees",
+        "**Industries** Financial services, healthcare, retail, manufacturing, software",
+        "**Geography** US, Canada, UK, and Western Europe as countries: DE, FR, NL, BE, LU, AT, CH, IE [confirm Nordics]"
+      ],
+      "form": {
+        "headline": "Want a free scan of your attack surface?",
+        "questions": [
+          "How do you test exposure today? (Scans only, Annual pentest, Quarterly pentest, Continuous)",
+          "When do you plan to act? (Just researching, Next 6 months, This quarter)"
+        ]
+      },
+      "kpi": "3+ leads and 1+ demo held by week 4. CTR 0.6%+, CPC under $15, CPL under $400.",
+      "why": "Buyers who rely on a yearly pentest know the gap. A free scan of their own domain is a bottom-of-funnel offer, because the result needs a sales call to explain.",
+      "pick": "**Our bet: Ad C, the free scan,** because it names the offer the form delivers. Ad A, Knox knocks first, is the line no other vendor can use, and it runs once product confirms daily testing [confirm]. **CTA: Request Demo** on every ad, because the goal is a meeting.",
+      "ads": [
+        {
+          "id": "ctem-a",
+          "layout": "photo",
+          "image": "photos/07-door-knocker-b.jpg",
+          "focus": "50% 45%",
+          "dim": 0.55,
+          "kicker": "EXPOSURE MANAGEMENT",
+          "headline": "Knox knocks first.",
+          "body": "AccuKnox tests your cloud and AI stack every day, so real attackers find the doors already shut.",
+          "tagline": "Attackers never stop. Neither do we.",
+          "cta": "Request Demo",
+          "label": "A. Knox knocks first",
+          "li_headline": "Continuous attack emulation, from code to cloud to AI",
+          "intro": "Attackers test your doors every day. A yearly pentest checks them once. AccuKnox runs real attack paths against your cloud, nonstop.",
+          "cta_button": "Request Demo"
+        },
+        {
+          "id": "ctem-b",
+          "layout": "photo",
+          "image": "photos/08-padlock-b.jpg",
+          "focus": "58% 45%",
+          "dim": 1.0,
+          "kicker": "EXPOSURE MANAGEMENT",
+          "headline": "Every deploy opens\na new door.",
+          "body": "AccuKnox finds the open doors, shows which ones an attacker can use, and helps you shut them.",
+          "tagline": "Rehearse the breach. Skip the real one.",
+          "cta": "Request Demo",
+          "label": "B. Every deploy is a new door",
+          "li_headline": "Rehearse the breach and skip the real one",
+          "intro": "Every deploy opens a new door. Find it, prove it and fix it before anyone else knocks.",
+          "cta_button": "Request Demo"
+        },
+        {
+          "id": "ctem-c",
+          "layout": "ui",
+          "image": "../../PRODUCT UI/CTEM/1.png",
+          "focus": "70% 30%",
+          "kicker": "EXPOSURE MANAGEMENT",
+          "headline": "Find it. Prove it.\nFix it. First.",
+          "body": "Scheduled scans map every domain, subdomain and exposed repo, then show the path an attacker would take.",
+          "tagline": "Code to cloud to AI.",
+          "cta": "Request Demo",
+          "label": "C. Attack-surface proof",
+          "li_headline": "Get a free attack-surface scan of your domain",
+          "intro": "You cannot fix an exposure you never found. Map every domain, subdomain and exposed repo in one scheduled scan.",
+          "cta_button": "Request Demo",
+          "zoom": 1.3
+        }
+      ],
+      "fallback": "A 30-minute review of the buyer's last pentest report against continuous coverage [confirm delivery]. Same Request Demo form."
+    }
+  ]
+}

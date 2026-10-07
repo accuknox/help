@@ -37,6 +37,12 @@ AccuKnox supports Kubernetes security across managed and on-prem clusters. Selec
 
 ::/cards::
 
+## Watch the Five-Minute Walkthrough
+
+Watch AccuKnox block a package manager inside a running workload, then tour the cluster inventory, the KIEM graph and the container image findings.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M_6RKJFTvOI" title="Kubernetes security with AccuKnox, from inventory to a blocked attack" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## Features Supported for Kubernetes

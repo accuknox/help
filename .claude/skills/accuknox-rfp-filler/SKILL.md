@@ -155,6 +155,7 @@ Write `<workdir>/answers.json` following `references/answer-rules.md`.
 | `verdict` | `MEETS`, `EXCEEDS`, `PARTIAL`, `PARTNER`, `CUSTOM`, `ROADMAP_30`, `ROADMAP_60`, `ROADMAP_90`, `ROADMAP_90PLUS`, `ROADMAP`, `INFO`, or `null` to leave the response alone |
 | `response` | optional, an exact dropdown string that overrides the mapping |
 | `image` | `docs/<path>`, `gen:<file>.png`, `web:<accuknox.com url>`, or `null` |
+| `image_missing` | `true` with `"image": null` when no strictly relevant image exists. The evidence cell is left blank and filled red |
 | `mode` | `fill` for empty rows, `supplement` to append bullets and links, `override` to change an answer |
 | `override_reason` | required with `override`, the user's instruction in their words |
 | `replace_comment` | `true` only with `override`, when the old comment contradicts the new answer |
