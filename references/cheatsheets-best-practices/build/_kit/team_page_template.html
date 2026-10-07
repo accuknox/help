@@ -1,0 +1,270 @@
+<title>Cheat Sheet Launch Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: navy launch band with the 4 stage pipeline, sticky owner tabs, one panel per owner with steps then module cards. */
+:root{
+  --bg:#F4F6FB; --surface:#FFFFFF; --sunk:#EDF1F9; --ink:#17203A; --muted:#5A6885; --rule:#D9DFEC;
+  --accent:#1040C5; --accent-ink:#FFFFFF; --band:#000025; --band-ink:#FFFFFF; --band-muted:#A9B3D6;
+  --hl:#FFD900; --hl-ink:#17203A; --risk:#C42D2E; --risk-bg:#FDEEEE; --ok:#0B8A43; --ok-bg:#E6F6EC;
+  --display:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#080C1F; --surface:#10173A; --sunk:#0B1130; --ink:#E7EBF7; --muted:#99A5C4; --rule:#24305A;
+  --accent:#7097FF; --accent-ink:#06102E; --band:#03051A; --band-ink:#FFFFFF; --band-muted:#A9B3D6;
+  --hl:#FFD900; --hl-ink:#17203A; --risk:#FF7B7B; --risk-bg:#3A1420; --ok:#4ED38A; --ok-bg:#0F3122; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#080C1F; --surface:#10173A; --sunk:#0B1130; --ink:#E7EBF7; --muted:#99A5C4; --rule:#24305A;
+  --accent:#7097FF; --accent-ink:#06102E; --band:#03051A; --band-ink:#FFFFFF; --band-muted:#A9B3D6;
+  --hl:#FFD900; --hl-ink:#17203A; --risk:#FF7B7B; --risk-bg:#3A1420; --ok:#4ED38A; --ok-bg:#0F3122; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+
+/* band */
+.band{background:var(--band);color:var(--band-ink);padding-block:44px 36px}
+.band .eyebrow{color:#4F9CF9}
+.band h1{font-size:clamp(30px,5vw,48px);font-weight:600;line-height:1.05;margin-top:10px}
+.band h1 mark{background:linear-gradient(transparent 14%,var(--hl) 14%,var(--hl) 90%,transparent 90%);color:var(--hl-ink);padding:0 .08em}
+.band p{color:var(--band-muted);max-width:62ch;margin:14px 0 0;font-size:16px}
+.band .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--body);padding:12px 16px;border-radius:8px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.primary{background:#1040C5;color:#fff}
+.btn.ghost{border-color:#3A4677;color:#fff;background:transparent}
+.btn:focus-visible,.tab:focus-visible,summary:focus-visible,.copy:focus-visible{outline:2px solid var(--hl);outline-offset:2px}
+.pipe{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:s}
+.pipe li{border-top:2px solid #2B3566;padding-top:12px;counter-increment:s;min-width:0}
+.pipe li::before{content:counter(s,decimal-leading-zero);display:block;font-size:30px;font-weight:300;color:#4F9CF9;letter-spacing:-.03em}
+.pipe b{display:block;font-size:15px;margin-top:4px}
+.pipe span{color:var(--band-muted);font-size:13px}
+.pipe .gate{border-top-color:#FF4646}
+@media (max-width:760px){.pipe{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tab{flex:none;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);font:500 14px/1 var(--body);padding:16px 12px 13px;cursor:pointer;white-space:nowrap}
+.tab small{display:block;font-size:11px;font-weight:400;margin-top:4px}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+/* panel */
+main{padding-block:28px 64px}
+.head{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:820px){.head{grid-template-columns:1fr}}
+.head h2{font-size:28px;font-weight:600}
+.head .lede{color:var(--muted);margin:8px 0 0;max-width:60ch}
+.steps{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:8px}
+.steps label{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:12px 14px;cursor:pointer}
+.steps input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent)}
+.steps input:checked+span{color:var(--muted);text-decoration:line-through}
+.side{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:18px}
+.side h3{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.side ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.side li a{font-weight:500}
+.side li span{display:block;color:var(--muted);font-size:13px}
+.progress{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;margin-top:12px}
+
+.holds{margin-top:26px;background:var(--risk-bg);border-radius:var(--r);padding:16px 18px}
+.holds h3{font-size:14px;color:var(--risk)}
+.holds ul{margin:8px 0 0;padding-left:18px}
+
+/* modules */
+.mods-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:40px;flex-wrap:wrap}
+.mods-title h3{font-size:20px;font-weight:600}
+.mods-title span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:14px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.card img{display:block;width:100%;height:auto;background:var(--sunk)}
+.card .meta{padding:12px 14px 14px;display:grid;gap:4px}
+.card .meta b{font-size:15px}
+.card .meta span{color:var(--muted);font-size:12.5px;font-family:var(--mono);word-break:break-all}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule)}
+
+.acc{display:grid;gap:10px;margin-top:14px}
+details{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 16px}
+summary::-webkit-details-marker{display:none}
+summary img{width:44px;height:44px;object-fit:cover;object-position:top;border-radius:6px;background:var(--sunk)}
+summary b{display:block;font-size:15px}
+summary small{color:var(--muted);font-size:12.5px}
+.state{font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.state.done{background:var(--ok-bg);color:var(--ok)}
+details[open] summary{border-bottom:1px solid var(--rule)}
+.body{padding:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:22px}
+.body.full{grid-template-columns:minmax(0,1fr)}
+@media (max-width:760px){.body{grid-template-columns:1fr}}
+.body figure{margin:0}
+.body figure img{width:100%;border-radius:8px;border:1px solid var(--rule)}
+.body figcaption{font-size:12px;color:var(--muted);margin-top:6px;font-family:var(--mono);word-break:break-all}
+.copytext{min-width:0}
+.copytext table{width:100%;border-collapse:collapse;font-size:13.5px}
+.copytext .tbl{overflow-x:auto}
+.copytext th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 8px;border-bottom:1px solid var(--rule)}
+.copytext td{padding:8px;border-bottom:1px solid var(--rule);vertical-align:top}
+.copytext td:first-child{color:var(--muted);width:30%;font-weight:500}
+.copytext td.val{cursor:copy}
+.copytext td.val:hover{background:var(--sunk)}
+.copytext blockquote{margin:10px 0;padding:10px 14px;border-left:3px solid var(--accent);background:var(--sunk);border-radius:0 8px 8px 0}
+.copytext blockquote p{margin:6px 0}
+.copytext pre{position:relative;background:var(--sunk);border:1px solid var(--rule);border-radius:8px;padding:14px;white-space:pre-wrap;font:13px/1.55 var(--mono);margin:10px 0}
+.copytext code{font-family:var(--mono);font-size:.92em}
+.copytext p{margin:8px 0}
+.copytext ul{padding-left:20px}
+.copy{position:absolute;top:8px;right:8px;font:600 12px/1 var(--body);background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:7px 10px;cursor:pointer}
+.markdone{margin-top:14px;display:flex;gap:8px;align-items:center;font-size:14px}
+.markdone input{width:18px;height:18px;accent-color:var(--ok)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:13px;font-weight:500}
+.foot{color:var(--muted);font-size:12.5px;margin-top:48px;border-top:1px solid var(--rule);padding-top:16px}
+table.overview{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r)}
+.ov-wrap{overflow-x:auto}
+table.overview th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--rule)}
+table.overview td{padding:10px 12px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+table.overview td img{width:36px;height:36px;object-fit:cover;object-position:top;border-radius:5px;vertical-align:middle;margin-right:10px}
+@media (prefers-reduced-motion:no-preference){details[open] .body{animation:in .18s ease-out}@keyframes in{from{opacity:.4;transform:translateY(-3px)}to{opacity:1}}}
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="eyebrow">AccuKnox marketing · October 2026</div>
+    <h1>Ten cheat sheets.<br>Four owners. <mark>One launch.</mark></h1>
+    <p>Each module now has a gated best practices cheat sheet with a landing page, an email and a LinkedIn post. Pick your name below, tick your steps, and copy what you need straight from this page.</p>
+    <div class="actions">
+      <a class="btn primary" id="drive" href="#" target="_blank" rel="noopener">Open the Drive folder</a>
+      <a class="btn ghost" id="startdoc" href="#" target="_blank" rel="noopener">Start here doc</a>
+    </div>
+    <ol class="pipe">
+      <li><b>Design review</b><span>Anish approves PDFs and images</span></li>
+      <li class="gate"><b>Landing pages live</b><span>Debjani Ma'am or Mrinal publish</span></li>
+      <li><b>Emails out</b><span>Kavitha, after a page is live</span></li>
+      <li><b>Posts out</b><span>Jahana, after a page is live</span></li>
+    </ol>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Owners">
+  <div class="wrap" role="tablist" id="tablist"></div>
+</nav>
+
+<main class="wrap" id="panel"></main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const L = DATA.links, M = DATA.mods;
+document.getElementById('drive').href = L.root;
+document.getElementById('startdoc').href = L.doc_start;
+
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem('cs:'+k)); } catch(e){ return null; } },
+  set(k,v){ try { localStorage.setItem('cs:'+k, JSON.stringify(v)); } catch(e){} }
+};
+
+const HOLDS = `<div class="holds"><h3>Hold before publishing</h3><ul>
+<li>Secrets Management waits until the new Secrets Manager help pages are live. Atharva confirms in the Slack thread.</li>
+<li>The CSPM closing page names Frost &amp; Sullivan. Atharva confirms before it goes live.</li>
+<li>Do not change any statistic without checking its source. Every number has one.</li></ul></div>`;
+
+const ROLES = [
+  { id:'start', who:'Everyone', what:'Overview', title:'How the launch runs',
+    lede:'Work moves in four stages. Emails and posts link to the landing pages, so they wait for stage 2. Stages 3 and 4 run in parallel. Keep every update in the Slack thread.',
+    steps:['Open the Drive folder and find the folder with your name.','Open your tab on this page and work through the steps.','Post progress and questions in the Slack thread.'],
+    links:[['Drive folder',L.root,'All files, sorted by owner'],['Start here doc',L.doc_start,'The same steps as a Google Doc']],
+    mods:'overview' },
+  { id:'design', who:'Anish', what:'Design', title:'Review the design',
+    lede:'Check every PDF, cover image and LinkedIn image before anything goes live.',
+    steps:['Open each module folder in 01 Design Review and read the PDF page by page.','Check the form image and the LinkedIn image in the same folder.','Reply in the Slack thread with fixes per module, or "approved".','To edit a PDF yourself, unzip editable-source-html.zip and send the changed report.html to Atharva, who re-renders it.'],
+    links:[['01 Design Review folder',L.design,'10 PDFs, form images, LinkedIn images, editable source']],
+    mods:'design' },
+  { id:'website', who:'Debjani Ma\'am & Mrinal', what:'Website', title:'Publish the landing pages',
+    lede:'Each new page copies the live AI security page. Click any value in a metadata table to copy it.',
+    steps:['Duplicate the live AI security page for each new module.','Fill title, meta title, meta description, slug, tagline, blurb and the five bullets from the module card below.','Upload the module PDF behind the form, and put the form image beside it.','Replace the PDF and form image on the live AI security page with the v4 files.','Submit each form once with a test email and confirm the PDF arrives.','Post each live URL in the Slack thread.'],
+    links:[['02 Website folder',L.website,'PDF and form image per module'],['Web page metadata doc',L.doc_web,'All metadata in one Google Doc'],['Live sample page','https://accuknox.com/cheatsheets/ai-security-best-practices-guide/','The layout to copy']],
+    mods:'website' },
+  { id:'email', who:'Kavitha', what:'Emails', title:'Send the emails',
+    lede:'Each module has a ready HTML email in the Drive folder. The copy below is for review.',
+    steps:['Review subject, preview text and body for each module below.','Import the matching HTML email file into the email tool.','Wait for the live URL in the Slack thread, then test the button link.','Send a test to yourself and check desktop and mobile.','Schedule the send and post the date in the Slack thread.'],
+    links:[['03 Emails folder',L.email,'10 HTML email files'],['Email copy doc',L.doc_email,'All email copy in one Google Doc']],
+    mods:'email' },
+  { id:'social', who:'Jahana', what:'Social', title:'Post on LinkedIn',
+    lede:'Each post comes with its image. Use the Copy buttons for the body and the first comment.',
+    steps:['Pair each post below with its image from the 04 Social folder.','Wait for the live URL in the Slack thread.','Put the landing page link in the first comment, never in the post body.','Schedule one post per module and post the calendar in the Slack thread.'],
+    links:[['04 Social folder',L.social,'10 LinkedIn images'],['LinkedIn posts doc',L.doc_social,'All posts in one Google Doc']],
+    mods:'social' },
+];
+
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(()=>t.hidden=true,1600); }
+async function copy(text, el){
+  try { await navigator.clipboard.writeText(text); toast('Copied'); }
+  catch(e){ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast('Selected. Press Ctrl+C to copy'); }
+}
+
+function stepsHTML(role){
+  const done = store.get('steps:'+role.id) || [];
+  return `<ol class="steps">${role.steps.map((s,i)=>`<li><label><input type="checkbox" id="st-${role.id}-${i}" data-i="${i}" ${done.includes(i)?'checked':''}><span>${s}</span></label></li>`).join('')}</ol>
+  <div class="progress" id="prog-${role.id}"></div>`;
+}
+
+function modsHTML(role){
+  if (role.mods==='overview') return `<div class="mods-title"><h3>Ten modules</h3><span>Landing pages live at accuknox.com/cheatsheets/&lt;slug&gt;/</span></div>
+    <div class="ov-wrap"><table class="overview"><tr><th>Module</th><th>Pages</th><th>Landing page</th></tr>
+    ${M.map(m=>`<tr><td><img src="${m.cover}" alt="">${m.name}</td><td>${m.pages}</td><td><a href="${m.url}" target="_blank" rel="noopener">${m.slug}</a></td></tr>`).join('')}</table></div>`;
+  if (role.mods==='design') return `<div class="mods-title"><h3>Visuals to review</h3><span>Left: cover and form image. Right: LinkedIn image.</span></div>
+    <div class="grid">${M.map(m=>`<div class="card"><div class="pair"><img src="${m.cover}" alt="${m.name} cheat sheet cover"><img src="${m.li}" alt="${m.name} LinkedIn image"></div>
+    <div class="meta"><b>${m.name}</b><span>${m.pdf} · ${m.pages} pages</span></div></div>`).join('')}</div>`;
+  const key = role.mods, field = {website:'web',email:'email',social:'social'}[key];
+  return `<div class="mods-title"><h3>Module by module</h3><span id="count-${role.id}"></span></div><div class="acc">${M.map(m=>{
+    const doneKey = role.id+':'+m.id, done = !!store.get(doneKey);
+    const fig = key==='social' ? `<figure><img src="${m.li}" alt="${m.name} LinkedIn image"><figcaption>${m.liFile}</figcaption></figure>`
+      : key==='website' ? `<figure><img src="${m.cover}" alt="${m.name} form image"><figcaption>${m.formFile}<br>${m.pdf}</figcaption></figure>` : '';
+    const file = key==='email' ? `<p><b>HTML file:</b> <code>${m.emailFile}</code></p>` : '';
+    return `<details data-mod="${m.id}"><summary><img src="${m.cover}" alt=""><span><b>${m.name}</b><small>${m.url.replace('https://','')}</small></span><span class="state ${done?'done':''}" data-state="${doneKey}">${done?'Done':'To do'}</span></summary>
+      <div class="body ${fig?'':'full'}"><div class="copytext">${file}${m[field]}
+      <label class="markdone"><input type="checkbox" id="done-${doneKey}" data-done="${doneKey}" ${done?'checked':''}> Mark ${m.name} done</label></div>${fig}</div></details>`;
+  }).join('')}</div>`;
+}
+
+function enhance(root){
+  root.querySelectorAll('.copytext table').forEach(t=>{ const w=document.createElement('div'); w.className='tbl'; t.before(w); w.append(t);
+    t.querySelectorAll('tr').forEach(tr=>{ const td=tr.children[1]; if(td && td.tagName==='TD'){ td.classList.add('val'); td.title='Click to copy'; td.addEventListener('click',()=>copy(td.innerText.trim(),td)); }}); });
+  root.querySelectorAll('.copytext pre').forEach(pre=>{ const b=document.createElement('button'); b.className='copy'; b.type='button'; b.textContent='Copy';
+    b.addEventListener('click',()=>copy(pre.querySelector('code')?.innerText ?? pre.innerText, pre)); pre.append(b); });
+  root.querySelectorAll('.copytext blockquote').forEach(q=>{ q.style.position='relative'; const b=document.createElement('button'); b.className='copy'; b.type='button'; b.textContent='Copy';
+    b.addEventListener('click',()=>copy([...q.querySelectorAll('p')].map(p=>p.innerText).join('\n\n'), q)); q.append(b); });
+}
+
+function update(role){
+  const boxes=[...document.querySelectorAll(`#panel .steps input`)];
+  const done=boxes.filter(b=>b.checked).map(b=>+b.dataset.i); store.set('steps:'+role.id, done);
+  document.getElementById('prog-'+role.id).textContent = `${done.length} of ${boxes.length} steps done`;
+  const c=document.getElementById('count-'+role.id);
+  if(c){ const n=M.filter(m=>store.get(role.id+':'+m.id)).length; c.textContent=`${n} of ${M.length} modules done`; }
+}
+
+function render(id){
+  const role = ROLES.find(r=>r.id===id) || ROLES[0];
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.id===role.id));
+  const p=document.getElementById('panel');
+  p.innerHTML = `<section class="head"><div><div class="eyebrow" style="color:var(--accent)">${role.who} · ${role.what}</div><h2 style="margin-top:6px">${role.title}</h2><p class="lede">${role.lede}</p>${stepsHTML(role)}</div>
+    <aside class="side"><h3>Your files</h3><ul>${role.links.map(([t,u,d])=>`<li><a href="${u}" target="_blank" rel="noopener">${t}</a><span>${d}</span></li>`).join('')}</ul></aside></section>
+    ${role.id==='start'||role.id==='website'?HOLDS:''}${modsHTML(role)}
+    <p class="foot">Your ticks save in this browser only. Post progress in the Slack thread so the team sees it.</p>`;
+  enhance(p);
+  p.querySelectorAll('.steps input').forEach(b=>b.addEventListener('change',()=>update(role)));
+  p.querySelectorAll('[data-done]').forEach(b=>b.addEventListener('change',()=>{
+    const k=b.dataset.done; store.set(k,b.checked); const s=p.querySelector(`[data-state="${k}"]`);
+    s.textContent=b.checked?'Done':'To do'; s.classList.toggle('done',b.checked); update(role); }));
+  update(role);
+  store.set('tab', role.id);
+}
+
+const tl=document.getElementById('tablist');
+tl.innerHTML = ROLES.map(r=>`<button class="tab" role="tab" type="button" data-id="${r.id}">${r.who}<small>${r.what}</small></button>`).join('');
+tl.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{ render(t.dataset.id); history.replaceState(null,'','#'+t.dataset.id); }));
+render((location.hash||'').slice(1) || store.get('tab') || 'start');
+</script>

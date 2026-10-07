@@ -1,0 +1,108 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>How to Find Sensitive Data in Your Cloud With AccuKnox DSPM</title><style>
+body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5;
+       color: #0D1B4B; }
+h1 { font-size: 22pt; color: #11206D; }
+h2 { font-size: 16pt; color: #11206D; margin-top: 22pt; }
+h3 { font-size: 13pt; color: #003BF6; margin-top: 16pt; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #B9C0DE; padding: 6pt 8pt; text-align: left;
+         vertical-align: top; font-size: 10pt; }
+th { background: #EEF1FB; color: #11206D; font-weight: bold; }
+code { font-family: 'Courier New', monospace; font-size: 9.5pt;
+       background: #F4F6FC; }
+table.code { border-collapse: collapse; width: 100%; margin: 10pt 0; }
+table.code td { background: #F4F6FC; border: 1px solid #B9C0DE;
+                padding: 8pt 10pt; font-family: 'Courier New', monospace;
+                font-size: 9.5pt; white-space: pre-wrap; }
+blockquote { border-left: 3px solid #4D4DD9; margin-left: 0; padding-left: 12pt;
+             color: #595959; }
+em { color: #595959; }
+.meta th { width: 26%; }
+</style></head><body><h1>How to Find Sensitive Data in Your Cloud With AccuKnox DSPM</h1>
+<h2>SEO metadata</h2>
+<table class="meta"><tr><th>title</th><td>How to Find Sensitive Data in Your Cloud With AccuKnox DSPM</td></tr>
+<tr><th>seo_title</th><td>Find Sensitive Data in Your Cloud With AccuKnox DSPM</td></tr>
+<tr><th>meta_description</th><td>Find sensitive data in your cloud with AccuKnox DSPM. Follow a credit card finding from the risk dashboard to its evidence files, then set up an S3 scan.</td></tr>
+<tr><th>slug</th><td>dspm-find-sensitive-data-in-your-cloud</td></tr>
+<tr><th>url</th><td>https://accuknox.com/blog/dspm-find-sensitive-data-in-your-cloud</td></tr>
+<tr><th>date</th><td>2026-10-07</td></tr>
+<tr><th>primary_keyword</th><td>find sensitive data in your cloud</td></tr>
+<tr><th>secondary_keywords</th><td>[&quot;AccuKnox DSPM&quot;, &quot;data security posture management&quot;, &quot;sensitive data discovery&quot;, &quot;S3 bucket scanning&quot;]</td></tr>
+<tr><th>excerpt</th><td>A step-by-step tour of AccuKnox DSPM, from the risk dashboard to a credit card finding, an exposed AWS key and Amazon S3 setup.</td></tr>
+<tr><th>category</th><td>DSPM</td></tr>
+<tr><th>author</th><td>Atharva Shah</td></tr>
+<tr><th>reading_time</th><td>5 minutes</td></tr>
+<tr><th>word_count_target</th><td>1000</td></tr>
+<tr><th>audience</th><td>security engineer | cloud engineer</td></tr>
+<tr><th>cover_image_prompt_claude</th><td>Not used. The cover is the YouTube thumbnail for video 8foYZBdQtDQ.</td></tr>
+<tr><th>cover_image_prompt_midjourney</th><td>Not used. The cover is the YouTube thumbnail for video 8foYZBdQtDQ.</td></tr></table>
+<hr/>
+<p><img width="620" height="349" alt="Cover image from the AccuKnox DSPM product tour video, titled Find Sensitive Data in Your Cloud With AccuKnox DSPM" src="https://img.youtube.com/vi/8foYZBdQtDQ/maxresdefault.jpg"></p>
+<p><em>Caption: The thumbnail of the two-minute AccuKnox DSPM product tour.</em></p>
+<h2>TL;DR</h2>
+<ul>
+<li>You can find sensitive data in your cloud with <a href="https://accuknox.com/platform/dspm">AccuKnox Data Security Posture Management (DSPM)</a>, which ranks findings by severity and by country.</li>
+<li>The scanner detects 283 data classes, including card numbers, national IDs and cloud keys.</li>
+<li>In the demo data, credit card data sits in five assets, and one S3 bucket holds 92.2k sensitive records under PCI DSS, SOC 2 and HIPAA.</li>
+<li>The scanner runs in your own cloud account with read-only access, and only a findings file goes to the AccuKnox console.</li>
+<li>Setup for Amazon S3 is one data source on a connected AWS account.</li>
+<li>DSPM shows where regulated data sits. It does not assess the controls around that data.</li>
+</ul>
+<h2>Start at the Risk Dashboard to See Where Sensitive Data Sits</h2>
+<p>The risk dashboard counts every data alert by severity and tracks how findings change over time. It also names the assets and cloud accounts that hold the most sensitive records. A second view maps findings to the country that holds the data and ranks the countries from most to fewest.</p>
+<p><img width="620" height="349" alt="The DSPM risk dashboard with data alerts by severity, findings trends, top assets and accounts with sensitive records" src="https://media.zernio.com/temp/1791272878799_rud6y0x3_d01-dashboard.jpg"></p>
+<p><em>Caption: The risk dashboard shows data alerts by severity, how findings change over time, and the assets and accounts with the most sensitive records.</em></p>
+<p><img width="620" height="349" alt="The DSPM sensitive data by region view, with a world map and a ranked country table" src="https://media.zernio.com/temp/1791272880981_k15vu0g5_d02-country.jpg"></p>
+<p><em>Caption: Findings map to the country that holds the data, ranked from most to fewest.</em></p>
+<blockquote>
+<p><strong>Note.</strong> The DSPM screens in this post come from a preview build of the AccuKnox console. The numbers are demo data.</p>
+</blockquote>
+<h2>Open a Credit Card Finding to See Its Asset and Frameworks</h2>
+<p>The scanner groups findings by what it found. In the demo data, credit card data sits in five assets, and each asset has its own count of sensitive records. To follow one, open the finding <strong>PCI_Credit Card data detected</strong> in the findings list.</p>
+<p><img width="620" height="349" alt="The DSPM findings list with the Card data, 5 assets group and a records per asset column" src="https://media.zernio.com/temp/1791272882812_g62wwa46_d03-findings.jpg"></p>
+<p><em>Caption: The findings list groups results by what the scanner found. Here, credit card data sits in five assets, each with its own record count.</em></p>
+<p>The Overview tab names the impacted asset, its sensitive record count and the compliance frameworks the finding falls under. Here the asset is the S3 bucket <code>customer_salesrecords</code> in an AWS account called sandbox. It holds 92.2k sensitive records. The frameworks include PCI DSS, SOC 2 and HIPAA, with three more behind the +3 chip.</p>
+<p><img width="620" height="349" alt="The Overview tab of the PCI_Credit Card data detected finding, showing the customer_salesrecords asset, 92.2k sensitive records and the compliance frameworks PCI DSS, SOC 2 and HIPAA" src="https://media.zernio.com/temp/1791272884941_qab40i9p_d04-finding-overview.jpg"></p>
+<p><em>Caption: One finding shows its asset, 92.2k sensitive records and its compliance frameworks in a single view.</em></p>
+<p>The framework chips come from the data classes. The scanner maps 282 of its 283 data classes to the regulation clauses they fall under, as the <a href="https://help.accuknox.com/getting-started/dspm-overview/">DSPM overview</a> lists.</p>
+<h2>Check the Evidence Tab and the Asset Before You Triage</h2>
+<p>The Evidences tab lists every file behind the finding, with its file type, its path and the sensitive data types found in each one. In the demo, each file row carries chips such as Aadhar Card, Credit Card and Bank Account Number, with a count for each type.</p>
+<p><img width="620" height="349" alt="The Evidences tab of the credit card finding, listing each file with its type, path and sensitive data chips such as Aadhar Card and Credit Card" src="https://media.zernio.com/temp/1791272886652_ay3sotbi_d05-evidence.jpg"></p>
+<p><em>Caption: The evidence tab ties the finding to named files and the data types inside each one.</em></p>
+<p>Next, open the asset. The asset page shows sensitive records by data type, plus security settings such as encryption and public access.</p>
+<p><img width="620" height="349" alt="The asset page for customer_salesrecords with 230 total risks, 92.2k sensitive records by data type, and a security configuration block" src="https://media.zernio.com/temp/1791272888320_bh9n3e9y_d06-asset.jpg"></p>
+<p><em>Caption: The asset page lists sensitive records by data type and shows its encryption and public access settings.</em></p>
+<h2>The Same Scan Flags an AWS Access Key Stored in Plain Text</h2>
+<p>Secrets show up in the same scan. In the tour, an AWS access key stored in plain text is flagged as Critical. The finding shows the file location, and you can raise a ticket from the same panel with <strong>Create Ticket</strong>.</p>
+<p><img width="620" height="349" alt="The AWS access key ID in plain text finding, marked Critical, with a 10-day SLA, a Create Ticket button and an Ask AI button" src="https://media.zernio.com/temp/1791272889943_lj0p94j4_d07-aws-key.jpg"></p>
+<p><em>Caption: A Critical secret finding carries its remediation window, its status and a ticket button.</em></p>
+<p>The Critical severity sets a 10-day SLA, which is the remediation window. The finding keeps the status Active until you fix the data. If you confirm a value as public or test data, turn on <strong>Ignored</strong>. Then add that value to the scanner's allow list, so the next nightly run does not report it again. The <strong>Solution</strong> tab holds the remediation steps.</p>
+<p><img width="620" height="349" alt="The Location field of the AWS access key finding, which names the bucket and object key that hold the secret" src="https://media.zernio.com/temp/1791272891986_66mp429t_d08-key-location.jpg"></p>
+<p><em>Caption: The Location field names where the key sits, so you know which file to fix.</em></p>
+<h2>Set up Amazon S3 With One Data Source</h2>
+<p>The tour ends with setup. You turn on the data security scan for a connected cloud account and add a data source.</p>
+<ol>
+<li>Open the connected AWS cloud account for editing.</li>
+<li>Under <strong>Scan Type</strong>, select <strong>Data Security</strong>.</li>
+<li>Select <strong>Add Source</strong>, then choose <strong>AWS S3</strong>.</li>
+<li>In <strong>Include S3 Buckets</strong>, pick buckets by tag or by name. Enter one pattern per row, such as <code>env=prod</code> or <code>*customer</code>.</li>
+<li>Select <strong>Scan Publicly Exposed buckets</strong> to include every publicly exposed bucket. The console states these buckets are scanned even when they do not match your name or tag patterns.</li>
+<li>Select <strong>Allow Accuknox AI to scan results to reduce false postives</strong>, so AccuKnox AI reviews the results for false positives. The console prints that label with the typo.</li>
+<li>Select <strong>Submit</strong>, then select <strong>Save</strong> on the cloud account page.</li>
+</ol>
+<p><img width="620" height="349" alt="The Configure Data Security panel for AWS S3, with bucket selection by tag and by name, the public bucket scan option and the AccuKnox AI false-positive option" src="https://media.zernio.com/temp/1791272893542_isb77cm1_d09-s3-config.jpg"></p>
+<p><em>Caption: The S3 source form scopes the scan by tag, by name, by public exposure and by AI review.</em></p>
+<p>The scanner runs in your own account, in the region that holds the data, with read-only access. It reads a sample, classifies it in memory and sends only a findings file to the AccuKnox console. Per the <a href="https://help.accuknox.com/getting-started/dspm-onboarding/">onboarding guide</a>, the asset and its findings appear in the console within minutes of the first run.</p>
+<blockquote>
+<p><strong>Limitation.</strong> The scanner does not support Google Cloud Storage, SMB or NFS file shares, Oracle Database, or data warehouses such as Snowflake. The <a href="https://help.accuknox.com/getting-started/dspm-overview/">DSPM overview</a> lists the supported stores.</p>
+</blockquote>
+<h2>Watch the DSPM Tour From Dashboard to S3 Setup</h2>
+<table class="code"><tr><td>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/8foYZBdQtDQ&quot; title=&quot;Find Sensitive Data in Your Cloud With AccuKnox DSPM&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</td></tr></table>
+<p>Watch it on YouTube: <a href="https://www.youtube.com/watch?v=8foYZBdQtDQ">Find Sensitive Data in Your Cloud With AccuKnox DSPM</a>.</p>
+<h2>FAQs</h2>
+<h3>Does AccuKnox DSPM copy my data out of my cloud account?</h3>
+<p>The scanner does not keep your data. It discards every row and file after classification. The findings file holds each matched value cut at 200 characters, and the console shows that value masked to its last four characters.</p>
+<h3>Which data stores can DSPM scan?</h3>
+<p>DSPM scans object storage such as Amazon S3, Azure Blob Storage and ADLS Gen2, plus relational and document databases, Google Workspace Drive and Salesforce. The <a href="https://help.accuknox.com/getting-started/dspm-overview/">DSPM overview</a> has the full table and the stores it does not support.</p>
+<h3>Can I run DSPM so that nothing leaves my network?</h3>
+<p>You can. AccuKnox can run the scanner, the findings and the console together on-premises or air-gapped. With the on-premises console, nothing leaves your boundary.</p></body></html>

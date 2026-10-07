@@ -1,0 +1,593 @@
+For the complete documentation index, see [llms.txt](https://docs.prismacloud.io/llms.txt). This page is also available as [Markdown](https://docs.prismacloud.io/admin-guide/configure/disaster-recovery.md).
+
+Prisma Cloud automatically backs up all data and configuration files periodically. You can view all backups, make new backups, and restore specific backups from the Console UI. You can also restore specific backups using the `twistcli` command line utility.
+
+Prisma Cloud is implemented with containers that cleanly separate the application from its state and configuration data. To back up a Prisma Cloud installation, only the files in the data directory need to be archived. Because Prisma Cloud containers read their state from the files in the data directory, Prisma Cloud containers do not need to be backed up, and they can be installed and restarted from scratch.
+
+When data recovery is enabled (default), Prisma Cloud archives its data files periodically and copies the backup file to a location you specify. The default path to the data directory is _/var/lib/twistlock_. You can specify a different path to the data directory in _twistlock.cfg_ when you install Console.
+
+## Configure Automated Backups[Direct link to heading](https://docs.prismacloud.io/admin-guide/configure/disaster-recovery\#configure-automated-backups)
+
+By default, automated backups are enabled. With automated backups enabled, Prisma Cloud takes a daily, weekly, and monthly snapshots. These are known as system backups.
+
+To specify a different backup directory or to disable automated backups, modify _twistlock.cfg_ and install (or reinstall) Prisma Cloud console. The following configuration options are available:
+
+Configuration option
+
+Description
+
+`DATA_RECOVERY_ENABLED`
+
+Enables or disables automated backups.
+
+- `true` — Enables automated backups (default).
+
+- `false` — Disables automated backups.
+
+
+`DATA_RECOVERY_VOLUME`
+
+Specifies the directory where backups are saved.
+
+For example, archives could be saved on durable persistent storage, such as a volume from Amazon Elastic Block Storage (EBS).
+
+The default value is _/var/lib/twistlock-backup_.
+
+1. Open _twistlock.cfg_ for editing.
+
+2. Scroll down to the Data recovery section.
+
+3. Enable (or disable) automated back up by setting DATA\_RECOVERY\_ENABLED to true (or false).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+DATA_RECOVERY_ENABLED=true
+```
+
+4. Specify the location where backups should be stored.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+DATA_RECOVERY_VOLUME=</PATH/TO/BACKUP/VOLUME>
+```
+
+5. Load your new configuration settings.
+
+
+
+
+
+
+
+
+
+
+
+If you have not installed Prisma Cloud console yet, follow the regular installation procedure. For more information, see [Install Prisma Cloud](https://docs.prismacloud.io/admin-guide/install/getting-started).
+
+
+
+
+
+
+
+
+
+
+
+If Prisma Cloud has already been installed on your host, load your new _twistlock.cfg_ file by re-running _twistlock.sh_. The following command assumes that _twistlock.sh_ and your updated _twistlock.cfg_ reside in the same directory.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+$ sudo ./twistlock.sh console
+
+=== Configure Custom Backup Folder for Kubernetes/OpenShift Deployments
+```
+
+
+The previous section primarily applies to configuring a custom folder for database backups in a onebox setup. For more information about onebox setup, see [Deploy Console on OneBox](https://docs.prismacloud.io/admin-guide/install/deploy-console/console-on-onebox).
+
+For Consoles deployed in a Kubernetes environment, including OpenShift, follow these steps to configure a custom backup folder:
+
+1. Modify the Console’s Kubernetes deployment YAML file.
+
+2. In the `env` section, set the following environment variable:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+env:
+  - name: DATA_RECOVERY_VOLUME
+    value: "<custom folder's path>"
+```
+
+3. Adjust the `volumeMounts` configuration to reflect the custom backup folder:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+volumeMounts:
+     ...
+  - name: console-persistent-volume
+    mountPath: "<custom folder's path>"
+    subPath: "<custom folder's path>"
+```
+
+This ensures that Prisma Cloud Console correctly writes backups to the specified location within a Kubernetes/OpenShift deployment.
+
+## Add Manual Backups[Direct link to heading](https://docs.prismacloud.io/admin-guide/configure/disaster-recovery\#add-manual-backups)
+
+Prisma Cloud automatically creates and maintains daily, weekly, and monthly backups. These are known as system backups. You can also make your own backups at any point in time. These are known as manual backups.
+
+1. Open Console.
+
+2. Go to **Manage > System > Backup & restore**.
+
+3. Under **Manual backups**, select **Add backup**.
+
+4. Enter a name for your backup, and select **Create**.
+
+
+
+
+
+
+
+
+
+
+
+Your backup file is stored in _/var/lib/twistlock-backup_ in the storage volume allocated to Prisma Cloud console. For a onebox installation, this would simply be the local file system of the host where Console runs. For a cluster, such as Kubernetes, this would be the persistent volume allocated to the Console service.
+
+
+## Restore Backups from the Console UI[Direct link to heading](https://docs.prismacloud.io/admin-guide/configure/disaster-recovery\#restore-backups-from-the-console-ui)
+
+You can restore Console from a backup file directly from within the Console UI. The Console UI lists all available backups.
+
+You can only restore Console from a backup file whose version exactly matches the current running version of Console. Therefore, if the current running version of Console is `v31.01.xxx`, you cannot restore a backup whose version is `v31.00.xxx`. To restore a different version of Console, install the Prisma Cloud version that matches your backup version, then follow the procedure here to restore that backup. As long as the specified backup directory (by default, _/var/lib/twistlock-backup_) contains your backup file, you’ll be able to restore it. If the restore fails, you may lose some of the current data. Registry image scan results can be retrieved by triggering the scan again.
+
+1. Open Console.
+
+2. Go to **Manage > System > Backup & restore**.
+
+3. Select **Restore** on one of the system or manual backups.
+
+
+
+
+
+
+
+
+
+
+
+The restore process takes a few minutes, during which the Console will be unavailable for any other operations.
+
+
+
+
+
+
+
+
+
+
+
+If the database restore fails, the Console will revert the changes and fallback to the database state it had before the restore started.
+
+4. After the database is reloaded from the backup file, restart Console.
+
+
+
+
+
+
+
+
+
+
+
+For a onebox installation, ssh to the host where Console runs, then run the following command:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+$ docker restart twistlock_console
+```
+
+
+
+
+
+
+
+
+
+For a Kubernetes installation, delete the Console pod, and the replication controller will automatically restart it:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+// Get the name of Prisma Cloud console pod:
+$ kubectl get po -n twistlock | grep console
+
+// Delete the Prisma Cloud console pod:
+$ kubectl delete po <TWISTLOCK_CONSOLE> -n twistlock
+```
+
+
+
+
+
+
+
+
+
+If any new Defenders were installed since the backup was created, restart those Defenders. Otherwise, they might not function properly.
+
+
+
+
+
+
+
+
+
+
+
+If a Defender created any new runtime models since the backup was created, restart those Defenders. Otherwise, those models might not be visible.
+
+
+## Restore Backups using `twistcli`[Direct link to heading](https://docs.prismacloud.io/admin-guide/configure/disaster-recovery\#restore-backups-using-twistcli)
+
+You can restore Console from a backup using _twistcli_. Use this restore flow only when Console is unresponsive and you cannot access the UI to force a restore to a known good state, and make sure to use a valid backup file.
+
+You can only restore Console from a backup file whose version exactly matches the current running version of Console. Therefore, if the current running version of Console is `v31.01.xxx`, you cannot restore a backup whose version is `v31.00.xxx`. To restore a different version of Console, install the Prisma Cloud version that matches your backup version, then follow the procedure here to restore that backup. As long as the specified backup directory (by default, _/var/lib/twistlock-backup_) contains your backup file, you’ll be able to restore it.
+
+**Prerequisites:**
+
+- Your host can access the volume where the Prisma Cloud backups are stored. By default, backups are stored in _/var/lib/twistlock-backup_, although this path might have been customized at install time.
+
+- Your host can access the Prisma Cloud’s data volume. By default, the data volume is located in _/var/lib/twistlock_, although this path might have been customized at install time.
+
+- Your version of _twistcli_ matches the version of the backup you want to restore.
+
+
+1. Go to the directory where you unpacked the Prisma Cloud release.
+
+2. Run the _twistcli restore_ command. Run _twistcli restore --help_ to see all arguments.
+
+
+
+
+
+
+
+
+
+1. List all available backups. To list all files in the default backup folder (/var/lib/twistlock-backup), run _twistcli restore_ without any arguments:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      AskCopy
+
+
+
+      ```
+      $ ./twistcli restore
+      ```
+
+
+
+
+
+
+
+
+
+      To list all backup files in a specific location, run:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      AskCopy
+
+
+
+      ```
+      $ ./twistcli restore <PATH/TO/FOLDER>
+      ```
+
+2. Choose a file to restore by entering the number that corresponds with the backup file.
+
+
+
+
+
+
+
+
+
+
+
+      For example:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      AskCopy
+
+
+
+      ```
+      aqsa@aqsa-faith: ./twistcli restore --data-recovery-folder /var/lib/twistlock-backup/
+      Please select from the following:
+      0: backup1      2.5.91  2018-08-07 15:10:10 +0000 UTC
+      1: daily        2.5.91  2018-08-06 16:10:48 +0000 UTC
+      2: monthly      2.5.91  2018-08-06 16:10:48 +0000 UTC
+      3: weekly       2.5.91  2018-08-06 16:10:48 +0000 UTC
+      Please enter your selection:
+      0
+      ```
+
+
+3. After the database is reloaded from the backup file, re-install/restart Console.
+
+
+
+
+
+
+
+
+
+
+
+For a onebox installation, ssh to the host where Console runs, then rerun the installer:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+$ sudo ./twistlock.sh -ys onebox
+```
+
+
+
+
+
+
+
+
+
+For a Kubernetes installation, delete the Console pod, and the replication controller will automatically restart it:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AskCopy
+
+
+
+```
+// Get the name of Prisma Cloud Console pod:
+$ kubectl get po -n twistlock | grep console
+
+// Delete the Prisma Cloud Console pod:
+$ kubectl delete po <TWISTLOCK_CONSOLE> -n twistlock
+```
+
+
+## Download Backups[Direct link to heading](https://docs.prismacloud.io/admin-guide/configure/disaster-recovery\#download-backups)
+
+Prisma Cloud Compute lets you download backup files so that they can be copied to another location. Backup files can be downloaded from the Console. Go to **Manage > System > Backup & Restore**, and click **Actions > Export** to download a backup.
+
+[PreviousRule ordering and pattern matching](https://docs.prismacloud.io/admin-guide/configure/rule-ordering-pattern-matching) [NextCustom feeds](https://docs.prismacloud.io/admin-guide/configure/custom-feeds)
+
+Last updated 3 months ago
+
+Was this helpful?
+
+This site uses cookies to deliver its service and to analyze traffic. By browsing this site, you accept the [privacy policy](https://policies.gitbook.com/privacy/cookies).
+
+AcceptReject

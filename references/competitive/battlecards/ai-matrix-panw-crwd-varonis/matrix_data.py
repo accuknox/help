@@ -1,7 +1,7 @@
-"""Content for the AccuKnox vs Palo Alto Networks, CrowdStrike and Varonis AI security matrix.
+"""Content for the AccuKnox vs Palo Alto Networks, CrowdStrike, Varonis and Zscaler AI security matrix.
 
 Competitor cells come from research/<vendor>.json, which holds the vendor URL and a
-verbatim quote for every row, read with Firecrawl on 2026-09-29. AccuKnox cells come
+verbatim quote for every row, read with Firecrawl on 2026-09-29 (Zscaler on 2026-10-01). AccuKnox cells come
 from help.accuknox.com pages in docs/ and from
 references/source-of-truth/ai-security-data-points.md. Tier I and tier A AccuKnox
 claims are listed in evidence-log.md.
@@ -14,7 +14,7 @@ import pathlib
 
 _R = pathlib.Path(__file__).resolve().parent / "research"
 _urls = set()
-for _f in ("palo-alto", "crowdstrike", "varonis"):
+for _f in ("palo-alto", "crowdstrike", "varonis", "zscaler"):
     for _r in json.loads((_R / f"{_f}.json").read_text(encoding="utf-8"))["rows"].values():
         _urls.add(_r["url"])
         _urls.update(_r.get("extra_urls", []))
@@ -265,6 +265,40 @@ MODULES = [
     ("AgentZ", "Agentic AI Harness", 1),
 ]
 
+# Zscaler column, added 2026-10-01 from research/zscaler.json. Each cell joins the vendor dicts above
+# under the key "zs", so the Palo Alto, CrowdStrike and Varonis cells stay exactly as written.
+ZS = {
+    "AgentZ Agent Platform": ("lim", ["Runs prebuilt Agentic SOC agents.", "Has no agent builder for customers."]),
+    "Cloud AI Posture": ("yes", ["Covers AWS, Azure and GCP.", "Lists Bedrock models used in the last 90 days."]),
+    "On-Prem and Self-Hosted AI": ("lim", ["Calls its SaaS API even for private LLMs.", "Keeps the console in SaaS."]),
+    "Managed Agents": ("yes", ["Lists Bedrock, Foundry and Copilot Studio agents.", "Guards AgentCore only through a code wrapper."]),
+    "MCP Security": ("lim", ["Lists MCP servers found in the cloud.", "Has no help docs for its MCP broker yet."]),
+    "Agent Runtime Sandbox": ("lim", ["Finds risky AI tools on employee devices.", "Shows no process control for server agents."]),
+    "AI Cloud Activity Detection": ("lim", ["Flags AI misconfigurations in 3 clouds.", "Needs human approval for each fix."]),
+    "Runtime Blocking": ("yes", ["Allows, blocks or redacts in proxy mode.", "Leaves blocking to the app in API mode."]),
+    "AI Red Teaming": ("par", ["Runs 25+ probes and 5,000+ attacks.", "Tests MCP servers and voice, image input."]),
+    "Browser Prompt Protection": ("yes", ["Checks prompts and replies through ZIA.", "Needs Client Connector on each device."]),
+    "CLI Coding Agents": ("yes", ["Hooks Claude Code, Codex and Cursor.", "Needs one hook per tool."]),
+    "Guardrail Depth": ("par", ["Lists 14 detector types.", "Added multi-turn guardrails in June 2026."]),
+    "Agent Identity": ("lim", ["Maps agent access in AI Access Graph.", "Shows no scoped credentials per agent."]),
+    "Model File Security": ("lim", ["Reuses Hugging Face scan results.", "Checks for Safetensors and a model card."]),
+    "Dataset Security": ("yes", ["Classifies training data with ZIA DLP.", "Flags poisoning and exposure risk."]),
+    "AI Bill of Materials": ("lim", ["Lists models, agents and AI libraries.", "Exports to Excel, not to an AIBOM."]),
+    "Framework Mapping": ("yes", ["Maps NIST AI RMF, EU AI Act and OWASP.", "Shows no ISO 42001 mapping."]),
+}
+for _r in AI4SEC + SPM + AGENTIC + DR_RT + GUARD + ID_MODEL + GRC:
+    _r["v"]["zs"] = ZS[_r["cap"]]
+SHADOW["v"]["zs"] = ("lim", ["Finds GenAI, desktop and embedded AI apps.", "Licenses endpoint AI discovery per device.",
+                             "Needs ZIA and Client Connector to block."])
+GATEWAY["v"]["zs"] = ("lim", ["Runs its own SaaS proxy, for public LLMs only.", "Connects to Kong, LiteLLM, APIM and Apigee.",
+                              "Bills per token on top of a platform fee."])
+DEPLOY["v"]["zs"] = ("SaaS only", "Licenses AI Guard and Endpoint AI as SaaS.")
+for _g, _z in zip(GLANCE, [
+        ("lim", "Prebuilt SOC agents only"), ("lim", "SaaS only"), ("lim", "Devices only, no hosts"),
+        ("lim", "Human approves each fix"), ("lim", "Proxy for public LLMs"), ("par", "5,000+ attacks"),
+        ("lim", "Maps access only"), ("lim", "Uses Hugging Face scans"), ("lim", "Excel export, no AIBOM")]):
+    _g["v"].append(_z)
+
 ROWS = AI4SEC + SPM + AGENTIC + DR_RT + GUARD + ID_MODEL + GRC
 CAPS = len(ROWS) + 2  # plus the Shadow AI panel and the AI Gateway page
 CITED = len(_urls)
@@ -310,4 +344,5 @@ SOURCES = {
     "crwd": _sources("crowdstrike"),
     "vrns": _sources("varonis", ("https://aws.amazon.com/marketplace/pp/prodview-eoyer6g2olf6k",
                                  "https://www.varonis.com/blog/why-were-going-all-in-on-saas")),
+    "zs": _sources("zscaler"),
 }

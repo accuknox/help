@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AccuKnox ASPM Best Practices Guide</title>
+<style>
+@font-face{font-family:Inter;src:url('fonts/Inter-ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:block}
+:root{
+  --ak-blue:#1040C5;--ak-logo-blue:#0000C8;--ak-bright:#0F7FFF;--ak-sky:#4F9CF9;
+  --ak-navy:#000025;--ak-navy2:#080F53;--ak-red:#D63637;--ak-logo-red:#CB0018;
+  --ak-coral:#FF4646;--ak-yellow:#FFD900;--ak-green:#04B745;
+  --ink:#263238;--ink-2:#37474F;--ink-3:#607D8B;--rule:#CFD8DC;
+  --tint-ice:#F8FAFF;--tint-aqua:#E9F8FE;--tint-blue:#E2EEFF;--tint-rose:#FEF7F7;--tint-pink:#FFE3E3;
+  --grad:linear-gradient(90deg,#FF4646 0%,#1040C5 100%);
+  --hl:rgba(255,217,0,.55);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Inter;color:var(--ink-2);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:24mm 17mm 26mm;break-after:page;background:var(--bg,#fff)}
+.page:last-child{break-after:auto}
+.bg-white{--bg:#fff}.bg-ice{--bg:var(--tint-ice)}.bg-aqua{--bg:var(--tint-aqua)}.bg-blue{--bg:var(--tint-blue)}
+.bg-rose{--bg:var(--tint-rose)}
+.bg-navy{--bg:var(--ak-navy);color:#fff}
+.bg-navy .h-display,.bg-navy .h1,.bg-navy .h2{color:#fff}
+.bg-navy .body,.bg-navy p{color:rgba(255,255,255,.78)}
+.foot{position:absolute;left:17mm;right:17mm;bottom:11mm;display:flex;justify-content:space-between;align-items:center}
+.foot .logo{height:6.2mm}
+.foot .folio{font-size:8.5pt;font-weight:600;color:var(--ink-2)}
+.foot .src{font-size:8pt;color:var(--ink-3)}
+.foot .src a{color:var(--ak-blue);text-decoration:none}
+.bg-navy .foot .folio{color:#fff}
+.logo-white{filter:brightness(0) invert(1)}
+.h-display{font-size:64pt;line-height:1.02;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
+.h1{font-size:50pt;line-height:1.05;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.h2{font-size:30pt;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.h3{font-size:15pt;line-height:1.25;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.deck{font-size:18pt;line-height:1.3;font-weight:400;color:var(--ink-3);letter-spacing:-.01em;margin-top:4mm}
+.lede{font-size:12.5pt;line-height:1.5;color:var(--ink-2);max-width:150mm}
+.body{font-size:11.5pt;line-height:1.6;color:var(--ink-2)}
+.body p+p{margin-top:3.5mm}
+.body b,.lede b{color:var(--ink);font-weight:600}
+.meta{font-size:8.5pt;color:var(--ink-3);letter-spacing:.02em}
+.caps{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue)}
+.stat{font-size:110pt;line-height:.95;font-weight:200;letter-spacing:-.05em;color:var(--ink)}
+.stat-m{font-size:64pt;line-height:1;font-weight:200;letter-spacing:-.045em;color:var(--ink)}
+.stat-s{font-size:38pt;line-height:1;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.num-ghost{font-size:64pt;font-weight:200;letter-spacing:-.04em;color:var(--ak-sky);line-height:1}
+.chip{display:inline-block;background:var(--ak-yellow);color:var(--ink);font-size:8.5pt;font-weight:500;padding:1.4mm 2.6mm;border-radius:1mm;margin-bottom:5mm}
+.chip.blue{background:var(--tint-blue);color:var(--ak-blue)}
+.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+.accent{color:var(--ak-blue)}
+.ul{background:var(--grad) left bottom/100% .09em no-repeat;padding-bottom:.04em}
+.rule{height:.3mm;background:var(--rule);border:0}
+.rule-grad{height:.8mm;background:var(--grad);border:0;width:22mm}
+.stack>*+*{margin-top:var(--gap,6mm)}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
+.push-right{margin-left:64mm}
+.bottom{position:absolute;left:17mm;right:17mm;bottom:28mm}
+.panel{background:#fff;border:.3mm solid var(--rule);border-radius:4mm;padding:9mm 10mm;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;left:0;right:0;top:0;height:1.4mm;background:var(--grad)}
+.panel.navy{background:var(--ak-navy);border-color:var(--ak-navy);color:#fff}
+.panel.navy .stat,.panel.navy .stat-m{color:#fff}
+.nlist .row{display:grid;grid-template-columns:52mm 1fr;gap:6mm;padding:6mm 0;border-top:.3mm solid var(--rule)}
+.nlist .row:first-child{border-top:0}
+.nlist .icon{width:13mm;height:13mm;margin-bottom:3mm}
+.ntable{width:100%;border-collapse:collapse}
+.ntable th{font-size:8.5pt;font-weight:600;color:var(--ak-blue);text-align:left;padding:0 0 3mm}
+.ntable td{padding:5mm 0;border-top:.3mm solid var(--rule);vertical-align:middle}
+.ntable td.lbl{font-size:11pt;color:var(--ink);width:36%}
+.ntable td.v{font-size:38pt;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.ntable td.v small{font-size:9pt;font-weight:400;letter-spacing:0;color:var(--ink-3);margin-left:1.5mm}
+.toc .item{display:grid;grid-template-columns:1fr 18mm;align-items:end;margin-top:9mm}
+.toc .t{font-size:21pt;line-height:1.2;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.toc .p{font-size:21pt;font-weight:300;text-align:right;color:var(--ink)}
+.bar{height:5mm;border-radius:1mm;background:var(--ak-blue)}
+.bar.alt{background:var(--ak-sky)}.bar.warn{background:var(--ak-red)}
+.pill{display:inline-flex;align-items:center;gap:2mm;border:.3mm solid var(--rule);border-radius:10mm;padding:1.5mm 3.5mm;font-size:8.5pt;color:var(--ink-2);background:#fff}
+.flow{display:flex;align-items:center;gap:3mm}
+.flow .node{flex:1;border:.3mm solid var(--rule);border-radius:3mm;background:#fff;padding:5mm}
+.flow .arrow{width:10mm;height:.4mm;background:var(--grad);position:relative}
+.flow .arrow::after{content:"";position:absolute;right:-.5mm;top:-1.1mm;border:1.3mm solid transparent;border-left-color:var(--ak-blue)}
+.cta{display:inline-block;background:var(--ak-blue);color:#fff;font-weight:600;font-size:11pt;padding:4mm 7mm;border-radius:2mm;text-decoration:none}
+.cta.ghost{background:transparent;border:.5mm solid #fff}
+.link{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.art{position:absolute;pointer-events:none}
+.shot{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:2.5mm;position:relative;overflow:hidden}
+.shot::before{content:"";position:absolute;left:0;right:0;top:0;height:1mm;background:var(--grad)}
+.shot img{display:block;width:100%;height:auto;border-radius:1.5mm;margin-top:1mm}
+.shot-cap{font-size:8.5pt;color:var(--ink-3);margin-top:2.5mm}
+.shot-cap a{color:var(--ak-blue);text-decoration:none}
+
+.mod-top{display:grid;grid-template-columns:1fr 74mm;gap:8mm;align-items:start}
+.shot.wide img{height:56mm;object-fit:cover;object-position:top center}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm}
+.dd .col{border-top:1.2mm solid var(--ak-blue);padding-top:4mm}
+.dd .col.no{border-top-color:var(--ak-red)}
+.dd .lab{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue);margin-bottom:2mm}
+.dd .col.no .lab{color:var(--ak-red)}
+.dd ul{list-style:none}
+.dd li{font-size:10pt;line-height:1.45;color:var(--ink-2);padding:2.2mm 0 2.2mm 6mm;position:relative;border-bottom:.25mm solid var(--rule)}
+.dd li:last-child{border-bottom:0}
+.dd li::before{content:"";position:absolute;left:0;top:3.9mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--ak-blue)}
+.dd .col.no li::before{background:var(--ak-red);border-radius:.4mm}
+.fix{margin-top:7mm;background:#fff;border:.3mm solid var(--rule);border-left:1.4mm solid var(--ak-blue);border-radius:2mm;padding:4.5mm 6mm}
+.fix .caps{margin-bottom:1.5mm}
+.fix p{font-size:10pt;line-height:1.5;color:var(--ink-2)}
+.fix a{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 7mm;margin-top:8mm}
+.mods .m{display:grid;grid-template-columns:12mm 1fr 8mm;align-items:baseline;border-top:.3mm solid var(--rule);padding-top:3mm}
+.mods .n{font-size:20pt;font-weight:200;color:var(--ak-sky);letter-spacing:-.03em}
+.mods .t{font-size:11pt;font-weight:600;color:var(--ink)}
+.mods .t small{display:block;font-size:8.5pt;font-weight:400;color:var(--ink-3);margin-top:.6mm}
+.mods .p{font-size:11pt;font-weight:300;text-align:right;color:var(--ink)}
+.gap{width:100%;border-collapse:collapse;margin-top:8mm}
+.gap th{font-size:8pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ak-blue);text-align:left;padding:0 3mm 3mm 0}
+.gap td{font-size:9.5pt;line-height:1.4;color:var(--ink-2);padding:3.2mm 3mm 3.2mm 0;border-top:.3mm solid var(--rule);vertical-align:top}
+.gap td:first-child{color:var(--ink);font-weight:600;width:33%}
+.gap td:nth-child(2){width:24%;color:var(--ak-blue);font-weight:500}
+
+/* ---- cheat sheet kit additions ---- */
+.shot.full img{height:auto}
+.shot.tall img{max-height:118mm;object-fit:contain}
+.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:8mm}
+.prob .card{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:6mm 5mm 5mm;position:relative;overflow:hidden}
+.prob .card::before{content:"";position:absolute;left:0;right:0;top:0;height:1.2mm;background:var(--grad)}
+.prob .card .stat-s{color:var(--ak-red)}
+.prob .card p{font-size:9.5pt;line-height:1.45;margin-top:3mm;color:var(--ink-2)}
+.prob .card .src{font-size:7.5pt;color:var(--ink-3);margin-top:2.5mm}
+.prob .card .src a{color:var(--ak-blue);text-decoration:none}
+.src-line{font-size:7.5pt;color:var(--ink-3);margin-top:4mm}
+.src-line a{color:var(--ak-blue);text-decoration:none}
+.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm;margin-top:7mm}
+.proof .p{border-top:1.2mm solid var(--ak-blue);padding-top:3.5mm}
+.proof .p .stat-s{color:var(--ak-blue)}
+.proof .p p{font-size:9.5pt;line-height:1.45;margin-top:2mm}
+.icon{width:11mm;height:11mm;stroke:var(--ak-sky);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.mods .m:nth-child(7){grid-column:1}
+.mods{grid-auto-flow:row}
+</style>
+</head>
+<body>
+
+<section class="page bg-navy">
+  <svg class="art" style="right:-40mm;top:-30mm;width:190mm;height:190mm" viewBox="0 0 200 200">
+    <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs>
+    <g fill="none" stroke="url(#gc)" stroke-width=".5"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 3"/></g>
+    <circle cx="100" cy="100" r="6" fill="#1040C5"/><circle cx="150" cy="45" r="3" fill="#FF4646"/><circle cx="36" cy="140" r="2.5" fill="#4F9CF9"/><circle cx="62" cy="38" r="2" fill="#FFD900"/>
+  </svg>
+  <div style="position:absolute;left:17mm;right:17mm;bottom:30mm">
+    <img src="logo.png" class="logo-white" style="height:8mm;margin-bottom:12mm">
+    <div class="caps" style="color:var(--ak-sky);margin-bottom:5mm">ASPM best practices cheat sheet</div>
+    <h1 class="h-display">Fix the flaws<br>attackers can<br><span class="ul">really reach</span></h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);font-size:18pt;max-width:150mm">Seven do's and don'ts for application security posture management, from the first commit to the closed ticket.</p>
+  </div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">The problem</span>
+  <h1 class="h1">The backlog grows<br>faster than teams<br>can <span class="hl">fix it</span></h1>
+  <p class="lede" style="margin-top:6mm">Each year brings more published CVEs, more leaked keys and more findings from more scanners. Fix times are getting longer, so the gap between what you found and what you closed keeps growing.</p>
+  <div class="prob">
+    <div class="card"><div class="stat-s">48,244</div><p>CVE records published in 2025, up from 40,077 in 2024.</p><div class="src">CVE Program metrics, <a href="https://www.cve.org/about/Metrics">cve.org</a></div></div>
+    <div class="card"><div class="stat-s">28.6M</div><p>New secrets found in public GitHub commits in 2025, up 34% in one year.</p><div class="src">GitGuardian, State of Secrets Sprawl 2026, <a href="https://www.gitguardian.com/state-of-secrets-sprawl-report-2026">gitguardian.com</a></div></div>
+    <div class="card"><div class="stat-s">43 days</div><p>Median time to fully fix a CISA KEV vulnerability in 2025, up from 32 days. Only 26% were fully fixed.</p><div class="src">Verizon 2026 DBIR, <a href="https://www.verizon.com/business/resources/Td15/reports/2026-dbir-data-breach-investigations-report.pdf">verizon.com</a></div></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">02</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Root causes</span>
+  <h1 class="h2">Four habits keep the<br>backlog <span class="hl">growing</span></h1>
+  <div class="nlist" style="margin-top:8mm">
+    <div class="row"><div><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><div class="h3">Each scanner reports alone</div></div><div class="body">SAST, DAST, SCA, IaC, secret and container tools each keep their own console. The same flaw lands in several lists, and nobody owns the total.</div></div>
+    <div class="row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div class="h3">Severity stands in for risk</div></div><div class="body">Datadog found that only 18% of critical dependency vulnerabilities stay critical after runtime context, exploit availability and EPSS adjust the score.</div></div>
+    <div class="row"><div><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><div class="h3">Scans run after the merge</div></div><div class="body">Vulnerability exploitation started 31% of breaches in the 2026 DBIR, up from 20%. A flaw first found in production has already been exposed.</div></div>
+    <div class="row"><div><svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></svg><div class="h3">Leaked keys stay valid</div></div><div class="body">GitGuardian reports that 64% of the secrets leaked in 2022 are still active. Deleting the commit does not revoke the key.</div></div>
+  </div>
+  <p class="src-line">Sources: Datadog, State of DevSecOps 2026, <a href="https://www.datadoghq.com/state-of-devsecops/">datadoghq.com</a>. Verizon 2026 DBIR, <a href="https://www.verizon.com/business/resources/Td15/reports/2026-dbir-data-breach-investigations-report.pdf">verizon.com</a>. GitGuardian, State of Secrets Sprawl 2026, <a href="https://www.gitguardian.com/state-of-secrets-sprawl-report-2026">gitguardian.com</a>.</p>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">03</span></div>
+</section>
+
+<section class="page bg-ice">
+  <span class="chip">Start here</span>
+  <h1 class="h1">Seven practices,<br>one <span class="hl">pipeline</span></h1>
+  <p class="lede" style="margin-top:5mm">AccuKnox ASPM runs SAST, DAST, SCA, IaC, secret and container scans, and keeps the findings in the same CNAPP as your cloud and runtime data.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/platform.png" alt="AccuKnox CNAPP module map with ASPM covering SAST, DAST, secret scans, IaC scans, SBOM and SCA"></figure>
+  <p class="shot-cap">ASPM inside the AccuKnox CNAPP. <a href="https://help.accuknox.com/how-to/aspm-overview/">help.accuknox.com/how-to/aspm-overview</a></p>
+  <div class="mods">
+    <div class="m"><span class="n">01</span><span class="t">One findings queue<small>Every scanner, one place</small></span><span class="p">05</span></div>
+    <div class="m"><span class="n">05</span><span class="t">Gate the pipeline<small>Observe first, then enforce</small></span><span class="p">09</span></div>
+    <div class="m"><span class="n">02</span><span class="t">Exploitability first<small>EPSS and runtime evidence</small></span><span class="p">06</span></div>
+    <div class="m"><span class="n">06</span><span class="t">SBOM per build<small>Know what changed</small></span><span class="p">10</span></div>
+    <div class="m"><span class="n">03</span><span class="t">Scan every repo<small>Where developers commit</small></span><span class="p">07</span></div>
+    <div class="m"><span class="n">07</span><span class="t">Owned tickets<small>Rules route and close work</small></span><span class="p">11</span></div>
+    <div class="m"><span class="n">04</span><span class="t">Stop leaked secrets<small>Before the merge</small></span><span class="p">08</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">04</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 01</span>
+  <h1 class="h2">Send every scanner<br>to <span class="hl">one queue</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">Findings from SAST, DAST, SCA, IaC, secret and container scans land in Issues, Findings, next to cloud and cluster data.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/findings-summary.png" alt="Findings summary listing Cloud, Cluster, Container Image, Secret Scan, SAST and Host Endpoint data types with finding counts and trends"></figure>
+  <p class="shot-cap">Findings summary by data type. <a href="https://help.accuknox.com/use-cases/aspm/">help.accuknox.com/use-cases/aspm</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Upload every scan result to AccuKnox and filter by Data Type, such as SAST or IaC Scan.</li><li>Give each repo and image a label per team or environment.</li><li>Keep SonarQube if you run it. AccuKnox ingests its results.</li><li>Schedule an ASPM report so owners get one PDF by email.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't triage in six consoles with six severity scales.</li><li>Don't count the same flaw once per tool in your metrics.</li><li>Don't send scan results to a tool nobody opens.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>The ASPM Scanner CLI runs IaC, SAST, SonarQube SAST, secret, container and DAST scans with one command and uploads the results. <a href="https://help.accuknox.com/use-cases/aspm-scanner-cli/">Install the ASPM Scanner CLI</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">05</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 02</span>
+  <h1 class="h2">Fix what attackers<br>can <span class="hl">exploit</span> first</h1><p class="deck" style="font-size:13pt;max-width:150mm">CVSS rates how bad a flaw is. EPSS estimates the chance of exploitation in the next 30 days.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/container-dash.png" alt="Container Images dashboard with findings by severity, top vulnerable packages, top insecure registries and top CVEs with CVSS score"></figure>
+  <p class="shot-cap">Container Images dashboard. <a href="https://help.accuknox.com/use-cases/epss-scoring/">help.accuknox.com/use-cases/epss-scoring</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Sort container CVEs by EPSS score and percentile, shown beside CVSS.</li><li>Fix first where high CVSS, high EPSS and a CWE Top 25 or KEV weakness meet.</li><li>Use the Runtime Verified flag to find packages that run in production.</li><li>Recheck priorities often, because EPSS scores update daily.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't rank the backlog by CVSS alone.</li><li>Don't treat EPSS as the full picture. It ignores your environment and impact.</li><li>Don't park a medium CVE that has a public exploit.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>The AccuKnox Vulnerability Database adds EPSS to container image findings. Runtime Verified uses KubeArmor eBPF telemetry with CISA KEV and EPSS enrichment. <a href="https://help.accuknox.com/resources/vulnerability-database/">Read the Vulnerability DB page</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">06</span></div>
+</section>
+
+<section class="page bg-blue">
+  <span class="chip">Practice 03</span>
+  <h1 class="h2">Scan code where<br>developers <span class="hl">commit</span> it</h1><p class="deck" style="font-size:13pt;max-width:150mm">A public S3 bucket in Terraform costs one review comment. The same bucket in production costs an incident.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/iac-dash.png" alt="IaC Findings dashboard with findings trend, top IaC findings and the most vulnerable repositories across GitHub, GitLab and Bitbucket"></figure>
+  <p class="shot-cap">IaC Findings dashboard. <a href="https://help.accuknox.com/how-to/code-source-onboarding/">help.accuknox.com/how-to/code-source-onboarding</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Connect GitHub, GitLab or Bitbucket with the App Based integration and pick SCA, Secrets, SAST, SBOM and IaC.</li><li>Tick Auto connect new repos so new code gets scanned.</li><li>Add scan steps to GitHub Actions, GitLab, Jenkins or Azure DevOps.</li><li>Let developers run the CLI locally with upload skipped.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't wait for a yearly pentest to find a public bucket in Terraform.</li><li>Don't scan only the default branch when releases ship from others.</li><li>Don't expect the app flow on Bitbucket Data Center. Use the CI/CD integration.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>The AccuKnox app asks for read only access and needs no pipeline change. CI/CD and CLI integrations run the same scanners. <a href="https://help.accuknox.com/how-to/code-source-onboarding/">Connect your source code</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">07</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 04</span>
+  <h1 class="h2">Stop a secret before<br>it <span class="hl">reaches</span> the repo</h1><p class="deck" style="font-size:13pt;max-width:150mm">A key in Git history stays usable until someone revokes it, even after the file changes.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/secret-dash.png" alt="Secret Scan Findings dashboard with findings by severity, secret exposure trend and top repositories with verified and unverified secrets"></figure>
+  <p class="shot-cap">Secret Scan Findings dashboard. <a href="https://help.accuknox.com/use-cases/secret-scan-cicd-aws/">help.accuknox.com/use-cases/secret-scan-cicd-aws</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Run the secret scan on every push and pull request.</li><li>Scan the full Git history, not only the latest commit.</li><li>Revoke and rotate a leaked key first, then clean history with BFG Repo Cleaner.</li><li>Move secrets to Vault, AWS Secrets Manager or Azure Key Vault.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't rely on grep or code review to catch keys.</li><li>Don't call a leak fixed when you only deleted the file.</li><li>Don't forget images and ConfigMaps. Secrets hide there too.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Each finding shows the secret type, file path, commit SHA and author. AccuKnox receives the finding details, never the secret value. <a href="https://help.accuknox.com/use-cases/secret-scan-cicd-aws/">Add secret scanning to CI/CD</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">08</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 05</span>
+  <h1 class="h2">Gate the pipeline, but<br><span class="hl">observe</span> first</h1><p class="deck" style="font-size:13pt;max-width:150mm">A gate that breaks every build on day one gets switched off by day three.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/secret-gate.png" alt="GitHub Actions log where the AccuKnox Secret Scan step finds credentials and fails the job with exit code 1"></figure>
+  <p class="shot-cap">A secret scan failing the job in GitHub Actions. <a href="https://help.accuknox.com/use-cases/secret-scan-cicd-aws/">help.accuknox.com/use-cases/secret-scan-cicd-aws</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Start with soft_fail set to true, so findings upload and the build stays green.</li><li>Set a date to switch to hard fail on critical and high findings.</li><li>Fail the container build on critical CVEs before the image is pushed.</li><li>Run a DAST baseline scan in CI and a full scan in staging.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't leave soft fail on forever. Then the gate is only a report.</li><li>Don't run a full DAST scan on every pull request.</li><li>Don't let images from unknown registries reach the cluster.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>AccuKnox scan steps take a soft or hard fail setting. KnoxGuard blocks deployments that pull images from untrusted registries. <a href="https://help.accuknox.com/use-cases/knoxguard-supply-chain/">Set up KnoxGuard</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">09</span></div>
+</section>
+
+<section class="page bg-blue">
+  <span class="chip">Practice 06</span>
+  <h1 class="h2">Keep an SBOM for<br>every <span class="hl">build</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">When the next Log4Shell lands, an SBOM shows which releases ship the package.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/sbom-compare.png" alt="SBOM Comparison showing components added, removed, changed and unchanged between two SBOMs with versions, licenses and PURLs"></figure>
+  <p class="shot-cap">SBOM Comparison. <a href="https://help.accuknox.com/getting-started/xbom-setup/">help.accuknox.com/getting-started/xbom-setup</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Generate a CycloneDX or SPDX SBOM in CI on every build.</li><li>Upload SBOMs from Syft or Trivy if you already make them.</li><li>Compare two SBOMs before release to see added and changed packages.</li><li>Review license findings. Strong copyleft rates High, banned licenses Critical.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't build an SBOM once, only for the audit.</li><li>Don't skip the packages that the base image brings in.</li><li>Don't ignore a new dependency nobody asked for.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>AccuKnox scans each SBOM for vulnerabilities, license issues and dependency risk, and tracks changes between versions. <a href="https://help.accuknox.com/faqs/sbom/">Read the SBOM FAQ</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">10</span></div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">Practice 07</span>
+  <h1 class="h2">Turn findings into<br><span class="hl">owned</span> tickets</h1><p class="deck" style="font-size:13pt;max-width:150mm">A finding with no ticket and no owner waits in the backlog until an attacker finds it.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/rule-engine-action.png" alt="Rule Engine create rule view for Critical Cloud Issues with conditions on label and risk factor, and the Action panel offering Create Ticket, Change Status and Channel"></figure>
+  <p class="shot-cap">Rule Engine with a Create Ticket action. <a href="https://help.accuknox.com/use-cases/rules-engine-ticket-creation/">help.accuknox.com/use-cases/rules-engine-ticket-creation</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Connect Jira or ServiceNow, then create a Rule Engine rule with a Create Ticket action.</li><li>Set the Parent field to Asset Name so each asset gets one parent ticket.</li><li>Let a rescan move a finding to Fixed and close its ticket.</li><li>Mark a false positive as an exception with a written reason.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't open one ticket per finding by hand.</li><li>Don't close a ticket before a scan confirms the fix.</li><li>Don't let a rule expire unnoticed. An expired rule stops creating tickets.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>A finding moves from Active to Waiting for Verification to Fixed once two scans agree, and the linked ticket closes with it. <a href="https://help.accuknox.com/use-cases/rules-engine-ticket-creation/">Create your first rule</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">11</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Gap check</span>
+  <h1 class="h1">Find your gap,<br>then take the<br><span class="hl">first step</span></h1>
+  <p class="lede" style="margin-top:5mm">Read each row. Where the statement is true for your team, start the first step this week.</p>
+  <table class="gap"><tr><th>If this is true</th><th>AccuKnox capability</th><th>First step</th></tr>
+  <tr><td>Each scanner has its own console and nobody sees the total</td><td>ASPM findings and reports</td><td>Upload results with the ASPM Scanner CLI and schedule an ASPM report</td></tr>
+  <tr><td>The team fixes CVEs in CVSS order</td><td>EPSS and Runtime Verified</td><td>Sort container findings by EPSS and turn on runtime verification</td></tr>
+  <tr><td>Some repos get no SAST, SCA or IaC scan</td><td>App Based code source scanning</td><td>Install the AccuKnox app and tick Auto connect new repos</td></tr>
+  <tr><td>Keys can reach the repo without a check</td><td>Secret scanning in CI/CD</td><td>Add the secret scan step with fail set to true</td></tr>
+  <tr><td>Builds pass whatever the scans find</td><td>Soft and hard fail gates, KnoxGuard</td><td>Start in soft fail, then set a hard fail date</td></tr>
+  <tr><td>Nobody can say which releases ship a given package</td><td>SBOM generation and comparison</td><td>Generate an SBOM in CI for each build</td></tr>
+  <tr><td>Findings wait with no owner or ticket</td><td>Rule Engine smart tickets</td><td>Connect Jira and create a rule with a Parent field</td></tr></table>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">12</span></div>
+</section>
+
+<section class="page bg-navy">
+  <img src="logo.png" class="logo-white" style="height:7mm">
+  <div class="bottom">
+    <hr class="rule-grad" style="margin-bottom:8mm">
+    <h1 class="h1">See your whole<br>AppSec backlog<br>in one place</h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);margin-bottom:12mm;max-width:150mm">Bring your gap check to a demo. We connect a repo, run the scans and rank the findings with you.</p>
+    <a class="cta" href="https://accuknox.com/demo/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=aspm-cheat-sheet">Book a demo</a>&nbsp;&nbsp;<a class="cta ghost" href="https://help.accuknox.com/how-to/aspm-overview/">Open the ASPM docs</a>
+    <div class="proof" style="grid-template-columns:repeat(3,1fr);margin-top:13mm">
+      <div class="p"><div class="stat-s" style="color:#fff">2026</div><p>KuppingerCole CNAPP Leadership Compass features AccuKnox, citing DevSecOps and unified risk correlation.</p></div>
+      <div class="p"><div class="stat-s" style="color:#fff">Gartner</div><p>Emerging Tech techscape profiles AccuKnox among startups joining cloud and application security.</p></div>
+      <div class="p"><div class="stat-s" style="color:#fff">6</div><p>Scan types in one ASPM Scanner CLI, from IaC and SAST to secrets, containers and DAST.</p></div>
+    </div>
+    <p class="src-line src" style="color:rgba(255,255,255,.55);font-size:7.5pt">Sources: <a style="color:var(--ak-sky)" href="https://accuknox.com/analyst-recognition/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=aspm-cheat-sheet">accuknox.com/analyst-recognition</a> and <a style="color:var(--ak-sky)" href="https://help.accuknox.com/use-cases/aspm-scanner-cli/">help.accuknox.com/use-cases/aspm-scanner-cli</a></p>
+    <p class="meta" style="color:rgba(255,255,255,.5);margin-top:10mm">accuknox.com · © 2026 AccuKnox, Inc.</p>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,248 @@
+{
+ "vendor": "Zscaler",
+ "products": "Zscaler AI Protect (launched Jan 2026), with three pillars: AI Asset Management (AI-SPM, public AI visibility, AI infrastructure discovery), Secure Access to AI (AI Guard for Users through ZIA, prompt extraction, DLP, browser isolation) and Secure AI Apps and Infrastructure (AI Guard for Apps in Proxy or DAS/API mode, automated AI red teaming from SPLX, policy generator, prompt hardening). Added June 2026: AI Broker (MCP and A2A brokers with an Agent Registry), Endpoint AI Security and AI Access Graph (Symmetry Systems). Adjacent: Agentic SOC (Sep 2026), ZAgent Framework, Deception Gen AI decoys, Zscaler Integrations MCP Server.",
+ "licensing": "AI Guard is SaaS, licensed on a platform subscription fee plus purchased tokens counted on prompts and responses. Endpoint AI Security is SaaS, licensed per protected endpoint. Sources: https://help.zscaler.com/logs-fair-use/zscaler-ai-guard-licensing-and-fair-use and https://help.zscaler.com/logs-fair-use/zscaler-endpoint-ai-licensing-and-fair-use",
+ "rows": {
+  "F1": {
+   "status": "limited",
+   "facts": [
+    "Agentic SOC with specialized triage, investigation and response agents (GA Sep 9, 2026)",
+    "ZAgent Framework agents for ZDX, ZPA and SecOps admin tasks"
+   ],
+   "gap": "The agents are built and run by Zscaler. Not shown in Zscaler docs: a customer agent builder or an agent sandbox. ZAgent data is stored in the US and EU regions, and both offers run as SaaS.",
+   "url": "https://www.zscaler.com/press/zscaler-launches-agentic-soc-contain-ai-driven-threats",
+   "evidence": "Autonomous agents perform dedicated roles across triage, root-cause investigation, assigning verdicts, and triggering response workflows",
+   "extra_urls": [
+    "https://www.zscaler.com/blogs/product-insights/introducing-zagent-framework-foundation-autonomous-sase"
+   ]
+  },
+  "R1": {
+   "status": "yes",
+   "facts": [
+    "AWS, Azure and GCP onboarding",
+    "Bedrock, Azure AI Foundry, Vertex AI, Hugging Face and Ollama"
+   ],
+   "gap": "The Bedrock model inventory is activity based and lists only models invoked in the preceding 90 days, from CloudTrail events. AI-SPM runs in the AI Security Admin Portal, which is provisioned separately.",
+   "url": "https://www.zscaler.com/products-and-solutions/ai-asset-management",
+   "evidence": "Natively protect resources associated with platforms like Amazon Bedrock, Microsoft Azure Foundry AI, and Google Vertex AI, as well as unmanaged AI services like Hugging Face and Ollama.",
+   "extra_urls": [
+    "https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026"
+   ]
+  },
+  "R2": {
+   "status": "limited",
+   "facts": [
+    "DAS/API mode for private and on-prem LLMs",
+    "Proxy mode supports public LLM providers only"
+   ],
+   "gap": "Private or on-prem LLMs are covered through DAS/API mode, which still calls the SaaS endpoint api.zseclipse.net for every verdict, and the app enforces the result. AI Guard and Endpoint AI Security are licensed as SaaS. Not shown in Zscaler docs: an on-prem or air-gapped AI Security console.",
+   "url": "https://help.zscaler.com/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode",
+   "evidence": "Private LLMs: Required for models that are not internet-reachable or are hosted on-premises where a proxy cannot be easily inserted.",
+   "extra_urls": [
+    "https://help.zscaler.com/logs-fair-use/zscaler-ai-guard-licensing-and-fair-use"
+   ]
+  },
+  "R3": {
+   "status": "limited",
+   "facts": [
+    "GenAI, desktop AI and embedded AI app discovery",
+    "Endpoint AI Security for IDEs, extensions and local AI tools"
+   ],
+   "gap": "Inline control of user AI traffic runs through ZIA, with users authenticated through Zscaler Client Connector. Endpoint AI Security is a separate SaaS product licensed per protected endpoint. Zscaler pages state different prompt extraction counts (250+ in the June 2026 press release, 2,900+ in the launch blog), so the PDF does not cite a count.",
+   "url": "https://help.zscaler.com/secure-ai-users/understanding-ai-guard-users-architecture",
+   "evidence": "Zscaler Client Connector authenticated users connect to ZIA in order to send traffic to it.",
+   "extra_urls": [
+    "https://help.zscaler.com/ai-asset-mgmt/understanding-ai-security",
+    "https://help.zscaler.com/logs-fair-use/zscaler-endpoint-ai-licensing-and-fair-use",
+    "https://www.zscaler.com/press/zscaler-unveils-new-product-innovations-secure-agentic-ai"
+   ]
+  },
+  "R4": {
+   "status": "yes",
+   "facts": [
+    "Bedrock Agent, Azure AI Foundry and Azure OpenAI agent posture policies",
+    "Copilot Studio agent discovery (2026)"
+   ],
+   "gap": "Agent coverage is posture and entitlement focused. Bedrock AgentCore appears only as an AI Guard code wrapper in the zguard-ai-integrations GitHub repo, not in the AI Asset Management agent inventory.",
+   "url": "https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026",
+   "evidence": "Zscaler AI Security now supports Microsoft Copilot Studio, enabling organizations to automatically discover and secure AI agents built on the platform.",
+   "extra_urls": [
+    "https://help.zscaler.com/ai-asset-mgmt/about-ai-assets-agents",
+    "https://github.com/zscaler/zguard-ai-integrations"
+   ]
+  },
+  "R5": {
+   "status": "limited",
+   "facts": [
+    "MCP server inventory with capability-based risk (file system, network, code execution)",
+    "AI Broker for MCP and A2A with an Agent Registry, announced June 2026",
+    "AI red teaming for MCP servers"
+   ],
+   "gap": "MCP server discovery is documented in help.zscaler.com. AI Broker, the inline MCP and A2A broker, appears only in the June 2026 press release, the launch blog and the product page. A search of help.zscaler.com for AI Broker returned only the AI Red Teaming broker, a different component that routes test traffic. Not shown in Zscaler docs: host-level containment of a local MCP server process.",
+   "url": "https://help.zscaler.com/ai-asset-mgmt/about-ai-assets-mcp-servers",
+   "evidence": "The AI Assets MCP Servers page in AI Security Admin Portal provides a centralized inventory of discovered Model Context Protocol (MCP) server instances",
+   "extra_urls": [
+    "https://www.zscaler.com/blogs/product-insights/how-zscaler-secures-the-agentic-ai-era",
+    "https://www.zscaler.com/press/zscaler-unveils-new-product-innovations-secure-agentic-ai"
+   ]
+  },
+  "R6": {
+   "status": "limited",
+   "facts": [
+    "Endpoint AI Security for AI IDEs, local models, browser plugins and extensions",
+    "AI Guard hooks for Claude Code, Codex CLI, Cursor, Cline and Windsurf in GitHub"
+   ],
+   "gap": "Endpoint AI Security covers employee devices and runs as an endpoint agent or a Client Connector module. Coding agent hooks ship from the zguard-ai-integrations GitHub repo, one hook set per tool. Not shown in Zscaler docs: kernel-level process, file or network control for agent frameworks on servers or Kubernetes.",
+   "url": "https://www.zscaler.com/blogs/product-insights/how-zscaler-secures-the-agentic-ai-era",
+   "evidence": "Endpoint AI Security reaches into exactly those layers to detect AI-related threats, enforce policies, and stop risks that traditional EDR solutions miss entirely.",
+   "extra_urls": [
+    "https://www.zscaler.com/blogs/product-insights/zscaler-and-openai-bringing-frontier-ai-powered-security-enterprise",
+    "https://github.com/zscaler/zguard-ai-integrations"
+   ]
+  },
+  "R7": {
+   "status": "limited",
+   "facts": [
+    "AI posture policies and real-time alerts for AWS, Azure and GCP",
+    "AI Access Graph identity risk analysis"
+   ],
+   "gap": "Detection centers on misconfiguration and access risk. In the AI Access Graph, all remediation actions run through a human-approval workflow. Not shown in Zscaler docs: AI-specific threat detections on CloudTrail or Azure activity logs with automatic revert.",
+   "url": "https://www.zscaler.com/blogs/product-insights/zscaler-and-openai-bringing-frontier-ai-powered-security-enterprise",
+   "evidence": "All remediation actions run through a human-approval workflow.",
+   "extra_urls": [
+    "https://www.zscaler.com/products-and-solutions/ai-asset-management",
+    "https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026"
+   ]
+  },
+  "R8": {
+   "status": "yes",
+   "facts": [
+    "Proxy mode allows, blocks or redacts prompts and responses",
+    "DAS/API mode returns block or allow"
+   ],
+   "gap": "In DAS/API mode, AI Guard only returns a verdict and the application must enforce it. Proxy mode supports public LLM providers only.",
+   "url": "https://help.zscaler.com/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode",
+   "evidence": "Prompts and responses are inspected, and based on configured policies, traffic can be allowed, blocked, or redacted.",
+   "extra_urls": []
+  },
+  "R9": {
+   "status": "yes",
+   "facts": [
+    "AI Guard for Users inspects prompts and responses through ZIA",
+    "Browser isolation can disable cut, paste and download"
+   ],
+   "gap": "Browser control needs ZIA, with users signed in through Zscaler Client Connector, and proxy chaining to AI Guard. Responses are inspected.",
+   "url": "https://help.zscaler.com/secure-ai-users/understanding-ai-guard-users-architecture",
+   "evidence": "The public GenAI apps return their response to AI Guard, where it is analyzed with policy response detectors if configured.",
+   "extra_urls": []
+  },
+  "R10": {
+   "status": "limited",
+   "facts": [
+    "Own SaaS proxy at proxy.zseclipse.net",
+    "Integrations for Kong, LiteLLM, Portkey, TrueFoundry, Azure APIM, Apigee X, NeMo Guardrails, n8n"
+   ],
+   "gap": "Proxy mode supports public LLM providers only. AI Guard is licensed on a platform subscription fee plus purchased tokens, counted on prompts and responses. Not shown in the integrations repo: Bifrost or AWS API Gateway.",
+   "url": "https://help.zscaler.com/logs-fair-use/zscaler-ai-guard-licensing-and-fair-use",
+   "evidence": "Zscaler AI Guard is a Software as a Service (SaaS) product that is licensed based on a platform subscription fee and the number of tokens purchased for the subscription term in an order.",
+   "extra_urls": [
+    "https://help.zscaler.com/secure-ai-apps-infra/architecture-ai-guard-apps-proxy-das-api-mode",
+    "https://github.com/zscaler/zguard-ai-integrations"
+   ]
+  },
+  "R11": {
+   "status": "yes",
+   "facts": [
+    "14 listed detector types on prompts and responses",
+    "Intent-based guardrails for multi-turn conversations (June 2026)"
+   ],
+   "gap": "The AI Guard page labels its detector list as some of the options, so the full count is not published. Multi-turn guardrails were announced in June 2026 for Secure Access to AI.",
+   "url": "https://help.zscaler.com/secure-ai-users/what-ai-guard",
+   "evidence": "AI Guard enforces intent-based detectors on both prompts and responses.",
+   "extra_urls": [
+    "https://www.zscaler.com/press/zscaler-unveils-new-product-innovations-secure-agentic-ai"
+   ]
+  },
+  "R12": {
+   "status": "yes",
+   "facts": [
+    "25+ prebuilt probes and custom probes",
+    "5,000+ simulated attacks, text, image, voice and documents",
+    "Red teaming for MCP servers"
+   ],
+   "gap": "Red teaming comes from the SPLX acquisition. Remediation tracking goes to Jira and ServiceNow.",
+   "url": "https://www.zscaler.com/products-and-solutions/continuous-automated-red-teaming",
+   "evidence": "Leverage unmatched red teaming coverage with 25+ prebuilt probes for all relevant risk categories.",
+   "extra_urls": [
+    "https://www.zscaler.com/blogs/product-insights/accelerating-ai-initiatives-zero-trust",
+    "https://www.zscaler.com/press/zscaler-unveils-new-product-innovations-secure-agentic-ai"
+   ]
+  },
+  "R13": {
+   "status": "limited",
+   "facts": [
+    "AI Access Graph maps human, service and agent identities to data (Symmetry Systems)",
+    "AI Broker Agent Registry enforces what each agent may access"
+   ],
+   "gap": "AI Access Graph maps access and ranks identity risk, and its remediation actions run through a human-approval workflow. The least-privilege enforcement quote comes from the Symmetry Systems acquisition announcement of May 21, 2026. Not shown in Zscaler docs: run-time injection of scoped credentials into an agent, or a per-tool-call permission check.",
+   "url": "https://www.zscaler.com/press/ai-announcement",
+   "evidence": "Map both granted and actual-use permissions across every identity, human and non-human, then use that lineage to define the minimum permissions each agent needs and enforce them through Zero Trust Exchange.",
+   "extra_urls": [
+    "https://www.zscaler.com/blogs/product-insights/how-zscaler-secures-the-agentic-ai-era"
+   ]
+  },
+  "R14": {
+   "status": "limited",
+   "facts": [
+    "Model supply chain risk score for unmanaged models",
+    "Benchmark-based model risk score"
+   ],
+   "gap": "File analysis uses the security scan results produced by Hugging Face and checks for Safetensors, config.json and README. Not shown in Zscaler docs: a Zscaler deserialization scan of pickle, HDF5 or ONNX files, or a CI/CD gate before load.",
+   "url": "https://help.zscaler.com/ai-asset-mgmt/about-ai-assets-models",
+   "evidence": "Analyzes the AI model file formats and security scan results (scanned by Hugging Face) to check for Safetensors file formats, config.json, and README.",
+   "extra_urls": []
+  },
+  "R15": {
+   "status": "yes",
+   "facts": [
+    "Training data classification with DLP engines synced from ZIA",
+    "Data poisoning, misconfiguration and exposure risk"
+   ],
+   "gap": "Classification uses the DLP engines and dictionaries synced from ZIA.",
+   "url": "https://www.zscaler.com/products-and-solutions/ai-asset-management",
+   "evidence": "Identify and secure AI training data against data poisoning, misconfigurations, and exposure",
+   "extra_urls": [
+    "https://help.zscaler.com/ai-asset-mgmt/step-step-configuration-guide-ai-security"
+   ]
+  },
+  "R16": {
+   "status": "limited",
+   "facts": [
+    "Inventory of models, agents, MCP servers, data stores and AI software libraries",
+    "Report export as an Excel file"
+   ],
+   "gap": "Not shown in Zscaler docs: a CycloneDX or SPDX AIBOM export. Inventory pages export to Excel.",
+   "url": "https://help.zscaler.com/ai-asset-mgmt/about-ai-assets-models",
+   "evidence": "Click **Export** to export the data and download the report as an Excel file.",
+   "extra_urls": [
+    "https://help.zscaler.com/ai-asset-mgmt/understanding-ai-security"
+   ]
+  },
+  "R17": {
+   "status": "yes",
+   "facts": [
+    "NIST AI RMF 600-1, EU AI Act, HIPAA, GDPR",
+    "OWASP Top 10, MITRE ATLAS in red teaming",
+    "Compliance heat maps (June 2026)"
+   ],
+   "gap": "Not shown in Zscaler docs: ISO 42001 mapping.",
+   "url": "https://www.zscaler.com/products-and-solutions/ai-asset-management",
+   "evidence": "Meet standards and mandates like NIST AI RMF 600-1, EU AI Act, HIPAA, GDPR, and more through continuous monitoring and compliance reporting.",
+   "extra_urls": [
+    "https://www.zscaler.com/blogs/product-insights/accelerating-ai-initiatives-zero-trust",
+    "https://www.zscaler.com/products-and-solutions/continuous-automated-red-teaming"
+   ]
+  }
+ },
+ "notes": "Read with Firecrawl on 2026-10-01. The help.zscaler.com AI pages are public. Red teaming comes from the SPLX acquisition (docs.probe.splx.ai). AI Access Graph comes from Symmetry Systems (intent announced May 21, 2026). AI Broker and Endpoint AI Security were announced at Zenith Live on June 9, 2026, and the Zscaler launch blog says the platform is available now. Zscaler pages give two different prompt extraction counts (250+ in the June 2026 press release, 2,900+ in the launch blog), so the PDF cites neither. The zguard-ai-integrations repo sits under the zscaler GitHub organization."
+}

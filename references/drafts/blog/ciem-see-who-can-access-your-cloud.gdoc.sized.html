@@ -1,0 +1,158 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>How to See Who Can Access Your Cloud With AccuKnox CIEM</title><style>
+body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5;
+       color: #0D1B4B; }
+h1 { font-size: 22pt; color: #11206D; }
+h2 { font-size: 16pt; color: #11206D; margin-top: 22pt; }
+h3 { font-size: 13pt; color: #003BF6; margin-top: 16pt; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #B9C0DE; padding: 6pt 8pt; text-align: left;
+         vertical-align: top; font-size: 10pt; }
+th { background: #EEF1FB; color: #11206D; font-weight: bold; }
+code { font-family: 'Courier New', monospace; font-size: 9.5pt;
+       background: #F4F6FC; }
+table.code { border-collapse: collapse; width: 100%; margin: 10pt 0; }
+table.code td { background: #F4F6FC; border: 1px solid #B9C0DE;
+                padding: 8pt 10pt; font-family: 'Courier New', monospace;
+                font-size: 9.5pt; white-space: pre-wrap; }
+blockquote { border-left: 3px solid #4D4DD9; margin-left: 0; padding-left: 12pt;
+             color: #595959; }
+em { color: #595959; }
+.meta th { width: 26%; }
+</style></head><body><h1>How to See Who Can Access Your Cloud With AccuKnox CIEM</h1>
+<h2>SEO metadata</h2>
+<table class="meta"><tr><th>title</th><td>How to See Who Can Access Your Cloud With AccuKnox CIEM</td></tr>
+<tr><th>seo_title</th><td>See Who Can Access Your Cloud With AccuKnox CIEM</td></tr>
+<tr><th>meta_description</th><td>AccuKnox CIEM lists every user, group and role in your cloud accounts with risk classes and last use. Follow the tour from identity list to onboarding.</td></tr>
+<tr><th>slug</th><td>ciem-see-who-can-access-your-cloud</td></tr>
+<tr><th>url</th><td>https://accuknox.com/blog/ciem-see-who-can-access-your-cloud</td></tr>
+<tr><th>date</th><td>2026-10-08</td></tr>
+<tr><th>primary_keyword</th><td>ciem</td></tr>
+<tr><th>secondary_keywords</th><td>[&quot;cloud infrastructure entitlement management&quot;, &quot;cloud identity access graph&quot;, &quot;aws iam risk classes&quot;, &quot;cloud entitlements&quot;]</td></tr>
+<tr><th>excerpt</th><td>AccuKnox CIEM lists every user, group and role in your cloud accounts, shows the policies each one holds, and draws the access chain as a graph.</td></tr>
+<tr><th>category</th><td>CIEM</td></tr>
+<tr><th>author</th><td>Atharva Shah</td></tr>
+<tr><th>reading_time</th><td>5 minutes</td></tr>
+<tr><th>word_count_target</th><td>1000</td></tr>
+<tr><th>audience</th><td>security engineer | cloud engineer</td></tr>
+<tr><th>cover_image_prompt_claude</th><td>Not used. The cover is the YouTube thumbnail of the CIEM product tour, https://img.youtube.com/vi/5RnjnIauJow/maxresdefault.jpg</td></tr>
+<tr><th>cover_image_prompt_midjourney</th><td>Not used. The cover is the YouTube thumbnail of the CIEM product tour --ar 16:9</td></tr></table>
+<hr/>
+<p><img width="620" height="349" alt="Thumbnail of the AccuKnox CIEM product tour video, See Who Can Access Your Cloud With AccuKnox CIEM" src="https://img.youtube.com/vi/5RnjnIauJow/maxresdefault.jpg"></p>
+<p><em>Caption: The two-minute product tour, from the identity list to onboarding.</em></p>
+<h2>TL;DR</h2>
+<ul>
+<li>AccuKnox CIEM lists every user, group and role in your AWS, GCP, Azure and Oracle cloud accounts in one table.</li>
+<li>The demo AWS account in the product tour holds 77 users, 22 groups, 637 roles and 504 policies.</li>
+<li>Each identity shows its risk classes, a human or machine tag and the days since its last use.</li>
+<li>The access graph traces an identity through its groups to the policies those groups grant.</li>
+<li>The entitlement toggle is on by default in step 2 of 3 of onboarding, and it supports standalone cloud accounts only.</li>
+<li>The feature releases soon in a newer version of AccuKnox, and the screens come from the current build.</li>
+</ul>
+<h2>One List Shows Every Identity and the Access It Holds</h2>
+<p>Open <strong>Identities &gt; CIEM</strong> in the left navigation. The list view opens by default and holds every user, group and role in your connected cloud accounts. The demo AWS account in the tour holds 637 roles, so the first question is who can actually use them.</p>
+<blockquote>
+<p><strong>Note.</strong> CIEM releases soon in a newer version of AccuKnox. The screens in this post come from the current build and can change before the release. All counts in this post are demo data from the tour.</p>
+</blockquote>
+<p>Each identity carries the risk classes that its attached policies create. Examples are privilege escalation, data exfiltration and credentials exposure. A chip marked <strong>+1</strong> or <strong>+2</strong> hides more classes, and you open the chip to see them all. Every identity also carries a human or machine tag, and a CI/CD pipeline account counts as a machine.</p>
+<p><img width="620" height="349" alt="The CIEM identity list for a demo AWS account, with the risk class column highlighted" src="https://media.zernio.com/temp/1791272855138_s5kykjdl_c01-identity-list.jpg"></p>
+<p><em>Caption: The identity list for a demo AWS account, with a risk class chip on every row.</em></p>
+<p><img width="620" height="349" alt="The CIEM identity list with the human or machine classification column highlighted" src="https://media.zernio.com/temp/1791272856891_gf8t3f22_c02-human-machine.jpg"></p>
+<p><em>Caption: The classification column tags every identity as human or machine.</em></p>
+<p>Scroll the table to the right for the lifecycle columns. Filter the list by name, cloud provider, identity type or date range.</p>
+<p><img width="620" height="349" alt="The CIEM identity list scrolled right, with the Created By, Last Used and Days Since Last Used columns highlighted" src="https://media.zernio.com/temp/1791272858780_du0fz0wf_c03-lifecycle.jpg"></p>
+<p><em>Caption: The lifecycle columns show who created each identity, when it was last used and how many days ago.</em></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>What it shows</th>
+<th>Question it answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Created By</td>
+<td>The user or account that created the identity</td>
+<td>Who made this identity?</td>
+</tr>
+<tr>
+<td>Last Used</td>
+<td>The last time the identity was active</td>
+<td>When was it last active?</td>
+</tr>
+<tr>
+<td>Days Since Last Used</td>
+<td>The days since the last use, where 0 days means used today</td>
+<td>How long has it sat idle?</td>
+</tr>
+<tr>
+<td>Age In Days</td>
+<td>The days since the identity was created</td>
+<td>How old is it?</td>
+</tr>
+</tbody>
+</table>
+<h2>Open an Identity to Read Its Findings and Its Policies</h2>
+<p>Select an identity in the list. A panel opens with 4 tabs: <strong>Overview</strong>, <strong>Access Graph</strong>, <strong>Related Identities</strong> and <strong>Raw Information</strong>. The <strong>Overview</strong> tab holds the identity details and <strong>Total Findings</strong>, which counts the findings on that identity by severity: Critical, High, Medium and Low.</p>
+<p><img width="620" height="349" alt="The identity details panel with the Overview tab, identity details, findings by severity and the attached policy" src="https://media.zernio.com/temp/1791272860606_y7jnefy5_c04-identity-details.jpg"></p>
+<p><em>Caption: The Overview tab shows the identity details, its findings by severity and the policies attached to it.</em></p>
+<p>Below the counts, <strong>Policy Attached</strong> lists every policy with its name, type, resource ID and creation time. Expand a policy row to read the policy document as JSON. You read the exact statements instead of guessing from the policy name.</p>
+<p><img width="620" height="349" alt="An expanded attached policy in the CIEM identity panel, with its JSON policy document" src="https://media.zernio.com/temp/1791272862629_pww89ld1_c05-policy-doc.jpg"></p>
+<p><em>Caption: Expanding a policy row shows its JSON policy document.</em></p>
+<p>A policy has one of three types.</p>
+<ul>
+<li><strong>Cloud managed.</strong> The cloud provider maintains the policy.</li>
+<li><strong>Inline policy.</strong> The policy is embedded in one identity, and the console shows it as <code>inline_policy</code>.</li>
+<li><strong>User managed.</strong> Your team created the policy.</li>
+</ul>
+<h2>The Access Graph Shows Which Group Grants Which Policy</h2>
+<p>Open the <strong>Access Graph</strong> tab. The graph reads from top to bottom. The identity sits at the top, its groups sit in the middle, and the policies each group grants sit at the bottom. A policy attached straight to the identity sits in the same row as the groups.</p>
+<p>The graph shows which permissions reach the identity and through which group. Controls at the lower left zoom, fit, reset and expand the graph.</p>
+<p><img width="620" height="349" alt="The CIEM access graph of one demo AWS user, with the identity at the top, its groups in the middle and the policies granted at the bottom" src="https://media.zernio.com/temp/1791272864624_5muzm5uq_c06-access-graph.jpg"></p>
+<p><em>Caption: The access graph of one demo AWS user. The identity sits at the top, its groups in the middle and the policies those groups grant at the bottom.</em></p>
+<p><strong>Related Identities</strong> lists the other identities in the same cloud account. <strong>Raw Information</strong> shows the full identity record as JSON.</p>
+<h2>The Organization Graph Shows a Whole Account at Once</h2>
+<p>Select the graph icon at the top right of <strong>Identities &gt; CIEM</strong>, then filter by <strong>Cloud Providers</strong> and <strong>Cloud Account Name</strong>. The cloud account node sits at the top, with one node each for users, groups, roles and policies. A badge on each node shows the count.</p>
+<p>The demo AWS account in the tour shows 77 users, 22 groups, 637 roles and 504 policies. Select a node to expand its members, and select a member to open that identity's access graph.</p>
+<p><img width="620" height="349" alt="The CIEM organization graph of the demo AWS account with badges for 77 users, 22 groups, 637 roles and 504 policies" src="https://media.zernio.com/temp/1791272868055_dr3naqcy_c07-org-graph.jpg"></p>
+<p><em>Caption: The organization graph of the demo AWS account, with count badges for 77 users, 22 groups, 637 roles and 504 policies.</em></p>
+<h2>Turn on CIEM While You Onboard a Standalone Account</h2>
+<p>Onboarding a standalone AWS, GCP, Azure or Oracle Cloud Infrastructure (OCI) account turns the feature on. Before you start, finish the cloud-side setup in the <a href="https://help.accuknox.com/how-to/aws-onboarding/">AWS onboarding guide</a> or the guide for your cloud, and install Terraform on your workstation.</p>
+<ol>
+<li>Go to <strong>Settings &gt; Cloud Accounts</strong> and select <strong>Onboard Account</strong>.</li>
+<li>In <strong>Step 1 of 3</strong>, choose your cloud provider and <strong>Standalone Account</strong>, then select <strong>Next</strong>.</li>
+<li>In <strong>Step 2 of 3, Configure Scanning</strong>, keep the <strong>Cloud infrastructure entitlement management (CIEM)</strong> toggle on. It is on by default.</li>
+<li>In <strong>Step 3 of 3, Account Setup</strong>, on AWS, install Terraform from the <strong>Install Terraform Guidelines</strong> link.</li>
+<li>Download the Terraform script and save it as a file, for example <code>accuknox_aws_onboard.tf</code>.</li>
+<li>In the folder that holds the file, run the command below.</li>
+</ol>
+<table class="code"><tr><td>terraform init &amp;&amp; terraform plan &amp;&amp; terraform apply</td></tr></table>
+<ol start="7">
+<li>Open the <code>credentials.txt</code> file that Terraform creates, and paste the access key into <strong>Access Key ID</strong> and the secret key into <strong>Secret Access Key</strong>.</li>
+<li>Select the <strong>Region</strong>, then select <strong>Verify &amp; Connect</strong>.</li>
+</ol>
+<p><img width="620" height="349" alt="Step 2 of 3, Configure Scanning, in AWS onboarding, with the CIEM toggle on by default" src="https://media.zernio.com/temp/1791272870923_btsnl2xq_c08-onboard-toggle.jpg"></p>
+<p><em>Caption: Step 2 of 3 in onboarding, with the CIEM toggle on by default.</em></p>
+<p><img width="620" height="349" alt="Step 3 of 3, Account Setup, with the Terraform command and the access key and secret key fields" src="https://media.zernio.com/temp/1791272872696_enbequxq_c09-terraform.jpg"></p>
+<p><em>Caption: Step 3 of 3 gives you the Terraform command, then asks for the keys from the credentials.txt file.</em></p>
+<p>To onboard an account without CIEM, turn the toggle off in step 2 of 3. For GCP, Azure and OCI, follow the <strong>Account Setup</strong> in the console and the onboarding guide for your cloud.</p>
+<p>To check the result, go to <strong>Settings &gt; Cloud Accounts</strong>. The <strong>CIEM</strong> column shows <strong>Active</strong> for the new account, and in the tour it shows active on AWS, Oracle, GCP and Azure accounts. Then open <strong>Identities &gt; CIEM</strong> and pick your cloud in the <strong>Cloud Providers</strong> filter. The <a href="https://help.accuknox.com/getting-started/ciem-onboarding/">CIEM onboarding guide</a> has the full steps.</p>
+<p><img width="620" height="349" alt="The Cloud Accounts list with the CIEM column showing Active for AWS, Oracle, GCP and Azure accounts" src="https://media.zernio.com/temp/1791272876085_6ecqtjqv_c10-cloud-accounts.jpg"></p>
+<p><em>Caption: The Cloud Accounts list shows CIEM as Active for AWS, Oracle, GCP and Azure accounts.</em></p>
+<h2>CIEM Is Unreleased and Covers Standalone Accounts Only</h2>
+<blockquote>
+<p><strong>Limitation.</strong> Only standalone cloud accounts work today. Organization accounts are not supported yet.</p>
+</blockquote>
+<p>CIEM is not generally available yet, and the screens can change before the release.</p>
+<p>For what each screen shows, read the <a href="https://help.accuknox.com/getting-started/ciem-overview/">CIEM overview</a>. AccuKnox also covers posture on the same accounts through <a href="https://accuknox.com/platform/cspm">Cloud Security Posture Management</a>.</p>
+<h2>Watch the CIEM Tour From Identity List to Onboarding</h2>
+<p>The tour takes about 2 minutes and follows the same order as this post.</p>
+<table class="code"><tr><td>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/5RnjnIauJow&quot; title=&quot;See Who Can Access Your Cloud With AccuKnox CIEM&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</td></tr></table>
+<p>Watch it on YouTube: <a href="https://www.youtube.com/watch?v=5RnjnIauJow">See Who Can Access Your Cloud With AccuKnox CIEM</a>.</p>
+<h2>FAQs</h2>
+<h3>Which clouds does AccuKnox CIEM cover?</h3>
+<p>It covers 4 clouds: AWS, GCP, Azure and Oracle Cloud Infrastructure. It lists 3 identity types: users, groups and roles. In the tour, the cloud accounts list shows entitlement management active on all four clouds.</p>
+<h3>Does CIEM work with organization accounts?</h3>
+<p>No, organization accounts are not supported yet. Only standalone cloud accounts work today, so choose <strong>Standalone Account</strong> in step 1 of onboarding.</p>
+<h3>Can I onboard a cloud account without CIEM?</h3>
+<p>You can. The CIEM toggle in <strong>Step 2 of 3, Configure Scanning</strong> is on by default. Turn it off to onboard the account without CIEM.</p></body></html>

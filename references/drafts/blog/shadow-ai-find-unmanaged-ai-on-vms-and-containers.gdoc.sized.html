@@ -1,0 +1,145 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Find Shadow AI on Your VMs and Containers, Down to the Package</title><style>
+body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5;
+       color: #0D1B4B; }
+h1 { font-size: 22pt; color: #11206D; }
+h2 { font-size: 16pt; color: #11206D; margin-top: 22pt; }
+h3 { font-size: 13pt; color: #003BF6; margin-top: 16pt; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #B9C0DE; padding: 6pt 8pt; text-align: left;
+         vertical-align: top; font-size: 10pt; }
+th { background: #EEF1FB; color: #11206D; font-weight: bold; }
+code { font-family: 'Courier New', monospace; font-size: 9.5pt;
+       background: #F4F6FC; }
+table.code { border-collapse: collapse; width: 100%; margin: 10pt 0; }
+table.code td { background: #F4F6FC; border: 1px solid #B9C0DE;
+                padding: 8pt 10pt; font-family: 'Courier New', monospace;
+                font-size: 9.5pt; white-space: pre-wrap; }
+blockquote { border-left: 3px solid #4D4DD9; margin-left: 0; padding-left: 12pt;
+             color: #595959; }
+em { color: #595959; }
+.meta th { width: 26%; }
+</style></head><body><h1>Find Shadow AI on Your VMs and Containers, Down to the Package</h1>
+<h2>SEO metadata</h2>
+<table class="meta"><tr><th>title</th><td>Find Shadow AI on Your VMs and Containers, Down to the Package</td></tr>
+<tr><th>seo_title</th><td>How to Find Shadow AI on VMs and Containers | AccuKnox</td></tr>
+<tr><th>meta_description</th><td>Find shadow AI on your VMs and containers. See how AccuKnox sorts unmanaged AI agents, SDKs and MCP servers into 7 asset types, down to every package.</td></tr>
+<tr><th>slug</th><td>shadow-ai-find-unmanaged-ai-on-vms-and-containers</td></tr>
+<tr><th>url</th><td>https://accuknox.com/blog/shadow-ai-find-unmanaged-ai-on-vms-and-containers</td></tr>
+<tr><th>primary_keyword</th><td>find shadow AI</td></tr>
+<tr><th>secondary_keywords</th><td>[&quot;shadow AI discovery&quot;, &quot;unmanaged AI assets&quot;, &quot;MCP server discovery&quot;, &quot;AI asset inventory&quot;]</td></tr>
+<tr><th>excerpt</th><td>AccuKnox scans your VMs and containers and lists every unmanaged AI agent, SDK and MCP server by asset type, host and package.</td></tr>
+<tr><th>category</th><td>AI-SPM</td></tr>
+<tr><th>author</th><td>Atharva Shah</td></tr>
+<tr><th>date</th><td>2026-10-09</td></tr>
+<tr><th>reading_time</th><td>5 minutes</td></tr>
+<tr><th>word_count_target</th><td>1000</td></tr>
+<tr><th>audience</th><td>security engineer | cloud engineer</td></tr>
+<tr><th>cover_image_prompt_claude</th><td>Not used. The cover is the YouTube thumbnail for the shadow AI tour video.</td></tr>
+<tr><th>cover_image_prompt_midjourney</th><td>Not used. The cover is the YouTube thumbnail for the shadow AI tour video.</td></tr></table>
+<hr/>
+<p><img width="620" height="349" alt="Thumbnail of the AccuKnox video that shows how to find shadow AI on VMs and containers" src="https://img.youtube.com/vi/Rxs4fX6yKz0/maxresdefault.jpg"></p>
+<p><em>Caption: The thumbnail of the two-minute AccuKnox shadow AI product tour.</em></p>
+<h2>TL;DR</h2>
+<ul>
+<li>AccuKnox scans your VMs and containers, then lists the AI software it finds under the <strong>Unmanaged</strong> tab of <strong>AI/ML Security &gt; Assets</strong>.</li>
+<li>The demo environment in this post holds 817 unmanaged AI assets, 529 on virtual machines and 288 in containers. That is demo data, not a customer result.</li>
+<li>A classifier sorts every package into 1 of 7 asset types, from AI Agent to MCP.</li>
+<li>The scanners read every package on the host, not a fixed list of AI product names. An AI library inside a custom app still appears.</li>
+<li>Setup is one install script and a daily timer on a Linux VM. On Kubernetes, an in-cluster scanner job runs on each node.</li>
+<li>The Unmanaged view is inventory and discovery. It does not block a package.</li>
+</ul>
+<h2>The Unmanaged Tab Lists the AI That Nobody Registered</h2>
+<p>Shadow AI is AI software that runs in your environment without an approval or an asset register entry. AI agents and MCP servers on a build VM are typical examples. <a href="https://accuknox.com/platform/ai-security">AccuKnox AI Security</a> finds them without a declared inventory, so you do not need to know what to look for.</p>
+<p>Open <strong>AI/ML Security &gt; Assets</strong>. The page has two tabs. The <strong>Managed</strong> tab lists AI services in your onboarded cloud accounts. The <strong>Unmanaged</strong> tab lists everything the scanners find on your own hosts.</p>
+<p><img width="620" height="349" alt="The AI/ML Security Assets page with the Managed tab open and the Unmanaged tab marked Found on your hosts" src="https://media.zernio.com/temp/1791272957123_zbs04jgq_s01-managed-unmanaged.jpg"></p>
+<p><em>Caption: The Unmanaged tab, marked Found on your hosts, sits next to the Managed tab for cloud AI services.</em></p>
+<p>Stay on <strong>Unmanaged</strong> for the rest of this walkthrough. The <a href="https://help.accuknox.com/use-cases/shadow-ai-discovery/">Shadow AI Discovery help page</a> covers the cloud side and the Managed tab in full. For the wider risk picture, read <a href="https://accuknox.com/blog/shadow-ai-security-explained">shadow AI security explained</a>.</p>
+<h2>Grouping by Category and Parent Shows What Runs Where</h2>
+<p>Group the inventory by <strong>Category</strong>. The scanners sort every AI component into seven asset types. Each row shows its asset count and its findings by severity.</p>
+<p><img width="620" height="349" alt="The Unmanaged tab grouped by category, listing the seven AI asset types with asset counts and findings by severity" src="https://media.zernio.com/temp/1791272959336_naswon5l_s02-seven-types.jpg"></p>
+<p><em>Caption: All seven asset types appear as rows, each with its asset count and its findings by severity.</em></p>
+<table>
+<thead>
+<tr>
+<th>Asset type</th>
+<th>Typical packages</th>
+<th>Demo assets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI Agent</td>
+<td>LangChain agents, CrewAI, AutoGen</td>
+<td>26</td>
+</tr>
+<tr>
+<td>AI Automation</td>
+<td>Flowise, Langflow</td>
+<td>37</td>
+</tr>
+<tr>
+<td>AI Gateway</td>
+<td>LiteLLM, Portkey</td>
+<td>9</td>
+</tr>
+<tr>
+<td>AI Inference Engine</td>
+<td>vLLM, TGI, Triton, llama.cpp, Ollama</td>
+<td>18</td>
+</tr>
+<tr>
+<td>AI-ML</td>
+<td>PyTorch, TensorFlow, scikit-learn, Transformers</td>
+<td>466</td>
+</tr>
+<tr>
+<td>AI SDK</td>
+<td>OpenAI, Anthropic, Cohere, Google GenAI</td>
+<td>241</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Model Context Protocol server and client packages</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>The seven demo counts add up to the 817 unmanaged assets. The package examples come from the <a href="https://help.accuknox.com/use-cases/shadow-ai-discovery/">Shadow AI Discovery help page</a>.</p>
+<p>Next, group the same inventory by <strong>Parent Asset Type</strong>. This splits what runs in containers from what runs on virtual machines. The demo data shows 288 container assets and 529 virtual machine assets.</p>
+<p><img width="620" height="349" alt="The Unmanaged tab grouped by parent asset type, with 288 assets in containers and 529 on virtual machines" src="https://media.zernio.com/temp/1791272960908_0m0h01fy_s03-parents.jpg"></p>
+<p><em>Caption: The parent view shows 288 assets in containers and 529 on virtual machines.</em></p>
+<h2>Expanding a Type Lists Every Package With Its Host and Version</h2>
+<p>Expand an asset type to list each package. The <strong>MCP</strong> type lists MCP packages with the host, language, version and license of each. SDKs for OpenAI and LangSmith show up too, and so do agent frameworks.</p>
+<p><img width="620" height="349" alt="The MCP type expanded to list MCP packages with their host, language, version and license" src="https://media.zernio.com/temp/1791272962566_z5uj678w_s04-mcp.jpg"></p>
+<p><em>Caption: Expanding the MCP type lists each package with its host, language, version and license.</em></p>
+<p><img width="620" height="349" alt="The package list with an OpenAI SDK and an agent framework highlighted" src="https://media.zernio.com/temp/1791272964556_andw290m_s05-sdks.jpg"></p>
+<p><em>Caption: The same list shows SDKs such as OpenAI and agent frameworks, each with its host, version and license.</em></p>
+<p>The scanner does not match against a list of product names. It reads every package on the host or in the container image. For each package it records the name, the version and the known vulnerabilities for that version. It also records artifact metadata, which says where the package sits.</p>
+<p>AccuKnox sends that data to a classification service. The service compares package names and known library families against AccuKnox AI/ML classification rules, then assigns an asset type. An AI library inside a custom wrapper or application still gets classified.</p>
+<h2>A Package Detail View Ties the Package to Its Findings and Its Host</h2>
+<p>Open one package to see its category, version, license and package URL (PURL). The PURL is the package's unique address, such as <code>pkg:pypi/google-generativeai@0.5.0</code> for the SDK in the video. In the video, the SDK's own description says it is deprecated. That marks it as a candidate for replacement.</p>
+<p>The <strong>Findings</strong> tab lists the vulnerabilities tied to that package version. The <strong>Parent Asset</strong> tab names the VM or container workload that holds it. Together they answer the two questions an owner asks first: what is wrong with it, and who runs it.</p>
+<p><img width="620" height="349" alt="The asset detail panel of a deprecated Google generative AI SDK, with its category and package URL highlighted" src="https://media.zernio.com/temp/1791272966649_vxd94hkz_s06-detail.jpg"></p>
+<p><em>Caption: One package opens into its category, version, license and PURL, with tabs for its findings and its parent asset.</em></p>
+<blockquote>
+<p><strong>Limitation.</strong> The Unmanaged view is inventory and discovery. It lists a package and its findings, and it does not block the package.</p>
+</blockquote>
+<h2>Setup Takes One Script per Linux VM and One Scanner per Cluster</h2>
+<p>The Unmanaged tab fills only after a scanner runs. Use the scanner that matches the host.</p>
+<p><img width="620" height="349" alt="The Turn On Shadow AI Discovery card with the Linux VM install script and the Kubernetes in-cluster scanner" src="https://media.zernio.com/temp/1791272968316_jyc96af1_s07-setup.jpg"></p>
+<p><em>Caption: The setup card shows the Linux VM install script and the in-cluster scanner for Kubernetes.</em></p>
+<p><strong>Linux VM.</strong> You need root or sudo access, outbound internet access to AccuKnox SaaS and <code>curl</code>. You also need your Tenant ID and Artifact API token. Run the install script from the <a href="https://help.accuknox.com/how-to/vm-security/agent-based/linux/">Linux VM scanning guide</a>.</p>
+<table class="code"><tr><td>curl https://accuknox-omni.s3.us-east-1.amazonaws.com/latest/agent-install.sh | \<br/>&nbsp;&nbsp;&nbsp;&nbsp;OMNI_ARTIFACT_API_TOKEN=&quot;&lt;REDACTED&gt;&quot;&nbsp;\<br/>&nbsp;&nbsp;&nbsp;&nbsp;bash&nbsp;-s&nbsp;-&nbsp;\<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--artifact-endpoint=https://cspm.accuknox.com/api/v1/artifact/&nbsp;\<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--tenant-id=000&nbsp;\<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--artifact-label=CHANGEME</td></tr></table>
+<p>Swap <code>&lt;REDACTED&gt;</code> for a token from <strong>Settings &gt; Tokens</strong>. Use a label from <strong>Settings &gt; Labels</strong> in place of <code>CHANGEME</code>. Put your Tenant ID where <code>000</code> sits, and change the endpoint if your environment differs. The script creates <code>omni.service</code> and a daily timer, <code>omni.timer</code>.</p>
+<p><strong>Kubernetes.</strong> Deploy the in-cluster scanner from the <a href="https://help.accuknox.com/how-to/k8s-security-onboarding/#in-cluster-container-image-scanning">Kubernetes onboarding guide</a>. It runs as a job on each node and reads the container images cached there. It needs no registry access, and it sends results to the AccuKnox console.</p>
+<h2>See the Unmanaged Tab Sort AI Assets by Type, Parent and Package</h2>
+<p>The tour below runs under 2 minutes and follows the same steps in the same order.</p>
+<table class="code"><tr><td>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Rxs4fX6yKz0&quot; title=&quot;Find Shadow AI on Your VMs and Containers With AccuKnox&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</td></tr></table>
+<p><a href="https://www.youtube.com/watch?v=Rxs4fX6yKz0">Watch the shadow AI tour on YouTube</a>.</p>
+<h2>FAQs</h2>
+<h3>What counts as shadow AI?</h3>
+<p>Shadow AI is AI software that runs in your environment without an approval or an asset register entry. It includes agentic AI runtimes such as OpenClaw. AccuKnox scans VMs for OpenClaw instances and lists each one as an unmanaged asset, mapped to its parent host.</p>
+<h3>How does AccuKnox find AI inside a custom app?</h3>
+<p>The scanner reads every package on the host or in the container image. It needs no list of AI product names. A classifier then maps each package to one of the seven asset types. A model client or serving runtime inside a custom app is classified the same way as a standalone one.</p>
+<h3>Does the Unmanaged view block a package?</h3>
+<p>The Unmanaged view does not block a package. It is inventory and discovery. It shows each package, its version, its findings and its parent host, and you decide what to do next.</p></body></html>

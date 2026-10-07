@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AccuKnox DSPM Best Practices Cheat Sheet</title>
+<style>
+@font-face{font-family:Inter;src:url('fonts/Inter-ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:block}
+:root{
+  --ak-blue:#1040C5;--ak-logo-blue:#0000C8;--ak-bright:#0F7FFF;--ak-sky:#4F9CF9;
+  --ak-navy:#000025;--ak-navy2:#080F53;--ak-red:#D63637;--ak-logo-red:#CB0018;
+  --ak-coral:#FF4646;--ak-yellow:#FFD900;--ak-green:#04B745;
+  --ink:#263238;--ink-2:#37474F;--ink-3:#607D8B;--rule:#CFD8DC;
+  --tint-ice:#F8FAFF;--tint-aqua:#E9F8FE;--tint-blue:#E2EEFF;--tint-rose:#FEF7F7;--tint-pink:#FFE3E3;
+  --grad:linear-gradient(90deg,#FF4646 0%,#1040C5 100%);
+  --hl:rgba(255,217,0,.55);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Inter;color:var(--ink-2);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:24mm 17mm 26mm;break-after:page;background:var(--bg,#fff)}
+.page:last-child{break-after:auto}
+.bg-white{--bg:#fff}.bg-ice{--bg:var(--tint-ice)}.bg-aqua{--bg:var(--tint-aqua)}.bg-blue{--bg:var(--tint-blue)}
+.bg-rose{--bg:var(--tint-rose)}
+.bg-navy{--bg:var(--ak-navy);color:#fff}
+.bg-navy .h-display,.bg-navy .h1,.bg-navy .h2{color:#fff}
+.bg-navy .body,.bg-navy p{color:rgba(255,255,255,.78)}
+.foot{position:absolute;left:17mm;right:17mm;bottom:11mm;display:flex;justify-content:space-between;align-items:center}
+.foot .logo{height:6.2mm}
+.foot .folio{font-size:8.5pt;font-weight:600;color:var(--ink-2)}
+.foot .src{font-size:8pt;color:var(--ink-3)}
+.foot .src a{color:var(--ak-blue);text-decoration:none}
+.bg-navy .foot .folio{color:#fff}
+.logo-white{filter:brightness(0) invert(1)}
+.h-display{font-size:64pt;line-height:1.02;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
+.h1{font-size:50pt;line-height:1.05;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.h2{font-size:30pt;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.h3{font-size:15pt;line-height:1.25;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.deck{font-size:18pt;line-height:1.3;font-weight:400;color:var(--ink-3);letter-spacing:-.01em;margin-top:4mm}
+.lede{font-size:12.5pt;line-height:1.5;color:var(--ink-2);max-width:150mm}
+.body{font-size:11.5pt;line-height:1.6;color:var(--ink-2)}
+.body p+p{margin-top:3.5mm}
+.body b,.lede b{color:var(--ink);font-weight:600}
+.meta{font-size:8.5pt;color:var(--ink-3);letter-spacing:.02em}
+.caps{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue)}
+.stat{font-size:110pt;line-height:.95;font-weight:200;letter-spacing:-.05em;color:var(--ink)}
+.stat-m{font-size:64pt;line-height:1;font-weight:200;letter-spacing:-.045em;color:var(--ink)}
+.stat-s{font-size:38pt;line-height:1;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.num-ghost{font-size:64pt;font-weight:200;letter-spacing:-.04em;color:var(--ak-sky);line-height:1}
+.chip{display:inline-block;background:var(--ak-yellow);color:var(--ink);font-size:8.5pt;font-weight:500;padding:1.4mm 2.6mm;border-radius:1mm;margin-bottom:5mm}
+.chip.blue{background:var(--tint-blue);color:var(--ak-blue)}
+.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+.accent{color:var(--ak-blue)}
+.ul{background:var(--grad) left bottom/100% .09em no-repeat;padding-bottom:.04em}
+.rule{height:.3mm;background:var(--rule);border:0}
+.rule-grad{height:.8mm;background:var(--grad);border:0;width:22mm}
+.stack>*+*{margin-top:var(--gap,6mm)}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
+.push-right{margin-left:64mm}
+.bottom{position:absolute;left:17mm;right:17mm;bottom:28mm}
+.panel{background:#fff;border:.3mm solid var(--rule);border-radius:4mm;padding:9mm 10mm;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;left:0;right:0;top:0;height:1.4mm;background:var(--grad)}
+.panel.navy{background:var(--ak-navy);border-color:var(--ak-navy);color:#fff}
+.panel.navy .stat,.panel.navy .stat-m{color:#fff}
+.nlist .row{display:grid;grid-template-columns:52mm 1fr;gap:6mm;padding:6mm 0;border-top:.3mm solid var(--rule)}
+.nlist .row:first-child{border-top:0}
+.nlist .icon{width:13mm;height:13mm;margin-bottom:3mm}
+.ntable{width:100%;border-collapse:collapse}
+.ntable th{font-size:8.5pt;font-weight:600;color:var(--ak-blue);text-align:left;padding:0 0 3mm}
+.ntable td{padding:5mm 0;border-top:.3mm solid var(--rule);vertical-align:middle}
+.ntable td.lbl{font-size:11pt;color:var(--ink);width:36%}
+.ntable td.v{font-size:38pt;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.ntable td.v small{font-size:9pt;font-weight:400;letter-spacing:0;color:var(--ink-3);margin-left:1.5mm}
+.toc .item{display:grid;grid-template-columns:1fr 18mm;align-items:end;margin-top:9mm}
+.toc .t{font-size:21pt;line-height:1.2;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.toc .p{font-size:21pt;font-weight:300;text-align:right;color:var(--ink)}
+.bar{height:5mm;border-radius:1mm;background:var(--ak-blue)}
+.bar.alt{background:var(--ak-sky)}.bar.warn{background:var(--ak-red)}
+.pill{display:inline-flex;align-items:center;gap:2mm;border:.3mm solid var(--rule);border-radius:10mm;padding:1.5mm 3.5mm;font-size:8.5pt;color:var(--ink-2);background:#fff}
+.flow{display:flex;align-items:center;gap:3mm}
+.flow .node{flex:1;border:.3mm solid var(--rule);border-radius:3mm;background:#fff;padding:5mm}
+.flow .arrow{width:10mm;height:.4mm;background:var(--grad);position:relative}
+.flow .arrow::after{content:"";position:absolute;right:-.5mm;top:-1.1mm;border:1.3mm solid transparent;border-left-color:var(--ak-blue)}
+.cta{display:inline-block;background:var(--ak-blue);color:#fff;font-weight:600;font-size:11pt;padding:4mm 7mm;border-radius:2mm;text-decoration:none}
+.cta.ghost{background:transparent;border:.5mm solid #fff}
+.link{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.art{position:absolute;pointer-events:none}
+.shot{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:2.5mm;position:relative;overflow:hidden}
+.shot::before{content:"";position:absolute;left:0;right:0;top:0;height:1mm;background:var(--grad)}
+.shot img{display:block;width:100%;height:auto;border-radius:1.5mm;margin-top:1mm}
+.shot-cap{font-size:8.5pt;color:var(--ink-3);margin-top:2.5mm}
+.shot-cap a{color:var(--ak-blue);text-decoration:none}
+
+.mod-top{display:grid;grid-template-columns:1fr 74mm;gap:8mm;align-items:start}
+.shot.wide img{height:56mm;object-fit:cover;object-position:top center}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm}
+.dd .col{border-top:1.2mm solid var(--ak-blue);padding-top:4mm}
+.dd .col.no{border-top-color:var(--ak-red)}
+.dd .lab{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue);margin-bottom:2mm}
+.dd .col.no .lab{color:var(--ak-red)}
+.dd ul{list-style:none}
+.dd li{font-size:10pt;line-height:1.45;color:var(--ink-2);padding:2.2mm 0 2.2mm 6mm;position:relative;border-bottom:.25mm solid var(--rule)}
+.dd li:last-child{border-bottom:0}
+.dd li::before{content:"";position:absolute;left:0;top:3.9mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--ak-blue)}
+.dd .col.no li::before{background:var(--ak-red);border-radius:.4mm}
+.fix{margin-top:7mm;background:#fff;border:.3mm solid var(--rule);border-left:1.4mm solid var(--ak-blue);border-radius:2mm;padding:4.5mm 6mm}
+.fix .caps{margin-bottom:1.5mm}
+.fix p{font-size:10pt;line-height:1.5;color:var(--ink-2)}
+.fix a{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 7mm;margin-top:8mm}
+.mods .m{display:grid;grid-template-columns:12mm 1fr 8mm;align-items:baseline;border-top:.3mm solid var(--rule);padding-top:3mm}
+.mods .n{font-size:20pt;font-weight:200;color:var(--ak-sky);letter-spacing:-.03em}
+.mods .t{font-size:11pt;font-weight:600;color:var(--ink)}
+.mods .t small{display:block;font-size:8.5pt;font-weight:400;color:var(--ink-3);margin-top:.6mm}
+.mods .p{font-size:11pt;font-weight:300;text-align:right;color:var(--ink)}
+.gap{width:100%;border-collapse:collapse;margin-top:8mm}
+.gap th{font-size:8pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ak-blue);text-align:left;padding:0 3mm 3mm 0}
+.gap td{font-size:9.5pt;line-height:1.4;color:var(--ink-2);padding:3.2mm 3mm 3.2mm 0;border-top:.3mm solid var(--rule);vertical-align:top}
+.gap td:first-child{color:var(--ink);font-weight:600;width:33%}
+.gap td:nth-child(2){width:24%;color:var(--ak-blue);font-weight:500}
+
+/* ---- cheat sheet kit additions ---- */
+.shot.full img{height:auto}
+.shot.tall img{max-height:118mm;object-fit:contain}
+.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:8mm}
+.prob .card{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:6mm 5mm 5mm;position:relative;overflow:hidden}
+.prob .card::before{content:"";position:absolute;left:0;right:0;top:0;height:1.2mm;background:var(--grad)}
+.prob .card .stat-s{color:var(--ak-red)}
+.prob .card p{font-size:9.5pt;line-height:1.45;margin-top:3mm;color:var(--ink-2)}
+.prob .card .src{font-size:7.5pt;color:var(--ink-3);margin-top:2.5mm}
+.prob .card .src a{color:var(--ak-blue);text-decoration:none}
+.src-line{font-size:7.5pt;color:var(--ink-3);margin-top:4mm}
+.src-line a{color:var(--ak-blue);text-decoration:none}
+.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm;margin-top:7mm}
+.proof .p{border-top:1.2mm solid var(--ak-blue);padding-top:3.5mm}
+.proof .p .stat-s{color:var(--ak-blue)}
+.proof .p p{font-size:9.5pt;line-height:1.45;margin-top:2mm}
+.icon{width:11mm;height:11mm;stroke:var(--ak-sky);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+/* ---- dspm module additions ---- */
+.split{display:grid;grid-template-columns:var(--w,80mm) 1fr;gap:8mm;margin-top:6mm;align-items:start}
+.split .fix{margin-top:6mm}
+.split .deck{margin-top:0;font-size:13pt}
+.nlist .row{grid-template-columns:58mm 1fr}
+.nlist .h3{margin-top:1mm}
+.nlist .body{font-size:11pt}
+.proof4{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;margin-top:12mm}
+.proof4 .p{border-top:1.2mm solid var(--ak-sky);padding-top:3.5mm}
+.proof4 .stat-s{color:#fff;font-size:34pt}
+.proof4 .p p{font-size:9pt;line-height:1.45;margin-top:2mm;color:rgba(255,255,255,.78)}
+.bg-navy .src-line,.bg-navy .src-line a{color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+
+<section class="page bg-navy">
+  <svg class="art" style="right:-40mm;top:-30mm;width:190mm;height:190mm" viewBox="0 0 200 200">
+    <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs>
+    <g fill="none" stroke="url(#gc)" stroke-width=".5"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 3"/></g>
+    <circle cx="100" cy="100" r="6" fill="#1040C5"/><circle cx="150" cy="45" r="3" fill="#FF4646"/><circle cx="36" cy="140" r="2.5" fill="#4F9CF9"/><circle cx="168" cy="128" r="2" fill="#FFD900"/>
+  </svg>
+  <div style="position:absolute;left:17mm;right:17mm;bottom:30mm">
+    <img src="logo.png" class="logo-white" style="height:8mm;margin-bottom:12mm">
+    <div class="caps" style="color:var(--ak-sky);margin-bottom:5mm">DSPM best practices cheat sheet</div>
+    <h1 class="h-display">Find sensitive<br>data before<br><span class="ul">attackers do</span></h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);font-size:18pt;max-width:150mm">The do's and don'ts for six data security practices, from the first scan to the audit, with the AccuKnox setup page for each gap.</p>
+  </div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">The problem</span>
+  <h1 class="h1">Sensitive data<br>spreads faster than<br>teams <span class="hl">track it</span></h1>
+  <p class="lede" style="margin-top:6mm">More than half of cloud data is now sensitive, and most breached organizations had not encrypted it everywhere. Staff also feed that data into AI tools that security never approved.</p>
+  <div class="prob" style="margin-top:14mm">
+    <div class="card"><div class="stat-s">54%</div><p>of cloud data was classified as sensitive in 2025, up from 47% in 2024.</p><p class="src">Thales, 2025 Cloud Security Study. <a href="https://cpl.thalesgroup.com/blog/data-security/cloud-security-study-2025-key-insights">cpl.thalesgroup.com</a></p></div>
+    <div class="card"><div class="stat-s">37%</div><p>of breached organizations encrypt sensitive data both at rest and in transit.</p><p class="src">IBM, Cost of a Data Breach 2026. <a href="https://newsroom.ibm.com/2026-07-29-ibm-study-one-in-four-malicious-breaches-are-ai-enabled,-costing-companies-6-million-on-average">newsroom.ibm.com</a></p></div>
+    <div class="card"><div class="stat-s">43%</div><p>of security incidents involved workers using unapproved AI tools, more than double the year before.</p><p class="src">IBM Cost of a Data Breach 2026, via Help Net Security. <a href="https://www.helpnetsecurity.com/2026/07/30/ibm-cost-of-a-data-breach-2026/">helpnetsecurity.com</a></p></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">02</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Root causes</span>
+  <h1 class="h2">Four reasons sensitive<br>data stays <span class="hl">exposed</span></h1>
+  <div class="nlist" style="margin-top:9mm">
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><div class="h3">Copies outrun the inventory</div></div>
+      <div class="body">Teams copy data into new buckets, databases and SaaS apps every week. The average enterprise now runs 85 SaaS applications. A list kept by hand misses the newest copy first.</div>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></svg><div class="h3">A name hides the content</div></div>
+      <div class="body">A bucket named logs can hold card numbers. Customer PII was 52% of the data stolen or exposed in 2026 breaches, at $192 per record. Only a scan of the content shows it.</div>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg><div class="h3">Encryption lacks context</div></div>
+      <div class="body">Only 8% of organizations encrypt 80% or more of their cloud data. A posture check that cannot see which store holds PII cannot tell you which unencrypted store to fix first.</div>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div class="h3">Findings have no owner</div></div>
+      <div class="body">Breaches took 247 days on average to identify and contain in 2026. A data finding with no severity, SLA or ticket waits in the queue while the copy stays open.</div>
+    </div>
+  </div>
+  <p class="src-line src">Sources. 85 SaaS apps and 8%: Thales 2025 Cloud Security Study, <a href="https://cpl.thalesgroup.com/about-us/newsroom/thales-2025-cloud-security-study-reveals-ai-tool-sprawl-security-gap">press release</a> and <a href="https://cpl.thalesgroup.com/blog/data-security/cloud-security-study-2025-key-insights">blog</a>. 52% and $192: IBM Cost of a Data Breach 2026, via <a href="https://www.networkworld.com/article/4202554/ibm-ai-driven-attacks-increased-56-last-year-and-data-breach-costs-are-up-12.html">Network World</a>. 247 days: IBM Cost of a Data Breach 2026, via <a href="https://www.helpnetsecurity.com/2026/07/30/ibm-cost-of-a-data-breach-2026/">Help Net Security</a>.</p>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">03</span></div>
+</section>
+
+<section class="page bg-ice">
+  <span class="chip">Start here</span>
+  <h1 class="h1">Six practices close<br>the <span class="hl">data gap</span></h1>
+  <p class="lede" style="margin-top:5mm">Find each store, read what it holds, close the exposed ones, work the findings, guard AI prompts and report regulated data.</p>
+  <figure class="shot full" style="margin-top:7mm"><img src="img/findings-list.png" alt="Data Security findings grouped by finding name, with sensitive records counted by PCI, PII and PHI and a compliance filter"></figure>
+  <p class="shot-cap">Data Security findings with sensitive records by PCI, PII and PHI. <a href="https://help.accuknox.com/getting-started/dspm-overview/">help.accuknox.com/getting-started/dspm-overview</a></p>
+  <div class="mods">
+    <div class="m"><span class="n">01</span><span class="t">Discover every store<small>Scope sources and scan public buckets</small></span><span class="p">05</span></div>
+    <div class="m"><span class="n">04</span><span class="t">Triage findings<small>Severity, sensitivity and SLA</small></span><span class="p">08</span></div>
+    <div class="m"><span class="n">02</span><span class="t">Classify by content<small>Country packs, confidence and allow list</small></span><span class="p">06</span></div>
+    <div class="m"><span class="n">05</span><span class="t">Guard AI prompts<small>Mask PII and block secrets</small></span><span class="p">09</span></div>
+    <div class="m"><span class="n">03</span><span class="t">Close exposed stores<small>Public access and encryption</small></span><span class="p">07</span></div>
+    <div class="m"><span class="n">06</span><span class="t">Report for compliance<small>Regulated data by framework</small></span><span class="p">10</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">04</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 01</span>
+  <h1 class="h2">Scan every data store,<br>not only the <span class="hl">known ones</span></h1>
+  <div class="split" style="--w:74mm">
+    <div><figure class="shot"><img src="img/configure-s3.png" alt="Configure Data Security panel for an S3 source with buckets selected by tag and name pattern, Scan Publicly Exposed buckets and AccuKnox AI review checked"></figure>
+    <p class="shot-cap">Scope an S3 source. <a href="https://help.accuknox.com/getting-started/dspm-overview/">help.accuknox.com/getting-started/dspm-overview</a></p></div>
+    <div><p class="deck">Scope each S3 source by tag and name pattern, then scan every public bucket whatever its name.</p>
+    <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>The scanner runs as a VM or Kubernetes CronJob in your account. It reads a sample each night and sends one findings file per data store. <a href="https://help.accuknox.com/getting-started/dspm-onboarding/">Onboard the DSPM scanner</a></p></div></div>
+  </div>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Turn on Data Security for each AWS account and Azure subscription, then add each store as a source.</li><li>Select S3 buckets by tag and by name pattern, such as <b>env = prod</b> or <b>*customer</b>.</li><li>Check <b>Scan Publicly Exposed buckets</b>. It scans every public bucket, even outside your patterns.</li><li>Run one scanner per region, because a scanner never reads data in another region.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't scan only the buckets on a team's list. New copies land outside that list.</li><li>Don't give the scanner write access. Every grant it needs is read only.</li><li>Don't assume full coverage. Google Cloud Storage, NFS shares, Oracle and Snowflake are not supported yet.</li></ul></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">05</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 02</span>
+  <h1 class="h2">Classify by content,<br>not by <span class="hl">store name</span></h1>
+  <div class="split" style="--w:100mm">
+    <div><figure class="shot"><img src="img/asset-evidence.png" alt="Evidence tab of a data asset listing each file, its type and path, and the sensitive data types found such as Aadhaar Card, Credit Card and Patient ID"></figure>
+    <p class="shot-cap">Evidence per file in one asset. <a href="https://help.accuknox.com/getting-started/dspm-overview/">help.accuknox.com/getting-started/dspm-overview</a></p></div>
+    <div><p class="deck">The scanner reads each file and row, then tags what it finds, such as Aadhaar, card and bank account numbers.</p>
+    <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>283 data classes cover PII, PHI, financial data, credentials and national IDs, each with a confidence tier. <a href="https://help.accuknox.com/getting-started/dspm-overview/#what-the-scanner-detects">See what the scanner detects</a></p></div></div>
+  </div>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Enable the country packs for the countries you operate in. They decide which national IDs and phone formats match.</li><li>Keep the confidence floor at <b>Likely</b>. Raise it to <b>Very likely</b> for fewer, stronger findings.</li><li>Put public phone numbers, test accounts and sample data on the allow list.</li><li>Let AccuKnox AI review the results to cut false positives.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't trust a bucket name or tag to say what the bucket holds.</li><li>Don't ignore a value in the console only. Add it to the allow list, or it returns on the next run.</li><li>Don't keep detectors you never need. Switch them off to cut noise.</li></ul></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">06</span></div>
+</section>
+
+<section class="page bg-blue">
+  <span class="chip">Practice 03</span>
+  <h1 class="h2">Close public and<br>unencrypted stores <span class="hl">first</span></h1>
+  <div class="split" style="--w:86mm">
+    <div><figure class="shot"><img src="img/asset-overview.png" alt="Asset overview with total risks, sensitive records by data type, a Public Exposure tag and security configuration for encryption and public access"></figure>
+    <p class="shot-cap">Asset overview with security configuration. <a href="https://help.accuknox.com/getting-started/dspm-overview/">help.accuknox.com/getting-started/dspm-overview</a></p></div>
+    <div><p class="deck">Each asset shows its sensitive records beside its encryption and public access settings, so you fix the riskiest stores first.</p>
+    <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>DSPM shows which store holds the data. CSPM flags the public S3 bucket or the unencrypted volume behind it. <a href="https://help.accuknox.com/use-cases/cloud/aws-storage/">Fix S3 public exposure</a></p></div></div>
+  </div>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Filter for the findings <b>A data asset is public</b> and <b>An unencrypted data asset can be accessed by identities</b>.</li><li>Open each asset and read <b>Security Configuration</b> for encryption and public access.</li><li>Block public access on each S3 bucket that holds sensitive records, then confirm the finding clears.</li><li>Turn on default encryption for stores that hold PII, PHI or card data.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't fix exposure in the order findings arrived. Rank by sensitive record count.</li><li>Don't leave a public copy behind after you lock down the main store.</li><li>Don't grant broad read roles to reach a store faster. Check which identities can already read it.</li></ul></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">07</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 04</span>
+  <h1 class="h2">Work findings by severity,<br>sensitivity and <span class="hl">SLA</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">Each finding carries a severity, an SLA window and a sensitivity label, so the queue has an order before anyone reads it.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/finding-detail.png" alt="A Critical DSPM finding for an AWS access key ID in plain text, with age, severity, SLA, sensitivity, Create Ticket and Ask AI"></figure>
+  <p class="shot-cap">A Critical finding with SLA and sensitivity. <a href="https://help.accuknox.com/getting-started/dspm-onboarding/">help.accuknox.com/getting-started/dspm-onboarding</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Start with Critical and Restricted findings, then the largest match counts, then the oldest against SLA.</li><li>Raise a ticket in your tracker from the finding with <b>Create Ticket</b>.</li><li>Follow the <b>Solution</b> tab for the remediation and its references.</li><li>Confirm the fix when <b>Last detected</b> stops advancing after the data is masked, moved or deleted.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't copy raw values into a ticket. <b>Data Matches</b> already masks each value to its last four characters.</li><li>Don't turn on <b>Ignored</b> unless you confirmed the value is public or test data.</li><li>Don't let a Critical finding pass its SLA. The SLA for this Critical finding is 10 days.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Ask AI explains a finding, and the Classification tab lists its CWE, MITRE ATT&amp;CK and compliance mapping. <a href="https://help.accuknox.com/getting-started/dspm-onboarding/#review-findings">Review DSPM findings</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">08</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 05</span>
+  <h1 class="h2">Stop sensitive data<br>at the <span class="hl">AI prompt</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">The Prompt Firewall sits inline between users and the LLM, and masks or blocks sensitive data in both directions.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/pf-policies.png" alt="Prompt Firewall policy types including Anonymize, Prompt Injection, Regex and Secrets"></figure>
+  <p class="shot-cap">Prompt Firewall policy types. <a href="https://help.accuknox.com/use-cases/prompt-firewall-overview/">help.accuknox.com/use-cases/prompt-firewall-overview</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Turn on <b>Anonymize</b> to mask names, SSNs, emails, medical records and card numbers.</li><li>Turn on <b>Secrets</b> to block API keys, tokens and passwords before the LLM sees them.</li><li>Inspect responses too, so sensitive content never reaches the end user.</li><li>Add <b>Regex</b> patterns for internal IDs and custom formats.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't treat the firewall as the only control. Guardrails are probabilistic and miss some attacks.</li><li>Don't let staff paste customer records into unapproved AI tools.</li><li>Don't block on day one. Monitor first, then block once the policy proves itself.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Every prompt and response passes the firewall, which blocks, sanitizes or monitors it and logs it for audit. <a href="https://help.accuknox.com/use-cases/prompt-firewall-overview/">Read the Prompt Firewall guide</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">09</span></div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">Practice 06</span>
+  <h1 class="h2">Show auditors where<br>regulated <span class="hl">data sits</span></h1>
+  <div class="split" style="--w:76mm">
+    <div><figure class="shot"><img src="img/finding-overview.png" alt="Finding overview for card data with risk context, sensitive record count and compliance frameworks PCI DSS, SOC 2 and HIPAA"></figure>
+    <p class="shot-cap">A finding mapped to PCI DSS, SOC 2 and HIPAA. <a href="https://help.accuknox.com/getting-started/dspm-overview/#compliance-mapping">help.accuknox.com/getting-started/dspm-overview</a></p></div>
+    <div><p class="deck">282 of 283 data classes carry the regulation clauses they fall under, from GDPR and PCI DSS to HIPAA and India DPDP.</p>
+    <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Frameworks include GDPR, UK GDPR, PCI DSS, HIPAA, CPRA, India DPDP, POPIA, PIPEDA and the NIST SP 800 series. <a href="https://help.accuknox.com/getting-started/dspm-overview/#compliance-mapping">See the compliance mapping</a></p></div></div>
+  </div>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Filter findings by framework to list every asset that holds data under it.</li><li>Enable the country packs that match your regulators, because coverage follows the packs.</li><li>Use the <b>Classification</b> tab for each class's CWE and MITRE ATT&amp;CK references.</li><li>Run the console on premises or air gapped when data must stay inside your boundary.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't present the data map as a controls audit. DSPM shows where regulated data sits, not how well its controls work.</li><li>Don't hand auditors raw values. The console masks each value to its last four characters.</li><li>Don't scan only before the audit. Nightly runs record when each finding cleared.</li></ul></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">10</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Gap check</span>
+  <h1 class="h1">Find your gap,<br>then take the<br><span class="hl">first step</span></h1>
+  <p class="lede" style="margin-top:5mm">Read each row. Where the gap is true for you, take the first step this week.</p>
+  <table class="gap"><tr><th>If this is true</th><th>AccuKnox capability</th><th>First step</th></tr>
+  <tr><td>Nobody can list every bucket, database and SaaS app that holds sensitive data</td><td>DSPM discovery</td><td>Onboard the scanner in each region and add each store as a source</td></tr>
+  <tr><td>Public buckets are never scanned for their content</td><td>Scan Publicly Exposed buckets</td><td>Check the option on every S3 source</td></tr>
+  <tr><td>Findings flag test data and public phone numbers</td><td>Confidence floor and allow list</td><td>Add known values to the allow list and switch off unused detectors</td></tr>
+  <tr><td>Sensitive records sit in public or unencrypted stores</td><td>DSPM with CSPM</td><td>Filter for public and unencrypted asset findings, then fix by record count</td></tr>
+  <tr><td>Staff paste customer data into AI tools</td><td>Prompt Firewall</td><td>Turn on Anonymize and Secrets in monitor mode</td></tr>
+  <tr><td>Auditors ask where regulated data lives</td><td>Compliance mapping</td><td>Filter findings by framework to list the assets that hold it</td></tr></table>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">11</span></div>
+</section>
+
+<section class="page bg-navy">
+  <img src="logo.png" class="logo-white" style="height:7mm">
+  <div class="bottom">
+    <hr class="rule-grad" style="margin-bottom:8mm">
+    <h1 class="h1">See where your<br>sensitive data<br>lives today</h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);margin-bottom:11mm;max-width:150mm">Book a demo to watch DSPM scan a data store in its own region and rank the findings it returns.</p>
+    <a class="cta" href="https://accuknox.com/demo/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=dspm-cheat-sheet">Book a demo</a>&nbsp;&nbsp;<a class="cta ghost" href="https://help.accuknox.com/getting-started/dspm-overview/">Read the DSPM docs</a>
+    <div class="proof4">
+      <div class="p"><div class="stat-s">283</div><p>data classes, each with a confidence tier</p></div>
+      <div class="p"><div class="stat-s">62</div><p>country packs for national ID numbers</p></div>
+      <div class="p"><div class="stat-s">16</div><p>compliance framework groups</p></div>
+      <div class="p"><div class="stat-s">2026</div><p>Featured in the KuppingerCole CNAPP Leadership Compass</p></div>
+    </div>
+    <p class="src-line src">Sources. <a href="https://accuknox.com/platform/dspm/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=dspm-cheat-sheet">accuknox.com/platform/dspm</a> and <a href="https://accuknox.com/analyst-recognition/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=dspm-cheat-sheet">accuknox.com/analyst-recognition</a></p>
+    <p class="meta" style="color:rgba(255,255,255,.5);margin-top:10mm">accuknox.com · © 2026 AccuKnox, Inc.</p>
+  </div>
+</section>
+</body>
+</html>
