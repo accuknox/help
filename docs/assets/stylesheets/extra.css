@@ -114,3 +114,18 @@
 body .gist .gist-meta {
     display: none;
 }
+/* Left nav: give the sidebar its own height and scroll, so it never runs
+   under the footer. Material sizes the scroll area with JavaScript and
+   assumes a sticky header. This site's header scrolls away (banner.css),
+   so that sizing was unreliable and the nav overflowed the footer.
+   A sticky box cannot leave its container, which ends above the footer. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    top: 0.6rem !important;
+    height: calc(100vh - 1.2rem);
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    height: 100% !important;
+    max-height: 100%;
+  }
+}

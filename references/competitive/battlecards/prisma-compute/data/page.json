@@ -1,0 +1,44 @@
+{
+ "title": "AccuKnox vs Prisma Cloud Compute Edition",
+ "accessed": "2026-10-06",
+ "h2": "Workloads On-Prem With Prisma. Everything On-Prem With AccuKnox.",
+ "intro": "Prisma Cloud Compute Edition is the self-hosted edition of Prisma Cloud. It includes the Cloud Workload Protection Platform (CWPP) module only. Cloud posture sits in Prisma Cloud Enterprise Edition, which Palo Alto Networks runs as SaaS. AccuKnox installs its control plane on your servers or in an air-gapped network. It runs every feature there except AI CoPilot (AskADA).",
+ "intro_src_urls": [
+  "https://docs.prismacloud.io/admin-guide/welcome/product-architecture",
+  "https://docs.prismacloud.io/admin-guide/welcome/pcee-vs-pcce",
+  "https://help.accuknox.com/resources/deployment/"
+ ],
+ "edition_tag": "Compared with Prisma Cloud Compute Edition (self-hosted), per its administrator guide read on 2026-10-06.",
+ "edition_src_urls": [
+  "https://docs.prismacloud.io/admin-guide/welcome/getting-started"
+ ],
+ "why_h2": "Why Customers Choose AccuKnox Over Prisma Cloud Compute Edition",
+ "why_cards": [
+  {
+   "title": "Better",
+   "body": "AccuKnox covers code, cloud, Kubernetes, data and AI from one on-prem control plane. Compute Edition covers workloads, and its docs list no SAST, DAST, DSPM or AI security module.",
+   "src_urls": [
+    "https://help.accuknox.com/resources/deployment/",
+    "https://docs.prismacloud.io/admin-guide/welcome/product-architecture"
+   ]
+  },
+  {
+   "title": "Faster",
+   "body": "KubeArmor enforces policy inline at the kernel, so a disallowed process stops before it runs. The Compute Edition Linux Defender runs in user space. At one of India's top 3 public sector banks, AccuKnox cut remediation time by 91% and false positives by 89%.",
+   "src_urls": [
+    "https://help.accuknox.com/faqs/runtime-security/",
+    "https://docs.prismacloud.io/admin-guide/technology-overviews/host-defender-architecture",
+    "https://accuknox.com/wp-content/uploads/SBOM-Case-Study.pdf"
+   ]
+  },
+  {
+   "title": "Affordable",
+   "body": "One AccuKnox platform includes SAST, DAST, DSPM and AI security on-prem. Compute Edition licenses each protected host, container host and function with credits, and covers workload protection only.",
+   "src_urls": [
+    "https://help.accuknox.com/resources/deployment/",
+    "https://docs.prismacloud.io/admin-guide/welcome/licensing"
+   ]
+  }
+ ],
+ "sources_note": "Prisma Cloud facts come from the Prisma Cloud Compute Edition administrator guide at docs.prismacloud.io, read on 2026-10-06. AccuKnox facts come from help.accuknox.com and one published AccuKnox case study. Palo Alto Networks also sells Prisma Cloud Enterprise Edition (SaaS) and Cortex Cloud, and their capabilities differ from this table."
+}

@@ -42,7 +42,7 @@ The third command must list at least one StorageClass marked `(default)`. Withou
 
 ![AccuKnox Secrets Manager architecture](images/sm-architecture.png)
 
-## Install with Helm
+## Install With Helm
 
 ### 1. Extract the Chart
 
@@ -62,6 +62,8 @@ helm upgrade --install vault .
 ```
 
 This installs the Secrets Manager server and the Agent Injector into the `default` namespace. It uses the settings in `values.yaml`.
+
+Neither way of [connecting applications](connect-applications.md) uses the Agent Injector. To leave it out, add `--set injector.enabled=false`.
 
 To install into your own namespace instead:
 
@@ -196,6 +198,18 @@ The chart ships alternate setups. Pick the one that matches your environment.
     ```sh
     helm upgrade --install vault . --set csi.enabled=true
     ```
+
+=== "High availability"
+
+    Run three nodes on Raft storage. See [High Availability and Backup](high-availability.md) for the join and unseal steps.
+
+    ```sh
+    helm upgrade --install vault . -n accuknox --set server.ha.enabled=true --set server.ha.raft.enabled=true
+    ```
+
+=== "Air-gapped"
+
+    Install from an internal registry with no internet access. See [Air-Gapped Deployment](air-gapped.md).
 
 === "Custom configuration"
 

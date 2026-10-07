@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AccuKnox AI Security Best Practices Guide</title>
+<style>
+@font-face{font-family:Inter;src:url('fonts/Inter-ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:block}
+:root{
+  --ak-blue:#1040C5;--ak-logo-blue:#0000C8;--ak-bright:#0F7FFF;--ak-sky:#4F9CF9;
+  --ak-navy:#000025;--ak-navy2:#080F53;--ak-red:#D63637;--ak-logo-red:#CB0018;
+  --ak-coral:#FF4646;--ak-yellow:#FFD900;--ak-green:#04B745;
+  --ink:#263238;--ink-2:#37474F;--ink-3:#607D8B;--rule:#CFD8DC;
+  --tint-ice:#F8FAFF;--tint-aqua:#E9F8FE;--tint-blue:#E2EEFF;--tint-rose:#FEF7F7;--tint-pink:#FFE3E3;
+  --grad:linear-gradient(90deg,#FF4646 0%,#1040C5 100%);
+  --hl:rgba(255,217,0,.55);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Inter;color:var(--ink-2);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:24mm 17mm 26mm;break-after:page;background:var(--bg,#fff)}
+.page:last-child{break-after:auto}
+.bg-white{--bg:#fff}.bg-ice{--bg:var(--tint-ice)}.bg-aqua{--bg:var(--tint-aqua)}.bg-blue{--bg:var(--tint-blue)}
+.bg-rose{--bg:var(--tint-rose)}
+.bg-navy{--bg:var(--ak-navy);color:#fff}
+.bg-navy .h-display,.bg-navy .h1,.bg-navy .h2{color:#fff}
+.bg-navy .body,.bg-navy p{color:rgba(255,255,255,.78)}
+.foot{position:absolute;left:17mm;right:17mm;bottom:11mm;display:flex;justify-content:space-between;align-items:center}
+.foot .logo{height:6.2mm}
+.foot .folio{font-size:8.5pt;font-weight:600;color:var(--ink-2)}
+.foot .src{font-size:8pt;color:var(--ink-3)}
+.foot .src a{color:var(--ak-blue);text-decoration:none}
+.bg-navy .foot .folio{color:#fff}
+.logo-white{filter:brightness(0) invert(1)}
+.h-display{font-size:64pt;line-height:1.02;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
+.h1{font-size:50pt;line-height:1.05;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.h2{font-size:30pt;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.h3{font-size:15pt;line-height:1.25;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.deck{font-size:18pt;line-height:1.3;font-weight:400;color:var(--ink-3);letter-spacing:-.01em;margin-top:4mm}
+.lede{font-size:12.5pt;line-height:1.5;color:var(--ink-2);max-width:150mm}
+.body{font-size:11.5pt;line-height:1.6;color:var(--ink-2)}
+.body p+p{margin-top:3.5mm}
+.body b,.lede b{color:var(--ink);font-weight:600}
+.meta{font-size:8.5pt;color:var(--ink-3);letter-spacing:.02em}
+.caps{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue)}
+.stat{font-size:110pt;line-height:.95;font-weight:200;letter-spacing:-.05em;color:var(--ink)}
+.stat-m{font-size:64pt;line-height:1;font-weight:200;letter-spacing:-.045em;color:var(--ink)}
+.stat-s{font-size:38pt;line-height:1;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.num-ghost{font-size:64pt;font-weight:200;letter-spacing:-.04em;color:var(--ak-sky);line-height:1}
+.chip{display:inline-block;background:var(--ak-yellow);color:var(--ink);font-size:8.5pt;font-weight:500;padding:1.4mm 2.6mm;border-radius:1mm;margin-bottom:5mm}
+.chip.blue{background:var(--tint-blue);color:var(--ak-blue)}
+.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+.accent{color:var(--ak-blue)}
+.ul{background:var(--grad) left bottom/100% .09em no-repeat;padding-bottom:.04em}
+.rule{height:.3mm;background:var(--rule);border:0}
+.rule-grad{height:.8mm;background:var(--grad);border:0;width:22mm}
+.stack>*+*{margin-top:var(--gap,6mm)}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
+.push-right{margin-left:64mm}
+.bottom{position:absolute;left:17mm;right:17mm;bottom:28mm}
+.panel{background:#fff;border:.3mm solid var(--rule);border-radius:4mm;padding:9mm 10mm;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;left:0;right:0;top:0;height:1.4mm;background:var(--grad)}
+.panel.navy{background:var(--ak-navy);border-color:var(--ak-navy);color:#fff}
+.panel.navy .stat,.panel.navy .stat-m{color:#fff}
+.nlist .row{display:grid;grid-template-columns:52mm 1fr;gap:6mm;padding:6mm 0;border-top:.3mm solid var(--rule)}
+.nlist .row:first-child{border-top:0}
+.nlist .icon{width:13mm;height:13mm;margin-bottom:3mm}
+.ntable{width:100%;border-collapse:collapse}
+.ntable th{font-size:8.5pt;font-weight:600;color:var(--ak-blue);text-align:left;padding:0 0 3mm}
+.ntable td{padding:5mm 0;border-top:.3mm solid var(--rule);vertical-align:middle}
+.ntable td.lbl{font-size:11pt;color:var(--ink);width:36%}
+.ntable td.v{font-size:38pt;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.ntable td.v small{font-size:9pt;font-weight:400;letter-spacing:0;color:var(--ink-3);margin-left:1.5mm}
+.toc .item{display:grid;grid-template-columns:1fr 18mm;align-items:end;margin-top:9mm}
+.toc .t{font-size:21pt;line-height:1.2;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.toc .p{font-size:21pt;font-weight:300;text-align:right;color:var(--ink)}
+.bar{height:5mm;border-radius:1mm;background:var(--ak-blue)}
+.bar.alt{background:var(--ak-sky)}.bar.warn{background:var(--ak-red)}
+.pill{display:inline-flex;align-items:center;gap:2mm;border:.3mm solid var(--rule);border-radius:10mm;padding:1.5mm 3.5mm;font-size:8.5pt;color:var(--ink-2);background:#fff}
+.flow{display:flex;align-items:center;gap:3mm}
+.flow .node{flex:1;border:.3mm solid var(--rule);border-radius:3mm;background:#fff;padding:5mm}
+.flow .arrow{width:10mm;height:.4mm;background:var(--grad);position:relative}
+.flow .arrow::after{content:"";position:absolute;right:-.5mm;top:-1.1mm;border:1.3mm solid transparent;border-left-color:var(--ak-blue)}
+.cta{display:inline-block;background:var(--ak-blue);color:#fff;font-weight:600;font-size:11pt;padding:4mm 7mm;border-radius:2mm;text-decoration:none}
+.cta.ghost{background:transparent;border:.5mm solid #fff}
+.link{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.art{position:absolute;pointer-events:none}
+.shot{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:2.5mm;position:relative;overflow:hidden}
+.shot::before{content:"";position:absolute;left:0;right:0;top:0;height:1mm;background:var(--grad)}
+.shot img{display:block;width:100%;height:auto;border-radius:1.5mm;margin-top:1mm}
+.shot-cap{font-size:8.5pt;color:var(--ink-3);margin-top:2.5mm}
+.shot-cap a{color:var(--ak-blue);text-decoration:none}
+
+.mod-top{display:grid;grid-template-columns:1fr 74mm;gap:8mm;align-items:start}
+.shot.wide img{height:56mm;object-fit:cover;object-position:top center}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm}
+.dd .col{border-top:1.2mm solid var(--ak-blue);padding-top:4mm}
+.dd .col.no{border-top-color:var(--ak-red)}
+.dd .lab{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue);margin-bottom:2mm}
+.dd .col.no .lab{color:var(--ak-red)}
+.dd ul{list-style:none}
+.dd li{font-size:10pt;line-height:1.45;color:var(--ink-2);padding:2.2mm 0 2.2mm 6mm;position:relative;border-bottom:.25mm solid var(--rule)}
+.dd li:last-child{border-bottom:0}
+.dd li::before{content:"";position:absolute;left:0;top:3.9mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--ak-blue)}
+.dd .col.no li::before{background:var(--ak-red);border-radius:.4mm}
+.fix{margin-top:7mm;background:#fff;border:.3mm solid var(--rule);border-left:1.4mm solid var(--ak-blue);border-radius:2mm;padding:4.5mm 6mm}
+.fix .caps{margin-bottom:1.5mm}
+.fix p{font-size:10pt;line-height:1.5;color:var(--ink-2)}
+.fix a{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 7mm;margin-top:8mm}
+.mods .m{display:grid;grid-template-columns:12mm 1fr 8mm;align-items:baseline;border-top:.3mm solid var(--rule);padding-top:3mm}
+.mods .n{font-size:20pt;font-weight:200;color:var(--ak-sky);letter-spacing:-.03em}
+.mods .t{font-size:11pt;font-weight:600;color:var(--ink)}
+.mods .t small{display:block;font-size:8.5pt;font-weight:400;color:var(--ink-3);margin-top:.6mm}
+.mods .p{font-size:11pt;font-weight:300;text-align:right;color:var(--ink)}
+.gap{width:100%;border-collapse:collapse;margin-top:8mm}
+.gap th{font-size:8pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ak-blue);text-align:left;padding:0 3mm 3mm 0}
+.gap td{font-size:9.5pt;line-height:1.4;color:var(--ink-2);padding:3.2mm 3mm 3.2mm 0;border-top:.3mm solid var(--rule);vertical-align:top}
+.gap td:first-child{color:var(--ink);font-weight:600;width:33%}
+.gap td:nth-child(2){width:24%;color:var(--ak-blue);font-weight:500}
+
+/* ---- cheat sheet kit additions ---- */
+.shot.full img{height:auto}
+.shot.tall img{max-height:118mm;object-fit:contain}
+.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:8mm}
+.prob .card{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:6mm 5mm 5mm;position:relative;overflow:hidden}
+.prob .card::before{content:"";position:absolute;left:0;right:0;top:0;height:1.2mm;background:var(--grad)}
+.prob .card .stat-s{color:var(--ak-red)}
+.prob .card p{font-size:9.5pt;line-height:1.45;margin-top:3mm;color:var(--ink-2)}
+.prob .card .src{font-size:7.5pt;color:var(--ink-3);margin-top:2.5mm}
+.prob .card .src a{color:var(--ak-blue);text-decoration:none}
+.src-line{font-size:7.5pt;color:var(--ink-3);margin-top:4mm}
+.src-line a{color:var(--ak-blue);text-decoration:none}
+.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm;margin-top:7mm}
+.proof .p{border-top:1.2mm solid var(--ak-blue);padding-top:3.5mm}
+.proof .p .stat-s{color:var(--ak-blue)}
+.proof .p p{font-size:9.5pt;line-height:1.45;margin-top:2mm}
+.icon{width:11mm;height:11mm;stroke:var(--ak-sky);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- ai-security v4 ---- */
+.dd{margin-top:5mm}
+.dd li{padding:1.9mm 0 1.9mm 6mm}
+.dd li::before{top:3.6mm}
+.fix{margin-top:5.5mm}
+.shot.mid{width:114mm;margin-left:auto;margin-right:auto}
+.bg-navy .proof .p{border-top-color:var(--ak-sky)}
+.bg-navy .proof .p p{color:rgba(255,255,255,.82)}
+.bg-navy .proof .link{color:var(--ak-sky);display:block;margin-top:1.5mm;font-size:8.5pt}
+.nlist .h3{font-size:13pt}
+</style>
+</head>
+<body>
+<section class="page bg-navy">
+  <svg class="art" style="right:-40mm;top:-30mm;width:190mm;height:190mm" viewBox="0 0 200 200">
+    <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs>
+    <g fill="none" stroke="url(#gc)" stroke-width=".5"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 3"/></g>
+    <circle cx="100" cy="100" r="6" fill="#1040C5"/><circle cx="150" cy="45" r="3" fill="#FF4646"/><circle cx="36" cy="140" r="2.5" fill="#4F9CF9"/>
+  </svg>
+  <div style="position:absolute;left:17mm;right:17mm;bottom:30mm">
+    <img src="logo.png" class="logo-white" style="height:8mm;margin-bottom:12mm">
+    <div class="caps" style="color:var(--ak-sky);margin-bottom:5mm">AI security best practices cheat sheet</div>
+    <h1 class="h-display">Use AI fast<br>and keep it<br><span class="ul">secure</span></h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);font-size:18pt;max-width:150mm">Do's and don'ts for six AI security controls, plus a gap check that names your first step.</p>
+  </div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">The problem</span>
+  <h1 class="h1">AI is already<br>a <span class="hl">breach target</span></h1>
+  <p class="lede" style="margin-top:6mm">Teams ship models, agents and AI apps faster than security can list them. Attackers already target that gap, and most victims had no AI access controls in place.</p>
+  <div class="prob" style="margin-top:12mm">
+    <div class="card"><div class="stat-s">20%+</div><p>of organizations reported a breach that targeted their AI models or applications.</p><div class="src">IBM Cost of a Data Breach 2026. <a href="https://newsroom.ibm.com/2026-07-29-ibm-study-one-in-four-malicious-breaches-are-ai-enabled,-costing-companies-6-million-on-average">newsroom.ibm.com</a></div></div>
+    <div class="card"><div class="stat-s">97%</div><p>of organizations with a breach of AI models or apps had no AI access controls in place.</p><div class="src">IBM Cost of a Data Breach 2025. <a href="https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls">newsroom.ibm.com</a></div></div>
+    <div class="card"><div class="stat-s">1 in 5</div><p>organizations reported a breach caused by shadow AI, the AI tools nobody approved.</p><div class="src">IBM Cost of a Data Breach 2025. <a href="https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls">newsroom.ibm.com</a></div></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">02</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Root causes</span>
+  <h1 class="h2">Four gaps keep<br>AI risk <span class="hl">growing</span></h1>
+  <div class="nlist" style="margin-top:8mm">
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/><path d="M11 8v3l2 2"/></svg><div class="h3">AI arrives before the inventory</div></div>
+      <p class="body">A developer adds an AI SDK, an agent or an MCP server in one pull request. Only 37% of organizations have policies to manage AI or detect shadow AI.</p>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h3M14 14h3"/></svg><div class="h3">Attackers enter around the model</div></div>
+      <p class="body">In AI breaches, compromised APIs, apps or plugins caused 27%. Cloud misconfigurations that affect AI workloads caused another 27%.</p>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/><path d="M18 3l3 3"/></svg><div class="h3">Agents hold more power than the task needs</div></div>
+      <p class="body">OWASP names excessive functionality, permissions and autonomy as the root causes of Excessive Agency, risk LLM06 in its 2025 list.</p>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M12 8v5M12 16v.5"/></svg><div class="h3">Models and prompts ship untested</div></div>
+      <p class="body">OWASP says a public model can carry a hidden backdoor. It also says no known method fully prevents prompt injection, so every model and app needs a test.</p>
+    </div>
+  </div>
+  <p class="src-line">Sources: 37% from <a href="https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications,-97-of-which-reported-lacking-proper-ai-access-controls">IBM Cost of a Data Breach 2025</a>. 27% from <a href="https://newsroom.ibm.com/2026-07-29-ibm-study-one-in-four-malicious-breaches-are-ai-enabled,-costing-companies-6-million-on-average">IBM Cost of a Data Breach 2026</a>. OWASP <a href="https://genai.owasp.org/llmrisk/llm062025-excessive-agency/">LLM06</a>, <a href="https://genai.owasp.org/llmrisk/llm032025-supply-chain/">LLM03</a> and <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">LLM01</a>.</p>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">03</span></div>
+</section>
+
+<section class="page bg-ice">
+  <span class="chip">Start here</span>
+  <h1 class="h1">Six controls cover<br>the <span class="hl">AI lifecycle</span></h1>
+  <p class="lede" style="margin-top:5mm">Each control guards one stage, from the model you pull to the prompt your user sends. Run the six together, because each control catches what the one before it misses.</p>
+  <figure class="shot full" style="margin-top:7mm"><img src="img/v4-arch.webp" alt="AccuKnox AI security architecture from model sources through the pipeline, sandbox, red teaming and Prompt Firewall"></figure>
+  <p class="shot-cap">AccuKnox AI security architecture. <a href="https://help.accuknox.com/getting-started/ai-security-arch/">help.accuknox.com/getting-started/ai-security-arch/</a></p>
+  <div class="mods">
+    <div class="m"><span class="n">01</span><span class="t">AI-SPM and Shadow AI<small>Know every model, agent and MCP server</small></span><span class="p">05</span></div>
+    <div class="m"><span class="n">04</span><span class="t">AI model and dataset security<small>Scan a model before it loads</small></span><span class="p">08</span></div>
+    <div class="m"><span class="n">02</span><span class="t">AI-DR<small>Catch risky AI control plane changes</small></span><span class="p">06</span></div>
+    <div class="m"><span class="n">05</span><span class="t">AI red teaming<small>Attack your own LLM first</small></span><span class="p">09</span></div>
+    <div class="m"><span class="n">03</span><span class="t">Agentic AI security<small>Fence what an agent can touch</small></span><span class="p">07</span></div>
+    <div class="m"><span class="n">06</span><span class="t">Prompt Firewall<small>Inspect every prompt and response</small></span><span class="p">10</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">04</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 01</span>
+  <h1 class="h2">You cannot secure an AI<br>asset you never <span class="hl">found</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">AI-SPM and Shadow AI Discovery list every model, agent and MCP server in cloud and on premises.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/v4-shadow.png" alt="Unmanaged AI assets grouped into AI Agent, AI Automation, AI Gateway, AI Inference Engine, AI-ML, AI SDK and MCP with asset counts and findings"></figure>
+  <p class="shot-cap">Unmanaged AI assets by category. <a href="https://help.accuknox.com/use-cases/shadow-ai-discovery/">help.accuknox.com/use-cases/shadow-ai-discovery/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Onboard every AWS, Azure and GCP account with AI Security on, then review the Managed tab.</li><li>Run the VM and in cluster scanners to find unmanaged AI SDKs, agents and MCP servers.</li><li>Assign an owner to each AI asset and triage critical findings first.</li><li>Review the inventory weekly, because teams add AI packages faster than they file tickets.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't trust a spreadsheet of approved AI tools as your inventory.</li><li>Don't scan only production. Notebooks and dev clusters hold AI packages too.</li><li>Don't treat discovery as enforcement. Discovery shows the asset, and the other five controls govern it.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Shadow AI Discovery connects through a read only cloud API and package level scanners, then maps each package to an AI asset type. <a href="https://help.accuknox.com/use-cases/shadow-ai-discovery/">Set up Shadow AI Discovery</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">05</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 02</span>
+  <h1 class="h2">Watch the AI control plane,<br>not only <span class="hl">the model</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">AI-DR reads cloud audit events and alerts on risky AI changes, such as a public Azure OpenAI resource.</p>
+  <figure class="shot mid" style="margin-top:6mm"><img src="img/v4-aidr.png" alt="AI-DR flow from Azure activity logs through Event Hub and Logstash to the AccuKnox Sigma rule engine, then a webhook to GitHub Actions that disables public network access"></figure>
+  <p class="shot-cap" style="text-align:center">AI-DR detects a public Azure OpenAI resource and triggers remediation. <a href="https://help.accuknox.com/how-to/azure-aidr/">help.accuknox.com/how-to/azure-aidr/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Feed CloudTrail on AWS and Event Hub on Azure into AccuKnox for every AI account.</li><li>Alert on new SageMaker notebooks, Bedrock customization jobs and Azure ML workspace changes.</li><li>Route alerts to a webhook or Jira, and wire automated remediation for known bad states.</li><li>Treat a deleted Azure OpenAI resource as a critical event and confirm who did it.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't give data scientists admin rights to create public AI endpoints.</li><li>Don't rely on AI-DR to stop a bad prompt. AI-DR runs out of band and never sits in the inference path.</li><li>Don't let AI alerts land in a queue nobody owns.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>AI-DR raises the alert, opens the ticket and can trigger remediation. The Prompt Firewall covers the inference path. <a href="https://help.accuknox.com/how-to/azure-aidr/">Set up AI-DR on Azure</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">06</span></div>
+</section>
+
+<section class="page bg-blue">
+  <span class="chip">Practice 03</span>
+  <h1 class="h2">Give an agent only the<br>access its <span class="hl">task needs</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">ModelArmor sandboxes agents and MCP servers in the kernel with eBPF and LSM, with no code change.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/v4-agents.png" alt="Managed agents from Copilot Studio listed with status, knowledge bases and connected tools"></figure>
+  <p class="shot-cap">Managed agents with their knowledge bases and tools. <a href="https://help.accuknox.com/getting-started/3.5-release/">help.accuknox.com/getting-started/3.5-release/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Inventory every agent, its knowledge bases and its tools before you add guardrails.</li><li>Apply process, file system, network and domain isolation to each agent runtime.</li><li>Allow list the domains and binaries an agent may reach, and deny the rest.</li><li>Block reads of credential files such as <b>/root/.aws/credentials</b> from agent processes.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't run an agent or MCP server with the host's full network and file access.</li><li>Don't give one agent private data, untrusted content and outbound access at the same time.</li><li>Don't install a community MCP server without review and a sandbox.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>ModelArmor enforces the isolation policy through KubeArmor on VMs, containers and Kubernetes, for Ollama, vLLM, Triton, LangGraph, n8n and MCP servers. <a href="https://help.accuknox.com/use-cases/modelarmor/">Read the ModelArmor guide</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">07</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 04</span>
+  <h1 class="h2">Scan a model before<br>it <span class="hl">loads</span>, not after</h1><p class="deck" style="font-size:13pt;max-width:150mm">A model file can carry code. An unsafe pickle runs that code the moment you load it.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/v4-mlscan.png" alt="ML Findings list showing unsafe operators found in TensorFlow saved models and a pickle file"></figure>
+  <p class="shot-cap">ML Static Scan findings, including an unsafe operator in a pickle file. <a href="https://help.accuknox.com/how-to/ml-static-scan/">help.accuknox.com/how-to/ml-static-scan/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Run ML Static Scans on every model from GitHub or Hugging Face before first use.</li><li>Treat model file security findings, such as an unsafe pickle, as blocking.</li><li>Gate new models in CI/CD with the <b>/scan</b> pull request comment, and merge only on a clean report.</li><li>Rescan on every model version bump.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't load a public model straight into a production notebook.</li><li>Don't commit model weights to the repo. Name the model in the pull request instead.</li><li>Don't assume a static scan covers runtime. It does not test behavior or inference time attacks.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>ML Static Scans check supply chain, resistance to adversarial inputs, data and privacy risk and model file safety. ModelArmor contains a model at runtime. <a href="https://help.accuknox.com/how-to/model-scan-cicd/">Add model scans to CI/CD</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">08</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 05</span>
+  <h1 class="h2">Attack your own LLM<br>before <span class="hl">an attacker</span> does</h1><p class="deck" style="font-size:13pt;max-width:150mm">Red teaming runs adversarial probes against your model and records each prompt that broke it.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/v4-redteam.png" alt="AI Red Teaming findings for Bedrock models with scan category, probe, detector, goal, prompt, output and risk factor"></figure>
+  <p class="shot-cap">AI red teaming findings for Amazon Bedrock models. <a href="https://help.accuknox.com/how-to/aiml-bedrock-collector/">help.accuknox.com/how-to/aiml-bedrock-collector/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Scan every LLM app across Sentiment, Code, Hallucination and Prompt Injection.</li><li>Schedule scans on a cron, and rerun after each model, prompt or config change.</li><li>Upload your own prompts JSON to test domain risks.</li><li>Fix findings from <b>Issues</b> &gt; <b>Findings</b> &gt; <b>LLM Findings</b>, and open a Jira ticket per risk.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't ship an LLM app after one manual test.</li><li>Don't ignore package hallucination. A fake package name in AI generated code is a supply chain risk.</li><li>Don't treat a clean scan as permanent. A new model version resets the result.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Findings map to OWASP Top 10 for LLMs and MITRE ATLAS, and each one shows the probe, the detector and the response. <a href="https://help.accuknox.com/use-cases/red-teaming/">Run your first red team scan</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">09</span></div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">Practice 06</span>
+  <h1 class="h2">Inspect every prompt<br>and every <span class="hl">response</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">The Prompt Firewall sits inline between users and the LLM, and blocks, sanitizes or monitors each message.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/v4-promptfw.png" alt="Prompt Firewall view of one LLM app with total queries, violations, a trend chart, violations by Monitor and Block action, and violations by severity"></figure>
+  <p class="shot-cap">Prompt Firewall view of one LLM app, with violations by action and severity. <a href="https://help.accuknox.com/use-cases/prompt-firewall-overview/">help.accuknox.com/use-cases/prompt-firewall-overview/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Start policies in Monitor mode for one week, then move proven policies to Block.</li><li>Turn on Anonymize, Secrets and Prompt Injection for every app.</li><li>Pass a session ID so stateful tracking catches jailbreaks spread over many turns.</li><li>Deploy the browser plugin to Chrome, Edge and Firefox for staff who use ChatGPT, Claude, Gemini or GitHub Copilot.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't treat the firewall as the only control. Guardrails are probabilistic and miss some attacks.</li><li>Don't scan only prompts. Inspect responses for PII, secrets and unsafe code too.</li><li>Don't assume the plugin covers apps. The plugin sees browser traffic only, so instrument apps through the SDK or a gateway.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Connect through the SDK or a gateway such as LiteLLM, Azure APIM or AWS API Gateway, and choose from 14 policy types. <a href="https://help.accuknox.com/use-cases/prompt-firewall-overview/">Read the Prompt Firewall guide</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">10</span></div>
+</section>
+
+<section class="page bg-ice">
+  <span class="chip">Use AI well</span>
+  <h1 class="h1">Get the speed<br>of AI without the<br><span class="hl">data leak</span></h1>
+  <p class="lede" style="margin-top:5mm">Security also covers how people use AI every day. Give these rules to every engineer and analyst.</p>
+  <div class="dd" style="margin-top:9mm">
+    <div class="col"><div class="lab">Do</div><ul><li>Use the AI tools your company approved, signed in with your work identity.</li><li>Mask customer data and secrets before you paste a log or a config into a prompt.</li><li>Review AI generated code like a pull request from a new hire, then run it through your scanners.</li><li>Check that every package an AI tool suggests exists before you install it.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't paste API keys, tokens or passwords into any chat assistant.</li><li>Don't upload confidential documents to a personal AI account.</li><li>Don't let a coding agent run with your cloud admin credentials.</li><li>Don't connect an MCP server or browser extension your security team has not reviewed.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox enforces these rules</div><p>The browser plugin applies Prompt Firewall policies to ChatGPT, Claude, Gemini and GitHub Copilot in the browser, and logs each prompt for audit. <a href="https://help.accuknox.com/integrations/chrome-browser-integration/">Deploy the browser plugin</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">11</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Gap check</span>
+  <h1 class="h1">Find your gap,<br>then turn on the<br><span class="hl">right control</span></h1>
+  <p class="lede" style="margin-top:5mm">Read each row. Where the gap is true for you, take the first step this week.</p>
+  <table class="gap"><tr><th>If this is true</th><th>AccuKnox capability</th><th>First step</th></tr><tr><td>Nobody can list every AI model, agent and MCP server in use</td><td>AI-SPM and Shadow AI</td><td>Onboard cloud accounts and run the VM and cluster scanners</td></tr><tr><td>A public AI endpoint can appear with no alert</td><td>AI-DR</td><td>Stream CloudTrail or Event Hub and enable the AI rules</td></tr><tr><td>Agents run with full host network and file access</td><td>Agentic AI security</td><td>Apply ModelArmor isolation to each agent runtime</td></tr><tr><td>Public models load with no scan</td><td>Model and dataset security</td><td>Add ML Static Scans and the CI/CD model gate</td></tr><tr><td>LLM apps ship without adversarial tests</td><td>AI red teaming</td><td>Schedule an LLM Static Scan across all four categories</td></tr><tr><td>Prompts, responses and staff chats reach the LLM unchecked</td><td>Prompt Firewall</td><td>Connect the SDK or a gateway in Monitor mode, and push the browser plugin</td></tr></table>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">12</span></div>
+</section>
+
+<section class="page bg-navy">
+  <img src="logo.png" class="logo-white" style="height:7mm">
+  <div class="bottom">
+    <hr class="rule-grad" style="margin-bottom:8mm">
+    <h1 class="h1">See all six<br>AI controls<br>in one demo</h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);margin-bottom:12mm;max-width:150mm">Bring your gap check. An AccuKnox engineer shows each control against AI models, agents and prompts like yours.</p>
+    <a class="cta" href="https://accuknox.com/demo/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=ai-security-cheat-sheet">Book a demo</a>&nbsp;&nbsp;<a class="cta ghost" href="https://help.accuknox.com/how-to/aiml-overview/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=ai-security-cheat-sheet">Read the AI security docs</a>
+    <div class="proof">
+      <div class="p"><p>Featured in KuppingerCole's 2026 CNAPP Leadership Compass, which cites AccuKnox GenAI security. <a class="link" href="https://accuknox.com/analyst-recognition/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=ai-security-cheat-sheet">accuknox.com/analyst-recognition</a></p></div>
+      <div class="p"><p>Named for Technology Innovation Leadership in cybersecurity solutions that secure the AI stack, 2026. <a class="link" href="https://accuknox.com/analyst-recognition/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=ai-security-cheat-sheet">accuknox.com/analyst-recognition</a></p></div>
+    </div>
+    <p class="meta" style="color:rgba(255,255,255,.5);margin-top:14mm">accuknox.com · © 2026 AccuKnox, Inc.</p>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Inter;src:url('../fonts/Inter-ExtraLight.ttf');font-weight:200}
+@font-face{font-family:Inter;src:url('../fonts/Inter-Regular.ttf');font-weight:400}
+@font-face{font-family:Inter;src:url('../fonts/Inter-SemiBold.ttf');font-weight:600}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:1200px;background:#000025;font-family:Inter;color:#fff;position:relative;overflow:hidden}
+.rings{position:absolute;right:-260px;top:-260px;width:900px;height:900px}
+.logo{position:absolute;left:80px;top:80px;height:46px;filter:brightness(0) invert(1)}
+.copy{position:absolute;left:80px;top:330px;width:560px}
+.eyebrow{display:inline-block;background:#FFD900;color:#263238;font-weight:600;font-size:22px;letter-spacing:.14em;padding:10px 18px;border-radius:6px}
+h1{font-size:76px;line-height:1.04;font-weight:600;letter-spacing:-.035em;margin-top:36px}
+.ul{background:linear-gradient(90deg,#FF4646,#1040C5) left bottom/100% 6px no-repeat;padding-bottom:4px}
+.deck{font-size:28px;line-height:1.35;color:rgba(255,255,255,.72);margin-top:30px}
+.meta{position:absolute;left:80px;bottom:80px;font-size:22px;color:rgba(255,255,255,.55)}
+.meta b{color:#4F9CF9;font-weight:600}
+.thumb{position:absolute;right:70px;bottom:120px;width:440px;transform:rotate(4deg);border-radius:10px;box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+.thumb2{position:absolute;right:110px;bottom:140px;width:440px;height:623px;transform:rotate(-3deg);border-radius:10px;background:#1040C5;opacity:.55}
+</style></head>
+<body>
+<svg class="rings" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs><g fill="none" stroke="url(#g)" stroke-width=".5"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 3"/></g></svg>
+<img class="logo" src="../logo.png">
+<div class="copy">
+  <span class="eyebrow">CHEAT SHEET</span>
+  <h1>ASPM Best Practices<br><span class="ul">Do's and Don'ts</span></h1>
+  <p class="deck">Seven practices from the first commit to the closed ticket, plus a gap check.</p>
+</div>
+<div class="thumb2"></div>
+<img class="thumb" src="cover-thumb.png">
+<p class="meta"><b>Free guide</b> · accuknox.com</p>
+</body></html>

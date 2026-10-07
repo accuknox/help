@@ -23,3 +23,6 @@ references/PRODUCT UI/*-signals-all-*.xlsx
 
 # Video edit workspaces hold customer recordings. Never commit.
 references/video-edits/
+
+# SOC 2 report, pen tests, policies, insurance and customer questionnaires. Confidential under NDA. Never commit.
+references/compliance-evidence/

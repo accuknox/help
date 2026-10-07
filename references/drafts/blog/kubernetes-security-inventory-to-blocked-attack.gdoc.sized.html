@@ -1,0 +1,177 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>AccuKnox Kubernetes security takes you from inventory to a blocked attack</title><style>
+body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5;
+       color: #0D1B4B; }
+h1 { font-size: 22pt; color: #11206D; }
+h2 { font-size: 16pt; color: #11206D; margin-top: 22pt; }
+h3 { font-size: 13pt; color: #003BF6; margin-top: 16pt; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #B9C0DE; padding: 6pt 8pt; text-align: left;
+         vertical-align: top; font-size: 10pt; }
+th { background: #EEF1FB; color: #11206D; font-weight: bold; }
+code { font-family: 'Courier New', monospace; font-size: 9.5pt;
+       background: #F4F6FC; }
+table.code { border-collapse: collapse; width: 100%; margin: 10pt 0; }
+table.code td { background: #F4F6FC; border: 1px solid #B9C0DE;
+                padding: 8pt 10pt; font-family: 'Courier New', monospace;
+                font-size: 9.5pt; white-space: pre-wrap; }
+blockquote { border-left: 3px solid #4D4DD9; margin-left: 0; padding-left: 12pt;
+             color: #595959; }
+em { color: #595959; }
+.meta th { width: 26%; }
+</style></head><body><h1>AccuKnox Kubernetes security takes you from inventory to a blocked attack</h1>
+<h2>SEO metadata</h2>
+<table class="meta"><tr><th>title</th><td>AccuKnox Kubernetes security takes you from inventory to a blocked attack</td></tr>
+<tr><th>seo_title</th><td>Kubernetes Security With AccuKnox, Inventory to Block</td></tr>
+<tr><th>meta_description</th><td>Follow AccuKnox Kubernetes security step by step, from cluster inventory and findings to a hardening policy that blocks apt in a running pod, with alerts.</td></tr>
+<tr><th>slug</th><td>kubernetes-security-inventory-to-blocked-attack</td></tr>
+<tr><th>url</th><td>https://accuknox.com/blog/kubernetes-security-inventory-to-blocked-attack</td></tr>
+<tr><th>date</th><td>2026-10-11</td></tr>
+<tr><th>primary_keyword</th><td>kubernetes security</td></tr>
+<tr><th>secondary_keywords</th><td>[&quot;kubernetes hardening policy&quot;, &quot;KIEM&quot;, &quot;CIS Kubernetes Benchmark&quot;, &quot;kubernetes runtime security&quot;, &quot;container image scanning&quot;]</td></tr>
+<tr><th>excerpt</th><td>A step-by-step walkthrough of AccuKnox Kubernetes security, from cluster inventory and findings to a hardening policy that blocks a package manager in a running pod.</td></tr>
+<tr><th>category</th><td>KSPM</td></tr>
+<tr><th>author</th><td>Atharva Shah</td></tr>
+<tr><th>reading_time</th><td>5 minutes</td></tr>
+<tr><th>word_count_target</th><td>1100</td></tr>
+<tr><th>audience</th><td>platform engineer | security engineer</td></tr>
+<tr><th>cover_image</th><td>https://img.youtube.com/vi/M_6RKJFTvOI/maxresdefault.jpg</td></tr>
+<tr><th>cover_image_prompt_claude</th><td>Not used. The cover is the YouTube thumbnail for video M_6RKJFTvOI, which shows the blocked package manager command and the Policy enabled badge.</td></tr>
+<tr><th>cover_image_prompt_midjourney</th><td>Not used. The cover is the YouTube thumbnail for video M_6RKJFTvOI.</td></tr></table>
+<hr/>
+<blockquote>
+<p><img width="620" height="349" alt="The thumbnail of the AccuKnox Kubernetes security walkthrough video" src="https://img.youtube.com/vi/M_6RKJFTvOI/maxresdefault.jpg"></p>
+</blockquote>
+<p><em>Caption: The thumbnail of the five-minute AccuKnox Kubernetes security walkthrough.</em></p>
+<h2>TL;DR</h2>
+<ul>
+<li>AccuKnox shows a cluster's inventory, identity findings, benchmark failures, runtime behavior and image vulnerabilities in one console.</li>
+<li>The demo cluster lists about 1,200 identity findings. Each one opens to a detail view with its severity and first and last detected dates.</li>
+<li>The Hardening tab holds 20 ready-made policies, and one of them blocks package managers.</li>
+<li>Before activation, <code>apt</code> runs in a shell inside a workload. After activation, the same command returns <code>Permission denied</code> and a new alert appears.</li>
+<li>A hardening policy blocks only the programs it lists, and runtime security needs Linux kernel 4.15 or later.</li>
+</ul>
+<h2>The Dashboard and Inventory Show What You Protect</h2>
+<p>The AccuKnox dashboard for a connected Kubernetes environment opens on a 30-day window. Its widgets summarize alerts, the policies that raised them, workload traffic and the risk posture of the connected clusters. Lower down, you find the top identity findings and the compliance status of the benchmark checks.</p>
+<p><img width="620" height="349" alt="The AccuKnox dashboard with the Top identity findings and Benchmark compliance widgets highlighted" src="https://media.zernio.com/temp/1791272895178_lg7megst_k01-dashboard.jpg"></p>
+<p><em>Caption: The lower dashboard widgets show the top identity findings and the benchmark compliance status.</em></p>
+<p>Open Inventory next, then open the cluster. The overview lists nodes, workloads, namespaces and active policies. Six tabs sit beside it.</p>
+<p><img width="620" height="349" alt="The Inventory Clusters list with one connected cluster highlighted" src="https://media.zernio.com/temp/1791272897424_s010ghuc_k02-clusters.jpg"></p>
+<p><em>Caption: The Clusters list shows each connected cluster with its alerts and findings.</em></p>
+<p><img width="620" height="349" alt="The cluster overview panel with the Cluster Information card showing nodes, workloads, namespaces and active policies" src="https://media.zernio.com/temp/1791272899521_zktg7026_k03-cluster-info.jpg"></p>
+<p><em>Caption: The cluster overview lists nodes, workloads, namespaces and active policies, with a tab for each finding type.</em></p>
+<table>
+<thead>
+<tr>
+<th>Tab</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Misconfiguration</td>
+<td>Open findings grouped by severity</td>
+</tr>
+<tr>
+<td>Vulnerabilities</td>
+<td>Container image findings, and the images with the most findings</td>
+</tr>
+<tr>
+<td>Alerts</td>
+<td>The policies that raised alerts, and the workload for each</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td>The benchmark checks for this cluster</td>
+</tr>
+<tr>
+<td>Policies</td>
+<td>The policies applied to this cluster</td>
+</tr>
+<tr>
+<td>App behavior</td>
+<td>The network connections seen in this cluster</td>
+</tr>
+</tbody>
+</table>
+<p>Each feature installs on its own, so you can start with one. Runtime security runs as a DaemonSet, and misconfiguration scanning, KIEM, CIS benchmarking and image scanning run as cron jobs. The <a href="https://help.accuknox.com/how-to/k8s-security-onboarding/">Kubernetes Security Onboarding</a> page lists the Helm command for each.</p>
+<h2>Identity and Benchmark Findings Share One Findings List</h2>
+<p>Go to Issues, then Findings. The Findings Summary splits cluster findings into two groups, identity findings and Kubernetes benchmark findings. In the demo, the identity list holds about 1,200 entries.</p>
+<p><img width="620" height="349" alt="The Findings Summary with KIEM identity findings and K8s CIS benchmark findings as two groups" src="https://media.zernio.com/temp/1791272901268_0njs7pxm_k04-findings-summary.jpg"></p>
+<p><em>Caption: The Findings Summary splits cluster findings into KIEM identity findings and K8s CIS benchmark findings.</em></p>
+<p>Open one entry for the full detail. The example is a service account with no workloads. The detail shows its severity and the dates it was first and last detected.</p>
+<p><img width="620" height="349" alt="The KIEM findings list with the total of 1,201 findings highlighted" src="https://media.zernio.com/temp/1791272903603_m6034r2g_k05-kiem-findings.jpg"></p>
+<p><em>Caption: The KIEM findings list in the demo shows 1,201 findings.</em></p>
+<p>Switch the data type to CIS K8s Benchmark Findings to see one row per failed check. The checks come from the <a href="https://www.cisecurity.org/benchmark/kubernetes">CIS Kubernetes Benchmark</a>. To keep only failures, set the Tool Output filter to Failed, as the <a href="https://help.accuknox.com/use-cases/cis-benchmarking/">CIS benchmark findings guide</a> describes. This view is part of AccuKnox <a href="https://accuknox.com/platform/kspm">KSPM</a>.</p>
+<p><img width="620" height="349" alt="The CIS Kubernetes benchmark findings list with the Failed tool output rows highlighted" src="https://media.zernio.com/temp/1791272905454_e024t682_k06-cis-failed.jpg"></p>
+<p><em>Caption: The benchmark findings list has one row per check, and the Tool Output column marks the failed ones.</em></p>
+<blockquote>
+<p><strong>Limitation.</strong> The CIS benchmark job covers generic Kubernetes, EKS, AKS and GKE. OKE is not currently supported.</p>
+</blockquote>
+<h2>App Behavior Shows What Each Workload Does at Runtime</h2>
+<p>Under Runtime Protection, App behavior opens on a runtime summary and a graph of the connections AccuKnox observed. AccuKnox uses KubeArmor to watch and control this activity. The list view splits the data into three areas.</p>
+<ul>
+<li><strong>File activity.</strong> The demo shows one attempt to change a file, and the action is Block.</li>
+<li><strong>Process activity.</strong> This view lists the processes that ran in each workload.</li>
+<li><strong>Network activity.</strong> This view lists the connections of each workload.</li>
+</ul>
+<p>The <a href="https://help.accuknox.com/use-cases/app-behavior/">Application Behavior</a> guide walks through the same views on a MySQL workload.</p>
+<p><img width="620" height="349" alt="The App behavior page with the runtime summary counts above the connection graph of one workload" src="https://media.zernio.com/temp/1791272907063_gvvinnqm_k07-app-behavior.jpg"></p>
+<p><em>Caption: The runtime summary and connection graph for one workload.</em></p>
+<h2>One Hardening Policy Turns a Working Command Into Permission Denied</h2>
+<p>Hardening policies are KubeArmor policies, and the Hardening tab ships 20 of them. The demo uses the one that prohibits package manager execution. It is part of AccuKnox <a href="https://accuknox.com/platform/runtime-security">runtime security</a>.</p>
+<ol>
+<li>Open Runtime Protection, then Policies, then the Hardening tab. All 20 policies show as Inactive.</li>
+<li>Open a shell inside a workload with <code>kubectl exec</code>, and run <code>apt</code>. The command runs, because no policy blocks it yet.</li>
+<li>Open the package manager policy. It lists the programs to block, and its action is Block.</li>
+<li>Select the policy and click Activate.</li>
+<li>Wait for the confirmation message. The policy status changes to Active.</li>
+<li>Run <code>apt</code> again in the same shell. The shell prints the line below.</li>
+</ol>
+<table class="code"><tr><td>bash: /usr/bin/apt: Permission denied</td></tr></table>
+<p><img width="620" height="349" alt="The Policies page with the Hardening tab open and 20 hardening policies listed as Inactive" src="https://media.zernio.com/temp/1791272909939_ze7r5yan_k08-hardening-list.jpg"></p>
+<p><em>Caption: The Hardening tab lists the 20 policies, all Inactive until you activate one.</em></p>
+<p><img width="620" height="349" alt="A shell inside the workload where the apt command runs and prints its usage text" src="https://media.zernio.com/temp/1791272911790_9bldc3ee_k09-before.jpg"></p>
+<p><em>Caption: Before activation, apt runs in the shell inside the workload.</em></p>
+<p><img width="620" height="349" alt="The package manager hardening policy YAML with Action Block and the list of package manager programs highlighted" src="https://media.zernio.com/temp/1791272913504_ipgyhw65_k10-policy-yaml.jpg"></p>
+<p><em>Caption: The package manager policy lists the programs it blocks, and its action is Block.</em></p>
+<p><img width="620" height="349" alt="The Hardening policies list with the package manager policy selected and the Activate button highlighted" src="https://media.zernio.com/temp/1791272915263_qgfuo68h_k11-activate.jpg"></p>
+<p><em>Caption: Select the policy and click Activate.</em></p>
+<p><img width="620" height="349" alt="The Hardening policies list with the package manager policy marked Active and the label Policy enabled" src="https://media.zernio.com/temp/1791272917024_eegxqel7_k12-policy-enabled.jpg"></p>
+<p><em>Caption: The policy status changes to Active, and the confirmation reads Policy enabled.</em></p>
+<p><img width="620" height="349" alt="The same shell after activation, where apt returns bash: /usr/bin/apt: Permission denied" src="https://media.zernio.com/temp/1791272918899_7xgyyw28_k13-blocked.jpg"></p>
+<p><em>Caption: The same apt command in the same shell now returns Permission denied.</em></p>
+<p>Open the alerts list next. The block appears as a new alert at the top. The alert names the policy, the blocked program, the Block action and the result. The raw log keeps the full context, including the process name of the blocked command.</p>
+<p><img width="620" height="349" alt="The alerts list with the alert for the blocked command at the top" src="https://media.zernio.com/temp/1791272920851_0sd23qnw_k14-alert.jpg"></p>
+<p><em>Caption: The alert for the blocked command sits at the top of the alerts list.</em></p>
+<p><img width="620" height="349" alt="The alert detail with the policy name, the blocked program, the Block action and the Permission denied result" src="https://media.zernio.com/temp/1791272922504_0h1izh04_k15-alert-detail.jpg"></p>
+<p><em>Caption: The alert names the policy, the blocked program, the Block action and the Permission denied result.</em></p>
+<blockquote>
+<p><strong>Limitation.</strong> The policy blocks only the programs it lists. The <a href="https://help.accuknox.com/use-cases/cards/Packaging-tools/">Packaging tools card</a> shows a sample policy and the alert it raises.</p>
+</blockquote>
+<h2>KIEM Graphs Subjects, Roles and Permissions in One View</h2>
+<p>Back in the identity view, the table maps each subject to its role binding, its role and its permissions. The graph view shows the same links, grouped by namespace. Open a service account to see its bindings and the pod that uses it. The manifest view shows the role binding definition.</p>
+<p>A key query filters the graph. The Excessive Permission query matched three system controllers in the demo. The result shows as a list or as a graph. <a href="https://help.accuknox.com/use-cases/kiem/">KIEM</a> ships 15 built-in queries. One finds service accounts that connect to no workload.</p>
+<p><img width="620" height="349" alt="The KIEM table with subject, role binding, role and permissions columns" src="https://media.zernio.com/temp/1791272924234_29q55l0c_k16-kiem-table.jpg"></p>
+<p><em>Caption: The KIEM table maps each subject to its role binding, its role and its permissions.</em></p>
+<p><img width="620" height="349" alt="The KIEM graph view of subjects, role bindings and roles grouped by namespace" src="https://media.zernio.com/temp/1791272926471_hsh9z65s_k17-kiem-graph.jpg"></p>
+<p><em>Caption: The graph view shows the same links, grouped by namespace.</em></p>
+<p><img width="620" height="349" alt="The KIEM Excessive Permission key query result as a table of subjects, role bindings and roles" src="https://media.zernio.com/temp/1791272928052_5qbhwkiv_k18-excessive.jpg"></p>
+<p><em>Caption: The Excessive Permission query lists the subjects, role bindings and roles that matched.</em></p>
+<h2>Image Findings Name the Fixed Version to Upgrade To</h2>
+<p>In-cluster image scanning feeds the Container Image Findings view. Each finding shows the affected package, its severity and when it was first and last detected. The Solution tab gives the fixed version to upgrade to. The Other info tab links to the public vulnerability record.</p>
+<p><img width="620" height="349" alt="The Container Image Findings list with each CVE, its package and its severity" src="https://media.zernio.com/temp/1791272929826_lllh2gtg_k19-image-findings.jpg"></p>
+<p><em>Caption: The Container Image Findings list shows each vulnerability with its package and its severity.</em></p>
+<p><img width="620" height="349" alt="The Solution tab of an image finding showing the fixed version to upgrade to" src="https://media.zernio.com/temp/1791272931487_qm1mgmit_k20-fix-version.jpg"></p>
+<p><em>Caption: The Solution tab gives the fixed version to upgrade to.</em></p>
+<p>The in-cluster scanner reads cached images on the nodes, so it needs no registry access. Findings go to the AccuKnox console for triage.</p>
+<h2>Watch a Package Manager Get Blocked on a Live Tenant</h2>
+<p>The video follows these steps in order. It was recorded on a live AccuKnox tenant, and environment-specific names are blurred.</p>
+<table class="code"><tr><td>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/M_6RKJFTvOI&quot; title=&quot;Kubernetes Security With AccuKnox, From Inventory to a Blocked Attack&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</td></tr></table>
+<p><a href="https://www.youtube.com/watch?v=M_6RKJFTvOI">Watch the walkthrough on YouTube</a>. To try it on your own clusters, start at the <a href="https://accuknox.com/platform/cnapp">AccuKnox CNAPP platform page</a>.</p>
+<h2>FAQs</h2>
+<h3>Does the package manager policy block every program?</h3>
+<p>No, it blocks only the programs it lists, and its action is Block. The policy in the video lists 12 programs: apk, apt-get, apt, dnf, dpkg, gdebi, makepkg, pacman, rpm, yaourt, yum and zypper.</p>
+<h3>What does my cluster need before I start?</h3>
+<p>Kubernetes 1.18 or later, and Linux kernel 4.15 or later for runtime security. The cluster needs only egress connectivity to the control plane. AccuKnox supports managed clusters on EKS, AKS and OCI, and on-prem clusters.</p>
+<h3>Which clusters does the CIS benchmark check cover?</h3>
+<p>Generic Kubernetes, EKS, AKS and GKE. OKE is not currently supported.</p></body></html>

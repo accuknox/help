@@ -84,7 +84,7 @@ hide:
     + **Windows** — On roadmap
 
     **References:**
-    - [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
+    - [Deployment Models](https://help.accuknox.com/resources/deployment/)
     - [On-Prem Overview](https://help.accuknox.com/getting-started/on-prem-overview/)
 
 ??? "**5. Where is AccuKnox SaaS deployed and what regions are available?**"
@@ -98,7 +98,7 @@ hide:
     For customers requiring data residency within their own environment, AccuKnox also supports fully on-prem and customer-hosted cloud deployments where no data leaves the customer environment.
 
     **References:**
-    - [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
+    - [Deployment Models](https://help.accuknox.com/resources/deployment/)
 
 ??? "**6. What are AccuKnox's four deployment models?**"
     AccuKnox supports four deployment models, each delivering the same platform capabilities:
@@ -109,7 +109,7 @@ hide:
     + **Customer's Hosted Public & Private Cloud** — AccuKnox control plane deployed in the customer's own AWS, Azure, or GCP account. Data never leaves the customer environment. Supports hybrid configurations combining cloud accounts and on-prem clusters.
 
     **References:**
-    - [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
+    - [Deployment Models](https://help.accuknox.com/resources/deployment/)
     - [On-Prem Overview](https://help.accuknox.com/getting-started/on-prem-overview/)
     - [Multi-Tenancy](https://help.accuknox.com/resources/multitenancy/)
 
@@ -217,7 +217,7 @@ hide:
 
     **References:**
     - [CNAPP Security Overview](https://help.accuknox.com/use-cases/cnapp-security-overview/)
-    - [Deployment Models](https://help.accuknox.com/getting-started/deployment-models/)
+    - [Deployment Models](https://help.accuknox.com/resources/deployment/)
 
 ??? "**13. Can AccuKnox help with monitoring and drift detection?**"
     Yes. AccuKnox provides several monitoring capabilities:

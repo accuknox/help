@@ -21,3 +21,15 @@ hide:
 
 ??? "**5. What deployment models and access controls are available?**"
     AccuKnox Secrets Manager supports cloud, on-premises, and air-gapped deployments. It provides tenant namespaces, fine-grained policies, audit logging, and encrypted storage so you can safely manage secrets across teams and environments.
+
+??? "**6. Which Kubernetes clusters does Secrets Manager run on?**"
+    Any Kubernetes cluster at version 1.30 or later, with Helm 3 and a default StorageClass. OpenShift has its own values file in the chart. Applications on other clusters and on virtual machines connect over TLS. See the [Deployment Guide](../secrets-manager/deployment.md).
+
+??? "**7. Should I use the SDK or the External Secrets Operator?**"
+    Use the SDK when the secret must stay out of the namespace, or when the application runs on a virtual machine. Use the External Secrets Operator when you cannot change the application code. See [Connect Applications](../secrets-manager/connect-applications.md).
+
+??? "**8. Does an application pick up a changed secret on its own?**"
+    The External Secrets Operator updates the Kubernetes secret within its refresh interval. A running application that reads the secret at startup sees the new value only after it restarts. An SDK application sees it on its next read. See the [WordPress and MySQL walkthrough](../secrets-manager/use-case-wordpress-mysql.md).
+
+??? "**9. Can Secrets Manager run with no internet access?**"
+    Yes. Mirror the images into an internal registry, install from the chart tar file, and unseal with your own key holders. See [Air-Gapped Deployment](../secrets-manager/air-gapped.md).

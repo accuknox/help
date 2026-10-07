@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AccuKnox CSPM Best Practices Guide</title>
+<style>
+@font-face{font-family:Inter;src:url('fonts/Inter-ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:block}
+:root{
+  --ak-blue:#1040C5;--ak-logo-blue:#0000C8;--ak-bright:#0F7FFF;--ak-sky:#4F9CF9;
+  --ak-navy:#000025;--ak-navy2:#080F53;--ak-red:#D63637;--ak-logo-red:#CB0018;
+  --ak-coral:#FF4646;--ak-yellow:#FFD900;--ak-green:#04B745;
+  --ink:#263238;--ink-2:#37474F;--ink-3:#607D8B;--rule:#CFD8DC;
+  --tint-ice:#F8FAFF;--tint-aqua:#E9F8FE;--tint-blue:#E2EEFF;--tint-rose:#FEF7F7;--tint-pink:#FFE3E3;
+  --grad:linear-gradient(90deg,#FF4646 0%,#1040C5 100%);
+  --hl:rgba(255,217,0,.55);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Inter;color:var(--ink-2);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:24mm 17mm 26mm;break-after:page;background:var(--bg,#fff)}
+.page:last-child{break-after:auto}
+.bg-white{--bg:#fff}.bg-ice{--bg:var(--tint-ice)}.bg-aqua{--bg:var(--tint-aqua)}.bg-blue{--bg:var(--tint-blue)}
+.bg-rose{--bg:var(--tint-rose)}
+.bg-navy{--bg:var(--ak-navy);color:#fff}
+.bg-navy .h-display,.bg-navy .h1,.bg-navy .h2{color:#fff}
+.bg-navy .body,.bg-navy p{color:rgba(255,255,255,.78)}
+.foot{position:absolute;left:17mm;right:17mm;bottom:11mm;display:flex;justify-content:space-between;align-items:center}
+.foot .logo{height:6.2mm}
+.foot .folio{font-size:8.5pt;font-weight:600;color:var(--ink-2)}
+.foot .src{font-size:8pt;color:var(--ink-3)}
+.foot .src a{color:var(--ak-blue);text-decoration:none}
+.bg-navy .foot .folio{color:#fff}
+.logo-white{filter:brightness(0) invert(1)}
+.h-display{font-size:64pt;line-height:1.02;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
+.h1{font-size:50pt;line-height:1.05;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.h2{font-size:30pt;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.h3{font-size:15pt;line-height:1.25;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.deck{font-size:18pt;line-height:1.3;font-weight:400;color:var(--ink-3);letter-spacing:-.01em;margin-top:4mm}
+.lede{font-size:12.5pt;line-height:1.5;color:var(--ink-2);max-width:150mm}
+.body{font-size:11.5pt;line-height:1.6;color:var(--ink-2)}
+.body p+p{margin-top:3.5mm}
+.body b,.lede b{color:var(--ink);font-weight:600}
+.meta{font-size:8.5pt;color:var(--ink-3);letter-spacing:.02em}
+.caps{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue)}
+.stat{font-size:110pt;line-height:.95;font-weight:200;letter-spacing:-.05em;color:var(--ink)}
+.stat-m{font-size:64pt;line-height:1;font-weight:200;letter-spacing:-.045em;color:var(--ink)}
+.stat-s{font-size:38pt;line-height:1;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.num-ghost{font-size:64pt;font-weight:200;letter-spacing:-.04em;color:var(--ak-sky);line-height:1}
+.chip{display:inline-block;background:var(--ak-yellow);color:var(--ink);font-size:8.5pt;font-weight:500;padding:1.4mm 2.6mm;border-radius:1mm;margin-bottom:5mm}
+.chip.blue{background:var(--tint-blue);color:var(--ak-blue)}
+.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+.accent{color:var(--ak-blue)}
+.ul{background:var(--grad) left bottom/100% .09em no-repeat;padding-bottom:.04em}
+.rule{height:.3mm;background:var(--rule);border:0}
+.rule-grad{height:.8mm;background:var(--grad);border:0;width:22mm}
+.stack>*+*{margin-top:var(--gap,6mm)}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
+.push-right{margin-left:64mm}
+.bottom{position:absolute;left:17mm;right:17mm;bottom:28mm}
+.panel{background:#fff;border:.3mm solid var(--rule);border-radius:4mm;padding:9mm 10mm;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;left:0;right:0;top:0;height:1.4mm;background:var(--grad)}
+.panel.navy{background:var(--ak-navy);border-color:var(--ak-navy);color:#fff}
+.panel.navy .stat,.panel.navy .stat-m{color:#fff}
+.nlist .row{display:grid;grid-template-columns:52mm 1fr;gap:6mm;padding:6mm 0;border-top:.3mm solid var(--rule)}
+.nlist .row:first-child{border-top:0}
+.nlist .icon{width:13mm;height:13mm;margin-bottom:3mm}
+.ntable{width:100%;border-collapse:collapse}
+.ntable th{font-size:8.5pt;font-weight:600;color:var(--ak-blue);text-align:left;padding:0 0 3mm}
+.ntable td{padding:5mm 0;border-top:.3mm solid var(--rule);vertical-align:middle}
+.ntable td.lbl{font-size:11pt;color:var(--ink);width:36%}
+.ntable td.v{font-size:38pt;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.ntable td.v small{font-size:9pt;font-weight:400;letter-spacing:0;color:var(--ink-3);margin-left:1.5mm}
+.toc .item{display:grid;grid-template-columns:1fr 18mm;align-items:end;margin-top:9mm}
+.toc .t{font-size:21pt;line-height:1.2;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.toc .p{font-size:21pt;font-weight:300;text-align:right;color:var(--ink)}
+.bar{height:5mm;border-radius:1mm;background:var(--ak-blue)}
+.bar.alt{background:var(--ak-sky)}.bar.warn{background:var(--ak-red)}
+.pill{display:inline-flex;align-items:center;gap:2mm;border:.3mm solid var(--rule);border-radius:10mm;padding:1.5mm 3.5mm;font-size:8.5pt;color:var(--ink-2);background:#fff}
+.flow{display:flex;align-items:center;gap:3mm}
+.flow .node{flex:1;border:.3mm solid var(--rule);border-radius:3mm;background:#fff;padding:5mm}
+.flow .arrow{width:10mm;height:.4mm;background:var(--grad);position:relative}
+.flow .arrow::after{content:"";position:absolute;right:-.5mm;top:-1.1mm;border:1.3mm solid transparent;border-left-color:var(--ak-blue)}
+.cta{display:inline-block;background:var(--ak-blue);color:#fff;font-weight:600;font-size:11pt;padding:4mm 7mm;border-radius:2mm;text-decoration:none}
+.cta.ghost{background:transparent;border:.5mm solid #fff}
+.link{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.art{position:absolute;pointer-events:none}
+.shot{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:2.5mm;position:relative;overflow:hidden}
+.shot::before{content:"";position:absolute;left:0;right:0;top:0;height:1mm;background:var(--grad)}
+.shot img{display:block;width:100%;height:auto;border-radius:1.5mm;margin-top:1mm}
+.shot-cap{font-size:8.5pt;color:var(--ink-3);margin-top:2.5mm}
+.shot-cap a{color:var(--ak-blue);text-decoration:none}
+
+.mod-top{display:grid;grid-template-columns:1fr 74mm;gap:8mm;align-items:start}
+.shot.wide img{height:56mm;object-fit:cover;object-position:top center}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm}
+.dd .col{border-top:1.2mm solid var(--ak-blue);padding-top:4mm}
+.dd .col.no{border-top-color:var(--ak-red)}
+.dd .lab{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue);margin-bottom:2mm}
+.dd .col.no .lab{color:var(--ak-red)}
+.dd ul{list-style:none}
+.dd li{font-size:10pt;line-height:1.45;color:var(--ink-2);padding:2.2mm 0 2.2mm 6mm;position:relative;border-bottom:.25mm solid var(--rule)}
+.dd li:last-child{border-bottom:0}
+.dd li::before{content:"";position:absolute;left:0;top:3.9mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--ak-blue)}
+.dd .col.no li::before{background:var(--ak-red);border-radius:.4mm}
+.fix{margin-top:7mm;background:#fff;border:.3mm solid var(--rule);border-left:1.4mm solid var(--ak-blue);border-radius:2mm;padding:4.5mm 6mm}
+.fix .caps{margin-bottom:1.5mm}
+.fix p{font-size:10pt;line-height:1.5;color:var(--ink-2)}
+.fix a{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 7mm;margin-top:8mm}
+.mods .m{display:grid;grid-template-columns:12mm 1fr 8mm;align-items:baseline;border-top:.3mm solid var(--rule);padding-top:3mm}
+.mods .n{font-size:20pt;font-weight:200;color:var(--ak-sky);letter-spacing:-.03em}
+.mods .t{font-size:11pt;font-weight:600;color:var(--ink)}
+.mods .t small{display:block;font-size:8.5pt;font-weight:400;color:var(--ink-3);margin-top:.6mm}
+.mods .p{font-size:11pt;font-weight:300;text-align:right;color:var(--ink)}
+.gap{width:100%;border-collapse:collapse;margin-top:8mm}
+.gap th{font-size:8pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ak-blue);text-align:left;padding:0 3mm 3mm 0}
+.gap td{font-size:9.5pt;line-height:1.4;color:var(--ink-2);padding:3.2mm 3mm 3.2mm 0;border-top:.3mm solid var(--rule);vertical-align:top}
+.gap td:first-child{color:var(--ink);font-weight:600;width:33%}
+.gap td:nth-child(2){width:24%;color:var(--ak-blue);font-weight:500}
+
+/* ---- cheat sheet kit additions ---- */
+.shot.full img{height:auto}
+.shot.tall img{max-height:118mm;object-fit:contain}
+.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:8mm}
+.prob .card{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:6mm 5mm 5mm;position:relative;overflow:hidden}
+.prob .card::before{content:"";position:absolute;left:0;right:0;top:0;height:1.2mm;background:var(--grad)}
+.prob .card .stat-s{color:var(--ak-red)}
+.prob .card p{font-size:9.5pt;line-height:1.45;margin-top:3mm;color:var(--ink-2)}
+.prob .card .src{font-size:7.5pt;color:var(--ink-3);margin-top:2.5mm}
+.prob .card .src a{color:var(--ak-blue);text-decoration:none}
+.src-line{font-size:7.5pt;color:var(--ink-3);margin-top:4mm}
+.src-line a{color:var(--ak-blue);text-decoration:none}
+.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm;margin-top:7mm}
+.proof .p{border-top:1.2mm solid var(--ak-blue);padding-top:3.5mm}
+.proof .p .stat-s{color:var(--ak-blue)}
+.proof .p p{font-size:9.5pt;line-height:1.45;margin-top:2mm}
+.icon{width:11mm;height:11mm;stroke:var(--ak-sky);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.shot.mid{width:118mm;margin-left:auto;margin-right:auto}
+.rc{display:grid;grid-template-columns:16mm 1fr;gap:5mm;padding:5.5mm 0;border-top:.3mm solid var(--rule)}
+.rc:first-child{border-top:0}
+.rc .h3{margin-bottom:1.5mm}
+.rc p{font-size:10.5pt;line-height:1.5;color:var(--ink-2);max-width:140mm}
+</style>
+</head>
+<body>
+
+<section class="page bg-navy">
+  <svg class="art" style="right:-40mm;top:-30mm;width:190mm;height:190mm" viewBox="0 0 200 200">
+    <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs>
+    <g fill="none" stroke="url(#gc)" stroke-width=".5"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 3"/></g>
+    <circle cx="100" cy="100" r="6" fill="#1040C5"/><circle cx="150" cy="45" r="3" fill="#FF4646"/><circle cx="36" cy="140" r="2.5" fill="#4F9CF9"/>
+  </svg>
+  <div style="position:absolute;left:17mm;right:17mm;bottom:30mm">
+    <img src="logo.png" class="logo-white" style="height:8mm;margin-bottom:12mm">
+    <div class="caps" style="color:var(--ak-sky);margin-bottom:5mm">CSPM best practices cheat sheet</div>
+    <h1 class="h-display">Fix the cloud<br>settings that<br><span class="ul">invite a breach</span></h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);font-size:18pt;max-width:150mm">Do's and don'ts for six CSPM practices across AWS, Azure and GCP, with a gap check and the AccuKnox setup page for each gap.</p>
+  </div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">The problem</span>
+  <h1 class="h1">Cloud incidents<br>are common, and<br>fixes take <span class="hl">days</span></h1>
+  <p class="lede" style="margin-top:6mm">A public bucket, an open port or an old access key gives an attacker a way in with no exploit at all. Most teams already had a cloud incident last year, and most of them needed more than a day to close it.</p>
+  <div class="prob">
+    <div class="card"><div class="stat-s">65%</div><p>of organizations had a cloud security incident in the past year.</p><div class="src">Check Point, 2025 Cloud Security Report. <a href="https://www.checkpoint.com/press-releases/dangerous-blind-spots-costing-enterprises-time-trust-and-agility-exposed-in-check-points-2025-cloud-security-report/">checkpoint.com</a></div></div>
+    <div class="card"><div class="stat-s">9%</div><p>of publicly accessible cloud storage holds sensitive data, and 97% of that data is restricted or confidential.</p><div class="src">Tenable, Cloud Security Risk Report 2025. <a href="https://www.tenable.com/press-releases/tenable-research-finds-pervasive-cloud-misconfigurations-exposing-critical-data-and-secrets">tenable.com</a></div></div>
+    <div class="card"><div class="stat-s">62%</div><p>of organizations took more than 24 hours to remediate a breach. Only 6% remediated within the first hour.</p><div class="src">Check Point, 2025 Cloud Security Report. <a href="https://www.checkpoint.com/press-releases/dangerous-blind-spots-costing-enterprises-time-trust-and-agility-exposed-in-check-points-2025-cloud-security-report/">checkpoint.com</a></div></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">02</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Root causes</span>
+  <h1 class="h2">Four reasons cloud<br>posture <span class="hl">slips</span></h1>
+  <p class="deck" style="font-size:13pt;max-width:150mm">Each cause below has a matching practice later in this guide.</p>
+  <div style="margin-top:9mm">
+    <div class="rc">
+      <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><path d="M17 14v6M14 17h6"/></svg>
+      <div><h3 class="h3">Accounts multiply faster than anyone lists them</h3><p>At least 84% of organizations use more than one AWS account. A team opens a new account in minutes, and nobody scans it until someone adds it to a list.</p></div>
+    </div>
+    <div class="rc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg>
+      <div><h3 class="h3">Alerts arrive faster than teams can triage them</h3><p>More than half of organizations face nearly 500 cloud alerts a day. A queue sorted by count hides the one public database inside it.</p></div>
+    </div>
+    <div class="rc">
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.6 10.7l6.8-3.4M8.6 13.3l6.8 3.4"/></svg>
+      <div><h3 class="h3">Risk hides in combinations of findings</h3><p>29% of organizations run a workload that is publicly exposed, critically vulnerable and highly privileged. Each finding alone looks moderate, so a severity sort misses the combination.</p></div>
+    </div>
+    <div class="rc">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>
+      <div><h3 class="h3">Settings change after the last review</h3><p>The Cloud Security Alliance ranks misconfiguration and inadequate change control as the first of its 11 top cloud threats. A bucket you secured last month can turn public again today.</p></div>
+    </div>
+  </div>
+  <p class="src-line src" style="margin-top:8mm">Sources. Datadog, <a href="https://www.datadoghq.com/state-of-cloud-security/">State of Cloud Security 2025</a>. Check Point, <a href="https://www.checkpoint.com/press-releases/dangerous-blind-spots-costing-enterprises-time-trust-and-agility-exposed-in-check-points-2025-cloud-security-report/">2025 Cloud Security Report</a>. Tenable, <a href="https://www.tenable.com/press-releases/tenable-research-finds-pervasive-cloud-misconfigurations-exposing-critical-data-and-secrets">Cloud Security Risk Report 2025</a>. CSA, <a href="https://cloudsecurityalliance.org/blog/2024/08/20/top-threat-1-misconfig-misadventures-taming-the-change-control-chaos">Top Threats to Cloud Computing 2024</a>.</p>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">03</span></div>
+</section>
+
+<section class="page bg-ice">
+  <span class="chip">Start here</span>
+  <h1 class="h1">Six practices take<br>a finding from found<br>to <span class="hl">fixed</span></h1>
+  <p class="lede" style="margin-top:5mm">Start with a complete inventory, because every later practice scores only the accounts you onboarded. Then rank, map, assign and recheck.</p>
+  <figure class="shot full" style="margin-top:7mm"><img src="img/map.png" alt="Cloud Findings dashboard with findings per cloud account, compliance score per framework and non compliant asset categories"></figure>
+  <p class="shot-cap">Cloud Findings dashboard in AccuKnox CSPM. <a href="https://help.accuknox.com/use-cases/cspm/">help.accuknox.com/use-cases/cspm/</a></p>
+  <div class="mods">
+    <div class="m"><span class="n">01</span><span class="t">Inventory every account<small>Onboard at the organization level</small></span><span class="p">05</span></div>
+    <div class="m"><span class="n">04</span><span class="t">Map checks to frameworks<small>Score against the controls you report</small></span><span class="p">08</span></div>
+    <div class="m"><span class="n">02</span><span class="t">Fix by risk, not by count<small>Work critical exposure first</small></span><span class="p">06</span></div>
+    <div class="m"><span class="n">05</span><span class="t">Automate tickets<small>Give every critical finding an owner</small></span><span class="p">09</span></div>
+    <div class="m"><span class="n">03</span><span class="t">Read findings in context<small>Use the Security Graph</small></span><span class="p">07</span></div>
+    <div class="m"><span class="n">06</span><span class="t">Catch drift<small>Scan on a schedule against a baseline</small></span><span class="p">10</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">04</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 01</span>
+  <h1 class="h2">Put every cloud account<br>in <span class="hl">one inventory</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">AccuKnox CSPM scans AWS, Azure and GCP through read only cloud APIs, with no agent, and lists every asset by category.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/inventory.png" alt="CSPM dashboard with cloud accounts per provider, asset counts per provider and assets by category"></figure>
+  <p class="shot-cap">Accounts and assets per cloud provider. <a href="https://help.accuknox.com/use-cases/asset-inventory/">help.accuknox.com/use-cases/asset-inventory/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Onboard the AWS Organization root or your Azure management groups, so new accounts join the scan.</li><li>Connect a standalone AWS account with STS Assume Role and an External ID, so no access keys are stored.</li><li>Review <b>Inventory</b> &gt; <b>Cloud Assets</b> in the list view and the hierarchy view after each scan.</li><li>Label cloud accounts by owner and environment, so each finding reaches the right team.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't track cloud accounts in a spreadsheet. A new account stays unscanned until someone adds a row.</li><li>Don't onboard only production. Dev and sandbox accounts hold public buckets and old keys too.</li><li>Don't give the scanner write access. On AWS, CSPM needs ReadOnlyAccess and SecurityAudit.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>AWS Organization onboarding runs a CloudFormation StackSet and can connect new accounts automatically. On Azure, new subscriptions under an onboarded management group are fetched and scanned. <a href="https://help.accuknox.com/how-to/aws-org-onboard/">Onboard an AWS Organization</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">05</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 02</span>
+  <h1 class="h2">Fix misconfigurations by<br><span class="hl">risk</span>, not by count</h1><p class="deck" style="font-size:13pt;max-width:150mm">One public bucket outweighs a thousand low findings. Sort by risk factor and work the critical rows first.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/risk.png" alt="CSPM report widgets for findings by insight, open tickets for critical and high findings, SLA status and ticket resolution trend"></figure>
+  <p class="shot-cap">Findings by insight, open critical tickets and SLA status. <a href="https://help.accuknox.com/how-to/findings-lifecycle/">help.accuknox.com/how-to/findings-lifecycle/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Filter <b>Issues</b> &gt; <b>Findings</b> by Risk Factor Critical and Status Active, and start there.</li><li>Work the exposure insights first, such as public buckets, public databases and access keys older than 180 days.</li><li>Switch off checks that do not apply to an account in <b>Settings</b> &gt; <b>Checks Management</b>.</li><li>Change a check's severity where your context differs, and track SLA status per severity.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't measure progress by total finding count. One critical exposure outweighs hundreds of low findings.</li><li>Don't ignore a noisy check everywhere. Disable it per account, so findings, compliance and reports stay consistent.</li><li>Don't mark findings Fixed by hand to clear the queue. Let the next scans confirm the fix.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>A change in Checks Management follows the check into the Findings page, the Compliance page and CSPM reports, for AWS, Azure and GCP. <a href="https://help.accuknox.com/getting-started/3.6-release/#checks-management">Read about Checks Management</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">06</span></div>
+</section>
+
+<section class="page bg-blue">
+  <span class="chip">Practice 03</span>
+  <h1 class="h2">Read each finding with<br>what it can <span class="hl">reach</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">Security Graph draws each asset with its network path, its IAM identities and the findings on every node.</p>
+  <figure class="shot full mid" style="margin-top:6mm"><img src="img/graph.png" alt="Security Graph linking two EC2 instances, a subnet and an Elastic IP to a VPC, with the findings on the VPC branching off it"></figure>
+  <p class="shot-cap" style="width:118mm;margin-left:auto;margin-right:auto">Security Graph for an AWS asset. <a href="https://help.accuknox.com/getting-started/3.6-release/#security-graph">help.accuknox.com/getting-started/3.6-release/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Open <b>Inventory</b> &gt; <b>Cloud Assets</b>, pick an asset and open the <b>Security Graph</b> tab to see its blast radius.</li><li>Fix first where an Internet node connects to an instance that carries an IAM role.</li><li>Open the graph on a finding to see whether the misconfiguration is isolated or spread across the estate.</li><li>Use the node badges to spot major issues, such as public exposure with logging off.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't rank a finding by its own severity alone. A medium finding on an exposed, privileged instance opens an attack path.</li><li>Don't fix one bucket when the same finding sits on twenty. The findings graph shows the rest.</li><li>Don't expect a graph for a new account before its first scan completes.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Security Graph is on by default for cloud findings on AWS, Azure and GCP, with nothing to configure. Click a node to open its findings inline. <a href="https://help.accuknox.com/getting-started/3.6-release/#security-graph">Read the Security Graph notes</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">07</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 04</span>
+  <h1 class="h2">Map every check to the<br><span class="hl">frameworks</span> you report on</h1><p class="deck" style="font-size:13pt;max-width:150mm">More than 1,000 built in checks map to over 30 compliance programs, from CIS Benchmarks to PCI, HIPAA, SOC 2 and NIST.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/compliance.png" alt="AWS CIS Benchmark compliance page with the compliance score, asset summary, assets failed by category and checks per control"></figure>
+  <p class="shot-cap">AWS CIS Benchmark score and checks per control. <a href="https://help.accuknox.com/use-cases/compliance/">help.accuknox.com/use-cases/compliance/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Activate the frameworks you report on, including the CIS Benchmark version your auditor uses.</li><li>Read each sub control's pass percentage, then open its failing checks in <b>Detailed View</b>.</li><li>Filter failing checks by cloud account, region and severity, and assign each fix to an owner.</li><li>Fix the check that maps to the most controls first. Each finding lists every framework it touches.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't wait for audit season to look at the score. Scans run on a schedule.</li><li>Don't compare scores across CIS versions. AWS CIS v1.5.0 and v2.0.0 hold different checks.</li><li>Don't read a high score as the full picture. Review the checks you switched off every quarter.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>The score for each sub control is passed checks divided by passed, failed, warning and not available checks. <a href="https://help.accuknox.com/use-cases/compliance/">View your compliance posture</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">08</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 05</span>
+  <h1 class="h2">Send every critical<br>finding to an <span class="hl">owner</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">The Rule Engine turns matching findings into Jira, ServiceNow, Freshservice or ConnectWise tickets.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/tickets.png" alt="Settings Integrations page with the Add ServiceNow panel open and an Add Ticket Configuration link"></figure>
+  <p class="shot-cap">Adding a ServiceNow ticketing integration. <a href="https://help.accuknox.com/integrations/servicenow/">help.accuknox.com/integrations/servicenow/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Connect your ticketing tool in <b>Settings</b> &gt; <b>Integrations</b>, then add a ticket configuration.</li><li>Create a rule in <b>Issues</b> &gt; <b>Findings</b> &gt; <b>Rule Engine</b> with conditions and the Create Ticket action.</li><li>Set a Parent field, such as Asset Name or Location, so new findings join one parent ticket per group.</li><li>Open the Solution tab or Ask AI on a finding for remediation steps and code snippets.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't raise one ticket per finding by hand. A flat list of tickets buries the critical ones.</li><li>Don't close a ticket on a promise. The finding moves to Fixed only after the scans confirm it.</li><li>Don't forget rule expiry. Each rule has an expiration date, so review it when it lapses.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>A finding moves from Active to Waiting for Verification to Fixed on scan results, and AccuKnox closes the linked ticket. <a href="https://help.accuknox.com/use-cases/rules-engine-ticket-creation/">Automate tickets with the Rule Engine</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">09</span></div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">Practice 06</span>
+  <h1 class="h2">Scan on a schedule and<br>catch <span class="hl">drift</span> early</h1><p class="deck" style="font-size:13pt;max-width:150mm">A secure setting can change tomorrow. Scheduled scans compare each resource with its baseline and flag the change.</p>
+  <figure class="shot full" style="margin-top:6mm"><img src="img/drift.png" alt="Cloud Findings dashboard with the AWS CIS Benchmark score trend, non compliant asset categories and top failing checks"></figure>
+  <p class="shot-cap">Compliance score trend and top failing checks. <a href="https://help.accuknox.com/use-cases/cloud-misconfigurations/">help.accuknox.com/use-cases/cloud-misconfigurations/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Group your critical assets and apply a baseline, so each scan reports any deviation from it.</li><li>Add Monitors to critical assets, such as S3 buckets and bastion hosts, to alert on a configuration change.</li><li>Watch the compliance score trend per framework and investigate every drop.</li><li>Open <b>Status Logs</b> on a finding to see who changed its status and when.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't scan once at onboarding and stop. Posture on day one says little about day ninety.</li><li>Don't treat a finding that returns after a fix as new. Find the change that brought it back.</li><li>Don't fix drift only in the console. Fix the template that built the resource, or the setting reverts.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>AccuKnox scans onboarded accounts on a scheduled interval, and applies baseline conformance to asset groups for drift detection. <a href="https://help.accuknox.com/use-cases/cloud-misconfigurations/">Set up drift detection</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">10</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Gap check</span>
+  <h1 class="h1">Find your gap,<br>then take the<br><span class="hl">first step</span></h1>
+  <p class="lede" style="margin-top:5mm">Read each row. Where the gap is true for you, take the first step this week.</p>
+  <table class="gap"><tr><th>If this is true</th><th>AccuKnox capability</th><th>First step</th></tr><tr><td>Nobody can list every cloud account and asset</td><td>Asset Inventory and organization onboarding</td><td>Onboard your AWS Organization or Azure management groups</td></tr><tr><td>The team works findings in the order they arrived</td><td>Risk Factor filters and Checks Management</td><td>Filter Active findings to Critical and switch off checks that do not apply</td></tr><tr><td>Nobody knows which exposed instance holds a privileged role</td><td>Security Graph</td><td>Open the Security Graph tab on your internet facing assets</td></tr><tr><td>Audit prep takes weeks of screenshots</td><td>Compliance programs and CSPM reports</td><td>Activate your frameworks and read the score per sub control</td></tr><tr><td>Findings sit on a dashboard that nobody owns</td><td>Rule Engine and ticketing integrations</td><td>Connect Jira or ServiceNow and add a Create Ticket rule</td></tr><tr><td>A fixed setting quietly changes back</td><td>Baselines and Monitors</td><td>Group critical assets, apply a baseline and add Monitors</td></tr></table>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">11</span></div>
+</section>
+
+<section class="page bg-navy">
+  <img src="logo.png" class="logo-white" style="height:7mm">
+  <div class="bottom">
+    <hr class="rule-grad" style="margin-bottom:8mm">
+    <h1 class="h1">See your cloud<br>posture in one<br>console</h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);margin-bottom:11mm;max-width:150mm">Book a demo and onboard one AWS, Azure or GCP account. The first scan shows your inventory, your critical findings and your compliance score.</p>
+    <a class="cta" href="https://accuknox.com/demo/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=cspm-cheat-sheet">Book a demo</a>&nbsp;&nbsp;<a class="cta ghost" href="https://help.accuknox.com/use-cases/cspm/">Read the CSPM docs</a>
+    <div class="proof" style="margin-top:12mm;max-width:150mm">
+      <div class="p" style="border-top-color:var(--ak-sky)"><div class="stat-s" style="color:#fff">2026</div><p style="color:rgba(255,255,255,.75)">AccuKnox is featured in the KuppingerCole CNAPP Leadership Compass, which cites attack path analysis and unified risk correlation.</p></div>
+      <div class="p" style="border-top-color:var(--ak-sky)"><div class="stat-s" style="color:#fff">2</div><p style="color:rgba(255,255,255,.75)">Frost &amp; Sullivan Best Practices recognitions in 2026, one global and one for Asia Pacific.</p></div>
+    </div>
+    <p class="src-line src" style="color:rgba(255,255,255,.55)">Source. <a style="color:var(--ak-sky)" href="https://accuknox.com/analyst-recognition/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=cspm-cheat-sheet">accuknox.com/analyst-recognition</a></p>
+    <p class="meta" style="color:rgba(255,255,255,.5);margin-top:10mm">accuknox.com · © 2026 AccuKnox, Inc.</p>
+  </div>
+</section>
+</body>
+</html>

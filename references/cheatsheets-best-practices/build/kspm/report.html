@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AccuKnox Kubernetes Security Best Practices Guide</title>
+<style>
+@font-face{font-family:Inter;src:url('fonts/Inter-ExtraLight.ttf') format('truetype');font-weight:200;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:Inter;src:url('fonts/Inter-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:block}
+:root{
+  --ak-blue:#1040C5;--ak-logo-blue:#0000C8;--ak-bright:#0F7FFF;--ak-sky:#4F9CF9;
+  --ak-navy:#000025;--ak-navy2:#080F53;--ak-red:#D63637;--ak-logo-red:#CB0018;
+  --ak-coral:#FF4646;--ak-yellow:#FFD900;--ak-green:#04B745;
+  --ink:#263238;--ink-2:#37474F;--ink-3:#607D8B;--rule:#CFD8DC;
+  --tint-ice:#F8FAFF;--tint-aqua:#E9F8FE;--tint-blue:#E2EEFF;--tint-rose:#FEF7F7;--tint-pink:#FFE3E3;
+  --grad:linear-gradient(90deg,#FF4646 0%,#1040C5 100%);
+  --hl:rgba(255,217,0,.55);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:Inter;color:var(--ink-2);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:24mm 17mm 26mm;break-after:page;background:var(--bg,#fff)}
+.page:last-child{break-after:auto}
+.bg-white{--bg:#fff}.bg-ice{--bg:var(--tint-ice)}.bg-aqua{--bg:var(--tint-aqua)}.bg-blue{--bg:var(--tint-blue)}
+.bg-rose{--bg:var(--tint-rose)}
+.bg-navy{--bg:var(--ak-navy);color:#fff}
+.bg-navy .h-display,.bg-navy .h1,.bg-navy .h2{color:#fff}
+.bg-navy .body,.bg-navy p{color:rgba(255,255,255,.78)}
+.foot{position:absolute;left:17mm;right:17mm;bottom:11mm;display:flex;justify-content:space-between;align-items:center}
+.foot .logo{height:6.2mm}
+.foot .folio{font-size:8.5pt;font-weight:600;color:var(--ink-2)}
+.foot .src{font-size:8pt;color:var(--ink-3)}
+.foot .src a{color:var(--ak-blue);text-decoration:none}
+.bg-navy .foot .folio{color:#fff}
+.logo-white{filter:brightness(0) invert(1)}
+.h-display{font-size:64pt;line-height:1.02;font-weight:600;letter-spacing:-.035em;color:var(--ink)}
+.h1{font-size:50pt;line-height:1.05;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.h2{font-size:30pt;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.h3{font-size:15pt;line-height:1.25;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.deck{font-size:18pt;line-height:1.3;font-weight:400;color:var(--ink-3);letter-spacing:-.01em;margin-top:4mm}
+.lede{font-size:12.5pt;line-height:1.5;color:var(--ink-2);max-width:150mm}
+.body{font-size:11.5pt;line-height:1.6;color:var(--ink-2)}
+.body p+p{margin-top:3.5mm}
+.body b,.lede b{color:var(--ink);font-weight:600}
+.meta{font-size:8.5pt;color:var(--ink-3);letter-spacing:.02em}
+.caps{font-size:8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue)}
+.stat{font-size:110pt;line-height:.95;font-weight:200;letter-spacing:-.05em;color:var(--ink)}
+.stat-m{font-size:64pt;line-height:1;font-weight:200;letter-spacing:-.045em;color:var(--ink)}
+.stat-s{font-size:38pt;line-height:1;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.num-ghost{font-size:64pt;font-weight:200;letter-spacing:-.04em;color:var(--ak-sky);line-height:1}
+.chip{display:inline-block;background:var(--ak-yellow);color:var(--ink);font-size:8.5pt;font-weight:500;padding:1.4mm 2.6mm;border-radius:1mm;margin-bottom:5mm}
+.chip.blue{background:var(--tint-blue);color:var(--ak-blue)}
+.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .08em}
+.accent{color:var(--ak-blue)}
+.ul{background:var(--grad) left bottom/100% .09em no-repeat;padding-bottom:.04em}
+.rule{height:.3mm;background:var(--rule);border:0}
+.rule-grad{height:.8mm;background:var(--grad);border:0;width:22mm}
+.stack>*+*{margin-top:var(--gap,6mm)}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:9mm}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
+.push-right{margin-left:64mm}
+.bottom{position:absolute;left:17mm;right:17mm;bottom:28mm}
+.panel{background:#fff;border:.3mm solid var(--rule);border-radius:4mm;padding:9mm 10mm;position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;left:0;right:0;top:0;height:1.4mm;background:var(--grad)}
+.panel.navy{background:var(--ak-navy);border-color:var(--ak-navy);color:#fff}
+.panel.navy .stat,.panel.navy .stat-m{color:#fff}
+.nlist .row{display:grid;grid-template-columns:52mm 1fr;gap:6mm;padding:6mm 0;border-top:.3mm solid var(--rule)}
+.nlist .row:first-child{border-top:0}
+.nlist .icon{width:13mm;height:13mm;margin-bottom:3mm}
+.ntable{width:100%;border-collapse:collapse}
+.ntable th{font-size:8.5pt;font-weight:600;color:var(--ak-blue);text-align:left;padding:0 0 3mm}
+.ntable td{padding:5mm 0;border-top:.3mm solid var(--rule);vertical-align:middle}
+.ntable td.lbl{font-size:11pt;color:var(--ink);width:36%}
+.ntable td.v{font-size:38pt;font-weight:200;letter-spacing:-.04em;color:var(--ink)}
+.ntable td.v small{font-size:9pt;font-weight:400;letter-spacing:0;color:var(--ink-3);margin-left:1.5mm}
+.toc .item{display:grid;grid-template-columns:1fr 18mm;align-items:end;margin-top:9mm}
+.toc .t{font-size:21pt;line-height:1.2;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.toc .p{font-size:21pt;font-weight:300;text-align:right;color:var(--ink)}
+.bar{height:5mm;border-radius:1mm;background:var(--ak-blue)}
+.bar.alt{background:var(--ak-sky)}.bar.warn{background:var(--ak-red)}
+.pill{display:inline-flex;align-items:center;gap:2mm;border:.3mm solid var(--rule);border-radius:10mm;padding:1.5mm 3.5mm;font-size:8.5pt;color:var(--ink-2);background:#fff}
+.flow{display:flex;align-items:center;gap:3mm}
+.flow .node{flex:1;border:.3mm solid var(--rule);border-radius:3mm;background:#fff;padding:5mm}
+.flow .arrow{width:10mm;height:.4mm;background:var(--grad);position:relative}
+.flow .arrow::after{content:"";position:absolute;right:-.5mm;top:-1.1mm;border:1.3mm solid transparent;border-left-color:var(--ak-blue)}
+.cta{display:inline-block;background:var(--ak-blue);color:#fff;font-weight:600;font-size:11pt;padding:4mm 7mm;border-radius:2mm;text-decoration:none}
+.cta.ghost{background:transparent;border:.5mm solid #fff}
+.link{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.art{position:absolute;pointer-events:none}
+.shot{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:2.5mm;position:relative;overflow:hidden}
+.shot::before{content:"";position:absolute;left:0;right:0;top:0;height:1mm;background:var(--grad)}
+.shot img{display:block;width:100%;height:auto;border-radius:1.5mm;margin-top:1mm}
+.shot-cap{font-size:8.5pt;color:var(--ink-3);margin-top:2.5mm}
+.shot-cap a{color:var(--ak-blue);text-decoration:none}
+
+.mod-top{display:grid;grid-template-columns:1fr 74mm;gap:8mm;align-items:start}
+.shot.wide img{height:56mm;object-fit:cover;object-position:top center}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:7mm;margin-top:6mm}
+.dd .col{border-top:1.2mm solid var(--ak-blue);padding-top:4mm}
+.dd .col.no{border-top-color:var(--ak-red)}
+.dd .lab{font-size:8pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ak-blue);margin-bottom:2mm}
+.dd .col.no .lab{color:var(--ak-red)}
+.dd ul{list-style:none}
+.dd li{font-size:10pt;line-height:1.45;color:var(--ink-2);padding:2.2mm 0 2.2mm 6mm;position:relative;border-bottom:.25mm solid var(--rule)}
+.dd li:last-child{border-bottom:0}
+.dd li::before{content:"";position:absolute;left:0;top:3.9mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--ak-blue)}
+.dd .col.no li::before{background:var(--ak-red);border-radius:.4mm}
+.fix{margin-top:7mm;background:#fff;border:.3mm solid var(--rule);border-left:1.4mm solid var(--ak-blue);border-radius:2mm;padding:4.5mm 6mm}
+.fix .caps{margin-bottom:1.5mm}
+.fix p{font-size:10pt;line-height:1.5;color:var(--ink-2)}
+.fix a{color:var(--ak-blue);text-decoration:none;font-weight:500}
+.mods{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm 7mm;margin-top:8mm}
+.mods .m{display:grid;grid-template-columns:12mm 1fr 8mm;align-items:baseline;border-top:.3mm solid var(--rule);padding-top:3mm}
+.mods .n{font-size:20pt;font-weight:200;color:var(--ak-sky);letter-spacing:-.03em}
+.mods .t{font-size:11pt;font-weight:600;color:var(--ink)}
+.mods .t small{display:block;font-size:8.5pt;font-weight:400;color:var(--ink-3);margin-top:.6mm}
+.mods .p{font-size:11pt;font-weight:300;text-align:right;color:var(--ink)}
+.gap{width:100%;border-collapse:collapse;margin-top:8mm}
+.gap th{font-size:8pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ak-blue);text-align:left;padding:0 3mm 3mm 0}
+.gap td{font-size:9.5pt;line-height:1.4;color:var(--ink-2);padding:3.2mm 3mm 3.2mm 0;border-top:.3mm solid var(--rule);vertical-align:top}
+.gap td:first-child{color:var(--ink);font-weight:600;width:33%}
+.gap td:nth-child(2){width:24%;color:var(--ak-blue);font-weight:500}
+
+/* ---- cheat sheet kit additions ---- */
+.shot.full img{height:auto}
+.shot.tall img{max-height:118mm;object-fit:contain}
+.prob{display:grid;grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:8mm}
+.prob .card{background:#fff;border:.3mm solid var(--rule);border-radius:3mm;padding:6mm 5mm 5mm;position:relative;overflow:hidden}
+.prob .card::before{content:"";position:absolute;left:0;right:0;top:0;height:1.2mm;background:var(--grad)}
+.prob .card .stat-s{color:var(--ak-red)}
+.prob .card p{font-size:9.5pt;line-height:1.45;margin-top:3mm;color:var(--ink-2)}
+.prob .card .src{font-size:7.5pt;color:var(--ink-3);margin-top:2.5mm}
+.prob .card .src a{color:var(--ak-blue);text-decoration:none}
+.src-line{font-size:7.5pt;color:var(--ink-3);margin-top:4mm}
+.src-line a{color:var(--ak-blue);text-decoration:none}
+.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:5mm;margin-top:7mm}
+.proof .p{border-top:1.2mm solid var(--ak-blue);padding-top:3.5mm}
+.proof .p .stat-s{color:var(--ak-blue)}
+.proof .p p{font-size:9.5pt;line-height:1.45;margin-top:2mm}
+.icon{width:11mm;height:11mm;stroke:var(--ak-sky);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.shot.half img{height:auto}
+.nlist .h3{margin-top:0}
+.proof .p{border-top-color:var(--ak-sky)}
+</style>
+</head>
+<body>
+
+<section class="page bg-navy">
+  <svg class="art" style="right:-40mm;top:-30mm;width:190mm;height:190mm" viewBox="0 0 200 200">
+    <defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs>
+    <g fill="none" stroke="url(#gc)" stroke-width=".5"><circle cx="100" cy="100" r="30"/><circle cx="100" cy="100" r="50"/><circle cx="100" cy="100" r="70"/><circle cx="100" cy="100" r="90" stroke-dasharray="2 3"/></g>
+    <circle cx="100" cy="100" r="6" fill="#1040C5"/><circle cx="150" cy="45" r="3" fill="#FF4646"/><circle cx="36" cy="140" r="2.5" fill="#4F9CF9"/>
+  </svg>
+  <div style="position:absolute;left:17mm;right:17mm;bottom:30mm">
+    <img src="logo.png" class="logo-white" style="height:8mm;margin-bottom:12mm">
+    <div class="caps" style="color:var(--ak-sky);margin-bottom:5mm">Kubernetes security best practices cheat sheet</div>
+    <h1 class="h-display">Fix the cluster<br>before a bad pod<br><span class="ul">gets admitted</span></h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);font-size:18pt;max-width:150mm">Six do's and don'ts for KSPM and admission control, from CIS scans to RBAC, with the AccuKnox setup page for each gap.</p>
+  </div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">The problem</span>
+  <h1 class="h1">Most teams had<br>a Kubernetes<br><span class="hl">incident</span> last year</h1>
+  <p class="lede" style="margin-top:6mm">Security incidents in containers and Kubernetes are common, and they slow releases down. The cause is often a setting that nobody checked before the workload went live.</p>
+  <div class="prob">
+    <div class="card"><div class="stat-s">89%</div><p>of organizations had at least one container or Kubernetes security incident in the last 12 months.</p><p class="src">Red Hat, <a href="https://www.redhat.com/en/resources/kubernetes-adoption-security-market-trends-overview">State of Kubernetes Security Report 2024</a></p></div>
+    <div class="card"><div class="stat-s">67%</div><p>of respondents delayed or slowed down deployment because of security concerns.</p><p class="src">Red Hat, <a href="https://www.redhat.com/en/resources/kubernetes-adoption-security-market-trends-overview">State of Kubernetes Security Report 2024</a></p></div>
+    <div class="card"><div class="stat-s">54%</div><p>of GKE clusters are exposed to the internet. The figure is 39% for EKS and 34% for AKS.</p><p class="src">Datadog, <a href="https://www.datadoghq.com/state-of-cloud-security/">State of Cloud Security 2025</a></p></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">02</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Root causes</span>
+  <h1 class="h2">Four habits keep<br>clusters <span class="hl">exposed</span></h1>
+  <p class="deck" style="font-size:13pt;max-width:150mm">Each habit is a default or a shortcut. Each one has a control in the six practices that follow.</p>
+  <div class="nlist" style="margin-top:8mm">
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg><div class="h3">Defaults favor running</div></div>
+      <div class="body">Kubernetes mounts a service account token into every pod by default. A pod with no security context runs as whatever the image says, often root.</div>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg><div class="h3">Manifests ship unchecked</div></div>
+      <div class="body">A password in a Deployment env or a privileged flag passes review because nobody scans the YAML. 40% of organizations detected misconfigurations in their container or Kubernetes environments.</div>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="16" r="3"/><path d="M10.5 10l4 3.5M3 20c0-3 2.5-5 5-5"/></svg><div class="h3">RBAC only grows</div></div>
+      <div class="body">Teams add roles and bindings with each release and rarely remove them. Only 2% of granted permissions are in use, so the rest is attack surface.</div>
+    </div>
+    <div class="row">
+      <div><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 4v16M4 12h16"/></svg><div class="h3">Nothing guards the door</div></div>
+      <div class="body">Without admission control, the API server accepts any image from any registry and any pod spec. A scan after deploy reports the risk, but the pod already runs.</div>
+    </div>
+  </div>
+  <p class="src-line src">Sources. 40%, Red Hat, <a href="https://www.redhat.com/rhdc/managed-files/cl-state-kubernetes-security-report-2024-1210287-202406-en.pdf">State of Kubernetes Security Report 2024</a>. 2%, Sysdig, <a href="https://sysdig.com/press-releases/sysdig-2024-usage-report/">2024 Cloud Native Security and Usage Report</a>. Token default, <a href="https://help.accuknox.com/use-cases/hardening/">help.accuknox.com/use-cases/hardening</a>.</p>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">03</span></div>
+</section>
+
+<section class="page bg-ice">
+  <span class="chip">Start here</span>
+  <h1 class="h1">Six controls cover<br>the <span class="hl">cluster posture</span></h1>
+  <p class="lede" style="margin-top:5mm">Three practices find what is wrong in a running cluster. Three stop the next bad workload or permission at the door. One Helm command onboards the cluster with each job you turn on.</p>
+  <figure class="shot" style="margin-top:7mm"><img src="img/cluster-overview.png" alt="AccuKnox cluster overview with image vulnerability, misconfiguration, CIS and KIEM findings by severity"></figure>
+  <p class="shot-cap">Cluster overview in Inventory, with misconfiguration, CIS and KIEM findings. <a href="https://help.accuknox.com/use-cases/kspm/">help.accuknox.com/use-cases/kspm/</a></p>
+  <div class="mods">
+    <div class="m"><span class="n">01</span><span class="t">CIS benchmarking<small>Score each cluster against CIS</small></span><span class="p">05</span></div>
+    <div class="m"><span class="n">04</span><span class="t">Pod Security Admission<small>Set a level per namespace</small></span><span class="p">08</span></div>
+    <div class="m"><span class="n">02</span><span class="t">Misconfiguration scanning<small>Find the bad line in the manifest</small></span><span class="p">06</span></div>
+    <div class="m"><span class="n">05</span><span class="t">KIEM<small>Cut unused RBAC permissions</small></span><span class="p">09</span></div>
+    <div class="m"><span class="n">03</span><span class="t">KnoxGuard admission control<small>Block risky pods at deploy</small></span><span class="p">07</span></div>
+    <div class="m"><span class="n">06</span><span class="t">Network segmentation<small>Allow only observed traffic</small></span><span class="p">10</span></div>
+  </div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">04</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 01</span>
+  <h1 class="h2">Benchmark every cluster<br>against <span class="hl">CIS</span> on a schedule</h1><p class="deck" style="font-size:13pt;max-width:150mm">The CIS K8s Benchmarking job runs as a cron job and lists each failed control as a finding.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/cis-findings.png" alt="CIS K8s Benchmark findings filtered to failed critical controls, with test numbers per cluster"></figure>
+  <p class="shot-cap">CIS K8s Benchmark findings, filtered to failed controls. <a href="https://help.accuknox.com/use-cases/cis-benchmarking/">help.accuknox.com/use-cases/cis-benchmarking/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Turn on Kubernetes CIS Benchmarking for each cluster in <b>Settings</b> &gt; <b>Manage Clusters</b>.</li><li>Pick the right platform, such as GKE, because the platform decides which controls apply.</li><li>Filter findings to Risk Factor Critical and Tool Output Failed, and fix those first.</li><li>Keep the cron schedule, so drift shows up as a new failed control.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't treat one clean scan as compliance. The next change can undo a fix.</li><li>Don't skip control plane checks, such as etcd peer authentication and kubelet certificate checks.</li><li>Don't change a flag before you read the finding's Solution tab.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Each failed control opens with its description, result and solution. Managed cluster benchmarking supports GKE today. <a href="https://help.accuknox.com/how-to/cis-benchmarking/">Set up CIS benchmarking</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">05</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 02</span>
+  <h1 class="h2">Catch the misconfiguration<br>in the <span class="hl">manifest</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">The misconfiguration scan checks for root containers, privilege escalation and more than 100 other rules.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/misconfig-source.png" alt="Cluster finding for application credentials in configuration files, with the Deployment source showing a root password env variable"></figure>
+  <p class="shot-cap">A root database password found in a Deployment env. <a href="https://help.accuknox.com/use-cases/cluster-misconfiguration-scanning/">help.accuknox.com/use-cases/cluster-misconfiguration-scanning/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Turn on the Cluster Misconfiguration job and set a label for the workloads it scans.</li><li>Select <b>Cluster Findings</b> in <b>Issues</b> &gt; <b>Findings</b> after each scan.</li><li>Open the Source Code tab to see the exact line that failed.</li><li>Create a Jira ticket from the finding, so the workload owner gets the fix.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't put credentials in a pod spec or ConfigMap. Use Kubernetes secrets or a key management system.</li><li>Don't run containers as root or allow privilege escalation by default.</li><li>Don't ignore findings for anonymous access. An open endpoint needs no stolen credential.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>The scan runs as a Kubernetes cron job. Each finding carries a Solution tab with the failed path to change. <a href="https://help.accuknox.com/how-to/cluster-misconfig-scan-onboarding/">Onboard a cluster for misconfiguration scans</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">06</span></div>
+</section>
+
+<section class="page bg-blue">
+  <span class="chip">Practice 03</span>
+  <h1 class="h2">Block a risky workload<br>before it <span class="hl">runs</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">KnoxGuard adds admission control through Kyverno, so the API server rejects a pod that breaks policy.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/admission-policies.png" alt="Policies list with K8 Admission Controller policies that block privileged containers"></figure>
+  <p class="shot-cap">Admission controller policies in the AccuKnox policy list. <a href="https://help.accuknox.com/use-cases/admission-controller-knoxguard/">help.accuknox.com/use-cases/admission-controller-knoxguard/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Install the AccuKnox agents, then Kyverno, then KnoxGuard with Helm.</li><li>Deny privileged containers per namespace with an AdmissionPolicy set to Block.</li><li>Allow only trusted container registries, at the cluster or namespace level.</li><li>Review blocks in <b>Monitors</b> &gt; <b>Alerts</b> with the type set to Admission Controller.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't let a manifest pull from any registry. An attacker image can open a reverse shell on deploy.</li><li>Don't count on a scan after deploy to stop a privileged pod. The pod already runs.</li><li>Don't keep violation logs in one console. Forward them to your SIEM.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Upload an AdmissionPolicy YAML through Create Policy, and KnoxGuard enforces it through Kyverno. Image vulnerability thresholds at admission are not yet available. <a href="https://help.accuknox.com/use-cases/admission-controller-knoxguard/">Deploy KnoxGuard</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">07</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Practice 04</span>
+  <h1 class="h2">Set a Pod Security level<br>on <span class="hl">every namespace</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">Pod Security Admission applies the Privileged, Baseline or Restricted standard per namespace, in Audit or Enforce mode.</p>
+  <div class="cols-2" style="margin-top:6mm;gap:5mm;align-items:start">
+    <figure class="shot half"><img src="img/psa-mode_up.png" alt="Pod Security Admission panel with level and mode selectors, mode set to Audit or Enforce"></figure>
+    <figure class="shot half"><img src="img/psa-dryrun_up.png" alt="Dry Run dialog for the Restricted level in Enforce mode, listing pods that would violate the policy"></figure>
+  </div>
+  <p class="shot-cap">Dry run a level before you enforce it. <a href="https://help.accuknox.com/use-cases/pod-security-admission-controller/">help.accuknox.com/use-cases/pod-security-admission-controller/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Open <b>Inventory</b> &gt; <b>Clusters</b>, select View Workloads, then click the cog next to the namespace.</li><li>Start in Audit mode. Violations raise an alert and the pod still runs.</li><li>Run Dry Run before Enforce to list each pod that would break.</li><li>Move application namespaces to Restricted once the dry run is clean.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't leave a namespace at Privileged. That level allows known privilege escalations.</li><li>Don't switch to Enforce without a dry run. Enforce rejects every pod that violates the level.</li><li>Don't settle for Baseline on app namespaces. Baseline is the minimally restrictive level.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Under Restricted, a pod without runAsNonRoot, a dropped capabilities list and a seccomp profile gets a Forbidden error. <a href="https://help.accuknox.com/use-cases/pod-security-admission-controller/">Turn on Pod Security Admission</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">08</span></div>
+</section>
+
+<section class="page bg-aqua">
+  <span class="chip">Practice 05</span>
+  <h1 class="h2">Remove every RBAC<br>permission <span class="hl">nobody uses</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">KIEM maps users, service accounts, roles and bindings in each cluster, then flags risky ones with 15 built in queries.</p>
+  <div class="cols-2" style="margin-top:6mm;gap:5mm;align-items:start">
+    <figure class="shot half"><img src="img/kiem-query.png" alt="KIEM query result graph for service accounts with no workloads"></figure>
+    <figure class="shot half"><img src="img/kiem-filter.png" alt="KIEM permissions table linking subjects, role bindings, roles, verbs and resources"></figure>
+  </div>
+  <p class="shot-cap">Service accounts with no workloads, and the permission map behind each binding. <a href="https://help.accuknox.com/use-cases/kiem/">help.accuknox.com/use-cases/kiem/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Install the KIEM job from Manage Cluster and schedule its cron scan.</li><li>Run the query for service accounts with no workloads, and remove the dormant ones.</li><li>List roles with read access to secrets, and trim each to the workloads that need it.</li><li>Open the graph view to trace a binding to every resource it can touch.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't keep unused roles. They hold permissions an attacker can pick up.</li><li>Don't grant a cluster wide role where a namespaced role does the job.</li><li>Don't audit RBAC by reading YAML by hand. Subjects, bindings and roles form a graph.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>KIEM queries include principals with excessive privileges and roles that can modify workloads. Find them in <b>Identity</b> &gt; <b>KIEM</b>. <a href="https://help.accuknox.com/use-cases/kiem/">Set up KIEM</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">09</span></div>
+</section>
+
+<section class="page bg-rose">
+  <span class="chip">Practice 06</span>
+  <h1 class="h2">Segment workloads so<br>one pod cannot <span class="hl">reach all</span></h1><p class="deck" style="font-size:13pt;max-width:150mm">Kubernetes allows pod to pod traffic by default. AccuKnox discovers each workload's flows and proposes a policy for them.</p>
+  <figure class="shot" style="margin-top:6mm"><img src="img/netpol_up.png" alt="Auto discovered ingress and egress network policies for a WordPress and MySQL application"></figure>
+  <p class="shot-cap">Discovered ingress and egress policies for one application. <a href="https://help.accuknox.com/use-cases/network-segmentation/">help.accuknox.com/use-cases/network-segmentation/</a></p>
+  <div class="dd">
+    <div class="col"><div class="lab">Do</div><ul><li>Review the discovered network policies for each application in the Policies screen.</li><li>Apply ingress and egress policies per workload, one application at a time.</li><li>Approve each applied policy, then check that it moves from Pending to Active.</li><li>Group workloads into segments by application tier or compliance scope.</li></ul></div>
+    <div class="col no"><div class="lab">Don't</div><ul><li>Don't treat a namespace as a network boundary. Pods in other namespaces can still connect.</li><li>Don't write allow rules from memory. Base them on observed traffic.</li><li>Don't let a database pod accept traffic from every workload in the cluster.</li></ul></div>
+  </div>
+  <div class="fix"><div class="caps">How AccuKnox closes the gap</div><p>Policy discovery reads each pod's network connections and builds allow list policies. An applied policy waits in Pending until an approver makes it Active. <a href="https://help.accuknox.com/use-cases/network-segmentation/">Segment a workload</a></p></div>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">10</span></div>
+</section>
+
+<section class="page bg-white">
+  <span class="chip">Gap check</span>
+  <h1 class="h1">Find your gap,<br>then turn on the<br><span class="hl">right control</span></h1>
+  <p class="lede" style="margin-top:5mm">Read each row. Where the statement is true for your clusters, take the first step this week.</p>
+  <table class="gap"><tr><th>If this is true</th><th>AccuKnox capability</th><th>First step</th></tr>
+  <tr><td>Nobody knows which CIS controls fail on each cluster</td><td>CIS K8s Benchmarking</td><td>Turn on the CIS job in Manage Clusters and set the platform</td></tr>
+  <tr><td>Manifests reach the cluster with no config scan</td><td>Cluster Misconfiguration scanning</td><td>Turn on the Cluster Misconfiguration job with a workload label</td></tr>
+  <tr><td>A privileged pod or unknown registry image deploys with no block</td><td>KnoxGuard admission controller</td><td>Install Kyverno and KnoxGuard, then upload a deny privileged policy</td></tr>
+  <tr><td>Namespaces carry no Pod Security level</td><td>Pod Security Admission</td><td>Set Audit mode, then dry run Restricted per namespace</td></tr>
+  <tr><td>Nobody can say which service accounts hold unused permissions</td><td>KIEM</td><td>Install the KIEM job and run the dormant service account query</td></tr>
+  <tr><td>Any pod can open a connection to any other pod</td><td>Network segmentation</td><td>Review and apply the discovered policies for one application</td></tr></table>
+  <div class="foot"><img class="logo" src="logo.png"><span class="folio">11</span></div>
+</section>
+
+<section class="page bg-navy">
+  <img src="logo.png" class="logo-white" style="height:7mm">
+  <div class="bottom">
+    <hr class="rule-grad" style="margin-bottom:8mm">
+    <h1 class="h1">See your cluster<br>posture in<br>one session</h1>
+    <p class="deck" style="color:rgba(255,255,255,.7);margin-bottom:12mm;max-width:150mm">Bring this gap check to a demo. An AccuKnox engineer onboards a cluster with you and walks through the first CIS, misconfiguration and KIEM findings.</p>
+    <a class="cta" href="https://accuknox.com/demo/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=kspm-cheat-sheet">Book a demo</a>&nbsp;&nbsp;<a class="cta ghost" href="https://help.accuknox.com/use-cases/kspm/">Open the KSPM docs</a>
+    <div class="proof" style="grid-template-columns:repeat(3,1fr);margin-top:12mm">
+      <div class="p"><p><b style="color:#fff">KuppingerCole 2026</b><br>Featured in the CNAPP Leadership Compass, which cites Kubernetes security and eBPF runtime enforcement.</p></div>
+      <div class="p"><p><b style="color:#fff">Two 2026 recognitions</b><br>Best Practices awards for securing the AI stack, globally, and for cloud security in Asia Pacific.</p></div>
+      <div class="p"><p><b style="color:#fff">Runtime landscape</b><br>Named in the Runtime Environment group for kernel level, out of band enforcement.</p></div>
+    </div>
+    <p class="src-line src" style="color:rgba(255,255,255,.5)">Source. <a style="color:var(--ak-sky)" href="https://accuknox.com/analyst-recognition/?utm_source=gated-pdf&amp;utm_medium=pdf&amp;utm_campaign=kspm-cheat-sheet">accuknox.com/analyst-recognition</a></p>
+    <p class="meta" style="color:rgba(255,255,255,.5);margin-top:10mm">accuknox.com · © 2026 AccuKnox, Inc.</p>
+  </div>
+</section>
+</body>
+</html>

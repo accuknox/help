@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Inter;src:url('../fonts/Inter-Regular.ttf');font-weight:400}
+@font-face{font-family:Inter;src:url('../fonts/Inter-SemiBold.ttf');font-weight:600}
+@font-face{font-family:Inter;src:url('../fonts/Inter-Light.ttf');font-weight:300}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:1200px;background:#000025;font-family:Inter;color:#fff;position:relative;overflow:hidden}
+.ring{position:absolute;right:-260px;top:-260px;width:900px;height:900px}
+.logo{position:absolute;left:80px;top:80px;height:46px;filter:brightness(0) invert(1)}
+.eb{position:absolute;left:80px;top:250px;font-size:22px;font-weight:600;letter-spacing:.16em;color:#4F9CF9}
+h1{position:absolute;left:80px;top:300px;width:560px;font-size:72px;line-height:1.05;font-weight:600;letter-spacing:-.03em}
+h1 span{background:linear-gradient(90deg,#FF4646,#1040C5) left bottom/100% 6px no-repeat;padding-bottom:4px}
+.sub{position:absolute;left:80px;top:700px;width:520px;font-size:26px;line-height:1.4;color:rgba(255,255,255,.72)}
+.list{position:absolute;left:80px;top:860px;width:520px;font-size:22px;line-height:1.9;color:#fff}
+.list b{color:#4F9CF9;font-weight:600;margin-right:12px}
+.cover{position:absolute;right:70px;top:250px;width:470px;border-radius:10px;transform:rotate(3deg);box-shadow:0 30px 80px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.15)}
+.rule{position:absolute;left:80px;bottom:80px;width:120px;height:6px;background:linear-gradient(90deg,#FF4646,#1040C5)}
+.url{position:absolute;right:80px;bottom:72px;font-size:22px;color:rgba(255,255,255,.6)}
+</style></head><body>
+<svg class="ring" viewBox="0 0 200 200"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#FF4646"/><stop offset="1" stop-color="#1040C5"/></linearGradient></defs><g fill="none" stroke="url(#g)" stroke-width=".4" opacity=".7"><circle cx="100" cy="100" r="40"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="80"/></g></svg>
+<img class="logo" src="../logo.png">
+<div class="eb">CHEAT SHEET</div>
+<h1>Secrets Management Best <span>Practices</span></h1>
+<p class="sub">Do's and don'ts for six practices, built around AccuKnox Secrets Manager.</p>
+<div class="list"><div><b>01</b>Find leaked keys in code</div><div><b>02</b>Serve secrets at runtime</div><div><b>03</b>Rotate and scope every app</div></div>
+<img class="cover" src="cover.png">
+<div class="rule"></div><div class="url">accuknox.com</div>
+</body></html>

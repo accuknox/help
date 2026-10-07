@@ -179,6 +179,33 @@ def resolve(spec: str) -> Path:
     return p if p.is_absolute() else REPO / p
 
 
+VIDEO_EXT = (".mp4", ".mov", ".avi")
+
+
+def media_type(spec: str) -> str:
+    """A video file posts as a native LinkedIn video, anything else as an image."""
+    return "video" if spec.lower().split("?")[0].endswith(VIDEO_EXT) else "image"
+
+
+def queued_days(key: str) -> set:
+    """IST dates that already hold a scheduled post on the AccuKnox LinkedIn page."""
+    days, page = set(), 1
+    while True:
+        # /posts is paginated oldest first, so one page misses the newest posts.
+        res = call("GET", f"/posts?status=scheduled&limit=100&page={page}", key)
+        for p in res.get("posts", []):
+            if not p.get("scheduledFor"):
+                continue
+            if not any((pl.get("accountId") or {}).get("_id", pl.get("accountId")) == LINKEDIN_ACCOUNT_ID
+                       for pl in p.get("platforms", [])):
+                continue
+            when = datetime.fromisoformat(p["scheduledFor"].replace("Z", "+00:00"))
+            days.add(when.astimezone(IST).date())
+        if page >= (res.get("pagination") or {}).get("pages", 1):
+            return days
+        page += 1
+
+
 def profile_of(a: dict) -> str:
     p = a.get("profileId")
     return (p or {}).get("_id", "") if isinstance(p, dict) else (p or "")
@@ -290,7 +317,7 @@ def when_of(p: dict, i: int) -> datetime:
 def check(posts: list[dict]) -> None:
     """Fail on anything that would publish wrong, warn on anything merely weak."""
     now = datetime.now(IST)
-    seen = set()
+    seen, days = set(), set()
     for i, p in enumerate(posts, 1):
         when = when_of(p, i)
         if when < now:
@@ -298,6 +325,12 @@ def check(posts: list[dict]) -> None:
         if p["when"] in seen:
             sys.exit(f"post {i} collides with an earlier post at {p['when']}")
         seen.add(p["when"])
+        if when.date() in days:
+            sys.exit(f"post {i} is on {when:%a %d %b}, the same day as an earlier post. "
+                     f"The page posts once per day.")
+        days.add(when.date())
+        if when.weekday() >= 5:
+            print(f"  warn: post {i} falls on {when:%A}. The page posts on weekdays.")
         full = compose(p["text"], "", p["roster"])
         if len(full) > HARD_CAP:
             sys.exit(f"post {i} is {len(full)} chars with the roster line, "
@@ -320,6 +353,11 @@ def cmd_plan(args, key: str) -> tuple[list[dict], list[datetime]]:
     posts = parse(resolve(args.file))
     check(posts)
     times = [when_of(p, i) for i, p in enumerate(posts, 1)]
+    taken = queued_days(key)
+    for i, t in enumerate(times, 1):
+        if t.date() in taken:
+            sys.exit(f"post {i} is on {t:%a %d %b}, and the queue already holds a post that "
+                     f"day. The page posts once per day.")
     cutoff = datetime.now(IST) + timedelta(days=MEDIA_TTL_DAYS)
 
     print(f"profile: {PROFILE_NAME} ({PROFILE_ID})")
@@ -433,8 +471,9 @@ def cmd_send(args, key: str) -> None:
                    "scheduledFor": when.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                    "timezone": "Asia/Kolkata"}
         if p["media"]:
-            item = {"type": "image", "url": media_url(p["media"], key)}
-            if p["alt"]:
+            kind = media_type(p["media"])
+            item = {"type": kind, "url": media_url(p["media"], key)}
+            if p["alt"] and kind == "image":
                 item["altText"] = p["alt"]
             payload["mediaItems"] = [item]
 
