@@ -1,0 +1,20 @@
+/* DSPM product tour. Each tab shows one full-width screenshot with the
+   items it holds, so the reader never has to click an image to read it. */
+.md-typeset .dspm-tour .tabbed-labels > label {
+  font-size: .72rem;
+  font-weight: 600;
+}
+.md-typeset .dspm-tour img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .3rem;
+  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, .06);
+}
+.md-typeset .dspm-tour ul { margin-top: .8em; }
+.md-typeset .dspm-arch img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
