@@ -141,7 +141,7 @@ Supports over 30 regulatory standards, including:
 - [Deployment Models](https://help.accuknox.com/resources/deployment/)
 - [Integrations Playbook](https://help.accuknox.com/how-to/playbook-integrations/)
 - [Telemetry Logs](https://help.accuknox.com/integrations/telemetry-logs/)
-- [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
+- [On-Premise Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
 
 !!! info "Note"
     AccuKnox offers rapid protection for Kubernetes and other cloud workloads using Kernel Native Primitives like AppArmor, SELinux, and eBPF. For assistance in planning your cloud security strategy, feel free to reach out.

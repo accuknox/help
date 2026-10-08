@@ -36,7 +36,7 @@ hide:
 - title: Calculate Pricing
   image: ./icons/calc-pricing.svg
   url: /resources/count-assets/
-- title: On-prem Installation
+- title: On-Premise Installation Guide
   image: ./icons/onprem.svg
   url: /getting-started/on-prem-installation-guide/
 - title: Ticketing Procedures

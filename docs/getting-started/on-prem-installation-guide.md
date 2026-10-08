@@ -1,9 +1,9 @@
 ---
-title: On-prem Deployment Guide
-description: Step-by-step instructions for deploying AccuKnox's on-prem security solution, providing enhanced data privacy and control.
+title: On-Premise Installation Guide
+description: Step-by-step instructions for installing AccuKnox's on-premise security solution, providing enhanced data privacy and control.
 ---
 
-# AccuKnox OnPrem Deployment Guide
+# On-Premise Installation Guide
 
 ## Pre-requisites to be prepared by the Customer Team
 
