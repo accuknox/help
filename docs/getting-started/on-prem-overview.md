@@ -25,10 +25,10 @@ h2 {
 
 ::cards:: cols=3
 
- - title: Installation Guide
+ - title: On-Premise Installation Guide
    image: ./icons/installation-guide.svg
    url: ../getting-started/on-prem-installation-guide.md
-   description: Step-by-step guide for AccuKnox on-prem installation.
+   description: Step-by-step guide for AccuKnox on-premise installation.
 
  - title: Single Node Installation
    image: ./icons/single-node-install.svg

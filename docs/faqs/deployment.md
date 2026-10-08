@@ -60,7 +60,7 @@ hide:
 
     *Note:* In some cases where prerequisites are fully prepared, on-prem deployment has been completed in just a few hours.
 
-    * [On-Prem Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
+    * [On-Premise Installation Guide](https://help.accuknox.com/getting-started/on-prem-installation-guide/)
     * [POC Checklist Questionnaire](https://docs.google.com/spreadsheets/d/129ZEMzo7oaKRyifprFFRXLf4J6lE7XypBj7Vp9PdXWU/edit?usp=sharing)
 
 ??? "**8. For on-prem deployment of AccuKnox Control Plane, what are the challenges/considerations?**"

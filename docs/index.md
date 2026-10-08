@@ -1424,7 +1424,7 @@ hide:
         <div id="onprem-install" class="module-detail-block" style="display:none;">
             <div class="content-header">
                 <a href="/getting-started/on-prem-overview/" class="action-btn" target="_blank">Overview</a>
-                <a href="/getting-started/on-prem-installation-guide/" class="action-btn" target="_blank">Installation Guide</a>
+                <a href="/getting-started/on-prem-installation-guide/" class="action-btn" target="_blank">On-Premise Installation Guide</a>
                 <a href="/getting-started/on-prem-single-node-installation/" class="action-btn" target="_blank">Single Node Installation</a>
                 <a href="/getting-started/security-on-openshift/" class="action-btn" target="_blank">Security on OpenShift</a>
                 <a href="/getting-started/aws-ami/" class="action-btn" target="_blank">AWS AMI</a>

@@ -228,7 +228,7 @@ nav:
       - "Integrations Playbook" : "how-to/playbook-integrations.md"
     - "On-Premises":
         - "Overview": "getting-started/on-prem-overview.md"
-        - "Installation Guide" : "getting-started/on-prem-installation-guide.md"
+        - "On-Premise Installation Guide" : "getting-started/on-prem-installation-guide.md"
         - "Single Node Installation": "getting-started/on-prem-single-node-installation.md"
         - "Managed Installation (EKS, AKS, GKE)": "getting-started/onprem-eks-aks-gke.md"
         - "Security on OpenShift": "getting-started/security-on-openshift.md"

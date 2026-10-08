@@ -43,7 +43,7 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [gcp-cdr.md](gcp-cdr.md) | AccuKnox CDR documentation for GCP |
 | [gke-autopilot.md](gke-autopilot.md) | Install KubeArmor on GKE Autopilot using the Autopilot Workload Allowlist and onboard your cluster to the AccuKnox Platform. |
 | [kubearmor-release.md](kubearmor-release.md) | Collection of KubeArmor version release blogs detailing the latest features, improvements, and fixes to enhance security performance. |
-| [on-prem-installation-guide.md](on-prem-installation-guide.md) | Step-by-step instructions for deploying AccuKnox's on-prem security solution, providing enhanced data privacy and control. |
+| [on-prem-installation-guide.md](on-prem-installation-guide.md) | Step-by-step instructions for installing AccuKnox's on-premise security solution, providing enhanced data privacy and control. |
 | [on-prem-overview.md](on-prem-overview.md) | Overview of On-Premises Deployment for AccuKnox |
 | [on-prem-single-node-installation.md](on-prem-single-node-installation.md) | Step-by-step guide for installing AccuKnox on a single node (Ubuntu 24.04). |
 | [onprem-eks-aks-gke.md](onprem-eks-aks-gke.md) | Step-by-step guide for installing AccuKnox on managed Kubernetes clusters. |

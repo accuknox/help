@@ -56,7 +56,7 @@ The on-premises model covers four source types.
 - **VMs and bare metal.** Nutanix and Linux.
 - **AI models and agents.** vLLM and Triton.
 
-As in the Your Cloud model, the control plane pulls updates as images and charts from AccuKnox releases. No data goes out, and your data never lands at AccuKnox. To install, follow the [On-Prem Installation Guide](../getting-started/on-prem-installation-guide.md).
+As in the Your Cloud model, the control plane pulls updates as images and charts from AccuKnox releases. No data goes out, and your data never lands at AccuKnox. To install, follow the [On-Premise Installation Guide](../getting-started/on-prem-installation-guide.md).
 
 | Control plane | Install | Best for |
 | --- | --- | --- |
