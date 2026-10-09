@@ -17,7 +17,7 @@ hide:
 
 # Container Registry Onboarding
 
-AccuKnox supports onboarding and scanning of container images from various container registries. Select your registry below to get started with the onboarding process.
+AccuKnox supports onboarding and scanning of container images from various container registries. Select your registry below to get started with the onboarding process. To choose which images and tags a scan covers, see [Filter Registry Images with Scan Patterns](/how-to/registry-scan-patterns/).
 
 ::cards:: cols=4
 
