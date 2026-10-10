@@ -83,16 +83,18 @@ hide:
 
 To install `knoxctl`, download the appropriate binary for your Unix-based system. Use `uname -a` in the terminal to check your OS type and architecture, and select the matching version.
 
-Latest version is `0.9.0`, released on 7th July 2025.
+Latest version is `0.9.58`, released on 30th September 2026. Check the [releases page](https://github.com/accuknox/accuknox-cli-v2/releases/latest) for newer versions.
 
-- [knoxctl for Linux (AMD64/x86_64)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_linux_amd64.tar.gz)
-- [knoxctl for Linux (ARM64)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_linux_arm64.tar.gz)
-- [knoxctl for Mac (Intel)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_darwin_amd64.tar.gz)
-- [knoxctl for Mac (Apple Silicon)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.0/knoxctl_0.9.0_darwin_arm64.tar.gz)
+- [knoxctl for Linux (AMD64/x86_64)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.58/knoxctl_0.9.58_linux_amd64.tar.gz)
+- [knoxctl for Linux (ARM64)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.58/knoxctl_0.9.58_linux_arm64.tar.gz)
+- [knoxctl for Mac (Intel)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.58/knoxctl_0.9.58_darwin_amd64.tar.gz)
+- [knoxctl for Mac (Apple Silicon)](https://github.com/accuknox/accuknox-cli-v2/releases/download/v0.9.58/knoxctl_0.9.58_darwin_arm64.tar.gz)
 
 ### Install via APT Repository
 
 For Debian/Ubuntu-based systems, you can install `knoxctl` directly from the AccuKnox Nexus APT repository:
+
+These steps need `curl`, `gnupg` and `sudo`. Minimal images such as `python:3.11-slim` ship without them, so install them first if a command is not found.
 
 ```bash
 # 1. Add the AccuKnox GPG key
