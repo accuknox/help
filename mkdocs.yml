@@ -335,6 +335,7 @@ nav:
       - "API Security Scan Onboarding": "how-to/api-security-onboarding.md"
     - "Container Registry":
       - "Overview": "how-to/registry-overview.md"
+      - "Scan Patterns": "how-to/registry-scan-patterns.md"
       - "ACR": "how-to/acr.md"
       - "ECR": "how-to/ecr.md"
       - "ECR Automated Scan": "how-to/ecr-automated-scan.md"

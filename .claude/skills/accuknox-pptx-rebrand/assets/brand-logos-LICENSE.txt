@@ -1,0 +1,3 @@
+brand-logos-iconify.json is the "logos" icon set by Gil Barbara (https://github.com/gilbarbara/logos),
+distributed via @iconify-json/logos under CC0 1.0. Logos remain trademarks of their owners; use them
+only to refer to those companies and products.
