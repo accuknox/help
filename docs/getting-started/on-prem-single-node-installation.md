@@ -7,6 +7,9 @@ description: Step-by-step guide for installing AccuKnox on a single node (Ubuntu
 
 This guide provides step-by-step instructions for installing AccuKnox on a single node.
 
+!!! tip "Offline copy"
+    Prefer a printable version? [Download the On-Prem Deployment Guide (PDF)](/resources/On_Prem_Deployment_Guide_AccuKnox.pdf){ download }
+
 !!! info "Supported Operating Systems"
     Installation was tested on **Ubuntu 24.04** and **Rocky Linux 8**.
 
