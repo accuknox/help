@@ -69,6 +69,9 @@ hide:
 - title: AWS CDR Deployment Guide (PDF)
   image: ./icons/user-guide.svg
   url: /resources/AccuKnox_AWS_CDR_Deployment_Guide.pdf
+- title: On-Prem Deployment Guide (PDF)
+  image: ./icons/onprem.svg
+  url: /resources/On_Prem_Deployment_Guide_AccuKnox.pdf
 
 ::/cards::
 
