@@ -28,7 +28,7 @@ Use the CSS in `build/_kit/template.html` (copy the whole `<style>` block into y
 
 | # | Page | Background | Content |
 |---|---|---|---|
-| 1 | Cover | navy | White logo, caps eyebrow `<Domain> best practices cheat sheet`, display title of 3 short lines with one `.ul` phrase, deck of one sentence, orbit ring art |
+| 1 | Cover | navy | Color logo `_kit/logo-cover.png` at the top, display title of 3 short lines with one `.ul` phrase, deck of one sentence, module art `cover-art.pdf` at the bottom right. No eyebrow and no other text. No cloud art. Build it with `python _kit/cover.py <module>` |
 | 2 | The problem | rose | Chip `The problem`, `.h1` that states the risk, lede of 2 sentences, then `.prob` with 3 sourced stat cards in red thin numerals. Each card names its source with a link |
 | 3 | Why it keeps happening | white | Chip `Root causes`, `.h2`, `.nlist` of 3 or 4 root causes with an inline SVG `.icon` each, one short body each. Cite any number on the page |
 | 4 | The map | ice | Chip `Start here`, `.h1`, lede, one platform or architecture image in `.shot`, then `.mods` list of the 5 or 6 practice pages with page numbers |
