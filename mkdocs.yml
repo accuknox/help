@@ -688,7 +688,7 @@ nav:
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
     - "Cloud Regions Support": "support-matrix/cloud-regions.md"
     - "AI/ML Support Matrix" : "support-matrix/aiml-support-matrix.md"
-    - "Compliance Matrix" : "https://accuknox.com/compliance"
+    - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "VM Support Matrix" : "support-matrix/vms.md"
     - "Private Cloud" : "support-matrix/private-cloud.md"
     - "Public Cloud" : "support-matrix/public-cloud.md"
