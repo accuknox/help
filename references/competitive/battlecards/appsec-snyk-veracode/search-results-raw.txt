@@ -1,0 +1,188 @@
+### Snyk Code supported languages and frameworks docs
+  URL: https://docs.snyk.io/supported-languages/supported-languages-package-managers-and-frameworks
+  URL: https://docs.snyk.io/supported-languages/supported-languages-list
+  URL: https://github.com/snyk/user-docs/blob/main/discover-snyk/supported-languages/supported-languages-list/.net/README.md
+  URL: https://docs.snyk.io/supported-languages/technical-specifications-and-guidance
+### Snyk Code custom rules
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-iac/current-iac-custom-rules/writing-rules-using-the-sdk/writing-a-rule
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code/snyk-code-security-rules
+  URL: https://github.com/snyk/custom-rules-examples
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-iac/current-iac-custom-rules
+### Snyk audit logs docs
+  URL: https://docs.snyk.io/developer-tools/snyk-api/reference/audit-logs
+  URL: https://docs.snyk.io/platform-administration/user-management/user-management-with-the-api/retrieve-audit-logs-of-user-initiated-activity-by-api-for-an-org-or-group
+  URL: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/snyk-sdlc
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-api-web/managing-account/generate-and-use-audit-log-reports
+### Snyk SBOM export CycloneDX SPDX docs
+  URL: https://docs.snyk.io/developer-tools/snyk-cli/commands/sbom
+  URL: https://docs.snyk.io/developer-tools/snyk-api/using-specific-snyk-apis/sbom-apis/rest-api-get-a-projects-sbom-document
+  URL: https://snyk.io/blog/creating-sboms-snyk-cli/
+  URL: https://cyclonedx.org/tool-center/
+### Snyk API and Web DAST Probely docs
+  URL: https://snyk.io/news/snyk-launches-snyk-api-and-web-to-reimagine-dast-innovation-for-ai-era/
+  URL: https://developers.probely.com/
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-api-web
+  URL: https://snyk.io/product/dast-api-web/
+### Snyk secrets detection Snyk Code docs
+  URL: https://snyk.io/product/snyk-secrets/
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-code
+  URL: https://snyk.io/blog/future-snyk-secrets/
+  URL: https://support.snyk.io/s/question/0D5PU00001SUJXh0AP/secret-detection-in-net-app-config-files
+### Snyk container registry integrations docs
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-container/container-registry-integrations
+  URL: https://github.com/snyk/user-docs/blob/main/docs/scan-with-snyk/snyk-container/container-registry-integrations/integrate-with-harbor-container-registry.md
+  URL: https://docs.snyk.io/scan-fix-and-prevent/scan-with-snyk/snyk-container/container-registry-integrations/integrate-with-github-container-registry
+  URL: https://snyk.io/integrations/
+### Snyk IDE plugins docs
+  URL: https://docs.snyk.io/developer-tools/integrations/snyk-ide-plugins-and-extensions
+  URL: https://snyk.io/platform/ide-plugins/
+  URL: https://github.com/snyk/snyk-intellij-plugin
+  URL: https://learn.snyk.io/lesson/snyk-in-an-ide/
+### Snyk CI/CD integrations docs
+  URL: https://docs.snyk.io/developer-tools/integrations/snyk-ci-cd-integrations
+  URL: https://snyk.io/platform/ci-cd-pipeline-security/
+  URL: https://docs.snyk.io/developer-tools/integrations/snyk-ci-cd-integrations/snyk-ci-cd-integration-deployment-and-strategies/ci-cd-setup
+  URL: https://docs.snyk.io/developer-tools/integrations/snyk-ci-cd-integrations/use-snyk-code-in-the-ci-cd-pipeline
+### Snyk Kubernetes runtime monitoring docs
+### Snyk Broker self-hosted docs
+### Snyk compliance reports docs
+  URL: https://docs.snyk.io/scan-fix-and-prevent/prevent/analytics/reports-tab/compliance-reports
+  URL: https://snyk.io/platform/compliance/
+  URL: https://docs.snyk.io/scan-fix-and-prevent/prevent/analytics/reports-tab
+  URL: https://snyk.io/blog/using-snyk-reporting-for-data-driven-security/
+### Snyk Jira ServiceNow ticketing docs
+  URL: https://docs.snyk.io/developer-tools/integrations/jira-and-slack-integrations/jira-integration
+  URL: https://docs.snyk.io/developer-tools/integrations/jira-and-slack-integrations/snyk-security-in-jira-cloud-integration
+  URL: https://community.atlassian.com/forums/discussion/2794297/api-to-link-snyk-vulnerabilities-to-jira-tickets-in-jira-security-tab
+  URL: https://github.com/snyk/user-docs/blob/main/developer-tools/scan-with-snyk/snyk-tools/tool-jira-tickets-for-new-vulns.md
+### Snyk Slack Teams notifications docs
+  URL: https://docs.snyk.io/developer-tools/integrations/jira-and-slack-integrations/slack-app
+  URL: https://snyk.io/partners/slack/
+  URL: https://github.com/snyk/user-docs/blob/main/platform-administration/snyk-platform-administration/manage-notifications.md
+  URL: https://snyk.io/blog/make-snyk-notifications-work-for-you/
+### Veracode Risk Manager ASPM
+Veracode Risk Manager
+  URL: https://www.veracode.com/risk-manager/
+Our ASPM platform unifies risk insights, helping you focus on the Best Next Actions™ to reduce the most risk with the least amount of effort.
+Eliminate the most risk, with the least amount of effort.
+Previous
+Tool Agnostic Platform
+Automated Investigation and Prioritization
+Issue Correlation
+Root Cause Analysis
+Prioritized Remediation Solutions
+Next
+Tool Agnostic Platform
+An open platform that aggregates and deduplicates issues and findings, and presents them in a contextualized dashboard.
+Automated Investigation and Prioritization
+Unify cross-service context across all cloud security tools, applying deep contextual analysis to pre-investigate each issue.
+Issue Correlation
+Leverage contextual analysis and investigation results as risk factors to calculate the urgency of issues and the risk of assets.
+Root Cause Analysis
+Track risk back to the origin and owner and use Best Next Actions™ to eliminate the most risk with the least amount of effort
+Prioritized Remediation Solutions
+Get powerful, step-by-step instructions on how to remediate issues.
+Assign tickets right from Risk Manager platform and monitor status with two-way sync.
+Introducing Veracode Risk Manager: A New Chapter in ASPM Built for ...
+  URL: https://www.veracode.com/blog/introducing-veracode-risk-manager-new-chapter-aspm-built-scale/
+Veracode Risk Manager
+  URL: https://docs.veracode.com/r/Veracode_Risk_Manager
+Veracode Risk Manager Drives Intelligent Vulnerability Prioritization ...
+  URL: https://tei.forrester.com/go/veracode/veracoderiskmanager/
+Inspect: firecrawl list <provider> <capability> --pretty
+Use find-tools for tool sets or missing contracts; execute selected tools with scrape --alexandria <provider/capability> --options <json>.
+### Veracode supported languages and frameworks
+Static Analysis supported languages and platforms - Veracode Docs
+  URL: https://docs.veracode.com/r/r_supported_table
+Pipeline Scan supported languages - Veracode Docs
+  URL: https://docs.veracode.com/r/Pipeline_Scan_Supported_Languages
+Package your code | Veracode Docs
+  URL: https://docs.veracode.com/r/compilation_packaging
+For language support specific to Veracode Pipeline Scan, see [Pipeline Scan supported languages](https://docs.veracode.com/r/Pipeline_Scan_Supported_Languages).
+Static Analysis Tool: Enhance Your Code Quality - Veracode
+  URL: https://www.veracode.com/security/static-analysis-tool/
+Supported by an industry-leading breadth of languages and frameworks, our engine offers unmatched depth of coverage and intelligence with the flexibility to scan source code, compiled binaries, or a hybrid of both.
+Veracode SAST supports a broad array of programming languages and frameworks for desktop, web, and mobile applications, with enterprise-grade coverage for 100+ languages and frameworks, including legacy, mobile, and modern cloud-native stacks.
+Inspect: firecrawl list <provider> <capability> --pretty
+Use find-tools for tool sets or missing contracts; execute selected tools with scrape --alexandria <provider/capability> --options <json>.
+### Veracode custom rules policy
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 16s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":16}
+### Veracode audit log reporting API
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 14s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":14}
+### Veracode SBOM generation CycloneDX SPDX
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 13s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":13}
+### Veracode Dynamic Analysis DAST authentication
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 11s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":11}
+### Veracode secrets scanning CLI
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 21, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 10s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":10}
+### Veracode container security registry
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 23, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 8s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":8}
+### Veracode IDE plugin
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 25, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 6s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":6}
+### Veracode CI/CD integrations
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 27, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 5s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":5}
+### Veracode API security discovery
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 29, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 3s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":3}
+### Veracode on-premises deployment
+Error: {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 31, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 1s, resets at Tue Oct 13 2026 07:30:40 GMT+0000 (Coordinated Universal Time)","code":"ERR_BAD_REQUEST","status":429,"retryAfterSeconds":1}
+### Veracode custom rules policy docs
+  URL: https://docs.veracode.com/r/c_appsec_policies
+  URL: https://docs.veracode.com/r/Security_policy_constraints
+  URL: https://docs.veracode.com/updates/r/c_all_platform
+  URL: https://docs.veracode.com/r/General_security_policy_rules
+### Veracode audit log reporting API docs
+  URL: https://docs.veracode.com/r/Reporting_REST_API
+  URL: https://docs.veracode.com/updates/r/c_all_platform
+  URL: https://docs.veracode.com/r/View_and_download_reports
+  URL: https://docs.veracode.com/r/REST_APIs_Quickstart
+### Veracode SBOM CycloneDX SPDX docs
+  URL: https://docs.veracode.com/r/Generate_an_SBOM_with_the_REST_API
+  URL: https://docs.veracode.com/r/veracode_sbom
+  URL: https://docs.veracode.com/r/Supply_chain_management_and_SBOMs
+  URL: https://docs.veracode.com/r/Generate%20SBOMs
+### Veracode Dynamic Analysis authentication docs
+  URL: https://docs.veracode.com/r/Scan_Web_Applications
+  URL: https://docs.veracode.com/r/Best_Practices_for_a_Dynamic_Analysis_scan
+  URL: https://docs.veracode.com/r/veracode_dynamic
+  URL: https://docs.veracode.com/r/Manage_scans_and_analyses_DA
+### Veracode secrets scanning CLI docs
+  URL: https://docs.veracode.com/r/Veracode_Container_Security
+  URL: https://github.com/marketplace/actions/veracode-container-iac-secrets-scanning-github-action
+  URL: https://docs.veracode.com/r/Veracode_CLI
+  URL: https://docs.veracode.com/r/Review_Container_Security_results
+### Veracode container security registry docs
+  URL: https://docs.veracode.com/r/Veracode_Container_Security
+  URL: https://docs.veracode.com/r/veracode_scan
+  URL: https://www.veracode.com/products/container-security/
+  URL: https://docs.veracode.com/r/Run_Container_Security_scans
+### Veracode IDE plugin docs
+  URL: https://docs.veracode.com/r/IDEs
+  URL: https://docs.veracode.com/r/c_ide_intro
+  URL: https://docs.veracode.com/r/c_video_install_vs_extension
+  URL: https://docs.veracode.com/r/Veracode_Greenlight
+### Veracode CI/CD integrations docs
+  URL: https://docs.veracode.com/r/c_integration_buildservs
+  URL: https://docs.veracode.com/r/DAST_integrations
+  URL: https://docs.veracode.com/r/Veracode_Integrations
+  URL: https://docs.veracode.com/r/Integrate_the_CLI_with_your_CICD
+### Veracode API discovery docs
+  URL: https://docs.veracode.com/
+  URL: https://docs.veracode.com/r/Discover_external_assets
+  URL: https://docs.veracode.com/r/c_rest_intro
+  URL: https://apis.io/apis/veracode/veracode-applications-api/
+### Veracode on-premises deployment docs
+  URL: https://docs.veracode.com/r/Azure_DevOps_Extension
+  URL: https://docs.veracode.com/r/c_integration_buildservs
+  URL: https://community.veracode.com/s/feed/0D53n00007Z10DVCAZ
+  URL: https://www.veracode.com/resources/videos/veracode-package-firewall-secure-your-code-accelerate-your-development/
+### Veracode Jira ServiceNow integration docs
+### Veracode Slack Teams notifications docs
+  URL: https://docs.veracode.com/r/t_configure_emails
+  URL: https://community.veracode.com/s/question/0D5Uf00000E5GlmKAF/is-it-possible-to-send-slack-notification-when-sca-scan-is-triggered
+  URL: https://docs.veracode.com/r/standalone_and_integrated_permissions
+  URL: https://veracode--staging.sandbox.my.site.com/CustomerCommunity/s/question/0D5Uf00000E5GlmKAF/is-it-possible-to-send-slack-notification-when-sca-scan-is-triggered
+### Veracode compliance reporting PCI docs
+  URL: https://docs.veracode.com/r/c_results_reports
+  URL: https://docs.veracode.com/r/View_and_download_reports
+  URL: https://community.veracode.com/s/question/0D5Uf00000rW59zKAC/veracode-pci-compliance-report-failed-what-additional-scans-or-fixes-are-needed-for-it-to-pass
+  URL: https://www.veracode.com/application-security-compliance/

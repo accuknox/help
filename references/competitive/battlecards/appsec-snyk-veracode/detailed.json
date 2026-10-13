@@ -1,0 +1,458 @@
+{
+  "majorDimension": "ROWS",
+  "range": "'Detailed Comparison'!A1:F64",
+  "values": [
+    [
+      "No.",
+      "Subsection",
+      "AccuKnox : What We Offer",
+      "Snyk",
+      "Veracode",
+      "Checkmarx"
+    ],
+    [
+      "A. ASPM (Core Platform)"
+    ],
+    [
+      "1",
+      "Unified Findings Correlation",
+      "✓ Yes – Centralized findings across native scanners plus SARIF ingestion, deduplication and common Findings Lifecycle.\n",
+      "✓ Yes – Snyk consolidates Code, Open Source, Container and IaC results with application/deployment context",
+      "✓ Yes – Veracode Risk Manager integrates, normalizes and unifies context across security tools.",
+      "✓ Yes – Checkmarx Fusion and ASPM Risk Orchestration correlate findings across SAST, SCA, Container, IaC, Secrets and API into one risk view; results can be exported as SARIF for external tooling."
+    ],
+    [
+      "2",
+      "Risk-Based Prioritization & Business Context",
+      "✓ Yes – Risk prioritization combines CVSS, EPSS, CISA KEV, exploitability and runtime-verified risk for actionable prioritization.",
+      "✓ Yes – AppRisk uses application context such as deployed, public-facing and loaded-package factors for prioritization.",
+      "✓ Yes – VRM uses severity and asset-specific urgency factors to build business context and prioritize issues.",
+      "✓ Yes – the “Checkmarx Zero” risk model blends exploitability, reachability, fixability and runtime exposure (via Cloud Insights) into a single prioritized score per finding."
+    ],
+    [
+      "3",
+      "Rule Engine & Policy Automation",
+      "✓ Yes – Customer-configurable Rule Engine automates finding status changes, ticket creation and notifications based on conditions.",
+      "△ Partial – Supports security policies and CI/CD thresholds, but deeper automation is primarily configuration/integration driven",
+      "✓ Yes – Custom security policies define application security thresholds and enforcement requirements",
+      "△ Partial – policy-based break-build gating plus AI-driven Triage Assist auto-classify findings and can trigger ticketing/notifications by severity; automation is AI-scored rather than manually authored if/then rule conditions."
+    ],
+    [
+      "4",
+      "RBAC, SSO & Governance",
+      "✓ Yes – Custom RBAC + SSO + multi-tenancy, with permissions assignable across platform modules and tenant/resource boundaries.",
+      "✓ Yes – Provides organization/group-level roles and SSO/SAML capabilities for enterprise governance",
+      "✓ Yes – Supports roles/custom roles, teams and SAML-based SSO/JIT provisioning.",
+      "△ Partial – native SAML 2.0 SSO and multi-tenant organizations, but access is built on a fixed set of predefined roles (Admin, AST Admin, Scan Manager, Reviewer, Developer) rather than fully custom RBAC, and there is no native SCIM provisioning."
+    ],
+    [
+      "5",
+      "Audit Trail (EventTrail)",
+      "✓ Yes – EventTrail records actor, timestamp, component, action and result, with filtering and Raw JSON investigation.",
+      "△ Partial – Audit/activity information is available, but finding-level lifecycle auditing is less granular than a dedicated EventTrail.",
+      "✓ Yes – Veracode provides audit-log reporting for detailed user activity through its Reporting API.",
+      "✓ Yes – A dedicated Audit Trail service and REST API log actor, timestamp, action and result for access-control and platform changes."
+    ],
+    [
+      "B. SAST"
+    ],
+    [
+      "6",
+      "Language & Framework Coverage",
+      "✓ Yes – Broadest coverage of the three: Java, Python, RPG, .NET, C/C++, JS/TS, Go, Kotlin, Swift, PHP, Ruby, Scala, Apex, Dart plus IaC/YAML/Bicep in one scanner.",
+      "✓ Yes – ~20+ languages with fast, IDE-embedded scanning.",
+      "✓ Yes – Covers major languages via source and compiled-binary scanning.",
+      "✓ Yes – 20+ languages/frameworks (Java, C#, C/C++, JS/TS, Python, Go, Kotlin, Swift, PHP, Ruby, Scala, Apex and more); IaC is handled by a separate Checkmarx IaC Security scanner rather than folded into the SAST engine."
+    ],
+    [
+      "7",
+      "CI/CD ",
+      "✓ Yes – Native pipeline components for GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket, CircleCI, AWS CodePipeline, Google Cloud Build and Harness, plus VS Code IDE feedback.",
+      "✓ Yes – Deepest IDE support (VS Code, JetBrains, Eclipse, Visual Studio) with real-time inline findings.",
+      "✓ Yes – CI/CD via GitHub/GitLab components and CLI, with a ~90-second Pipeline Scan.",
+      "✓ Yes – native plugins for GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket, CircleCI, Bamboo, TeamCity and AWS CodeBuild, plus a CLI tool covering any remaining platform."
+    ],
+    [
+      "8",
+      "Custom Rule Creation",
+      "△ Partial – Quality Gates and severity tuning today, with fully custom, professional-services-free rule authoring shipping next on the roadmap.",
+      "✗ No – No dedicated custom-rule authoring tool; a separate rules product is recommended for that need.",
+      "✗ No – Uses proprietary SSC rules; customer-authored rules aren't self-service.",
+      "✓ Yes – CxQL is a proprietary, self-service query language for writing and editing custom SAST rules; an “AI Query Builder” generates CxQL from a plain-language prompt. Checkmarx markets self-service query customization as a differentiator versus peer tools."
+    ],
+    [
+      "9",
+      "Secret Scanning",
+      "✓ Yes – Detects hardcoded passwords, API keys, access tokens and private keys across source and config files, integrated into CI/CD with severity-based findings.",
+      "△ Partial – Secret rules run inside SAST, but standalone secret scanning relies on third-party partners.",
+      "✓ Yes – Available via the CLI / Container-IaC-Secrets Scanning component.",
+      "✓ Yes – Secrets Detection identifies 170–210+ secret types across source code, Git history, containers, IDE and CI/CD, with live-validity checking and pre-commit blocking (sold as part of the platform, may require an add-on license)."
+    ],
+    [
+      "10",
+      "Finding Lifecycle & False-Positive Management",
+      "✓ Yes – Findings move through Active, Waiting for Verification, Fixed, Duplicate, Accepted Risk and Exception Requested, with sticky statuses that persist until changed.",
+      "△ Partial – Findings can be ignored/suppressed with reasons; lifecycle states are less structured.",
+      "✓ Yes – Mitigation Approver workflow requires sign-off on every suppression.",
+      "✓ Yes – SAST findings carry persistent triage states (e.g. Confirmed, Not Exploitable, To Verify, Urgent) that survive rescans, suppressing recurring false positives."
+    ],
+    [
+      "C. DAST"
+    ],
+    [
+      "11",
+      "Scan Profiles & Depth",
+      "✓ Yes – Baseline, Standard, Extended and Comprehensive DAST profiles tune crawl depth, duration and scope for speed vs. coverage.",
+      "△ Partial – Lighter, largely partner-delivered capability rather than a deep native engine.",
+      "✓ Yes – Mature SaaS DAST engine with Pipeline/Policy tiers and sub-1% claimed false-positive rate.",
+      "✓ Yes – the DAST Environment Setup Wizard and configuration files let teams tune scan scope, authentication and crawl behavior per environment; named profile tiers like “Baseline/Standard/Extended/Comprehensive” were not confirmed by name."
+    ],
+    [
+      "12",
+      "Authentication Handling (MFA/TOTP)",
+      "✓ Yes – Dedicated MFA-enabled DAST generates live TOTP codes mid-scan and tracks Logged In/Logged Out/Fallback session states : a purpose-built use case, not a generic option.",
+      "△ Partial – Authenticated scanning exists but is less developed for complex MFA/TOTP flows.",
+      "✓ Yes – Supports authenticated/unauthenticated scanning plus SSO/MFA/token-based scan auth.",
+      "✓ Yes – documented support for TOTP, SAML/OAuth/OIDC SSO, multi-factor and custom session-based authentication, plus browser-recorded logins for complex multi-step flows."
+    ],
+    [
+      "13",
+      "Vulnerability Coverage",
+      "✓ Yes – Tests SQLi, NoSQLi, command injection, SSTI, XXE, SSRF, path traversal, CSRF and broken access control across hundreds of payload variations per scan.",
+      "△ Partial – Narrower coverage given the lighter, partner-driven delivery model.",
+      "✓ Yes – Broad OWASP coverage backed by ~20 years of signature refinement.",
+      "✓ Yes – built on the OWASP ZAP engine, which Checkmarx now stewards, with commercial-grade enhancements; covers standard injection, XSS, access-control and related web/API vulnerability classes."
+    ],
+    [
+      "14",
+      "Reporting & Retest Workflow",
+      "✓ Yes – Findings auto-progress Active → Waiting for Verification → Fixed on clean rescans, with one-click Jira/ServiceNow ticket creation from any finding.",
+      "△ Partial – Retest relies on rerunning scans and manually diffing results.",
+      "✓ Yes – Full mitigation audit trail with grace periods for remediation.",
+      "△ Partial – DAST findings feed into the same unified ASPM risk view as SAST/SCA, but a documented auto-progression workflow (e.g. Active → Waiting → Fixed on clean rescans) was not confirmed in public docs."
+    ],
+    [
+      "D. SCA & SBOM"
+    ],
+    [
+      "15",
+      "SBOM Generation & Formats",
+      "✓ Yes – Generates and exports SBOMs in SPDX 2.3 and CycloneDX for component inventory, vulnerability analysis and supply-chain visibility.",
+      "✓ Yes – CycloneDX/SPDX export alongside Open Source dependency scanning.",
+      "✓ Yes – CycloneDX JSON via API; CLI adds SPDX and other formats.",
+      "✓ Yes – Reports export in both CycloneDX v1.7 and SPDX v2.3 (XML/JSON), with optional VEX documentation included in CycloneDX exports."
+    ],
+    [
+      "16",
+      "Dependency Graph (Direct + Transitive)",
+      "✓ Yes – Dependency graph maps direct and transitive dependencies and shows the exact path to each vulnerable component.",
+      "✓ Yes – Strong PR-based fix and upgrade-path guidance : a core strength.",
+      "△ Partial – Maps direct/transitive dependencies; remediation UX seen as less mature.",
+      "✓ Yes – maps direct and transitive dependencies, enriched with reachability analysis that shows whether a vulnerable dependency's code path is actually invoked by the application."
+    ],
+    [
+      "17",
+      "Vulnerability Intelligence Enrichment",
+      "✓ Yes – Enriches findings from NVD, CISA KEV, MSRC, GitHub PoC exploits, EPSS and CWE, refreshed continuously via independent sync jobs.",
+      "✓ Yes – Snyk Intel database supplemented by NVD data and an in-house research team.",
+      "✓ Yes – Proprietary vulnerability data built over ~two decades, CVSS-scored.",
+      "✓ Yes – In-house research team plus a 410,000+ malicious-package database, layered with CVSS, EPSS, CISA KEV and PoC-exploit signals into a composite CxScore.\r\n"
+    ],
+    [
+      "18",
+      "License Compliance & Policy",
+      "✓ Yes – Classifies license risk as Permissive, Weak Copyleft, Strong Copyleft or Banned/Incompatible/Proprietary, with policy-based CI/CD gating.",
+      "✓ Yes – License policies flag risky or prohibited open-source licenses.",
+      "△ Partial – License-risk visibility exists but is secondary to vulnerability detection.",
+      "✓ Yes – classifies licenses as permissive, copyleft or full/strong copyleft, with policy-based CI/CD gating; policies can be scoped per application or business unit."
+    ],
+    [
+      "19",
+      "Historical / Version Comparison",
+      "✓ Yes – SBOM Projects track components across versions and scans for side-by-side comparison of newly introduced or removed dependencies.",
+      "✓ Yes – Per-target project history with alerts on new CVEs and base-image updates.",
+      "△ Partial – Scan history tracked for pass/fail trend reporting, not component-level diffing.",
+      "✓ Yes – retains historical SBOMs per scan/commit, so component sets can be compared across versions and new/removed dependencies flagged."
+    ],
+    [
+      "E. Container & Registry Scanning"
+    ],
+    [
+      "20",
+      "Supported Registries",
+      "✓ Yes – Onboards Docker Hub, ECR, GCR, ACR, JFrog Artifactory, Harbor, Quay and Nexus for scheduled scanning via a dedicated Registry Scan dashboard.",
+      "✓ Yes – Comparable breadth : ECR, ACR, GCR, Docker Hub, GitHub/GitLab, JFrog, Nexus, DigitalOcean, Harbor, Quay.",
+      "△ Partial – Delivered mainly via CLI/CI-CD rather than a dedicated onboarding dashboard.",
+      "✓ Yes – onboards Docker Hub, AWS ECR, Google GCR, Azure ACR, Harbor, JFrog Artifactory, Red Hat Quay and Nexus for registry-level scanning."
+    ],
+    [
+      "21",
+      "Scan Scheduling & Automation",
+      "✓ Yes – CRON-based scheduled scans per registry, plus scan-on-save for an immediate first run and tag-pattern filtering to control scope/cost.",
+      "✓ Yes – Continuous monitoring with configurable retest frequency.",
+      "△ Partial – Scans are typically pipeline-triggered, not independently scheduled.",
+      "△ Partial – images are continuously re-evaluated as new CVEs surface and scans trigger from CI/CD; a CRON-based, per-registry scheduling UI with tag-pattern filtering was not confirmed."
+    ],
+    [
+      "22",
+      "Layer-Level & Sensitive-Data Findings",
+      "✓ Yes – Registry Scan dashboard breaks results into Vulnerabilities, Resources, Sensitive Data and Layers tabs for granular remediation.",
+      "✓ Yes – Dockerfile-context matching ties CVEs back to the introducing instruction.",
+      "△ Partial – Vulnerability/SBOM data via CLI; layer/sensitive-data breakdown less structured.",
+      "✓ Yes – tracks vulnerabilities per image layer (propagating base-image fixes to dependent images) and scans layers for embedded secrets/credentials."
+    ],
+    [
+      "23",
+      "Air-Gapped / Isolated Registry Support",
+      "✓ Yes – Supports isolated/self-hosted JFrog and other registries in fully air-gapped networks : built for BFSI-grade network segmentation.",
+      "△ Partial – SaaS-oriented; air-gapped scanning is limited.",
+      "✗ No – CLI model assumes connectivity back to Veracode's cloud platform.",
+      "△ Partial – Legacy CxSAST/SCA Resolver can run fully on-prem and air-gapped, but modern Checkmarx One capabilities (ASPM, Container Security dashboard, Assist AI) are SaaS-only, so full-platform air-gapped scanning isn't available."
+    ],
+    [
+      "F. API Security"
+    ],
+    [
+      "24",
+      "API Discovery (Shadow / Zombie / Orphan APIs)",
+      "✓ Yes – Dedicated API Security module analyzes live traffic to surface Shadow, Zombie and Orphan APIs beyond documented inventories.",
+      "✗ No – Scoped to spec/schema-based static checks; no runtime traffic-based discovery.",
+      "✗ No – No dedicated discovery module; API risk surfaces via DAST/SCA.",
+      "✓ Yes – a named Checkmarx differentiator: scans application source code directly (making API documentation optional) to surface undocumented, shadow and zombie APIs before they reach production."
+    ],
+    [
+      "25",
+      "Spec Ingestion",
+      "✓ Yes – Imports OpenAPI/Swagger (JSON/YAML) and Postman Collections; REST and gRPC natively supported, SOAP/GraphQL via DAST API scan.",
+      "△ Partial – OpenAPI/Swagger spec-based scanning for REST.",
+      "△ Partial – API testing largely delivered through DAST against documented endpoints.",
+      "△ Partial – Checkmarx DAST natively tests REST, SOAP and gRPC live; the platform's primary API-discovery method is source-code scanning rather than OpenAPI/Swagger/Postman file ingestion, so spec-file import specifically was not confirmed."
+    ],
+    [
+      "26",
+      "OWASP API Top 10 Coverage",
+      "✓ Yes – Maps directly to OWASP API Top 10 categories, including BOLA, broken authentication, excessive data exposure and misconfiguration.",
+      "△ Partial – Coverage comes via injection/auth classes surfaced through SAST/DAST.",
+      "△ Partial – Recognized externally as a strength, but not a standalone OWASP-API-mapped module.",
+      "✓ Yes – discovered API findings are explicitly mapped to the OWASP API Security Top 10 (BOLA, broken authentication, excessive data exposure, misconfiguration, etc.)."
+    ],
+    [
+      "27",
+      "Sensitive Data Detection in Traffic",
+      "✓ Yes – Continuously inspects API request/response payloads and headers for PII, PHI and financial data without manual data classification.",
+      "✗ No – No native runtime traffic-inspection capability.",
+      "✗ No – Surfaces opportunistically via DAST, not continuous inspection.",
+      "✗ No – API Security discovers and tests APIs via source code and DAST; it does not continuously inspect live request/response traffic for PII/PHI."
+    ],
+    [
+      "28",
+      "Gateway / Service Mesh Integrations",
+      "✓ Yes – Integrates directly with AWS API Gateway, Istio, Kong, F5, NGINX Ingress/Server and Azure API Management for traffic-based posture context.",
+      "✗ No – No native gateway/mesh integrations.",
+      "✗ No – No native gateway/mesh integrations.",
+      "✗ No – no native integrations with API gateways or service meshes (AWS API Gateway, Istio, Kong, F5, NGINX, Azure API Management) were found; Checkmarx's model is source-code- and DAST-based rather than gateway-integrated."
+    ],
+    [
+      "29",
+      "Rate-Limiting & Abuse Protection",
+      "✓ Yes – Configurable rate-limiting policies at per-user/IP, global user/IP and global-service levels to block abuse and brute-force traffic.",
+      "✗ No – Not a native capability : outside Snyk's scope.",
+      "✗ No – Handled by a separate WAF/gateway, not natively.",
+      "✗ No – Checkmarx tests whether an application enforces rate limiting as part of its security assessment; it does not provide rate-limiting enforcement itself, which remains a gateway/WAF function."
+    ],
+    [
+      "G. CWPP / Runtime Security"
+    ],
+    [
+      "30",
+      "Runtime Enforcement Technology",
+      "✓ Yes – Built on CNCF-sandboxed KubeArmor with eBPF/LSM (AppArmor, SELinux, BPF-LSM) for inline, kernel-level mitigation of live runtime attacks.",
+      "✗ No – No native runtime enforcement : stops at build-time scanning.",
+      "✗ No – No native runtime enforcement : stops at build-time image/IaC/secrets scanning.",
+      "✗ No – no native runtime or kernel-level (eBPF/LSM) enforcement was found; Checkmarx's coverage stops at build-time SAST/SCA/DAST/Container/IaC scanning. AccuKnox's own Checkmarx-integration page positions AccuKnox as supplying this runtime/CWPP layer for Checkmarx customers."
+    ],
+    [
+      "31",
+      "Workload Coverage",
+      "✓ Yes – Protects Kubernetes, VMs, containers, serverless and edge/IoT workloads across hybrid and multi-cloud environments.",
+      "✗ No – Limited to pre-deployment assessment; no live workload protection.",
+      "✗ No – Limited to pre-deployment artifacts; no live workload protection.",
+      "✗ No – pre-deployment artifact and image scanning only; no live workload protection for Kubernetes, VMs, containers or serverless was found."
+    ],
+    [
+      "32",
+      "Zero Trust Policy Enforcement",
+      "✓ Yes – Declarative Zero Trust policies isolate workloads and block lateral movement inline : not alert-only.",
+      "✗ No – Not applicable : no runtime enforcement layer.",
+      "✗ No – Not applicable : no runtime enforcement layer.",
+      "✗ No – not applicable without a native runtime enforcement layer."
+    ],
+    [
+      "33",
+      "Incident Investigation & Telemetry",
+      "✓ Yes – Rich runtime telemetry supports container forensics and drift detection, correlated with build-time findings in the same console.",
+      "✗ No – Requires a third-party CWPP/EDR partner for runtime telemetry.",
+      "✗ No – No native runtime telemetry : outside platform scope.",
+      "✗ No – No native runtime telemetry; Cloud Insights instead correlates with third-party CNAPP/EDR partners (Wiz, Sysdig, CrowdStrike) for runtime context."
+    ],
+    [
+      "H. Compliance & Reporting"
+    ],
+    [
+      "34",
+      "Framework Coverage",
+      "✓ Yes – 35+ prebuilt frameworks : PCI DSS, ISO 27001, SOC 2, HIPAA, NIST, DISA STIG, MAS TRM, DPDP, SEBI CSCRF : plus custom mapping for SWIFT CSP and OWASP ASVS.",
+      "△ Partial – Comparatively limited framework mapping; reporting is risk-centric.",
+      "✓ Yes – Strong, long-standing PCI DSS/OWASP compliance reporting.",
+      "△ Partial – strong PCI DSS and OWASP ASVS/CWE Top 25 mapping and policy packs (rated 4.7/5 for compliance support in a third-party RFP review); a specifically “35+ prebuilt frameworks” library including regional frameworks such as India's DPDP Act or SEBI CSCRF was not confirmed."
+    ],
+    [
+      "35",
+      "Evidence Packages & Audit Export",
+      "✓ Yes – GRC Evidence Packages generate timestamped, audit-ready compliance evidence exportable in PDF, CSV and JSON.",
+      "△ Partial – Exports exist, but GRC-style evidence packaging is less structured.",
+      "✓ Yes – Audit-ready reports and mitigation trails support regulatory review.",
+      "△ Partial – audit-ready reports and policy/audit trails support governance reviews, but a distinctly named, multi-format (PDF/CSV/JSON) “evidence package” export was not confirmed in public documentation."
+    ],
+    [
+      "36",
+      "Executive & Technical Dashboards",
+      "✓ Yes – Enterprise dashboards span application, business-unit and organization level with SLA-oriented remediation metrics and drill-down.",
+      "✓ Yes – AppRisk dashboards give execs risk visibility over scan data.",
+      "✓ Yes – Portal shows policy pass/fail and remediation status for governance stakeholders.",
+      "✓ Yes – ASPM/Risk Orchestration dashboards give portfolio-, application- and business-unit-level risk visibility for both technical and executive audiences."
+    ],
+    [
+      "I. Deployment Models"
+    ],
+    [
+      "37",
+      "SaaS",
+      "✓ Yes – Full SaaS delivery with the complete feature set : no capability gaps versus other deployment models.",
+      "✓ Yes – SaaS is Snyk's default, most mature model.",
+      "✓ Yes – SaaS (Veracode Platform) is the default, most mature model.",
+      "✓ Yes – Checkmarx One is cloud-delivered (SaaS) by default and is described as the platform's most complete, most mature model."
+    ],
+    [
+      "38",
+      "Self-Hosted / Hybrid",
+      "✓ Yes – Self-hosted, AWS On-Prem/Hybrid and Managed OEM/MSSP models available alongside SaaS.",
+      "△ Partial – Enterprise-tier on-prem/hybrid exists but is limited.",
+      "△ Partial – On-prem/hybrid options are limited; built around the cloud portal.",
+      "△ Partial – private-hosted/hybrid options exist alongside SaaS, but are generally described in third-party reviews as more limited than the full SaaS experience."
+    ],
+    [
+      "39",
+      "Full On-Prem / Air-Gapped",
+      "✓ Yes – True full on-prem/air-gapped deployment with customer-controlled vulnerability-database update pipelines : built for BFSI data-residency needs.",
+      "✗ No – No dedicated air-gapped model for isolated environments.",
+      "✗ No – No dedicated air-gapped model; CLI assumes cloud connectivity.",
+      "△ Partial – the legacy CxSAST product supports on-premises/air-gapped deployment, but that covers SAST only; the unified multi-scanner Checkmarx One platform (SCA, DAST, Container, API, ASPM together) is fundamentally cloud/hybrid-delivered."
+    ],
+    [
+      "J. Integration Methods (ASPM) & xBOM"
+    ],
+    [
+      "40",
+      "CLI-Based Integration",
+      "✓ Yes – knoxctl (cross-platform, incl. native Windows binary) drives scan, sbom, image-scan and onboard commands; a companion Python ASPM Scanner CLI runs SAST/secret/container scans pre-commit.",
+      "✓ Yes – Snyk CLI runs test/monitor/code/container/iac commands for local scanning.",
+      "✓ Yes – Veracode CLI drives Pipeline Scan, SCA, Container/IaC/Secrets and SBOM generation.",
+      "✓ Yes – a single cross-platform Checkmarx One CLI drives scanning, SBOM generation, container-image scanning and onboarding commands."
+    ],
+    [
+      "41",
+      "CI/CD-Based Integration",
+      "✓ Yes – Native components for 9 CI/CD platforms plus a pip/curl-installable pipeline scanner with configurable soft-fail/hard-fail gating.",
+      "✓ Yes – Broad native CI/CD with PR/MR checks and build-breaking gates.",
+      "✓ Yes – GitHub/GitLab components wrap the CLI for Pipeline and Policy Scans.",
+      "✓ Yes – native components for 9+ CI/CD platforms (GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket, CircleCI, Bamboo, TeamCity, AWS CodeBuild) with configurable break-build gating."
+    ],
+    [
+      "42",
+      "UI-Based Integration",
+      "✓ Yes – Full browser console lets teams onboard registries, APIs, DAST targets and SBOM projects and triage findings without touching a CLI.",
+      "△ Partial – UI supports import/monitoring, but ongoing scans run via CLI/CI/IDE.",
+      "△ Partial – Portal supports setup/uploads; scans generally initiated via CLI/CI/IDE.",
+      "✓ Yes – the Checkmarx One web console lets teams onboard code repos, container registries and DAST environments, and triage findings, without touching the CLI."
+    ],
+    [
+      "43",
+      "xBOM (SBOM, HBOM, CBOM, QBOM, AI-BOM)",
+      "✓ Yes – Only platform of the three with a full xBOM suite : SBOM, HBOM, CBOM (PQC readiness), QBOM and AI-BOM : across 12 BOM use cases including SLSA provenance.",
+      "✗ No – Software SBOM only : no native HBOM, CBOM, QBOM or AI-BOM.",
+      "✗ No – Software SBOM only : no native HBOM, CBOM, QBOM or AI-BOM.",
+      "△ Partial – Ships SBOM, CBOM and AI-BOM, but no published HBOM or QBOM capability, so coverage is narrower than AccuKnox's full five-BOM suite."
+    ],
+    [
+      "K. Unified Findings Page"
+    ],
+    [
+      "44",
+      "Findings Detail & Evidence",
+      "✓ Yes – One Findings page surfaces every finding type : SAST, DAST, SCA, Container, IaC, Secret, API : with evidence and remediation guidance in one consistent layout.",
+      "✓ Yes – Per-product views plus a consolidated AppRisk view; evidence formatting varies by scanner.",
+      "✓ Yes – Central portal per app/scan type with description and remediation guidance.",
+      "✓ Yes – one findings view spans SAST, DAST, SCA, Container, IaC, Secrets and API results in a consistent layout with remediation guidance."
+    ],
+    [
+      "45",
+      "Severity Level of Findings",
+      "✓ Yes – Severity enriched with CVSS, EPSS and CISA KEV, filterable and groupable by label, asset, severity or status across all scan types.",
+      "✓ Yes – Snyk risk score plus CVSS, with exploit-maturity on select products.",
+      "✓ Yes – 0–5 proprietary scale plus CVSS, applied across Static/Dynamic/SCA.",
+      "✓ Yes – the “Checkmarx Zero” risk score plus CVSS is applied consistently across all scan types, filterable and groupable in the findings view."
+    ],
+    [
+      "46",
+      "Ask AI Feature",
+      "✓ Yes – Built-in Ask AI explains any finding's vulnerability, impact and exploitation likelihood with recommended remediation, directly on the findings page.",
+      "△ Partial – DeepCode AI gives inline fix suggestions for SAST : no cross-type ask-a-question assistant.",
+      "△ Partial – Veracode Fix offers AI remediation for SAST : no general conversational assistant.",
+      "✓ Yes – Developer Assist, Triage Assist and Remediation Assist AI agents (plus an MCP agent) explain findings and propose fixes directly in the findings page, IDE and pull requests."
+    ],
+    [
+      "47",
+      "Create Ticket Feature",
+      "✓ Yes – One-click Create Ticket pushes any finding to Jira/ServiceNow with pre-mapped severity-to-priority and a default assignee.",
+      "△ Partial – Ticketing via Jira integration, usually configured at project/policy level.",
+      "△ Partial – Ticketing generally via partner/marketplace connectors, not native one-click.",
+      "✓ Yes – native Jira, ServiceNow, Azure Boards and GitHub Issues integrations can automatically open, update and close tickets filtered by severity."
+    ],
+    [
+      "L. Integrations (Messaging, CI/CD, Ticketing)"
+    ],
+    [
+      "48",
+      "Messaging / Chat App Integration",
+      "✓ Yes – Native Slack alerts plus a generic Webhook integration that forwards events to Teams, email or any SIEM/SOAR endpoint.",
+      "△ Partial – Slack notifications supported; broader chat-app coverage is limited.",
+      "✗ No – No native chat-app integration; relies on third-party connectors/webhooks.",
+      "✓ Yes – native Slack and Microsoft Teams notifications, plus email, for scan results and policy violations."
+    ],
+    [
+      "49",
+      "CI/CD Integrations Supported",
+      "✓ Yes – GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket, CircleCI, AWS CodePipeline, Google Cloud Build and Harness : 9 platforms natively.",
+      "✓ Yes – One of the broadest native CI/CD ecosystems : GitHub, GitLab, Bitbucket, Jenkins, Azure DevOps, CircleCI.",
+      "✓ Yes – GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket via CLI-based components.",
+      "✓ Yes – matches or exceeds peers: GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket, CircleCI, Bamboo, TeamCity and AWS CodeBuild, natively."
+    ],
+    [
+      "50",
+      "Ticketing Integration",
+      "✓ Yes – Native Jira Cloud and ServiceNow integration with configurable project/severity mapping, plus Rule Engine-driven auto-ticketing.",
+      "✓ Yes – Native Jira integration for creating/tracking issues.",
+      "△ Partial – Ticketing generally via Jira Marketplace apps, not a first-party workflow.",
+      "✓ Yes – native Jira Cloud and ServiceNow plugins, plus Azure Boards, GitHub Issues and GitLab Issue Board."
+    ],
+    [
+      "51",
+      "IDE Integration",
+      "✓ Yes – VS Code, Cursor and IntelliJ with multi-engine scanning (SAST, SCA, secrets, IaC, ML-static, container/SBOM), full/incremental/scan-on-save, AI remediation with diff preview, AI chat (BYO LLM or AccuKnox SaaS) and pluggable scanner adapters.",
+      "✓ Yes – Broadest IDE footprint (VS Code, JetBrains, Eclipse, Visual Studio) with real-time AI-powered inline fix suggestions.",
+      "✓ Yes – VS Code, JetBrains, Eclipse and Visual Studio via one plugin; SAST, SCA and AI fix; rate-limited 6 scans/60s per account.",
+      "✓ Yes – VS Code, JetBrains/IntelliJ, Eclipse and Visual Studio, plus newer AI-native IDEs Cursor, Windsurf and Kiro – one of the broadest IDE footprints of the three vendors compared."
+    ]
+  ]
+}

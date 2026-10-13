@@ -53,6 +53,8 @@ The writing hook and `.claude/core/runtime-contract.md` send each channel's outp
 
 `competitive/aspm-comparisons/` holds the ASPM versus pages: Black Duck, HCL AppScan, Invicti and OpenText Fortify.
 
+`competitive/INDEX.md` lists every comparison, battlecard and PDF. Regenerate it with `python references/competitive/build_index.py` after any change here. `competitive/pdf-engine/` builds the detailed 51-capability comparison PDFs, and each set lives in its own `battlecards/<set>/` folder, for example `battlecards/appsec-snyk-veracode/` (AppSec scorecard, AccuKnox vs Snyk, AccuKnox vs Veracode).
+
 ## `product-research/` Holds PRD and Market Research
 
 | Folder | Contents |
