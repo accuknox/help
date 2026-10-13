@@ -27,17 +27,20 @@ CTA block duplicates the template and gets cut in review.
 
 ## The section order
 
-1. **YAML front matter.** The SEO fields. Full list in `assets/blog-template.md`.
+1. **YAML front matter.** Eight fields and no others: `slug`, `title`,
+   `description`, `author`, `date`, `category`, `primary_keyword`,
+   `secondary_keywords`. No image prompt, no excerpt, no url, no reading time.
+   WordPress owns the cover image, the excerpt and the reading time.
 2. **H1.** One only. Carries the primary keyword and reads as a claim, not a label.
-3. **Cover image prompt.** A blockquote placeholder, never a real cover file.
-4. **TL;DR.** H2, three to six bullets, at least one number.
-5. **Body.** Four to nine H2 sections, each heading stating a conclusion.
-6. **A closing H2 that lands a position.** `Treat identity as the first control
-   plane in Kubernetes` and `Final thoughts` both appear in the sample. Prefer
+3. **TL;DR.** H2, three to six bullets, at least one number.
+4. **Body.** Four to nine H2 sections, each heading stating a conclusion.
+   Fewer when the user sets a short word limit.
+5. **A closing H2 that lands a position.** `Treat Identity as the First Control
+   Plane in Kubernetes` and `Final Thoughts` both appear in the sample. Prefer
    the first shape.
-7. **A video embed H2.** One YouTube embed from [@AccuKnox](https://www.youtube.com/@AccuKnox),
+6. **A video embed H2.** One YouTube embed from [@AccuKnox](https://www.youtube.com/@AccuKnox),
    the most relevant to the topic. See the Video embed section below.
-8. **FAQ.** H2 labelled `FAQs` or `Frequently Asked Questions`, three to five
+7. **FAQ.** H2 labelled `FAQs` or `Frequently Asked Questions`, three to five
    H3 questions, each answered in two or three sentences.
 
 Nothing after the FAQ. The template owns that space.
@@ -54,12 +57,17 @@ the failure mode. It survives every mechanical check and gets cited by nobody.
 
 ## Headings that carry the conclusion
 
-Every H2 in the sample states something. `Why RBAC visibility breaks at scale`,
-`Red teaming ran first, the prompt firewall went inline second`, `The gap between
+Every H2 in the sample states something. `Why RBAC Visibility Breaks at Scale`,
+`Red Teaming Ran First, the Prompt Firewall Went Inline Second`, `The Gap Between
 88% on ISO 27001 and 47% on the OWASP Top 10 for LLM`. A reader who reads only
 the headings has read the argument.
 
-Sentence case. No colon. No skipped level. `grade.py` flags a heading that opens
+AP Title Case on every H2, and `grade.py` checks it. Lowercase only a, an, the,
+and, but, or, nor, for, so, yet, as, at, by, in, of, off, on, per, to, up, via and
+vs in the middle of a heading, and capitalize each part of a hyphenated word.
+The writer's global rule sets this, and it overrides the sentence-case line in
+`.claude/core/writing-rules.md` section 6 for a blog post. H3 FAQ questions stay
+as ordinary questions. No colon. No skipped level. `grade.py` flags a heading that opens
 with `Understanding`, `Introduction`, `Overview` or `Key takeaways`.
 
 ## Tables
@@ -73,24 +81,40 @@ Header row always. No empty cells.
 
 ## Images
 
-Two to four per post, each as an italic caption line under the image. The caption
-says what the picture proves, not what it is. `Model-layer findings by check
-type, and the five deployed models ranked by issue count` beats `AI-SPM
-dashboard`.
+Two to four per post, and at least one is a real product screenshot. A post of
+nothing but diagrams reads as filler, and a post of nothing but dashboards shows
+no mechanism, so mix them.
 
-In a draft, write each image as a placeholder block rather than a file path:
+Pull images in this order. `scripts/images.py find <keyword>` searches all of it.
+
+1. A console shot from the help docs or the demo set, cropped with
+   `scripts/images.py prep`. Real, current and already described.
+2. The PRODUCT UI Drive library, through `scripts/drive_sync.py`.
+3. A diagram you render from HTML with Playwright in AccuKnox navy `#11206D`,
+   accent `#4D4DD9`, Inter. Use it for a concept that has no screenshot, such as
+   a framework or a stack. Source and facts on the diagram come from the post.
+
+Write each image as a standard markdown image with a local path, then one italic
+line under it. The path is relative to the draft, and the files live in
+`references/drafts/blog/images/<slug>/`.
 
 ```markdown
-> **Image prompt (inline 1):** A four-layer stack diagram, infrastructure at the
-> base rising to agents at the top, AccuKnox navy `#11206D` on white with
-> `#003BF6` accents, flat vector, no text labels, generous negative space.
->
-> *Caption: The four layers of AI risk and the controls applied at each.*
+![The AgentZ span list for one run, with each model call, its duration and token count](images/auditable-ai-agents/agentz-span-trace.png)
+
+*Every model call and tool call in a run is a span with its own duration and token count.*
 ```
 
-Where a real product screenshot fits better than a generated image, say so and
-name the source folder. `references/asset-kit.md` names the four image sources and how to crop a
-screenshot.
+The italic line says what the picture proves, not what it is. `Model-layer
+findings by check type, and the five deployed models ranked by issue count` beats
+`AI-SPM dashboard`. Never open the line with the word `Caption`, and never label
+it at all. Alt text follows the same rule and never opens with `a screenshot of`.
+
+`push_gdoc.py` embeds each local image into the Google Doc, sized to the page
+width, so nothing needs a public URL. A remote image keeps its URL.
+
+Do not write an image prompt anywhere in the draft or its front matter. When no
+real picture exists yet, leave an open `> **Image needed:** ...` block. The
+grader flags it until you replace it.
 
 ## Video embed
 
@@ -116,15 +140,19 @@ five to twelve links per post, split roughly:
   third-party behaviour. The CERT-IN post links the CERT-In directive PDF and
   the ISO 27001 catalogue entry directly.
 
-Run `scripts/verify_links.py` before you ship. The sitemap is incomplete and
+Run `scripts/gates.py` before you ship. It runs `verify_links.py` with the other two gates. The sitemap is incomplete and
 slugs move.
 
 ## Length
 
-1,200 to 2,000 prose words. Reading time is the word count divided by 200,
-rounded to the nearest minute, and it goes in the front matter.
+The user's number wins. When they say `under 1200 words`, write to that and
+run `scripts/gates.py <draft> --min-words 800 --max-words 1199`. The ceiling
+counts every word in the body, tables and headings included.
 
-Below 1,200 the post reads as a stub. Above 2,600 it is two posts.
+With no number from the user, the default is 1,200 to 2,000 prose words. Below
+1,200 the post reads as a stub, and above 2,600 it is two posts. Reading time is
+the word count divided by 200, and WordPress shows it, so it stays out of the
+front matter.
 
 ## The FAQ
 

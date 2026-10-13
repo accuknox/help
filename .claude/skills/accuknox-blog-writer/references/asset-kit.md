@@ -121,7 +121,8 @@ picture proves, not what it is.
 - Weak: `AccuKnox dashboard`
 - Strong: `Model-layer findings by check type, and the five deployed models ranked by issue count`
 
-In a blog the caption sits directly under the image, in italics. In a white paper
+In a blog the line sits directly under the image, in italics, and never
+opens with the word `Caption`. In a white paper
 the images go to an appendix with a figure number. Alt text follows the same
 rule and never opens with `a screenshot of`.
 
@@ -153,15 +154,17 @@ Write the prompt into the draft as a blockquote placeholder. Never generate or
 commit a cover file.
 
 ```markdown
-> **Image prompt (inline 1):** a four-layer stack diagram, infrastructure at the
-> base rising to agents at the top, AccuKnox navy `#11206D` on white with
-> `#003BF6` accents, flat vector, no text labels, generous negative space.
->
-> *Caption: The four layers of AI risk and the controls applied at each.*
+> **Image needed:** a four-layer stack diagram, infrastructure at the base
+> rising to agents at the top, AccuKnox navy `#11206D` on white with `#003BF6`
+> accents, flat vector, no text labels, generous negative space.
+
+*The four layers of AI risk and the controls applied at each.*
 ```
 
-Front matter carries two cover prompts, one natural-language for Claude and one
-keyword-dense for Midjourney ending in `--ar 16:9 --style raw --v 6 --no text`.
+A blog post keeps no image prompt in its front matter. WordPress owns the
+cover. Prefer a rendered diagram over a prompt: `references/blog-layout.md`
+has the recipe. The press release, case study and comparison templates follow
+their own front matter.
 
 ## Related
 

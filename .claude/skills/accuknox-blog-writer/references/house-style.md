@@ -148,11 +148,11 @@ it. It is set apart because a reader must not miss it.
 
 ### Headings
 
-Sentence case. No colon. No skipped level. The heading carries the conclusion,
-not the topic.
+AP Title Case on every H2. No colon. No skipped level. The heading carries
+the conclusion, not the topic.
 
-- Weak: `Understanding policy enforcement`
-- Strong: `Enforcement blocks the process before it runs`
+- Weak: `Understanding Policy Enforcement`
+- Strong: `Enforcement Blocks the Process Before It Runs`
 
 Use a conventional label where the reader hunts for the exact word.
 `Prerequisites`, `Challenges`, `Outcomes` and `FAQs` all stay as they are.

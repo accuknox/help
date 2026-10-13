@@ -13,9 +13,10 @@ python scripts/verify_links.py draft.md --fix-suggestions
 
 ## What the script already checks
 
-Front matter completeness, `seo_title` and `meta_description` lengths, slug
-shape, reading time against word count, one H1, heading hierarchy, weak heading
-openers, colons in headings, TL;DR and FAQ presence, FAQ question count, prose
+Front matter completeness, `title` and `description` lengths, slug
+shape, the date format, extra front-matter fields, total word count against a
+ceiling, one H1, heading hierarchy, AP Title Case on H2s, weak heading openers,
+colons in headings, TL;DR and FAQ presence, FAQ question count, prose
 word count, paragraph depth, passive voice ratio, keyword density and first-150
 placement, concrete figures, internal and external link counts, anchor text,
 bare URLs, alt text, captions and table presence.

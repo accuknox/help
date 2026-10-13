@@ -39,11 +39,13 @@ def check(label: str, ok: bool, detail: str = "") -> None:
     print(f"{mark}  {label}" + (f"  ({detail})" if detail else ""))
 
 
-# A draft that is deliberately wrong in seven named ways.
+# A draft that is deliberately wrong in ten named ways.
 BAD = '''---
 title: "A post"
 slug: "Bad_Slug"
 url: "https://accuknox.com/blog/other"
+cover_image_prompt: "a navy diagram"
+date: "10/12/2026"
 primary_keyword: "widget security"
 ---
 
@@ -53,7 +55,11 @@ primary_keyword: "widget security"
 
 Some text with a bare URL https://example.com/x in it.
 
-## Understanding things
+![A diagram that proves the point](images/missing-file.png)
+
+*Caption: a label the post must not carry*
+
+## understanding things here
 
 More text.
 '''
@@ -70,10 +76,18 @@ def offline_checks() -> None:
         r = grade.grade(bad, 1200, published=False)
         msgs = " | ".join(m for _, _, m in r.rows)
         check("grade flags missing front matter",
-              "missing `seo_title`" in msgs)
+              "missing `description`" in msgs)
         check("grade flags a non-kebab slug", "Bad_Slug" in msgs)
-        check("grade flags a url that does not match the slug",
-              "url does not end in" in msgs)
+        check("grade flags an extra front-matter field",
+              "extra field `url`" in msgs)
+        check("grade flags an image prompt in the front matter",
+              "extra field `cover_image_prompt`" in msgs)
+        check("grade flags a malformed date", "must read YYYY-MM-DD" in msgs)
+        check("grade flags a missing image file",
+              "image file not found" in msgs)
+        check("grade flags a Caption label", "open with the word Caption" in msgs)
+        check("grade flags an H2 that breaks AP Title Case",
+              "not AP Title Case" in msgs)
         check("grade flags a missing TL;DR", "no TL;DR section" in msgs)
         check("grade flags a missing FAQ", "no FAQ section" in msgs)
         check("grade flags a topic heading",
@@ -81,6 +95,14 @@ def offline_checks() -> None:
         check("grade flags a bare URL", "bare URL" in msgs)
         check("grade flags a keyword that never appears",
               "never appears in the body" in msgs)
+
+        # A word ceiling counts every word, tables and headings included.
+        ceil = Path(td) / "ceiling.md"
+        ceil.write_text("# T\n\n" + "word " * 50 + "\n", encoding="utf-8",
+                        newline="\n")
+        rc = grade.grade(ceil, 10, published=False, max_words=40)
+        check("grade enforces a max-words ceiling",
+              any("the limit for this post is 40" in m for _, _, m in rc.rows))
 
         # The template must pass its own front-matter check.
         tmpl = ROOT / "assets" / "blog-template.md"
@@ -128,6 +150,22 @@ def offline_checks() -> None:
           page.count("<br/>") == 1)
     check("gdoc renders the front matter as a table",
           'class="meta"' in page)
+    check("gdoc sets line height 1", "line-height: 1;" in page)
+
+    # A local image becomes a sized data URI, a remote one keeps its URL.
+    with tempfile.TemporaryDirectory() as td:
+        from PIL import Image
+        Image.new("RGB", (1200, 600), "#11206D").save(Path(td) / "a.png")
+        md_img = ("# T\n\n![Alt that proves a point](a.png)\n\n"
+                  "![Remote](https://example.com/r.png)\n")
+        _, pg = gdoc.convert(md_img, "t", Path(td))
+        check("gdoc embeds a local image as a data URI",
+              'src="data:image/png;base64,' in pg)
+        check("gdoc sizes a wide image to 620 px",
+              'width="620" height="310"' in pg)
+        check("gdoc keeps the alt text", 'alt="Alt that proves a point"' in pg)
+        check("gdoc leaves a remote image alone",
+              'src="https://example.com/r.png"' in pg)
 
     # The slop wrapper's suppression rule.
     lines = ["## TL;DR", "", "Body text; with a real semicolon."]
@@ -161,7 +199,8 @@ def offline_checks() -> None:
 
     # Every script parses and answers --help.
     for s in ("refresh_sources", "fetch_md", "grade", "verify_links",
-              "to_gdoc_html", "slop"):
+              "to_gdoc_html", "slop", "push_gdoc", "images", "gates",
+              "new_draft", "extract_text"):
         p = subprocess.run([sys.executable, str(HERE / f"{s}.py"), "--help"],
                            capture_output=True, text=True)
         check(f"{s}.py runs", p.returncode == 0, p.stderr.strip()[:60])
