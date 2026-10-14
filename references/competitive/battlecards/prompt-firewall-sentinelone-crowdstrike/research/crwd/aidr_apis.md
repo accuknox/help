@@ -1,0 +1,1 @@
+Error: Rate limit exceeded. Consumed (req/min): 32, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 4s, resets at Tue Oct 13 2026 16:35:21 GMT+0000 (Coordinated Universal Time)
