@@ -1,0 +1,406 @@
+{
+  "majorDimension": "ROWS",
+  "range": "'ASPM Comparison'!A1:E66",
+  "values": [
+    [
+      "ASPM Comparison: AccuKnox vs. Snyk vs. Veracode"
+    ],
+    [],
+    [
+      "✓ Yes - Confirmed capability  ✗ No - not available  △ Partial - in a limited form"
+    ],
+    [
+      "",
+      "AccuKnox",
+      "Snyk",
+      "Veracode",
+      "Checkmarx"
+    ],
+    [
+      "A. ASPM (Core Platform)"
+    ],
+    [
+      "Centralized findings across SAST, DAST, SCA, Container, IaC, Secret and API with SARIF ingestion and deduplication",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Risk prioritization using CVSS, EPSS, CISA KEV and runtime-verified exploitability",
+      "✓ Yes ",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Customer-configurable Rule Engine for automated status changes, ticket creation and notifications",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "△ Partial "
+    ],
+    [
+      "Granular RBAC, SAML 2.0 SSO/OIDC (Azure AD, Okta, Auth0) and multi-tenancy",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial "
+    ],
+    [
+      "Audit trail logging actor, timestamp, component, action and result with raw-JSON drill-down",
+      "✓ Yes – EventTrail",
+      "△ Partial",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "B. SAST"
+    ],
+    [
+      "Programming Language Support",
+      "✓ Yes – incl. IaC and markup",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes – 20+ languages"
+    ],
+    [
+      "CI/CD integration with GitHub, GitLab, Jenkins, Azure DevOps, Bitbucket, CircleCI, AWS CodePipeline, Google Cloud Build, Harness",
+      "✓ Yes – 9 platforms",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes – 9+ platforms"
+    ],
+    [
+      "Custom rule creation without vendor professional services dependency",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✓ Yes – CxQL + AI Query Builder"
+    ],
+    [
+      "Secret scanning for hardcoded passwords, API keys, tokens and private keys in source and config files",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "✓ Yes – 170+ secret types"
+    ],
+    [
+      "Finding lifecycle with sticky statuses: Active, Waiting, Fixed, Duplicate, Accepted Risk, Exception Requested",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "C. DAST"
+    ],
+    [
+      "Scan profiles: Baseline, Standard, Extended and Comprehensive with configurable crawl depth/duration",
+      "✓ Yes ",
+      "△ Partial",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "MFA/TOTP-aware authenticated DAST with live TOTP code generation and Logged In/Out/Fallback session states",
+      "✓ Yes – live TOTP mid-scan",
+      "△ Partial",
+      "✓ Yes",
+      "✓ Yes – TOTP, SSO, custom sessions"
+    ],
+    [
+      "Vulnerability coverage: SQLi, NoSQLi, CMDi, SSTI, XXE, SSRF, path traversal, CSRF, broken access control",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Auto-progress findings Active → Waiting → Fixed on clean rescans with one-click Jira/ServiceNow ticketing",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "△ Partial "
+    ],
+    [
+      "D. SCA & SBOM"
+    ],
+    [
+      "SBOM generation and export in SPDX 2.3 and CycloneDX",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Dependency graph showing direct and transitive dependencies with path to each vulnerable component",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes – incl. reachability"
+    ],
+    [
+      "Vulnerability intelligence enrichment from NVD, CISA KEV, MSRC, GitHub PoC, EPSS and CWE",
+      "✓ Yes – 12-hour sync",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "License compliance classified as Permissive, Weak Copyleft, Strong Copyleft, Banned with CI/CD gating",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "SBOM version comparison to flag newly introduced or removed components across scans",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "E. Container & Registry Scanning"
+    ],
+    [
+      "Registry onboarding for Docker Hub, ECR, GCR, ACR, JFrog, Harbor, Quay and Nexus via dedicated dashboard",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes "
+    ],
+    [
+      "CRON-based scheduled scans per registry with scan-on-save and tag-pattern filtering",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial"
+    ],
+    [
+      "Registry scan dashboard with Vulnerabilities, Resources, Sensitive Data and Layers tabs",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "Air-gapped / isolated registry support for self-hosted JFrog and similar in segmented networks",
+      "✓ Yes",
+      "△ Partial",
+      "✗ No",
+      "△ Partial "
+    ],
+    [
+      "F. API Security"
+    ],
+    [
+      "API discovery analyzing live traffic to surface Shadow, Zombie and Orphan APIs",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✓ Yes "
+    ],
+    [
+      "Spec ingestion: OpenAPI/Swagger, Postman Collections; REST, gRPC native, SOAP/GraphQL via DAST",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial",
+      "△ Partial"
+    ],
+    [
+      "OWASP API Top 10 mapping including BOLA, broken auth, excessive data exposure, misconfiguration",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "Continuous sensitive data detection (PII, PHI, financial) in API request/response payloads and headers",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No"
+    ],
+    [
+      "Gateway / service mesh integrations: AWS API GW, Istio, Kong, F5, NGINX, Azure API Management",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No"
+    ],
+    [
+      "Configurable rate-limiting at per-user/IP, global user/IP and global-service levels",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No "
+    ],
+    [
+      "G. CWPP / Runtime Security"
+    ],
+    [
+      "Runtime enforcement via KubeArmor (CNCF) with eBPF/LSM for inline kernel-level mitigation",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No"
+    ],
+    [
+      "Workload protection across Kubernetes, VMs, containers, serverless and edge/IoT",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No"
+    ],
+    [
+      "Declarative Zero Trust policies that isolate workloads and block lateral movement inline",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No"
+    ],
+    [
+      "Runtime telemetry, container forensics and drift detection correlated with build-time findings",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "✗ No"
+    ],
+    [
+      "H. Compliance & Reporting"
+    ],
+    [
+      "35+ prebuilt compliance frameworks: PCI DSS, ISO 27001, SOC 2, HIPAA, NIST, STIG, MAS TRM, DPDP, SEBI CSCRF",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "△ Partial "
+    ],
+    [
+      "GRC Evidence Packages with timestamped compliance evidence exportable in PDF, CSV and JSON",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes",
+      "△ Partial"
+    ],
+    [
+      "Enterprise dashboards spanning application, business-unit and organization level with SLA metrics",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "I. Deployment Models"
+    ],
+    [
+      "Full SaaS delivery with complete feature set",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Self-hosted, AWS On-Prem/Hybrid and Managed OEM/MSSP models",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial",
+      "△ Partial"
+    ],
+    [
+      "Full on-premises / air-gapped deployment with customer-controlled vulnerability-DB updates",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "△ Partial "
+    ],
+    [
+      "J. Integration Methods & xBOM"
+    ],
+    [
+      "CLI-based: knoxctl (cross-platform incl. Windows) + Python ASPM Scanner CLI for pre-commit scans",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Native CI/CD components for 9 platforms with configurable soft-fail/hard-fail gating",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Full browser console to onboard registries, APIs, DAST targets and SBOM projects without CLI",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "xBOM suite: SBOM, HBOM, CBOM (PQC readiness), QBOM and AI-BOM across 12 BOM use cases incl. SLSA provenance",
+      "✓ Yes",
+      "✗ No",
+      "✗ No",
+      "△ Partial – SBOM + new AI-BOM only"
+    ],
+    [
+      "K. Unified Findings Page"
+    ],
+    [
+      "Single findings page for all scan types with consistent evidence layout",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes"
+    ],
+    [
+      "Built-in Ask AI to explain any finding's vulnerability, impact and remediation on the findings page",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial",
+      "✓ Yes "
+    ],
+    [
+      "One-click Create Ticket to Jira/ServiceNow with severity-to-priority mapping and default assignee",
+      "✓ Yes",
+      "△ Partial",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "L. Integrations (Messaging, CI/CD, Ticketing, IDE)"
+    ],
+    [
+      "Native Slack alerts plus generic Webhook for Teams, email, SIEM/SOAR",
+      "✓ Yes",
+      "△ Partial",
+      "✗ No",
+      "✓ Yes – Slack + Teams"
+    ],
+    [
+      "CI/CD integrations:",
+      "✓ Yes",
+      "✓ Yes ",
+      "✓ Yes ",
+      "✓ Yes"
+    ],
+    [
+      "Ticketing: native Jira Cloud and ServiceNow with Rule Engine auto-ticketing",
+      "✓ Yes",
+      "✓ Yes",
+      "△ Partial",
+      "✓ Yes"
+    ],
+    [
+      "IDE: VS Code, Cursor, IntelliJ with SAST/SCA/secrets/IaC/ML/container, AI remediation, AI chat, pluggable scanners",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes",
+      "✓ Yes "
+    ]
+  ]
+}

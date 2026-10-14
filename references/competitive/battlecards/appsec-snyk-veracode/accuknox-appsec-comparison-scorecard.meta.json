@@ -1,0 +1,16 @@
+{
+  "title": "AccuKnox AppSec Comparison Scorecard",
+  "file": "accuknox-appsec-comparison-scorecard.pdf",
+  "kind": "score",
+  "vendors": [
+    "AccuKnox",
+    "Snyk",
+    "Veracode",
+    "Checkmarx"
+  ],
+  "category": "appsec",
+  "capabilities": 51,
+  "pages": 7,
+  "built": "2026-10-13",
+  "sheet_url": "https://docs.google.com/spreadsheets/d/1hbJFz14lS7VCQk34PP9wZFCKFYpN2drOlPs_lJkTtVM/edit"
+}

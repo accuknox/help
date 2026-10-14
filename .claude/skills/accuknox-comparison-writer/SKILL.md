@@ -207,6 +207,45 @@ with the PDF path, the page count, and every AccuKnox claim from tier I or tier 
 in `references/source-of-truth/ai-security-data-points.md`, as `R1`, `R2` and on. Write to a new
 file name. Never overwrite the PDF the user attached.
 
+## Every Comparison File Has One Folder
+
+Read `references/competitive/INDEX.md` first and look for the same competitor. Write to the
+folder in this table, never anywhere else.
+
+| You are making | Folder |
+| --- | --- |
+| A page draft for the accuknox.com hub | `references/drafts/comparison/<slug>.md` |
+| An ASPM versus page copy | `references/competitive/aspm-comparisons/` |
+| A 4-page sales battlecard PDF | `references/competitive/battlecards/<competitor>/battlecard/` |
+| A detailed capability comparison PDF, many rows | `references/competitive/battlecards/<set>/`, built with the shared engine |
+| A comparison workbook | `references/competitive/battlecards/` |
+| Competitor teardowns and PRD research | `references/product-research/` |
+
+After any change run `python references/competitive/build_index.py`.
+
+## Detailed Comparison PDFs Use the Shared Engine
+
+A comparison with 30 or more capability rows, sent to a prospect as a PDF, uses the shared engine.
+It is a different format from the 4-page battlecard in `references/battlecard-pdf.md`. Never
+hand-build one, because the cover, type and layout must match the other detailed PDFs.
+
+- Engine: `references/competitive/pdf-engine/engine.py`. Its `README.md` has the steps.
+- Set folder: `references/competitive/battlecards/<set>/`. Copy `appsec-snyk-veracode/`.
+- Final PDFs sit in the set folder, in lowercase kebab-case, beside their `.meta.json`.
+- Check competitor claims against the vendor's own current docs before building. A sheet goes
+  stale: two Snyk ratings in the first set were wrong until checked.
+- Never put a footer note on the PDF. Competitor claims still need a source link in `sources`.
+
+The fixed template for these PDFs. Do not change it per comparison.
+
+1. Size and type: A4. Space Grotesk for headings, Hanken Grotesk for body. Navy `#11206D`, brand blue `#0046FF`.
+2. Page 1 is a full-bleed navy cover with no header or footer. It holds the AccuKnox logo, an eyebrow line, the title (`AccuKnox vs <Vendor>`, or a scorecard title), a one-sentence scope line, one factual sentence ("AccuKnox documents N of M capabilities in full") and a coverage strip with one mark per capability, grouped by area letter.
+3. Body page 1 holds the summary: coverage bars, then four numbered AccuKnox differentiators each with a mini strip, then a "Where <Vendor> is strong" box. The competitor always gets an honest strengths box.
+4. Then one table per area, full width. Head-to-head columns are Capability, AccuKnox, Vendor, each with a Yes, Partial or No chip. A scorecard has one chip column per vendor and a short AccuKnox detail line.
+5. The last page holds "How we scored", the competitor source links and a "See it on your stack" call to action.
+6. Header carries the small logo and the title. Footer carries the page number only.
+7. Ratings: Yes means documented, Partial means a limited form, No means not found in public docs. Each override of a source sheet goes in the set's `README.md` with its URL.
+
 ## What the template already adds
 
 WordPress injects the testimonial carousel, the `See How Customers Accelerate

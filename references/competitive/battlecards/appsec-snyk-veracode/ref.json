@@ -1,0 +1,375 @@
+{
+  "majorDimension": "ROWS",
+  "range": "'Accuknox-reference'!A1:D67",
+  "values": [
+    [
+      "No.",
+      "Section / Capability",
+      "Reference Page",
+      "URL"
+    ],
+    [
+      "A. ASPM (Core Platform)"
+    ],
+    [
+      "1",
+      "ASPM Overview",
+      "ASPM Overview & Architecture",
+      "https://help.accuknox.com/how-to/aspm-overview/"
+    ],
+    [
+      "2",
+      "Unified Findings & Lifecycle",
+      "Findings Lifecycle Management",
+      "https://help.accuknox.com/use-cases/findings/"
+    ],
+    [
+      "3",
+      "Rule Engine & Policy Automation",
+      "Rules Engine – Use Cases",
+      "https://help.accuknox.com/use-cases/rules-engine/"
+    ],
+    [
+      "4",
+      "RBAC & Multi-Tenancy",
+      "Multi-Tenancy, RBAC & User Management",
+      "https://help.accuknox.com/resources/multitenancy/"
+    ],
+    [
+      "5",
+      "Audit Trail (EventTrail)",
+      "Audit Trail Logs for Alerts",
+      "https://help.accuknox.com/getting-started/audit-trail-logs/"
+    ],
+    [
+      "6",
+      "DevSecOps / CI-CD Overview",
+      "DevSecOps Integration Guide",
+      "https://help.accuknox.com/getting-started/devsecops/"
+    ],
+    [
+      "7",
+      "Enterprise Architecture",
+      "AccuKnox Enterprise Architecture",
+      "https://help.accuknox.com/getting-started/accuknox-arch/"
+    ],
+    [
+      "B. SAST"
+    ],
+    [
+      "8",
+      "SAST – GitHub Actions",
+      "GitHub SAST Integration",
+      "https://help.accuknox.com/integrations/github-sast/"
+    ],
+    [
+      "9",
+      "SAST – GitLab CI",
+      "GitLab SAST Integration",
+      "https://help.accuknox.com/integrations/gitlab-sast/"
+    ],
+    [
+      "10",
+      "SAST – Jenkins",
+      "Jenkins SAST Plugin",
+      "https://help.accuknox.com/integrations/jenkins-sast/"
+    ],
+    [
+      "11",
+      "SAST – Azure DevOps",
+      "Azure DevOps SAST Extension",
+      "https://help.accuknox.com/integrations/azure-sast/"
+    ],
+    [
+      "12",
+      "SAST – Bitbucket Pipelines",
+      "Bitbucket SAST Integration",
+      "https://help.accuknox.com/integrations/bitbucket-sast/"
+    ],
+    [
+      "13",
+      "SAST – CircleCI",
+      "CircleCI SAST Integration",
+      "https://help.accuknox.com/integrations/circleci-sast/"
+    ],
+    [
+      "14",
+      "SAST – AWS CodePipeline",
+      "AWS CodePipeline SAST",
+      "https://help.accuknox.com/integrations/aws-sast/"
+    ],
+    [
+      "15",
+      "SAST – Google Cloud Build",
+      "Google Cloud Build SQ-SAST",
+      "https://help.accuknox.com/integrations/google-sast/"
+    ],
+    [
+      "16",
+      "SAST with Opengrep",
+      "SAST with Opengrep & AccuKnox",
+      "https://help.accuknox.com/use-cases/sast-sq/"
+    ],
+    [
+      "17",
+      "Secret Scanning – GitHub Actions",
+      "Secret Scanning in GitHub Actions",
+      "https://help.accuknox.com/use-cases/github-secret-scan/"
+    ],
+    [
+      "18",
+      "Secret Scanning – CI/CD (AWS)",
+      "Preventing AWS Key Leaks",
+      "https://help.accuknox.com/use-cases/secret-scan-cicd-aws/"
+    ],
+    [
+      "19",
+      "Secret Scanning – Jenkins",
+      "Jenkins Secret Scan Plugin",
+      "https://help.accuknox.com/integrations/jenkins-secret-scan/"
+    ],
+    [
+      "C. DAST"
+    ],
+    [
+      "20",
+      "DAST Scan Types",
+      "DAST Scan Types (Baseline–Comprehensive)",
+      "https://help.accuknox.com/how-to/dast-scan-types/"
+    ],
+    [
+      "21",
+      "DAST Authenticated Scan",
+      "DAST Authenticated Scan Setup",
+      "https://help.accuknox.com/use-cases/dast-authenticated/"
+    ],
+    [
+      "22",
+      "MFA-Enabled DAST",
+      "MFA-Enabled Application DAST Scan",
+      "https://help.accuknox.com/use-cases/mfa-dast/"
+    ],
+    [
+      "23",
+      "DAST XSS Mitigation",
+      "DAST-Driven XSS Mitigation",
+      "https://help.accuknox.com/use-cases/dast-xss/"
+    ],
+    [
+      "24",
+      "DAST – GitHub Actions",
+      "GitHub DAST Integration",
+      "https://help.accuknox.com/integrations/github-dast/"
+    ],
+    [
+      "25",
+      "DAST – GitLab CI",
+      "GitLab DAST Variables",
+      "https://help.accuknox.com/integrations/gitlab-dast-variables/"
+    ],
+    [
+      "26",
+      "DAST – Jenkins",
+      "Jenkins DAST Plugin",
+      "https://help.accuknox.com/integrations/jenkins-dast/"
+    ],
+    [
+      "27",
+      "DAST – Azure DevOps",
+      "Azure DevOps DAST Extension",
+      "https://help.accuknox.com/integrations/azure-dast/"
+    ],
+    [
+      "28",
+      "DAST – Bitbucket Pipelines",
+      "Bitbucket DAST Variables",
+      "https://help.accuknox.com/integrations/bitbucket-dast-variables/"
+    ],
+    [
+      "29",
+      "DAST – Harness",
+      "Harness DAST Integration",
+      "https://help.accuknox.com/integrations/harness-dast/"
+    ],
+    [
+      "30",
+      "DAST – Google Cloud Build",
+      "Google Cloud Build DAST",
+      "https://help.accuknox.com/integrations/google-dast/"
+    ],
+    [
+      "D. SCA & SBOM"
+    ],
+    [
+      "31",
+      "SBOM Overview & Projects",
+      "SBOM Getting Started",
+      "https://help.accuknox.com/getting-started/sbom/"
+    ],
+    [
+      "32",
+      "SBOM FAQs",
+      "SBOM FAQs",
+      "https://help.accuknox.com/faqs/sbom/"
+    ],
+    [
+      "33",
+      "SCA – Checkmarx Integration",
+      "Checkmarx SCA Integration",
+      "https://help.accuknox.com/integrations/checkmarx-sca/"
+    ],
+    [
+      "34",
+      "SCA – Checkmarx (Full Suite)",
+      "Checkmarx SAST/SCA/KICS/Container",
+      "https://help.accuknox.com/integrations/checkmarx/"
+    ],
+    [
+      "E. Container & Registry Scanning"
+    ],
+    [
+      "35",
+      "Registry Scanning Overview",
+      "Container Registry Overview",
+      "https://help.accuknox.com/how-to/registry-overview/"
+    ],
+    [
+      "36",
+      "Registry Support Matrix",
+      "Registry Scanning Support Matrix",
+      "https://help.accuknox.com/support-matrix/registry/"
+    ],
+    [
+      "37",
+      "Docker Hub Onboarding",
+      "Docker Hub Registry Onboarding",
+      "https://help.accuknox.com/how-to/dockerhub/"
+    ],
+    [
+      "38",
+      "Container Scan – Azure DevOps",
+      "Container Image Scan (Azure DevOps)",
+      "https://help.accuknox.com/integrations/azure-container-scan/"
+    ],
+    [
+      "39",
+      "Container Scan – Checkmarx",
+      "Checkmarx Container Integration",
+      "https://help.accuknox.com/integrations/checkmarx-container/"
+    ],
+    [
+      "F. API Security"
+    ],
+    [
+      "40",
+      "API Security Overview",
+      "API Security FAQs",
+      "https://help.accuknox.com/faqs/"
+    ],
+    [
+      "41",
+      "API Security – Use Cases",
+      "API Security Use Cases",
+      "https://help.accuknox.com/use-cases/aspm/"
+    ],
+    [
+      "G. CWPP / Runtime Security"
+    ],
+    [
+      "42",
+      "KubeArmor Overview",
+      "What is KubeArmor?",
+      "https://help.accuknox.com/open-source/what-is-kubearmor/"
+    ],
+    [
+      "43",
+      "KubeArmor on VM/Bare-Metal",
+      "KubeArmor on VM/Bare-Metal",
+      "https://help.accuknox.com/open-source/kubearmor-vm/"
+    ],
+    [
+      "44",
+      "Runtime – HashiCorp Vault",
+      "HashiCorp Vault Hardening",
+      "https://help.accuknox.com/use-cases/hashicorp/"
+    ],
+    [
+      "45",
+      "Runtime – Cryptojacking Prevention",
+      "Cryptojacking Prevention",
+      "https://help.accuknox.com/use-cases/crypto-mining/"
+    ],
+    [
+      "46",
+      "Runtime – DVWA Protection",
+      "Damn Vulnerable Web App Protection",
+      "https://help.accuknox.com/getting-started/dvwa/"
+    ],
+    [
+      "47",
+      "Runtime – Audit & Log Mgmt",
+      "Auditing & Log Management",
+      "https://help.accuknox.com/use-cases/vm-audit-log/"
+    ],
+    [
+      "H. Compliance & Reporting"
+    ],
+    [
+      "48",
+      "ASPM Report (Sample)",
+      "ASPM Report – Sample PDF",
+      "https://help.accuknox.com/use-cases/aspm-report-sample.pdf"
+    ],
+    [
+      "49",
+      "GRC & Compliance FAQs",
+      "Compliance & Auditing FAQs",
+      "https://help.accuknox.com/faqs/"
+    ],
+    [
+      "I. Deployment Models"
+    ],
+    [
+      "50",
+      "Deployment & Architecture FAQs",
+      "Deployment & Architecture FAQs",
+      "https://help.accuknox.com/faqs/"
+    ],
+    [
+      "J. Integration Methods & xBOM"
+    ],
+    [
+      "51",
+      "LLM / AI-BOM Static Scans",
+      "LLM Static Scans",
+      "https://help.accuknox.com/how-to/llm-static-scan/"
+    ],
+    [
+      "L. Integrations (Ticketing, Messaging, IDE)"
+    ],
+    [
+      "52",
+      "Jira Cloud Integration",
+      "Jira Cloud Integration Guide",
+      "https://help.accuknox.com/integrations/jira-cloud/"
+    ],
+    [
+      "53",
+      "ServiceDesk Plus Integration",
+      "ServiceDesk Plus (SDP) Integration",
+      "https://help.accuknox.com/integrations/servicedesk-plus/"
+    ],
+    [
+      "54",
+      "AccuKnox Platform Overview",
+      "AccuKnox Platform Overview",
+      "https://help.accuknox.com/getting-started/accuknox/"
+    ],
+    [
+      "55",
+      "Release Notes",
+      "Release Notes",
+      "https://help.accuknox.com/getting-started/1-5-release/"
+    ]
+  ]
+}

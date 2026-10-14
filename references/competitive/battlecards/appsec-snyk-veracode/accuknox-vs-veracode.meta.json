@@ -1,0 +1,14 @@
+{
+  "title": "AccuKnox vs Veracode",
+  "file": "accuknox-vs-veracode.pdf",
+  "kind": "vs",
+  "vendors": [
+    "AccuKnox",
+    "Veracode"
+  ],
+  "category": "appsec",
+  "capabilities": 51,
+  "pages": 9,
+  "built": "2026-10-13",
+  "sheet_url": "https://docs.google.com/spreadsheets/d/1hbJFz14lS7VCQk34PP9wZFCKFYpN2drOlPs_lJkTtVM/edit"
+}
