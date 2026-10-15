@@ -1,6 +1,6 @@
 ---
-title: Damn Vulnerable Web Applications
-description: Learn how to secure Damn Vulnerable Web Application (DVWA) using AccuKnox CWPP to identify and block security vulnerabilities effectively.
+title: DVWA (Damn Vulnerable Web Application) on Kubernetes
+description: Deploy DVWA (Damn Vulnerable Web Application) on Kubernetes, test SQL injection and command injection attacks, and block them with AccuKnox CWPP.
 ---
 
 # Damn Vulnerable Web Applications with AccuKnox CWPP
