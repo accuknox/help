@@ -142,6 +142,8 @@ Every workload moves through the same eight steps, from first onboarding to a fu
 - Policy-based hardening
 - Admission controller validation
 - Zero-day attack mitigation
+- Network policy enforcement at L3 and L4 for ingress and egress, with DNS-based egress rules. See [KubeArmor Network Enforcement](../getting-started/3.5-release.md#kubearmor-network-enforcement)
+- Kernel-level DNS enforcement with `matchDNSQueries`. See [KubeArmor Updates](../getting-started/3.6-release.md#kubearmor-updates)
 
 
 !!! info

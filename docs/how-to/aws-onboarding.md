@@ -41,6 +41,9 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 In this example we are onboarding AWS account using the Access Keys method.
 
+!!! tip "Onboard without access keys"
+    For a standalone AWS account, you can choose **STS Assume Role - External ID** as the connection method instead. Click **Launch CloudFormation Stack**, paste the IAM role ARN the stack produces, then click **Verify & Connect**. AccuKnox stores no long-lived keys. See [Simplified AWS Account Onboarding](../getting-started/3.6-release.md#simplified-aws-account-onboarding).
+
 **Step 1:** To onboard Cloud Account Navigate to *Settings → Cloud Accounts*
 
 ![image](images/cloud-onboarding-1.png)

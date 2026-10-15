@@ -84,6 +84,9 @@ The Prompt Firewall works with all major LLM providers and deployment models:
 
 ![Supported managed and on-premise AI deployments](./images/ai-overview/1.png)
 
+!!! tip "Cover employee use of public AI assistants"
+    The Gen AI browser plugin blocks policy-breaking prompts in ChatGPT, Claude, Gemini, GitHub Copilot, and Microsoft Copilot. Add the **Attachment Type** scanner to a policy to deny uploads by file extension. The plugin sends only the extension, never the file. See [Gen AI Prompt Firewall](../getting-started/3.6-release.md#gen-ai-prompt-firewall-browser-plugin-and-attachments) and the [Chrome browser integration](../integrations/chrome-browser-integration.md).
+
 ## SDK Integration (Python)
 
 For applications that need programmatic integration, AccuKnox provides a Python SDK that wraps your existing LLM calls with prompt and response scanning.

@@ -112,6 +112,8 @@ hide:
 - CI/CD pipeline security integration
 - Context-driven risk prioritization
 - End-to-end security coverage
+- GitHub Actions pipeline auditing with the Pipeline Auditor collector. See [Pipeline Auditor Scan](../getting-started/3.5-release.md#pipeline-auditor-scan-for-github-actions)
+- SCA scans of uploaded build artifacts. See [SCA Artifact Upload Collector](../getting-started/3.5-release.md#sca-artifact-upload-collector)
 - Continuous security posture monitoring
 
 ### **Advanced Scanning Capabilities**

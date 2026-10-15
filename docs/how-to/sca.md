@@ -7,6 +7,9 @@ description: Configure Software Composition Analysis (SCA) scans in AccuKnox usi
 
 AccuKnox Software Composition Analysis (SCA) enables you to scan application dependencies and identify **known vulnerabilities (CVEs)** in open-source libraries. By integrating with source code repositories like GitHub, GitLab and BitBucket, AccuKnox analyzes dependency files present in the repositories to provide visibility into security risks and outdated components.
 
+!!! tip "Scan build artifacts without a repository"
+    SCA also accepts uploaded artifacts, such as `jar`, `war`, `exe`, `dll`, `zip`, and `tar.gz` files. No repository connection is required. You can upload once and rescan on a schedule. See [SCA Artifact Upload Collector](../getting-started/3.5-release.md#sca-artifact-upload-collector).
+
 ---
 
 ## Configuration Steps

@@ -29,6 +29,12 @@ User can click on any Compliance Program or there Sub-control which will navigat
 -   **Detailed View**: A filtered view of the  **Misconfigurations**  page that shows resources with misconfigurations for the selected Compliance Program.
 ![compliance-grc-accuknox](images/compliane-detailed-view.png)
 
+## Score Against SAMA and Report Across Accounts
+
+The Saudi Central Bank's SAMA Cyber Security Framework is a supported CSPM framework for AWS accounts. Select it on the Compliance page to see the score and drill into each control. See [SAMA Cyber Security Framework](../getting-started/3.6-release.md#sama-cyber-security-framework).
+
+Cloud Compliance reports run in two modes. You can scan one cloud account against several frameworks, or one framework across several cloud accounts. See [CSPM: Multi-Account Compliance Reports](../getting-started/3.5-release.md#cspm-multi-account-compliance-reports).
+
 ## Compliance Support Matrix
 
 | AWS | Azure | GCP |

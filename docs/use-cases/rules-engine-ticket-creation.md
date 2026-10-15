@@ -51,3 +51,12 @@ A ticketing platform integrated to AccuKnox with a ticketing configuration creat
 ![image-20241113-043802.png](./images/rules-engine-ticket-creation/7.png)
 
 The rule has been created successfully and will create tickets for all findings that match the condition.
+
+## Group Findings Under a Parent Ticket
+
+The **Create Ticket** action has an optional **Parent** field. Pick a field to group by, and its value becomes the parent ticket name.
+
+- On the first run, the Rule Engine creates the parent ticket.
+- On every later run, it attaches new findings to that parent.
+
+In Jira, the parent becomes a Story or an Epic and each finding becomes a task or sub-task. Grouping keys include Status, Location, Asset Name, Asset Type, Label, Vulnerability Name, Data Type, Risk Factor, and Unique Vulnerability Name. See [Smart Tickets: Parent-Child Automation](../getting-started/3.6-release.md#smart-tickets-parent-child-automation).
