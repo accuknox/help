@@ -50,6 +50,10 @@ The cloud AI pipeline view shows discovered managed assets with their metadata, 
     - [Azure AI/ML Cloud Onboarding](../how-to/aiml-azure-onboard.md)
     - [GCP AI/ML Cloud Onboarding](../how-to/aiml-gcp-onboard.md)
 
+### Managed AI agents
+
+The cloud path also discovers cloud-managed AI agents. Supported sources are Microsoft Copilot Studio, Microsoft 365 Agents, Azure AI Foundry, AWS Bedrock AgentCore, and AWS Bedrock Agent. Each agent shows its source cloud, deployment status, and finding counts. The detail pane shows memory configuration, IAM role, and attached knowledge bases. See [AI App Inventory](../getting-started/3.5-release.md#ai-app-inventory-managed-agents-models-and-unmanaged-assets).
+
 ## On-Prem Discovery
 
 On-prem assets appear under the **Unmanaged** tab. Discovery is scanner-driven. AccuKnox runs a VM scanner on virtual machine hosts and an in-cluster scanner inside Kubernetes. Both read the deployed and running state on the host or cluster directly, so results reflect live infrastructure rather than a declared manifest.

@@ -7,6 +7,9 @@ description: Understand all AccuKnox DAST scan types — Baseline, Standard, Ext
 
 AccuKnox DAST uses an automation-driven scanning framework to perform dynamic application security testing. Four scan types are available, each controlling three core components: the Traditional Spider, the AJAX Spider, and the Active Scanner. Choose a scan type based on your development stage and the coverage depth you need.
 
+!!! tip "Try AI Pentesting (Beta)"
+    The **AI Dast Scan** collector runs an autonomous AI agent that pentests your web apps and APIs. See [AI Pentesting](ai-pentesting.md).
+
 ![DAST scan categories preview](image-42.png)
 
 ---

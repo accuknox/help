@@ -168,6 +168,9 @@ Onboard a cloud account to discover AI/ML assets and enable red teaming and post
 
 ::/cards::
 
+!!! tip "Red team a model for its purpose"
+    Start a red teaming scan from the **Assets** page. Choose **Intelligent Scan** and describe what the model is for. AccuKnox generates prompts for that purpose, such as medical prompts for a medical assistant. **Static Scan** runs a fixed set of general prompts. The new scan flow covers managed models. See [Intelligent Red Teaming Scans](../getting-started/3.6-release.md#intelligent-red-teaming-scans).
+
 ## Featured Videos
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: auto; font-family: Arial, sans-serif;">

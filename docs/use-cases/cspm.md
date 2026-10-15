@@ -43,6 +43,7 @@ Accuknox helps users by providing continuous compliance, asset inventory, miscon
 - **Continuous Compliance**: Support for 30+ compliance frameworks
 - **Risk Assessment**: Prioritized insights on misconfigurations
 - **Multi-Cloud Platform**: Unified governance across AWS, GCP, Azure
+- **SaaS Posture**: Scan Microsoft 365 tenants against the CIS benchmark. See [Microsoft 365 SSPM Scan](../getting-started/3.6-release.md#microsoft-365-sspm-scan)
 
 ## **Key Capabilities**
 

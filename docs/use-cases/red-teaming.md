@@ -84,6 +84,9 @@ Tests whether the model's instructions can be overridden or its safety filters b
 
 ## How to Run a Red Team Scan
 
+!!! tip "New: Red Teaming Policies (Beta)"
+    Build a reusable policy from a template such as OWASP LLM Top 10, then run it on demand or on a schedule. See [Knox RT Red Teaming Policies](../how-to/knox-rt-red-teaming-policies.md).
+
 ### Step 1: Add an LLM Static Scan Collector
 
 Navigate to **Settings** > **Collectors** > **Add Collector** and select **LLM Static Scan**.

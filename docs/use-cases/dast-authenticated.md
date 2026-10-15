@@ -19,6 +19,9 @@ description: Configure and run authenticated DAST scans in AccuKnox to detect se
 
     - **Preventing false negatives**: Access protected content that unauthenticated crawlers would miss, ensuring comprehensive vulnerability coverage.
 
+!!! tip "Scan applications that use MFA"
+    Choose **Browser Plugin based Recorder** as the login method. You record the login flow once and add your TOTP secret key. See [Authenticated DAST scan with MFA](../getting-started/3.6-release.md#authenticated-dast-scan-with-mfa).
+
 ## Configuration Steps
 
 Follow these steps to configure and run an authenticated DAST scan in AccuKnox:
@@ -100,7 +103,7 @@ Clicking on the findings count will redirect you to the **Findings page** with:
 ## Frequently Asked Questions
 
 ???+ question "What is not supported for DAST auth scan?"
-    We support only Username Password flow. This method does not support 2FA/MFA enabled sites (like, OTP based login etc).
+    The Manual Login method supports only the username and password flow. It does not support MFA-enabled sites, such as OTP-based login. For those sites, use the Browser Plugin based Recorder login with your TOTP secret key. See [Authenticated DAST scan with MFA](../getting-started/3.6-release.md#authenticated-dast-scan-with-mfa).
 
 ???+ question "Why there can be findings count mismatch for same scan?"
     Scans can yield inconsistent results even when the target remains unchanged. This variability is often attributed to how the application is explored, with factors like network speed impacting the traditional and AJAX spiders.

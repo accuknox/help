@@ -42,6 +42,9 @@ AccuKnox Dynamic Application Security Testing (DAST) supports **authenticated sc
 
 **Authentication** — Select **Auth-based**.
 
+!!! tip "Applications with MFA"
+    To scan an application that uses multi-factor authentication, choose **Browser Plugin based Recorder** as the login method. Record the login flow once and add your TOTP secret key. See [Authenticated DAST scan with MFA](../getting-started/3.6-release.md#authenticated-dast-scan-with-mfa).
+
 ### Login Page URL
 
 **Login Page URL** — The URL of the application's login page where the user enters credentials.

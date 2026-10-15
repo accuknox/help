@@ -57,5 +57,13 @@ You can open a ticket and monitor the issue until it is fixed.
 
 [Configuring block public access settings for your S3 buckets - Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/configuring-block-public-access-bucket.html)
 
+## Switch off Checks That Do Not Apply to an Account
+
+Go to **Settings → Checks Management** to turn individual cloud checks on or off per cloud account. You can also change the severity a check reports. The change applies to the Findings page, Findings Summary, Compliance page, and CSPM reports. See [Checks Management](../getting-started/3.6-release.md#checks-management).
+
+## Let Scans Move Findings to Fixed
+
+A cloud finding moves from **Active** to **Waiting for Verification** when one scan finds the problem resolved. It moves to **Fixed** when a second scan agrees. The ticket AccuKnox raised for the finding in Jira or another connected system closes with it. Open the **Status Logs** tab on a finding to see who changed each status and when. See [Findings Lifecycle Automation](../getting-started/3.6-release.md#findings-lifecycle-automation).
+
 - - -
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }

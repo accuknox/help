@@ -76,6 +76,15 @@ When the user clicks one of the assets from the list, they will get detailed inf
 
 AccuKnox SaaS provides the **vulnerability findings** that have **passed or failed** the **baseline compliance** set for the cloud account.
 
+## See How Assets and Findings Connect
+
+The **Security Graph** tab draws the relationships between assets and findings, so you can read the blast radius of one compromised node. You can open it from two places:
+
+- **Asset graph:** Go to **Inventory → Cloud Assets**, open an asset, then select **Security Graph**. The graph centers on that asset and shows related assets and their findings.
+- **Findings graph:** Go to **Issues → Findings**, open a finding, then select **Security Graph**. The graph shows which other assets carry the same finding.
+
+Security Graph is on by default and covers cloud findings on AWS, Azure, and GCP. Run a scan first, because the graph is built from scan data. See [Security Graph](../getting-started/3.6-release.md#security-graph).
+
 ---
 
 [SCHEDULE DEMO](https://www.accuknox.com/contact-us){ .md-button .md-button--primary }
