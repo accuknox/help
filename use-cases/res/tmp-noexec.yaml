@@ -1,0 +1,17 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: ksp-block-exec-inside-tmp
+  namespace: wordpress-mysql
+spec:
+  tags:
+  - config-files
+  message: Alert! Execution attempted inside tmp folder
+  selector:
+    matchLabels:
+      app: wordpress
+  process:
+    matchPatterns:
+    - pattern: /tmp/*
+    - pattern: /var/tmp/*
+  action: Block
