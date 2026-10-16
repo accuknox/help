@@ -3,6 +3,13 @@ title: Cloud Cost of Agentless VM Scanning
 description: Estimate the AWS, Azure and GCP bill for one AccuKnox agentless VM scanner, including usage charges, cross-zone scanning and the per-zone scanner trade-off.
 ---
 
+<!--
+Source notes for reviewers. This comment does not render on the page.
+- Prices: provider price data and pricing pages, checked 2026-10-16. See the Sources section.
+- The resource lists, the `multi-az-support` default of `false`, and the running-versus-stopped VM scan behavior come from the agentless scanner cost draft. The Terraform is not in this repo, so check them against it when the Terraform changes.
+- The GCP snapshot rows assume the scanner sets no snapshot location, so Google's default US multi-region applies. If the Terraform sets a regional location, change the snapshot rate to $0.05 per GiB-month and delete the snapshot upload and download row.
+-->
+
 # Cloud cost of agentless VM scanning
 
 Agentless VM scanning runs a scanner VM inside your own cloud account. Your cloud provider bills you for the resources `terraform apply` creates. One scanner in one region costs about $68 a month on AWS, $67 on Azure and $30 on GCP at list prices. Usage charges come on top. AccuKnox licensing is separate and is not covered here.
