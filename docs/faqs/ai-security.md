@@ -1,6 +1,6 @@
 ---
 title: AI Security FAQs
-description: Frequently asked questions about AccuKnox AI Security — AI-SPM, AI-DR, ModelArmor, LLM Prompt Firewall, Agentic AI Governance, Shadow AI Discovery, MCP Security, and Compliance.
+description: Frequently asked questions about AccuKnox AI Security: AI-SPM, AI-DR, ModelArmor, LLM Prompt Firewall, Agentic AI Governance, Shadow AI Discovery, MCP Security, and Compliance.
 hide:
   - toc
 ---
@@ -10,53 +10,51 @@ hide:
 ## Core AI Security & Platform
 
 ??? "**1. What is AccuKnox AI Security and what does it cover?**"
-    AccuKnox AI Security is a Zero Trust, identity-powered security platform for AI models, agents, data pipelines, and infrastructure. It is built as an integrated module within AccuKnox's CNAPP — not a bolted-on tool — and covers:
+    AccuKnox AI Security is a Zero Trust, identity-powered security platform for AI models, agents, data pipelines and infrastructure. It is built into the AccuKnox CNAPP as an **integrated module**, so it is not a bolted-on tool. It covers seven areas:
 
-    - **AI-SPM**: Continuous discovery, posture management, and misconfiguration detection for AI/ML assets across cloud and on-prem environments.
-    - **AI-DR**: Detection and response for unauthorized AI deployments, misconfigurations, and runtime threats correlated across cloud control planes.
-    - **Prompt Firewall**: Real-time inspection and enforcement on LLM prompts and responses to block injection, jailbreaks, and data leakage.
-    - **ModelArmor**: Protection for AI model artifacts against tampering, theft, and supply chain compromise.
-    - **Agentic AI Security**: Runtime sandboxing, tool-call enforcement, and least-privilege controls for AI agents.
-    - **Automated Red Teaming**: Continuous adversarial simulation against LLMs, ML models, and agentic workflows.
-    - **AI Compliance**: Continuous mapping to NIST AI RMF, EU AI Act, OWASP LLM Top 10, MITRE ATLAS, ISO 42001, and 30+ frameworks.
+    - **AI-SPM**: Discovers AI/ML assets continuously across cloud and on-prem, and manages their posture and misconfigurations.
+    - **AI-DR**: Detects and responds to unauthorized AI deployments, misconfigurations and runtime threats, correlated across cloud control planes.
+    - **Prompt Firewall**: Inspects LLM prompts and responses in real time to block injection, jailbreaks and data leakage.
+    - **ModelArmor**: Protects AI model artifacts against tampering, theft and supply chain compromise.
+    - **Agentic AI Security**: Applies runtime sandboxing, tool-call enforcement and least-privilege controls to AI agents.
+    - **Automated Red Teaming**: Runs continuous adversarial simulation against LLMs, ML models and agentic workflows.
+    - **AI Compliance**: Maps continuously to NIST AI RMF, EU AI Act, OWASP LLM Top 10, MITRE ATLAS, ISO 42001 and 30+ frameworks.
 
     **References:**
 
     - [AI Security Platform Overview](https://accuknox.com/platform/ai-security)
 
 ??? "**2. Which platforms and deployment models does AccuKnox AI Security support?**"
-    AccuKnox AI Security supports a wide range of platforms and environments:
+    AccuKnox AI Security supports **public cloud, private cloud, on-premises, air-gapped and hybrid** deployments:
 
-    - **Public Cloud**: AWS (Bedrock, SageMaker), Azure (AI Foundry, Copilot Studio), GCP (Vertex AI, Gemini)
-    - **Private Cloud and On-Premises**: OpenStack, VMware, Nutanix, bare-metal Kubernetes
-    - **Air-Gapped Environments**: Full module support including AI-SPM, CWPP, KSPM, and GRC with no external connectivity dependency
-    - **Hybrid Deployments**: Consistent enforcement and posture across mixed cloud and on-prem AI workloads
-    - **LLM Providers**: Amazon Bedrock, Gemini, Ollama, vLLM, OpenAI-compatible APIs
-    - **Local/Developer AI Assets**: Ollama instances, LangChain/LangGraph agents, MCP clients and servers, CrewAI, NVIDIA Triton inference servers, vector databases
-    - **Kubernetes and Containers**: Native KubeArmor integration for eBPF/LSM-based enforcement across K8s clusters
+    - **Public Cloud**: AWS (Bedrock, SageMaker), Azure (AI Foundry, Copilot Studio) and GCP (Vertex AI, Gemini).
+    - **Private Cloud and On-Premises**: OpenStack, VMware, Nutanix and bare-metal Kubernetes.
+    - **Air-Gapped Environments**: Full module support, including AI-SPM, CWPP, KSPM and GRC, with no external connectivity dependency.
+    - **Hybrid Deployments**: Consistent enforcement and posture across mixed cloud and on-prem AI workloads.
+    - **LLM Providers**: Amazon Bedrock, Gemini, Ollama, vLLM and OpenAI-compatible APIs.
+    - **Local/Developer AI Assets**: Ollama instances, LangChain/LangGraph agents, MCP clients and servers, CrewAI, NVIDIA Triton inference servers and vector databases.
+    - **Kubernetes and Containers**: Native KubeArmor integration for eBPF/LSM-based enforcement across K8s clusters.
 
     **References:**
 
     - [AI/ML Support Matrix](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
 
 ??? "**3. How does AccuKnox differ from point AI security tools like guardrail-only platforms?**"
-    Most AI security tools operate at only one layer — typically the LLM prompt interface. AccuKnox enforces security across every layer of the AI stack:
+    AccuKnox enforces security at **every layer of the AI stack**. Most AI security tools work at only one layer, usually the LLM prompt interface.
 
-    - **Prompt layer**: Firewall inspects inputs and outputs for injection, jailbreaks, PII, and policy violations.
-    - **Runtime layer**: eBPF/LSM-based KubeArmor enforcement at the kernel level controls process execution, file access, and network egress for AI workloads — something no prompt-only tool can do.
-    - **Infrastructure layer**: CSPM and AI-DR detect misconfigurations, unauthorized deployments, and public exposure of model endpoints across cloud control planes.
-    - **Identity layer**: KIEM maps AI agent entitlements, over-privileged roles, and lateral access paths across cloud and Kubernetes.
-    - **Compliance layer**: Continuous evidence generation against 30+ frameworks — not a quarterly snapshot.
-
+    - **Prompt layer**: The Prompt Firewall inspects inputs and outputs for injection, jailbreaks, PII and policy violations.
+    - **Runtime layer**: KubeArmor enforces eBPF/LSM-based controls at the kernel level. It controls process execution, file access and network egress for AI workloads. A prompt-only tool cannot do this.
+    - **Infrastructure layer**: CSPM and AI-DR detect misconfigurations, unauthorized deployments and publicly exposed model endpoints across cloud control planes.
+    - **Identity layer**: KIEM maps AI agent entitlements, over-privileged roles and lateral access paths across cloud and Kubernetes.
+    - **Compliance layer**: AccuKnox generates evidence continuously against 30+ frameworks, instead of a quarterly snapshot.
 
 ??? "**4. How does AccuKnox reduce false positives in AI security monitoring?**"
-    AccuKnox uses contextual, AI-powered correlation to reduce false positives:
+    AccuKnox reduces false positives by **up to 95%** with contextual, AI-powered correlation tuned for AI/LLM workload patterns. It uses four methods:
 
-    - Policy types are decoupled — regex/keyword policies enforce strictly, while sensitive data classification policies use contextual analysis for improved accuracy.
-    - Runtime behavioral baselines distinguish legitimate AI workload behavior from anomalies.
-    - Alert correlation across prompt, model, API, and infrastructure layers filters noise before surfacing findings.
-    - Users can tune policies per application use case, balancing precision against strict enforcement.
-    AccuKnox's AI-powered correlation reduces false positives by up to 95% through intelligent analysis tuned for AI/LLM workload patterns.
+    - **Decoupled policy types**: Regex and keyword policies enforce strictly. Sensitive data classification policies use contextual analysis for better accuracy.
+    - **Behavioral baselines**: Runtime baselines tell legitimate AI workload behavior apart from anomalies.
+    - **Cross-layer correlation**: AccuKnox correlates alerts across prompt, model, API and infrastructure layers, and filters noise before it shows findings.
+    - **Per-use-case tuning**: You tune policies for each application use case to balance precision against strict enforcement.
 
     **References:**
 
@@ -67,35 +65,35 @@ hide:
 ## AI Asset Discovery & Shadow AI
 
 ??? "**5. How does AccuKnox discover AI assets across multi-cloud environments?**"
-    AccuKnox performs continuous, agentless AI asset discovery across cloud accounts, Kubernetes clusters, and on-prem environments:
+    AccuKnox discovers AI assets **continuously and without agents** across cloud accounts, Kubernetes clusters and on-prem environments.
 
-    - Onboarding a cloud account (AWS, Azure, GCP) triggers automatic inventory of all AI/ML assets — model endpoints, notebooks, MLOps pipelines, datasets, compute instances, and agent toolchains.
-    - Discovery runs continuously, not as a point-in-time scan, so new assets are captured as soon as they are deployed.
-    - All discovered assets are mapped into a unified security graph with lineage, ownership, and risk context.
-    - Unowned, unregistered, or unsanctioned assets are flagged automatically for governance review.
-
+    - **Automatic inventory**: Onboarding an AWS, Azure or GCP account starts an inventory of all AI/ML assets. That includes model endpoints, notebooks, MLOps pipelines, datasets, compute instances and agent toolchains.
+    - **Continuous discovery**: Discovery runs all the time instead of as a point-in-time scan. AccuKnox captures new assets as soon as they deploy.
+    - **Security graph**: AccuKnox maps every discovered asset into one security graph with lineage, ownership and risk context.
+    - **Governance flags**: AccuKnox flags unowned, unregistered or unsanctioned assets for governance review automatically.
 
 ??? "**6. How does AccuKnox provide visibility into Shadow AI?**"
-    AccuKnox addresses Shadow AI through comprehensive auto-discovery and network telemetry:
+    AccuKnox finds Shadow AI with **auto-discovery and network telemetry**:
 
-    - Cloud account onboarding surfaces AI assets not registered in IAM logs or standard cloud inventories.
-    - Network telemetry and outbound traffic analysis detect unauthorized API calls to external LLM services from enterprise endpoints.
-    - Browser extension integration surfaces AI tool usage at the user and session level.
-    - AI-SPM correlates usage with user identity and data access patterns to assess risk exposure.
-    - Policy enforcement can block or alert on unapproved AI services in real time.
-    Shadow AI adds an average of $670K in extra breach costs per IBM's 2025 Data Breach Report. AccuKnox closes this visibility gap before it becomes a liability.
+    - **Cloud onboarding**: Surfaces AI assets that are missing from IAM logs or standard cloud inventories.
+    - **Network telemetry**: Analyzes outbound traffic to detect unauthorized API calls from enterprise endpoints to external LLM services.
+    - **Browser extension**: Shows AI tool usage at the user and session level.
+    - **AI-SPM correlation**: Links usage to user identity and data access patterns to assess risk exposure.
+    - **Policy enforcement**: Blocks or alerts on unapproved AI services in real time.
+
+    Shadow AI adds an average of **$670K in extra breach costs**, according to IBM's 2025 Data Breach Report.
 
     **References:**
 
     - [Defending Against Shadow AI with AccuKnox AI-SPM](https://accuknox.com/blog/defending-against-shadow-ai-accuknox)
 
 ??? "**7. Can AccuKnox detect AI integrations embedded in commercial SaaS tools?**"
-    Yes. AccuKnox identifies embedded AI capabilities within SaaS platforms — copilots, plugins, and third-party AI integrations — through its AI Detection and Response (AI-DR) module:
+    Yes. The **AI Detection and Response (AI-DR)** module finds AI embedded in SaaS platforms. That includes copilots, plugins and third-party AI integrations.
 
-    - Analyzes application behavior, API calls, and data flows to uncover hidden AI usage.
-    - Maps data exposure paths from enterprise systems into embedded AI features.
-    - Flags unauthorized or risky integrations based on governance policies.
-    - Extends visibility into plugin ecosystems and external AI connectors including M365 Copilot, GitHub Copilot, and similar tools.
+    - **Behavior analysis**: Analyzes application behavior, API calls and data flows to uncover hidden AI usage.
+    - **Exposure mapping**: Maps data exposure paths from enterprise systems into embedded AI features.
+    - **Policy flags**: Flags unauthorized or risky integrations based on governance policies.
+    - **Connector visibility**: Covers plugin ecosystems and external AI connectors, including M365 Copilot, GitHub Copilot and similar tools.
 
     **References:**
 
@@ -124,80 +122,83 @@ hide:
 ## AI-DR: Detection and Response
 
 ??? "**9. What is AccuKnox AI-DR and how does it work?**"
-    AccuKnox AI-DR (AI Detection and Response) is a cloud-native detection and response module purpose-built for AI workloads. It correlates signals across cloud control planes, runtime environments, and prompt interactions to detect and respond to AI-specific threats:
+    AccuKnox AI-DR (AI Detection and Response) is a cloud-native detection and response module built for AI workloads. It **correlates signals** across cloud control planes, runtime environments and prompt interactions to detect and respond to AI-specific threats.
 
-    - **Cloud Control Plane Monitoring**: Continuously ingests AWS CloudTrail, Azure Logs, and GCP Logs to detect unauthorized AI deployments, public exposure of model endpoints, and usage in non-approved regions.
-    - **Cross-Layer Correlation**: Links signals from prompts, models, APIs, and infrastructure to reconstruct full attack paths — for example, prompt injection leading to data exfiltration through an agent tool call.
-    - **Automated Response**: Triggers CDR policies and GitOps workflows to restrict access, make exposed assets private, block risky models, or enforce region-specific deployment rules in real time.
-    - **Runtime Behavioral Analysis**: Detects anomalous agent behavior, unexpected outbound connections, privilege escalation, and unauthorized data access at the workload level.
+    - **Cloud Control Plane Monitoring**: Ingests AWS CloudTrail, Azure Logs and GCP Logs continuously. It detects unauthorized AI deployments, publicly exposed model endpoints and usage in non-approved regions.
+    - **Cross-Layer Correlation**: Links signals from prompts, models, APIs and infrastructure to rebuild full attack paths. One example is a prompt injection that leads to data exfiltration through an agent tool call.
+    - **Automated Response**: Triggers CDR policies and GitOps workflows in real time. These restrict access, make exposed assets private, block risky models or enforce region-specific deployment rules.
+    - **Runtime Behavioral Analysis**: Detects anomalous agent behavior, unexpected outbound connections, privilege escalation and unauthorized data access at the workload level.
 
     **References:**
 
     - [AI-DR Use Case](https://help.accuknox.com/use-cases/aidr/)
 
 ??? "**10. Can AccuKnox AI-DR automatically respond to AI security incidents?**"
-    Yes. AccuKnox AI-DR supports automated response through CDR policies and GitOps workflows:
+    Yes. AccuKnox AI-DR responds automatically through **CDR policies and GitOps workflows**:
 
-    - Restrict access to over-exposed model endpoints or sensitive AI datasets.
-    - Make publicly exposed AI assets private automatically upon detection.
-    - Block deployment of risky or non-approved models.
-    - Enforce region-specific deployment policies for compliance with data residency requirements.
-    - Trigger alerts, create tickets in Jira or ServiceNow, and notify via Slack or PagerDuty with full incident context.
-    Response actions are configurable per policy — monitor, alert, or enforce — giving teams control over automation thresholds.
+    - **Restrict access**: Locks down over-exposed model endpoints or sensitive AI datasets.
+    - **Make assets private**: Makes publicly exposed AI assets private as soon as it detects them.
+    - **Block models**: Blocks deployment of risky or non-approved models.
+    - **Enforce regions**: Enforces region-specific deployment policies to meet data residency requirements.
+    - **Notify teams**: Triggers alerts, creates Jira or ServiceNow tickets and notifies Slack or PagerDuty with full incident context.
+
+    You set the response action for each policy: **monitor, alert or enforce**. That gives your team control over automation thresholds.
 
     **References:**
 
     - [AI-DR Use Case](https://help.accuknox.com/use-cases/aidr/)
 
 ??? "**11. Could AccuKnox have detected a multi-layer AI attack chain like the McKinsey chatbot incident?**"
-    Yes. AccuKnox provides end-to-end AI attack surface visibility across prompts, models, APIs, and infrastructure simultaneously:
+    Yes. AccuKnox sees the **AI attack surface** across prompts, models, APIs and infrastructure at the same time.
 
-    - Correlates signals from prompt inputs, model behavior, API calls, and runtime anomalies to detect chained attack sequences.
-    - Uses policy enforcement to flag prompt injection, data exfiltration, and misuse patterns across layers.
-    - Supports cross-layer correlation (AI-SPM + runtime + API security) to reconstruct multi-stage attack paths.
-    - Automated red teaming proactively tests for attack chains before they are exploited in production.
-    In the ZombieAgent attack pattern demonstrated by Radware, AccuKnox's runtime enforcement would block the unauthorized binary execution triggered by the hidden instruction — even when the prompt-layer detection is bypassed.
+    - **Signal correlation**: Correlates prompt inputs, model behavior, API calls and runtime anomalies to detect chained attack sequences.
+    - **Policy enforcement**: Flags prompt injection, data exfiltration and misuse patterns across layers.
+    - **Cross-layer correlation**: Combines AI-SPM, runtime and API security to rebuild multi-stage attack paths.
+    - **Automated red teaming**: Tests for attack chains before attackers exploit them in production.
+
+    Radware demonstrated the ZombieAgent attack pattern. Against that pattern, AccuKnox **runtime enforcement** would block the unauthorized binary execution that the hidden instruction triggers. It would block the binary even when the attack bypasses prompt-layer detection.
 
 ---
 
 ## Prompt Firewall & Data Protection
 
 ??? "**12. How does AccuKnox Prompt Firewall protect LLM applications?**"
-    The AccuKnox Prompt Firewall is a dual-layer policy enforcement engine that inspects both prompt inputs and model responses in real time:
+    The AccuKnox Prompt Firewall inspects both **prompt inputs and model responses** in real time. It is a dual-layer policy enforcement engine.
 
-    - **Input Policies**: Detect and block direct prompt injection, indirect prompt injection, jailbreak attempts, PII/PHI in prompts, embedded credentials, API keys, and harmful content.
-    - **Response Policies**: Inspect model outputs for data leakage, hallucination patterns, policy violations, and regulated content before they reach the end user.
-    - **12+ Policy Categories**: Including toxicity, competitor mentions, regulatory violations, custom business logic, and sensitive data classification.
-    - **Zero Trust Alignment**: Enforces deny-by-default policy posture for LLM interactions — only explicitly allowed content passes through.
-    - **Configurable Actions**: Per-policy actions include monitor, alert, redact, or block, giving teams granular control.
-    The firewall integrates with applications via SDK or API proxy, adding minimal latency overhead while providing kernel-backed enforcement for workloads running in Kubernetes.
+    - **Input Policies**: Detect and block direct and indirect prompt injection, jailbreak attempts, PII/PHI in prompts, embedded credentials, API keys and harmful content.
+    - **Response Policies**: Inspect model outputs for data leakage, hallucination patterns, policy violations and regulated content before they reach the end user.
+    - **12+ Policy Categories**: Include toxicity, competitor mentions, regulatory violations, custom business logic and sensitive data classification.
+    - **Zero Trust Alignment**: Apply a deny-by-default posture to LLM interactions, so only explicitly allowed content passes through.
+    - **Configurable Actions**: Let you set monitor, alert, redact or block for each policy.
+
+    The firewall connects to applications through an **SDK or API proxy** and adds minimal latency overhead. For workloads in Kubernetes, it also provides kernel-backed enforcement.
 
     **References:**
 
     - [Prompt Firewall Use Case](https://help.accuknox.com/how-to/prompt-firewall/)
 
-??? "**13. Does AccuKnox detect and block sensitive data in prompts — PII, API keys, credentials?**"
-    Yes. AccuKnox detects PII, PHI, API keys, credentials, and other sensitive data in both prompts sent to LLMs and responses received from them:
+??? "**13. Does AccuKnox detect and block sensitive data in prompts, such as PII, API keys and credentials?**"
+    Yes. AccuKnox detects **PII, PHI, API keys, credentials and other sensitive data**. It checks both the prompts sent to LLMs and the responses they return.
 
-    - Covers data in transit to external and internal LLMs as well as generated outputs.
-    - Uses pattern matching combined with contextual classification for improved accuracy over static keyword rules.
-    - Configurable actions per data type: monitor, alert, redact inline, or block the request entirely.
-    - Dataset-level PII/PHI scanning extends protection to training data and vector embeddings stored in cloud environments.
-    - Helps prevent data leakage, compliance violations, and accidental exposure of regulated information in real time.
+    - **Coverage**: Covers data in transit to external and internal LLMs, and the generated outputs.
+    - **Detection method**: Combines pattern matching with contextual classification, which is more accurate than static keyword rules.
+    - **Actions**: Lets you monitor, alert, redact inline or block the whole request, for each data type.
+    - **Dataset scanning**: Scans datasets for PII/PHI, which extends protection to training data and vector embeddings in cloud environments.
+    - **Outcome**: Helps prevent data leakage, compliance violations and accidental exposure of regulated information in real time.
 
     **References:**
 
     - [LLM Static Scan](https://help.accuknox.com/how-to/llm-static-scan/)
     - [ML Static Scan](https://help.accuknox.com/how-to/ml-static-scan/)
 
-??? "**14. How does AccuKnox handle false positives in prompt enforcement — for example, a blocked keyword used in a valid context?**"
-    AccuKnox supports distinct policy types to manage this precisely:
+??? "**14. How does AccuKnox handle false positives in prompt enforcement, for example a blocked keyword used in a valid context?**"
+    AccuKnox separates **strict policies from contextual policies**, so you choose how each use case is enforced.
 
-    - **Strict keyword/regex policies** enforce blocking regardless of context — appropriate for high-risk categories like credentials and PII.
-    - **Contextual sensitive data classification policies** use semantic analysis to evaluate intent and context, reducing false positives for ambiguous cases.
-    - Users can configure which policy type applies per use case, balancing precision against strict enforcement requirements.
-    - Policy decoupling means changes to one rule do not affect others — reducing operational risk when tuning.
-    - Audit logs capture every decision with full context, enabling teams to review and refine policies based on real traffic patterns.
+    - **Strict keyword/regex policies**: Block regardless of context. Use them for high-risk categories such as credentials and PII.
+    - **Contextual sensitive data classification policies**: Use semantic analysis of intent and context to reduce false positives in ambiguous cases.
+    - **Per-use-case choice**: Pick which policy type applies to each use case, to balance precision against strict enforcement.
+    - **Policy decoupling**: A change to one rule does not affect the others, which lowers operational risk when you tune.
+    - **Audit logs**: Record every decision with full context, so your team can refine policies from real traffic patterns.
 
 ??? "**15. How do I let an approved offensive-security agent through without the Prompt Firewall blocking it?**"
     Onboard the agent as its own application, then scope your policies by application. Each application gets its own AccuKnox token, so the firewall knows which application sent each prompt. A **Global** policy applies to every application. A **Local** policy applies only to the applications you pick, by name or by tag.
@@ -225,35 +226,35 @@ hide:
 ## Agentic AI Security
 
 ??? "**16. How does AccuKnox secure AI Agents at runtime?**"
-    AccuKnox secures AI agents through multi-layer runtime sandboxing and policy enforcement:
+    AccuKnox secures AI agents at runtime with **multi-layer sandboxing** and policy enforcement.
 
-    - **Local Process Isolation**: Linux Security Modules (LSMs) enforce security policies at the kernel level — controlling process behavior, file access, network connections, and execution permissions for agents running on the host OS. Extremely low overhead, suitable for production environments.
-    - **Remote Container Isolation**: For higher-risk scenarios, AccuKnox routes LLM-generated code or external tool execution to a dedicated, isolated container or remote execution service, preventing malicious code from affecting the host.
-    - **Tool-Call Enforcement**: Every tool or API call initiated by an agent is evaluated against least-privilege policies before execution. Unauthorized tool usage is blocked inline.
-    - **Untrusted Code Sandboxing**: Auto-generated or externally sourced code is executed in a secure sandbox — mitigating RCE, privilege escalation, and resource overload risks.
-    - **Behavioral Monitoring**: Continuous telemetry feeds anomaly detection engines that flag deviations from baseline agent behavior, enabling forensic analysis and incident response.
+    - **Local Process Isolation**: Linux Security Modules (LSMs) enforce policies at the kernel level for agents on the host OS. They control process behavior, file access, network connections and execution permissions. The overhead is extremely low, so it suits production environments.
+    - **Remote Container Isolation**: For higher-risk cases, AccuKnox routes LLM-generated code or external tool execution to an isolated container or remote execution service. This keeps malicious code away from the host.
+    - **Tool-Call Enforcement**: AccuKnox checks every agent tool or API call against least-privilege policies before it runs. It blocks unauthorized tool usage inline.
+    - **Untrusted Code Sandboxing**: Auto-generated or externally sourced code runs in a secure sandbox. This mitigates RCE, privilege escalation and resource overload risks.
+    - **Behavioral Monitoring**: Continuous telemetry feeds anomaly detection engines. They flag deviations from baseline agent behavior for forensic analysis and incident response.
 
     **References:**
 
     - [Agentic AI Security Solution](https://accuknox.com/solutions/agentic-ai-security)
 
 ??? "**17. How does AccuKnox secure MCP servers?**"
-    AccuKnox provides dedicated MCP server security through its Zero Trust enforcement layer:
+    AccuKnox secures MCP servers with its **Zero Trust enforcement layer**.
 
-    - MCP servers operate within a sandboxed execution environment with strict process and network isolation enforced at the kernel level.
-    - All interactions with the MCP server are governed by authorization controls — only approved callers with verified identity can invoke MCP tool functions.
-    - Continuous monitoring tracks every tool call, data access, and external communication initiated through the MCP server.
-    - AccuKnox maps MCP tool risks by category: access to private data, exposure to untrusted content, and ability to communicate externally.
-    - Attack simulation validates MCP server defenses against known attack patterns including tool poisoning and indirect prompt injection via MCP tool descriptions.
+    - **Sandboxing**: MCP servers run in a sandbox with strict process and network isolation at the kernel level.
+    - **Authorization**: Only approved callers with verified identity can invoke MCP tool functions.
+    - **Monitoring**: AccuKnox tracks every tool call, data access and external communication through the MCP server.
+    - **Risk mapping**: AccuKnox sorts MCP tool risks into three categories: access to private data, exposure to untrusted content and ability to communicate externally.
+    - **Attack simulation**: AccuKnox tests MCP server defenses against known attack patterns. These include tool poisoning and indirect prompt injection via MCP tool descriptions.
 
 ??? "**18. How does AccuKnox bring visibility and governance to internally built AI agents?**"
-    AccuKnox provides end-to-end governance for internally developed agents across the full agent lifecycle:
+    AccuKnox governs internally built agents across the **full agent lifecycle**, from discovery to audit.
 
-    - **Discovery**: Automatically inventories all internally developed agents, models, and pipelines across cloud and on-prem environments — including assets not registered in IAM or cloud inventories.
-    - **Mapping**: Maps agent capabilities, data access scope, tool integrations, and external API dependencies for complete contextual visibility.
-    - **Governance**: Applies policy-as-code controls at build, deploy, and runtime stages.
-    - **Monitoring**: Continuously tracks agent behavior, drift from baseline, and anomalous actions.
-    - **Audit**: Maintains AIBOM-based lineage and audit trails for every agent action, providing evidence for compliance and incident investigations.
+    - **Discovery**: Inventories all internally developed agents, models and pipelines across cloud and on-prem environments automatically. This includes assets missing from IAM or cloud inventories.
+    - **Mapping**: Maps agent capabilities, data access scope, tool integrations and external API dependencies.
+    - **Governance**: Applies policy-as-code controls at build, deploy and runtime stages.
+    - **Monitoring**: Tracks agent behavior, drift from baseline and anomalous actions continuously.
+    - **Audit**: Keeps AIBOM-based lineage and audit trails for every agent action, as evidence for compliance and incident investigations.
 
     **References:**
 
@@ -315,29 +316,29 @@ hide:
 ## AI Governance & Compliance
 
 ??? "**22. How do you build a defensible AI governance framework aligned to the EU AI Act?**"
-    AccuKnox supports EU AI Act compliance through a structured, automated approach:
+    AccuKnox supports EU AI Act compliance with an **automated, five-part approach**:
 
-    - **Classify**: AI asset discovery and risk-tier classification (minimal, limited, high-risk) mapped to EU AI Act categories.
-    - **Control**: Policy-as-code governance enforces controls across data usage, model behavior, access, and logging throughout the AI lifecycle.
-    - **Monitor**: Continuous monitoring for drift, bias, prompt risks, and anomalous usage via AI-SPM and prompt firewall.
-    - **Audit**: AIBOM, decision logs, and lineage tracking provide traceability and evidence for regulatory review.
-    - **Test**: Automated red teaming proactively assesses safety and regulatory adherence against evolving requirements.
+    - **Classify**: AccuKnox discovers AI assets and classifies them into EU AI Act risk tiers (minimal, limited, high-risk).
+    - **Control**: Policy-as-code governance enforces controls on data usage, model behavior, access and logging across the AI lifecycle.
+    - **Monitor**: AI-SPM and the Prompt Firewall watch continuously for drift, bias, prompt risks and anomalous usage.
+    - **Audit**: AIBOM, decision logs and lineage tracking give traceability and evidence for regulatory review.
+    - **Test**: Automated red teaming assesses safety and regulatory adherence against evolving requirements.
 
     **References:**
 
     - [AI Security Platform](https://accuknox.com/platform/ai-security)
-    - [AI/ML Overview — How-To](https://help.accuknox.com/how-to/aiml-overview/)
+    - [AI/ML Overview, How-To](https://help.accuknox.com/how-to/aiml-overview/)
     - [AccuKnox AI Security Roadmap 2026](https://accuknox.com/blog/accuknox-ai-security-platform-roadmap-2026)
     - [AI/ML Support Matrix](https://help.accuknox.com/support-matrix/aiml-support-matrix/)
 
 ??? "**23. Can organizations build a custom governance model on top of the AccuKnox platform?**"
-    Yes. AccuKnox supports fully custom policy frameworks using policy-as-code:
+    Yes. AccuKnox supports **fully custom policy frameworks** through policy-as-code.
 
-    - Tailor controls for multi-cloud, on-prem, and hybrid AI environments.
-    - Define custom risk scoring and compliance mappings beyond built-in frameworks.
-    - Integrate with existing security stacks via APIs and plugins — SIEM, IAM, DevSecOps pipelines.
-    - Build organization-specific guardrails for industry-specific regulatory requirements (e.g., DORA for financial services, HIPAA for healthcare).
-    - Custom dashboards and reporting reflect only the services and frameworks the tenant has opted for.
+    - **Custom controls**: Tailor controls for multi-cloud, on-prem and hybrid AI environments.
+    - **Custom scoring**: Define your own risk scoring and compliance mappings beyond the built-in frameworks.
+    - **Integrations**: Connect existing security stacks, such as SIEM, IAM and DevSecOps pipelines, through APIs and plugins.
+    - **Industry guardrails**: Build guardrails for industry regulations, such as DORA for financial services or HIPAA for healthcare.
+    - **Scoped reporting**: Use custom dashboards and reports that show only the services and frameworks your tenant opted for.
 
     **References:**
 
@@ -348,27 +349,28 @@ hide:
 ## ModelArmor & Supply Chain Security
 
 ??? "**24. What is ModelArmor and how does it protect AI models?**"
-    ModelArmor is AccuKnox's AI model security module providing protection across the full model lifecycle:
+    ModelArmor is the AccuKnox AI model security module. It protects models across the **full model lifecycle**.
 
-    - **Model Integrity**: Detects tampering, unauthorized modifications, and integrity violations in trained model artifacts.
-    - **Registry Security**: Enforces trusted registries and signed artifact policies — only approved, verified models can be deployed.
-    - **Vulnerability Scanning**: Continuously scans ML model files (TensorFlow, Keras, Pickle, PyTorch) for embedded security risks and known CVEs in AI dependencies.
-    - **Supply Chain Monitoring**: Detects anomalous behavior from compromised dependencies — unexpected outbound calls, unauthorized data access, or execution of injected code within model inference pipelines.
-    - **AIBOM**: Generates AI Bills of Materials providing full visibility into model lineage, dependencies, and provenance for audit and incident response.
-    - **Sandboxing**: Uses KubeArmor as a sandboxing engine to constrain untrusted model execution — preventing cryptomining attacks leveraging GPUs, remote command injections, and malicious payload execution.
+    - **Model Integrity**: Detects tampering, unauthorized modifications and integrity violations in trained model artifacts.
+    - **Registry Security**: Enforces trusted registries and signed artifact policies, so only approved, verified models can deploy.
+    - **Vulnerability Scanning**: Scans ML model files (TensorFlow, Keras, Pickle, PyTorch) continuously for embedded security risks and known CVEs in AI dependencies.
+    - **Supply Chain Monitoring**: Detects anomalous behavior from compromised dependencies in model inference pipelines. Examples are unexpected outbound calls, unauthorized data access and execution of injected code.
+    - **AIBOM**: Generates AI Bills of Materials that show model lineage, dependencies and provenance for audit and incident response.
+    - **Sandboxing**: Uses KubeArmor as a sandboxing engine to constrain untrusted model execution. It prevents cryptomining attacks that use GPUs, remote command injections and malicious payload execution.
 
     **References:**
 
     - [ModelArmor Use Case](https://help.accuknox.com/use-cases/modelarmor/)
 
-??? "**25. Can AccuKnox detect supply chain attacks in AI dependencies — for example, compromised LLM frameworks?**"
-    Yes. AccuKnox provides AIBOM-based visibility into models, libraries, and dependencies across the AI stack:
+??? "**25. Can AccuKnox detect supply chain attacks in AI dependencies, for example compromised LLM frameworks?**"
+    Yes. AccuKnox gives **AIBOM-based visibility** into models, libraries and dependencies across the AI stack.
 
-    - Continuously scans for vulnerabilities, malicious packages, and integrity violations in AI/ML frameworks including LiteLLM, LangChain, LangGraph, Hugging Face, and third-party model registries.
-    - Detects anomalous behavior from compromised dependencies — unexpected outbound calls, unauthorized data access, or execution of injected payloads.
-    - Enforces trusted registries and signed artifact policies for secure model and package usage.
-    - Covers LLM orchestration frameworks and third-party APIs within the governance scope.
-    In 2024, 100 compromised AI models were uploaded to Hugging Face. AccuKnox's continuous scanning and integrity enforcement ensures that such compromised artifacts are detected before they reach production inference environments.
+    - **Continuous scanning**: Scans for vulnerabilities, malicious packages and integrity violations in AI/ML frameworks. Coverage includes LiteLLM, LangChain, LangGraph, Hugging Face and third-party model registries.
+    - **Anomaly detection**: Detects anomalous behavior from compromised dependencies, such as unexpected outbound calls, unauthorized data access or execution of injected payloads.
+    - **Trusted sources**: Enforces trusted registries and signed artifact policies for secure model and package usage.
+    - **Framework scope**: Brings LLM orchestration frameworks and third-party APIs into the governance scope.
+
+    In 2024, **100 compromised AI models** were uploaded to Hugging Face. AccuKnox continuous scanning and integrity enforcement detect such artifacts before they reach production inference environments.
 
     **References:**
 
@@ -410,12 +412,13 @@ hide:
 ## Integrations & Onboarding
 
 ??? "**28. How does AccuKnox onboard AI/ML assets from AWS, Azure, and GCP?**"
-    AccuKnox provides agentless onboarding for AI/ML assets across all major public clouds:
+    AccuKnox onboards AI/ML assets from all three public clouds **without agents**.
 
-    - **AWS**: Connect via IAM role with read permissions. AccuKnox automatically discovers SageMaker endpoints, Bedrock model deployments, Lambda AI functions, and associated data stores.
-    - **Azure**: Connect via service principal or managed identity. Discovers Azure AI Foundry, Azure OpenAI Service, Copilot Studio agents, Machine Learning workspaces, and associated storage.
-    - **GCP**: Connect via service account with appropriate IAM bindings. Discovers Vertex AI endpoints, Gemini deployments, AutoML models, and Dataflow AI pipelines.
-    Onboarding is non-disruptive — no agents are installed on AI infrastructure. Discovery begins within minutes of connecting a cloud account.
+    - **AWS**: Connect with an IAM role that has read permissions. AccuKnox discovers SageMaker endpoints, Bedrock model deployments, Lambda AI functions and associated data stores automatically.
+    - **Azure**: Connect with a service principal or managed identity. AccuKnox discovers Azure AI Foundry, Azure OpenAI Service, Copilot Studio agents, Machine Learning workspaces and associated storage.
+    - **GCP**: Connect with a service account that has the right IAM bindings. AccuKnox discovers Vertex AI endpoints, Gemini deployments, AutoML models and Dataflow AI pipelines.
+
+    Onboarding is non-disruptive and installs no agents on your AI infrastructure. Discovery begins **within minutes** of connecting a cloud account.
 
     **References:**
 
@@ -424,15 +427,16 @@ hide:
     - [GCP AI/ML Onboarding](https://help.accuknox.com/how-to/aiml-gcp-onboard/)
 
 ??? "**29. Does AccuKnox integrate with OpenAI, Amazon Bedrock, and other LLM providers for prompt firewall enforcement?**"
-    Yes. AccuKnox integrates with leading LLM providers through API proxy and SDK-based integration:
+    Yes. AccuKnox integrates with LLM providers through an **API proxy and SDK-based integration**.
 
     - **OpenAI**: Browser extension and API proxy integration for prompt and response inspection.
     - **Amazon Bedrock**: Native AgentCore integration for agentic workflow monitoring and guardrailing.
     - **Azure OpenAI / AI Foundry**: Integration for Copilot Studio and AI Foundry-hosted agents.
     - **Google Gemini / Vertex AI**: GCP-native integration for model and pipeline security.
-    - **Ollama / vLLM / NVIDIA Triton**: On-prem and edge LLM provider integration.
+    - **Ollama / vLLM / NVIDIA Triton**: Integration for on-prem and edge LLM providers.
     - **Microsoft Power Apps**: Integration for AI-enhanced low-code application security.
-    The prompt firewall operates as an inline proxy — intercepting and inspecting every interaction between the application and the LLM provider before it completes.
+
+    The Prompt Firewall runs as an **inline proxy**. It intercepts and inspects every interaction between the application and the LLM provider before the interaction completes.
 
     **References:**
 
@@ -462,20 +466,20 @@ hide:
 ## Data Protection & Privacy
 
 ??? "**31. Does AccuKnox expose customer data to external LLMs when using the AI Co-Pilot?**"
-    No. Protecting customer data is non-negotiable. AccuKnox implements strict guardrails:
+    No. AccuKnox keeps customer data away from external LLMs with **strict guardrails**:
 
-    - **Data Sanitization**: No telemetry, alert data, or information containing potential PII/PHI is ever sent to external LLMs for analysis or remediation suggestions.
-    - **Tenant-Level Control**: The AI-assisted remediation feature can be completely disabled on a per-tenant basis, giving customers full control over whether any of their data interacts with an LLM.
-    - All AI Co-Pilot functionality operates within the tenant's data boundary — external LLM calls, where used, receive only anonymized, sanitized context.
+    - **Data Sanitization**: No telemetry, alert data or information with potential PII/PHI ever goes to external LLMs. That holds for analysis and for remediation suggestions.
+    - **Tenant-Level Control**: You can disable AI-assisted remediation completely for each tenant. That gives you full control over whether any of your data interacts with an LLM.
+    - **Data Boundary**: All AI Co-Pilot functions run inside the tenant's data boundary. Where external LLM calls are used, they receive only anonymized, sanitized context.
 
 ??? "**32. How does AccuKnox handle AI dataset security and data poisoning prevention?**"
-    AccuKnox provides end-to-end dataset security across the AI data lifecycle:
+    AccuKnox secures datasets across the **AI data lifecycle** and monitors for data poisoning.
 
-    - **PII/PHI Scanning**: Scans AI/ML training datasets and vector embeddings to identify and flag regulated data that should not be in model training pipelines.
-    - **Dataset Lineage**: Tracks data provenance from ingestion through training to deployment, providing a complete audit trail.
-    - **Poisoning Detection**: Monitors for anomalous patterns in dataset updates and training runs that may indicate data poisoning attempts.
-    - **Compliance Checks**: Automated validation against HIPAA, GDPR, and NIST AI RMF data handling requirements at the dataset level.
-    - **Data Fencing**: Enforces access boundaries on training data stores, preventing unauthorized agents or workloads from reading or modifying sensitive datasets.
+    - **PII/PHI Scanning**: Scans AI/ML training datasets and vector embeddings for regulated data that should not be in model training pipelines.
+    - **Dataset Lineage**: Tracks data provenance from ingestion through training to deployment, as a complete audit trail.
+    - **Poisoning Detection**: Monitors dataset updates and training runs for anomalous patterns that may indicate data poisoning attempts.
+    - **Compliance Checks**: Validates datasets automatically against HIPAA, GDPR and NIST AI RMF data handling requirements.
+    - **Data Fencing**: Enforces access boundaries on training data stores, so unauthorized agents or workloads cannot read or modify sensitive datasets.
 
     **References:**
 

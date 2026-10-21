@@ -8,13 +8,28 @@ hide:
 # KSPM (Kubernetes Security Posture Management)
 
 ??? "**1. How does AccuKnox KSPM discover and monitor Kubernetes assets?**"
-    AccuKnox continuously maps clusters, namespaces, nodes, pods, and services across hybrid and multi-cloud. It provides real-time visibility, attack-path analysis, and detection of unauthorized deployments.
+    AccuKnox **continuously maps** clusters, namespaces, nodes, pods, and services across hybrid and multi-cloud.
+
+    - **Visibility**: Real-time visibility into all mapped assets.
+    - **Attack paths**: Attack-path analysis across those assets.
+    - **Unauthorized deployments**: Detection of unauthorized deployments.
 
 ??? "**2. How does KSPM automate compliance checks?**"
-    AccuKnox runs continuous scans against **CIS Benchmarks**, **NSA/CISA guidance**, and **MITRE ATT&CK mappings**, while supporting custom policies for organization-specific governance.
+    AccuKnox runs **continuous scans** against three benchmark sets, and supports custom policies for organization-specific governance.
+
+    - **CIS Benchmarks**
+    - **NSA/CISA guidance**
+    - **MITRE ATT&CK mappings**
 
 ??? "**3. How does KSPM integrate into CI/CD to secure workloads pre-deployment?**"
-    AccuKnox scans **Kubernetes manifests, Helm charts, Terraform files**, and **container images** for misconfigurations and CVEs before deployment, enforcing RBAC and IaC security controls.
+    AccuKnox scans for **misconfigurations and CVEs before deployment**, and enforces RBAC and IaC security controls.
+
+    It scans these artifacts:
+
+    - **Kubernetes manifests**
+    - **Helm charts**
+    - **Terraform files**
+    - **Container images**
 
 ---
 

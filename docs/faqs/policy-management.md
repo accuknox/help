@@ -8,31 +8,56 @@ hide:
 # Policy Management & Enforcement
 
 ??? "**1. How AccuKnox helps in Policy Version Control for Runtime Security?**"
-    AccuKnox enables DevSecOps teams to embed security policies as code into their GitOps workflow. This provides a unified, collaborative view of the policies and enables them to be shipped and deployed along with the applications they are protecting. Hence, utilizing Gitops based policy version control, it will be easy to enforce changes to policies and keep track of versions in case of audit or rollback requirement along with approval mechanisms.
+    AccuKnox lets DevSecOps teams embed **security policies as code** in their GitOps workflow. Teams get a unified, collaborative view of the policies. The policies ship and deploy with the applications they protect.
+
+    GitOps-based policy version control gives you:
+
+    - **Change enforcement**: Enforce policy changes easily.
+    - **Version tracking**: Keep track of versions for audit or rollback.
+    - **Approvals**: Use approval mechanisms for policy changes.
 
 ??? "**2. How AccuKnox helps to achieve Microsegmentation?**"
-    AccuKnox CWPP provides micro-segmentation at the lowest possible granularity level which is also a smallest execution unit in Kubernetes i.e. Pods. We will help you to identify process execution request from the pods, network connections the pods are trying to make internally or externally and files-system the pods are accessing. By observing the behavior of a particular pod and restricting that behavior so that it functions according to the expected flow of process/events/traffic, one can develop a least permissive security posture from creating a whitelisting policies and auditing/denying everything else.
+    AccuKnox CWPP gives **micro-segmentation at the pod level**. The pod is the smallest execution unit in Kubernetes and the lowest possible granularity level.
+
+    AccuKnox helps you identify what each pod does:
+
+    - **Processes**: The process execution requests from the pods.
+    - **Network**: The internal and external network connections the pods try to make.
+    - **Files**: The file systems the pods access.
+
+    Observe a pod's behavior, then restrict it to the expected flow of processes, events and traffic. Create allow-list policies and audit or deny everything else. This builds a least-permissive security posture.
 
 ??? "**3. How AccuKnox helps to recommend Auto-Discovered Policies?**"
-    AccuKnox CWPP solution provide Discovery Engine agent that assesses the security posture of your workloads and auto-discovers the policy-set required to put the workload in least-permissive mode. We also provide Shared Informer Agent which collects information about cluster like pods, nodes, namespaces etc. The Policy Discovery Engine discovers the policies using the workload and cluster information that is relayed by Shared Informer Agent.
+    The AccuKnox CWPP **Discovery Engine agent** assesses the security posture of your workloads. It auto-discovers the policy set that puts each workload in least-permissive mode.
+
+    Two agents work together:
+
+    - **Shared Informer Agent**: It collects cluster information such as pods, nodes and namespaces.
+    - **Policy Discovery Engine**: It discovers policies from the workload and cluster information that the Shared Informer Agent relays.
 
 ??? "**4. How Does AccuKnox Generate Hardening Policies?**"
-    AccuKnox operates KubeArmor to secure Kubernetes, container, and VM workloads by enforcing runtime hardening policies using Linux Security Modules (LSMs) and eBPF. The AccuKnox platform auto-discovers application behaviors and maps them to industry standards like CIS, MITRE, NIST, and STIG frameworks, generating tailored security policies to block unwanted activity at the system level. Policies can restrict process execution, file access, and network operations, helping achieve Zero Trust while maintaining compliance and visibility over what gets allowed or blocked in real time.
+    AccuKnox **auto-discovers application behaviors** and maps them to CIS, MITRE, NIST and STIG frameworks. It then generates tailored security policies that block unwanted activity at the system level.
+
+    AccuKnox runs **KubeArmor** to secure Kubernetes, container and VM workloads. KubeArmor enforces runtime hardening policies with Linux Security Modules (LSMs) and eBPF. Policies can restrict process execution, file access and network operations.
+
+    These policies help you achieve Zero Trust and stay compliant. You also keep real-time visibility into what gets allowed or blocked.
 
 ??? "**5. How AccuKnox helps to implement Zero Trust?**"
-    By implementing a zero trust posture with KubeArmor, organizations can increase their security posture and reduce the risk of unauthorized access or activity within their Kubernetes clusters. This can help to protect sensitive data, prevent system breaches, and maintain the integrity of the cluster.
-    KubeArmor supports allow-based policies which result in specific actions to be allowed and denying/auditing everything else. For example, a specific pod/container might only invoke a set of binaries at runtime. As part of allow-based rules you can specify the set of processes that are allowed and everything else is either audited or denied based on the default security posture.
+    AccuKnox implements Zero Trust with **allow-based KubeArmor policies**. These policies allow specific actions and deny or audit everything else.
+
+    For example, a specific pod or container might only invoke a set of binaries at runtime. An allow-based rule lists the processes that may run. KubeArmor audits or denies every other process, based on the default security posture.
+
+    A Zero Trust posture with KubeArmor reduces the risk of unauthorized access or activity in your Kubernetes clusters. It helps protect sensitive data, prevent system breaches and maintain cluster integrity.
 
 ??? "**6. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
+    AccuKnox measures **compliance framework requirements and application behavior**, and turns each into a policy type.
 
-    - Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
-    - Understanding the Application behaviour using LSMs enables creation of behavioural policies
-    - Hardening policies are block based policies
-    - Behavioural policies are allow based policies
-    - An example of policies is FIM (File Integrity Monitoring) policy
+    - **Hardening policies**: AccuKnox creates them from compliance frameworks (MITRE, CIS, NIST) for hardening workloads. Hardening policies are block-based.
+    - **Behavioral policies**: AccuKnox creates them by observing application behavior through LSMs. Behavioral policies are allow-based.
+    - **Example**: A FIM (File Integrity Monitoring) policy is one example of these policies.
 
 ??? "**7. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
-    Yes, it can show up in terms of Application Behaviour & Logs
+    Yes. Blocked activity shows up in **Application Behaviour & Logs**.
 
 ---
 
