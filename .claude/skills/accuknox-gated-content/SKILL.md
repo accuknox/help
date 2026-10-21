@@ -220,7 +220,7 @@ Rotate the tints by section. Pick each page from this list.
 
 | # | Archetype | Background | Key elements |
 |---|---|---|---|
-| 1 | Cover | navy | White logo, eyebrow caps, display title with one gradient-underlined phrase, deck, orbit ring art top right |
+| 1 | Cover | navy | Color logo at the top, display title under it with one gradient-underlined phrase, deck under the title, topic art at the bottom right. No eyebrow and no other text. No cloud art |
 | 2 | Foreword | ice | `.h1` "Foreword", body max 150 mm, signature block. Only a real named author the user supplied |
 | 3 | Methodology | white | `.h1`, lede, stacked `.panel`s pushed right, each with one thin number and a one-line label, source bottom right |
 | 4 | Table of contents | ice | `.h1` about 40 mm down, yellow chips, 21 pt titles, right-aligned page numbers |

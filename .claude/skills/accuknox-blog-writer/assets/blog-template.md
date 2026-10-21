@@ -1,30 +1,15 @@
 ---
-title: "The display headline. A claim, not a label."
-seo_title: "Keyword-first title, 45 to 60 characters"
-meta_description: "One sentence, 150 to 160 characters, carrying the primary keyword and a reason to click."
 slug: "lowercase-hyphenated-slug"
-url: "https://accuknox.com/blog/lowercase-hyphenated-slug"
+title: "A Claim With the Primary Keyword, 45 to 60 Characters"
+description: "One sentence, 150 to 160 characters, carrying the primary keyword and a reason to click."
+author: "Atharva Shah"
+date: "YYYY-MM-DD"
+category: "AI-SPM"
 primary_keyword: "the one phrase this post targets"
 secondary_keywords: ["supporting phrase", "related phrase", "long tail phrase"]
-excerpt: "The one-line summary WordPress shows on the blog index and in the RSS feed."
-category: "AI-SPM"
-author: "Atharva Shah"
-reading_time: "6 minutes"
-word_count_target: 1500
-audience: "platform engineer | security engineer | security lead | CISO"
-cover_image_prompt_claude: >
-  A descriptive natural-language prompt for an image model. Name the subject,
-  the composition, AccuKnox navy #11206D with #003BF6 accents on white, flat
-  vector or isometric, generous negative space, no text anywhere in the image.
-cover_image_prompt_midjourney: >
-  keyword-dense version of the same cover, comma separated, ending with
-  --ar 16:9 --style raw --v 6 --no text
 ---
 
-# The H1, carrying the primary keyword and stating a claim
-
-> **Cover image prompt:** repeat or refine `cover_image_prompt_claude` here so
-> the designer sees it without opening the front matter.
+# The H1 Carries the Primary Keyword and States a Claim
 
 ## TL;DR
 
@@ -33,7 +18,7 @@ cover_image_prompt_midjourney: >
 - A third fact, naming the mechanism.
 - A named limitation or a boundary. This bullet is the one a reader trusts.
 
-## The first H2 states the answer the search was looking for
+## The First H2 States the Answer the Search Was Looking For
 
 The first 150 words of the post resolve the query. No definition of the
 industry, no history of the problem, no preamble. Name the exact resource, the
@@ -47,17 +32,21 @@ Link on the words that earn it, inline, such as
 [AI Security Posture Management](https://accuknox.com/platform/aispm) on its
 first mention. Verify the slug before you ship.
 
-## The second H2 states the mechanism behind the failure
+## The Second H2 States the Mechanism Behind the Failure
 
-> **Image prompt (inline 1):** the diagram this section needs. Subject,
-> composition, AccuKnox navy #11206D on white with #003BF6 accents, flat vector,
-> no text in the image.
->
-> *Caption: what the picture proves, not what it is.*
+![Alt text that says what the picture proves, never "a screenshot of"](images/lowercase-hyphenated-slug/descriptive-file-name.png)
 
-## The third H2 carries the table
+*One italic line under the image saying what it proves. No label before it.*
 
-| Column that names the thing | Column that names the behaviour | Column the reader acts on |
+Use a real image first: a console screenshot cropped with `scripts/images.py`,
+or a diagram you render from HTML. When no real picture exists yet, leave an
+open placeholder so the grader flags it, and fill it before you ship.
+
+> **Image needed:** the subject, the composition, and the source folder to try.
+
+## The Third H2 Carries the Table
+
+| Column That Names the Thing | Column That Names the Behavior | Column the Reader Acts On |
 | --- | --- | --- |
 | A real value | A real value | A real value |
 | A real value | A real value | A real value |
@@ -66,34 +55,38 @@ first mention. Verify the slug before you ship.
 Header row always. No empty cells. A table is the block an answer engine
 extracts most reliably, so make it carry facts rather than adjectives.
 
-## The fourth H2 names what this does not cover
+## The Fourth H2 Names What This Does Not Cover
 
-Every standard, CVE, CVSS score, benchmark control and third-party behaviour
+Every standard, CVE, CVSS score, benchmark control and third-party behavior
 carries its source and its link. Where the fact is missing, write it in visible
 brackets, such as `[confirm the minimum agent version]`, and leave it for a
 human. A bracket cannot ship by accident. An invented CLI flag can.
 
-## A closing H2 that lands a position
+## A Closing H2 That Lands a Position
 
 Not `Conclusion`. Say the thing the post argues for, in the heading, and give
 the reader the one action that follows from it.
 
+## See What the Video Shows
+
+```html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="The exact video title" frameborder="0" allowfullscreen></iframe>
+```
+
+Watch [the video on the AccuKnox YouTube channel](https://www.youtube.com/watch?v=VIDEO_ID).
+
 ## FAQs
 
-### A question a practitioner would type
+### A Question a Practitioner Would Type
 
 Two or three sentences that resolve the question without the surrounding page,
 because an answer engine lifts the pair on its own.
 
-### A second question
+### A Second Question
 
 Two or three sentences.
 
-### A third question
-
-Two or three sentences.
-
-### A fourth question
+### A Third Question
 
 Two or three sentences.
 

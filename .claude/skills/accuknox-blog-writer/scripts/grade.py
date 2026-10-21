@@ -3,8 +3,8 @@
 
 This is the deterministic half of the SEO audit. It measures what a regex can
 measure: front matter completeness, title and description lengths, heading
-hierarchy, keyword placement, link counts, word count, reading time, TL;DR and
-FAQ presence, image captions and passive voice. It says nothing about whether
+hierarchy and case, keyword placement, link counts, word count, TL;DR and FAQ
+presence, image files and their italic lines, and passive voice. It says nothing about whether
 the argument is any good. That judgement stays with the writer and with
 `references/seo-audit.md`.
 
@@ -16,7 +16,7 @@ a published post they live in WordPress. Force either mode with `--draft` or
 Usage:
     python grade.py draft.md
     python grade.py draft.md --json
-    python grade.py draft.md --min-words 1200
+    python grade.py draft.md --min-words 800 --max-words 1199
     python grade.py fetched.md --published
 
 Exit codes: 0 no CRITICAL findings, 1 at least one CRITICAL finding.
@@ -32,11 +32,18 @@ from pathlib import Path
 
 WPM = 200  # accuknox.com reading times match 200 words per minute
 
+# The SEO table carries these eight fields and nothing else. No image prompts,
+# no excerpt, no url, no reading time.
 REQUIRED_FM = [
-    "title", "seo_title", "meta_description", "slug", "url",
-    "primary_keyword", "secondary_keywords", "excerpt", "category",
-    "reading_time", "cover_image_prompt_claude", "cover_image_prompt_midjourney",
+    "slug", "title", "description", "author", "date", "category",
+    "primary_keyword", "secondary_keywords",
 ]
+
+# AP Title Case. These words stay lowercase in the middle of a heading.
+SMALL_WORDS = {"a", "an", "the", "and", "but", "or", "nor", "for", "so", "yet",
+               "as", "at", "by", "in", "of", "off", "on", "per", "to", "up",
+               "via", "vs"}
+LABEL_HEADINGS = ("tl;dr", "faq", "faqs")
 
 FAQ_HEADINGS = ("faq", "faqs", "frequently asked questions")
 
@@ -88,6 +95,24 @@ def unquote(v: str) -> str:
     return v.lstrip(">|").strip()
 
 
+def title_case_misses(title: str) -> list[str]:
+    """Words in an H2 that break AP Title Case. An empty list means it passes."""
+    misses = []
+    words = re.findall(r"[A-Za-z0-9][A-Za-z0-9'.]*(?:-[A-Za-z0-9]+)*", title)
+    for i, w in enumerate(words):
+        for part in w.split("-"):
+            low = part.lower()
+            if i == 0 or i == len(words) - 1:
+                need_cap = True
+            else:
+                need_cap = low not in SMALL_WORDS
+            if need_cap and part[:1].islower():
+                misses.append(part)
+            if not need_cap and part[:1].isupper() and part.upper() != part:
+                misses.append(part)
+    return misses
+
+
 def headings(body: str) -> list[tuple[int, str, int]]:
     out = []
     for i, line in enumerate(body.splitlines(), 1):
@@ -105,12 +130,24 @@ def prose_words(body: str) -> int:
     return len(t.split())
 
 
-def grade(path: Path, min_words: int, published: bool | None = None) -> Report:
+def total_words(body: str) -> int:
+    """Every word a reader meets, tables and headings included. Code fences and
+    image lines do not count."""
+    t = re.sub(r"```.*?```", " ", body, flags=re.S)
+    t = re.sub(r"^\s*!\[.*$", " ", t, flags=re.M)
+    t = re.sub(r"\(https?://[^)]*\)", " ", t)
+    t = re.sub(r"[|#>*`]", " ", t)
+    return len(t.split())
+
+
+def grade(path: Path, min_words: int, published: bool | None = None,
+          max_words: int | None = None) -> Report:
     text = path.read_text("utf-8")
     fm, body, _ = split_front_matter(text)
     r = Report()
     hs = headings(body)
     words = prose_words(body)
+    everything = total_words(body)
     kw = unquote(fm.get("primary_keyword", "")).lower()
 
     # A page fetched from accuknox.com carries `markdown_url` in its front
@@ -134,28 +171,37 @@ def grade(path: Path, min_words: int, published: bool | None = None) -> Report:
               "matter score is not scored")
         fm_score = 100
 
-    seo_title = unquote(fm.get("seo_title", ""))
-    if seo_title:
-        n = len(seo_title)
+    if not published:
+        for key in fm:
+            if key not in REQUIRED_FM:
+                lvl = "HIGH" if "prompt" in key else "MEDIUM"
+                r.add(lvl, "front-matter",
+                      f"extra field `{key}`. The SEO table carries only "
+                      + ", ".join(f"`{k}`" for k in REQUIRED_FM))
+                fm_score -= 6
+
+    title_fm = unquote(fm.get("title", ""))
+    if title_fm:
+        n = len(title_fm)
         if not 45 <= n <= 60:
             r.add("HIGH", "front-matter",
-                  f"seo_title is {n} chars, target 45 to 60")
+                  f"title is {n} chars, target 45 to 60")
             fm_score -= 8
-        if kw and kw not in seo_title.lower():
+        if kw and kw not in title_fm.lower():
             r.add("HIGH", "front-matter",
-                  f"seo_title omits the primary keyword `{kw}`")
+                  f"title omits the primary keyword `{kw}`")
             fm_score -= 8
 
-    desc = unquote(fm.get("meta_description", ""))
+    desc = unquote(fm.get("description", ""))
     if desc:
         n = len(desc)
         if not 150 <= n <= 160:
             r.add("HIGH", "front-matter",
-                  f"meta_description is {n} chars, target 150 to 160")
+                  f"description is {n} chars, target 150 to 160")
             fm_score -= 8
         if kw and kw not in desc.lower():
             r.add("HIGH", "front-matter",
-                  f"meta_description omits the primary keyword `{kw}`")
+                  f"description omits the primary keyword `{kw}`")
             fm_score -= 8
 
     slug = unquote(fm.get("slug", ""))
@@ -167,19 +213,16 @@ def grade(path: Path, min_words: int, published: bool | None = None) -> Report:
         if len(slug) > 65:
             r.add("MEDIUM", "front-matter",
                   f"slug is {len(slug)} chars, keep it under 65")
-        url = unquote(fm.get("url", ""))
-        if url and not url.endswith(f"/blog/{slug}"):
-            r.add("HIGH", "front-matter",
-                  f"url does not end in /blog/{slug}")
-            fm_score -= 8
 
-    rt = unquote(fm.get("reading_time", ""))
+    date = unquote(fm.get("date", ""))
+    if date and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+        r.add("HIGH", "front-matter", f"date `{date}` must read YYYY-MM-DD")
+        fm_score -= 8
+
     expected = max(1, round(words / WPM))
-    m = re.search(r"\d+", rt)
-    if m and abs(int(m.group()) - expected) > 1:
-        r.add("MEDIUM", "front-matter",
-              f"reading_time says {m.group()} min, {words} words is "
-              f"~{expected} min at {WPM} wpm")
+    r.add("INFO", "content",
+          f"{everything} words in all, {words} prose words, "
+          f"~{expected} min at {WPM} wpm")
     r.scores["Front matter"] = max(0, min(100, fm_score))
 
     # --- Structure --------------------------------------------------------
@@ -205,6 +248,14 @@ def grade(path: Path, min_words: int, published: bool | None = None) -> Report:
                   f"line {line}: heading states a topic, not a conclusion: "
                   f"\"{title}\"")
             st -= 3
+        if (level == 2 and not published
+                and not title.lower().startswith(LABEL_HEADINGS)):
+            bad = title_case_misses(title)
+            if bad:
+                r.add("MEDIUM", "structure",
+                      f"line {line}: H2 is not AP Title Case "
+                      f"({', '.join(bad)}): \"{title}\"")
+                st -= 2
         # A question mark or a `Q:` prefix is FAQ convention, not a label colon.
         if (":" in title and level > 1 and not title.endswith("?")
                 and not re.match(r"^Q\s*:", title)):
@@ -239,9 +290,14 @@ def grade(path: Path, min_words: int, published: bool | None = None) -> Report:
         r.add("HIGH", "content",
               f"{words} prose words, floor for this channel is {min_words}")
         ct -= 15
-    if words > 2600:
+    if max_words is None and words > 2600:
         r.add("MEDIUM", "content",
               f"{words} prose words, recent AccuKnox posts run 1200 to 2000")
+    if max_words is not None and everything > max_words:
+        r.add("HIGH", "content",
+              f"{everything} words in all, the limit for this post is "
+              f"{max_words}")
+        ct -= 15
 
     paras = [p for p in re.split(r"\n\s*\n", body)
              if p.strip() and not p.lstrip().startswith(("#", "|", "-", "*",
@@ -334,24 +390,42 @@ def grade(path: Path, min_words: int, published: bool | None = None) -> Report:
     # --- Images -----------------------------------------------------------
     im = 100
     imgs = re.findall(r"!\[([^\]]*)\]\(([^)\s]+)", body)
-    placeholders = re.findall(r"^\s*>\s*\*\*Image prompt", body, re.M)
+    placeholders = re.findall(r"^\s*>\s*\*\*Image (?:needed|prompt)", body,
+                              re.M)
     if not imgs and not placeholders:
         r.add("HIGH", "images",
-              "no image and no image prompt. Recent posts carry 2 to 4")
+              "no image. Recent posts carry 2 to 4, and at least one is a "
+              "real product screenshot")
         im -= 40
+    if placeholders:
+        r.add("MEDIUM", "images",
+              f"{len(placeholders)} image placeholder(s) still open. Pull a "
+              "real image with scripts/images.py before you ship")
+        im -= 10
     for alt, src in imgs:
         if not alt.strip():
             r.add("CRITICAL", "images", f"empty alt text on {src}")
             im -= 20
-        elif re.match(r"^(a )?(screenshot|image|picture|diagram) of ", alt, re.I):
+        elif re.match(r"^(a )?(screenshot|image|picture|diagram) of ", alt,
+                      re.I):
             r.add("MEDIUM", "images",
                   f"alt text describes the file, not the point: \"{alt}\"")
             im -= 8
+        if not src.startswith(("http://", "https://", "data:")):
+            if not (path.parent / src).exists():
+                r.add("CRITICAL", "images", f"image file not found: {src}")
+                im -= 20
     captions = re.findall(r"^\s*\*[^*\n]{15,}\*\s*$", body, re.M)
     if imgs and len(captions) < len(imgs):
         r.add("MEDIUM", "images",
-              f"{len(imgs)} images, {len(captions)} italic captions. "
+              f"{len(imgs)} images, {len(captions)} italic lines under them. "
               "Every image gets one")
+        im -= 10
+    labelled = re.findall(r"^\s*\*+\s*captions?\b", body, re.M | re.I)
+    if labelled:
+        r.add("HIGH", "images",
+              f"{len(labelled)} italic line(s) open with the word Caption. "
+              "Write the line itself and drop the label")
         im -= 10
     r.scores["Images"] = max(0, min(100, im))
 
@@ -413,6 +487,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("draft", type=Path)
     ap.add_argument("--min-words", type=int, default=1200)
+    ap.add_argument("--max-words", type=int, default=None,
+                    help="hard ceiling on every word in the body, tables and "
+                         "headings included")
     ap.add_argument("--json", action="store_true")
     mode = ap.add_mutually_exclusive_group()
     mode.add_argument("--published", action="store_true",
@@ -426,7 +503,7 @@ def main() -> int:
         print(f"no such file: {args.draft}", file=sys.stderr)
         return 2
     published = True if args.published else (False if args.force_draft else None)
-    r = grade(args.draft, args.min_words, published)
+    r = grade(args.draft, args.min_words, published, args.max_words)
     if args.json:
         print(json.dumps({"file": str(args.draft), "scores": r.scores,
                           "findings": [{"level": a, "area": b, "message": c}
