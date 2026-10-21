@@ -21,3 +21,19 @@ at the very top of the page, before the header.
 {% include "partials/banner.html" %}
 {% endblock %}
 
+
+{#
+Page titles. The theme default appends " - {site_name}", and site_name is
+empty, so every tab title ended in a stray " -". Use the brand instead.
+#}
+{% block htmltitle %}
+  {% if page.is_homepage %}
+    <title>{{ (page.meta and page.meta.title) or "AccuKnox Help Center" }}</title>
+  {% elif page.meta and page.meta.title %}
+    <title>{{ page.meta.title }} | AccuKnox Docs</title>
+  {% elif page.title %}
+    <title>{{ page.title | striptags }} | AccuKnox Docs</title>
+  {% else %}
+    <title>AccuKnox Help Center</title>
+  {% endif %}
+{% endblock %}

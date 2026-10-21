@@ -1,5 +1,5 @@
 ---
-title: Vulnerability Management with EPSS, CVSS, and CWE
+title: "EPSS vs CVSS: Vulnerability Prioritization with CWE"
 description: Learn how the Exploit Prediction Scoring System (EPSS) complements CVSS and CWE to provide a more comprehensive approach to vulnerability management.
 ---
 
