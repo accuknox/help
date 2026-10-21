@@ -24,11 +24,12 @@ hide:
     KubeArmor supports allow-based policies which result in specific actions to be allowed and denying/auditing everything else. For example, a specific pod/container might only invoke a set of binaries at runtime. As part of allow-based rules you can specify the set of processes that are allowed and everything else is either audited or denied based on the default security posture.
 
 ??? "**6. What does AccuKnox measure, while doing security posture observation and how does it help in securing using policies?**"
-    + Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
-    + Understanding the Application behaviour using LSMs enables creation of behavioural policies
-    + Hardening policies are block based policies
-    + Behavioural policies are allow based policies
-    + An example of policies is FIM (File Integrity Monitoring) policy
+
+    - Compliance Frameworks (MITRE, CIS, NIST) for hardening workloads are used to create hardening policies
+    - Understanding the Application behaviour using LSMs enables creation of behavioural policies
+    - Hardening policies are block based policies
+    - Behavioural policies are allow based policies
+    - An example of policies is FIM (File Integrity Monitoring) policy
 
 ??? "**7. Do you have any standard hardening rules onboarded and will the hardening policy show what is getting blocked?**"
     Yes, it can show up in terms of Application Behaviour & Logs

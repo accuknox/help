@@ -15,6 +15,7 @@ hide:
     CSPM Oracle Support, CSPM Azure Org Support, Assets Inventory revamp, CIEM, Custom Compliance Framework, RBAC enhancements, DSPM, Security Graph Phase I, CNAPP Policies Revamp, Collectors based ASPM onboarding, SBOM & SCA Integration, Scheduled Dashboard Reporting, AISPM: NIST AI RMF, ISO 42001, EU AI ACT, Windows / Linux Agentless VM scanning, SSPM (m365, sap), Redhat OpenShift Virtualization support, OpenStack support, Trellix (McAfee & Fireeye) Integrations, Nozomi, Armis, CTEM Integration
 
     We will also have:
+
     - Expanded **serverless support** (beyond AWS Fargate/ECS).
     - **Windows support** for workloads.
     - Ongoing expansion of integrations with **registries, SIEMs, and ticketing systems**.

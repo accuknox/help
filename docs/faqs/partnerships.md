@@ -9,6 +9,7 @@ hide:
 
 ??? "**1. How do you work with partners and what are the partnership models?**"
     We have a 100% partner aligned go to market approach. To this goal, we provide our partners the following:
+
     - Free training, certification
     - Joint marketing
     - Lead sharing
@@ -30,6 +31,7 @@ hide:
     ---
 
     **CI/CD Integrations are also available on:**
+
     - <a href="https://bitbucket.org/accu-knox/scan/" target="_blank">Bitbucket</a>
     - <a href="https://marketplace.visualstudio.com/search?term=accuknox&target=AzureDevOps&category=All" target="_blank">Azure DevOps</a>
     - <a href="https://gitlab.com/accu-knox/scan" target="_blank">GitLab</a>

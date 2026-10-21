@@ -9,10 +9,12 @@ hide:
 
 ??? "**1. How does AccuKnox CDR collect security logs from cloud accounts?**"
     AccuKnox ingests audit logs directly from cloud providers using provider-optimized methods:
+
     - **AWS**: Push-based via CloudTrail → S3 → ingestion.
     - **GCP / Azure**: Pull-based via Pub/Sub or Event Hub subscriptions.
 
 ??? "**2. What is required to enable automated remediation?**"
+
     - **GitHub Actions**: Remediation scripts run from your controlled repository.
     - **Cloud Permissions**: Admin-level access (AWS IAM admin, Azure Subscription Owner, GCP Owner) to apply fixes.
 

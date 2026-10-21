@@ -12,6 +12,7 @@ hide:
 
     Customers have the flexibility to purchase specific modules such as KSPM, CSPM, ASPM, or CWPP independently.
     Pricing is modular and typically based on:
+
     - Number of cloud assets normalized to units
     - Number of container images
     - Number of worker nodes
@@ -33,17 +34,20 @@ hide:
 
 ??? "**4. We have thousands of unused container images in our registry. Would they all be scanned?**"
     During onboarding, you can apply filters to control which images get scanned:
+
     - Use inclusion/exclusion regex for `repo/image:tag`.
     - Configure to scan only images updated in the last **X days** or pulled within the last **Y days**.
     - AccuKnox will notify you if the container image count exceeds 5000.
     Additionally, AccuKnox supports scanning images **in Kubernetes clusters or virtual machines directly**, ensuring only runtime images are scanned. This reduces both the number of images scanned and findings noise.
 
 ??? "**5. How is licensing handled in SaaS and on-prem environments?**"
-    + Licensing is generally **subscription-based** for both SaaS and on-prem.
-    + On-prem customers are expected to procure **Platinum Support**.
+
+    - Licensing is generally **subscription-based** for both SaaS and on-prem.
+    - On-prem customers are expected to procure **Platinum Support**.
 
 ??? "**6. Who to reach out to for a custom quote for CNAPP?**"
     You can reach out to:
+
     - Sales Q's - info@accuknox.com
     - Technical Q's - support@accuknox.com
 

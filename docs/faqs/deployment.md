@@ -39,9 +39,9 @@ hide:
 ??? "**4. Can AccuKnox be deployed in a distributed architecture?**"
     Yes. AccuKnox can deploy its Control Plane across multiple regions to achieve redundancy and disaster recovery.
 
-    + Uses **native Kubernetes concepts** for distributed deployment.
-    + Nodes can span multiple Availability Zones (AZs) and regions.
-    + **Requirement:** Reliable network bandwidth between AZs/regions.
+    - Uses **native Kubernetes concepts** for distributed deployment.
+    - Nodes can span multiple Availability Zones (AZs) and regions.
+    - **Requirement:** Reliable network bandwidth between AZs/regions.
 
 ??? "**5. Can AccuKnox reuse existing infrastructure (e.g., NAT, firewalls) during on-prem deployment of the Control Plane?**"
     AccuKnox requires an **independent Kubernetes cluster** for deployment. We strongly recommend **not** using an existing cluster running customer applications.
@@ -49,11 +49,12 @@ hide:
 ??? "**6. Does AccuKnox integrate with virtualization platforms such as VMware or Hyper-V?**"
     AccuKnox does not integrate directly with virtualization platforms (VMware, Hyper-V, KVM, Nutanix AHV).
 
-    + Instead, AccuKnox secures VMs created on these platforms.
-    + Security is provided either **agentlessly (via snapshots)** or through **lightweight scanning agents**.
+    - Instead, AccuKnox secures VMs created on these platforms.
+    - Security is provided either **agentlessly (via snapshots)** or through **lightweight scanning agents**.
 
 ??? "**7. What is the typical timeline for a Proof of Concept (PoC)?**"
     Typical Proof of Concept (PoC) timelines are:
+
     * **SaaS PoC:** ~1–2 weeks (infrastructure already in place).
     * **On-Prem PoC:** ~2–3 weeks (depends on environment complexity and readiness).
     * **Air-gapped On-Prem:** Additional time required for staging container images.
