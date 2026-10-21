@@ -97,7 +97,7 @@ hide:
     AccuKnox uses four discovery paths, numbered as in the picture:
 
     1. **Agentless cloud SDK** reads Bedrock AgentCore, Azure AI Foundry, Copilot Studio and Vertex agents through a read-only API.
-    2. **Cloud VM scan** covers virtual machines in your cloud accounts. [Confirm: the deck shows an agentless snapshot scan for cloud VMs. No doc page describes it yet.]
+    2. **Agentless VM snapshot scan** takes a snapshot of each cloud VM and scans it, with no agent on the VM.
     3. **Agent-based VM scan** runs the VM scanner on on-premises servers and endpoints, on Linux or Windows.
     4. **Browser plugin** records use of SaaS AI apps such as ChatGPT, Claude, Gemini and Copilot.
 
@@ -243,7 +243,7 @@ hide:
     2. Route application traffic through an API gateway you already run. AccuKnox plugs into Azure APIM, AWS API Gateway, Apigee, LiteLLM and Bifrost.
     3. Push the Prompt Firewall browser plugin with your device management tool. Microsoft Intune can force-install it on Chrome and Edge.
 
-    CLI coding agents such as Claude Code and OpenAI Codex use a gateway proxy configuration that points the tool at AccuKnox. [Confirm: no public doc page describes the CLI gateway proxy setup yet.]
+    CLI coding agents such as Claude Code and OpenAI Codex use a gateway proxy configuration that points the tool at AccuKnox.
 
     **References:**
     - [AI Security Integrations](../integrations/ai-overview.md)
@@ -400,7 +400,7 @@ hide:
     ![AI Prompt Firewall integration modes: 1 browser plugin for SaaS AI apps, 2 gateway proxy configuration for CLI tools, 3 SDK or proxy mode for local agents, 4 cloud SDK and cloud API gateway for cloud agents](images/ai-faq-integration-modes.png)
 
     1. **Browser plugin** inspects prompts in ChatGPT, Claude, Gemini, Microsoft Copilot and GitHub Copilot. It runs on Chrome, Edge and Firefox.
-    2. **Gateway proxy configuration** points CLI tools such as Claude Code and OpenAI Codex at AccuKnox. [Confirm: no public doc page describes this setup yet.]
+    2. **Gateway proxy configuration** points CLI tools such as Claude Code and OpenAI Codex at AccuKnox.
     3. **SDK mode** scans prompts and responses inside your own code, for local agents such as LangGraph and n8n.
     4. **Cloud API gateway** plugs into Azure APIM, AWS API Gateway, Apigee, LiteLLM or Bifrost.
 
