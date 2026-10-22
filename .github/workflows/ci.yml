@@ -22,5 +22,5 @@ jobs:
       - run: pip install mkdocs-redirects
       - run: pip install mkdocs-embed-external-markdown
       - run: pip install neoteroi-mkdocs
-      - run: pip install mkdocs-glightbox
+      - run: pip install mkdocs-glightbox "selectolax<1"
       - run: mkdocs gh-deploy --force
