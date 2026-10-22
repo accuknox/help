@@ -1,0 +1,308 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  AWS API Gateway Observability Setup. API Gateway -> CloudWatch -> Lambda -> Sentryflow
+
+Parameters:
+  RestApiId:
+    Type: String
+    Description: ID of the existing API Gateway REST API.
+  
+  LambdaArn:
+    Type: String
+    Default: ""
+    Description: (Optional) Existing Lambda ARN for log processing. Leave empty and set CreateLambda to "true" to create one.
+  
+  CreateLambda:
+    Type: String
+    Default: "false"
+    AllowedValues: ["true", "false"]
+    Description: Set to "true" to create a default Lambda function if LambdaArn is not provided.
+
+  StageName:
+    Type: String
+    Description: Name of the API Gateway stage to enable logging for.
+
+  ExistingStage:
+    Type: String
+    AllowedValues:
+      - true
+      - false
+    Default: false
+    Description: "Set to 'true' to use an existing stage for an API"
+  
+
+  LogsCollectorURL:
+    Type: String
+    Description: URL of the Accuknox Logs Collector
+
+Conditions:
+  ExistingStage: !Equals [!Ref ExistingStage, "false"]
+  UseExistingLambda: !Not [!Equals [!Ref LambdaArn, ""]]
+  CreateNewLambda: !And [!Equals [!Ref CreateLambda, "true"], !Equals [!Ref LambdaArn, ""]]
+
+Resources:
+  
+  # -------------------------------
+  # Lambda for Log Processing (Optional)
+  # -------------------------------
+  ApiGatewayLogProcessor:
+    Type: AWS::Lambda::Function
+    Condition: CreateNewLambda
+    Properties:
+      FunctionName: !Sub "ApiGwLogProcessor-${AWS::StackName}"
+      Runtime: python3.12
+      Handler: index.lambda_handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 30
+      Environment:
+        Variables:
+          LOGS_COLLECTOR_URL: !Ref LogsCollectorURL
+      Code:
+        ZipFile: |
+          import gzip
+          import json
+          import base64
+          import re
+          import time
+          import urllib3
+          import os
+
+          # Create a single HTTP pool manager for efficiency
+          http = urllib3.PoolManager()
+
+          def lambda_handler(event, context):
+              try:
+                  # Decode and decompress
+                  compressed_payload = base64.b64decode(event['awslogs']['data'])
+                  decompressed_data = gzip.decompress(compressed_payload)
+                  logs = json.loads(decompressed_data)
+
+                  # Initialize placeholders
+                  req_headers = {}
+                  req_body = ""
+                  resp_headers = {}
+                  resp_body = ""
+                  http_method = ""
+                  resource_path = ""
+                  response_status = 0
+                  timestamp = 0
+                  query_string = ""
+
+                  # Parse messages line by line
+                  for log_event in logs.get("logEvents", []):
+                      msg = log_event.get('message')
+                      if msg is None:
+                          continue
+                      if timestamp == 0:
+                          timestamp_from_log = log_event.get('timestamp')
+                          if timestamp_from_log is not None:
+                              timestamp = int(timestamp_from_log/1000)
+
+
+                      if "Method request headers:" in msg and not req_headers:
+                          headers_part = msg.split("Method request headers:")[1].strip()
+                          req_headers = parse_header_string(headers_part)
+
+                      elif "Method request body before transformations:" in msg:
+                          req_body = msg.split("Method request body before transformations:")[1].strip() or ""
+
+                      elif "Endpoint response headers:" in msg:
+                          headers_part = msg.split("Endpoint response headers:")[1].strip()
+                          resp_headers = parse_header_string(headers_part)
+
+                      elif "Endpoint response body before transformations:" in msg:
+                          body_part = msg.split("Endpoint response body before transformations:")[1].strip()
+                          resp_body = body_part or ""
+
+                      elif "HTTP Method:" in msg and "Resource Path:" in msg:
+                          match = re.search(r"HTTP Method:\s*(\S+), Resource Path:\s*(\S+)", msg)
+                          if match:
+                              http_method, resource_path = match.groups()
+                      elif "Method completed with status:" in msg:
+                          response_status = msg.split("Method completed with status:")[1].strip()
+                      elif "Method request query string:" in msg:
+                          query_string = msg.split("Method request query string:")[1].strip()
+
+                  client_ip = req_headers.get('X-Forwarded-For', "")
+                  client_port = int(req_headers.get('X-Forwarded-Port', 0))
+                  req_headers[":method"] = http_method
+                  req_headers[":path"] = resource_path
+                  resp_headers[":status"] = response_status
+                  req_headers["query"] = query_string
+
+                  # Build structured log
+                  structured_log = {
+                      "metadata": {
+                          "timestamp": timestamp,
+                          "receiver_name": "aws-api-gateway"
+                      },
+                      "source": {
+                          "name": "",
+                          "namespace": "",
+                          "ip": client_ip,
+                          "port": client_port
+                      },
+                      "destination": {
+                          "name": "",
+                          "namespace": "",
+                          "ip": "",
+                          "port": 0
+                      },
+                      "request": {
+                          "headers": req_headers,
+                          "body": req_body
+                      },
+                      "response": {
+                          "headers": resp_headers,
+                          "body": resp_body,
+                          "backend_latency_in_nanos": 0
+                      },
+                      "protocol": "HTTP/1.1"
+                  }
+
+                  # Convert to JSON string
+                  payload = json.dumps(structured_log)
+                  logs_collector_url = os.environ.get("LOGS_COLLECTOR_URL", "").rstrip("/")
+                  final_url = f"{logs_collector_url}/api/v1/events"
+                  # Send to your endpoint
+                  response = http.request(
+                      "POST",
+                      final_url,
+                      body=payload,
+                      headers={"Content-Type": "application/json"},
+                      timeout=urllib3.Timeout(connect=3.0, read=5.0)
+                  )
+
+                  print(f"Sent structured log. Status: {response.status}")
+                  print(response.data.decode("utf-8", errors="ignore"))
+                  return {"statusCode": response.status, "body": response.data.decode("utf-8", errors="ignore")}
+
+              except Exception as e:
+                  print(f"Error: {e}")
+                  return {"statusCode": 500, "body": str(e)}
+
+
+          def parse_header_string(header_str):
+              """
+              Convert header string of the form:
+              {Header1=value1, Header2=value2, Header3=value3}
+              into a dict
+              """
+              headers = {}
+              header_str = header_str.strip()
+              if header_str.startswith("{") and header_str.endswith("}"):
+                  header_str = header_str[1:-1]
+                  pairs = re.split(r", (?=[A-Za-z\\-]+[=:])", header_str)
+                  for pair in pairs:
+                      if "=" in pair:
+                          k, v = pair.split("=", 1)
+                          if k.strip() == "X-Forwarded-Proto":
+                              headers["scheme"] = v.strip()
+                          if k.strip() == "Host":
+                              headers[":authority"] = v.strip()
+                          headers[k.strip()] = v.strip()
+              return headers
+    DependsOn: LambdaExecutionRole
+
+  # -------------------------------
+  # Lambda Execution Role
+  # -------------------------------
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Condition: CreateNewLambda
+    Properties:
+      RoleName: !Sub "ApiGwLogProcessorRole-${AWS::StackName}"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  # -------------------------------
+  # Lambda Invoke Permission (CloudWatch ? Lambda)
+  # -------------------------------
+  AllowLogsToInvokeLambda:
+    Type: AWS::Lambda::Permission
+    Condition: UseExistingLambda
+    Properties:
+      FunctionName: !Ref LambdaArn
+      Action: lambda:InvokeFunction
+      Principal: logs.amazonaws.com
+      SourceArn: !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:API-Gateway-Execution-Logs_${RestApiId}/${StageName}:*
+
+  AllowLogsToInvokeLambdaNew:
+    Type: AWS::Lambda::Permission
+    Condition: CreateNewLambda
+    Properties:
+      FunctionName: !GetAtt ApiGatewayLogProcessor.Arn
+      Action: lambda:InvokeFunction
+      Principal: logs.amazonaws.com
+      SourceArn: !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:API-Gateway-Execution-Logs_${RestApiId}/${StageName}:*
+    DependsOn: ApiGatewayLogProcessor
+
+  ######################################
+  # Update API Gateway Stage to Enable Logging
+  ######################################
+  ApiGwStageLogging:
+    Type: AWS::ApiGateway::Stage
+    Condition: ExistingStage
+    Properties:
+      RestApiId: !Ref RestApiId
+      StageName: !Ref StageName
+      DeploymentId: !Ref ApiGatewayDeployment
+      MethodSettings:
+        - ResourcePath: "/*"
+          HttpMethod: "*"
+          LoggingLevel: INFO
+          DataTraceEnabled: true
+          MetricsEnabled: true
+
+  ######################################
+  # Dummy Deployment (Required by Stage)
+  ######################################
+  ApiGatewayDeployment:
+    Type: AWS::ApiGateway::Deployment
+    Condition: ExistingStage
+    Properties:
+      RestApiId: !Ref RestApiId
+      Description: "Deployment for enabling CloudWatch logging"
+
+  ######################################
+  # CloudWatch Logs Subscription Filter
+  ######################################
+  ApiGwSubscriptionFilter:
+    Type: AWS::Logs::SubscriptionFilter
+    Condition: UseExistingLambda
+    Properties:
+      LogGroupName: !Sub API-Gateway-Execution-Logs_${RestApiId}/${StageName}
+      FilterPattern: ""
+      DestinationArn: !Ref LambdaArn
+    DependsOn: 
+      - AllowLogsToInvokeLambda
+
+
+  ApiGwSubscriptionFilterNew:
+    Type: AWS::Logs::SubscriptionFilter
+    Condition: CreateNewLambda
+    Properties:
+      LogGroupName: !Sub API-Gateway-Execution-Logs_${RestApiId}/${StageName}
+      FilterPattern: ""
+      DestinationArn: !GetAtt ApiGatewayLogProcessor.Arn
+    DependsOn: 
+      - ApiGatewayLogProcessor
+      - AllowLogsToInvokeLambdaNew
+
+
+Outputs:
+  LambdaFunctionArn:
+    Description: ARN of the Lambda function used for log processing.
+    Value: !If
+      - CreateNewLambda
+      - !GetAtt ApiGatewayLogProcessor.Arn
+      - !Ref LambdaArn
+    Export:
+      Name: !Sub "${AWS::StackName}-LambdaFunctionArn"
