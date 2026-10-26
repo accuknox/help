@@ -318,6 +318,7 @@ nav:
         - "Onboarding Overview": "how-to/k8s-security-onboarding.md"
         - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"
         - "Runtime Security Onboarding" : "how-to/cluster-onboarding.md"
+        - "OpenShift Onboarding (CWPP and KSPM)": "how-to/openshift-onboarding.md"
         - "Cluster Onboarding with Access Keys": "how-to/cluster-onboarding-access-keys.md"
         - "Cluster Miconfiguration Scan Onboarding" : "how-to/cluster-misconfig-scan-onboarding.md"
         - "CIS Benchmarking": "how-to/cis-benchmarking.md"
@@ -340,6 +341,7 @@ nav:
           - "Ubuntu": "how-to/vm-security/agent-based/ubuntu.md"
           - "RHEL": "how-to/vm-security/agent-based/rhel.md"
         - "Windows": "how-to/vm-security/agent-based/windows.md"
+        - "macOS": "how-to/vm-security/agent-based/macos.md"
         - "Container Image Scanning": "how-to/vm-security/agent-based/container-image-scanning.md"
       - "Agentless":
         - "Cloud VM Scan": "how-to/vm-security/agentless/cloud-vm-scanning.md"
