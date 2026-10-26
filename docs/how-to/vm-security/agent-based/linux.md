@@ -69,7 +69,17 @@ curl https://accuknox-omni.s3.us-east-1.amazonaws.com/latest/agent-install.sh | 
     - **Artifact Label**: Create a label under **Settings > Labels** to identify this VM.
     - The installation script creates a systemd service (`omni.service`) and a daily systemd timer (`omni.timer`).
 
-## Air-gapped Installation
+### 2. Find the Results in the Console
+
+After the first scan finishes, go to **AI/ML Security → Assets → Unmanaged** in the AccuKnox console. Confirm that the discovered AI tools list this VM as the parent and show your artifact label.
+
+AccuKnox validated Shadow AI Discovery on a Linux VM with six AI coding agents installed. Each agent appeared under the **Unmanaged** tab against the expected VM and label, whether or not it was running.
+
+![Unmanaged tab, AI Agent category, listing Junie, GitHub Copilot, OpenCode, Cody, BLACKBOX AI and Cursor on the parent ubuntu-VM with the devshadowai label, each with its version and license](../../../use-cases/images/shadow-ai/endpoints/linux-ai-agents-unmanaged.png)
+
+*One scan of an Ubuntu VM found Junie, GitHub Copilot, OpenCode, Cody, BLACKBOX AI and Cursor. The tenant name is redacted.*
+
+## Air-Gapped Installation
 
 For environments without direct internet access, follow these steps:
 
@@ -104,6 +114,11 @@ export OMNI_SKIP_DOWNLOAD=1
 ./agent-install.sh
 ```
 
+`OMNI_SKIP_DOWNLOAD=1` does not provision dependencies on its own. Make sure the binary, the vulnerability database and every other dependency are available locally or from an internal repository before you run the script.
+
+!!! warning "Air-gapped scanning and central reporting are separate"
+    A VM that cannot reach the AccuKnox artifact endpoint cannot upload its results. Omni still scans locally, but the results do not appear in the console until you move them through an approved transfer process.
+
 ## Configuration & Troubleshooting
 
 ### Check Scan Status
@@ -116,9 +131,24 @@ systemctl status omni.service
 journalctl -u omni
 ```
 
+Follow the service log while a scan runs:
+
+```bash
+sudo journalctl -u omni.service -f
+```
+
+### Read the Omni Log Files
+
+The default installation writes its logs to `/var/lib/accuknox-omni/`:
+
+```bash
+sudo tail -n 100 /var/lib/accuknox-omni/omni.log
+sudo tail -n 100 /var/lib/accuknox-omni/omni.err.log
+```
+
 ### Adjust Resource Usage
 
-By default, the systemd service is limited to **2G memory** and **10% CPU** utilization. If the scan is getting OOMKilled or you need to adjust these limits, set the following environment variables and re-run the installation script:
+By default, the systemd service is limited to **2G memory** and **10% CPU**. If the scan is getting OOMKilled or you need to adjust these limits, set the following environment variables and re-run the installation script:
 
 ```bash
 export OMNI_MAX_MEMORY=4G
@@ -140,5 +170,5 @@ export OMNI_SKIP_MALWARE_SCAN=false
 To remove the agent and related services:
 
 ```bash
-/usr/local/bin/omni-uninstall.sh
+sudo /usr/local/bin/omni-uninstall.sh
 ```

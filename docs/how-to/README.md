@@ -11,10 +11,11 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [RINC.md](RINC.md) | Introduction to RINC (short for Runtime Insights and Network Controls) and how to get started with its features on AccuKnox SaaS. |
 | [acr.md](acr.md) | Instructions for onboarding Azure Container Registry (ACR) to AccuKnox SaaS for image scanning and vulnerability detection. |
 | [administrators-guide.md](administrators-guide.md) | Step-by-step guidance for AccuKnox administrators covering onboarding, deployment, configuration, and task-oriented references for managing the platform. |
+| [ai-pentesting.md](ai-pentesting.md) | Run an autonomous AI pentest against your web apps and APIs with the AccuKnox AI Dast Scan collector, powered by AgentZ. Set targets, scan depth, login and t... |
 | [aiml-aws-onboard.md](aiml-aws-onboard.md) | Onboard an AWS Organization to AccuKnox AI Security with one CloudFormation stack that deploys a read-only IAM role to the Management Account and to member a... |
 | [aiml-aws-standalone-onboard.md](aiml-aws-standalone-onboard.md) | Connect a standalone AWS account to AccuKnox AI Security for AI/ML asset discovery and security assessment, using access keys that a Terraform script creates. |
-| [aiml-azure-org-onboard.md](aiml-azure-org-onboard.md) | Onboard an Azure Organization to AccuKnox AI Security, approve the app registration Graph permissions, and see the AI/ML and red teaming roles assigned to the AccuKnox Service Principal. |
 | [aiml-azure-onboard.md](aiml-azure-onboard.md) | Step-by-step instructions for onboarding an Azure cloud account and AI/ML assets within it to AccuKnox SaaS for automated security management. |
+| [aiml-azure-org-onboard.md](aiml-azure-org-onboard.md) | Onboard an Azure Organization to AccuKnox AI Security, approve the app registration Graph permissions, and see the AI/ML and red teaming roles assigned to th... |
 | [aiml-bedrock-collector.md](aiml-bedrock-collector.md) | Red team a specific Amazon Bedrock model with the AccuKnox Custom Model collector, without onboarding the full AWS account or organization. |
 | [aiml-custom-model-redteaming.md](aiml-custom-model-redteaming.md) | Red team a single model on Bedrock, NVIDIA Triton, or vLLM with the AccuKnox Custom Model collector, without onboarding a full cloud account. |
 | [aiml-gcp-onboard.md](aiml-gcp-onboard.md) | Step-by-step instructions for onboarding a GCP cloud account and AI/ML assets within it to AccuKnox SaaS for automated security management. |
@@ -69,6 +70,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [index.md](index.md) | Introduction to the AccuKnox zero trust CNAPP framework, providing an overview of core security features and architecture. |
 | [jfrog-container.md](jfrog-container.md) | Learn how to onboard and scan a JFrog Container Registry with AccuKnox for continuous vulnerability scanning to enhance the security of container images. |
 | [k8s-security-onboarding.md](k8s-security-onboarding.md) | Overview of Kubernetes security onboarding with AccuKnox, covering supported cluster types, runtime security requirements, and available security features. |
+| [knox-rt-red-teaming-policies.md](knox-rt-red-teaming-policies.md) | Build, schedule and review AI red teaming policies with Knox RT (AccuKnox Red Teaming). Pick a template such as OWASP LLM Top 10, tune attack strategies, att... |
 | [llm-defense-app-onboard.md](llm-defense-app-onboard.md) | Learn how to onboard your application with AccuKnox Prompt Firewall using the Python SDK. This guide covers steps from application registration to scanning p... |
 | [llm-static-scan.md](llm-static-scan.md) | Learn how to perform LLM Static Scans using AccuKnox for OpenAI, Ollama and Custom Large Language Models. |
 | [ml-static-scan.md](ml-static-scan.md) | Learn how to perform ML Model Static Scans using AccuKnox for GitHub and Hugging Face repositories to secure your machine learning models. |
@@ -85,6 +87,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [prompt-firewall.md](prompt-firewall.md) | A step-by-step guide to onboarding your application with the AccuKnox Prompt Firewall |
 | [quay.md](quay.md) | Steps to onboard Quay Registry on AccuKnox for scanning and monitoring container images for vulnerabilities and compliance. |
 | [registry-overview.md](registry-overview.md) | Learn how to onboard and scan container registries with AccuKnox for vulnerability detection and security assessment. |
+| [registry-scan-patterns.md](registry-scan-patterns.md) | Choose which container images and tags AccuKnox scans in a registry. Use wildcards, the minus sign to exclude, and bracket ranges such as v[1-8] to match a s... |
 | [sca.md](sca.md) | Configure Software Composition Analysis (SCA) scans in AccuKnox using collectors to identify vulnerabilities in open-source dependencies across repositories. |
 | [sonatype-nexus.md](sonatype-nexus.md) | Learn how to onboard Sonatype Nexus Registry for continuous vulnerability scanning with AccuKnox to enhance the security of container images. |
 | [sso.md](sso.md) | Step-by-step guide on inviting new users and setting up SSO for secure and streamlined login to the AccuKnox SaaS platform. |

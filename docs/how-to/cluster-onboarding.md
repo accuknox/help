@@ -81,6 +81,8 @@ helm upgrade --install agents oci://public.ecr.aws/k9v9d5v2/kspm-runtime \
     ```
     Without these flags, OpenShift's Security Context Constraints (SCC) can block the KubeArmor Operator pod from coming up, since it isn't identified as a Red Hat certified operator. This can surface as errors like `unable to validate against any security context constraint`, or the operator pod getting stuck in `CrashLoopBackOff`/`Error` state. See the [Runtime Security FAQ](../faqs/runtime-security.md) for troubleshooting.
 
+    To install from a private registry with the full set of OpenShift SCCs, follow [OpenShift Cluster Onboarding for CWPP and KSPM](openshift-onboarding.md).
+
 ## View Onboarded Clusters
 
 **Step 4:** Onboarded Cluster

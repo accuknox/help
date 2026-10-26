@@ -14,9 +14,11 @@ This guide provides step-by-step instructions to onboard Windows Virtual Machine
 
 ## Prerequisites
 
-- Administrator access to the Windows VM.
+- Administrator access to the Windows VM or endpoint.
+- PowerShell on the endpoint.
 - Outbound internet connectivity to AccuKnox SaaS.
 - A valid AccuKnox Tenant ID and API Token.
+- An artifact label to identify the endpoint.
 
 ## Installation
 
@@ -48,7 +50,57 @@ Execute the script to install and configure the agent. Replace `<REDACTED>` with
 
 The installation script creates a Windows scheduled task to run the agent periodically.
 
-## Air-gapped Installation
+## Verify the Scan Ran
+
+### 1. Check the Scheduled Task
+
+```powershell
+Get-ScheduledTaskInfo -TaskName 'AccuKnox Omni Vuln Scan'
+```
+
+Review the last run time and the last task result. A task that exists does not prove that the scan finished or that results uploaded.
+
+### 2. Read the Scan Log
+
+```powershell
+Get-Content 'C:\ProgramData\Accuknox\Omni\logs\omni-vuln-scan.log' -Tail 100
+```
+
+Look for scan errors, database download failures and upload failures.
+
+### 3. Find the Results in the Console
+
+Go to **AI/ML Security → Assets → Unmanaged** in the AccuKnox console. Confirm that the discovered AI tools list this endpoint as the parent and show your artifact label.
+
+### 4. Compare With the AI Tools Validated on Windows
+
+AccuKnox validated Shadow AI Discovery on Windows with three tool types. Each tab shows the tool installed on the endpoint, then the same tool on the **Unmanaged** tab after one Omni scan. Hostnames and the tenant name are redacted.
+
+=== "CLI agent: Codex CLI"
+
+    ![PowerShell output of codex --version showing codex-cli 0.163.0, and Get-Command showing codex.ps1 installed under the npm folder in the user profile](../../../use-cases/images/shadow-ai/endpoints/windows-codex-cli-installed.png)
+
+    ![Unmanaged tab, AI Agent category, listing Codex CLI on the Windows endpoint with category AI Agent, language Rust, version 0.162.0 and license Apache-2.0](../../../use-cases/images/shadow-ai/endpoints/windows-codex-cli-unmanaged.png)
+
+    *Codex CLI was installed through npm and appears as an AI Agent with its language, version and license.*
+
+=== "Desktop app: ChatGPT"
+
+    ![Windows Installed apps search for chatgpt, showing the ChatGPT desktop app by OpenAI, version 26.1016.8120.0, 2.22 GB](../../../use-cases/images/shadow-ai/endpoints/windows-chatgpt-installed.png)
+
+    ![Unmanaged tab with the ChatGPT row highlighted, listed as an AI Agent with a Proprietary license on the Windows endpoint](../../../use-cases/images/shadow-ai/endpoints/windows-chatgpt-unmanaged.png)
+
+    *The ChatGPT desktop app appears as an AI Agent next to the CLI agents and IDE extensions on the same endpoint.*
+
+=== "IDE extension: Cline"
+
+    ![VS Code terminal installing the saoudrizwan.claude-dev extension, which is Cline, and listing it at version 4.1.25](../../../use-cases/images/shadow-ai/endpoints/windows-cline-installed.png)
+
+    ![Unmanaged tab with the Cline row highlighted, listed as a TypeScript AI Agent with license Apache-2.0 on the Windows endpoint](../../../use-cases/images/shadow-ai/endpoints/windows-cline-unmanaged.png)
+
+    *Cline was installed with `code --install-extension saoudrizwan.claude-dev` and appears as an AI Agent, even though it lives inside Visual Studio Code.*
+
+## Air-Gapped Installation
 
 For environments without direct internet access, follow these steps:
 
@@ -75,13 +127,16 @@ New-Item -ItemType Directory -Path "C:\Program Files\ClamAV" -Force
 Move-Item -Path .\database\clamav\ -Destination "C:\Program Files\ClamAV\database" -Force
 ```
 
-### 3. Setup MSRC Database
+### 3. Setup the Vulnerability and AI Agent Databases
 
-Create the directory and move the MSRC database files:
+Create the directory and move the MSRC, `db`, `java-db` and `aiagent` databases from the bundle:
 
 ```powershell
 New-Item -ItemType Directory -Path "C:\ProgramData\Accuknox\Omni" -Force
 Move-Item -Path .\database\msrc\ -Destination "C:\ProgramData\Accuknox\Omni" -Force
+Move-Item ".\database\db" -Destination "C:\ProgramData\Accuknox\Omni" -Force
+Move-Item ".\database\java-db" -Destination "C:\ProgramData\Accuknox\Omni" -Force
+Move-Item ".\database\aiagent" -Destination "C:\ProgramData\Accuknox\Omni" -Force
 ```
 
 ### 4. Install VM Scan Solution Agent
@@ -95,7 +150,7 @@ Move-Item -Path .\omni.exe -Destination "C:\Program Files\AccuKnox\Omni\" -Force
 
 ### 5. Run the Installation Script (Air-gapped)
 
-Run the installation script with the `-SkipOmniDownload` flag:
+Run the installation script with the `-SkipOmniDownload` and `-SkipDatabaseDownload` flags, so the installer uses the binary and databases you placed. Make sure `clamav.msi` sits at the path you pass to `-ClamavMSIInstallerFile`.
 
 ```powershell
 .\agent-install.ps1 `
@@ -103,6 +158,16 @@ Run the installation script with the `-SkipOmniDownload` flag:
     -TenantId 000 `
     -ArtifactLabel CHANGEME `
     -ArtifactApiToken "<REDACTED>" `
+    -ClamavMSIInstallerFile "clamav.msi" `
     -SkipOmniDownload $true `
     -SkipDatabaseDownload $true
 ```
+
+### 6. Verify Offline Scanning and Reporting
+
+1. Confirm that the scheduled task exists, as shown in [Verify the Scan Ran](#verify-the-scan-ran).
+2. Check the scan log for errors and confirm that the databases loaded.
+3. Confirm that the scan finished and produced a local report.
+
+!!! warning "Air-gapped scanning and central reporting are separate"
+    An endpoint that cannot reach the AccuKnox artifact endpoint cannot upload its results. Omni still scans locally, but the results do not appear in the console until you move them through an approved transfer process.
