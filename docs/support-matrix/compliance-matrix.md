@@ -110,9 +110,18 @@ th {
     | Ubuntu 20.04 (V1R9) | ✅ |
     | Ubuntu 22.04 (V2R8) | ✅ |
     | Ubuntu 24.04 (V1R5) | ✅ |
-    | Alibaba Linux 3 | TBD |
-    | Amazon Linux 3 | TBD |
-    | Google COS | TBD |
+    | Linux Mint 19/20 (as Ubuntu 18.04/20.04) | ✅ |
+    | Pop!_OS 18.04/20.04/22.04/24.04 (as Ubuntu equivalent) | ✅ |
+    | RHEL 9 (V1R1) | ✅ |
+    | Fedora 35-38 (as RHEL 9 V1R1) | ✅ |
+    | CentOS 9 (as RHEL 9 V1R1) | ✅ |
+    | Rocky Linux 9 (as RHEL 9 V1R1) | ✅ |
+    | Windows 10 (V1R3) | ✅ |
+    | Windows 11 (V2R7) | ✅ |
+    | Windows Server 2019 (V3R8) | ✅ |
+    | Windows Server 2022 (V2R8) | ✅ |
+    | Windows Server 2025 (V1R1) | ✅ |
+    | Kubernetes (V1R10) | ✅ |
 
     ### CIS
 
