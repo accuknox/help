@@ -97,7 +97,7 @@ AccuKnox AI-SPM discovers and protects your AI/ML assets. Run every AI security 
   <li><a class="ak-module" href="/use-cases/red-teaming/">AI Red Teaming &amp; Pen Testing</a></li>
   <li><a class="ak-module" href="/use-cases/prompt-firewall-overview/">AI Guardrails (Prompt Firewall)</a></li>
   <li><span class="ak-module ak-module--soon">AI Identity Security <span>Coming soon</span></span></li>
-  <li><span class="ak-module ak-module--soon">AI Compliance &amp; Governance (AI-GRC) <span>Coming soon</span></span></li>
+  <li><span class="ak-module ak-module--soon">AI Compliance <span>Coming soon</span></span></li>
 </ul>
 
 New to the platform? Read the [AI security architecture](../getting-started/ai-security-arch.md) first. It maps which collection method reaches which kind of asset, and that decides what you install below.

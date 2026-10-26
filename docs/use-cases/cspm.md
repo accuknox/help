@@ -36,7 +36,7 @@ CSPM refers to a category of tools and practices used to manage and improve the 
 
 ## **AccuKnox Features**
 
-Accuknox helps users by providing continuous compliance, asset inventory, misconfiguration findings, Governance, Risk, and Compliance (GRC).
+Accuknox helps users by providing continuous compliance, asset inventory and misconfiguration findings.
 
 - **Asset Inventory**: Automated discovery and categorization of cloud resources
 - **Drift Detection**: Single-pane tracking of compliance configuration changes

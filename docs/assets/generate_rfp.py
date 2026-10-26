@@ -253,7 +253,7 @@ def add_section_4(doc):
         ["API Security", "API Discovery & Protection",
          "Runtime and static API discovery, OWASP API Top 10 coverage, traffic analysis, and access control."],
         ["AI Security", "AI-SPM & Red Teaming",
-         "AI asset inventory, prompt firewall, automated red teaming, model sandboxing, and AI-GRC compliance."],
+         "AI asset inventory, prompt firewall, automated red teaming, model sandboxing, and AI compliance."],
         ["Secrets Mgmt", "Secrets Management",
          "Centralized credential storage, dynamic secrets, encryption-as-a-service, HashiCorp Vault–compatible replacement."],
         ["SIEM", "Security Information & Event Management",
@@ -429,7 +429,7 @@ def add_section_5(doc):
         "Prompt Firewall — PII redaction, prompt injection defense, toxicity filtering, code execution prevention",
         "Model Sandboxing — network isolation, file system protection, process whitelisting, DNS filtering",
         "AI Detection & Response — real-time monitoring, anomaly detection, automated remediation",
-        "AI-GRC — compliance with NIST AI, MITRE AI, AISCP, SOC, and other frameworks",
+        "AI compliance — mapping to NIST AI, MITRE AI, AISCP, SOC, and other frameworks",
     ]:
         add_bullet(doc, b)
     add_heading_numbered(doc, "Supported Platforms", 3)
