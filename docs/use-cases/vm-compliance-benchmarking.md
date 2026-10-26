@@ -38,26 +38,7 @@ Across the four profiles, 479 of the 1020 controls run as automated checks today
     - **Pass / Fail** — controls with an automated check run a read-only command against the VM using standard OS tools and report a clear pass or fail.
     - **Skipped** — controls that require manual review are reported as *skipped*, never as a pass. The scanner does not mark an unverified control as compliant, so a passing scan reflects only what was actually checked.
 
-## Support Matrix
-
-### STIGs
-
-| Distribution/App | Supported |
-|---|---|
-| Ubuntu 18.04 (V2R15) | Yes |
-| Ubuntu 20.04 (V1R9) | Yes |
-| Ubuntu 22.04 (V2R8) | Yes |
-| Ubuntu 24.04 (V1R5) | Yes |
-| Alibaba Linux 3 | TBD |
-| Amazon Linux 3 | TBD |
-| Google COS | TBD |
-
-### CIS
-
-| Distribution/App | Supported |
-|---|---|
-| Ubuntu 22.04 (v3.0.0) | Yes |
-| Ubuntu 24.04 (v2.0.0) | Yes |
+For the full list of supported distributions, see the VM tab of the [Compliance Matrix](../support-matrix/compliance-matrix.md).
 
 ### **Pre-requisite**
 
