@@ -112,13 +112,19 @@ Pick the guide for the operating system. Each guide covers installation, verific
 
 ## Validated Use Cases Cover CLI Agents, Desktop Apps and IDE Extensions
 
-AccuKnox validated endpoint discovery by installing one AI tool of each type on a test endpoint, then running an Omni scan. Each tool appeared under **AI/ML Security → Assets → Unmanaged**, mapped to the expected endpoint and artifact label.
+AccuKnox validated endpoint discovery by installing AI tools on a Linux VM, a Windows endpoint and a Mac, then running one Omni scan on each. Every tool appeared under **AI/ML Security → Assets → Unmanaged**, mapped to the expected endpoint and artifact label.
 
-| Tool type | Linux VM | Windows | macOS |
-| --- | --- | --- | --- |
-| CLI coding agent | Junie, GitHub Copilot, OpenCode, Cody, BLACKBOX AI, Cursor | Codex CLI | Gemini CLI |
-| Desktop AI application | Not tested | ChatGPT desktop app | Kiro |
-| IDE extension | Not tested | Cline in Visual Studio Code | Continue in Visual Studio Code |
+| Endpoint | AI tools discovered in one scan |
+| --- | --- |
+| Linux VM (Ubuntu) | Junie, GitHub Copilot, OpenCode, Cody, BLACKBOX AI, Cursor |
+| Windows | Codex CLI, ChatGPT desktop app, Cline, AnythingLLM, Tabnine, GitHub Copilot |
+| macOS | Gemini CLI, Kiro, Continue, Codex CLI, GitHub Copilot, and the npm packages behind Gemini CLI and GitHub Copilot |
+
+The tests cover the three ways a developer installs an AI tool on an endpoint:
+
+- **CLI coding agents.** Codex CLI on Windows, Gemini CLI on macOS, and OpenCode on Linux.
+- **Desktop AI apps.** The ChatGPT desktop app on Windows and Kiro on macOS.
+- **IDE extensions.** Cline in Visual Studio Code on Windows and Continue in Visual Studio Code on macOS.
 
 === "Linux VM"
 
