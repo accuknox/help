@@ -5,6 +5,9 @@ description: "AccuKnox DSPM finds sensitive data in cloud storage, databases and
 
 # Data Security Posture Management
 
+!!! tip "New"
+    DSPM is a new AccuKnox module. It is generally available.
+
 AccuKnox Data Security Posture Management (DSPM) finds sensitive data in your buckets, databases and SaaS apps, and shows where it sits. The scanner runs on a machine you own, in the region that holds the data. It reads a sample with read-only access, classifies it in memory, and sends only a findings file to the AccuKnox console. To set up the scanner, see [Onboard the DSPM Scanner](dspm-onboarding.md).
 
 ## Product Tour

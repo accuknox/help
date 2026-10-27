@@ -1,18 +1,17 @@
 /*
- * Adds the "New" badge to the AgentZ entry in the top tab bar and in the
- * primary sidebar. CSS alone cannot do it reliably, because Material rewrites
- * the href of the active tab, so an href selector drops the badge on the
- * AgentZ page itself. Matching on the label is stable in every state.
+ * Adds the "New" badge to the AgentZ, Data Security (DSPM) and Identity
+ * Security (CIEM) entries in the top tab bar and in the primary sidebar. CSS
+ * alone cannot do it reliably, because Material rewrites the href of the
+ * active tab, so an href selector drops the badge on the page itself. Matching
+ * on the label is stable in every state.
  */
 (function () {
-  var LABEL = "AgentZ";
+  var LABELS = ["AgentZ", "Data Security (DSPM)", "Identity Security (CIEM)"];
 
   function decorate() {
-    var links = document.querySelectorAll(
-      ".md-tabs__link, .md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link"
-    );
+    var links = document.querySelectorAll(".md-tabs__link, .md-nav--primary .md-nav__link");
     links.forEach(function (link) {
-      if (link.textContent.trim() !== LABEL) return;
+      if (LABELS.indexOf(link.textContent.trim()) === -1) return;
       if (link.querySelector(".az-nav-badge")) return;
       var badge = document.createElement("span");
       badge.className = "az-nav-badge";

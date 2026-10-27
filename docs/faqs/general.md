@@ -48,7 +48,12 @@ hide:
     - [AccuKnox Homepage](https://accuknox.com)
 
 ??? "**3. What are all the modules supported by AccuKnox CNAPP?**"
-    AccuKnox delivers **12 product offerings** across AppSec, CloudSec, and AISec. Nine are generally available and three are in beta.
+    AccuKnox delivers **13 product offerings** across AppSec, CloudSec, and AISec. Eleven are generally available, including the new DSPM and CIEM modules, and two are in beta.
+
+    **New:**
+
+    - **Data Security (DSPM):** Sensitive data discovery in cloud storage, databases and SaaS apps, with a scanner that runs in your region with read-only access. See [DSPM Overview](https://help.accuknox.com/getting-started/dspm-overview/).
+    - **Identity Security (CIEM):** Unified Multi-Cloud Entitlement Visibility, Cross-Cloud Identity and Permission Correlation, Consistent Multi-Cloud CIEM Controls. See [CIEM Overview](https://help.accuknox.com/getting-started/ciem-overview/).
 
     **Generally Available:**
 
@@ -64,7 +69,6 @@ hide:
 
     **Beta:**
 
-    - **Cloud Identity Security (CIEM):** Unified Multi-Cloud Entitlement Visibility, Cross-Cloud Identity and Permission Correlation, Consistent Multi-Cloud CIEM Controls
     - **Static Security (SBOM):** Shift Left Security in CI/CD, Supply Chain Visibility, Drift Detection
     - **Threat Modeling (CTEM):** Adversarial Emulation and Validation, Policy Enforcement & Remediation, Real-Time Threat Detection
 
