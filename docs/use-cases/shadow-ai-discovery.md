@@ -9,6 +9,42 @@ Shadow AI Discovery finds the AI tools, agents, SDKs and Model Context Protocol 
 
 Discovery confirms that a tool is installed. It does not confirm that anyone uses it. A supported AI agent shows up even when it is not running and has never contacted an external AI service.
 
+<div class="grid cards" markdown>
+
+-   :material-laptop:{ .lg .middle .sai-ic } __Endpoints and VMs__
+
+    ---
+
+    The Omni agent finds CLI agents, desktop AI apps and IDE extensions on Linux, Windows and macOS.
+
+    [:octicons-arrow-right-24: Endpoint discovery](#endpoint-discovery-finds-ai-tools-on-the-host)
+
+-   :material-kubernetes:{ .lg .middle .sai-ic } __Kubernetes__
+
+    ---
+
+    The in-cluster scanner reads container images and maps each AI component to its workload.
+
+    [:octicons-arrow-right-24: In-cluster scanning](../how-to/k8s-security-onboarding.md#in-cluster-container-image-scanning)
+
+-   :material-cloud-outline:{ .lg .middle .sai-ic } __Cloud accounts__
+
+    ---
+
+    A read-only API connection finds models, datasets, compute and managed agents.
+
+    [:octicons-arrow-right-24: Cloud discovery](#cloud-discovery-maps-ai-resources-and-their-connections)
+
+-   :material-web:{ .lg .middle .sai-ic } __Browser__
+
+    ---
+
+    The browser plugin records access to GenAI services such as ChatGPT, Claude and Gemini.
+
+    [:octicons-arrow-right-24: Browser usage](#discovery-also-covers-agentic-runtimes-and-browser-usage)
+
+</div>
+
 ## Watch the Two-Minute Tour
 
 Watch AccuKnox find AI agents, SDKs and MCP servers on VMs and containers.
@@ -21,8 +57,8 @@ AccuKnox discovers cloud AI resources and installed AI software in different way
 
 | Tab | What it holds | How AccuKnox finds it |
 | --- | --- | --- |
-| **Managed** | AI resources in your cloud accounts, such as models, datasets, compute and managed agents | A read-only API connection to the onboarded cloud account |
-| **Unmanaged** | AI software installed on endpoints, VMs and containers | The Omni agent on Linux, Windows and macOS endpoints, and the in-cluster scanner in Kubernetes |
+| :material-cloud-check-outline:{ .sai-ic } **Managed** | AI resources in your cloud accounts, such as models, datasets, compute and managed agents | A read-only API connection to the onboarded cloud account |
+| :material-laptop:{ .sai-ic } **Unmanaged** | AI software installed on endpoints, VMs and containers | The Omni agent on Linux, Windows and macOS endpoints, and the in-cluster scanner in Kubernetes |
 
 The **Unmanaged** tab is where shadow AI appears. It lists AI software that sits outside centrally managed cloud AI resources and outside the approved software inventory.
 
@@ -53,11 +89,13 @@ On endpoints and VMs, the Omni agent scans the local filesystem for installation
 
 Discovery runs in five steps:
 
-1. **Onboard the endpoint.** Install and configure Omni on a supported Linux, Windows or macOS endpoint.
-2. **Scan locally.** Omni scans the endpoint for supported AI installation artifacts and packages.
-3. **Report results.** Omni uploads the scan results to your AccuKnox tenant through the artifact API.
-4. **Classify assets.** AccuKnox matches the results against its AI/ML classification rules and assigns each component a category.
-5. **Review assets.** The components appear under **AI/ML Security → Assets → Unmanaged**, mapped to the endpoint and the artifact label.
+<ol class="sai-flow" markdown>
+<li markdown="span"><span class="sai-step">:material-download-outline:</span><strong>1. Onboard</strong>Install Omni on a Linux, Windows or macOS endpoint.</li>
+<li markdown="span"><span class="sai-step">:material-magnify-scan:</span><strong>2. Scan</strong>Omni reads the disk for AI installation artifacts and packages.</li>
+<li markdown="span"><span class="sai-step">:material-cloud-upload-outline:</span><strong>3. Report</strong>Omni uploads the results through the artifact API.</li>
+<li markdown="span"><span class="sai-step">:material-tag-outline:</span><strong>4. Classify</strong>AccuKnox assigns each component an AI/ML category.</li>
+<li markdown="span"><span class="sai-step">:material-table-eye:</span><strong>5. Review</strong>Each tool appears on the Unmanaged tab with its endpoint.</li>
+</ol>
 
 The AI tool does not need network access to be discovered. Omni needs a path to upload results to AccuKnox. On an air-gapped endpoint, Omni can still scan, but the results reach the console only through an approved transfer process.
 
@@ -73,13 +111,13 @@ AccuKnox compares those packages against its AI/ML classification rules. A workl
 
 | Category | What it covers | Representative packages |
 | --- | --- | --- |
-| AI Agent | AI assistants and agent frameworks installed on endpoints or workloads | LangChain agents, CrewAI, AutoGen |
-| AI Automation | Tools that build or run AI workflows | Flowise, Langflow |
-| AI Gateway | Components that route or control access to models | LiteLLM, Portkey |
-| AI Inference Engine | Runtimes that run or serve models | vLLM, TGI, Triton, llama.cpp, Ollama |
-| AI-ML | Machine learning frameworks and libraries | PyTorch, TensorFlow, scikit-learn, Transformers |
-| AI SDK | Kits that call AI models from an application | OpenAI, Anthropic, Cohere, Google GenAI |
-| MCP | Model Context Protocol servers and clients | MCP server and client packages |
+| :material-robot-outline:{ .sai-ic } AI Agent | AI assistants and agent frameworks installed on endpoints or workloads | LangChain agents, CrewAI, AutoGen |
+| :material-sitemap-outline:{ .sai-ic } AI Automation | Tools that build or run AI workflows | Flowise, Langflow |
+| :material-router-network:{ .sai-ic } AI Gateway | Components that route or control access to models | LiteLLM, Portkey |
+| :material-chip:{ .sai-ic } AI Inference Engine | Runtimes that run or serve models | vLLM, TGI, Triton, llama.cpp, Ollama |
+| :material-brain:{ .sai-ic } AI-ML | Machine learning frameworks and libraries | PyTorch, TensorFlow, scikit-learn, Transformers |
+| :material-code-braces:{ .sai-ic } AI SDK | Kits that call AI models from an application | OpenAI, Anthropic, Cohere, Google GenAI |
+| :material-connection:{ .sai-ic } MCP | Model Context Protocol servers and clients | MCP server and client packages |
 
 Detection rules decide the category, and not every category is detected on every operating system.
 
@@ -103,12 +141,41 @@ Each discovered asset can carry the asset name, category, technology, version, l
 
 Pick the guide for the operating system. Each guide covers installation, verification and troubleshooting.
 
-| Endpoint | Guide | Scan schedule | Air-gapped install |
-| --- | --- | --- | --- |
-| Linux VM | [Agent-Based VM Scanning for Linux](../how-to/vm-security/agent-based/linux.md) | `omni.timer`, daily | Yes |
-| Windows endpoint | [Agent-Based VM Scanning for Windows](../how-to/vm-security/agent-based/windows.md) | Scheduled task `AccuKnox Omni Vuln Scan` | Yes |
-| macOS endpoint | [Agent-Based Scanning for macOS](../how-to/vm-security/agent-based/macos.md) | `launchd` job `com.accuknox.omni`, daily | Not documented |
-| Kubernetes | [In-cluster container image scanning](../how-to/k8s-security-onboarding.md#in-cluster-container-image-scanning) | In-cluster scanner | Not applicable |
+<div class="grid cards" markdown>
+
+-   :material-linux:{ .lg .middle .sai-ic } __Linux VM__
+
+    ---
+
+    Scans daily through the `omni.timer` systemd timer. Supports air-gapped install.
+
+    [:octicons-arrow-right-24: Agent-Based VM Scanning for Linux](../how-to/vm-security/agent-based/linux.md)
+
+-   :material-microsoft-windows:{ .lg .middle .sai-ic } __Windows endpoint__
+
+    ---
+
+    Scans through the `AccuKnox Omni Vuln Scan` scheduled task. Supports air-gapped install.
+
+    [:octicons-arrow-right-24: Agent-Based VM Scanning for Windows](../how-to/vm-security/agent-based/windows.md)
+
+-   :material-apple:{ .lg .middle .sai-ic } __macOS endpoint__
+
+    ---
+
+    Scans daily through the `com.accuknox.omni` launchd job. Online install only.
+
+    [:octicons-arrow-right-24: Agent-Based Scanning for macOS](../how-to/vm-security/agent-based/macos.md)
+
+-   :material-kubernetes:{ .lg .middle .sai-ic } __Kubernetes__
+
+    ---
+
+    The in-cluster scanner reads container images and the workloads that run them.
+
+    [:octicons-arrow-right-24: In-cluster container image scanning](../how-to/k8s-security-onboarding.md#in-cluster-container-image-scanning)
+
+</div>
 
 ## Validated Use Cases Cover CLI Agents, Desktop Apps and IDE Extensions
 
@@ -116,29 +183,47 @@ AccuKnox validated endpoint discovery by installing AI tools on a Linux VM, a Wi
 
 | Endpoint | AI tools discovered in one scan |
 | --- | --- |
-| Linux VM (Ubuntu) | Junie, GitHub Copilot, OpenCode, Cody, BLACKBOX AI, Cursor |
-| Windows | Codex CLI, ChatGPT desktop app, Cline, AnythingLLM, Tabnine, GitHub Copilot |
-| macOS | Gemini CLI, Kiro, Continue, Codex CLI, GitHub Copilot, and the npm packages behind Gemini CLI and GitHub Copilot |
+| :material-linux:{ .sai-ic } Linux VM (Ubuntu) | <span class="sai-chips"><span class="sai-chip">Junie</span><span class="sai-chip">GitHub Copilot</span><span class="sai-chip">OpenCode</span><span class="sai-chip">Cody</span><span class="sai-chip">BLACKBOX AI</span><span class="sai-chip">Cursor</span></span> |
+| :material-microsoft-windows:{ .sai-ic } Windows | <span class="sai-chips"><span class="sai-chip">Codex CLI</span><span class="sai-chip">ChatGPT desktop app</span><span class="sai-chip">Cline</span><span class="sai-chip">AnythingLLM</span><span class="sai-chip">Tabnine</span><span class="sai-chip">GitHub Copilot</span></span> |
+| :material-apple:{ .sai-ic } macOS | <span class="sai-chips"><span class="sai-chip">Gemini CLI</span><span class="sai-chip">Kiro</span><span class="sai-chip">Continue</span><span class="sai-chip">Codex CLI</span><span class="sai-chip">GitHub Copilot</span><span class="sai-chip">npm: &#64;google/gemini-cli</span><span class="sai-chip">npm: &#64;github/copilot</span></span> |
 
 The tests cover the three ways a developer installs an AI tool on an endpoint:
 
-- **CLI coding agents.** Codex CLI on Windows, Gemini CLI on macOS, and OpenCode on Linux.
-- **Desktop AI apps.** The ChatGPT desktop app on Windows and Kiro on macOS.
-- **IDE extensions.** Cline in Visual Studio Code on Windows and Continue in Visual Studio Code on macOS.
+<div class="grid cards" markdown>
 
-=== "Linux VM"
+-   :material-console:{ .lg .middle .sai-ic } __CLI coding agents__
+
+    ---
+
+    Run in a terminal with the developer's shell access. Tested with Codex CLI on Windows, Gemini CLI on macOS and OpenCode on Linux.
+
+-   :material-application-outline:{ .lg .middle .sai-ic } __Desktop AI apps__
+
+    ---
+
+    Installed as standalone applications. Tested with the ChatGPT desktop app on Windows and Kiro on macOS.
+
+-   :material-puzzle-outline:{ .lg .middle .sai-ic } __IDE extensions__
+
+    ---
+
+    Installed inside an editor. Tested with Cline and Continue in Visual Studio Code.
+
+</div>
+
+=== ":material-linux: Linux VM"
 
     ![Unmanaged tab, AI Agent category, listing Junie, GitHub Copilot, OpenCode, Cody, BLACKBOX AI and Cursor on the parent ubuntu-VM with the devshadowai label](./images/shadow-ai/endpoints/linux-ai-agents-unmanaged.png)
 
     *Six AI coding agents found on one Ubuntu VM, each with its version and license. None had to be running.*
 
-=== "Windows"
+=== ":material-microsoft-windows: Windows"
 
     ![Unmanaged tab, AI Agent category, listing Codex CLI, AnythingLLM, Cline, Tabnine, GitHub Copilot and ChatGPT on one Windows endpoint, with the ChatGPT row highlighted](./images/shadow-ai/endpoints/windows-chatgpt-unmanaged.png)
 
     *One Windows endpoint shows a CLI agent (Codex CLI), a desktop app (ChatGPT) and an IDE extension (Cline) in the same AI Agent list.*
 
-=== "macOS"
+=== ":material-apple: macOS"
 
     ![Unmanaged tab, AI Agent category, listing Gemini CLI, Kiro, Codex CLI, Continue, GitHub Copilot and three npm agent packages on one Mac, with the Kiro row highlighted](./images/shadow-ai/endpoints/macos-kiro-unmanaged.png)
 
@@ -159,12 +244,12 @@ You do not need to sign in to the AI tool or send it a prompt. An installed tool
 
 ## Discovery Also Covers Agentic Runtimes and Browser Usage
 
-**Agentic runtimes.** Agentic AI runtimes install like any other package, so the same package-level scan finds them. AccuKnox scans VMs for OpenClaw instances and reports each one under the **Unmanaged** tab with its parent host, version and vulnerability data.
+:material-robot-outline:{ .sai-ic } **Agentic runtimes.** Agentic AI runtimes install like any other package, so the same package-level scan finds them. AccuKnox scans VMs for OpenClaw instances and reports each one under the **Unmanaged** tab with its parent host, version and vulnerability data.
 
-**GenAI usage in the browser.** The AccuKnox browser plugin detects access to known GenAI services such as ChatGPT, Claude, Gemini and Copilot. It records the user identity, timestamp and accessed domain, which gives you audit evidence and policy violation detection for AI use that installs nothing on the endpoint.
+:material-web:{ .sai-ic } **GenAI usage in the browser.** The AccuKnox browser plugin detects access to known GenAI services such as ChatGPT, Claude, Gemini and Copilot. It records the user identity, timestamp and accessed domain, which gives you audit evidence and policy violation detection for AI use that installs nothing on the endpoint.
 
 ## What Endpoint Discovery Does Not Do
 
-- **It does not show usage.** Discovery confirms installation evidence. It does not record who ran a tool, when, or what data the tool sent.
-- **It covers supported tools only.** Coverage depends on the operating system, the Omni version, the detection rules and the evidence the install leaves on disk.
-- **It needs a reporting path.** An endpoint that cannot reach the AccuKnox artifact endpoint scans locally, and its results reach the console only through an approved transfer process.
+- :material-eye-off-outline:{ .sai-ic } **It does not show usage.** Discovery confirms installation evidence. It does not record who ran a tool, when, or what data the tool sent.
+- :material-filter-outline:{ .sai-ic } **It covers supported tools only.** Coverage depends on the operating system, the Omni version, the detection rules and the evidence the install leaves on disk.
+- :material-lan-disconnect:{ .sai-ic } **It needs a reporting path.** An endpoint that cannot reach the AccuKnox artifact endpoint scans locally, and its results reach the console only through an approved transfer process.
