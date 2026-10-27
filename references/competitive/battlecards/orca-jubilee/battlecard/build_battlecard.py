@@ -180,14 +180,14 @@ PROOF = [("SOC 2 Type II", "report, Infoguard"), ("ISO 27001", "2022 audit compl
          ("200+", "cloud accounts secured"), ("24x7", "Platinum support")]
 
 html = f"""<!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 @page {{ size:A4; margin:12mm 11mm 15mm }}
 @page cover {{ margin:0 }}
 :root{{--navy:#11206D;--blue:#0046FF;--ink:#1B223B;--mute:#5A637D;--line:#DDE2EE;
 --win:#0B7A42;--win-bg:#E4F5EC;--no:#C80019;--no-bg:#FCE9EC;--lim:#A15C00;--lim-bg:#FFF1DC;--par:#4D4DD9;--par-bg:#ECECFB;--ora:#B45309;--ora-bg:#FDF0DC}}
 *{{box-sizing:border-box}}
-body{{margin:0;font-family:'Space Grotesk',Arial,sans-serif;color:var(--ink);font-size:9pt;line-height:1.3}}
+body{{margin:0;font-family:'Inter',Arial,sans-serif;color:var(--ink);font-size:9pt;line-height:1.3}}
 a{{color:var(--blue);text-decoration:none}}
 .ic,.ci,.capi,.ti{{display:inline-block;vertical-align:middle}}
 .fill{{background:#FFF3BF;color:#7A5B00;padding:0 3px;border-radius:3px;font-weight:700}}
