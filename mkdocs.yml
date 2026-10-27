@@ -642,7 +642,7 @@ nav:
         - "IAM Security": "use-cases/cloud/gcp-iam.md"
         - "Network Security": "use-cases/cloud/gcp-network.md"
         - "Compute Security": "use-cases/cloud/gcp-compute.md"
-      - "GRC":
+      - "Compliance":
         - "Multi-cloud Compliance": "use-cases/compliance.md"
         - "Cloud Misconfiguration and Drift Detection" : "use-cases/cloud-misconfigurations.md"
     - "Workload Security (CWPP)":

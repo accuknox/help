@@ -32,7 +32,7 @@ Definitions for AccuKnox's eight AI security modules and their related product n
 
 **AI Identity Security:** Identity and entitlement controls for AI agents, models, and non-human identities. _Coming soon._
 
-**AI Compliance & Governance (AI-GRC):** Governance, risk, and compliance mapping for AI systems against frameworks such as the EU AI Act, NIST AI RMF, and ISO 42001. _Coming soon._
+**AI Compliance:** Compliance mapping for AI systems against frameworks such as the EU AI Act, NIST AI RMF, and ISO 42001. _Coming soon._
 
 **Prompt Firewall:** The product that delivers AI Guardrails.
 

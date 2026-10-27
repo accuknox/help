@@ -1,16 +1,16 @@
 ---
-title: Compliance & GRC FAQs
-description: Frequently asked questions about AccuKnox Governance, Risk, and Compliance: framework coverage, continuous compliance, audit readiness, policy-as-code, baselining, remediation, and multi-cloud GRC.
+title: Compliance FAQs
+description: Frequently asked questions about AccuKnox Compliance: framework coverage, continuous compliance, audit readiness, policy-as-code, baselining, remediation, and multi-cloud GRC.
 hide:
   - toc
 ---
 
-# Compliance & GRC
+# Compliance
 
 ## Core Compliance Platform
 
-??? "**1. What is AccuKnox GRC and what does it cover?**"
-    AccuKnox GRC is a continuous governance, risk, and compliance platform built into the **AccuKnox Zero Trust CNAPP**. It automates policy enforcement, compliance monitoring, audit evidence, and risk remediation. It covers cloud, Kubernetes, VM, container, and AI workloads.
+??? "**1. What is AccuKnox Compliance and what does it cover?**"
+    AccuKnox Compliance is a continuous compliance platform built into the **AccuKnox Zero Trust CNAPP**. It automates policy enforcement, compliance monitoring, audit evidence, and risk remediation. It covers cloud, Kubernetes, VM, container, and AI workloads.
 
     Core capabilities:
 
@@ -55,7 +55,7 @@ hide:
 
 
 ??? "**4. How does the AccuKnox compliance dashboard work?**"
-    The AccuKnox compliance dashboard gives security and GRC teams **one real-time view** of posture across all configured frameworks.
+    The AccuKnox compliance dashboard gives security and compliance teams **one real-time view** of posture across all configured frameworks.
 
     - **Find it**: Onboard a cloud account and finish the first scan. Then open the Compliance section in the nav bar to see all applicable compliance programs.
     - **Score per control**: Each compliance program breaks down into sub-controls. Percentage compliance equals passed checks divided by total checks (passed + failed + warning + not available).
@@ -65,7 +65,7 @@ hide:
 
     **References:**
 
-    - [AccuKnox GRC Platform](https://accuknox.com/platform/compliance)
+    - [AccuKnox Compliance Platform](https://accuknox.com/platform/compliance)
 
 ??? "**5. What types of compliance reports does AccuKnox generate?**"
     AccuKnox generates **five report types** for audit and governance work.
@@ -74,7 +74,7 @@ hide:
     - **Cloud Asset Summary**: Gives a high-level posture overview per framework across all onboarded cloud accounts, for board and executive reporting.
     - **Posture Trend Report**: Tracks compliance score changes over time to show continuous improvement or flag regression.
     - **Findings Export**: Exports all violations, misconfigurations, and control failures in PDF, CSV, or JSON for auditors or internal ticketing.
-    - **GRC Evidence Package**: Holds timestamped, immutable control evaluation records for regulatory submissions, 3PAO audits, and supervisory reviews.
+    - **Compliance Evidence Package**: Holds timestamped, immutable control evaluation records for regulatory submissions, 3PAO audits, and supervisory reviews.
 
     Reports show only the services and frameworks enabled for the tenant, so output stays clean and relevant.
 
@@ -118,7 +118,7 @@ hide:
     - **Drift correction**: Automated remediation workflows fix cloud misconfiguration drift. Depending on severity, they trigger GitOps PRs, auto-patches, or manual escalation.
     - **Per-workload modes**: You set enforcement mode per workload (observe, audit, or enforce). Teams can roll out controls without disrupting production.
 
-??? "**9. How does policy-as-code work in AccuKnox GRC?**"
+??? "**9. How does policy-as-code work in AccuKnox Compliance?**"
     You define security and compliance rules **as code**, and AccuKnox applies them the same way across all infrastructure.
 
     - **Format**: You write policies in YAML or JSON and version-control them with application code, for full GitOps integration.
@@ -147,7 +147,7 @@ hide:
     - [Compliance Use Case](https://help.accuknox.com/use-cases/compliance/)
     - [Compliance Support Matrix](https://help.accuknox.com/support-matrix/compliance-matrix/)
     - [Top CNAPP Solutions for Compliance and Audit](https://accuknox.com/blog/cnapp-solutions-compliance-audit-support)
-    - [GRC for Financial Services](https://accuknox.com/platform/compliance/finance)
+    - [Compliance for Financial Services](https://accuknox.com/platform/compliance/finance)
 
 
 ??? "**11. How does AccuKnox manage compliance across multi-cloud environments?**"
@@ -177,7 +177,7 @@ hide:
 
     **References:**
 
-    - [GRC for Financial Services](https://accuknox.com/platform/compliance/finance)
+    - [Compliance for Financial Services](https://accuknox.com/platform/compliance/finance)
     - [Compliance Support Matrix](https://help.accuknox.com/support-matrix/compliance-matrix/)
     - [Compliance Baseline Data](https://help.accuknox.com/resources/compliance-baseline-data/)
 
@@ -195,7 +195,7 @@ hide:
 
     - [Compliance Use Case](https://help.accuknox.com/use-cases/compliance/)
     - [Compliance Support Matrix](https://help.accuknox.com/support-matrix/compliance-matrix/)
-    - [AccuKnox GRC Platform](https://accuknox.com/platform/compliance)
+    - [AccuKnox Compliance Platform](https://accuknox.com/platform/compliance)
 
 
 ??? "**14. How does AccuKnox support government and defense compliance (STIG, FedRAMP, CMMC)?**"
@@ -231,7 +231,7 @@ hide:
 
 
 ??? "**16. How does AccuKnox support compliance for AI and LLM workloads?**"
-    AccuKnox applies GRC to **AI-specific compliance frameworks**. It covers models, agents, datasets, and AI infrastructure.
+    AccuKnox extends compliance to **AI-specific frameworks**. It covers models, agents, datasets, and AI infrastructure.
 
     - **NIST AI RMF**: Maps AI asset governance, risk classification, and control evidence to the NIST AI Risk Management Framework.
     - **EU AI Act**: Supports risk-tier classification (minimal, limited, high-risk) with policy controls and audit evidence aligned to EU AI Act requirements. Enforcement starts August 2026, and AccuKnox workflows collect audit-ready evidence ahead of that deadline.

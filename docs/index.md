@@ -1079,7 +1079,7 @@ hide:
          <img src="assets/icons/ai.svg" alt="AI Guardrails" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Guardrails (Prompt Firewall)
       </div>
       <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('ai-grc', this)">
-         <img src="assets/icons/compliance.svg" alt="AI-GRC" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Compliance (AI-GRC)
+         <img src="assets/icons/compliance.svg" alt="AI Compliance" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AI Compliance
       </div>
       <div class="module-item" data-cat="compliance" style="display:none;" onclick="selectModule('comp', this)">
          <img src="assets/icons/compliance.svg" alt="Continuous Compliance" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Continuous Compliance
@@ -1398,10 +1398,10 @@ hide:
         </div>
         <div id="ai-grc" class="module-detail-block" style="display:none;">
             <div class="module-detail-title">
-                AI Compliance &amp; Governance (AI-GRC) <span class="agentless-badge">Coming Soon</span>
+                AI Compliance <span class="agentless-badge">Coming Soon</span>
             </div>
             <div class="module-description">
-                Governance, risk, and compliance mapping for AI systems against frameworks like the EU AI Act, NIST AI RMF, and ISO 42001. Coming soon.
+                Compliance mapping for AI systems against frameworks like the EU AI Act, NIST AI RMF, and ISO 42001. Coming soon.
             </div>
         </div>
         <div id="comp" class="module-detail-block" style="display:none;">
@@ -1528,7 +1528,7 @@ hide:
          <div class="use-case-icon icon-blue">
             <img src="assets/icons/compliance.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Governance, Risk & Compliance</h3>
+         <h3 class="use-case-title">Compliance</h3>
        </div>
        <ul class="use-case-list">
          <li><a href="/use-cases/compliance/" target="_blank">Multi-cloud Compliance</a></li>

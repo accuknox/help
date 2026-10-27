@@ -29,7 +29,7 @@ hide:
 
     - **Public Cloud**: AWS (Bedrock, SageMaker), Azure (AI Foundry, Copilot Studio) and GCP (Vertex AI, Gemini).
     - **Private Cloud and On-Premises**: OpenStack, VMware, Nutanix and bare-metal Kubernetes.
-    - **Air-Gapped Environments**: Full module support, including AI-SPM, CWPP, KSPM and GRC, with no external connectivity dependency.
+    - **Air-Gapped Environments**: Full module support, including AI-SPM, CWPP, KSPM and Compliance, with no external connectivity dependency.
     - **Hybrid Deployments**: Consistent enforcement and posture across mixed cloud and on-prem AI workloads.
     - **LLM Providers**: Amazon Bedrock, Gemini, Ollama, vLLM and OpenAI-compatible APIs.
     - **Local/Developer AI Assets**: Ollama instances, LangChain/LangGraph agents, MCP clients and servers, CrewAI, NVIDIA Triton inference servers and vector databases.

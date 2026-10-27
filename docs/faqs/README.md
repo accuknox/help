@@ -12,7 +12,7 @@ Frequently asked questions grouped by product area.
 | [api-sec.md](api-sec.md) | Frequently asked questions about AccuKnox API Security — API discovery, shadow and zombie API detection, gateway integrations, OWASP API Top 10, runtime enfo... |
 | [aspm.md](aspm.md) | Frequently asked questions about AccuKnox Application Security Posture Management — SAST, DAST, SCA, IaC scanning, container scanning, secrets detection, CI/... |
 | [cdr.md](cdr.md) | Frequently asked questions about AccuKnox Cloud Detection and Response (CDR) - log ingestion, automated remediation, and threat mapping. |
-| [compliance.md](compliance.md) | Frequently asked questions about AccuKnox Governance, Risk, and Compliance — framework coverage, continuous compliance, audit readiness, policy-as-code, base... |
+| [compliance.md](compliance.md) | Frequently asked questions about AccuKnox Compliance — framework coverage, continuous compliance, audit readiness, policy-as-code, base... |
 | [cspm.md](cspm.md) | Frequently asked questions about AccuKnox Cloud Security Posture Management (CSPM) - agentless scanning, onboarding, compliance, and cloud integration. |
 | [deployment.md](deployment.md) | Frequently asked questions about AccuKnox deployment architecture, on-premise setup, air-gapped environments, distributed architecture, and regional availabi... |
 | [general.md](general.md) | General frequently asked questions about AccuKnox CNAPP, platform overview, product offerings, deployment models, architecture, findings lifecycle, multi-ten... |

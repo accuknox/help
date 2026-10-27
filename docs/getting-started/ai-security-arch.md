@@ -20,7 +20,7 @@ Read this before you onboard. The collection method decides what you install and
 
 Each module reads from and enforces at the layer directly below it. Onboarding an account at the deployment layer is what makes the modules above it work.
 
-<div class="ak-dia" role="img" aria-label="Four stacked layers. AI security modules on top, then AI assets, then substrate, then deployments. AI Identity Security and AI-GRC are marked coming soon.">
+<div class="ak-dia" role="img" aria-label="Four stacked layers. AI security modules on top, then AI assets, then substrate, then deployments. AI Identity Security and AI Compliance are marked coming soon.">
 <svg viewBox="0 0 960 402" xmlns="http://www.w3.org/2000/svg">
   <rect class="p" x="16" y="16" width="928" height="112" rx="8"/>
   <text class="t-h" x="32" y="66">AI SECURITY</text>
@@ -55,7 +55,7 @@ Each module reads from and enforces at the layer directly below it. Onboarding a
   <text class="t-s" x="644" y="108" text-anchor="middle">Coming soon</text>
 
   <rect class="hollow" x="752" y="78" width="181" height="38" rx="6" stroke-dasharray="4 4"/>
-  <text class="t-s" x="842" y="94" text-anchor="middle">AI-GRC</text>
+  <text class="t-s" x="842" y="94" text-anchor="middle">AI Compliance</text>
   <text class="t-s" x="842" y="108" text-anchor="middle">Coming soon</text>
 
   <g class="ln-dash">
@@ -97,9 +97,9 @@ Each module reads from and enforces at the layer directly below it. Onboarding a
   <text class="t-b" x="842" y="359" text-anchor="middle">Edge and IoT</text>
 </svg>
 </div>
-<p class="ak-dia-cap">Six modules are generally available. AI Identity Security and AI-GRC are on the roadmap.</p>
+<p class="ak-dia-cap">Six modules are generally available. AI Identity Security and AI Compliance are on the roadmap.</p>
 
-AI Identity Security and AI-GRC are on the stack because the layer model accounts for them. Neither is in the console today, so plan coverage around the other six.
+AI Identity Security and AI Compliance are on the stack because the layer model accounts for them. Neither is in the console today, so plan coverage around the other six.
 
 ## The Three Enforcement Points
 
@@ -181,7 +181,7 @@ An asset reached by more than one method is still one asset in the inventory. On
 - **AI-DR does not block.** It detects and routes. Blocking in the request path is the Prompt Firewall's job, and blocking at runtime is ModelArmor's.
 - **The browser plugin only sees browser traffic.** A prompt sent from a desktop app or a terminal to the same SaaS model is outside its view. Use the SDK or a gateway for those.
 - **The pre-deployment scan is a point-in-time check.** A model that passes today can be re-uploaded upstream with a different artifact, so re-scan on every version bump rather than once at adoption.
-- **AI Identity Security and AI-GRC are not available yet.** Neither appears in the console today.
+- **AI Identity Security and AI Compliance are not available yet.** Neither appears in the console today.
 
 ## Related Pages
 

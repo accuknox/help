@@ -49,7 +49,7 @@ hide:
 
 ::/cards::
 
-**AI Identity Security** and **AI Compliance & Governance (AI-GRC)** are on the roadmap and not in the console today. Plan coverage around the six above.
+**AI Identity Security** and **AI Compliance** are on the roadmap and not in the console today. Plan coverage around the six above.
 
 ## Which Module for Which Job
 
