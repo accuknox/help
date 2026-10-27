@@ -92,7 +92,7 @@ Look for scan errors, database download failures and upload failures.
 
 AccuKnox validated discovery on macOS with one tool of each type. Each tab shows the tool installed on the Mac, then the same tool under **AI/ML Security → Assets → Unmanaged** after one Omni scan. Hostnames and the tenant name are redacted.
 
-=== "CLI agent: Gemini CLI"
+=== ":material-console: CLI agent: Gemini CLI"
 
     ![Gemini CLI started in a macOS terminal, showing the trust-folder prompt and the sign-in options](../../../use-cases/images/shadow-ai/endpoints/macos-gemini-cli-installed.png)
 
@@ -100,7 +100,7 @@ AccuKnox validated discovery on macOS with one tool of each type. Each tab shows
 
     *Gemini CLI appears as an AI Agent. Nobody had signed in to it when the scan ran.*
 
-=== "Desktop app: Kiro"
+=== ":material-application-outline: Desktop app: Kiro"
 
     ![Kiro desktop app open on its sign-in screen on macOS](../../../use-cases/images/shadow-ai/endpoints/macos-kiro-installed.png)
 
@@ -108,7 +108,7 @@ AccuKnox validated discovery on macOS with one tool of each type. Each tab shows
 
     *Kiro was installed and left on its sign-in screen. Omni still found it, because discovery reads the installation, not activity.*
 
-=== "IDE extension: Continue"
+=== ":material-puzzle-outline: IDE extension: Continue"
 
     ![Visual Studio Code on macOS showing the Continue extension installed, with identifier continue.continue and version 2.0.0](../../../use-cases/images/shadow-ai/endpoints/macos-continue-installed.png)
 
