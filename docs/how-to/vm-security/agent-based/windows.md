@@ -76,7 +76,7 @@ Go to **AI/ML Security → Assets → Unmanaged** in the AccuKnox console. Confi
 
 AccuKnox validated Shadow AI Discovery on Windows with three tool types. Each tab shows the tool installed on the endpoint, then the same tool on the **Unmanaged** tab after one Omni scan. Hostnames and the tenant name are redacted.
 
-=== "CLI agent: Codex CLI"
+=== ":material-console: CLI agent: Codex CLI"
 
     ![PowerShell output of codex --version showing codex-cli 0.163.0, and Get-Command showing codex.ps1 installed under the npm folder in the user profile](../../../use-cases/images/shadow-ai/endpoints/windows-codex-cli-installed.png)
 
@@ -84,7 +84,7 @@ AccuKnox validated Shadow AI Discovery on Windows with three tool types. Each ta
 
     *Codex CLI was installed through npm and appears as an AI Agent with its language, version and license.*
 
-=== "Desktop app: ChatGPT"
+=== ":material-application-outline: Desktop app: ChatGPT"
 
     ![Windows Installed apps search for chatgpt, showing the ChatGPT desktop app by OpenAI, version 26.1016.8120.0, 2.22 GB](../../../use-cases/images/shadow-ai/endpoints/windows-chatgpt-installed.png)
 
@@ -92,7 +92,7 @@ AccuKnox validated Shadow AI Discovery on Windows with three tool types. Each ta
 
     *The ChatGPT desktop app appears as an AI Agent next to the CLI agents and IDE extensions on the same endpoint.*
 
-=== "IDE extension: Cline"
+=== ":material-puzzle-outline: IDE extension: Cline"
 
     ![VS Code terminal installing the saoudrizwan.claude-dev extension, which is Cline, and listing it at version 4.1.25](../../../use-cases/images/shadow-ai/endpoints/windows-cline-installed.png)
 
