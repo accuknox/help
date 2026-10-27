@@ -8,9 +8,11 @@ hide:
 # Roadmap
 
 ??? "**1. Is there support for CIEM?**"
-    **No.** AccuKnox does not have CIEM today. It has **KIEM** (Kubernetes Identity & Entitlement Management) instead.
+    **Yes.** Identity Security (CIEM) is a new AccuKnox module. It lists the users, groups and roles in your AWS, GCP, Azure and Oracle cloud accounts, shows the policies attached to each one, and draws the access chain as a graph. See [CIEM Overview](../getting-started/ciem-overview.md) and [CIEM Onboarding](../getting-started/ciem-onboarding.md).
 
-    KIEM is part of the Kubernetes Security (KSPM) module. The KSPM module also handles cluster misconfiguration detection and CIS K8s benchmark findings.
+    For Kubernetes identities, use **KIEM** (Kubernetes Identity & Entitlement Management). KIEM is part of the Kubernetes Security (KSPM) module, which also handles cluster misconfiguration detection and CIS K8s benchmark findings.
+
+    Data Security (DSPM) is also new. See [DSPM Overview](../getting-started/dspm-overview.md).
 
 ??? "**2. What features are on the roadmap related to environments and integrations?**"
     For **2025 and beyond**, AccuKnox focuses on these items:
@@ -18,10 +20,8 @@ hide:
     - CSPM Oracle Support
     - CSPM Azure Org Support
     - Assets Inventory revamp
-    - CIEM
     - Custom Compliance Framework
     - RBAC enhancements
-    - DSPM
     - Security Graph Phase I
     - CNAPP Policies Revamp
     - Collectors based ASPM onboarding

@@ -5,6 +5,9 @@ description: "Set up the AccuKnox DSPM scanner in five steps: prerequisites, rea
 
 # Onboard the DSPM Scanner
 
+!!! tip "New"
+    DSPM is a new AccuKnox module. It is generally available.
+
 Set up the scanner on one VM in the region that holds your data, then review its findings in the AccuKnox console. For what the scanner covers, see the [DSPM overview](dspm-overview.md).
 
 ## Before You Begin

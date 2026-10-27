@@ -1040,10 +1040,10 @@ hide:
          <img src="assets/icons/key.svg" alt="Secrets Manager" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Secrets Manager
       </div>
       <div class="module-item" data-cat="cloud" style="display:none;" onclick="selectModule('dspm', this)">
-         <img src="assets/icons/eye.svg" alt="Data Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Data Security (DSPM)
+         <img src="assets/icons/eye.svg" alt="Data Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Data Security (DSPM) <span class="az-nav-badge">New</span>
       </div>
       <div class="module-item" data-cat="cloud" style="display:none;" onclick="selectModule('ciem', this)">
-         <img src="assets/icons/user_check.svg" alt="Identity Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Identity Security (CIEM)
+         <img src="assets/icons/user_check.svg" alt="Identity Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Identity Security (CIEM) <span class="az-nav-badge">New</span>
       </div>
       <div class="module-item" data-cat="workloads" style="display:none;" onclick="selectModule('cwpp', this)">
          <img src="assets/icons/shield.svg" alt="Runtime Protection" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Runtime Protection (CWPP)
@@ -1194,7 +1194,7 @@ hide:
                 <a href="/getting-started/dspm-onboarding/" class="action-btn" target="_blank">Onboarding</a>
             </div>
             <div class="module-detail-title">
-                Data Security (DSPM)
+                Data Security (DSPM) <span class="agentless-badge">New</span>
             </div>
             <div class="module-description">
                 Find sensitive data in cloud storage, databases and SaaS apps. The scanner runs in your region with read-only access, and only a findings file leaves.
@@ -1210,7 +1210,7 @@ hide:
                 <a href="/getting-started/ciem-onboarding/" class="action-btn" target="_blank">Onboarding</a>
             </div>
             <div class="module-detail-title">
-                Identity Security (CIEM) <span class="agentless-badge">Coming Soon</span>
+                Identity Security (CIEM) <span class="agentless-badge">New</span>
             </div>
             <div class="module-description">
                 List the users, groups and roles in your AWS, GCP, Azure and Oracle cloud accounts, see the policies attached to each one, and follow the access chain as a graph.

@@ -5,8 +5,8 @@ description: "Turn on AccuKnox CIEM for a standalone AWS, GCP, Azure or Oracle c
 
 # Onboard a Cloud Account for CIEM
 
-!!! info "Coming soon"
-    CIEM releases soon in a newer version of AccuKnox. The screens on this page come from the current build and can change before the release.
+!!! tip "New"
+    CIEM is a new AccuKnox module. It is generally available.
 
 Turn on CIEM when you onboard a cloud account, then open **Identities > CIEM** to see the account's users, groups and roles. For what CIEM shows, see the [CIEM overview](ciem-overview.md).
 
