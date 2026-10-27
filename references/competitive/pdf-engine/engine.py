@@ -87,7 +87,7 @@ CSS = """
   --ink:#141b3a; --ink2:#363f63; --mute:#68708f; --line:#dde2f0; --hair:#e9ecf6;
   --navy:#11206D; --night:#0a1240; --blue:#0046FF; --wash:#eef2ff; --wash2:#f6f8ff;
   --yes:#117a47; --yesbg:#dff4e8; --part:#8a5800; --partbg:#fdf0cf; --no:#b3122a; --nobg:#fbe4e8;
-  --d:'Space Grotesk','Segoe UI',Arial,sans-serif; --b:'Hanken Grotesk','Segoe UI',Arial,sans-serif;
+  --d:'Inter','Segoe UI',Arial,sans-serif; --b:'Hanken Grotesk','Segoe UI',Arial,sans-serif;
 }
 *{box-sizing:border-box} html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{margin:0;font-family:var(--b);color:var(--ink);font-size:9.6pt;line-height:1.42}
@@ -204,7 +204,7 @@ def html_doc(body, title, is_cover=False):
     return (
         f"<!doctype html><html><head><meta charset='utf-8'><title>{E(title)}</title>"
         "<link rel='preconnect' href='https://fonts.googleapis.com'>"
-        "<link href='https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap' rel='stylesheet'>"
+        "<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap' rel='stylesheet'>"
         f"<style>{CSS}{'@page{size:A4;margin:0}' if is_cover else ''}</style></head><body>{body}</body></html>"
     )
 

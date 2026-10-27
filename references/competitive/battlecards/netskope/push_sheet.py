@@ -22,7 +22,7 @@ SHEET_ID = "1lwmd_SXI43toqkLhjRJUlusFfutf43U8zld36c21sgU"
 # call node on the CLI entry directly, because gws.cmd routes arguments
 # through cmd.exe, which mangles the quotes inside a JSON body
 GWS = ["node", "D:/Atharva/Software/nodejs/npm/node_modules/@googleworkspace/cli/run.js"]
-FONT = "Space Grotesk"
+FONT = "Inter"
 
 
 def rgb(h):

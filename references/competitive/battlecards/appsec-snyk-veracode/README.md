@@ -24,7 +24,7 @@ cd references/competitive/battlecards/appsec-snyk-veracode
 python build.py
 ```
 
-The build needs `playwright` with Chromium, `pypdf` and `Pillow`. It loads Space Grotesk and
+The build needs `playwright` with Chromium, `pypdf` and `Pillow`. It loads Inter and
 Hanken Grotesk from Google Fonts, so it needs network access.
 
 ## Nine Ratings Were Corrected Against Vendor Docs

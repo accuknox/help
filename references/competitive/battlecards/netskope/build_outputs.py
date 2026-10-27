@@ -19,7 +19,7 @@ REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", ".."))
 XLSX = os.path.join(REPO, "references", "competitive", "battlecards", "accuknox-vs-netskope-ai-security.xlsx")
 MD = os.path.join(REPO, "references", "drafts", "comparison", "accuknox-vs-netskope-ai-security.md")
 
-FONT = "Space Grotesk"
+FONT = "Inter"
 NAVY, PRIMARY, INK, MUTE = "11206D", "0046FF", "1B223B", "5A637D"
 LAV, GREY_BG, GREY_BD = "ECECFB", "EEF0F6", "C4CCDE"
 GREEN_LT, GREEN_DK = "E7F6EE", "0B7A42"

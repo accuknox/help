@@ -34,7 +34,7 @@ PART_FONT = "8A5A00"
 BETA_FILL = "E3EEFF"
 BETA_FONT = "1B4FA8"
 
-HEAD = "Space Grotesk"
+HEAD = "Inter"
 BODY = "Inter"
 
 thin = Side(style="thin", color=BORDER)
