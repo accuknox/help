@@ -81,7 +81,9 @@ as a visible bracket in the draft rather than inventing it.
 11. **What it replaced**, if anything. Wazuh, Snyk, a manual process. A
     displacement is the strongest line in a case study.
 12. **The PDF.** If marketing already produced one, give the filename so the
-    draft links `https://accuknox.com/wp-content/uploads/<name>.pdf`.
+    draft links `https://accuknox.com/wp-content/uploads/<name>.pdf`. The name
+    follows the repo `CLAUDE.md` section "Marketing files must not look machine made", for example
+    `AccuKnox_Case_Study_Stock_Exchange.pdf`.
 
 Ask once. Do not re-ask mid-draft, and skip the ask entirely when the user says
 to go with your recommendation.

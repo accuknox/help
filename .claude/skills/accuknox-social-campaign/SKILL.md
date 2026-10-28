@@ -1327,6 +1327,7 @@ If the user asks for a PDF:
 - include image URL and local file path where applicable
 - render the PDF from the Markdown/HTML
 - visually inspect the rendered PDF
+- name the file and build the cover by the repo `CLAUDE.md` section "Marketing files must not look machine made"
 
 Do not let the PDF layout collapse bullets or line breaks.
 

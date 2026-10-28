@@ -35,7 +35,8 @@ Shared harness: `.claude/skills/accuknox-blog-writer/`, written below as
    `references/positioning-playbook.md` in this skill
 6. For an `ai-security` page, `references/source-of-truth/ai-security-data-points.md` at the repo
    root. It holds the current AccuKnox data points, each with its source tier
-7. For a PDF, `references/battlecard-pdf.md` in this skill
+7. For a PDF, `references/battlecard-pdf.md` in this skill. Its cover and file name follow
+   the repo `CLAUDE.md` section "Marketing files must not look machine made".
 
 Print the `Loaded` block above the draft.
 
