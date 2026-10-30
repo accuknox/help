@@ -1,0 +1,141 @@
+/* ===================================================================
+   Shadow AI Discovery pages
+   The discovery flow, the tool chips and the icon tint used on the
+   Shadow AI use-case page and the Omni onboarding guides. Colors reuse
+   the AI diagram tokens in ai-diagrams.css so every AI Security visual
+   repaints the same way with the light and dark toggle.
+   =================================================================== */
+
+.md-typeset {
+  --sai-ink: #1b223b;
+  --sai-mute: #5a637d;
+  --sai-line: #c4ccde;
+  --sai-panel: #f4f6fc;
+  --sai-accent: #0046ff;
+  --sai-accent-soft: #e4ebff;
+}
+
+[data-md-color-scheme="slate"] .md-typeset {
+  --sai-ink: #e2e8f0;
+  --sai-mute: #94a3b8;
+  --sai-line: #2f3a55;
+  --sai-panel: #151b2b;
+  --sai-accent: #6c9bff;
+  --sai-accent-soft: #17233f;
+}
+
+/* Icon tint for icons placed in prose, tables and card titles. */
+.md-typeset .sai-ic {
+  color: var(--md-accent-fg-color, #0046ff);
+}
+
+/* --- Discovery flow: an ordered list drawn as connected steps -------- */
+
+.md-typeset ol.sai-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin: 1.4rem 0 1.6rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.md-typeset ol.sai-flow > li {
+  position: relative;
+  margin: 0;
+  padding: 0 0.6rem;
+  text-align: center;
+  color: var(--sai-mute);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+/* Connector line between step icons. */
+.md-typeset ol.sai-flow > li + li::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  left: -50%;
+  width: 100%;
+  border-top: 1px dashed var(--sai-line);
+  z-index: 0;
+}
+
+.md-typeset ol.sai-flow .sai-step {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--sai-line);
+  background: var(--sai-panel);
+  color: var(--sai-accent);
+}
+
+.md-typeset ol.sai-flow > li:last-child .sai-step {
+  background: var(--sai-accent);
+  border-color: var(--sai-accent);
+  color: #fff;
+}
+
+.md-typeset ol.sai-flow .sai-step .twemoji {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.md-typeset ol.sai-flow strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--sai-ink);
+  font-size: 0.72rem;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset ol.sai-flow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .md-typeset ol.sai-flow > li {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+    align-items: start;
+    padding: 0;
+    text-align: left;
+  }
+
+  .md-typeset ol.sai-flow > li + li::before {
+    display: none;
+  }
+
+  .md-typeset ol.sai-flow .sai-step {
+    grid-row: span 2;
+    margin: 0;
+  }
+}
+
+/* --- Tool chips: one chip per discovered AI tool --------------------- */
+
+.md-typeset .sai-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.md-typeset .sai-chip {
+  display: inline-block;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--sai-line);
+  border-radius: 999px;
+  background: var(--sai-panel);
+  color: var(--sai-ink);
+  font-size: 0.66rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
