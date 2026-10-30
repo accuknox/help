@@ -3,9 +3,9 @@
 // Purpose: Topic based outline cover artwork for AccuKnox dark slides (SVG rendered to transparent PNG)
 // Owner: AccuKnox Product Marketing
 //
-// Style: thin outline drawing on the ink background. Dashed outer contour with a blue to red
-// gradient, solid inner contour, a fine purple network inside, one filled blue "control" node
-// with a halo, and a red attack dot on a dashed path that a blue tick blocks at the boundary.
+// Style: flat duotone outline drawing on the ink background, two blues only. Dashed outer
+// contour, solid inner contour, a fine network inside, one filled "control" node with a halo,
+// and an attack dot on a dashed path that a tick blocks at the boundary. No gradients.
 //
 // Motifs: "ai" (shield + neural net), "cloud" (cloud + workload hex mesh, for CNAPP/CSPM/CWPP),
 // "code" (brackets + pipeline, for ASPM/AppSec/supply chain), "network" (outline globe, for
@@ -15,18 +15,22 @@
 const path = require("path");
 const fs = require("fs");
 
+// Duotone on ink: every stroke and fill is one of two blues. No red, no purple, no gradient.
+// Leadership rule 2026-10-28: covers stay flat and clean for enterprise B2B buyers.
+const SKY = "#4F9CF9";
+const BLUE = "#1040C5";
 const P = {
-  blueTop: "#4B55E0",
-  redBottom: "#E9466B",
-  inner: "#3A3FA8",
-  innerBottom: "#B8418A",
-  net: "#5B45A8",
-  node: "#9A4FB0",
-  blue: "#1D4ED8",
-  halo: "#3A3F9E",
-  red: "#FF4646",
-  tick: "#4E92E6",
-  dot: "#4E92E6",
+  blueTop: SKY,
+  redBottom: SKY,
+  inner: BLUE,
+  innerBottom: BLUE,
+  net: BLUE,
+  node: SKY,
+  blue: SKY,
+  halo: BLUE,
+  red: SKY,
+  tick: SKY,
+  dot: SKY,
 };
 
 const defs = `
