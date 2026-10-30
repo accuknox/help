@@ -13,7 +13,7 @@ AccuKnox Secrets Manager runs as its own control plane on Kubernetes. Applicatio
 
 In high-availability mode, three Secrets Manager pods run as a StatefulSet. One pod is active and the other two stand by. Each pod keeps its own copy of the data on a Raft integrated storage disk, 10Gi by default, and the copies replicate between the pods.
 
-There is no separate database to run or back up. Secrets Manager encrypts data before it reaches disk. See [High Availability and Backup](high-availability.md) for how failover works.
+There is no separate database to run or back up. Secrets Manager encrypts data before it reaches disk. See [Security and Encryption](security.md) for the key chain behind that encryption, and [High Availability and Backup](high-availability.md) for failover within a region and across regions.
 
 ## Every Request Takes Four Steps
 

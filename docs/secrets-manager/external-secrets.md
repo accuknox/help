@@ -29,13 +29,11 @@ helm install external-secrets external-secrets/external-secrets \
   -n external-secrets --create-namespace
 ```
 
-[Confirm the operator version tested with Secrets Manager v2.5.4.]
-
 ## 2. Give the Operator Its Own Login
 
 The operator logs in through the Kubernetes auth method, as its own service account. In Secrets Manager, set up three things:
 
-1. A Kubernetes auth method that trusts your application cluster. The examples use the mount path `k8s-demo-cluster`. [Add the steps to configure the Kubernetes auth method for a remote cluster.]
+1. A Kubernetes auth method that trusts your application cluster. The examples use the mount path `k8s-demo-cluster`. The steps follow below.
 2. A policy that reads only the paths the operator needs.
 3. A role that binds the operator's service account to that policy.
 
@@ -48,6 +46,64 @@ path "secret/data/demo/mysql" {
 ```
 
 The role `demo-access` binds the service account `external-secrets` in namespace `external-secrets` to that policy. See [Sharing Secrets Within an Organisation](sharing-secrets.md) for how policies work.
+
+### Trust an Application Cluster That Runs Elsewhere
+
+Secrets Manager checks each login by asking the application cluster to review the service account token. It needs a reviewer account in that cluster, plus the cluster address and CA certificate.
+
+1. In the application cluster, create a reviewer service account and let it review tokens.
+
+    ```bash
+    kubectl create serviceaccount secrets-manager-reviewer -n external-secrets
+    kubectl create clusterrolebinding secrets-manager-reviewer \
+      --clusterrole=system:auth-delegator \
+      --serviceaccount=external-secrets:secrets-manager-reviewer
+    ```
+
+2. Create a long-lived token for the reviewer account.
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: secrets-manager-reviewer-token
+      namespace: external-secrets
+      annotations:
+        kubernetes.io/service-account.name: secrets-manager-reviewer
+    type: kubernetes.io/service-account-token
+    EOF
+    ```
+
+3. Read the token, the CA certificate and the API server address.
+
+    ```bash
+    kubectl get secret secrets-manager-reviewer-token -n external-secrets -o jsonpath='{.data.token}' | base64 -d > reviewer.jwt
+    kubectl get secret secrets-manager-reviewer-token -n external-secrets -o jsonpath='{.data.ca\.crt}' | base64 -d > ca.crt
+    kubectl cluster-info
+    ```
+
+4. In Secrets Manager, enable the Kubernetes auth method at its own path and point it at the application cluster.
+
+    ```bash
+    vault auth enable -path=k8s-demo-cluster kubernetes
+    vault write auth/k8s-demo-cluster/config \
+      token_reviewer_jwt=@reviewer.jwt \
+      kubernetes_host=https://<application-cluster-api-server>:443 \
+      kubernetes_ca_cert=@ca.crt
+    ```
+
+5. Create the role that binds the operator's service account to the policy.
+
+    ```bash
+    vault write auth/k8s-demo-cluster/role/demo-access \
+      bound_service_account_names=external-secrets \
+      bound_service_account_namespaces=external-secrets \
+      policies=demo-access \
+      ttl=1h
+    ```
+
+Use one auth path per application cluster, such as `k8s-prod-eu` and `k8s-prod-us`. Each path then trusts one cluster only.
 
 ## 3. Point the Cluster at Secrets Manager
 

@@ -64,7 +64,37 @@ AccuKnox Secrets Manager gives you one secure place to store, manage, and read p
 
     ---
 
-    Run three nodes, take snapshots, restore, and handle Day 2 jobs.
+    Run three nodes, recover in a second region, and handle Day 2 jobs.
+
+</div>
+
+## Check the Security, API and Support Terms
+
+<div class="grid cards" markdown>
+
+-   :material-shield-key-outline:{ .lg .middle } **[Security and Encryption](security.md)**
+
+    ---
+
+    How the seal, Shamir's Secret Sharing, and encryption at rest and in transit protect each secret.
+
+-   :material-api:{ .lg .middle } **[REST API Reference](rest-api.md)**
+
+    ---
+
+    Base URL, authentication, the main endpoints, and the OpenAPI document from your own server.
+
+-   :material-earth:{ .lg .middle } **[Multi-Region HA and DR](high-availability.md#a-second-region-recovers-from-the-loss-of-the-first)**
+
+    ---
+
+    One cluster per region, snapshot replication, and the failover runbook.
+
+-   :material-lifebuoy:{ .lg .middle } **[Support and SLA](support.md)**
+
+    ---
+
+    Severity levels, response targets, and what to send in a ticket.
 
 </div>
 

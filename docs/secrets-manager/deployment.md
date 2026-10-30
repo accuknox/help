@@ -9,6 +9,22 @@ This guide installs AccuKnox Secrets Manager on Kubernetes. It uses the Helm cha
 
 Secrets Manager stores encrypted secrets, issues short-lived dynamic secrets, and applies identity-based access control with full audit logs.
 
+## Choose a Deployment Model
+
+Run Secrets Manager yourself with the Helm chart on this page, or let AccuKnox run a managed instance. Every managed instance runs in high availability mode and is hardened with AccuKnox CWPP.
+
+| | Managed shared instance | Managed dedicated instance | Self-hosted |
+| --- | --- | --- | --- |
+| Fits | Non-production workloads | Production | Production, on-premises or air-gapped |
+| Namespaces | One, more at extra cost | Several | Your choice |
+| Backups | Daily | At the frequency you set | Snapshots every 15 minutes, once you turn them on |
+| API request limits | Yes | No | Set by you |
+| Audit logs | Every interaction logged | On, with a direct feed to your AccuKnox SIEM and CDR subscription | Turn on `server.auditStorage` |
+| Location | North America, Europe, the Middle East or India | On-premises or air-gapped is available | Your cluster |
+| Run by | AccuKnox | AccuKnox | Your team |
+
+Source: [AccuKnox Secrets Management](https://accuknox.com/solutions/secrets-management). The rest of this guide covers the self-hosted install.
+
 ## Prerequisites
 
 === "System requirements"
@@ -25,6 +41,20 @@ Secrets Manager stores encrypted secrets, issues short-lived dynamic secrets, an
     | Kubernetes version | 1.30 or later, with a default StorageClass |
     | Helm version | Helm 3 |
     | kubectl | Configured to talk to your cluster |
+
+=== "Production requirements"
+
+    | Requirement | Details |
+    | --- | --- |
+    | Worker nodes | 3, one Secrets Manager pod per host, ideally one per availability zone |
+    | Storage per pod | 10Gi for Raft data, plus 10Gi for the audit log when `server.auditStorage` is on |
+    | Network ports | 8200 for the API and UI. 8201 between Secrets Manager pods, for Raft and request forwarding |
+    | TLS certificate | A certificate and key for the 8200 listener, trusted by every client. The listener accepts TLS 1.2 or later by default. See [TLS Protects Every Connection](security.md#tls-protects-every-connection) |
+    | Snapshot bucket | An S3-compatible bucket, plus a Kubernetes secret with its access key |
+    | Key holders | 5 people to hold the unseal key shares. Any 3 unseal the server |
+    | Second region | Optional, for disaster recovery. See [High Availability and Backup](high-availability.md#a-second-region-recovers-from-the-loss-of-the-first) |
+
+    Read [Security and Encryption](security.md) before you choose between key holders and auto-unseal.
 
 ### Pre-installation Checks
 
