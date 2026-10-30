@@ -19,7 +19,7 @@ render when it does not hold.
 4. Zoom past the 1.5x body limit when the fact needs it. A shot lasts about a second, so 2.6x
    on a badge reads. Keep the fact clear of the lower-left third, where the headline sits.
 5. Keep the hook line to about 10 words, so it ends by 4.5 s. A 15-word CIEM line ran 6.6 s
-   and pushed the walkthrough to 7 s. Open it with a v4 tag such as `[intrigued]`.
+   and pushed the walkthrough to 7 s. Write it with no v4 audio tag.
 6. End on the logo slam with the product name and a 3 to 5 word tagline. That replaces the
    old intro card, so set `INTRO = None`. Put any legal footer in `HOOK["footer"]`.
 7. The walkthrough starts by 6.5 s, on a white flash out of the logo.
@@ -149,12 +149,21 @@ rectangles, speeds and every frame decision.
 
 ## The Voice Settings That Worked
 
-The house voice is Alice (`Xb7hH8MSUJpSbSDYk0k2`), British female, on `eleven_v4`, with
-stability 0.45, similarity 0.8, style 0.35 and speed 1.0. It reads about 148 words a minute,
-so `PACE.vo_tempo` stays at 1.0. The old Brian voice on v3 needed 1.08 and still sounded slow.
-v4 accepts audio tags such as `[intrigued]`, `[confident]` and `[excited]` at the start of a
-line, and does not speak them. Run `python scripts/eleven.py sample "<neutral sentence>"` to
-hear the shortlist. Use a sentence with no customer detail.
+The house voice is Alice (`Xb7hH8MSUJpSbSDYk0k2`), a clear British female, on `eleven_v4`, with
+stability 0.6, similarity 0.8, style 0.1 and speed 1.0. Atharva set her as the standard for every
+AccuKnox video on 2026-10-14. The older default of stability 0.45 and style 0.35, plus v4 tags such
+as `[intrigued]`, sounded perky and he called it annoying, so write no audio tags.
+
+She reads about 5% slower than Brian. The v4 `speed` setting barely changes that (1.05 gave the same
+length), so match a pace with `PACE.vo_tempo` near 1.06, a pitch-preserving `atempo`. She drops the
+British "r", so "drawer" comes back as "draw". Pick a word without a trailing "r" sound. Run
+`python scripts/eleven.py sample "<neutral sentence>"` to hear the shortlist. Use a sentence with no
+customer detail.
+
+To swap the voice on a finished render without re-rendering the picture, keep `output/_video.mp4`,
+`output/_sfx.wav` and `output/_chapters.txt`. Voice the new lines, place each one at the old line's
+start time from `timeline.json`, mix with the same `amix` and `loudnorm` chain, and mux with
+`-c:v copy`. The knox-rt-policy project did this in under 2 minutes for a 3 minute video.
 
 The Jev gate needs the product's generic words in `PRODUCT_TERMS` in `jev.py`. Without them,
 "copies it into a Kubernetes secret" scored 0.69 as a customer identifier. Add words for one

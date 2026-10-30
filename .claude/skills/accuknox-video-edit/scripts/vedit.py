@@ -597,7 +597,7 @@ def frames(beats, total, wanted=None, until=None):
             hold = "hold" in c
             if "hook" in c:
                 ctx = hook_ctx(src, clip_len(c))
-                flash_to = fi + n + 5
+                flash_to = fi + n + (0 if (P.hook or {}).get("calm") else 5)   # calm: crossfade, no flash
             elif "outro" in c:
                 ctx = outro_ctx(src, clip_len(c))
             for k in range(n):

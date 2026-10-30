@@ -26,7 +26,7 @@ CTX.verify_mode = ssl.CERT_NONE
 # [excited] or [whispers] at the start of a line, and voice_settings including style and speed.
 MODEL = "eleven_v4"
 DEFAULT_VOICE = "Xb7hH8MSUJpSbSDYk0k2"   # Alice, British female, the house voice
-DEFAULT_SETTINGS = {"stability": 0.45, "similarity_boost": 0.8, "style": 0.35, "speed": 1.0}
+DEFAULT_SETTINGS = {"stability": 0.6, "similarity_boost": 0.8, "style": 0.1, "speed": 1.0}   # calm Alice, the standard since 2026-10-14
 
 # Premade voices every account can use. The keys lack voices_read, so they cannot be listed.
 VOICES = {

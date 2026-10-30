@@ -87,9 +87,9 @@ Run every command from the repo root.
    ElevenLabs sees any text. Rewrite it, then rerun. `vedit.py <project> check` runs the gate
    alone. The surviving lines are voiced and cached by text.
    `qc.py <project> voice` transcribes each line locally. Rewrite any line that comes back
-   with a wrong word. The voice is Alice on `eleven_v4` unless `edit.py` sets `VOICE`. A line
-   can open with a v4 audio tag such as `[intrigued]` or `[confident]`. The gate strips the tag
-   before it judges the words.
+   with a wrong word. The voice is calm Alice (clear British female) on `eleven_v4` unless
+   `edit.py` sets `VOICE`. Write no v4 audio tags such as `[intrigued]`, because they made
+   her sound perky. The gate still strips a tag before it judges the words.
 
 7. **Check the stills, then render.** `vedit.py <project> plan` prints the timeline.
    `vedit.py <project> qc B05:3 B12:7 ...` renders chosen frames into
