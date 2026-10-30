@@ -58,3 +58,21 @@ hide:
     3. Unseal with your own key holders.
 
     See [Air-Gapped Deployment](../secrets-manager/air-gapped.md).
+
+??? "**10. How does Secrets Manager protect secrets at rest?**"
+    Secrets Manager **encrypts every secret before it writes it to disk**. A chain of three keys protects the data.
+
+    - **Encryption key**: Encrypts the secrets.
+    - **Root key**: Encrypts the encryption key.
+    - **Unseal key**: Decrypts the root key. Shamir's Secret Sharing splits it into 5 shares, and any 3 unseal the server.
+
+    Secrets Manager never stores the unseal key. See [Security and Encryption](../secrets-manager/security.md).
+
+??? "**11. Is there a REST API?**"
+    Yes. Every UI and CLI action is a call to `https://<host>:8200/v1/<path>`, compatible with the HashiCorp Vault HTTP API. Your server also generates an **OpenAPI 3 document** of every path your token can reach. See the [REST API Reference](../secrets-manager/rest-api.md).
+
+??? "**12. Can Secrets Manager run across regions with disaster recovery?**"
+    Yes. Run a **three-node cluster in each region**, and replicate the snapshot bucket to the second region. With the default 15-minute snapshot schedule, a regional failover loses at most 15 minutes of secret changes. See [High Availability and Backup](../secrets-manager/high-availability.md#a-second-region-recovers-from-the-loss-of-the-first).
+
+??? "**13. What support SLA comes with Secrets Manager?**"
+    Your support package sets the response time. A **P1 ticket gets a first response within 1 hour** on Gold and Platinum, and within 4 hours on Silver. Platinum covers 24 hours a day, 7 days a week. Send requests to support@accuknox.com. See [Support and SLA](../secrets-manager/support.md).

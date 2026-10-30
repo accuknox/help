@@ -23,8 +23,6 @@ On a host with internet access, pull each image, then move it inside on approved
 | Snapshot agent | `ghcr.io/accuknoxsecretmanager/accuknoxsecretmanager-snapshot-agent:0.3.0` | When snapshots are on |
 | External Secrets Operator | The images its own Helm chart names | When you use the operator |
 
-[Confirm the External Secrets Operator version to mirror.]
-
 ```bash
 docker pull harbor.do.accuknox.com/secrets-manager/ak-secrets-mgr:v2.5.4-amd64
 docker save harbor.do.accuknox.com/secrets-manager/ak-secrets-mgr:v2.5.4-amd64 -o ak-secrets-mgr.tar
@@ -67,7 +65,15 @@ Then initialize and unseal the server as the [Deployment Guide](deployment.md) s
 
 The default seal splits the root key into 5 Shamir key shares, and any 3 unseal the server. No cloud key service is involved, so the unseal works fully offline. Give the shares to different people inside your organisation.
 
-[Confirm whether the AccuKnox build supports auto-unseal through an on-premises HSM or a Transit seal.] The auto-unseal example in `values.yaml` uses Google Cloud KMS, which needs internet access.
+Auto-unseal also works offline, through a key service inside your network.
+
+| Offline auto-unseal | What it needs |
+| --- | --- |
+| An HSM over PKCS#11 | The HSM build of the server image, and the HSM vendor's PKCS#11 library |
+| A KMIP key server | A KMIP server reachable from the cluster |
+| The Transit engine of a second Secrets Manager | A second Secrets Manager instance inside the network |
+
+The auto-unseal example in `values.yaml` uses Google Cloud KMS, which needs internet access. See [Security and Encryption](security.md#auto-unseal-hands-the-unseal-key-to-a-kms-or-hsm) for every seal type.
 
 ## Sign-In Methods Behave Differently Offline
 

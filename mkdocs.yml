@@ -390,6 +390,9 @@ nav:
       - "Deployment Guide": "secrets-manager/deployment.md"
       - "Air-Gapped Deployment": "secrets-manager/air-gapped.md"
       - "High Availability and Backup": "secrets-manager/high-availability.md"
+      - "Security and Encryption": "secrets-manager/security.md"
+      - "REST API Reference": "secrets-manager/rest-api.md"
+      - "Support and SLA": "secrets-manager/support.md"
       - "Connect Applications":
         - "secrets-manager/connect-applications.md"
         - "Direct SDK and REST API": "secrets-manager/sdk-integration.md"

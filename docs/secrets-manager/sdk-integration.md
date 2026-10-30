@@ -120,8 +120,8 @@ These samples log in with AppRole, the usual method off Kubernetes. On Kubernete
 
     The password sits at `.data.data.password` in the response.
 
-!!! note "Open-source clients"
-    These libraries are open-source Vault clients, not AccuKnox software. [Confirm the client versions tested against Secrets Manager v2.5.4.]
+!!! note "Third-party clients"
+    These libraries are third-party Vault clients, not AccuKnox software. Their maintainers publish the releases and the documentation.
 
 ## Deliver the AppRole Credentials Safely
 
