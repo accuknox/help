@@ -35,7 +35,8 @@ Shared harness: `.claude/skills/accuknox-blog-writer/`, written below as
    `references/positioning-playbook.md` in this skill
 6. For an `ai-security` page, `references/source-of-truth/ai-security-data-points.md` at the repo
    root. It holds the current AccuKnox data points, each with its source tier
-7. For a PDF, `references/battlecard-pdf.md` in this skill
+7. For a PDF, `references/battlecard-pdf.md` in this skill. Its cover and file name follow
+   the repo `CLAUDE.md` section "Marketing files must not look machine made".
 
 Print the `Loaded` block above the draft.
 
@@ -238,7 +239,7 @@ hand-build one, because the cover, type and layout must match the other detailed
 
 The fixed template for these PDFs. Do not change it per comparison.
 
-1. Size and type: A4. Space Grotesk for headings, Hanken Grotesk for body. Navy `#11206D`, brand blue `#0046FF`.
+1. Size and type: A4. Inter for headings, Hanken Grotesk for body. Navy `#11206D`, brand blue `#0046FF`.
 2. Page 1 is a full-bleed navy cover with no header or footer. It holds the AccuKnox logo, an eyebrow line, the title (`AccuKnox vs <Vendor>`, or a scorecard title), a one-sentence scope line, one factual sentence ("AccuKnox documents N of M capabilities in full") and a coverage strip with one mark per capability, grouped by area letter.
 3. Body page 1 holds the summary: coverage bars, then four numbered AccuKnox differentiators each with a mini strip, then a "Where <Vendor> is strong" box. The competitor always gets an honest strengths box.
 4. Then one table per area, full width. Head-to-head columns are Capability, AccuKnox, Vendor, each with a Yes, Partial or No chip. A scorecard has one chip column per vendor and a short AccuKnox detail line.

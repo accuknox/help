@@ -220,7 +220,7 @@ Rotate the tints by section. Pick each page from this list.
 
 | # | Archetype | Background | Key elements |
 |---|---|---|---|
-| 1 | Cover | navy | Color logo at the top, display title under it with one gradient-underlined phrase, deck under the title, topic art at the bottom right. No eyebrow and no other text. No cloud art |
+| 1 | Cover | navy | White logo top left, then a small uppercase label, an H1 of 2 to 4 words and one deck line below it. One flat duotone line-art graphic in the top right quarter or the bottom band, never touching the text. No gradient |
 | 2 | Foreword | ice | `.h1` "Foreword", body max 150 mm, signature block. Only a real named author the user supplied |
 | 3 | Methodology | white | `.h1`, lede, stacked `.panel`s pushed right, each with one thin number and a one-line label, source bottom right |
 | 4 | Table of contents | ice | `.h1` about 40 mm down, yellow chips, 21 pt titles, right-aligned page numbers |
@@ -271,10 +271,30 @@ before delivery.
 
 ## A New Version Never Overwrites an Old One
 
-1. Name the file in lowercase with hyphens, dated and versioned, for example `2026-10-01-runtime-security-report-v1.pdf`.
+1. Name the internal working file in lowercase with hyphens, dated and versioned, for example `2026-10-01-runtime-security-report-v1.pdf`.
 2. Save it in `references/drafts/gated-content/<slug>/`.
 3. Never overwrite an earlier version. `render.py` refuses an existing name, so raise the `-vN` suffix.
 4. Do not publish, send or upload the PDF anywhere before the user reviews it.
+
+## The Delivered PDF Gets a Name a Person Would Give It
+
+A reader skips a file whose name looks machine made. The dated, versioned name
+above stays in the drafts folder. The copy you hand over, attach or upload gets
+a clean name. Leadership set this rule on 2026-10-28.
+
+1. Name it `AccuKnox_<Asset_Type>_<Topic>.pdf`, Title Case words joined by underscores, for example `AccuKnox_Case_Study_Stock_Exchange.pdf` or `AccuKnox_AI_Security_Report.pdf`.
+2. Put no date, no `-vN` suffix, no hyphen slug and no word such as draft, final or generated in it.
+3. Set the HTML `<title>`, which becomes the PDF title metadata, to the same plain name.
+4. Name any email attachment the same way.
+
+## The Cover Is Clean, Flat and Duotone
+
+Follow the repo `CLAUDE.md` section "Marketing files must not look machine made". It overrides the cover archetype and the gradient uses above. In short:
+
+1. Logo top left. Below it, left aligned: a small uppercase label, an H1 of 2 to 4 words, and one deck line.
+2. Flat navy with white and one blue, or white with navy and one blue. No gradient anywhere on the cover.
+3. One line-art graphic that matches the topic, in its own zone: the top right quarter, or the bottom band at most 45 percent of the page height.
+4. The graphic never touches, sits under or crosses the text, and keeps 12 mm of empty space from it.
 
 ## Nine Files Make the Skill Self-Contained
 

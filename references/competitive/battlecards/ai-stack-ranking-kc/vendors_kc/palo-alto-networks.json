@@ -1,0 +1,123 @@
+{
+  "vendor": "Palo Alto Networks",
+  "slug": "palo-alto-networks",
+  "website": "https://www.paloaltonetworks.com",
+  "as_of": "2026-10-27",
+  "what_it_is": "Security vendor selling Prisma AIRS for AI, Cortex Cloud AI-SPM and Idira agent identity.",
+  "identity_note": "Scope: Prisma AIRS, Cortex Cloud AI Security, Cortex AgentiX and AES, Prisma Browser, Idira (CyberArk). Prisma AIRS 3.0 launched 2026-03-23.",
+  "notes": "Acquisitions: Protect AI (July 2025, AI Model Security), CyberArk (Feb 2026, rebranded Idira), Portkey (2026, AI Gateway, GA July 2026), Koi (April 2026, Cortex AES). Preview or beta: AI Skill Security (Preview), Cortex Cloud SaaS AI Agent Security (Beta). Module 7 rests on the Idira agentic page and the Prisma AIRS agent identity blurb. GA status of each Idira agent feature was not separately confirmed. Module 6: the docs show an API, multi-turn scans and agent scans, but no scheduler or CI/CD step was found. Module 5: exportable reports and audit logs come from the Model Security datasheet, and AI-BOM export was not found. Module 3.3: Cortex AES enforces prompt, MCP and network verdicts on the endpoint, which is host-side but scoped to AI calls. Module 8 url is the Model Security datasheet on a Palo Alto CDN. The 50+ format count and GGUF and ONNX support come from the Model Security scanning docs read in the 2026-09-29 research. Region gaps: AI Gateway lists Americas only. Earlier research read 2026-09-29, re-checked 2026-10-27.",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {
+        "1.1": "yes",
+        "1.2": "yes",
+        "1.3": "yes"
+      },
+      "reason": "Cortex Cloud AI Security inventories AI on AWS, Azure and GCP. AI Access Security finds shadow AI.",
+      "url": "https://cortex-docs.paloaltonetworks.com/cortex-cloud-posture-management/cortex-cloud-ai-security/what-is-cortex-cloud-ai-security",
+      "url_type": "vendor",
+      "evidence": "You can view all AI assets in your environment, regardless of deployment mode or cloud provider.",
+      "has": "Cortex Cloud AI Security, AI Access Security, Cortex AES and AI Agent Discovery.",
+      "lacks": ""
+    },
+    "2": {
+      "status": "partial",
+      "sub": {
+        "2.1": "yes",
+        "2.2": "yes",
+        "2.3": "partial"
+      },
+      "reason": "SaaS Agent Security covers 10 agent platforms. MCP Gateway governs tools. No host sandbox found.",
+      "url": "https://docs.paloaltonetworks.com/saas-agent-security/getting-started/whats-supported-with-saas-agent-security",
+      "url_type": "vendor",
+      "evidence": "SaaS Agent Security supports the following AI Agentic platforms: Atlassian Rovo, Box AI Studio, ChatGPT Enterprise, Cursor Enterprise, Gemini Enterprise",
+      "has": "SaaS Agent Security (10 platforms), AI Gateway MCP registry, Cortex AES endpoint hooks.",
+      "lacks": "Tool-call policy at gateway and endpoint hooks. No host or kernel sandbox found."
+    },
+    "3": {
+      "status": "partial",
+      "sub": {
+        "3.1": "yes",
+        "3.2": "yes",
+        "3.3": "partial"
+      },
+      "reason": "Cloud AI detectors read AWS and Azure audit logs. AIRS blocks prompts and tool calls. XSIAM handles response.",
+      "url": "https://cortex-docs.paloaltonetworks.com/analytics-alerts/alerts-by-name/ai-safeguards-deletion-attempt",
+      "url_type": "vendor",
+      "evidence": "Requires one of the following data sources: AWS Audit Log OR Azure Audit Log",
+      "has": "Cloud AI Infrastructure Analytics alerts, AIRS runtime blocking, XSIAM and AgentiX response.",
+      "lacks": "No AI-specific host process or file blocking documented."
+    },
+    "4": {
+      "status": "yes",
+      "sub": {
+        "4.1": "yes",
+        "4.2": "yes",
+        "4.3": "yes"
+      },
+      "reason": "AI Gateway, API Intercept, Network Intercept and Prisma Browser block injection, PII leaks, toxic content and malicious code.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/new-features/by-date/prisma-airs/august-2026",
+      "url_type": "vendor",
+      "evidence": "Detect Malicious Code in LLM Outputs · Detect Toxic Content in LLM Requests and Responses",
+      "has": "AI Gateway (GA July 2026), API Intercept, Network Intercept, Prisma Browser extension.",
+      "lacks": ""
+    },
+    "5": {
+      "status": "partial",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "yes",
+        "5.3": "yes"
+      },
+      "reason": "Maps assets to OWASP LLM, EU AI Act, NIST and MITRE. Exportable reports and audit logs.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-inventory/agent-discovery/ai-agent-discovery-with-cortex-cloud",
+      "url_type": "vendor",
+      "evidence": "Evaluate AI assets against OWASP Top 10 for LLMs, EU AI Act, NIST, and MITRE frameworks.",
+      "has": "Cortex Cloud AI Security framework checks. Model Security reports and audit logs. AI-BOM tracking.",
+      "lacks": "No exportable AIBOM format such as CycloneDX found."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "partial"
+      },
+      "reason": "AI Red Teaming runs 500+ attacks and agent scans via API. Scheduled or CI/CD runs not confirmed.",
+      "url": "https://docs.paloaltonetworks.com/prisma-airs/ai-red-teaming/identify-ai-system-risks-with-ai-red-teaming",
+      "url_type": "vendor",
+      "evidence": "500+ attack vectors across 50+ techniques.",
+      "has": "Prisma AIRS AI Red Teaming: 500+ attacks, agent targets like Copilot Studio, n8n.",
+      "lacks": "Scheduled or CI/CD runs not confirmed in docs."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {
+        "7.1": "yes",
+        "7.2": "yes",
+        "7.3": "yes"
+      },
+      "reason": "Idira Secure AI Agents registers agents, brokers just-in-time least-privilege access and revokes it. Idira governs secrets.",
+      "url": "https://www.paloaltonetworks.com/idira/agentic",
+      "url_type": "vendor",
+      "evidence": "Our Agent Identity Broker can act as a kill switch and deny access when an agent goes rogue.",
+      "has": "Idira Secure AI Agents: registry, Agent Identity Broker, kill switch. Idira secrets management.",
+      "lacks": ""
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "yes",
+        "8.2": "partial",
+        "8.3": "partial"
+      },
+      "reason": "Model Security scans 50+ formats incl. GGUF and ONNX. Skill Security is Preview.",
+      "url": "https://fe5e0932bbdbee188a67-ade54de1bba9a4fe61c120942a09245b.ssl.cf1.rackcdn.com/sb_prisma-airs-ai-model-security.pdf",
+      "url_type": "vendor",
+      "evidence": "performs deep static and dynamic analysis of model artifacts to detect",
+      "has": "AI Model Security (Protect AI), 50+ formats, PII tagging on datasets, CLI gate.",
+      "lacks": "No native SAST. Dataset poisoning scans and agent code scanning unconfirmed."
+    }
+  }
+}

@@ -142,7 +142,7 @@ Templates: `references/doc-ppt-template/WORD_TEMPLATE_ACCUKNOX.docx` and
 | Caption and secondary text | `595959` |
 | Bright accent used in image prompts | `003BF6` |
 
-Fonts: Space Grotesk for headings and labels, Inter for body. Both are embedded
+Fonts: Inter for headings, labels and body. Both are embedded
 in the templates.
 
 `python-pptx` lives on `py -3.11` only. Render a deck with PowerPoint COM or

@@ -36,7 +36,7 @@ JEV = "narration"
 # Each shot: t= a still second, or a= b= a range played across the shot. view= one view or a
 # (FROM, TO) pair the camera pushes through. The headline names what that frame shows.
 HOOK = dict(
-    line="[intrigued] [about ten words that end by 4.5 s]",
+    line="[about ten words that end by 4.5 s, no audio tag]",
     shots=[
         dict(t=0.0, view=None, kicker="[where we are]", text="[2 to 3 word fact]"),
         dict(t=0.0, view=None, kicker="[where we are]", text="[2 to 3 word fact]"),

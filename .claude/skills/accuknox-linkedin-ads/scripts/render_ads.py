@@ -37,7 +37,7 @@ SKILL = Path(__file__).resolve().parent.parent
 LOGO_WHITE = SKILL / "assets" / "logo-white.png"
 
 CSS = """
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
 body{width:{W}px;height:{H}px;overflow:hidden;font-family:Inter,sans-serif;background:#05082a;color:#fff}
 .ad{position:relative;width:{W}px;height:{H}px;overflow:hidden}
@@ -47,10 +47,10 @@ body{width:{W}px;height:{H}px;overflow:hidden;font-family:Inter,sans-serif;backg
 .logo{position:absolute;top:{PAD}px;left:{PAD}px;height:{LOGOH}px}
 .kicker{display:inline-block;font:600 {KS}px/1 Inter;letter-spacing:.14em;color:#9fb4ff;margin-bottom:{KG}px}
 .copy{position:absolute;left:{PAD}px;right:{PAD}px;bottom:{BOT}px}
-h1{font:700 {HS}px/1.04 'Space Grotesk';letter-spacing:-.02em;margin-bottom:{HG}px}
+h1{font:700 {HS}px/1.04 'Inter';letter-spacing:-.02em;margin-bottom:{HG}px}
 .body{font:400 {BS}px/1.35 Inter;color:#dfe5ff;max-width:92%;margin-bottom:{BG}px}
 .row{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.tag{font:700 {TS}px/1.2 'Space Grotesk';color:#fff}
+.tag{font:700 {TS}px/1.2 'Inter';color:#fff}
 .cta{flex:none;background:#0046FF;color:#fff;font:600 {CS}px/1 Inter;padding:{CP}px {CPX}px;border-radius:999px;box-shadow:0 8px 30px rgba(0,70,255,.45)}
 .proof{position:absolute;top:{PAD}px;right:{PAD}px;font:600 {PS}px/1 Inter;color:#fff;border:1.5px solid rgba(255,255,255,.55);border-radius:999px;padding:12px 20px;background:rgba(5,8,42,.35)}
 .ui-bg{position:absolute;inset:0;background:radial-gradient(120% 80% at 80% 10%,#1d33ff 0%,#0000C8 35%,#05082a 80%)}

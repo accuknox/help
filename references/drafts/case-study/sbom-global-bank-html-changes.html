@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SBOM Case Study Edits for Global Banks</title>
+<style>
+:root {
+  --bg:#ffffff; --fg:#1d1d1f; --mute:#6e6e73; --line:#e5e5ea; --card:#f5f5f7;
+  --red:#b3261e; --redbg:#fdecea; --green:#1b6e3c; --greenbg:#e8f5ec; --blue:#0a58ca; --amber:#8a5a00; --amberbg:#fff4d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#111114; --fg:#f2f2f5; --mute:#a1a1a8; --line:#2c2c31; --card:#1a1a1f;
+    --red:#ff8a80; --redbg:#3a1a18; --green:#7ddba0; --greenbg:#14301e; --blue:#7cb0ff; --amber:#ffd37a; --amberbg:#352a0d;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#111114; --fg:#f2f2f5; --mute:#a1a1a8; --line:#2c2c31; --card:#1a1a1f;
+  --red:#ff8a80; --redbg:#3a1a18; --green:#7ddba0; --greenbg:#14301e; --blue:#7cb0ff; --amber:#ffd37a; --amberbg:#352a0d;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.55 Inter, -apple-system, "Segoe UI", sans-serif; }
+main { max-width:980px; margin:0 auto; padding:40px 16px 96px; }
+h1 { font-size:34px; line-height:1.15; margin:0 0 8px; letter-spacing:-0.02em; }
+h2 { font-size:24px; margin:56px 0 16px; letter-spacing:-0.01em; }
+h3 { font-size:17px; margin:0; flex:1; }
+.sub { color:var(--mute); margin:0 0 28px; }
+.box { background:var(--amberbg); color:var(--fg); border-left:4px solid var(--amber); border-radius:10px; padding:16px 20px; margin:24px 0; }
+.box h2 { margin:0 0 8px; font-size:19px; }
+.box ol { margin:8px 0 0 20px; padding:0; }
+.box li { margin:6px 0; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { color:var(--mute); font-weight:600; }
+a { color:var(--blue); }
+.edit { border:1px solid var(--line); border-radius:14px; padding:18px; margin:0 0 20px; background:var(--bg); }
+.edit header { display:flex; gap:12px; align-items:center; margin-bottom:8px; }
+.id { background:var(--fg); color:var(--bg); border-radius:8px; padding:2px 9px; font-weight:700; font-size:13px; }
+.kind { font-size:12px; color:var(--mute); border:1px solid var(--line); border-radius:99px; padding:2px 10px; white-space:nowrap; }
+.where { margin:0 0 12px; color:var(--mute); font-size:14px; }
+.where b { color:var(--fg); }
+.ba { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width:760px) { .ba { grid-template-columns:1fr; } }
+.lbl { display:inline-block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+.lbl.del { color:var(--red); } .lbl.ins { color:var(--green); }
+pre { margin:0; background:var(--card); border-radius:10px; padding:12px; overflow-x:auto; font-size:12.5px; line-height:1.5; }
+code.del { color:var(--red); } code.ins { color:var(--green); }
+pre, code { font-family:ui-monospace, "Cascadia Code", Consolas, monospace; }
+.note { margin:12px 0 0; font-size:14px; background:var(--card); border-radius:10px; padding:10px 12px; }
+.assets td:first-child { font-family:ui-monospace, Consolas, monospace; font-size:12.5px; }
+.check li { margin:6px 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>SBOM Case Study Edits for Global Banks</h1>
+<p class="sub">Page: <a href="https://accuknox.com/case-studies/sbom-india-bank">https://accuknox.com/case-studies/sbom-india-bank</a>. Prepared 2026-10-29. The customer is anonymized as Global Bank, and its name appears nowhere on the page.</p>
+
+<div class="box">
+<h2>Two Facts Still Need Sign-Off Before Publish</h2>
+<ol>
+<li><b>Figures confirmed.</b> Atharva confirmed on 2026-10-29 that the 7 days, 10 projects and 5+ BOM types belong to the global bank. No action left.</li>
+<li><b>Quote clearance.</b> The quote carried the Indian bank's approval. The edited quote in E10 needs approval from the global bank.</li>
+<li><b>Rank claim.</b> The old page said Top #3. Global Bank carries no rank. Add "Top 10" or similar only when marketing holds a source for it.</li>
+</ol>
+</div>
+
+<h2>Sixteen Edits Remove the India Angle</h2>
+<table>
+<thead><tr><th>ID</th><th>Change</th><th>Type</th></tr></thead>
+<tbody>
+<tr><td><a href="#e1">E1</a></td><td>SEO Title Drops Indian and Public Sector</td><td>SEO</td></tr>
+<tr><td><a href="#e2">E2</a></td><td>Meta Description Drops CERT-In</td><td>SEO</td></tr>
+<tr><td><a href="#e3">E3</a></td><td>Social Cards Repeat the Same Three Fields</td><td>SEO</td></tr>
+<tr><td><a href="#e4">E4</a></td><td>H1 Names a Global Bank</td><td>CMS</td></tr>
+<tr><td><a href="#e5">E5</a></td><td>Chip Row Loses the Flag and the PSU Badge</td><td>Template and asset</td></tr>
+<tr><td><a href="#e6">E6</a></td><td>Download Button Points to the New PDF</td><td>CMS</td></tr>
+<tr><td><a href="#e7">E7</a></td><td>Hero Image Alt Text Drops Indian</td><td>CMS</td></tr>
+<tr><td><a href="#e8">E8</a></td><td>Challenge 2 Stops Naming CERT-In</td><td>CMS</td></tr>
+<tr><td><a href="#e9">E9</a></td><td>Solution 3 Becomes Regulator-Ready Reporting</td><td>CMS</td></tr>
+<tr><td><a href="#e10">E10</a></td><td>The Quote Needs New Words and New Clearance</td><td>CMS</td></tr>
+<tr><td><a href="#e11">E11</a></td><td>Outcome 3 Drops CERT-In</td><td>CMS</td></tr>
+<tr><td><a href="#e12">E12</a></td><td>Outcome 5 Keeps Only the Global Frameworks</td><td>CMS</td></tr>
+<tr><td><a href="#e13">E13</a></td><td>The Slug Changes and the Old URL Redirects</td><td>SEO</td></tr>
+<tr><td><a href="#e14">E14</a></td><td>Nav and Hreflang Links Use the New Slug</td><td>CMS</td></tr>
+<tr><td><a href="#e15">E15</a></td><td>The ConveyThis Translations Still Say Indian</td><td>Translation</td></tr>
+<tr><td><a href="#e16">E16</a></td><td>Case Study Details Say Region Global</td><td>CMS</td></tr>
+</tbody>
+</table>
+<p class="note">Kept as is: the H2 subtitle, challenges 1, 3 and 4, solutions 1, 2, 4 and 5, outcomes 1, 2 and 4, the hero photo and the nav icon. None of them names India. A photo of a bank facade reads global.</p>
+
+<section><h2>Three Head Tag Blocks Still Say Indian</h2>
+<article class="edit" id="e1">
+  <header><span class="id">E1</span><h3>SEO Title Drops Indian and Public Sector</h3><span class="kind">SEO</span></header>
+  <p class="where"><b>Where.</b> Rank Math, SEO Title field. Renders as the title tag.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;title&gt;Top Indian Public Sector Bank Case Study. Air-Gapped SBOM In 1 Week&lt;/title&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;title&gt;Global Bank Case Study. Air-Gapped SBOM In 1 Week&lt;/title&gt;</code></pre></div>
+  </div>
+  <p class="note">49 characters, under the 60 limit.</p>
+</article>
+<article class="edit" id="e2">
+  <header><span class="id">E2</span><h3>Meta Description Drops CERT-In</h3><span class="kind">SEO</span></header>
+  <p class="where"><b>Where.</b> Rank Math, Description field.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;meta name="description" content="Top #3 Indian public sector bank deploys AccuKnox SBOM on-premise in an air-gapped environment in 7 days. 10 projects scanned, 5+ BOM types covered, CERT-In ready evidence."&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;meta name="description" content="Global bank deploys AccuKnox SBOM on-premise in an air-gapped environment in 7 days. 10 projects scanned, 5+ BOM types covered, regulator-ready evidence."&gt;</code></pre></div>
+  </div>
+  <p class="note">153 characters, under the 160 limit.</p>
+</article>
+<article class="edit" id="e3">
+  <header><span class="id">E3</span><h3>Social Cards Repeat the Same Three Fields</h3><span class="kind">SEO</span></header>
+  <p class="where"><b>Where.</b> Rank Math, Social tab. Same title, same description, new image alt.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;meta property="og:title" content="Top Indian Public Sector Bank Case Study. Air-Gapped SBOM In 1 Week"&gt;
+&lt;meta property="og:description" content="Top #3 Indian public sector bank deploys AccuKnox SBOM on-premise in an air-gapped environment in 7 days. 10 projects scanned, 5+ BOM types covered, CERT-In ready evidence."&gt;
+&lt;meta property="og:url" content="https://accuknox.com/case-studies/sbom-india-bank"&gt;
+&lt;meta property="og:image" content="https://accuknox.com/wp-content/uploads/indian-bank-case-study-hero.webp"&gt;
+&lt;meta property="og:image:alt" content="Top Indian public sector bank SBOM case study hero"&gt;
+&lt;meta name="twitter:title" content="Top Indian Public Sector Bank Case Study. Air-Gapped SBOM In 1 Week"&gt;
+&lt;meta name="twitter:description" content="Top #3 Indian public sector bank deploys AccuKnox SBOM on-premise in an air-gapped environment in 7 days. 10 projects scanned, 5+ BOM types covered, CERT-In ready evidence."&gt;
+&lt;meta name="twitter:image" content="https://accuknox.com/wp-content/uploads/indian-bank-case-study-hero.webp"&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;meta property="og:title" content="Global Bank Case Study. Air-Gapped SBOM In 1 Week"&gt;
+&lt;meta property="og:description" content="Global bank deploys AccuKnox SBOM on-premise in an air-gapped environment in 7 days. 10 projects scanned, 5+ BOM types covered, regulator-ready evidence."&gt;
+&lt;meta property="og:url" content="https://accuknox.com/case-studies/sbom-global-bank"&gt;
+&lt;meta property="og:image" content="https://accuknox.com/wp-content/uploads/global-bank-case-study-hero.webp"&gt;
+&lt;meta property="og:image:alt" content="Global bank SBOM case study hero"&gt;
+&lt;meta name="twitter:title" content="Global Bank Case Study. Air-Gapped SBOM In 1 Week"&gt;
+&lt;meta name="twitter:description" content="Global bank deploys AccuKnox SBOM on-premise in an air-gapped environment in 7 days. 10 projects scanned, 5+ BOM types covered, regulator-ready evidence."&gt;
+&lt;meta name="twitter:image" content="https://accuknox.com/wp-content/uploads/global-bank-case-study-hero.webp"&gt;</code></pre></div>
+  </div>
+  <p class="note">The hero photo is a generic bank facade and stays. Only the file name carries the word indian, so re-upload it as global-bank-case-study-hero.webp.</p>
+</article></section><section><h2>The Hero Shows a Flag and a PSU Badge</h2>
+<article class="edit" id="e4">
+  <header><span class="id">E4</span><h3>H1 Names a Global Bank</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Page template, hero. Selector: h1.font-size38. This is the Page Heading field.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;h1 class="font-size38"&gt;Top #3 Indian Public Sector Bank Operationalises SBOM in an Air-Gapped Environment&lt;/h1&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;h1 class="font-size38"&gt;Global Bank Operationalizes SBOM in an Air-Gapped Environment&lt;/h1&gt;</code></pre></div>
+  </div>
+  <p class="note">The H2 under it already reads global, so it stays: Achieves End-to-End Software Supply Chain Visibility in 1 Week with Zero Internet Connectivity. The live site spells it Operationalises. American spelling is used here to match the repo house style, so change it back if the site keeps British spelling.</p>
+</article>
+<article class="edit" id="e5">
+  <header><span class="id">E5</span><h3>Chip Row Loses the Flag and the PSU Badge</h3><span class="kind">Template and asset</span></header>
+  <p class="where"><b>Where.</b> Page template, hero. Selector: .mt-30.d-flex.align-center.gp-02. Two of the four chips change.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/air-gapped-india-bank.webp" alt="air-gapped" width="50px" height="50px" style="cursor: pointer;"&gt;
+&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/indian-india-bank.webp" alt="indian flag" width="50px" height="50px" style="cursor: pointer;"&gt;
+&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/PSU-india-bank.webp" alt="PSU" width="50px" height="50px" style="cursor: pointer;"&gt;
+&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/on-premises-india-bank.webp" alt="on-premises" width="50px" height="50px" style="cursor: pointer;"&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/air-gapped-global-bank.webp" alt="air-gapped" width="50px" height="50px" style="cursor: pointer;"&gt;
+&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/global-global-bank.webp" alt="global" width="50px" height="50px" style="cursor: pointer;"&gt;
+&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/banking-global-bank.webp" alt="banking" width="50px" height="50px" style="cursor: pointer;"&gt;
+&lt;img decoding="async" src="https://accuknox.com/wp-content/uploads/on-premises-global-bank.webp" alt="on-premises" width="50px" height="50px" style="cursor: pointer;"&gt;</code></pre></div>
+  </div>
+  <p class="note">Chips 1 and 4 keep their artwork. Rename the files only so no india slug stays in the media library. Chip 2 is a new globe icon and chip 3 is a new bank icon with no PSU text. Specs are in section New Asset Files Replace the Old Ones.</p>
+</article>
+<article class="edit" id="e6">
+  <header><span class="id">E6</span><h3>Download Button Points to the New PDF</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> CMS Top Section, Download Url field. Rendered as the DOWNLOAD PDF button.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;a href="https://accuknox.com/wp-content/uploads/SBOM-Case-Study.pdf" target="_blank"&gt;
+  &lt;button class="btn demoBtn mt-30"&gt;DOWNLOAD PDF&lt;/button&gt;
+&lt;/a&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;a href="https://accuknox.com/wp-content/uploads/AccuKnox_Case_Study_Global_Bank_SBOM.pdf" target="_blank"&gt;
+  &lt;button class="btn demoBtn mt-30"&gt;DOWNLOAD PDF&lt;/button&gt;
+&lt;/a&gt;</code></pre></div>
+  </div>
+  <p class="note">Do not switch the link until the new PDF is uploaded. The old PDF still names the Indian bank and CERT-In on 7 of its sections. Details are in section The PDF Needs a Full Rebuild.</p>
+</article>
+<article class="edit" id="e7">
+  <header><span class="id">E7</span><h3>Hero Image Alt Text Drops Indian</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Featured image, Alt Text field. Selector: img.wp-post-image.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;img width="640" height="400" src="https://accuknox.com/wp-content/uploads/indian-bank-case-study-hero-1024x640.webp" class="img-fluid border-10 wp-post-image" alt="Top Indian public sector bank SBOM case study hero"&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;img width="640" height="400" src="https://accuknox.com/wp-content/uploads/global-bank-case-study-hero-1024x640.webp" class="img-fluid border-10 wp-post-image" alt="Global bank SBOM case study hero"&gt;</code></pre></div>
+  </div>
+  <p class="note">WordPress rebuilds the -1024x640 size when you re-upload the file.</p>
+</article></section><section><h2>Five Body Lines Name CERT-In or India</h2>
+<article class="edit" id="e8">
+  <header><span class="id">E8</span><h3>Challenge 2 Stops Naming CERT-In</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Content block, Challenges list. Selector: ul.tick-list.red-exclamation, second li.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;li&gt;&lt;strong&gt;CERT-In Reporting Pressure.&lt;/strong&gt; Indian financial institutions face strict CERT-In mandates requiring continuous software inventories and vulnerability reporting within rigid timelines.&lt;/li&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;li&gt;&lt;strong&gt;Regulatory Reporting Pressure Across Jurisdictions.&lt;/strong&gt; Global banks face strict mandates requiring continuous software inventories and vulnerability reporting within rigid timelines.&lt;/li&gt;</code></pre></div>
+  </div>
+  <p class="note">[CONFIRM] Name the regimes the customer actually reports under before you add any. None is named here on purpose, because no opened source supports one.</p>
+</article>
+<article class="edit" id="e9">
+  <header><span class="id">E9</span><h3>Solution 3 Becomes Regulator-Ready Reporting</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Content block, Solutions list. Selector: ul.tick-list.tick, third li.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;li&gt;&lt;strong&gt;CERT-In Ready Reporting.&lt;/strong&gt; Automatic population of mandated compliance fields for streamlined regulatory reporting, with no manual overhead.&lt;/li&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;li&gt;&lt;strong&gt;Regulator-Ready Reporting.&lt;/strong&gt; Automatic population of mandated compliance fields for regulatory reporting, with no manual overhead.&lt;/li&gt;</code></pre></div>
+  </div>
+  <p class="note">The lead-in changes. The sentence also drops the word streamlined, which the repo ban list forbids. Nothing in it named India.</p>
+</article>
+<article class="edit" id="e10">
+  <header><span class="id">E10</span><h3>The Quote Needs New Words and New Clearance</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Content block, testimonial. Selector: .CaseStudyTestimonial.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;img class="img-fluid height-100 border-16" src="https://accuknox.com/wp-content/uploads/indian-bank-case-study-hero.webp" alt="yoma-fleet"&gt;
+&lt;p class="font-size24 text-grey900 mb-30"&gt;“AccuKnox gave us a complete picture of our software supply chain inside a fully air-gapped environment, in a week. CERT-In evidence that previously took manual effort is now generated automatically across every project.”&lt;/p&gt;
+&lt;p class="font-500 font-size18 text-grey900 mb-10"&gt;Security Leadership&lt;/p&gt;
+&lt;p class="text-grey700"&gt;Top #3 Indian Public Sector Bank&lt;/p&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;img class="img-fluid height-100 border-16" src="https://accuknox.com/wp-content/uploads/global-bank-case-study-hero.webp" alt="Global bank building"&gt;
+&lt;p class="font-size24 text-grey900 mb-30"&gt;“[CONFIRM CUSTOMER APPROVAL] AccuKnox gave us a complete picture of our software supply chain inside a fully air-gapped environment, in a week. The regulatory evidence that previously took manual effort is now generated automatically across every project.”&lt;/p&gt;
+&lt;p class="font-500 font-size18 text-grey900 mb-10"&gt;Security Leadership&lt;/p&gt;
+&lt;p class="text-grey700"&gt;Global Bank&lt;/p&gt;</code></pre></div>
+  </div>
+  <p class="note">The old alt text read yoma-fleet, a copy error from another case study. It is fixed here. The edited quote puts new words in a customer's mouth, so the customer must approve it before it goes live.</p>
+</article>
+<article class="edit" id="e11">
+  <header><span class="id">E11</span><h3>Outcome 3 Drops CERT-In</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Content block, Outcomes list. Selector: ul.tick-list.blue-sheild, third li.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;li&gt;&lt;strong&gt;CERT-In compliance fields populated automatically&lt;/strong&gt;, removing manual reporting overhead.&lt;/li&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;li&gt;&lt;strong&gt;Regulatory compliance fields populated automatically&lt;/strong&gt;, removing manual reporting overhead.&lt;/li&gt;</code></pre></div>
+  </div>
+  
+</article>
+<article class="edit" id="e12">
+  <header><span class="id">E12</span><h3>Outcome 5 Keeps Only the Global Frameworks</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Content block, Outcomes list. Selector: ul.tick-list.blue-sheild, fifth li.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;li&gt;&lt;strong&gt;Regulatory coverage validated&lt;/strong&gt; against CERT-In, RBI IT Framework, SSDF, and EO 14028.&lt;/li&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;li&gt;&lt;strong&gt;Regulatory coverage validated&lt;/strong&gt; against SSDF and EO 14028. [CONFIRM: add any framework the customer validated, then delete this bracket]&lt;/li&gt;</code></pre></div>
+  </div>
+  <p class="note">CERT-In and the RBI IT Framework are India only, so both go. SSDF and EO 14028 are the two entries that were already on the page and are read worldwide. Add a framework only when the POC report names it.</p>
+</article></section><section><h2>The Slug and Its Links Still Say India</h2>
+<article class="edit" id="e13">
+  <header><span class="id">E13</span><h3>The Slug Changes and the Old URL Redirects</h3><span class="kind">SEO</span></header>
+  <p class="where"><b>Where.</b> WordPress, page slug. Rank Math Redirections for the 301.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">https://accuknox.com/case-studies/sbom-india-bank</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">https://accuknox.com/case-studies/sbom-global-bank</code></pre></div>
+  </div>
+  <p class="note">Add a 301 from the old slug to the new one in Rank Math Redirections. Add the same 301 for /ko/, /ja/, /fr/ and /es/ copies. Then update the canonical, og:url and the x-default and en hreflang links to the new slug.</p>
+</article>
+<article class="edit" id="e14">
+  <header><span class="id">E14</span><h3>Nav and Hreflang Links Use the New Slug</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> Mega menu, Resources, Case Studies, and the head hreflang block. Selector: .subMenu a.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">&lt;a href="https://accuknox.com/case-studies/sbom-india-bank" class="d-flex align-center gp-01"&gt;
+  &lt;img src="https://accuknox.com/wp-content/uploads/sbom-india-nav-image.webp" alt="sbom india Icon" class="no-lazy" width="70" height="70"&gt;
+  &lt;span&gt;Top #3 Indian Public Sector Bank Operationalises SBOM in an Air-Gapped Environment&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;link href="https://accuknox.com/case-studies/sbom-india-bank" hreflang="x-default" rel="alternate"&gt;
+&lt;link href="https://accuknox.com/ko/case-studies/sbom-india-bank" hreflang="ko" rel="alternate"&gt;</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">&lt;a href="https://accuknox.com/case-studies/sbom-global-bank" class="d-flex align-center gp-01"&gt;
+  &lt;img src="https://accuknox.com/wp-content/uploads/sbom-global-nav-image.webp" alt="Global bank SBOM icon" class="no-lazy" width="70" height="70"&gt;
+  &lt;span&gt;Global Bank Operationalizes SBOM in an Air-Gapped Environment&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;link href="https://accuknox.com/case-studies/sbom-global-bank" hreflang="x-default" rel="alternate"&gt;
+&lt;link href="https://accuknox.com/ko/case-studies/sbom-global-bank" hreflang="ko" rel="alternate"&gt;</code></pre></div>
+  </div>
+  <p class="note">The nav icon is a plain bank pictogram, so it only needs a rename. Rank Math writes the hreflang block from the slug, so it updates itself once E13 is saved. Check the ja, fr and es lines the same way.</p>
+</article>
+<article class="edit" id="e15">
+  <header><span class="id">E15</span><h3>The ConveyThis Translations Still Say Indian</h3><span class="kind">Translation</span></header>
+  <p class="where"><b>Where.</b> ConveyThis dashboard. Selector in page source: conveythis-config languages array.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">languages:[{"id":"703","location":"/case-studies/sbom-india-bank"}, {"id":"747","location":"/ko/case-studies/sbom-india-bank"}, ...]</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">languages:[{"id":"703","location":"/case-studies/sbom-global-bank"}, {"id":"747","location":"/ko/case-studies/sbom-global-bank"}, ...]</code></pre></div>
+  </div>
+  <p class="note">ConveyThis stores translations per string. The Korean, Japanese, French and Spanish copies keep Indian and CERT-In until you clear the cached strings for this page and run the translation again.</p>
+</article>
+<article class="edit" id="e16">
+  <header><span class="id">E16</span><h3>Case Study Details Say Region Global</h3><span class="kind">CMS</span></header>
+  <p class="where"><b>Where.</b> CMS Top Section. Fields Select Region and Select Industry.</p>
+  <div class="ba">
+    <div><span class="lbl del">Remove</span><pre><code class="del">Select Region: India
+Select Industry: BFSI</code></pre></div>
+    <div><span class="lbl ins">Use</span><pre><code class="ins">Select Region: Global
+Select Industry: BFSI</code></pre></div>
+  </div>
+  <p class="note">If the Region list has no Global option, add one. Also open the /case-studies index and confirm this card does not sit under the Public Sector filter.</p>
+</article></section>
+
+<section>
+<h2>The PDF Needs a Full Rebuild</h2>
+<p>The live PDF at <code>https://accuknox.com/wp-content/uploads/SBOM-Case-Study.pdf</code> repeats the India angle on these lines. Rebuild it from the AccuKnox template and name it <code>AccuKnox_Case_Study_Global_Bank_SBOM.pdf</code>.</p>
+<table>
+<thead><tr><th>PDF line today</th><th>Replace with</th></tr></thead>
+<tbody>
+<tr><td>Cover: SBOM POC : Top #3 Indian Public Sector Bank</td><td>Cover label CASE STUDY, H1 Global Bank, one deck line</td></tr>
+<tr><td>Cover strap: Air-Gapped Deployment · 1-Week Execution · CERT-In Compliance</td><td>Air-Gapped Deployment · 1-Week Execution · Regulator-Ready Evidence</td></tr>
+<tr><td>The Challenge: Indian financial institutions face strict CERT-In mandates</td><td>Same wording as E8</td></tr>
+<tr><td>Key Findings tile: CERT-In Ready Fields</td><td>Regulator-Ready Fields</td></tr>
+<tr><td>Business Value: Automatically satisfies CERT-In software inventory and vulnerability reporting obligations</td><td>Automatically satisfies mandated software inventory and vulnerability reporting obligations</td></tr>
+<tr><td>Next-Gen BOM Readiness: CERT-In compliance walkthroughs</td><td>Regulatory compliance walkthroughs</td></tr>
+<tr><td>Regulatory Coverage: RBI IT Framework (and a CERT-In badge if one is an image)</td><td>SSDF and EO 14028 only, same as E12</td></tr>
+</tbody>
+</table>
+<p class="note">Check every logo, badge and screenshot inside the PDF by eye. A text scan cannot see a flag or a bank name burned into an image. Set the PDF title metadata to the new file name. Then delete the old PDF from the media library, or the old URL keeps serving the Indian version.</p>
+</section>
+
+<section>
+<h2>New Asset Files Replace the Old Ones</h2>
+<table class="assets">
+<thead><tr><th>New file</th><th>Replaces</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>global-global-bank.webp</td><td>indian-india-bank.webp</td><td>101x101, circle chip, line-art globe in the same blue as the other chips. New artwork.</td></tr>
+<tr><td>banking-global-bank.webp</td><td>PSU-india-bank.webp</td><td>101x101, circle chip, bank pillars icon with no PSU text. Crop it from the nav icon.</td></tr>
+<tr><td>air-gapped-global-bank.webp, on-premises-global-bank.webp</td><td>the two same-named india files</td><td>Same artwork, new file name only.</td></tr>
+<tr><td>global-bank-case-study-hero.webp</td><td>indian-bank-case-study-hero.webp</td><td>1200x750, same photo, new file name. WordPress makes the -1024x640 copy.</td></tr>
+<tr><td>sbom-global-nav-image.webp</td><td>sbom-india-nav-image.webp</td><td>Same artwork, new file name.</td></tr>
+</tbody>
+</table>
+</section>
+
+<section>
+<h2>Seven Checks Close the Job</h2>
+<ol class="check">
+<li>Search the page source for <code>india</code>, <code>indian</code>, <code>cert-in</code>, <code>rbi</code>, <code>psu</code> and <code>public sector</code>. Only site-wide footer items may remain, such as the Chennai office address and the Silicon India press logo.</li>
+<li>Load the old URL and confirm one 301 hop to the new slug. Do the same for /ko/, /ja/, /fr/ and /es/.</li>
+<li>Open the page in Korean, Japanese, French and Spanish and confirm none shows Indian or CERT-In.</li>
+<li>Paste the new URL into the LinkedIn Post Inspector and the X card validator to refresh the cached card image and title.</li>
+<li>Resubmit the new URL in Google Search Console and update the sitemap entry.</li>
+<li>Search the site for other links to <code>sbom-india-bank</code>: blog posts, solution pages, the case-studies index and the Public Sector listing. Update each one.</li>
+<li>Delete the old PDF and the old india-named images from the media library once nothing references them.</li>
+</ol>
+</section>
+</main>
+</body>
+</html>

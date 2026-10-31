@@ -2,7 +2,7 @@
 survive the Google Slides import.
 
 Brand values come from the ak-pptx skill: navy 0000C8 header and footer bars,
-Space Grotesk headings, Inter body, 10 x 5.625 inch canvas.
+Inter throughout, 10 x 5.625 inch canvas.
 
 Animations: Google Slides keeps "fade in" and "fly in" on import, and keeps the
 slide fade transition. Every animation here starts with the slide, one item
@@ -36,8 +36,8 @@ DEEP = "05082A"
 GREEN = "0A7D4F"
 AMBER = "B26A00"
 
-HEAD = "Space Grotesk"
-BODY = "Space Grotesk"
+HEAD = "Inter"
+BODY = "Inter"
 W, H = 10.0, 5.625
 SIDE = 0.45
 

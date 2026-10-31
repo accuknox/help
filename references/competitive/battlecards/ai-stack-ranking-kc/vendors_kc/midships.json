@@ -1,0 +1,123 @@
+{
+ "vendor": "Midships",
+ "slug": "midships",
+ "website": "https://www.midships.io",
+ "what_it_is": "Identity consultancy whose Icebreaker product governs AI agent actions at runtime.",
+ "identity_note": "Resolved to Midships (midships.io, Singapore), a Ping Identity and Keycloak services firm with the patent-pending Icebreaker runtime AI governance product. The search for the KuppingerCole listing itself found no page naming Midships, so the link rests on midships.io being the only AI security vendor under this name. Not the same as Midship (ycombinator.com/companies/midship), which sells AI for SOX audit testing.",
+ "as_of": "2026-10-27",
+ "modules": {
+  "1": {
+   "status": "no",
+   "sub": {
+    "1.1": "no",
+    "1.2": "no",
+    "1.3": "no"
+   },
+   "reason": "No AI asset inventory or shadow AI discovery found. Icebreaker governs registered agent personas.",
+   "url": "https://www.midships.io/icebreaker",
+   "url_type": "vendor",
+   "evidence": "Searched: Midships Icebreaker shadow AI discovery inventory, Midships AI security. Pages cover runtime action governance only.",
+   "has": "",
+   "lacks": "No inventory, shadow AI discovery or posture checks found."
+  },
+  "2": {
+   "status": "partial",
+   "sub": {
+    "2.1": "no",
+    "2.2": "no",
+    "2.3": "partial"
+   },
+   "reason": "Icebreaker gates each agent action with allow, approval or deny. In customer pilot.",
+   "url": "https://www.midships.io/icebreaker",
+   "url_type": "vendor",
+   "evidence": "If a check errors or anything tries to go around it, the action does not run.",
+   "has": "Icebreaker allow, approval or deny gate. Revoke an agent at once.",
+   "lacks": "Pilot stage. No MCP security. No named agent platforms. No host sandbox."
+  },
+  "3": {
+   "status": "partial",
+   "sub": {
+    "3.1": "partial",
+    "3.2": "partial",
+    "3.3": "partial"
+   },
+   "reason": "Icebreaker denies off-purpose actions before they run and sends decisions to SIEM. Pilot stage.",
+   "url": "https://www.midships.io/icebreaker",
+   "url_type": "vendor",
+   "evidence": "Decision: Allow · GRC · SIEM · Evidence store",
+   "has": "Icebreaker pre-action deny and approval. Decision records to SIEM and GRC.",
+   "lacks": "Pilot stage. No attack detection. Blocks actions, not hosts. No named SIEM."
+  },
+  "4": {
+   "status": "partial",
+   "sub": {
+    "4.1": "partial",
+    "4.2": "no",
+    "4.3": "no"
+   },
+   "reason": "Icebreaker checks each proposed action against purpose, objective and intent. No prompt filtering.",
+   "url": "https://www.midships.io/icebreaker",
+   "url_type": "vendor",
+   "evidence": "Every proposed action is checked against the purpose, objective and intent the business approved.",
+   "has": "Icebreaker action-level check before execution.",
+   "lacks": "No prompt injection, PII or output filtering. Pilot stage."
+  },
+  "5": {
+   "status": "partial",
+   "sub": {
+    "5.1": "no",
+    "5.2": "partial",
+    "5.3": "partial"
+   },
+   "reason": "Icebreaker records each decision centrally. Readiness check maps to MAS, EU AI Act, APRA, SAFR.",
+   "url": "https://www.midships.io/accountable-ai-agents",
+   "url_type": "vendor",
+   "evidence": "Our readiness check maps controls to the MAS AI risk management guidelines, the EU AI Act, APRA expectations and SAFR.",
+   "has": "Central decision record. Consulting readiness check against four regimes.",
+   "lacks": "No AIBOM. No OWASP, NIST or ISO mapping. No report export found."
+  },
+  "6": {
+   "status": "no",
+   "sub": {
+    "6.1": "no",
+    "6.2": "no",
+    "6.3": "no"
+   },
+   "reason": "No AI red teaming product found on midships.io.",
+   "url": "https://www.midships.io/ai",
+   "url_type": "vendor",
+   "evidence": "Searched: Midships AI red teaming testing agents, Midships Icebreaker. Enterprise AI page lists Caravel, Icebreaker and agentic STP only.",
+   "has": "",
+   "lacks": "No attack library. No agent attack simulation. No CI/CD red teaming."
+  },
+  "7": {
+   "status": "partial",
+   "sub": {
+    "7.1": "partial",
+    "7.2": "partial",
+    "7.3": "no"
+   },
+   "reason": "Icebreaker sets per-persona limits and binds a one-time execution token to approved actions.",
+   "url": "https://www.midships.io/icebreaker",
+   "url_type": "vendor",
+   "evidence": "Your identity platform issues a one-time execution token bound to the approved action",
+   "has": "Persona limits, approval thresholds, one-time execution token via identity platform.",
+   "lacks": "Identity comes from Ping, not Midships. No NHI discovery. Pilot stage."
+  },
+  "8": {
+   "status": "no",
+   "sub": {
+    "8.1": "no",
+    "8.2": "no",
+    "8.3": "no"
+   },
+   "reason": "No model, dataset or AI code scanning found.",
+   "url": "https://www.midships.io/ai",
+   "url_type": "vendor",
+   "evidence": "Searched: Midships AI security model scanning, dataset, AI SAST. Pages cover runtime governance and AI-led delivery only.",
+   "has": "",
+   "lacks": "No model scanner. No dataset scanner. No AI SAST."
+  }
+ },
+ "notes": "Midships is mainly an identity services firm (Ping Identity, Keycloak). Icebreaker is patent pending and the site says it is in active customer pilot and not yet in production at a tier 1 bank, so every Icebreaker sub is capped at partial. Icebreaker is an action authorization layer. It decides allow, approval required or deny per proposed agent action and does not inspect prompts, scan models or run attacks. Modules 3 and 4 are low-confidence partials because the product is a pre-action decision point and not a detector or prompt guardrail. The KuppingerCole listing could not be confirmed from public pages, so check the Leadership Compass vendor table directly."
+}

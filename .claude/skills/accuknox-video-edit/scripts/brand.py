@@ -225,7 +225,7 @@ def gradient_bar(canvas, x0, y0, w, h, alpha=1.0):
     return canvas
 
 
-def kinetic(K, canvas, kicker, headline, lt, dur):
+def kinetic(K, canvas, kicker, headline, lt, dur, calm=False):
     """Kicker plus a punch-in headline in the lower left, with a dark scrim behind it."""
     W, H = K.W, K.H
     # Scrim: a soft dark pool behind the type.
@@ -249,7 +249,9 @@ def kinetic(K, canvas, kicker, headline, lt, dur):
     for i, wd in enumerate(words):
         p = (lt - 0.08 - 0.07 * i) / 0.32
         a = ease(p)
-        rise = (1 - back_out(p)) * size * 0.55
+        rise = 0.0 if calm else (1 - back_out(p)) * size * 0.55
+        if calm:   # the whole line fades in together, no per-word bounce
+            a = ease((lt - 0.05) / 0.35)
         items.append((wd, F_DISPLAY, size, (cursor, base_y + rise), (255, 255, 255, int(255 * a)), "ls"))
         cursor += f.getlength(wd + " ")
     # Fade out in the last 0.12 s of the shot.
@@ -343,30 +345,40 @@ def hook_frame(ctx, lt):
         p = ease_io(sl / sd)
         side = -1 if i % 2 == 0 else 1
         shot = cfg["shots"][i]
-        yaw = side * (17 - 10 * p)
-        pitch = 9 - 4 * p
-        scale = 0.70 + 0.12 * p
-        cx = 0.60 + side * 0.02 * (1 - p)
+        calm = cfg.get("calm", False)   # no whips, no flashes, a near-flat panel: for viewers prone to motion sickness
+        yaw = side * (2.0 if calm else (17 - 10 * p))     # calm: a fixed angle and size, no push or zoom
+        pitch = 1.0 if calm else (9 - 4 * p)
+        scale = 0.80 if calm else (0.70 + 0.12 * p)
+        cx = 0.60 if calm else 0.60 + side * 0.02 * (1 - p)
         cy = 0.44
         scr = ctx["screen"](i, p)
-        float_screen(K, canvas, scr, yaw, pitch, scale, cx, cy, sweep=-0.2 + 1.5 * p, glow=1.0)
-        kinetic(K, canvas, shot.get("kicker", ""), shot.get("text", ""), sl, sd)
-        # Whip in at the start of every shot after the first, and into the logo slam.
-        if i > 0 and sl < 0.14:
-            canvas = whip(canvas, 1 - sl / 0.14, side)
-        if b - lt < 0.08:
-            canvas = whip(canvas, 1 - (b - lt) / 0.08, -side)
-        if i == 0 and lt < 0.10:   # open on a flash, never on black
-            canvas = canvas + 255.0 * 0.6 * (1 - lt / 0.10)
+        float_screen(K, canvas, scr, yaw, pitch, scale, cx, cy, sweep=None if calm else -0.2 + 1.5 * p, glow=1.0)
+        kinetic(K, canvas, shot.get("kicker", ""), shot.get("text", ""), sl, sd, calm=calm)
+        if calm:   # a 0.2 s dip through the brand field instead of a whip
+            fade = min(1.0, sl / 0.2) if i > 0 else 1.0
+            fade = min(fade, (b - lt) / 0.2 if b - lt < 0.2 else 1.0)
+            if fade < 1.0:
+                canvas = field(K, lt) * (1 - fade) + canvas * fade
+        else:
+            # Whip in at the start of every shot after the first, and into the logo slam.
+            if i > 0 and sl < 0.14:
+                canvas = whip(canvas, 1 - sl / 0.14, side)
+            if b - lt < 0.08:
+                canvas = whip(canvas, 1 - (b - lt) / 0.08, -side)
+            if i == 0 and lt < 0.10:   # open on a flash, never on black
+                canvas = canvas + 255.0 * 0.6 * (1 - lt / 0.10)
     else:
         q = lt - t_logo
         L = dur - t_logo
         cx, cy = W / 2, H * 0.44
+        calm = cfg.get("calm", False)
         k = back_out(q / 0.45, 1.2)
-        width = W * 0.40 * (1.22 - 0.22 * k)
-        ring(K, canvas, cx, cy, W * (0.12 + 0.55 * ease(q / 0.9)), W * 0.006, 0.9 * (1 - ease(q / 0.9)))
-        logo_layer(K, canvas, cx, cy, width, alpha=ease(q / 0.22), shine=-0.3 + 1.6 * ease((q - 0.25) / 0.7),
-                   bloom=0.9 * (1 - 0.5 * ease(q / 1.2)))
+        width = W * 0.40 * (1.0 if calm else (1.22 - 0.22 * k))
+        if not calm:
+            ring(K, canvas, cx, cy, W * (0.12 + 0.55 * ease(q / 0.9)), W * 0.006, 0.9 * (1 - ease(q / 0.9)))
+        logo_layer(K, canvas, cx, cy, width, alpha=ease(q / (0.4 if calm else 0.22)),
+                   shine=None if calm else -0.3 + 1.6 * ease((q - 0.25) / 0.7),
+                   bloom=0.4 if calm else 0.9 * (1 - 0.5 * ease(q / 1.2)))
         items = []
         ta = ease((q - 0.35) / 0.4)
         if cfg.get("product"):
@@ -381,10 +393,14 @@ def hook_frame(ctx, lt):
             items.append((cfg["footer"], F_REGULAR, H * 0.019, (cx, H * 0.93), (165, 172, 195, int(255 * tc)), "mm"))
         lay, sh = text_layer(K, items)
         comp_layer(canvas, lay, sh)
-        if q < 0.12:
-            canvas = whip(canvas, 1 - q / 0.12, 1)
-        if L - q < 0.1:   # flash out into the body
-            canvas = canvas + 255.0 * 0.5 * (1 - (L - q) / 0.1)
+        if calm:   # fade in from the field and hand over without a flash
+            if q < 0.2:
+                canvas = field(K, lt) * (1 - q / 0.2) + canvas * (q / 0.2)
+        else:
+            if q < 0.12:
+                canvas = whip(canvas, 1 - q / 0.12, 1)
+            if L - q < 0.1:   # flash out into the body
+                canvas = canvas + 255.0 * 0.5 * (1 - (L - q) / 0.1)
     return np.clip(canvas, 0, 255).astype(np.uint8)
 
 
@@ -581,6 +597,8 @@ def sfx_track(events, total, path, gain_db=-14.0):
 def hook_sfx(t0, cfg, dur):
     """Sound events for a hook that starts at t0 seconds."""
     wins, t_logo = hook_layout(cfg, dur)
+    if cfg.get("calm"):   # the pad and one soft shimmer on the logo, no hits or whooshes
+        return [(t0, "pad", dur + 0.8), (t0 + t_logo + 0.2, "shimmer", None)]
     ev = [(t0, "pad", dur + 0.8), (t0, "impact", None)]
     for a, _ in wins[1:]:
         ev.append((t0 + a - 0.2, "whoosh", None))

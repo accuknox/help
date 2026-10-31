@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EOL Asset Rules One Pager</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --ink:#1d1d1f; --muted:#6e6e73; --line:#e5e5ea; --soft:#f5f5f7; --red:#e5322d; --blue:#1d5bd6; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:#fff; color:var(--ink); font-family:"Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .page { width:210mm; height:297mm; padding:12mm 13mm 9mm; display:flex; flex-direction:column; gap:3.6mm; overflow:hidden; }
+  .bar { height:3px; background:linear-gradient(90deg,var(--red),var(--blue)); border-radius:2px; }
+  h1 { font-size:23pt; line-height:1.1; margin:1mm 0 0; letter-spacing:-.02em; }
+  .lead { font-size:10.5pt; color:var(--muted); margin:0; line-height:1.4; }
+  h2 { font-size:8pt; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 1.6mm; font-weight:700; }
+  .num { display:inline-block; background:linear-gradient(90deg,var(--red),var(--blue)); color:#fff; border-radius:99px; width:5mm; height:5mm; text-align:center; line-height:5mm; font-size:8pt; margin-right:2mm; }
+  .row3 { display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; }
+  .card { background:var(--soft); border-radius:11px; padding:3mm 3.6mm; font-size:9.2pt; line-height:1.38; }
+  .card > b { display:block; font-size:9.6pt; margin-bottom:.6mm; }
+  .shot { border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#fff; }
+  .shot img { display:block; width:100%; height:auto; }
+  .cap { font-size:8.2pt; color:var(--muted); margin:1.2mm 1mm 0; line-height:1.35; }
+  ul { margin:0; padding-left:4.4mm; font-size:9.2pt; line-height:1.42; } li { margin-bottom:.8mm; }
+  .links { font-size:8.6pt; line-height:1.55; } .links a { color:var(--blue); text-decoration:none; } .links b { display:inline-block; min-width:44mm; }
+  .tag { color:var(--red); font-weight:700; }
+  .note { border-left:3px solid var(--red); padding:.6mm 0 .6mm 3.4mm; font-size:8.8pt; line-height:1.42; }
+  code { font-family:ui-monospace,Consolas,monospace; font-size:8.6pt; background:#fff; border:1px solid var(--line); border-radius:4px; padding:0 1.2mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="bar"></div>
+  <h1>Act on End-of-Life Assets with the Rule Engine</h1>
+  <p class="lead">Set one rule. AccuKnox opens a ticket or sends an alert each time it finds an end-of-life (EOL) asset.</p>
+
+  <div class="row3">
+    <div class="card"><b>1. Pick the condition</b>Choose <code>Is EOL</code> in a Rule Engine rule. Add more conditions, such as a new asset or a severity count above a limit.</div>
+    <div class="card"><b>2. Choose the action</b><b style="display:inline;font-weight:600">Create ticket</b> in a connected ticketing integration, or <b style="display:inline;font-weight:600">Send to notification channel</b>.</div>
+    <div class="card"><b>3. Let it run</b>The rule runs each time AccuKnox parses an asset file. You schedule nothing.</div>
+  </div>
+
+  <div>
+    <h2><span class="num">1</span>Open Issues → Findings → Rule Engine → Create Rule</h2>
+    <div class="shot"><img src="eol-nav.png" alt="Issues, Findings and Rule Engine path with the Findings menu (1), Rule Engine tab (2) and Create Rule button (3) marked"></div>
+    <p class="cap">(1) Findings in the Issues menu. (2) The Rule Engine tab. (3) The Create Rule button.</p>
+  </div>
+
+  <div>
+    <h2><span class="num">2</span>Choose Is EOL, Then Pick an Action</h2>
+    <div class="shot" style="width:100%"><img src="eol-cond.png" alt="Create Asset Rule form with the Is EOL condition (1) and the action list showing Create ticket and Send to notification channel (2)"></div>
+    <p class="cap">(1) The <b>Is EOL</b> condition under Conditions. (2) The two actions in the Actions list.</p>
+  </div>
+
+  <div class="card">
+    <h2>How the Rule Behaves</h2>
+    <ul>
+      <li>A rule never files the same ticket twice. If a ticket exists for the asset, later triggers send a notification only.</li>
+      <li>Asset tickets have their own template under <b>Settings</b>.</li>
+      <li><b>Prerequisite:</b> connect a ticketing or notification integration first.</li>
+    </ul>
+  </div>
+
+  <div class="note"><b>Also in the docs:</b> the container scan FAQ lists <b>Outdated Base Images</b>, meaning images built on EOL base OS versions with unpatched CVEs. The docs apply EOL to an asset or a base OS, not to a single package.</div>
+
+  <div class="links">
+    <h2>Help Doc Links</h2>
+    <div><b>Asset Rule Engine:</b> <a href="https://help.accuknox.com/getting-started/3.7-release/#asset-rule-engine">help.accuknox.com/getting-started/3.7-release/#asset-rule-engine</a> <span class="tag">[not live until 3.7 publishes]</span></div>
+    <div><b>Create a rule, step by step:</b> <a href="https://help.accuknox.com/use-cases/rules-engine-ticket-creation/">help.accuknox.com/use-cases/rules-engine-ticket-creation/</a></div>
+    <div><b>EOL base images (FAQ 12):</b> <a href="https://help.accuknox.com/faqs/aspm/">help.accuknox.com/faqs/aspm/</a></div>
+  </div>
+</div>
+</body>
+</html>

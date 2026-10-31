@@ -54,7 +54,7 @@ Build straight away when the audience, purpose and content are clear. Ask one sh
 
 ### 3. Storyboard
 
-Read `references/layouts.md`. Then write a one line plan per slide: layout, eyebrow, title, and what goes on it. A typical deck runs cover, agenda, content sections with section dividers for decks over about 12 slides, and a closing CTA slide.
+Read `references/human-made-look.md` first, then `references/layouts.md`. Then write a one line plan per slide: layout, action title, and what goes on it. Slides carry no eyebrow: pass `section:` to `contentSlide` so the section name sits in the footer, and use `kicker:` only when the title cannot carry a label the reader needs (for example "Customer: Top 10 airline"). Cards carry no top stripe. Slide 2 states the governing answer of the whole deck. For a technical audience (CTO, architects), build with `createDeck({ theme: "deep" })` and follow the deep tech section of `references/human-made-look.md`. A typical deck runs cover, agenda, content sections with section dividers for decks over about 12 slides, and a closing CTA slide.
 
 Rules that keep slides readable at the new type sizes:
 
@@ -116,6 +116,14 @@ Render and look at every slide. You will see what you expect after writing the c
 cd OUTDIR && soffice --headless --convert-to pdf deck.pptx && pdftoppm -r 80 -png deck.pdf qa
 ```
 
+On Windows, where LibreOffice is often missing, render with PowerPoint instead. The script loads the Inter files first, because a Calibri fallback is narrower and hides overflow:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/render.ps1 deck.pptx qa 1600
+```
+
+Zoom into one title on the first render and confirm the font is Inter, not Calibri. Then run the ten minute human pass in `references/human-made-look.md`. For a high stakes deck, iterate in rounds: render, critique every slide as a design reviewer, fix, and render again, four or five times, saving each round to `rounds/rN/`.
+
 Check for:
 
 - Text overflow, clipping, or text sitting on top of other text. Check this first.
@@ -129,7 +137,8 @@ Fix, re-render only the changed slides, and stop once clean. One or two passes i
 
 ### 6. Deliver
 
-- File name: lowercase with hyphens, date prefix, version suffix, for example `2026-10-07-partner-program-v1.pptx`. On a redesign, keep the original topic and bump the version.
+- File name: build and iterate under a dated, versioned working name, for example `2026-10-07-partner-program-v1.pptx`. The file you deliver gets a clean name a person would give it: `AccuKnox_<Asset_Type>_<Topic>.pptx`, Title Case words joined by underscores, for example `AccuKnox_Partner_Program.pptx`. Put no date, no version suffix and no word such as draft or final in the delivered name, because a reader skips a file that looks machine made.
+- Cover slide: logo top left, a small label and a title of 2 to 4 words below it, flat duotone, no gradient, one graphic in its own zone. The long claim goes on slide 2. Follow the repo `CLAUDE.md` section "Marketing files must not look machine made".
 - Never put prospect names, emails or deal sizes in the file name. Use an account code.
 - Save to `/mnt/user-data/outputs/`. If the user has a connected folder, also write it there, in a `drafts/` subfolder unless they say it is final.
 - Reply with one or two lines: what you built, slide count, and any facts you flagged as missing.
@@ -155,7 +164,7 @@ Fix, re-render only the changed slides, and stop once clean. One or two passes i
 | `tintSoft` | F8FAFF | Alternating table rows |
 | `periwinkle` | 8FA8FF | Secondary text on dark slides |
 
-Signature motif: the red to blue gradient (FF4646 to 1040C5). It appears as the short tick above every eyebrow and as the top edge of every card. Keep it to those two uses so it stays a signature rather than decoration.
+Signature motif: the red to blue gradient (FF4646 to 1040C5). Use it rarely, at most once on a slide, to mark the one element that is the point. Content slides no longer carry the gradient tick and eyebrow, and cards no longer carry a top stripe, because a stripe on every card is a known AI deck tell (see `references/human-made-look.md`).
 
 ### Type (`ak.T`), Inter throughout
 
@@ -163,7 +172,7 @@ Signature motif: the red to blue gradient (FF4646 to 1040C5). It appears as the 
 |---|---|---|
 | Cover title | 54pt | Inter Bold, white |
 | Section title | 48pt | Inter Bold, white |
-| Slide title | 32pt | Inter Bold, ink |
+| Slide title | 28pt, two lines max | Inter Bold, ink |
 | Subtitle | 16pt | Inter Regular, muted |
 | Eyebrow and labels | 11pt | Inter Bold, uppercase, letterspaced, blue |
 | Card title | 18pt | Inter Bold, ink |
@@ -182,9 +191,9 @@ Inter ships with the sandbox, so QA renders are true to width. Users without Int
 ### Slide frame
 
 - 16:9 (13.33 by 7.5in), 0.6in side margins.
-- Content slides: gradient tick, eyebrow `NN  SECTION NAME`, title, optional subtitle. Footer: blue logo left, "Confidential. Limited distribution under NDA." centered, two digit page number right, solid blue bar along the bottom edge. Pass `confidential: null` to drop the line for public decks.
+- Content slides: action title, optional subtitle, optional source line. Footer: thin rule, blue logo left, section name, "Confidential. Limited distribution under NDA." and the page number on the right. Pass `confidential: null` to drop the line for public decks.
 - Dark slides (cover, section dividers, closing): ink background with thin concentric rings on the right.
-- Cover artwork matches the deck topic. Use `await ak.coverArt(topic)`, which draws a thin outline illustration in the brand style: a dashed blue to red outer contour, a solid inner contour, a fine purple node network, one filled blue control node, and a red attack dot stopped by a blue tick at the boundary. Motifs: `ai` (shield and neural net) for AI security, `cloud` (cloud and workload mesh) for CNAPP, CSPM, CWPP and Kubernetes, `code` for ASPM, AppSec and supply chain, `compliance` for GRC, DPDP and audits, `runtime` for KubeArmor, eBPF and runtime, `network` for company, partner and global topics. Do not reuse the same cover art across decks on different topics, and keep the photo globe (`assets/cover-globe.png`) for global or partner network decks only. If a topic needs a new motif, add it to `cover_art.js` in the same line style rather than using stock imagery.
+- Cover artwork matches the deck topic. Use `await ak.coverArt(topic)`, which draws a flat duotone outline illustration in two blues: a dashed outer contour, a solid inner contour, a fine node network, one filled control node, and an attack dot stopped by a tick at the boundary. It uses no gradient. Place the art in its own zone on the right, scaled so it never touches or sits under the title, with 0.5 in of empty space between them. Follow the repo `CLAUDE.md` section "Marketing files must not look machine made". Motifs: `ai` (shield and neural net) for AI security, `cloud` (cloud and workload mesh) for CNAPP, CSPM, CWPP and Kubernetes, `code` for ASPM, AppSec and supply chain, `compliance` for GRC, DPDP and audits, `runtime` for KubeArmor, eBPF and runtime, `network` for company, partner and global topics. Do not reuse the same cover art across decks on different topics, and keep the photo globe (`assets/cover-globe.png`) for global or partner network decks only. If a topic needs a new motif, add it to `cover_art.js` in the same line style rather than using stock imagery.
 - Section numbers in eyebrows match the agenda numbering.
 
 ---
@@ -193,7 +202,7 @@ Inter ships with the sandbox, so QA renders are true to width. Users without Int
 
 Slides carry the AccuKnox voice: authoritative, prevention first, technical, accessible. Readers are security practitioners, so use CNAPP, CSPM, CWPP, ASPM, AI-SPM, eBPF, K8s and Zero Trust without expanding them.
 
-- Titles are short statements of the point, in sentence case.
+- Titles are action titles: one sentence that states the conclusion, in sentence case, two lines at most at 28pt. "Eight AI security modules ship today" passes. "AI Governance" fails.
 - Active voice, concrete nouns, numbers over adjectives.
 - No em dashes, en dashes, semicolons or hashtags. Avoid hyphenated compounds where a rewrite works ("open source" not "open-source", "AI powered" not "AI-powered"). Product and framework names keep their official spelling.
 - Avoid filler and hype: "cutting edge", "streamline", "game changer", "powerful", "unparalleled", "it's important to note".

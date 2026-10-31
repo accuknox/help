@@ -1,0 +1,91 @@
+{
+  "vendor": "Microsoft",
+  "slug": "microsoft",
+  "website": "https://learn.microsoft.com/en-us/security/security-for-ai",
+  "what_it_is": "AI security across Defender, Purview, Entra, Foundry and Agent 365 for models, apps and agents.",
+  "identity_note": "Scope is Defender for Cloud AI-SPM and threat protection, Defender XDR security for AI agents, Purview for AI, Entra Agent ID, Foundry guardrails and AI Red Teaming Agent, Agent 365 and Copilot Studio.",
+  "as_of": "2026-10-27",
+  "modules": {
+    "1": {
+      "status": "yes",
+      "sub": {"1.1": "yes", "1.2": "yes", "1.3": "yes"},
+      "reason": "Defender CSPM inventories AI workloads on Azure, AWS, GCP and checks IaC. Purview and Defender find shadow AI.",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/ai-security-posture",
+      "url_type": "vendor",
+      "evidence": "Defender for Cloud automatically and continuously discovers deployed AI workloads across the following services",
+      "has": "Defender CSPM AI-SPM with AI BOM. Agent 365 and Purview DSPM find shadow AI.",
+      "lacks": ""
+    },
+    "2": {
+      "status": "yes",
+      "sub": {"2.1": "yes", "2.2": "yes", "2.3": "yes"},
+      "reason": "Agent 365 covers Copilot Studio, Foundry, Bedrock, Google and an MCP registry. Foundry hosted agents get VM sandboxes.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/05/01/microsoft-agent-365-now-generally-available-expands-capabilities-and-integrations/",
+      "url_type": "vendor",
+      "evidence": "control plane to observe, govern, and secure agents and their interactions",
+      "has": "Agent 365, Defender real-time protection, Tools registry, Foundry hosted agents, Windows 365 for Agents.",
+      "lacks": ""
+    },
+    "3": {
+      "status": "partial",
+      "sub": {"3.1": "yes", "3.2": "yes", "3.3": "partial"},
+      "reason": "Defender detects agent and AI-service threats, feeds Sentinel and XDR. Blocking is preview for agents and endpoints.",
+      "url": "https://learn.microsoft.com/en-us/defender-xdr/security-for-ai/defender-security-for-ai",
+      "url_type": "vendor",
+      "evidence": "Near-real-time detections analyze Agent 365 observability data for threats such as indirect prompt injection, evasion techniques",
+      "has": "Defender XDR AI agent detections, Defender for Cloud AI alerts, Sentinel, BehaviorInfo automation.",
+      "lacks": "Blocking covers tool calls and prompts. Endpoint agent blocking is preview."
+    },
+    "4": {
+      "status": "partial",
+      "sub": {"4.1": "yes", "4.2": "partial", "4.3": "yes"},
+      "reason": "Foundry guardrails and Prompt Shields block attacks and harmful output. PII blocking relies on Purview DLP.",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/guardrails/guardrails-overview",
+      "url_type": "vendor",
+      "evidence": "Microsoft Foundry provides safety and security guardrails that you can apply to core models and agents.",
+      "has": "Foundry guardrails, Prompt Shields, Content Safety API, Purview DLP and browser extension.",
+      "lacks": "PII blocking sits in Purview DLP, mainly prompts. Groundedness and agent guardrails are preview."
+    },
+    "5": {
+      "status": "partial",
+      "sub": {"5.1": "partial", "5.2": "yes", "5.3": "yes"},
+      "reason": "Purview Compliance Manager templates cover EU AI Act, ISO 42001, NIST AI RMF. Defender shows an AI BOM.",
+      "url": "https://learn.microsoft.com/en-us/purview/compliance-manager-regulations-list",
+      "url_type": "vendor",
+      "evidence": "NIST AI Risk Management Framework (RMF) 1.0",
+      "has": "Compliance Manager AI templates, Defender AI BOM, Purview Audit.",
+      "lacks": "AI BOM export in a standard format such as CycloneDX not documented."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {"6.1": "yes", "6.2": "yes", "6.3": "partial"},
+      "reason": "AI Red Teaming Agent and PyRIT run multi-turn attacks on models and agents, with scheduled runs.",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent",
+      "url_type": "vendor",
+      "evidence": "scheduled continuous red teaming runs on synthetic adversarial data",
+      "has": "Foundry AI Red Teaming Agent with Crescendo, multi-turn and agent risk tests. PyRIT.",
+      "lacks": "Framework-mapped findings not documented. Cloud red teaming limited to five regions."
+    },
+    "7": {
+      "status": "yes",
+      "sub": {"7.1": "yes", "7.2": "yes", "7.3": "yes"},
+      "reason": "Entra Agent ID gives each agent its own identity with Conditional Access. Defender inventories non-human identities.",
+      "url": "https://learn.microsoft.com/en-us/entra/agent-id/what-are-agent-identities",
+      "url_type": "vendor",
+      "evidence": "Agent identities are identity accounts within Microsoft Entra ID that provide unique identification and authentication capabilities for AI agents.",
+      "has": "Entra Agent ID, Conditional Access for agents, Defender non-human identity inventory.",
+      "lacks": ""
+    },
+    "8": {
+      "status": "partial",
+      "sub": {"8.1": "partial", "8.2": "partial", "8.3": "partial"},
+      "reason": "Defender for Cloud AI model scanning covers many formats, but it is preview and scans weekly.",
+      "url": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/ai-model-security",
+      "url_type": "vendor",
+      "evidence": "identify threats like embedded malware, unsafe operators, and exposed secrets",
+      "has": "Defender model scanning (preview), Purview data classification, GitHub Copilot Autofix.",
+      "lacks": "Preview, Azure ML only, weekly. Poisoning checks and LLM-risk code scanning not found."
+    }
+  },
+  "notes": "Agent 365 reached general availability on 2026-05-01. From 2026-07-01, agent-level discovery and posture for Foundry agents and third-party cloud agents in Defender needs an Agent 365 license. Preview items: Agent 365 registry sync with AWS Bedrock and Google Cloud, Defender real-time protection for Copilot Studio and Foundry agents, Defender for Endpoint AI agent runtime protection and local agent discovery, Foundry agent guardrails, groundedness, hosted-agent network egress controls, Defender for Cloud AI model scanning. Model scanning supports Pickle, HDF5, TorchScript, ONNX, SafeTensors, GGUF, NumPy, joblib and more, up to 10 GB, weekly, Azure ML only. Windows 365 for Agents is documented on Microsoft Learn, and a third-party source gives general availability as 2026-06-01. Unsure points: 1.1 counted yes on Azure, AWS and GCP coverage, with no separate on-prem server inventory found. 2.3 rests on Foundry hosted agent VM sandboxes and Windows 365 for Agents, and the general availability status of hosted agents was not confirmed. 3.2 counted yes on Sentinel plus Defender automation, with no AI-specific playbook doc read. 4.2 scored partial because PII blocking is documented in Purview DLP for prompts and not in the Foundry guardrail risk list. 6.3 scored partial because scheduled runs are documented but framework-mapped findings are not. 7.3 rests on the Defender non-human identity inventory (service principals, AD service accounts, OAuth apps). Entra Agent ID, Purview and Foundry are separate licenses, so coverage depends on the stack bought."
+}

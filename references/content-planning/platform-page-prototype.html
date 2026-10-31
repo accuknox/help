@@ -7,7 +7,7 @@
 <meta name="description" content="AccuKnox Zero Trust CNAPP unifies CSPM, CWPP, KSPM, ASPM, API security, AI-SPM, DSPM, SBOM, CDR, SIEM and compliance on one policy engine. Inline runtime prevention with eBPF and LSM.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#11206D; --deep:#0000A0; --accent:#4D4DD9; --light:#5C5CFF;
@@ -20,7 +20,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.022em;line-height:1.14;margin:0 0 .5em}
+h1,h2,h3,h4{font-family:"Inter",Inter,sans-serif;letter-spacing:-.022em;line-height:1.14;margin:0 0 .5em}
 h1{font-size:clamp(2.05rem,4.4vw,3.35rem);font-weight:700}
 h2{font-size:clamp(1.55rem,2.8vw,2.25rem);font-weight:600}
 h3{font-size:clamp(1.08rem,1.6vw,1.32rem);font-weight:600}
@@ -35,12 +35,12 @@ section.alt{background:var(--bg2);border-block:1px solid var(--line)}
 section.dark{background:linear-gradient(165deg,#0C1552,#11206D 55%,#1B2887);color:#fff}
 section.dark h2,section.dark h3,section.dark h4{color:#fff}
 section.dark p{color:#CBD3EF}
-.eyebrow{font-family:"Space Grotesk";font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.85em}
+.eyebrow{font-family:"Inter";font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.85em}
 section.dark .eyebrow{color:#93A2FF}
 .sub{font-size:clamp(1rem,1.25vw,1.1rem);color:var(--muted);max-width:70ch}
 section.dark .sub{color:#B4BFEA}
 .head{max-width:72ch;margin-bottom:clamp(22px,2.6vw,32px)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.93rem;font-family:"Space Grotesk";transition:.18s}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:.93rem;font-family:"Inter";transition:.18s}
 .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px -8px rgba(77,77,217,.7)}
 .btn-primary:hover{background:var(--deep);text-decoration:none;transform:translateY(-1px)}
 .btn-ghost{border:1.5px solid var(--line2);color:var(--navy)}
@@ -63,14 +63,14 @@ section.dark .note{background:rgba(255,255,255,.09);border-color:rgba(255,255,25
 .heroshot{border-radius:var(--r);overflow:hidden;border:1px solid rgba(255,255,255,.22);box-shadow:var(--shadow-lg);background:rgba(255,255,255,.05)}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18);border-radius:var(--r);overflow:hidden;margin-top:40px}
 .stat{background:#101E68;padding:20px 20px}
-.stat b{display:block;font-family:"Space Grotesk";font-size:clamp(1.6rem,2.7vw,2.15rem);font-weight:700;color:#fff;line-height:1.1}
+.stat b{display:block;font-family:"Inter";font-size:clamp(1.6rem,2.7vw,2.15rem);font-weight:700;color:#fff;line-height:1.1}
 .stat span{font-size:.81rem;color:#A7B3E4;display:block;margin-top:3px}
 
 /* ---------- TABS ---------- */
 .tabbar{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
 .tabbar::-webkit-scrollbar{height:5px}
 .tabbar::-webkit-scrollbar-thumb{background:var(--line2);border-radius:9px}
-.tabbar button{flex:0 0 auto;display:flex;align-items:center;gap:9px;padding:11px 19px;border:1px solid var(--line2);background:#fff;border-radius:999px;cursor:pointer;font:600 .89rem/1 "Space Grotesk";color:var(--ink);white-space:nowrap;transition:.16s}
+.tabbar button{flex:0 0 auto;display:flex;align-items:center;gap:9px;padding:11px 19px;border:1px solid var(--line2);background:#fff;border-radius:999px;cursor:pointer;font:600 .89rem/1 "Inter";color:var(--ink);white-space:nowrap;transition:.16s}
 .tabbar button:hover{border-color:var(--accent);color:var(--accent)}
 .tabbar button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 8px 18px -8px rgba(77,77,217,.75)}
 .tabbar img{width:19px;height:19px}
@@ -87,7 +87,7 @@ section.dark .note{background:rgba(255,255,255,.09);border-color:rgba(255,255,25
 .modcard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:15px 17px;display:flex;gap:12px;color:#fff;transition:.16s}
 .modcard:hover{background:rgba(255,255,255,.17);text-decoration:none;transform:translateY(-2px)}
 .modcard img{width:26px;height:26px;flex:0 0 26px;filter:brightness(0) invert(1);opacity:.9}
-.modcard b{display:block;font-family:"Space Grotesk";font-size:.94rem;margin-bottom:3px;line-height:1.3}
+.modcard b{display:block;font-family:"Inter";font-size:.94rem;margin-bottom:3px;line-height:1.3}
 .modcard span{font-size:.81rem;color:#B4BFEA;line-height:1.45;display:block}
 .badge{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:#5C5CFF;color:#fff;border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:middle}
 .badge.soon{background:#D99B06}
@@ -101,13 +101,13 @@ section.dark .note{background:rgba(255,255,255,.09);border-color:rgba(255,255,25
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px;transition:.18s}
 .card:hover{border-color:var(--line2);box-shadow:var(--shadow)}
 .card p{font-size:.91rem;color:var(--muted);margin:0}
-.card .num{font-family:"Space Grotesk";font-weight:700;color:var(--accent);font-size:.72rem;letter-spacing:.11em;display:block;margin-bottom:9px;text-transform:uppercase}
+.card .num{font-family:"Inter";font-weight:700;color:var(--accent);font-size:.72rem;letter-spacing:.11em;display:block;margin-bottom:9px;text-transform:uppercase}
 .card .ico{width:34px;height:34px;margin-bottom:13px}
 
 /* ---------- SHOWCASE ---------- */
 .sc{display:grid;grid-template-columns:minmax(272px,.78fr) 1.22fr;gap:38px;align-items:start}
 @media(max-width:940px){.sc{grid-template-columns:1fr;gap:26px}}
-.sc-meta .kicker{display:inline-block;font-family:"Space Grotesk";font-weight:700;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:999px;padding:5px 13px;margin-bottom:14px}
+.sc-meta .kicker{display:inline-block;font-family:"Inter";font-weight:700;font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:#fff;background:var(--accent);border-radius:999px;padding:5px 13px;margin-bottom:14px}
 .sc-meta h3{font-size:clamp(1.2rem,1.85vw,1.55rem);margin-bottom:14px}
 .sc-meta ul{margin:18px 0 0;padding-left:0;list-style:none}
 .sc-meta li{font-size:.92rem;margin-bottom:11px;color:var(--ink);padding-left:26px;position:relative}
@@ -121,7 +121,7 @@ section.dark .note{background:rgba(255,255,255,.09);border-color:rgba(255,255,25
 .thumbs button:hover{border-color:var(--line2)}
 .thumbs button[aria-current="true"]{border-color:var(--accent)}
 .thumbs img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.placeholder{color:var(--muted);font-size:.85rem;text-align:center;padding:34px;font-family:"Space Grotesk"}
+.placeholder{color:var(--muted);font-size:.85rem;text-align:center;padding:34px;font-family:"Inter"}
 
 /* ---------- COMPARE ---------- */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -130,19 +130,19 @@ section.dark .note{background:rgba(255,255,255,.09);border-color:rgba(255,255,25
 .lens{background:#fff;border:1px solid var(--line2)}
 .shield{background:linear-gradient(160deg,#1A2887,#11206D);color:#fff;box-shadow:var(--shadow-lg)}
 .shield h3,.shield li{color:#fff}
-.flow{font-family:"Space Grotesk";font-size:.85rem;font-weight:600;padding:13px 15px;border-radius:var(--rs);margin-bottom:19px}
+.flow{font-family:"Inter";font-size:.85rem;font-weight:600;padding:13px 15px;border-radius:var(--rs);margin-bottom:19px}
 .lens .flow{background:var(--bg3);color:var(--muted)}
 .shield .flow{background:rgba(255,255,255,.14)}
 .compare ul{margin:0;padding-left:19px}
 .compare li{font-size:.92rem;margin-bottom:10px}
-.quote{border-left:4px solid #93A2FF;padding:6px 0 6px 22px;font-family:"Space Grotesk";font-size:clamp(1.05rem,1.75vw,1.35rem);font-weight:500;margin:34px 0 0;max-width:62ch;color:#fff}
+.quote{border-left:4px solid #93A2FF;padding:6px 0 6px 22px;font-family:"Inter";font-size:clamp(1.05rem,1.75vw,1.35rem);font-weight:500;margin:34px 0 0;max-width:62ch;color:#fff}
 
 /* ---------- LAYER ---------- */
 .layer{display:grid;grid-template-columns:70px 1fr 1.1fr;gap:20px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:17px 20px;margin-bottom:10px;background:#fff;transition:.16s}
 .layer:hover{border-color:var(--accent);box-shadow:var(--shadow)}
 @media(max-width:720px){.layer{grid-template-columns:52px 1fr}.layer .chips{grid-column:1/-1}}
-.layer .lv{font-family:"Space Grotesk";font-weight:700;font-size:1.25rem;color:var(--accent)}
-.layer b{display:block;font-family:"Space Grotesk";font-size:1rem}
+.layer .lv{font-family:"Inter";font-weight:700;font-size:1.25rem;color:var(--accent)}
+.layer b{display:block;font-family:"Inter";font-size:1rem}
 .layer small{color:var(--muted);font-size:.85rem}
 .chips{display:flex;gap:7px;flex-wrap:wrap}
 .chip{background:var(--bg3);border-radius:999px;padding:6px 13px;font-size:.77rem;font-weight:600;color:var(--navy)}
@@ -151,7 +151,7 @@ section.dark .note{background:rgba(255,255,255,.09);border-color:rgba(255,255,25
 .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--shadow)}
 table{border-collapse:collapse;width:100%;min-width:640px;font-size:.89rem}
 th,td{text-align:left;padding:13px 17px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:"Space Grotesk";font-weight:600;background:var(--bg3);color:var(--navy);white-space:nowrap}
+th{font-family:"Inter";font-weight:600;background:var(--bg3);color:var(--navy);white-space:nowrap}
 tbody tr:last-child td{border-bottom:0}
 tbody tr:hover{background:var(--bg2)}
 td.ok{color:#0B8A3D;font-weight:700}
@@ -172,9 +172,9 @@ td.mid{color:#B87A00;font-weight:700}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:13px}
 .step{border:1px solid var(--line);border-radius:12px;padding:19px;background:#fff;transition:.16s}
 .step:hover{border-color:var(--accent);box-shadow:var(--shadow)}
-.step b{display:block;font-family:"Space Grotesk";font-size:.94rem;margin:9px 0 5px}
+.step b{display:block;font-family:"Inter";font-size:.94rem;margin:9px 0 5px}
 .step small{color:var(--muted);font-size:.84rem;line-height:1.5;display:block}
-.step .n{width:27px;height:27px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font:700 .8rem "Space Grotesk"}
+.step .n{width:27px;height:27px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font:700 .8rem "Inter"}
 
 /* ---------- MARQUEE ---------- */
 .marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -191,7 +191,7 @@ td.mid{color:#B87A00;font-weight:700}
 .rescard .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--bg3)}
 .rescard .thumb img{width:100%;height:100%;object-fit:cover}
 .rescard .body{padding:17px 19px}
-.rescard .type{font-family:"Space Grotesk";font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.rescard .type{font-family:"Inter";font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
 .rescard h4{margin:7px 0 0;font-size:.97rem;line-height:1.35}
 
 /* ---------- GATED ---------- */
@@ -208,14 +208,14 @@ td.mid{color:#B87A00;font-weight:700}
 .qcard p{font-size:.94rem;color:var(--ink);margin:0;flex:1}
 .qmeta{display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);padding-top:15px}
 .qmeta img.face{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 44px}
-.qmeta b{display:block;font-family:"Space Grotesk";font-size:.9rem;color:var(--navy)}
+.qmeta b{display:block;font-family:"Inter";font-size:.9rem;color:var(--navy)}
 .qmeta span{font-size:.81rem;color:var(--muted)}
 .qmeta img.logo{height:26px;width:auto;margin-left:auto;opacity:.75}
 
 /* ---------- FAQ ---------- */
 details{border:1px solid var(--line);border-radius:12px;padding:17px 21px;margin-bottom:10px;background:#fff}
 details[open]{border-color:var(--line2);box-shadow:var(--shadow)}
-summary{cursor:pointer;font-family:"Space Grotesk";font-weight:600;font-size:.97rem;list-style:none;display:flex;gap:13px;align-items:flex-start}
+summary{cursor:pointer;font-family:"Inter";font-weight:600;font-size:.97rem;list-style:none;display:flex;gap:13px;align-items:flex-start}
 summary::-webkit-details-marker{display:none}
 summary .qn{color:var(--accent);font-size:.82rem;flex:0 0 auto;padding-top:2px}
 summary::after{content:"+";margin-left:auto;color:var(--accent);font-size:1.35rem;line-height:1}
@@ -269,7 +269,7 @@ footer code{background:rgba(255,255,255,.12);padding:2px 6px;border-radius:5px;c
 <!-- ============ PRESS MARQUEE (kept from current /platform) ============ -->
 <section class="alt" style="padding:34px 0">
   <div class="wrap">
-    <p style="text-align:center;font-family:'Space Grotesk';font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:22px">AccuKnox is the top CNAPP security pick</p>
+    <p style="text-align:center;font-family:'Inter';font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:22px">AccuKnox is the top CNAPP security pick</p>
     <div class="marquee"><ul id="pressrow"></ul></div>
   </div>
 </section>
@@ -543,10 +543,10 @@ footer code{background:rgba(255,255,255,.12);padding:2px 6px;border-radius:5px;c
       <div>
         <div class="stage"><img src="https://accuknox.com/wp-content/uploads/COMPLIANCE1-dashboard-home.webp" alt="AccuKnox compliance dashboard showing framework pass rates"></div>
         <div class="grid g4" style="margin-top:14px;gap:11px">
-          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Space Grotesk';color:var(--navy)">Posture score</b></div>
-          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Space Grotesk';color:var(--navy)">Time to remediation</b></div>
-          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Space Grotesk';color:var(--navy)">Risk reduction</b></div>
-          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Space Grotesk';color:var(--navy)">Control failure rate</b></div>
+          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Inter';color:var(--navy)">Posture score</b></div>
+          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Inter';color:var(--navy)">Time to remediation</b></div>
+          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Inter';color:var(--navy)">Risk reduction</b></div>
+          <div class="card" style="padding:15px;text-align:center"><b style="font-family:'Inter';color:var(--navy)">Control failure rate</b></div>
         </div>
       </div>
     </div>
@@ -630,7 +630,7 @@ footer code{background:rgba(255,255,255,.12);padding:2px 6px;border-radius:5px;c
       <div>
         <div class="eyebrow" style="color:#93A2FF">Free guide</div>
         <h3>Zero Trust CNAPP, a definitive guide</h3>
-        <p style="font-family:'Space Grotesk';font-weight:600;color:#fff;margin:14px 0 0">What is inside this guide</p>
+        <p style="font-family:'Inter';font-weight:600;color:#fff;margin:14px 0 0">What is inside this guide</p>
         <ul>
           <li>eBPF runtime blocking under 1% CPU overhead</li>
           <li>CNAPP coverage across the AI stack</li>

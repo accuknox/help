@@ -1,0 +1,14 @@
+{
+  "title": "AccuKnox vs HashiCorp Vault",
+  "file": "accuknox-vs-hashicorp-vault.pdf",
+  "kind": "vs",
+  "vendors": [
+    "AccuKnox",
+    "HashiCorp Vault"
+  ],
+  "category": "secrets-management",
+  "capabilities": 19,
+  "pages": 5,
+  "built": "2026-10-26",
+  "sheet_url": "https://docs.google.com/spreadsheets/d/1Kf5QWIPbu9GZ_oJTNe3TGCPgcvg4gcGnUAweumBnRPA/edit"
+}

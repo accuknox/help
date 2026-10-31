@@ -80,6 +80,20 @@
         "D:/AccuKnox/help-dspm/site"
       ],
       "port": 8018
+    },
+    {
+      "name": "help-site",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8030",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "D:\\AccuKnox\\help\\site"
+      ],
+      "port": 8030
     }
   ]
 }

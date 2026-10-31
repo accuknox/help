@@ -6,6 +6,17 @@ Built with [MkDocs](https://www.mkdocs.org/) and the [Material for MkDocs](https
 
 ---
 
+## Compliance and Audit Documents
+
+For SOC 2, ISO 27001 and other compliance or audit documents, point to the shared Google Drive folder:
+
+<https://drive.google.com/drive/folders/1MGdbwjVplswEzFUuLr-xw-tPPOYMSllp?usp=sharing_eil&ts=6a86ae48>
+
+- Link this folder. Do not download or copy any file from it into this repo.
+- Use this folder as the only source to cite in every response that needs these documents.
+
+---
+
 ## Prerequisites
 
 - Python 3.9+

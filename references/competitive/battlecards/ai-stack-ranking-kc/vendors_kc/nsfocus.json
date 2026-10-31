@@ -1,0 +1,123 @@
+{
+  "vendor": "NSFOCUS",
+  "slug": "nsfocus",
+  "website": "https://nsfocusglobal.com",
+  "what_it_is": "Chinese security vendor with NSFAIS suite: AI-SCAN, AI-UTM, AI Guardrails, AI-DR and AI red teaming.",
+  "identity_note": "NSFOCUS (nsfocusglobal.com). Scope: NSFAIS AI security series.",
+  "as_of": "2026-10-27",
+  "modules": {
+    "1": {
+      "status": "partial",
+      "sub": {
+        "1.1": "partial",
+        "1.2": "partial",
+        "1.3": "partial"
+      },
+      "reason": "Agent asset system inventories models, tools, MCP and knowledge bases. AI-SCAN finds exposed OpenClaw hosts by IP range.",
+      "url": "https://nsfocusglobal.com/nsfocus-unveils-enhanced-ai-llm-risk-threat-matrix-for-holistic-ai-security-governance/",
+      "url_type": "vendor",
+      "evidence": "discovery and dynamic inventory of core AI agent components",
+      "has": "AI Agent Asset and Risk Governance System, AI-SCAN host and component vulnerability scanning.",
+      "lacks": "No stated multi-cloud inventory. No CI/CD checks. Shadow AI evidence is thin."
+    },
+    "2": {
+      "status": "partial",
+      "sub": {
+        "2.1": "no",
+        "2.2": "yes",
+        "2.3": "partial"
+      },
+      "reason": "Runtime protection monitors MCP and tool interactions and auto-blocks unauthorized access. AI-DR adds agent permission control.",
+      "url": "https://nsfocusglobal.com/nsfocus-unveils-enhanced-ai-llm-risk-threat-matrix-for-holistic-ai-security-governance/",
+      "url_type": "vendor",
+      "evidence": "monitor real-time interactions with MCP, tools, and external systems",
+      "has": "Agent runtime protection blocks unauthorized MCP and tool access. AI-DR released September 2026.",
+      "lacks": "No named managed agent platforms. No host or kernel sandbox."
+    },
+    "3": {
+      "status": "partial",
+      "sub": {
+        "3.1": "partial",
+        "3.2": "partial",
+        "3.3": "partial"
+      },
+      "reason": "Runtime agent protection detects and auto-blocks risks. AI-DR launched September 2026. SIEM and SOC links not documented.",
+      "url": "https://nsfocusglobal.com/nsfocus-recognized-in-gartner-emerging-market-quadrant-for-ai-application-security/",
+      "url_type": "vendor",
+      "evidence": "AI Agent Detection and Response (AI-DR), released in September 2026",
+      "has": "AI-DR and agent runtime protection detect and block unauthorized agent actions.",
+      "lacks": "No cloud control-plane log source, named SIEM or ITSM integration, or host blocking."
+    },
+    "4": {
+      "status": "partial",
+      "sub": {
+        "4.1": "partial",
+        "4.2": "yes",
+        "4.3": "partial"
+      },
+      "reason": "AI-UTM gateway blocks prompt attacks and masks sensitive data in LLM inputs and outputs.",
+      "url": "https://nsfocusglobal.com/dive-into-nsfocus-llm-security-solution/",
+      "url_type": "vendor",
+      "evidence": "AI-UTM is deployed in front of the API interface of the LLM service",
+      "has": "AI-UTM gateway, AI Guardrails, three-level content filter and DLP above 99% accuracy.",
+      "lacks": "Gateway and reverse-proxy modes only. Output filter covers illegal content, not hallucination or code."
+    },
+    "5": {
+      "status": "partial",
+      "sub": {
+        "5.1": "partial",
+        "5.2": "partial",
+        "5.3": "partial"
+      },
+      "reason": "AI-SCAN assesses against OWASP Top 10 for LLM and regulatory content rules. AI-UTM keeps a full-link audit.",
+      "url": "https://nsfocusglobal.com/dive-into-nsfocus-llm-security-solution/",
+      "url_type": "vendor",
+      "evidence": "Supports full-link security audit of intelligent agent applications and LLM API input and output.",
+      "has": "AI-SCAN risk reports, OWASP LLM assessment, AI-SBOM guidance, AI-UTM full-link audit.",
+      "lacks": "No product AIBOM export. NIST, ISO 42001 and EU AI Act mapping not shown."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {
+        "6.1": "yes",
+        "6.2": "yes",
+        "6.3": "partial"
+      },
+      "reason": "AI-SCAN runs 100,000+ test cases and 21 attack types. AI Red Teaming runs multi-round dialogue attacks on agents.",
+      "url": "https://nsfocusglobal.com/dive-into-nsfocus-llm-security-solution/",
+      "url_type": "vendor",
+      "evidence": "simulate 21 types of attack methods such as prompt word injection and data poisoning",
+      "has": "AI-SCAN attack library and AI Red Team Assessment and Continuous Validation Platform.",
+      "lacks": "No scheduled or CI/CD runs documented. Framework mapping limited to OWASP LLM Top 10."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {
+        "7.1": "partial",
+        "7.2": "partial",
+        "7.3": "partial"
+      },
+      "reason": "AI-DR does agent identity recognition and permission management. AI Security Gateway handles authentication, authorization and token control.",
+      "url": "https://nsfocusglobal.com/nsfocus-recognized-in-gartner-emerging-market-quadrant-for-ai-application-security/",
+      "url_type": "vendor",
+      "evidence": "asset discovery, identity recognition, permission management, and behavioral governance",
+      "has": "AI-DR agent identity and permissions, gateway key and token control, plaintext credential detection.",
+      "lacks": "No per-agent cryptographic identity. No per-tool policy detail. NHI governance limited."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {
+        "8.1": "yes",
+        "8.2": "partial",
+        "8.3": "partial"
+      },
+      "reason": "AI-SCAN scans 15+ model file formats for backdoors. Skill packages get AST static analysis.",
+      "url": "https://nsfocusglobal.com/dive-into-nsfocus-llm-security-solution/",
+      "url_type": "vendor",
+      "evidence": "covering backdoor risk detection in 15+ mainstream AI model file formats",
+      "has": "AI-SCAN model backdoor scan, 3,000+ component vulnerabilities and OpenClaw skill AST scan.",
+      "lacks": "Only .pb and .h5 formats named. Dataset checks and AST scope are limited."
+    }
+  },
+  "notes": "Scope read: NSFOCUS NSFAIS series (AI-SCAN, AI-UTM, AI Guardrails or AI-GR, AI-DR, AI Red Teaming, AI Security Gateway) from nsfocusglobal.com. AI-DR (AI Agent Detection and Response) was released in September 2026. Gartner placed NSFOCUS in the Specialists quadrant of the AI Application Security Emerging Market Quadrant (report dated 2026-09-14). No acquisition or rebrand found. Many pages are translated from Chinese and some claims come from solution-method posts, not product datasheets, so detail is thinner than for US vendors. Modules 5.1 and 8.2 rely on a solution blog that lists AI-SBOM and corpus assurance as layers, so both stay partial. The AI-SCAN OpenClaw scan covers gateway exposure, plaintext credentials, memory poisoning and skill supply chain, with a 576-entry malicious skill list. Less sure: 2.1 (no managed platform named after extra searches), 6.3 (continuous validation claimed, scheduling and CI/CD not shown), 8.1 (15+ formats claimed, only .pb and .h5 named), 4.2 (jailbreak not named, prompt attacks and DLP are)."
+}

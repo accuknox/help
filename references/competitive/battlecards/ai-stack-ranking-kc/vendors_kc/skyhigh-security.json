@@ -1,0 +1,91 @@
+{
+  "vendor": "Skyhigh Security",
+  "slug": "skyhigh-security",
+  "website": "https://www.skyhighsecurity.com",
+  "what_it_is": "Data-first SSE, CASB and DLP platform with Skyhigh AI controls for AI app usage.",
+  "identity_note": "Skyhigh Security is the cloud security business spun out of McAfee Enterprise in 2022. It is a separate company from Trellix. Its 2026 press releases quote CEO Vishal Rao.",
+  "as_of": "2026-10-27",
+  "modules": {
+    "1": {
+      "status": "partial",
+      "sub": {"1.1": "partial", "1.2": "partial", "1.3": "partial"},
+      "reason": "Skyhigh AI finds shadow, sanctioned and private AI apps through its cloud registry. No multi-cloud AI asset inventory.",
+      "url": "https://www.skyhighsecurity.com/solutions/skyhigh-ai/secure-use-ai-applications.html",
+      "url_type": "vendor",
+      "evidence": "Visibility into the usage of shadow, sanctioned and private AI applications",
+      "has": "Skyhigh AI discovers shadow and private AI apps with risk scores.",
+      "lacks": "Network and web discovery only. No AI cloud resource posture or CI/CD checks."
+    },
+    "2": {
+      "status": "partial",
+      "sub": {"2.1": "partial", "2.2": "no", "2.3": "no"},
+      "reason": "Data protection for Microsoft 365 Copilot and ChatGPT Enterprise. No MCP or agent runtime product found.",
+      "url": "https://www.skyhighsecurity.com/about/newsroom/newswire/skyhigh-security-launches-purpose-built-solution-for-microsoft-copilot-and-chatgpt-enterprise-to-mitigate-risk-and-enable-secure-ai-productivity.html",
+      "url_type": "vendor",
+      "evidence": "For Copilot, this integration provides access to input prompts and responses that are then scanned for sensitive content.",
+      "has": "Skyhigh AI scans Copilot and ChatGPT Enterprise prompts and responses.",
+      "lacks": "No MCP discovery or policy. No agent sandbox. No agent platform coverage."
+    },
+    "3": {
+      "status": "partial",
+      "sub": {"3.1": "partial", "3.2": "partial", "3.3": "partial"},
+      "reason": "UEBA flags anomalous Copilot and ChatGPT use. Inline blocking of prompts. SIEM tie-in is documented for DSPM only.",
+      "url": "https://www.skyhighsecurity.com/about/newsroom/newswire/skyhigh-security-launches-purpose-built-solution-for-microsoft-copilot-and-chatgpt-enterprise-to-mitigate-risk-and-enable-secure-ai-productivity.html",
+      "url_type": "vendor",
+      "evidence": "identification of anomalous usage via User And Entity Behavior Analytics (UEBA)",
+      "has": "UEBA on AI app activity and inline prompt blocking in Skyhigh SSE.",
+      "lacks": "No AI control-plane log detection. No host-level blocking. Named SIEM link not shown."
+    },
+    "4": {
+      "status": "partial",
+      "sub": {"4.1": "partial", "4.2": "partial", "4.3": "partial"},
+      "reason": "Skyhigh Web DLP and SSE proxy block sensitive prompts and jailbreak, toxicity and bias risk in AI apps.",
+      "url": "https://www.skyhighsecurity.com/solutions/skyhigh-ai/secure-use-ai-applications.html",
+      "url_type": "vendor",
+      "evidence": "enforcing granular policies protecting against LLM risks, including jailbreaking, toxicity, bias, malware",
+      "has": "Skyhigh Web DLP on prompts. SSE proxy, Secure Browser Controls, Copilot API.",
+      "lacks": "Prompt injection not named. Output filtering unclear. No SDK or LLM gateway."
+    },
+    "5": {
+      "status": "partial",
+      "sub": {"5.1": "partial", "5.2": "partial", "5.3": "partial"},
+      "reason": "AI app registry with LLM risk attributes. A blog maps Skyhigh SSE to NIST AI RMF.",
+      "url": "https://www.skyhighsecurity.com/industry-perspectives/four-steps-to-align-with-nist-ai-framework-using-skyhigh-sse.html",
+      "url_type": "vendor",
+      "evidence": "Four Steps to Align with NIST AI Framework Using Skyhigh SSE",
+      "has": "AI app risk registry. Compliance dashboard. NIST AI RMF alignment guidance.",
+      "lacks": "No AIBOM export. One framework, in a blog. No AI-specific report export found."
+    },
+    "6": {
+      "status": "partial",
+      "sub": {"6.1": "partial", "6.2": "no", "6.3": "no"},
+      "reason": "Skyhigh AI lists red teaming to assess internal AI apps. No attack library or CI/CD detail published.",
+      "url": "https://www.skyhighsecurity.com/solutions/skyhigh-ai/secure-use-ai-applications.html",
+      "url_type": "vendor",
+      "evidence": "Red Teaming helps you evaluate and assess risks associated with internal AI apps",
+      "has": "Red teaming listed under Skyhigh AI for private AI apps.",
+      "lacks": "No documented attack library. No multi-turn attacks. No CI/CD runs."
+    },
+    "7": {
+      "status": "partial",
+      "sub": {"7.1": "no", "7.2": "partial", "7.3": "partial"},
+      "reason": "Skyhigh CASB finds risky OAuth apps in Google Drive and Microsoft 365. AI app access control is coarse.",
+      "url": "https://www.skyhighsecurity.com/solutions/secure-web-and-cloud.html",
+      "url_type": "vendor",
+      "evidence": "Discover and remediate third-party applications associated with Google Drive and Microsoft 365 connected to your corporate environment via OAuth.",
+      "has": "Skyhigh CASB OAuth app discovery. Access control to AI apps.",
+      "lacks": "No agent identity. No per-agent or per-tool authorization. NHI limited to OAuth."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {"8.1": "no", "8.2": "partial", "8.3": "no"},
+      "reason": "Skyhigh DSPM classifies sensitive data that AI and RAG systems can reach. No model or code scanning.",
+      "url": "https://www.skyhighsecurity.com/industry-perspectives/ai-is-changing-your-data-risk-dspm-puts-you-back-in-control.html",
+      "url_type": "vendor",
+      "evidence": "Discover and classify sensitive data across cloud, SaaS, AI, shadow IT, and on-premises environments",
+      "has": "Skyhigh DSPM classifies sensitive data across cloud, SaaS and AI stores.",
+      "lacks": "No model file scanning. No poisoning checks. No AI SAST."
+    }
+  },
+  "notes": "Searched Skyhigh docs, product pages, newsroom and blog (to Oct 2026) for MCP, agent, AI-SPM, red teaming, model scanning and AI code scanning. No MCP or agent security product was found. Skyhigh AI launched in 2024 and added Copilot and ChatGPT Enterprise data protection in April 2025. Secure Browser Controls launched March 2026 and apply inline controls to AI-driven browser interactions without an extension. Red teaming appears as one bullet on the Skyhigh AI page, so 6.1 is partial. No acquisition or rename found. The RSAC 2026 blog frames agent and MCP governance as a direction, not a shipped product. Ownership by Symphony Technology Group (STG) is from the 2022 McAfee Enterprise split and was not re-checked for 2026."
+}

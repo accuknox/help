@@ -242,14 +242,14 @@ def journey():
     return out
 
 html = f"""<!doctype html><html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 @page {{ size:A4; margin:12mm 11mm }}
 @page cover {{ margin:0 }}
 :root{{--navy:#11206D;--blue:#0046FF;--ink:#1B223B;--mute:#5A637D;--line:#DDE2EE;
 --win:#0B7A42;--win-bg:#E4F5EC;--no:#C80019;--no-bg:#FCE9EC;--lim:#A15C00;--lim-bg:#FFF1DC;--par:#4D4DD9;--par-bg:#ECECFB}}
 *{{box-sizing:border-box}}
-body{{margin:0;font-family:'Space Grotesk',Arial,sans-serif;color:var(--ink);font-size:9pt;line-height:1.3}}
+body{{margin:0;font-family:'Inter',Arial,sans-serif;color:var(--ink);font-size:9pt;line-height:1.3}}
 a{{color:var(--blue);text-decoration:none}}
 .ic,.ci,.capi,.ti{{display:inline-block;vertical-align:middle}}
 .brand{{width:11px;height:11px;vertical-align:-1.5px}}

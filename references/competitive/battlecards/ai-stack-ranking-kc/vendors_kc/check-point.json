@@ -1,0 +1,91 @@
+{
+  "vendor": "Check Point",
+  "slug": "check-point",
+  "website": "https://www.checkpoint.com/ai-security/",
+  "what_it_is": "Check Point AI Security: Workforce AI Security, AI Agent Security with AI Guardrails, and AI Red Teaming.",
+  "identity_note": "",
+  "as_of": "2026-10-27",
+  "modules": {
+    "1": {
+      "status": "partial",
+      "sub": {"1.1": "partial", "1.2": "yes", "1.3": "yes"},
+      "reason": "Agent Discovery inventories agents on Bedrock, Copilot Studio and Agentforce. Workforce AI finds shadow AI.",
+      "url": "https://docs.lakera.ai/docs/agent-security/discovery",
+      "url_type": "vendor",
+      "evidence": "Discovery connects to the platforms where agents run and builds an inventory.",
+      "has": "Agent Discovery, Agent Risk Assessment, Workforce AI Security shadow AI discovery.",
+      "lacks": "No Kubernetes or on-prem inventory found."
+    },
+    "2": {
+      "status": "partial",
+      "sub": {"2.1": "yes", "2.2": "yes", "2.3": "partial"},
+      "reason": "Agent Security discovers agents on Bedrock, Copilot Studio, Agentforce and flags risky MCP servers.",
+      "url": "https://docs.lakera.ai/guard",
+      "url_type": "vendor",
+      "evidence": "build a continuously updated inventory of agents, their tools, and connected MCP servers",
+      "has": "Agent Discovery, MCP server risk flags, Tool Allow/Deny List.",
+      "lacks": "No agent sandbox. Tool allow lists at the Guard API only."
+    },
+    "3": {
+      "status": "partial",
+      "sub": {"3.1": "partial", "3.2": "partial", "3.3": "partial"},
+      "reason": "AI Guardrails detects and blocks at the Guard API and exports logs for SIEM.",
+      "url": "https://docs.lakera.ai/docs/platform",
+      "url_type": "vendor",
+      "evidence": "automatic AI Guardrails logs export to an S3 bucket",
+      "has": "AI Guardrails Enforce mode, Dangerous Deviation detector (beta), S3 log export.",
+      "lacks": "No named SIEM or ITSM. No control-plane log detection. Blocks calls, not hosts."
+    },
+    "4": {
+      "status": "partial",
+      "sub": {"4.1": "yes", "4.2": "yes", "4.3": "partial"},
+      "reason": "Guard API, browser extension and gateway pattern block prompt attacks and PII in prompts and outputs.",
+      "url": "https://docs.lakera.ai/guard",
+      "url_type": "vendor",
+      "evidence": "detect prompt injections, jailbreaks or manipulation in user prompts, reference materials, tool responses or tool descriptions",
+      "has": "Guard API, Workforce browser extension, AI gateway pattern. Content moderation.",
+      "lacks": "No hallucination or harmful code filtering found."
+    },
+    "5": {
+      "status": "partial",
+      "sub": {"5.1": "partial", "5.2": "yes", "5.3": "yes"},
+      "reason": "Risk findings map to OWASP LLM Top 10, OWASP Agentic Top 10 and MITRE ATLAS.",
+      "url": "https://docs.lakera.ai/docs/agent-security/framework-mapping",
+      "url_type": "vendor",
+      "evidence": "Frameworks such as the OWASP Top 10 for LLMs, the OWASP Top 10 for agentic applications, and MITRE ATLAS",
+      "has": "Framework mapping, audit trail, compliance reporting, agent inventory.",
+      "lacks": "No AIBOM export. No ISO 42001 or EU AI Act mapping found."
+    },
+    "6": {
+      "status": "yes",
+      "sub": {"6.1": "yes", "6.2": "yes", "6.3": "yes"},
+      "reason": "AI Red Teaming runs automated and multi-turn campaigns, scheduled re-tests and CI/CD scans.",
+      "url": "https://www.checkpoint.com/ai-security/ai-red-teaming/",
+      "url_type": "vendor",
+      "evidence": "Test across 400+ foundation models, custom model deployments, live applications, and agent end points.",
+      "has": "AI Red Teaming platform and SDK with CI/CD gate, recurring replay, OWASP mapping.",
+      "lacks": ""
+    },
+    "7": {
+      "status": "partial",
+      "sub": {"7.1": "no", "7.2": "partial", "7.3": "partial"},
+      "reason": "Tool Allow/Deny List limits agent tools. Risk assessment flags static credentials and non-org identities.",
+      "url": "https://docs.lakera.ai/docs/agent-security/risk-assessment",
+      "url_type": "vendor",
+      "evidence": "an agent owned by a non-organizational identity",
+      "has": "Tool Allow/Deny List. Risk flags for static credentials and OAuth gaps.",
+      "lacks": "No per-agent cryptographic identity. No NHI governance product published."
+    },
+    "8": {
+      "status": "partial",
+      "sub": {"8.1": "no", "8.2": "partial", "8.3": "no"},
+      "reason": "AI Guardrails screens retrieved content at ingestion. No model scanner or AI SAST found.",
+      "url": "https://docs.lakera.ai/docs/agent-security/framework-mapping",
+      "url_type": "vendor",
+      "evidence": "Screens retrieved content and tool responses; screen content at ingestion",
+      "has": "AI Guardrails screening of RAG content and tool responses.",
+      "lacks": "No model file scanner. No dataset PII or poisoning scan. No AI SAST."
+    }
+  },
+  "notes": "Check Point announced the Lakera acquisition on 2025-09-16 and now sells it as Check Point AI Security: Workforce AI Security, AI Agent Security (with AI Guardrails) and AI Red Teaming. Docs still live at docs.lakera.ai. In February 2026 Check Point also bought Cyata (agent visibility and policy enforcement), Cyclops and Rotate. Cyata does not appear in the product docs yet, so nothing from it is credited in module 7. Beta or early access items: Dangerous Deviation detector (beta), custom guardrails (beta), audio defense (early access), image defense (coming soon). The docs say native runtime integration with agent platforms and posture-level tool allow/deny are on the roadmap. AI Red Teaming is sold as an expert-led service and as an automated solution. No separate CloudGuard AI-SPM, Harmony GenAI or ThreatCloud AI product page was found, so none is scored. The older workbook accuknox-vs-checkpoint-ai-security.xlsx is stale on these points: it says Check Point has no AI-SPM and no Copilot Studio support, but the docs list agent discovery on Copilot Studio, Bedrock, AgentCore, Google Cloud, Agentforce, n8n and Relevance AI. Judgement calls: 1.3 is yes on agent config risk plus MCP supply-chain flags. 4.3 is partial because content moderation and malicious-link checks exist but hallucination and code filtering were not found."
+}
