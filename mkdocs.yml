@@ -330,6 +330,11 @@ nav:
         - "VM Onboard/Deboard with SystemD" : "how-to/vm-onboard-deboard-systemd.md"
         - "SystemD Based Non-BTF Environments": "how-to/systemd-nonbtf.md"
         - "VM Onboarding with Access Keys": "how-to/vm-onboard-access-keys.md"
+      - "BlueLock (Serverless Containers)":
+        - "Overview": "how-to/bluelock.md"
+        - "EKS Fargate": "how-to/bluelock-eks-fargate.md"
+        - "ECS Fargate": "how-to/bluelock-ecs-fargate.md"
+        - "Azure Container Apps": "how-to/bluelock-azure-container-apps.md"
       - "Generate CWPP Reports": "how-to/cwpp-reports-generation.md"
       - "Sample Workloads Protection" :
         - "WordPress-MySQL": "getting-started/wordpress-mysql.md"

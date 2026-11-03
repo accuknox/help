@@ -33,6 +33,10 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [azure-aidr.md](azure-aidr.md) | Onboarding guide for AccuKnox AI-DR for Azure with Terraform to get started with threat detection and response for your AI workloads. |
 | [azure-onboarding.md](azure-onboarding.md) | Step-by-step instructions for onboarding an Azure cloud account to AccuKnox SaaS for automated security management. |
 | [azure-org-onboard.md](azure-org-onboard.md) | A step-by-step guide to onboarding your Azure Organization to the AccuKnox platform for centralized cloud security management. |
+| [bluelock-azure-container-apps.md](bluelock-azure-container-apps.md) | Deploy BlueLock on Azure Container Apps with Terraform, onboard the replicas to AccuKnox as a VM cluster and block a command to confirm runtime enforcement. |
+| [bluelock-ecs-fargate.md](bluelock-ecs-fargate.md) | Deploy BlueLock on Amazon ECS Fargate with Terraform, onboard the tasks to AccuKnox as a VM cluster and block a command to confirm runtime enforcement. |
+| [bluelock-eks-fargate.md](bluelock-eks-fargate.md) | Deploy BlueLock on an Amazon EKS Fargate cluster, onboard the cluster to AccuKnox and block a command in a sample workload to confirm runtime enforcement. |
+| [bluelock.md](bluelock.md) | BlueLock enforces runtime security policy from inside the container on AWS Fargate and Azure Container Apps, where you cannot reach the host kernel. Pick the... |
 | [cis-benchmarking.md](cis-benchmarking.md) | Guide on onboarding Kubernetes clusters for CIS Benchmarking compliance, enabling monitoring and improving security based on CIS standards. |
 | [cloud-offboarding.md](cloud-offboarding.md) | Guide on securely offboarding a cloud account from AccuKnox SaaS to prevent unauthorized access and data leakage. |
 | [cluster-misconfig-scan-onboarding.md](cluster-misconfig-scan-onboarding.md) | AccuKnox helps detect and fix security misconfigurations in Kubernetes clusters, securing applications and infrastructure. |
@@ -75,6 +79,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [llm-static-scan.md](llm-static-scan.md) | Learn how to perform LLM Static Scans using AccuKnox for OpenAI, Ollama and Custom Large Language Models. |
 | [ml-static-scan.md](ml-static-scan.md) | Learn how to perform ML Model Static Scans using AccuKnox for GitHub and Hugging Face repositories to secure your machine learning models. |
 | [model-scan-cicd.md](model-scan-cicd.md) | Wire the AccuKnox pre-deployment model scan into CI/CD so a public model reaches your registry only after a sandboxed scan and a SecOps approval on the pull... |
+| [openshift-onboarding.md](openshift-onboarding.md) | Onboard a Red Hat OpenShift cluster to AccuKnox CWPP and KSPM from a private registry. Create the KubeArmor SCC, grant SCCs to the agent service accounts, an... |
 | [oracle-onboarding.md](oracle-onboarding.md) | Step-by-step guide to configure and onboard your Oracle Cloud Infrastructure (OCI) account to AccuKnox. |
 | [playbook-aspm.md](playbook-aspm.md) | ASPM playbook explaining how to secure application development and deployment processes using AccuKnox’s zero trust CNAPP framework. |
 | [playbook-cspm.md](playbook-cspm.md) | CSPM playbook providing guidelines on securing cloud infrastructure and identifying misconfigurations with AccuKnox’s zero trust model. |
