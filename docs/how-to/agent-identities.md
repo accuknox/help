@@ -9,6 +9,13 @@ Add your coding agent as an **external agent** in AgentZ. The agent gets its own
 
 This guide covers two coding agents: **Claude Code** and **Codex**. The screens below show Codex.
 
+<video controls preload="none" style="display: block; width: 100%; max-width: 100%; height: auto; margin: 1em 0; border-radius: 4px;" poster="../images/agent-identities/AccuKnox_Agent_Identities_Walkthrough.jpg">
+  <source src="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4" type="video/mp4">
+  Your browser does not support embedded video. <a href="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4">Download the Agent Identities walkthrough video</a> instead.
+</video>
+
+The video above walks through the same steps in about 2 minutes. The steps below follow it.
+
 ## Why Give a Coding Agent Its Own Identity
 
 Coding agents run on a laptop with the developer's own login. That setup has three gaps.
