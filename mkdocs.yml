@@ -198,6 +198,7 @@ extra_css:
 - "assets/stylesheets/ai-diagrams.css"
 - "assets/stylesheets/dspm-gallery.css"
 - "assets/stylesheets/shadow-ai.css"
+- "assets/stylesheets/bluelock.css"
 extra_javascript:
   - javascripts/extra.js
   - javascripts/copy-page.js

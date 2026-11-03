@@ -6,142 +6,109 @@ description: Deploy BlueLock on Azure Container Apps with Terraform, onboard the
 # Deploy BlueLock on Azure Container Apps
 
 !!! info "Overview"
-    This guide builds an Azure Container Apps test environment with Terraform, onboards it to AccuKnox as a VM cluster and blocks a command in a running replica. Terraform creates the Azure network, a control plane VM and a container app with two replicas that run BlueLock. Read [BlueLock Runtime Security for Serverless Containers](bluelock.md) first if you want the background.
+    Build an Azure Container Apps test environment with Terraform, onboard it to AccuKnox as a VM cluster and block a command in a running replica.
 
 ## Workflow at a Glance
 
-<div class="ak-dia" role="img" aria-label="Six-step workflow for Azure Container Apps. Step 1, get a join token from the AccuKnox console. Step 2, sign in to AWS and public ECR. Step 3, create the base infrastructure with Terraform in 1-infra, which takes about 5 minutes. Step 4, deploy the container app with Terraform in 2-app. Step 5, confirm the control plane VM and two replicas appear in AccuKnox. Step 6, apply a block policy and confirm the command is denied and an alert appears.">
-<svg viewBox="0 0 640 292" xmlns="http://www.w3.org/2000/svg">
+<div class="bl-dia" role="img" aria-label="Six steps for Azure Container Apps: get a join token, sign in to AWS and ECR, create the base infrastructure in 1-infra, create the container app in 2-app, confirm the nodes in AccuKnox, then test the block policy." data-bl="aca-flow">
+<svg viewBox="0 0 760 128" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="macf" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+    <marker id="bl-aca-flow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
       <path class="head" d="M0 0 L8 4 L0 8 z"/>
     </marker>
-    <marker id="macfa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-      <path class="head-acc" d="M0 0 L8 4 L0 8 z"/>
-    </marker>
   </defs>
-  <rect class="acc" x="8" y="8" width="200" height="126" rx="8"/>
-  <circle class="step" cx="32" cy="32" r="12"/>
-  <text class="t-step" x="32" y="36" text-anchor="middle">1</text>
-  <text class="t-s" x="54" y="36">Step 1</text>
-  <text class="t-h" x="24" y="70">Get a join</text>
-  <text class="t-h" x="24" y="87">token</text>
-  <text class="t-s" x="24" y="109">Settings, Manage</text>
-  <text class="t-s" x="24" y="124">Cluster, Onboard</text>
-  <path class="ln" d="M209 71 H227" marker-end="url(#macf)"/>
-  <rect class="p" x="228" y="8" width="200" height="126" rx="8"/>
-  <circle class="step" cx="252" cy="32" r="12"/>
-  <text class="t-step" x="252" y="36" text-anchor="middle">2</text>
-  <text class="t-s" x="274" y="36">Step 2</text>
-  <text class="t-h" x="244" y="70">Sign in to AWS</text>
-  <text class="t-h" x="244" y="87">and public ECR</text>
-  <text class="t-s" x="244" y="109">aws configure and</text>
-  <text class="t-s" x="244" y="124">docker login</text>
-  <path class="ln" d="M429 71 H447" marker-end="url(#macf)"/>
-  <rect class="p" x="448" y="8" width="200" height="126" rx="8"/>
-  <circle class="step" cx="472" cy="32" r="12"/>
-  <text class="t-step" x="472" y="36" text-anchor="middle">3</text>
-  <text class="t-s" x="494" y="36">Step 3</text>
-  <text class="t-h" x="464" y="70">Create the base</text>
-  <text class="t-h" x="464" y="87">infrastructure</text>
-  <text class="t-s" x="464" y="109">terraform apply in</text>
-  <text class="t-s" x="464" y="124">1-infra, about 5 min</text>
-  <rect class="p" x="8" y="162" width="200" height="126" rx="8"/>
-  <circle class="step" cx="32" cy="186" r="12"/>
-  <text class="t-step" x="32" y="190" text-anchor="middle">4</text>
-  <text class="t-s" x="54" y="190">Step 4</text>
-  <text class="t-h" x="24" y="224">Deploy the</text>
-  <text class="t-h" x="24" y="241">container app</text>
-  <text class="t-s" x="24" y="263">terraform apply in</text>
-  <text class="t-s" x="24" y="278">2-app</text>
-  <path class="ln" d="M209 225 H227" marker-end="url(#macf)"/>
-  <rect class="acc" x="228" y="162" width="200" height="126" rx="8"/>
-  <circle class="step" cx="252" cy="186" r="12"/>
-  <text class="t-step" x="252" y="190" text-anchor="middle">5</text>
-  <text class="t-s" x="274" y="190">Step 5</text>
-  <text class="t-h" x="244" y="224">Confirm the</text>
-  <text class="t-h" x="244" y="241">nodes</text>
-  <text class="t-s" x="244" y="263">Control plane VM and</text>
-  <text class="t-s" x="244" y="278">2 replicas</text>
-  <path class="ln" d="M429 225 H447" marker-end="url(#macf)"/>
-  <rect class="good" x="448" y="162" width="200" height="126" rx="8"/>
-  <circle class="step" cx="472" cy="186" r="12"/>
-  <text class="t-step" x="472" y="190" text-anchor="middle">6</text>
-  <text class="t-s" x="494" y="190">Step 6</text>
-  <text class="t-h" x="464" y="224">Test the block</text>
-  <text class="t-h" x="464" y="241">policy</text>
-  <text class="t-s" x="464" y="263">ls is denied and</text>
-  <text class="t-s" x="464" y="278">an alert appears</text>
-  <path class="ln" d="M548 135 V148 H108 V161" marker-end="url(#macf)"/>
+  <path class="rail" d="M63 16 H697"/>
+  <rect class="navy" x="27" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="63" y="20" text-anchor="middle">Step 1</text>
+  <text class="b" x="63" y="56" text-anchor="middle">Get a join</text>
+  <text class="b" x="63" y="74" text-anchor="middle">token</text>
+  <text class="ms" x="63" y="100" text-anchor="middle">AccuKnox</text>
+  <rect class="navy" x="154" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="190" y="20" text-anchor="middle">Step 2</text>
+  <text class="b" x="190" y="56" text-anchor="middle">Sign in to</text>
+  <text class="b" x="190" y="74" text-anchor="middle">AWS and ECR</text>
+  <text class="ms" x="190" y="100" text-anchor="middle">aws configure</text>
+  <rect class="navy" x="280" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="317" y="20" text-anchor="middle">Step 3</text>
+  <text class="b" x="317" y="56" text-anchor="middle">Create base</text>
+  <text class="b" x="317" y="74" text-anchor="middle">infrastructure</text>
+  <text class="ms" x="317" y="100" text-anchor="middle">1-infra</text>
+  <rect class="navy" x="407" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="443" y="20" text-anchor="middle">Step 4</text>
+  <text class="b" x="443" y="56" text-anchor="middle">Create the</text>
+  <text class="b" x="443" y="74" text-anchor="middle">container app</text>
+  <text class="ms" x="443" y="100" text-anchor="middle">2-app</text>
+  <rect class="navy" x="534" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="570" y="20" text-anchor="middle">Step 5</text>
+  <text class="b" x="570" y="56" text-anchor="middle">Confirm the</text>
+  <text class="b" x="570" y="74" text-anchor="middle">nodes</text>
+  <text class="ms" x="570" y="100" text-anchor="middle">AccuKnox</text>
+  <rect class="navy" x="660" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="697" y="20" text-anchor="middle">Step 6</text>
+  <text class="b" x="697" y="56" text-anchor="middle">Test the</text>
+  <text class="b" x="697" y="74" text-anchor="middle">block policy</text>
+  <text class="ms" x="697" y="100" text-anchor="middle">socat</text>
 </svg>
 </div>
 
 ## How the Deployment Fits Together
 
-Azure Container Apps runs on Kubernetes, but Azure hides the API server. You cannot onboard it as a Kubernetes cluster. BlueLock uses a VM cluster instead. The control plane runs on a VM, and the container app replicas act as the worker nodes.
+Azure hides the Kubernetes API server of Container Apps, so you cannot onboard it as a Kubernetes cluster. BlueLock uses a VM cluster: the control plane runs on a VM and the replicas act as worker nodes.
 
-<div class="ak-dia" role="img" aria-label="Azure Container Apps architecture. Inside one virtual network, subnet 1 holds a control plane VM that runs the AccuKnox agents and reaches AccuKnox SaaS outbound. Subnet 2, delegated to Microsoft.App/environments, holds a Container Apps environment with one container app and two replicas. Each replica runs a bluelock init container, an armored-container and a kubearmor-vm-adapter. The adapters connect to the control plane on ports 32768 to 32771. A test client reaches the app on TCP port 1337 through ingress.">
-<svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg">
+<div class="bl-dia" role="img" aria-label="Azure Container Apps architecture. In one virtual network, subnet 1 holds a control plane VM that runs the AccuKnox agents and reaches AccuKnox SaaS. Subnet 2 holds a Container Apps environment with one container app and two replicas. Each replica runs bluelock, armored-container and kubearmor-vm-adapter. The adapters connect to the control plane on ports 32768 to 32771. A test client reaches the app on TCP port 1337." data-bl="aca">
+<svg viewBox="0 0 760 490" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="maca" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+    <marker id="bl-aca" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
       <path class="head" d="M0 0 L8 4 L0 8 z"/>
     </marker>
-    <marker id="macaa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-      <path class="head-acc" d="M0 0 L8 4 L0 8 z"/>
-    </marker>
   </defs>
-  <rect class="plane" x="330" y="10" width="260" height="58" rx="8"/>
-  <text class="t-plane" x="460" y="36" text-anchor="middle">AccuKnox SaaS</text>
-  <text class="t-pill" x="460" y="54" text-anchor="middle">Policies, alerts, inventory</text>
-  <rect class="p2" x="10" y="104" width="900" height="280" rx="8"/>
-  <text class="t-h" x="26" y="128">Virtual network</text>
-  <rect class="p" x="30" y="142" width="250" height="226" rx="8"/>
-  <text class="t-s" x="46" y="162">Subnet 1</text>
-  <rect class="acc" x="50" y="180" width="210" height="112" rx="8"/>
-  <text class="t-h" x="64" y="208">Control plane VM</text>
-  <text class="t-s" x="64" y="228">Ubuntu with a public IP</text>
-  <text class="t-s" x="64" y="246">Runs the AccuKnox agents</text>
-  <text class="t-mono" x="64" y="270">knoxctl onboard vm cp-node</text>
-  <text class="t-s" x="46" y="316">Receives adapter traffic</text>
-  <text class="t-s" x="46" y="330">on ports 32768 to 32771</text>
-  <rect class="p" x="320" y="142" width="570" height="226" rx="8"/>
-  <text class="t-s" x="336" y="162">Subnet 2, delegated to Microsoft.App/environments</text>
-  <rect class="hollow" x="336" y="174" width="538" height="182" rx="8"/>
-  <text class="t-h" x="350" y="196">Container Apps environment</text>
-  <rect class="acc" x="350" y="206" width="510" height="138" rx="8"/>
-  <text class="t-h" x="364" y="228">Container app, 2 replicas</text>
-  <rect class="p" x="364" y="238" width="232" height="96" rx="6"/>
-  <text class="t-h" x="376" y="256">Replica 1</text>
-  <rect class="hollow" x="376" y="262" width="208" height="20" rx="4"/>
-  <text class="t-s" x="384" y="276">bluelock (init container)</text>
-  <rect class="hollow" x="376" y="284" width="208" height="20" rx="4"/>
-  <text class="t-s" x="384" y="298">armored-container</text>
-  <rect class="hollow" x="376" y="306" width="208" height="20" rx="4"/>
-  <text class="t-s" x="384" y="320">kubearmor-vm-adapter</text>
-  <rect class="p" x="616" y="238" width="232" height="96" rx="6"/>
-  <text class="t-h" x="628" y="256">Replica 2</text>
-  <rect class="hollow" x="628" y="262" width="208" height="20" rx="4"/>
-  <text class="t-s" x="636" y="276">bluelock (init container)</text>
-  <rect class="hollow" x="628" y="284" width="208" height="20" rx="4"/>
-  <text class="t-s" x="636" y="298">armored-container</text>
-  <rect class="hollow" x="628" y="306" width="208" height="20" rx="4"/>
-  <text class="t-s" x="636" y="320">kubearmor-vm-adapter</text>
-  <path class="ln-acc" d="M320 255 H282" marker-end="url(#macaa)"/>
-  <path class="ln-acc" d="M155 180 V39 H330" marker-end="url(#macaa)"/>
-  <text class="t-s" x="166" y="96">outbound to SaaS</text>
-  <rect class="p" x="560" y="404" width="300" height="38" rx="8"/>
-  <text class="t-mono" x="710" y="428" text-anchor="middle">socat - TCP:APP_URL:1337</text>
-  <path class="ln" d="M710 404 V386" marker-end="url(#maca)"/>
-  <text class="t-s" x="724" y="399">TCP ingress on 1337</text>
+  <rect class="navy" x="250" y="0" width="260" height="64" rx="10"/>
+  <g class="ic-w" transform="translate(270 20) scale(1.0)"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6 9.6 4.2 4.2 0 0 0 7 18z"/></g>
+  <text class="wh" x="304" y="30">AccuKnox SaaS</text>
+  <text class="ws" x="304" y="49">Policies and alerts</text>
+  <rect class="panel" x="0" y="110" width="760" height="300" rx="10"/>
+  <text class="h" x="16" y="138">Virtual network</text>
+  <rect class="card" x="16" y="156" width="204" height="234" rx="10"/>
+  <text class="s" x="32" y="178">Subnet 1</text>
+  <rect class="row" x="32" y="194" width="172" height="130" rx="8"/>
+  <g class="ic" transform="translate(46 208) scale(1.0)"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><circle class="dot" cx="7" cy="7.5" r=".9"/><circle class="dot" cx="7" cy="16.5" r=".9"/></g>
+  <text class="b" x="78" y="226">Control plane VM</text>
+  <rect class="navy" x="44" y="252" width="148" height="48" rx="8"/>
+  <g class="ic-w" transform="translate(54 264) scale(0.9)"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/></g>
+  <text class="wb" x="80" y="281">AccuKnox agents</text>
+  <text class="s" x="32" y="350">Adapter ports</text>
+  <text class="s" x="32" y="366">32768-32771</text>
+  <rect class="card" x="250" y="156" width="494" height="234" rx="10"/>
+  <text class="s" x="266" y="178">Subnet 2, delegated to Microsoft.App/environments</text>
+  <rect class="panel" x="266" y="190" width="462" height="186" rx="8"/>
+  <text class="h" x="282" y="214">Container Apps environment</text>
+  <rect class="card" x="282" y="226" width="430" height="138" rx="8"/>
+  <text class="b" x="298" y="250">Container app</text>
+  <text class="s" x="696" y="250" text-anchor="end">2 replicas</text>
+  <rect class="row" x="298" y="260" width="194" height="96" rx="8"/>
+  <text class="s" x="310" y="278">Replica 1</text>
+  <text class="m" x="310" y="300">bluelock (init)</text>
+  <text class="m" x="310" y="322">armored-container</text>
+  <text class="m" x="310" y="344">kubearmor-vm-adapter</text>
+  <rect class="row" x="506" y="260" width="194" height="96" rx="8"/>
+  <text class="s" x="518" y="278">Replica 2</text>
+  <text class="m" x="518" y="300">bluelock (init)</text>
+  <text class="m" x="518" y="322">armored-container</text>
+  <text class="m" x="518" y="344">kubearmor-vm-adapter</text>
+  <path class="ln" d="M250 273 H224" marker-end="url(#bl-aca)"/>
+  <path class="ln" d="M190 156 V32 H246" marker-end="url(#bl-aca)"/>
+  <text class="s" x="202" y="100">outbound</text>
+  <rect class="card" x="470" y="450" width="250" height="34" rx="8"/>
+  <text class="m" x="595" y="472" text-anchor="middle">socat - TCP:APP_URL:1337</text>
+  <path class="ln" d="M595 450 V414" marker-end="url(#bl-aca)"/>
+  <text class="s" x="607" y="436">TCP ingress 1337</text>
 </svg>
 </div>
 
-Two Azure terms matter in this guide:
-
 | Azure term | What it is |
 |---|---|
-| Container Apps environment | A resource boundary. You define CPU, memory and networking for the container apps inside it |
-| Container app | Similar to a ReplicaSet. Each replica is a pod that runs one or more containers |
+| Container Apps environment | A resource boundary for CPU, memory and networking |
+| Container app | Like a ReplicaSet. A replica is a pod with one or more containers |
 
 ## Prerequisites
 
@@ -157,13 +124,11 @@ Two Azure terms matter in this guide:
 
 ## Step 1. Get a Join Token From AccuKnox
 
-In the AccuKnox console, open Settings, then Manage Cluster, then Onboard. Select the cluster type VM and enter a cluster name. Copy the join token from the `knoxctl onboard vm cp-node` command.
-
-Terraform runs that command for you on the control plane VM, so you only need the token. Keep the console page open to watch the cluster appear.
+In AccuKnox, open Settings, then Manage Cluster, then Onboard. Select the cluster type VM, enter a name and copy the join token from the `knoxctl onboard vm cp-node` command. Terraform runs that command on the control plane VM, so you only need the token.
 
 ## Step 2. Sign in to AWS and Public ECR
 
-Enter your Access Key ID and Secret Access Key when `aws configure` asks for them.
+Enter your Access Key ID and Secret Access Key.
 
 ```bash
 aws configure
@@ -177,14 +142,14 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 
 ## Step 3. Create the Base Infrastructure
 
-Clone the BlueLock repository and open the `azure-container-apps` folder.
+Clone the repository and open `azure-container-apps`.
 
 ```bash
 git clone https://github.com/accuknox/bluelock.git
 cd bluelock/terraform/azure-container-apps
 ```
 
-Create the base infrastructure with your join token. This takes about 5 minutes.
+Create the base infrastructure. This takes about 5 minutes.
 
 ```bash
 cd 1-infra
@@ -192,10 +157,10 @@ terraform init
 terraform apply -var="vm_token=YOUR_JOIN_TOKEN"
 ```
 
-The script creates the resource group, the virtual network, the control plane VM and the Container Apps environment. It then installs Docker and `knoxctl` on the VM and onboards the VM as the control plane node with your token.
+The script creates the resource group, virtual network, control plane VM and Container Apps environment. It then installs Docker and `knoxctl` on the VM and onboards it as the control plane with your token.
 
 ??? info "Variables you can change"
-    Change a default with `-var`, for example `-var="location=<REGION>"`.
+    Override a default with `-var`, for example `-var="location=<REGION>"`.
 
     | Variable | Default | Notes |
     |---|---|---|
@@ -210,7 +175,7 @@ The script creates the resource group, the virtual network, the control plane VM
 
 ## Step 4. Create the Container App
 
-Create the container app. The command reads the VM public IP from the output of Step 3.
+Create the container app. The command reads the VM public IP from Step 3.
 
 ```bash
 cd ../2-app
@@ -219,7 +184,7 @@ terraform apply \
     -var="vm_public_ip=$(cd ../1-infra && terraform output -raw vm_public_ip)"
 ```
 
-Terraform creates a container app with 2 replicas. Each replica runs the `bluelock` init container, the `armored-container` and the `kubearmor-vm-adapter`.
+Terraform creates a container app with 2 replicas. Each runs the `bluelock` init container, `armored-container` and `kubearmor-vm-adapter`.
 
 ??? info "Variables you can change"
     | Variable | Default | Notes |
@@ -230,7 +195,7 @@ Terraform creates a container app with 2 replicas. Each replica runs the `bluelo
     | `vm_public_ip` | None | Required. Public IP of the control plane VM |
 
 ??? note "Set up manually instead of using Terraform"
-    Use this path when you cannot run the Terraform scripts. It replaces Steps 3 and 4. Create the following Azure resources in this order.
+    Replaces Steps 3 and 4. Create these Azure resources in order.
 
     **1. Virtual network**
 
@@ -377,13 +342,13 @@ Terraform creates a container app with 2 replicas. Each replica runs the `bluelo
 
 ## Step 5. Confirm the Nodes Appear in AccuKnox
 
-Open the cluster in AccuKnox. The container app replicas appear as nodes next to the control plane VM.
+In AccuKnox, the replicas appear as nodes next to the control plane VM.
 
 ![The AccuKnox cluster panel for the Azure Container Apps cluster, showing the control plane VM and two container app replicas as nodes](images/bluelock-azure-container-apps/saas-cluster-nodes.png)
 
 ## Step 6. Test Enforcement With a Block Policy
 
-1. Open the container app in the Azure portal and copy its application URL. The URL has the form `<container-app-name>.<hostname>.<region>.azurecontainerapps.io`.
+1. In the Azure portal, copy the container app's application URL. It looks like `<container-app-name>.<hostname>.<region>.azurecontainerapps.io`.
 
 2. Connect to the container app.
 
@@ -392,9 +357,9 @@ Open the cluster in AccuKnox. The container app replicas appear as nodes next to
     ```
 
     !!! note "You cannot choose the replica"
-        The container app has one URL, and Azure's internal load balancing picks the replica. You cannot choose which of the replicas you reach.
+        The app has one URL and Azure's load balancing picks the replica. You cannot choose which replica you reach.
 
-3. Run the following command. It succeeds, because no policy exists yet.
+3. Run this. It succeeds because no policy exists yet.
 
     ```bash
     ls /etc/ssl/certs
@@ -402,7 +367,7 @@ Open the cluster in AccuKnox. The container app replicas appear as nodes next to
 
     ![A terminal session that lists the files in /etc/ssl/certs on the container app](images/bluelock-azure-container-apps/socat-ls-allowed.png)
 
-4. In the AccuKnox console, open Runtime Protection, then Policies, and create the following policy. The file [`ksp-block-file-dir-recursive.yaml`](https://raw.githubusercontent.com/accuknox/bluelock/refs/heads/master/terraform/ksp-block-file-dir-recursive.yaml) in the BlueLock repository holds the same rules. Activate the policy after you save it.
+4. In AccuKnox, open Runtime Protection, then Policies, and create this policy. [`ksp-block-file-dir-recursive.yaml`](https://raw.githubusercontent.com/accuknox/bluelock/refs/heads/master/terraform/ksp-block-file-dir-recursive.yaml) holds the same rules. Activate it after you save.
 
     ```yaml
     apiVersion: security.kubearmor.com/v1
@@ -430,7 +395,7 @@ Open the cluster in AccuKnox. The container app replicas appear as nodes next to
       - MITRE_T1552_unsecured_credentials
     ```
 
-5. Run the command again to violate the policy. It now fails.
+5. Run the command again. It now fails.
 
     ```bash
     ls /etc/ssl/certs
@@ -438,14 +403,9 @@ Open the cluster in AccuKnox. The container app replicas appear as nodes next to
 
     ![A terminal session where ls /etc/ssl/certs returns Permission denied on the container app](images/bluelock-azure-container-apps/socat-ls-denied.png)
 
-6. Open the alert in AccuKnox. The alert records the blocked `ls` call against `/etc/ssl/certs`.
+6. Open the alert in AccuKnox.
 
     ![The AccuKnox alert Credentials modification denied with action Block and result Permission Denied](images/bluelock-azure-container-apps/alert-credentials-denied.png)
-
-## What This Test Proves
-
-- A policy you apply in AccuKnox reaches the container app replicas.
-- BlueLock enforces the policy and raises an alert in AccuKnox.
 
 ## Step 7. Destroy the Test Environment When You Finish
 

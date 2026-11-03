@@ -6,153 +6,120 @@ description: Deploy BlueLock on Amazon ECS Fargate with Terraform, onboard the t
 # Deploy BlueLock on ECS Fargate
 
 !!! info "Overview"
-    This guide builds an ECS Fargate test environment with Terraform, onboards it to AccuKnox as a VM cluster and blocks a command in a running task. Terraform creates the AWS resources and a control plane node, then starts two Fargate tasks that run BlueLock. Read [BlueLock Runtime Security for Serverless Containers](bluelock.md) first if you want the background.
+    Build an ECS Fargate test environment with Terraform, onboard it to AccuKnox as a VM cluster and block a command in a running task.
 
 ## Workflow at a Glance
 
-<div class="ak-dia" role="img" aria-label="Six-step workflow for ECS Fargate. Step 1, get a join token from the AccuKnox console. Step 2, sign in to AWS and public ECR. Step 3, create the base infrastructure with Terraform. Step 4, deploy the sample service with Terraform. Step 5, confirm the control plane and two Fargate tasks appear in AccuKnox. Step 6, apply a block policy and confirm the command is denied and an alert appears.">
-<svg viewBox="0 0 640 292" xmlns="http://www.w3.org/2000/svg">
+<div class="bl-dia" role="img" aria-label="Six steps for ECS Fargate: get a join token, sign in to AWS and ECR, create the base infrastructure, deploy the sample service, confirm the nodes in AccuKnox, then test the block policy." data-bl="ecs-flow">
+<svg viewBox="0 0 760 128" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="mecf" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+    <marker id="bl-ecs-flow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
       <path class="head" d="M0 0 L8 4 L0 8 z"/>
     </marker>
-    <marker id="mecfa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-      <path class="head-acc" d="M0 0 L8 4 L0 8 z"/>
-    </marker>
   </defs>
-  <rect class="acc" x="8" y="8" width="200" height="126" rx="8"/>
-  <circle class="step" cx="32" cy="32" r="12"/>
-  <text class="t-step" x="32" y="36" text-anchor="middle">1</text>
-  <text class="t-s" x="54" y="36">Step 1</text>
-  <text class="t-h" x="24" y="70">Get a join</text>
-  <text class="t-h" x="24" y="87">token</text>
-  <text class="t-s" x="24" y="109">Settings, Manage</text>
-  <text class="t-s" x="24" y="124">Cluster, Onboard</text>
-  <path class="ln" d="M209 71 H227" marker-end="url(#mecf)"/>
-  <rect class="p" x="228" y="8" width="200" height="126" rx="8"/>
-  <circle class="step" cx="252" cy="32" r="12"/>
-  <text class="t-step" x="252" y="36" text-anchor="middle">2</text>
-  <text class="t-s" x="274" y="36">Step 2</text>
-  <text class="t-h" x="244" y="70">Sign in to AWS</text>
-  <text class="t-h" x="244" y="87">and public ECR</text>
-  <text class="t-s" x="244" y="109">aws configure and</text>
-  <text class="t-s" x="244" y="124">docker login</text>
-  <path class="ln" d="M429 71 H447" marker-end="url(#mecf)"/>
-  <rect class="p" x="448" y="8" width="200" height="126" rx="8"/>
-  <circle class="step" cx="472" cy="32" r="12"/>
-  <text class="t-step" x="472" y="36" text-anchor="middle">3</text>
-  <text class="t-s" x="494" y="36">Step 3</text>
-  <text class="t-h" x="464" y="70">Create the base</text>
-  <text class="t-h" x="464" y="87">infrastructure</text>
-  <text class="t-s" x="464" y="109">terraform apply in</text>
-  <text class="t-s" x="464" y="124">base-infra</text>
-  <rect class="p" x="8" y="162" width="200" height="126" rx="8"/>
-  <circle class="step" cx="32" cy="186" r="12"/>
-  <text class="t-step" x="32" y="190" text-anchor="middle">4</text>
-  <text class="t-s" x="54" y="190">Step 4</text>
-  <text class="t-h" x="24" y="224">Deploy the</text>
-  <text class="t-h" x="24" y="241">sample service</text>
-  <text class="t-s" x="24" y="263">terraform apply in</text>
-  <text class="t-s" x="24" y="278">test-task</text>
-  <path class="ln" d="M209 225 H227" marker-end="url(#mecf)"/>
-  <rect class="acc" x="228" y="162" width="200" height="126" rx="8"/>
-  <circle class="step" cx="252" cy="186" r="12"/>
-  <text class="t-step" x="252" y="190" text-anchor="middle">5</text>
-  <text class="t-s" x="274" y="190">Step 5</text>
-  <text class="t-h" x="244" y="224">Confirm the</text>
-  <text class="t-h" x="244" y="241">nodes</text>
-  <text class="t-s" x="244" y="263">Control plane and</text>
-  <text class="t-s" x="244" y="278">2 Fargate tasks</text>
-  <path class="ln" d="M429 225 H447" marker-end="url(#mecf)"/>
-  <rect class="good" x="448" y="162" width="200" height="126" rx="8"/>
-  <circle class="step" cx="472" cy="186" r="12"/>
-  <text class="t-step" x="472" y="190" text-anchor="middle">6</text>
-  <text class="t-s" x="494" y="190">Step 6</text>
-  <text class="t-h" x="464" y="224">Test the block</text>
-  <text class="t-h" x="464" y="241">policy</text>
-  <text class="t-s" x="464" y="263">ls is denied and</text>
-  <text class="t-s" x="464" y="278">an alert appears</text>
-  <path class="ln" d="M548 135 V148 H108 V161" marker-end="url(#mecf)"/>
+  <path class="rail" d="M63 16 H697"/>
+  <rect class="navy" x="27" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="63" y="20" text-anchor="middle">Step 1</text>
+  <text class="b" x="63" y="56" text-anchor="middle">Get a join</text>
+  <text class="b" x="63" y="74" text-anchor="middle">token</text>
+  <text class="ms" x="63" y="100" text-anchor="middle">AccuKnox</text>
+  <rect class="navy" x="154" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="190" y="20" text-anchor="middle">Step 2</text>
+  <text class="b" x="190" y="56" text-anchor="middle">Sign in to</text>
+  <text class="b" x="190" y="74" text-anchor="middle">AWS and ECR</text>
+  <text class="ms" x="190" y="100" text-anchor="middle">aws configure</text>
+  <rect class="navy" x="280" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="317" y="20" text-anchor="middle">Step 3</text>
+  <text class="b" x="317" y="56" text-anchor="middle">Create base</text>
+  <text class="b" x="317" y="74" text-anchor="middle">infrastructure</text>
+  <text class="ms" x="317" y="100" text-anchor="middle">terraform</text>
+  <rect class="navy" x="407" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="443" y="20" text-anchor="middle">Step 4</text>
+  <text class="b" x="443" y="56" text-anchor="middle">Deploy the</text>
+  <text class="b" x="443" y="74" text-anchor="middle">sample service</text>
+  <text class="ms" x="443" y="100" text-anchor="middle">terraform</text>
+  <rect class="navy" x="534" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="570" y="20" text-anchor="middle">Step 5</text>
+  <text class="b" x="570" y="56" text-anchor="middle">Confirm the</text>
+  <text class="b" x="570" y="74" text-anchor="middle">nodes</text>
+  <text class="ms" x="570" y="100" text-anchor="middle">AccuKnox</text>
+  <rect class="navy" x="660" y="3" width="72" height="26" rx="13"/>
+  <text class="num" x="697" y="20" text-anchor="middle">Step 6</text>
+  <text class="b" x="697" y="56" text-anchor="middle">Test the</text>
+  <text class="b" x="697" y="74" text-anchor="middle">block policy</text>
+  <text class="ms" x="697" y="100" text-anchor="middle">socat</text>
 </svg>
 </div>
 
 ## How the Deployment Fits Together
 
-The control plane runs on an EC2 instance, or on any VM with a public IP, and `knoxctl` onboards it. Each Fargate task runs three containers, the same way the Docker Compose file does for a VM cluster. The `kubearmor-vm-adapter` container connects each task to the control plane.
-
-<div class="ak-dia" role="img" aria-label="ECS Fargate architecture. A control plane node, an EC2 instance or any VM with a public IP, runs the AccuKnox agents and reaches AccuKnox SaaS outbound. An ECS cluster on Fargate runs two tasks. Each task holds three containers in start order: bluelock, armored-container and kubearmor-vm-adapter. The adapters connect to the control plane on ports 32768 to 32771. A test client reaches a task on port 1337 with socat.">
-<svg viewBox="0 0 920 450" xmlns="http://www.w3.org/2000/svg">
+<div class="bl-dia" role="img" aria-label="ECS Fargate architecture. A control plane node runs the AccuKnox agents and reaches AccuKnox SaaS. An ECS cluster on Fargate runs two tasks. Each task holds bluelock, armored-container and kubearmor-vm-adapter. The adapters connect to the control plane on ports 32768 to 32771. A test client reaches a task on port 1337." data-bl="ecs">
+<svg viewBox="0 0 760 490" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker id="mecs" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+    <marker id="bl-ecs" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
       <path class="head" d="M0 0 L8 4 L0 8 z"/>
     </marker>
-    <marker id="mecsa" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
-      <path class="head-acc" d="M0 0 L8 4 L0 8 z"/>
-    </marker>
   </defs>
-  <rect class="plane" x="330" y="10" width="260" height="58" rx="8"/>
-  <text class="t-plane" x="460" y="36" text-anchor="middle">AccuKnox SaaS</text>
-  <text class="t-pill" x="460" y="54" text-anchor="middle">Policies, alerts, inventory</text>
-  <rect class="p2" x="10" y="130" width="250" height="196" rx="8"/>
-  <text class="t-h" x="26" y="156">Control plane node</text>
-  <text class="t-s" x="26" y="174">EC2 instance or any VM with a public IP</text>
-  <rect class="acc" x="30" y="196" width="210" height="100" rx="8"/>
-  <text class="t-h" x="44" y="224">AccuKnox agents</text>
-  <text class="t-s" x="44" y="246">Onboarded with</text>
-  <text class="t-mono" x="44" y="264">knoxctl onboard vm cp-node</text>
-  <rect class="p2" x="350" y="104" width="560" height="276" rx="8"/>
-  <text class="t-h" x="366" y="130">Amazon ECS cluster on Fargate</text>
-  <rect class="p" x="370" y="146" width="250" height="218" rx="8"/>
-  <text class="t-h" x="384" y="170">Fargate task 1</text>
-  <rect class="hollow" x="384" y="184" width="222" height="46" rx="6"/>
-  <circle class="step" cx="404" cy="207" r="12"/>
-  <text class="t-step" x="404" y="211" text-anchor="middle">1</text>
-  <text class="t-h" x="426" y="204">bluelock</text>
-  <text class="t-s" x="426" y="220">Init step. Copies the binary.</text>
-  <rect class="hollow" x="384" y="240" width="222" height="46" rx="6"/>
-  <circle class="step" cx="404" cy="263" r="12"/>
-  <text class="t-step" x="404" y="267" text-anchor="middle">2</text>
-  <text class="t-h" x="426" y="260">armored-container</text>
-  <text class="t-s" x="426" y="276">Your app, started by bluelock.</text>
-  <rect class="acc" x="384" y="296" width="222" height="46" rx="6"/>
-  <circle class="step" cx="404" cy="319" r="12"/>
-  <text class="t-step" x="404" y="323" text-anchor="middle">3</text>
-  <text class="t-h" x="426" y="316">kubearmor-vm-adapter</text>
-  <text class="t-s" x="426" y="332">Sends events, gets policies.</text>
-  <rect class="p" x="640" y="146" width="250" height="218" rx="8"/>
-  <text class="t-h" x="654" y="170">Fargate task 2</text>
-  <rect class="hollow" x="654" y="184" width="222" height="46" rx="6"/>
-  <circle class="step" cx="674" cy="207" r="12"/>
-  <text class="t-step" x="674" y="211" text-anchor="middle">1</text>
-  <text class="t-h" x="696" y="204">bluelock</text>
-  <text class="t-s" x="696" y="220">Init step. Copies the binary.</text>
-  <rect class="hollow" x="654" y="240" width="222" height="46" rx="6"/>
-  <circle class="step" cx="674" cy="263" r="12"/>
-  <text class="t-step" x="674" y="267" text-anchor="middle">2</text>
-  <text class="t-h" x="696" y="260">armored-container</text>
-  <text class="t-s" x="696" y="276">Your app, started by bluelock.</text>
-  <rect class="acc" x="654" y="296" width="222" height="46" rx="6"/>
-  <circle class="step" cx="674" cy="319" r="12"/>
-  <text class="t-step" x="674" y="323" text-anchor="middle">3</text>
-  <text class="t-h" x="696" y="316">kubearmor-vm-adapter</text>
-  <text class="t-s" x="696" y="332">Sends events, gets policies.</text>
-  <path class="ln-acc" d="M350 262 H262" marker-end="url(#mecsa)"/>
-  <text class="t-s" x="268" y="246">adapter ports</text>
-  <text class="t-s" x="268" y="258">32768 to 32771</text>
-  <path class="ln-acc" d="M135 130 V39 H330" marker-end="url(#mecsa)"/>
-  <text class="t-s" x="146" y="96">outbound to SaaS</text>
-  <rect class="p" x="600" y="402" width="310" height="38" rx="8"/>
-  <text class="t-mono" x="755" y="426" text-anchor="middle">socat - TCP:TASK_IP:1337</text>
-  <path class="ln" d="M755 402 V382" marker-end="url(#mecs)"/>
-  <text class="t-s" x="770" y="396">your test client</text>
+  <rect class="navy" x="250" y="0" width="260" height="64" rx="10"/>
+  <g class="ic-w" transform="translate(270 20) scale(1.0)"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6 9.6 4.2 4.2 0 0 0 7 18z"/></g>
+  <text class="wh" x="304" y="30">AccuKnox SaaS</text>
+  <text class="ws" x="304" y="49">Policies and alerts</text>
+  <rect class="card" x="0" y="150" width="180" height="160" rx="10"/>
+  <g class="ic" transform="translate(16 166) scale(1.0)"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><circle class="dot" cx="7" cy="7.5" r=".9"/><circle class="dot" cx="7" cy="16.5" r=".9"/></g>
+  <text class="b" x="48" y="184">Control plane</text>
+  <text class="s" x="16" y="214">EC2 or any VM</text>
+  <text class="s" x="16" y="230">with a public IP</text>
+  <rect class="navy" x="12" y="250" width="156" height="48" rx="8"/>
+  <g class="ic-w" transform="translate(22 262) scale(0.9)"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/></g>
+  <text class="wb" x="48" y="279">AccuKnox agents</text>
+  <rect class="panel" x="260" y="110" width="500" height="300" rx="10"/>
+  <g class="ic" transform="translate(276 124) scale(1.0)"><path d="M12 3 3.5 7.5v9L12 21l8.5-4.5v-9L12 3z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></g>
+  <text class="h" x="306" y="143">Amazon ECS on Fargate</text>
+  <rect class="card" x="276" y="166" width="224" height="226" rx="10"/>
+  <text class="b" x="292" y="194">Fargate task 1</text>
+  <rect class="row" x="292" y="212" width="192" height="38" rx="8"/>
+  <circle class="navy" cx="312" cy="231" r="10"/>
+  <text class="num" x="312" y="235" text-anchor="middle">1</text>
+  <text class="m" x="330" y="235">bluelock (init)</text>
+  <rect class="row" x="292" y="262" width="192" height="38" rx="8"/>
+  <circle class="navy" cx="312" cy="281" r="10"/>
+  <text class="num" x="312" y="285" text-anchor="middle">2</text>
+  <text class="m" x="330" y="285">armored-container</text>
+  <rect class="row" x="292" y="312" width="192" height="38" rx="8"/>
+  <circle class="navy" cx="312" cy="331" r="10"/>
+  <text class="num" x="312" y="335" text-anchor="middle">3</text>
+  <text class="m" x="330" y="335">kubearmor-vm-adapter</text>
+  <text class="s" x="292" y="376">Public IP, port 1337</text>
+  <rect class="card" x="520" y="166" width="224" height="226" rx="10"/>
+  <text class="b" x="536" y="194">Fargate task 2</text>
+  <rect class="row" x="536" y="212" width="192" height="38" rx="8"/>
+  <circle class="navy" cx="556" cy="231" r="10"/>
+  <text class="num" x="556" y="235" text-anchor="middle">1</text>
+  <text class="m" x="574" y="235">bluelock (init)</text>
+  <rect class="row" x="536" y="262" width="192" height="38" rx="8"/>
+  <circle class="navy" cx="556" cy="281" r="10"/>
+  <text class="num" x="556" y="285" text-anchor="middle">2</text>
+  <text class="m" x="574" y="285">armored-container</text>
+  <rect class="row" x="536" y="312" width="192" height="38" rx="8"/>
+  <circle class="navy" cx="556" cy="331" r="10"/>
+  <text class="num" x="556" y="335" text-anchor="middle">3</text>
+  <text class="m" x="574" y="335">kubearmor-vm-adapter</text>
+  <text class="s" x="536" y="376">Public IP, port 1337</text>
+  <path class="ln" d="M276 232 H184" marker-end="url(#bl-ecs)"/>
+  <text class="s" x="220" y="212" text-anchor="middle">32768-32771</text>
+  <path class="ln" d="M90 150 V32 H246" marker-end="url(#bl-ecs)"/>
+  <text class="s" x="102" y="100">outbound</text>
+  <rect class="card" x="470" y="446" width="250" height="34" rx="8"/>
+  <text class="m" x="595" y="468" text-anchor="middle">socat - TCP:TASK_IP:1337</text>
+  <path class="ln" d="M595 446 V414" marker-end="url(#bl-ecs)"/>
 </svg>
 </div>
 
 | Container | Role in the task |
 |---|---|
-| `bluelock` | Copies the `bluelock` binary into a shared volume, then exits |
-| `armored-container` | Runs your application behind `/kubearmor/bluelock`. The sample runs `socat` on port 1337 |
-| `kubearmor-vm-adapter` | Sends events to the control plane and receives policies from it |
+| `bluelock` | Copies the binary into a shared volume, then exits |
+| `armored-container` | Runs your app behind `/kubearmor/bluelock`. The sample runs `socat` on port 1337 |
+| `kubearmor-vm-adapter` | Sends events to the control plane and receives policies |
 
 ## Prerequisites
 
@@ -169,15 +136,15 @@ The control plane runs on an EC2 instance, or on any VM with a public IP, and `k
 
 ## Step 1. Get a Join Token From AccuKnox
 
-In the AccuKnox console, open Settings, then Manage Cluster, then Onboard. Select the cluster type VM and enter a cluster name. Copy the join token from the `knoxctl onboard vm cp-node` command.
+In AccuKnox, open Settings, then Manage Cluster, then Onboard. Select the cluster type VM, enter a name and copy the join token from the `knoxctl onboard vm cp-node` command.
 
 ![The AccuKnox Cluster Onboarding page with VM selected and the knoxctl onboard command that carries the join token](images/bluelock-ecs-fargate/join-token.png)
 
-Terraform runs that command for you on the new EC2 instance, so you only need the token. Keep the console page open to watch the cluster appear.
+Terraform runs that command on the new EC2 instance, so you only need the token.
 
 ## Step 2. Sign in to AWS and Public ECR
 
-Enter your Access Key ID and Secret Access Key when `aws configure` asks for them.
+Enter your Access Key ID and Secret Access Key.
 
 ```bash
 aws configure
@@ -191,7 +158,7 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 
 ## Step 3. Create the Base Infrastructure
 
-Clone the BlueLock repository and open the `base-infra` folder.
+Clone the repository and open `base-infra`.
 
 ```bash
 git clone https://github.com/accuknox/bluelock.git
@@ -205,12 +172,7 @@ terraform init
 terraform apply
 ```
 
-`terraform apply` asks for two values:
-
-- `join_token`: the token from Step 1.
-- `ssh_key_name`: the name of an existing EC2 key pair in `us-east-1`.
-
-You can also pass both values on the command line with `-var="join_token=<JOIN_TOKEN>"` and `-var="ssh_key_name=<KEY_PAIR_NAME>"`.
+`terraform apply` prompts for `join_token` (from Step 1) and `ssh_key_name` (an existing EC2 key pair in `us-east-1`). To skip the prompts, pass `-var="join_token=<JOIN_TOKEN>"` and `-var="ssh_key_name=<KEY_PAIR_NAME>"`.
 
 The script creates these resources in `us-east-1`:
 
@@ -224,13 +186,13 @@ The script creates these resources in `us-east-1`:
 | ECS | Cluster `bluelock-test` and task definition `worker-node` (256 CPU, 512 MB, X86_64 Linux) with the three containers |
 
 !!! warning "The security group is open to the internet"
-    `bluelock-sg` allows all inbound traffic from anywhere. Use it for testing only. In production, open only the ports that the agents need.
+    `bluelock-sg` allows all inbound traffic from anywhere. Use it for testing only. In production, open only the ports the agents need.
 
-The script onboards the control plane against `spire.demo.accuknox.com`, `pps.demo.accuknox.com` and `knox-gw.demo.accuknox.com:3000`. Change these values in `base-infra/main.tf` to onboard against a different environment.
+The script onboards against `spire.demo.accuknox.com`, `pps.demo.accuknox.com` and `knox-gw.demo.accuknox.com:3000`. Edit `base-infra/main.tf` to use another environment.
 
 ## Step 4. Deploy the Sample Service
 
-Open the `test-task` folder and run Terraform.
+Run Terraform in `test-task`.
 
 ```bash
 cd ../test-task
@@ -238,10 +200,10 @@ terraform init
 terraform apply
 ```
 
-Terraform creates the service `worker-test-service` on the `bluelock-test` cluster. The service runs 2 Fargate tasks in `bluelock-subnet` with `bluelock-sg` and assigns each task a public IP.
+Terraform creates the service `worker-test-service` on `bluelock-test`. It runs 2 Fargate tasks in `bluelock-subnet` with `bluelock-sg`, each with a public IP.
 
 ??? note "Set up manually instead of using Terraform"
-    Use this path when you cannot run the Terraform scripts. It replaces Steps 3 and 4. Create a VPC and a VM with a public IP first.
+    Replaces Steps 3 and 4. Create a VPC and a VM with a public IP first.
 
     **Control plane**
 
@@ -452,21 +414,21 @@ Terraform creates the service `worker-test-service` on the `bluelock-test` clust
 
 ## Step 5. Confirm the Nodes Appear in AccuKnox
 
-Check the task logs in CloudWatch first. The `armored-container` stream shows BlueLock starting `socat`.
+In CloudWatch, the `armored-container` stream shows BlueLock starting `socat`.
 
 ![CloudWatch log events for the armored-container, ending with the socat command that BlueLock runs](images/bluelock-ecs-fargate/armored-container-logs.png)
 
-The `kubearmor-vm-adapter` stream shows the adapter connecting to the control plane.
+The `kubearmor-vm-adapter` stream shows the connection to the control plane.
 
 ![CloudWatch log events for the kubearmor-vm-adapter, showing connections to the relay server and policy enforcement agent](images/bluelock-ecs-fargate/vm-adapter-logs.png)
 
-Open the cluster in AccuKnox and wait a few minutes. The cluster shows its nodes, workloads and namespaces.
+In AccuKnox, the cluster shows its nodes, workloads and namespaces after a few minutes.
 
 ![The AccuKnox cluster panel for the ECS cluster, showing 2 nodes, 11 workloads and 1 namespace](images/bluelock-ecs-fargate/saas-cluster-nodes.png)
 
 ## Step 6. Test Enforcement With a Block Policy
 
-1. Open the ECS console, select the `bluelock-test` cluster and the `worker-test-service` service, and copy the public IP of a task.
+1. In the ECS console, open `bluelock-test`, then `worker-test-service`, and copy a task's public IP.
 
 2. Connect to the task.
 
@@ -474,7 +436,7 @@ Open the cluster in AccuKnox and wait a few minutes. The cluster shows its nodes
     socat - TCP:<task-ip>:1337
     ```
 
-3. Run the following command. It succeeds, because no policy exists yet.
+3. Run this. It succeeds because no policy exists yet.
 
     ```bash
     ls /etc/ssl/certs
@@ -482,7 +444,7 @@ Open the cluster in AccuKnox and wait a few minutes. The cluster shows its nodes
 
     ![A terminal session that lists the files in /etc/ssl/certs](images/bluelock-ecs-fargate/socat-ls-allowed.png)
 
-4. In the AccuKnox console, open Runtime Protection, then Policies, and create the following policy. The file [`ksp-block-file-dir-recursive.yaml`](https://raw.githubusercontent.com/accuknox/bluelock/refs/heads/master/terraform/ksp-block-file-dir-recursive.yaml) in the BlueLock repository holds the same rules.
+4. In AccuKnox, open Runtime Protection, then Policies, and create this policy. [`ksp-block-file-dir-recursive.yaml`](https://raw.githubusercontent.com/accuknox/bluelock/refs/heads/master/terraform/ksp-block-file-dir-recursive.yaml) holds the same rules.
 
     ```yaml
     apiVersion: security.kubearmor.com/v1
@@ -514,11 +476,11 @@ Open the cluster in AccuKnox and wait a few minutes. The cluster shows its nodes
 
     ![The AccuKnox Policies page showing bluelock-test-policy with the status Active](images/bluelock-ecs-fargate/policy-activated.png)
 
-6. Check the CloudWatch logs. The `armored-container` stream reports that BlueLock detected the policy.
+6. In CloudWatch, the `armored-container` stream reports the policy.
 
     ![CloudWatch log events showing the line Detected a Container Security Policy for bluelock-test-policy](images/bluelock-ecs-fargate/policy-detected-cloudwatch.png)
 
-7. Run the same command in the `socat` session. It now fails.
+7. Run the command again. It now fails.
 
     ```bash
     ls /etc/ssl/certs
@@ -526,7 +488,7 @@ Open the cluster in AccuKnox and wait a few minutes. The cluster shows its nodes
 
     ![A terminal session where ls /etc/ssl/certs returns Permission denied](images/bluelock-ecs-fargate/socat-ls-denied.png)
 
-8. Open the alert in AccuKnox. The alert records the blocked `ls` call against `/etc/ssl/certs`.
+8. Open the alert in AccuKnox.
 
     ![The AccuKnox alert Credentials modification denied with action Block and result Permission Denied](images/bluelock-ecs-fargate/alert-credentials-denied.png)
 
@@ -565,11 +527,6 @@ Open the cluster in AccuKnox and wait a few minutes. The cluster shows its nodes
       "workload":"1"
     }
     ```
-
-## What This Test Proves
-
-- A policy you apply in AccuKnox reaches the Fargate tasks and enforces on them.
-- The block raises an alert that you can read in AccuKnox.
 
 ## Step 7. Destroy the Test Environment When You Finish
 
