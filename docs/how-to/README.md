@@ -11,6 +11,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [RINC.md](RINC.md) | Introduction to RINC (short for Runtime Insights and Network Controls) and how to get started with its features on AccuKnox SaaS. |
 | [acr.md](acr.md) | Instructions for onboarding Azure Container Registry (ACR) to AccuKnox SaaS for image scanning and vulnerability detection. |
 | [administrators-guide.md](administrators-guide.md) | Step-by-step guidance for AccuKnox administrators covering onboarding, deployment, configuration, and task-oriented references for managing the platform. |
+| [agent-identities.md](agent-identities.md) | Give each coding agent on your machine its own identity in AgentZ. Add Claude Code or Codex as an external agent, choose its models, sign in, and see its act... |
 | [ai-pentesting.md](ai-pentesting.md) | Run an autonomous AI pentest against your web apps and APIs with the AccuKnox AI Dast Scan collector, powered by AgentZ. Set targets, scan depth, login and t... |
 | [aiml-aws-onboard.md](aiml-aws-onboard.md) | Onboard an AWS Organization to AccuKnox AI Security with one CloudFormation stack that deploys a read-only IAM role to the Management Account and to member a... |
 | [aiml-aws-standalone-onboard.md](aiml-aws-standalone-onboard.md) | Connect a standalone AWS account to AccuKnox AI Security for AI/ML asset discovery and security assessment, using access keys that a Terraform script creates. |
@@ -75,6 +76,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [llm-static-scan.md](llm-static-scan.md) | Learn how to perform LLM Static Scans using AccuKnox for OpenAI, Ollama and Custom Large Language Models. |
 | [ml-static-scan.md](ml-static-scan.md) | Learn how to perform ML Model Static Scans using AccuKnox for GitHub and Hugging Face repositories to secure your machine learning models. |
 | [model-scan-cicd.md](model-scan-cicd.md) | Wire the AccuKnox pre-deployment model scan into CI/CD so a public model reaches your registry only after a sandboxed scan and a SecOps approval on the pull... |
+| [openshift-onboarding.md](openshift-onboarding.md) | Onboard a Red Hat OpenShift cluster to AccuKnox CWPP and KSPM from a private registry. Create the KubeArmor SCC, grant SCCs to the agent service accounts, an... |
 | [oracle-onboarding.md](oracle-onboarding.md) | Step-by-step guide to configure and onboard your Oracle Cloud Infrastructure (OCI) account to AccuKnox. |
 | [playbook-aspm.md](playbook-aspm.md) | ASPM playbook explaining how to secure application development and deployment processes using AccuKnox’s zero trust CNAPP framework. |
 | [playbook-cspm.md](playbook-cspm.md) | CSPM playbook providing guidelines on securing cloud infrastructure and identifying misconfigurations with AccuKnox’s zero trust model. |
