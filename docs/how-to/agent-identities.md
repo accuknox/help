@@ -107,7 +107,7 @@ agentz launch codex --profile '<agent-name>' --
 
 For Claude Code, run the command shown in your **Setup** tab.
 
-![Terminal after the launch command with the sign-in line marked and the link hidden](images/agent-identities/06-launch.png)
+![Terminal after the launch command, with the launch command marked and the sign-in link hidden](images/agent-identities/06-launch.png)
 
 The terminal prints a sign-in link. Open it in your browser.
 
@@ -131,7 +131,7 @@ The agent starts on its default model. To use a model you approved:
 
 Codex confirms the change, and the status line shows the new model.
 
-![Codex confirming the model change, with the status line marked](images/agent-identities/09-model-changed.png)
+![Codex confirming the model change](images/agent-identities/09-model-changed.png)
 
 ## Add MCP Tools (Optional)
 
