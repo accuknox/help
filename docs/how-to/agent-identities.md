@@ -1,34 +1,40 @@
 ---
-title: Set Up Agent Identities for Coding Agents
-description: Give each coding agent on your machine its own identity in AgentZ. Add Claude Code or Codex as an external agent, choose its models, sign in, and see its activity in Lens traces.
+title: Secure Claude Code and Codex With Agent Identities
+description: Give Claude Code and Codex their own identity in AgentZ so you can name each agent, limit the models it can use, trace its activity and revoke its access.
 ---
 
-# Set Up Agent Identities for Coding Agents
+# Secure Claude Code and Codex With Agent Identities
 
-Add your coding agent as an **external agent** in AgentZ. The agent gets its own named identity, uses only the models you approve, and writes its activity to Lens traces. You set it up on one machine at a time.
+Claude Code and Codex run on a developer's machine with that developer's own login. Nobody can tell which agent made a call, limit what it uses, or revoke it on its own. An **agent identity** in AgentZ fixes that.
+
+Add each agent as an **external agent**. It gets its own name, uses only the models you approve, writes its activity to Lens traces, and loses access when you disconnect it. You set it up on one machine at a time.
 
 This guide covers two coding agents: **Claude Code** and **Codex**. The screens below show Codex.
 
-<video controls preload="none" style="display: block; width: 100%; max-width: 100%; height: auto; margin: 1em 0; border-radius: 4px;" poster="../images/agent-identities/AccuKnox_Agent_Identities_Walkthrough.jpg">
+<video controls preload="none" width="100%" poster="../images/agent-identities/AccuKnox_Agent_Identities_Walkthrough.jpg">
   <source src="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4" type="video/mp4">
   Your browser does not support embedded video. <a href="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4">Download the Agent Identities walkthrough video</a> instead.
 </video>
 
 The video above walks through the same steps in about 2 minutes. The steps below follow it.
 
-## Why Give a Coding Agent Its Own Identity
+## Shared Logins Leave Coding Agents Unaccountable
 
-Coding agents run on a laptop with the developer's own login. That setup has three gaps.
+A coding agent that borrows its owner's login has three security gaps.
 
-- **No name.** Nobody can tell which agent made a call.
-- **No limit.** The agent uses whatever model and credentials its owner has.
-- **No record.** There is no trace of what the agent did.
+- **No attribution.** A call made by an agent looks like a call made by its owner.
+- **No boundary.** The agent can use any model its owner can use.
+- **No audit trail.** There is no record of what the agent did.
 
-An agent identity closes each gap.
+Agent identities add a control for each gap.
 
-- **Named.** Each agent has its own name, such as `work-laptop`.
-- **Scoped.** You pick the models the agent may use when you approve its sign-in. You can disconnect it at any time.
-- **Traced.** Its activity appears in **Lens > Traces**.
+| Gap | Control | Where you see it |
+|---|---|---|
+| No attribution | Each agent has its own name, such as `work-laptop` | **Workspace settings > External agents** |
+| No boundary | You approve the models the agent may use when it signs in | **Approved access** column |
+| No audit trail | The agent's activity is written to traces | **Lens > Traces** |
+
+Access also has an end. The sign-in page says the agent keeps access while you are away, until you disconnect it. You can disconnect it at any time.
 
 ## Prepare One Machine and One Workspace
 
@@ -146,6 +152,8 @@ Skip this step if you only need models.
 
 The traces list shows what that agent did.
 
-## Disconnect an Agent at Any Time
+## Revoke an Agent's Access When You Stop Using It
 
-Go to **Workspace settings > External agents** and open the agent. Its **Access** tab shows what the agent can use. The authorize page confirms you can disconnect an agent from this page at any time.
+An authorized agent keeps its access until you disconnect it. Go to **Workspace settings > External agents** and open the agent. Its **Access** tab shows what the agent can use. The sign-in page confirms you can disconnect an agent from this page at any time.
+
+Review the **Approved access** column now and then. Disconnect any agent you no longer use.
