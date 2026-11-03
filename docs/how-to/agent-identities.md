@@ -1,9 +1,9 @@
 ---
-title: Connect Claude Code and Codex With Agent Identities
+title: Set Up Agent Identities for Coding Agents
 description: Give each coding agent on your machine its own identity in AgentZ. Add Claude Code or Codex as an external agent, choose its models, sign in, and see its activity in Lens traces.
 ---
 
-# Connect Claude Code and Codex With Agent Identities
+# Set Up Agent Identities for Coding Agents
 
 Add your coding agent as an **external agent** in AgentZ. The agent gets its own named identity, uses only the models you approve, and writes its activity to Lens traces. You set it up on one machine at a time.
 
@@ -42,15 +42,9 @@ Install on one endpoint first. Add more machines after the first one works.
 
 ### 1. Open External Agents
 
-In your workspace, go to **Workspace settings > External agents**.
-
-![Workspace settings sidebar with External agents highlighted](images/agent-identities/01-open-external-agents.png)
-
-Click **Add agent**.
+In your workspace, go to **Workspace settings > External agents**, then click **Add agent**. The left side of the image in step 2 marks this menu item.
 
 ### 2. Pick the Agent and Name It
-
-![Add external agent panel with the agent type, name and Add agent button marked](images/agent-identities/02-add-external-agent.png)
 
 1. Open the **Agent** list and select **Claude Code** or **Codex**.
 2. Enter a **Name**. Use something that tells you which machine it is, such as `work-laptop`.
@@ -58,15 +52,17 @@ Click **Add agent**.
 
 A setup panel opens with the steps for the agent you picked.
 
+![External agents menu item on the left, and the Add external agent panel with the agent type, name and Add agent button marked on the right](images/agent-identities/step-1-2-add-agent.png)
+
 ### 3. Install the AgentZ CLI
 
-![Setup tab with the Download CLI button, the config block and the launch command marked](images/agent-identities/03-setup-tab.png)
+The image below covers steps 3 to 5. On the left is the **Setup** tab. On the right are the release assets, the config file and the launch command.
+
+![Setup tab on the left. On the right, the GitHub release assets, the pasted config file and the terminal after the launch command](images/agent-identities/step-3-5-setup-install-config-launch.png)
 
 In the **Setup** tab, click **Download CLI**. This opens the latest AgentZ release on GitHub.
 
 Under **Assets**, download the archive for your system. There is one for macOS, Linux and Windows, each in amd64 and arm64.
-
-![GitHub release assets with the per-system CLI archives marked](images/agent-identities/04-download-cli.png)
 
 Unpack the archive and put the `agentz` binary on your `PATH`. Then check it:
 
@@ -90,8 +86,6 @@ Setup step 2 shows a config block for your agent. Pick your system tab (**Linux*
 2. Click the copy icon next to the config block and paste it into the file.
 3. Save the file.
 
-![Config file in an editor with the pasted externalAgents entry](images/agent-identities/05-config-file.png)
-
 The entry looks like this. Your panel fills in the real values.
 
 ```yaml
@@ -114,14 +108,10 @@ agentz launch codex --profile '<agent-name>' --
 
 For Claude Code, run the command shown in your **Setup** tab.
 
-![Terminal after the launch command, with the launch command marked and the sign-in link hidden](images/agent-identities/06-launch.png)
-
 The terminal prints a sign-in link. Open it in your browser.
 
 1. Open the **Models** list and tick the models this agent may use.
 2. Click **Authorize**.
-
-![Authorize page with the Models list and the Authorize button marked](images/agent-identities/07-authorize.png)
 
 The page lists what the agent can read: your name, profile image and email. It also says you can disconnect the agent at any time in **Workspace settings > External agents**.
 
@@ -134,11 +124,9 @@ The agent starts on its default model. To use a model you approved:
 1. Type `/model` in Codex.
 2. Pick one of the approved models and a reasoning level.
 
-![Codex slash menu with the model command marked](images/agent-identities/08-model-menu.png)
-
 Codex confirms the change, and the status line shows the new model.
 
-![Codex confirming the model change](images/agent-identities/09-model-changed.png)
+![Authorize page with the Models list and Authorize button on the left, and Codex confirming the model change on the right](images/agent-identities/step-5-authorize-and-model.png)
 
 ## Add MCP Tools (Optional)
 
