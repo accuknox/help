@@ -1,15 +1,15 @@
 ---
-title: Secure Claude Code and Codex With Agent Identities
-description: Give Claude Code and Codex their own identity in AgentZ so you can name each agent, limit the models it can use, trace its activity and revoke its access.
+title: Secure Coding Agents With Agent Identities
+description: Give each coding agent its own identity in AgentZ so you can name it, limit the models it can use, trace its activity and revoke its access. Claude Code and Codex are supported today.
 ---
 
-# Secure Claude Code and Codex With Agent Identities
+# Secure Coding Agents With Agent Identities
 
-Claude Code and Codex run on a developer's machine with that developer's own login. Nobody can tell which agent made a call, limit what it uses, or revoke it on its own. An **agent identity** in AgentZ fixes that.
+Coding agents such as Claude Code and Codex run on a developer's machine with that developer's own login. Nobody can tell which agent made a call, limit what it uses, or revoke it on its own. An **agent identity** in AgentZ fixes that.
 
 Add each agent as an **external agent**. It gets its own name, uses only the models you approve, writes its activity to Lens traces, and loses access when you disconnect it. You set it up on one machine at a time.
 
-This guide covers two coding agents: **Claude Code** and **Codex**. The screens below show Codex.
+AgentZ supports **Claude Code** and **Codex** today. The screens below show Codex.
 
 <video controls preload="none" width="100%" poster="../images/agent-identities/AccuKnox_Agent_Identities_Walkthrough.jpg">
   <source src="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4" type="video/mp4">
