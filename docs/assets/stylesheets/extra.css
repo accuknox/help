@@ -129,3 +129,9 @@ body .gist .gist-meta {
     max-height: 100%;
   }
 }
+
+/* Keep the hover permalink on page titles from wrapping onto its own line and
+   adding a blank line under a long H1. */
+.md-typeset h1 .headerlink {
+    position: absolute;
+}

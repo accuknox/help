@@ -426,6 +426,7 @@ nav:
     - "Findings Lifecycle": "how-to/findings-lifecycle.md"
     - "AI Security":
       - "Overview": "integrations/ai-overview.md"
+      - "Agent Identities": "how-to/agent-identities.md"
       - "AI Gateway Method":
         - "Azure APIM": "getting-started/azure-ai-foundry.md"
         - "AWS API Gateway": "how-to/aws-apim.md"
