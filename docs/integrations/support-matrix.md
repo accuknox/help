@@ -1,6 +1,6 @@
 ---
 title: Integration Support Matrix
-description: Every tool AccuKnox connects to, grouped by category, including the MCP catalog, inference providers, SIEM destinations, and SaaS platforms.
+description: Every tool AccuKnox connects to, grouped by category, including the MCP catalog, inference providers, Shadow AI tools, SIEM destinations, and SaaS platforms.
 hide:
   - toc
 ---
@@ -14,6 +14,7 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
 <div class="ak-int-stats">
   <div class="ak-int-stat"><b>174</b><span>MCP servers in the catalog, plus any MCP-compliant server you point us at</span></div>
   <div class="ak-int-stat"><b>158</b><span>inference providers, plus any OpenAI or Anthropic compatible endpoint</span></div>
+  <div class="ak-int-stat"><b>50</b><span>AI tools that Shadow AI Discovery finds and lists in the inventory</span></div>
   <div class="ak-int-stat"><b>Any</b><span>SIEM that accepts rsyslog, syslog, CEF, or a webhook</span></div>
   <div class="ak-int-stat"><b>130+</b><span>step-by-step integration guides in this section</span></div>
 </div>
@@ -26,7 +27,7 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
     QRadar has its own guide below, and Securonix needed no new work because it reads the
     same syslog stream.
 
-## Browse by category
+## Browse by Category
 
 === "MCP Servers"
 
@@ -111,6 +112,15 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
 
         <p class="ak-int-list">302.AI · Abacus · abliteration.ai · AIHubMix · Alibaba · Alibaba (China) · Alibaba Coding Plan · Alibaba Coding Plan (China) · Alibaba Token Plan · Alibaba Token Plan (China) · Amazon Bedrock · Ambient · Anthropic · AnyAPI · Atomic Chat · Auriko · Azure · Azure Cognitive Services · Bailing · Baseten · Berget.AI · Cerebras · Chutes · Clarifai · Claudinio · CloudFerro Sherlock · Cloudflare AI Gateway · Cloudflare Workers AI · Cohere · Cortecs · CrofAI · CrossModel · D.Run (China) · Databricks · Deep Infra · DeepSeek · DigitalOcean · DInference · EmpirioLabs AI · evroc · FastRouter · Fireworks AI · FreeModel · Friendli · FrogBot · GitHub Copilot · GitHub Models · GMI Cloud · Google · Groq · Helicone · HPC-AI · Hugging Face · iFlow · Inception · Inceptron · Inference · InferX · IO.NET · Jiekou.AI · Kenari · Kilo Gateway · Kimi For Coding · KUAE Cloud Coding Plan · Lilac · Llama · LLM Gateway · LLMTR · LMStudio · LongCat · LucidQuery · Meganova · Merge Gateway · Meta · MiniMax (minimax.io) · MiniMax (minimaxi.com) · MiniMax Token Plan (minimax.io) · MiniMax Token Plan (minimaxi.com) · Mistral · Mixlayer · Moark · Model Oracle AI · ModelScope · Moonshot AI · Moonshot AI (China) · Morph · NanoGPT · NEAR AI Cloud · Nebius Token Factory · Neon · Neuralwatt · Nova · NovitaAI · Nvidia · Ollama Cloud · OpenAI · OpenAI Codex · OpenCode Go · OpenCode Zen · OpenRouter · OrcaRouter · OVHcloud AI Endpoints · Perplexity · Perplexity Agent · Pioneer · Poe · Poolside · Privatemode AI · QiHang · Qiniu · Regolo AI · Requesty · routing.run · Sakana AI · Sarvam AI · Scaleway · SiliconFlow · SiliconFlow (China) · Snowflake Cortex · STACKIT · StepFun · StepFun AI · Subconscious · submodel · Synthetic · Tencent Coding Plan (China) · Tencent Token Plan · Tencent TokenHub · The Grid AI · Tinfoil · Together AI · TrustedRouter · Umans AI · Umans AI Coding Plan · UnoRouter · Upstage · v0 · Venice AI · Vercel AI Gateway · Vertex · Vertex (Anthropic) · Vivgrid · Vultr · Wafer · Weights & Biases · xAI · Xiaomi · Xiaomi Token Plan (China) · Xiaomi Token Plan (Europe) · Xiaomi Token Plan (Singapore) · Xpersona · Z.AI · Z.AI Coding Plan · Zeldoc · Zenifra · ZenMux · Zhipu AI · Zhipu AI Coding Plan</p>
 
+=== "Shadow AI Discovery"
+
+    [Shadow AI Discovery](../use-cases/shadow-ai-discovery.md) supports these 50 AI tools,
+    and all 50 are live. Each tool appears under **AI/ML Security → Assets → Unmanaged**
+    with its parent asset. Coverage depends on the operating system, the Omni version and
+    the evidence the install leaves on disk.
+
+    --8<-- "docs/.snippets/shadow-ai-tools.html"
+
 === "SIEM and Security Events"
 
     These destinations have their own setup guide. Click a tile to open it.
@@ -192,7 +202,7 @@ emits SARIF and any server that speaks MCP. This page puts the whole surface in 
     Custom ticket fields and payloads are covered in the
     [ticket template guide](ticket-template.md).
 
-## Related pages
+## Related Pages
 
 [Integrations index](index.md) lists every category with its own overview page.
 [Support Matrix](../support-matrix/index.md) covers version and platform compatibility for

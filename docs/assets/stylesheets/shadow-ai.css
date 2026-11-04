@@ -139,3 +139,54 @@
   line-height: 1.6;
   white-space: nowrap;
 }
+
+/* --- Tool group label above each logo grid --------------------------- */
+
+.md-typeset p.sai-group {
+  margin: 1.4rem 0 0;
+  color: var(--sai-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.md-typeset p.sai-group span {
+  margin-left: 0.25rem;
+  color: var(--sai-mute);
+  font-weight: 400;
+}
+
+.md-typeset p.sai-group + .ak-int-grid {
+  margin-top: 0.6rem;
+}
+
+/* A compact logo grid, so 50 tools fit without a long scroll. */
+.md-typeset p.sai-group + .ak-int-grid {
+  grid-template-columns: repeat(auto-fill, minmax(5.2rem, 1fr));
+  gap: 0.4rem;
+}
+
+.md-typeset p.sai-group + .ak-int-grid .ak-int-tile {
+  gap: 0.3rem;
+  padding: 0.5rem 0.25rem 0.4rem;
+}
+
+.md-typeset p.sai-group + .ak-int-grid .ak-int-tile img {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.15rem;
+}
+
+.md-typeset p.sai-group + .ak-int-grid .ak-int-tile small {
+  font-size: 0.6rem;
+}
+
+/* Smaller headings on the Shadow AI use-case page only. */
+.md-typeset:has(.sai-page) h2 {
+  margin-top: 2.2em;
+  font-size: 1.15rem;
+}
+
+.md-typeset:has(.sai-page) h3 {
+  margin-top: 1.8em;
+  font-size: 0.95rem;
+}
