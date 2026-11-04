@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 584" width="1000" height="584" role="img" aria-label="Cloud discovery flow: a read-only API connection to the cloud account drives asset discovery, which produces asset metadata, a connectivity overview, and a pipeline view.">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7b96"/>
+    </marker>
+    <style>
+      .bx    { stroke-width: 1.6; }
+      .src   { fill: #eef1f6; stroke: #c2cad6; }
+      .step  { fill: #eaf1ff; stroke: #a7c2f6; }
+      .out   { fill: #f1edff; stroke: #c2b6f2; }
+      .t     { font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 19px; fill: #10254f; }
+      .s     { font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14.5px; fill: #5d6d8b; }
+      .to    { fill: #2c1a72; }
+      .so    { fill: #6a5fa0; }
+      .ln    { stroke: #6b7b96; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="584" fill="#ffffff"/>
+
+  <!-- Cloud account -->
+  <rect class="bx src" rx="12" x="330" y="34" width="340" height="76"/>
+  <text class="t" x="500" y="66" text-anchor="middle">Cloud account</text>
+  <text class="s" x="500" y="90" text-anchor="middle">An onboarded AWS, Azure, or GCP account</text>
+
+  <path class="ln" d="M 500 110 L 500 152" marker-end="url(#arw)"/>
+
+  <!-- Read only API -->
+  <rect class="bx step" rx="12" x="330" y="158" width="340" height="76"/>
+  <text class="t" x="500" y="190" text-anchor="middle">Read-only API connection</text>
+  <text class="s" x="500" y="214" text-anchor="middle">Agentless onboarding, no workload changes</text>
+
+  <path class="ln" d="M 500 234 L 500 276" marker-end="url(#arw)"/>
+
+  <!-- Asset discovery -->
+  <rect class="bx step" rx="12" x="330" y="282" width="340" height="76"/>
+  <text class="t" x="500" y="314" text-anchor="middle">Asset discovery</text>
+  <text class="s" x="500" y="338" text-anchor="middle">Enumerate cloud AI assets automatically</text>
+
+  <!-- fan out bus -->
+  <path class="ln" d="M 500 358 L 500 400 M 185 400 L 815 400 M 185 400 L 185 434 M 500 400 L 500 434 M 815 400 L 815 434"/>
+  <path class="ln" d="M 185 420 L 185 440" marker-end="url(#arw)"/>
+  <path class="ln" d="M 500 420 L 500 440" marker-end="url(#arw)"/>
+  <path class="ln" d="M 815 420 L 815 440" marker-end="url(#arw)"/>
+
+  <!-- outputs -->
+  <rect class="bx out" rx="12" x="40" y="446" width="290" height="100"/>
+  <text class="t to" x="185" y="484" text-anchor="middle">Asset metadata</text>
+  <text class="s so" x="185" y="508" text-anchor="middle">What the asset is</text>
+  <text class="s so" x="185" y="528" text-anchor="middle">and where it runs</text>
+
+  <rect class="bx out" rx="12" x="355" y="446" width="290" height="100"/>
+  <text class="t to" x="500" y="484" text-anchor="middle">Connectivity overview</text>
+  <text class="s so" x="500" y="508" text-anchor="middle">Inbound paths</text>
+  <text class="s so" x="500" y="528" text-anchor="middle">and exposure</text>
+
+  <rect class="bx out" rx="12" x="670" y="446" width="290" height="100"/>
+  <text class="t to" x="815" y="484" text-anchor="middle">Pipeline view</text>
+  <text class="s so" x="815" y="508" text-anchor="middle">How AI assets connect</text>
+  <text class="s so" x="815" y="528" text-anchor="middle">across services</text>
+</svg>

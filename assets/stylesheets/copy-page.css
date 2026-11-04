@@ -1,0 +1,150 @@
+/* Copy page split-button — sits above the H1 on every article. */
+
+/* Primary home is the top of the right-hand TOC sidebar, above "Table of
+   contents" — fully outside the content flow, so it can never squeeze a
+   heading. This row is the fallback used when that sidebar is absent
+   (`hide: toc`) or hidden by breakpoint: its own line above the H1, pushed
+   right, with the heading deliberately NOT in it so long titles keep the full
+   content width. */
+.ak-copy-page-row {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 0.5rem;
+}
+
+/* Sidebar placement: sit flush in the TOC column and read as part of it. */
+.ak-copy-page-row--sidebar {
+  display: block;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ak-copy-page--sidebar {
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+
+/* Let the label take the slack so the caret pins to the right edge of the
+   TOC column instead of leaving a ragged gap. */
+.ak-copy-page--sidebar .ak-copy-page__main {
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.ak-copy-page--sidebar .ak-copy-page__caret {
+  flex: 0 0 auto;
+}
+
+/* Fixed-positioned by JS in sidebar mode, so drop the anchored offsets. */
+.ak-copy-page--sidebar .ak-copy-page__menu {
+  right: auto;
+  bottom: auto;
+}
+
+.ak-copy-page {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin: 0.2rem 0 0;
+  font-family: var(--md-text-font-family, inherit);
+  font-size: 0.75rem;
+}
+
+.ak-copy-page__main,
+.ak-copy-page__caret {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.ak-copy-page__main {
+  border-radius: 0.35rem 0 0 0.35rem;
+  border-right: none;
+}
+
+.ak-copy-page__caret {
+  border-radius: 0 0.35rem 0.35rem 0;
+  padding: 0.4rem 0.5rem;
+}
+
+.ak-copy-page__main:hover,
+.ak-copy-page__caret:hover {
+  background: var(--md-default-fg-color--lightest);
+  border-color: var(--md-default-fg-color--lighter);
+}
+
+.ak-copy-page__icon {
+  flex-shrink: 0;
+}
+
+.ak-copy-page__menu {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  right: 0;
+  min-width: 17rem;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.15);
+  z-index: 50;
+  padding: 0.3rem;
+}
+
+.ak-copy-page__menu[hidden] {
+  display: none;
+}
+
+.ak-copy-page__menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: var(--md-default-fg-color);
+  font-family: inherit;
+}
+
+.ak-copy-page__menu button:hover {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.ak-copy-page__menu-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.ak-copy-page__menu-desc {
+  font-size: 0.68rem;
+  color: var(--md-default-fg-color--light);
+  line-height: 1.3;
+}
+
+.ak-copy-page__ext {
+  font-weight: 400;
+  opacity: 0.6;
+  margin-left: 0.15rem;
+}
+
+/* On narrow viewports let the button drop below the title instead of squeezing it */
+@media screen and (max-width: 600px) {
+  .ak-copy-page-row {
+    flex-wrap: wrap;
+  }
+  .ak-copy-page {
+    margin: 0 0 0.5rem;
+  }
+}

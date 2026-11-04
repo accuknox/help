@@ -1,0 +1,27 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: allow-specific-process
+  namespace: default
+spec:
+  action: Allow
+  file:
+    matchDirectories:
+      - dir: /
+        recursive: true
+  process:
+    matchPaths:
+      - path: /bin/bash
+      - fromSource:
+          - path: /bin/dash
+        path: /bin/ping
+      - fromSource:
+          - path: /usr/sbin/apache2
+        path: /bin/sh
+      - path: /usr/sbin/apache2
+  selector:
+    matchLabels:
+      app: dvwa-web
+      tier: frontend
+  severity: 1
+

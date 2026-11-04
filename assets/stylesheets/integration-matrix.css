@@ -1,0 +1,101 @@
+/* Integration Support Matrix (docs/integrations/support-matrix.md)
+   Everything is scoped under .ak-int-* so it cannot bleed into other pages. */
+
+/* --- Counter strip ------------------------------------------------------- */
+
+.ak-int-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 40vw, 200px), 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.ak-int-stat {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.6rem;
+  padding: 1rem 1.1rem;
+  background: var(--md-default-bg-color);
+}
+
+.ak-int-stat b {
+  display: block;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #005bff;
+}
+
+[data-md-color-scheme="slate"] .ak-int-stat b {
+  color: #6aa5ff;
+}
+
+.ak-int-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Logo grid ----------------------------------------------------------- */
+
+.ak-int-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(96px, 26vw, 122px), 1fr));
+  gap: 0.6rem;
+  margin: 1.1rem 0 1.4rem;
+}
+
+.ak-int-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.85rem 0.4rem 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.6rem;
+  background: var(--md-default-bg-color);
+  transition: border-color 120ms ease, transform 120ms ease;
+}
+
+.ak-int-tile:hover {
+  border-color: #005bff;
+  transform: translateY(-2px);
+}
+
+/* Logos are brand marks, many of them dark ink. A near-white puck keeps every
+   mark legible in both colour schemes without per-icon overrides. */
+.ak-int-tile img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  padding: 0.3rem;
+  box-sizing: content-box;
+  border-radius: 0.4rem;
+  background: #fff;
+}
+
+/* A few brands publish only a wordmark, which would shrink to an unreadable
+   sliver inside a square puck. Give those a wider puck instead. */
+.ak-int-tile img.ak-int-wide {
+  width: 4.4rem;
+  height: 2rem;
+  padding: 0.3rem 0.4rem;
+}
+
+.ak-int-tile small {
+  font-size: 0.66rem;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --- Full catalogue lists ------------------------------------------------ */
+
+.ak-int-list {
+  font-size: 0.68rem;
+  line-height: 1.9;
+  color: var(--md-default-fg-color--light);
+  word-spacing: 0.05em;
+}

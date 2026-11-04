@@ -1,0 +1,20 @@
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M24.6609 20.3746L24.6525 42.0597L29.8666 42.0597M30.5183 6.21327C33.7579 9.45285 33.7579 14.7052 30.5183 17.9448C27.2787 21.1845 22.0263 21.1844 18.7868 17.9448C15.5472 14.7053 15.5471 9.45288 18.7868 6.21327C22.0264 2.97366 27.2788 2.97368 30.5183 6.21327Z" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 28L8 28L8 23" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 35L8 35L8 40" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29 28L42 28L42 23" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29 35L42 35L42 40" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="3" cy="3" r="3" transform="matrix(-4.37114e-08 1 1 4.37114e-08 5 17)" stroke="white" stroke-width="5"/>
+<circle cx="8" cy="43" r="3" transform="rotate(-90 8 43)" stroke="white" stroke-width="5"/>
+<circle cx="42" cy="20" r="3" transform="rotate(90 42 20)" stroke="white" stroke-width="5"/>
+<circle cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 45 46)" stroke="white" stroke-width="5"/>
+<path d="M24.6609 20.3746L24.6525 42.0597L29.8666 42.0597M30.5183 6.21327C33.7579 9.45285 33.7579 14.7052 30.5183 17.9448C27.2787 21.1845 22.0263 21.1844 18.7868 17.9448C15.5472 14.7053 15.5471 9.45288 18.7868 6.21327C22.0264 2.97366 27.2788 2.97368 30.5183 6.21327Z" stroke="#000025" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 28L8 28L8 23" stroke="#000025" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21 35L8 35L8 40" stroke="#000025" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29 28L42 28L42 23" stroke="#000025" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29 35L42 35L42 40" stroke="#000025" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="3" cy="3" r="3" transform="matrix(-4.37114e-08 1 1 4.37114e-08 5 17)" stroke="#000025" stroke-width="3"/>
+<circle cx="8" cy="43" r="3" transform="rotate(-90 8 43)" stroke="#000025" stroke-width="3"/>
+<circle cx="42" cy="20" r="3" transform="rotate(90 42 20)" stroke="#000025" stroke-width="3"/>
+<circle cx="3" cy="3" r="3" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 45 46)" stroke="#000025" stroke-width="3"/>
+</svg>

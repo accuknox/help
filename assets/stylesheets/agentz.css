@@ -1,0 +1,325 @@
+/* ==========================================================================
+   AgentZ page styles + the "New" badge on the AgentZ nav entry.
+
+   Page styles are scoped under .az-page, so nothing here can leak into the
+   rest of the site. The page hides both navigation and toc in its front
+   matter, and the :has() rules below widen the content column to match.
+   ========================================================================== */
+
+:root {
+  --az-ink: #000028;
+  --az-violet: #6464ff;
+  --az-cyan: #35ccfc;
+  --az-radius: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Full width. Material centres the content column at a fixed max width even
+   with both sidebars hidden, so the page stays narrow without this.
+   -------------------------------------------------------------------------- */
+
+.md-main__inner:has(.az-page) {
+  max-width: 100%;
+  margin-top: 0;
+}
+
+.md-main__inner:has(.az-page) .md-content {
+  max-width: 100%;
+}
+
+.md-main__inner:has(.az-page) .md-content__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 3rem;
+}
+
+/* The hero already names the product, so the h1 is there for search only. */
+.md-typeset .az-page > h1 {
+  display: none;
+}
+
+.md-typeset .az-page > h2 {
+  margin: 2.4rem 0 0.2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset .az-page > p {
+  max-width: 78ch;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Hero. Flat panel, no gradient.
+   -------------------------------------------------------------------------- */
+
+.az-hero {
+  margin: 0 0 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid #1d2154;
+  border-radius: var(--az-radius);
+  background: var(--az-ink);
+  color: #fff;
+}
+
+.az-hero__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.az-hero__mark {
+  width: clamp(40px, 7vw, 52px);
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.az-hero__name {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.az-hero__say {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid #2c3170;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--az-cyan);
+}
+
+.md-typeset .az-hero__tagline {
+  max-width: 40ch;
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.md-typeset .az-hero__sub {
+  max-width: 64ch;
+  margin: 0 0 1.3rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #b9bede;
+}
+
+.az-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.md-typeset .az-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.md-typeset .az-btn--solid {
+  background: var(--az-cyan);
+  color: #001028;
+}
+
+.md-typeset .az-btn--solid:hover {
+  background: #6fdcff;
+}
+
+.md-typeset .az-btn--ghost {
+  border: 1px solid #2c3170;
+  color: #fff;
+}
+
+.md-typeset .az-btn--ghost:hover {
+  border-color: var(--az-cyan);
+  background: #171b48;
+}
+
+.az-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   Card grids
+   -------------------------------------------------------------------------- */
+
+.az-grid {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.az-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.az-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.az-card {
+  padding: 0.95rem 1rem 1.05rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 3px solid var(--az-violet);
+  border-radius: var(--az-radius);
+  background: var(--md-default-bg-color);
+}
+
+.az-card__step {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--az-violet);
+}
+
+.md-typeset .az-card__title {
+  margin: 0 0 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset .az-card__body {
+  max-width: none;
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
+}
+
+/* --------------------------------------------------------------------------
+   Slide gallery. Three across, and each slide carries its own headline, so
+   there is no caption strip.
+   -------------------------------------------------------------------------- */
+
+.az-shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.az-shot {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--az-radius);
+  overflow: hidden;
+}
+
+.md-typeset .az-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Logo strip. The tiles stay white in both colour schemes, because several
+   vendor marks are near black and vanish on a dark background.
+   -------------------------------------------------------------------------- */
+
+.az-logos {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.65rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.az-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.9rem 0.5rem;
+  border: 1px solid rgba(0, 0, 40, 0.14);
+  border-radius: var(--az-radius);
+  background: #fff;
+}
+
+.md-typeset .az-logo img {
+  width: auto;
+  height: 26px;
+  margin: 0;
+}
+
+.az-logo span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #33334d;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Narrow screens
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 1000px) {
+  .az-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .az-logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .az-grid--3,
+  .az-grid--4,
+  .az-shots {
+    grid-template-columns: 1fr;
+  }
+
+  .az-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   "New" badge on the AgentZ navigation entries. The span is injected by
+   docs/javascripts/agentz-badge.js.
+   -------------------------------------------------------------------------- */
+
+.az-nav-badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--az-cyan);
+  color: #001028;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.md-nav--primary .az-nav-link {
+  display: inline-flex;
+  align-items: center;
+}

@@ -1,0 +1,82 @@
+/* ============================================
+   IAM Permissions Reference — table layout
+   Scoped to .iam-tables so it never touches other pages' tables.
+   Two columns: Permission(s) | Rationale. Permissions that share the same
+   rationale collapse into one row, so a cell may hold several name chips.
+   ============================================ */
+
+.iam-tables table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.iam-tables th,
+.iam-tables td {
+  vertical-align: top;
+}
+
+/* Permission column: wide enough for the longest name, chips wrap between names. */
+.iam-tables th:first-child,
+.iam-tables td:first-child {
+  width: 44%;
+}
+
+.iam-tables td:first-child code {
+  display: inline-block;
+  margin: 0 0.3rem 0.3rem 0;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* Rationale column: readable width; labelled fields stack on their own lines. */
+.iam-tables td:last-child {
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* "Why / Impact" badge that reveals the justification on hover/tap/focus. */
+.iam-why {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.4rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--md-primary-fg-color);
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 1rem;
+  cursor: help;
+  vertical-align: baseline;
+  user-select: none;
+}
+.iam-why::before { content: "\24D8"; margin-right: 0.2rem; }  /* circled i */
+.iam-why:hover,
+.iam-why:focus {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  outline: none;
+}
+
+/* Floating tooltip (appended to <body>, so never clipped by the table). */
+.iam-tip {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  max-width: 440px;
+  padding: 0.6rem 0.8rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 0.45rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  .iam-tables th:first-child,
+  .iam-tables td:first-child {
+    width: 40%;
+  }
+}
