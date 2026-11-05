@@ -26,6 +26,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [aiml-triton-collector.md](aiml-triton-collector.md) | Red team a model served by NVIDIA Triton Inference Server with the AccuKnox Custom Model collector, using either the KServe v2 infer endpoint or the generate... |
 | [aiml-vllm-collector.md](aiml-vllm-collector.md) | Red team a model served by vLLM with the AccuKnox Custom Model collector, using either the OpenAI-compatible chat API or the completions API. |
 | [api-security-onboarding.md](api-security-onboarding.md) | Run an API security scan in AccuKnox two ways. Upload an OpenAPI specification and scan it from API Security, or run an API Scan collector against a live tar... |
+| [aspm-monorepo-paths.md](aspm-monorepo-paths.md) | Split one repository into several scan targets, each with its own branches and scan types, and read the results per path. |
 | [aspm-overview.md](aspm-overview.md) | Learn how ASPM helps organizations identify and address security vulnerabilities in their applications throughout the software development lifecycle (SDLC). |
 | [aws-apim.md](aws-apim.md) | Deploy an AWS HTTP API Gateway integrated with AWS Lambda using Terraform, designed for secure and efficient model interactions. |
 | [aws-cdk-iac-scan.md](aws-cdk-iac-scan.md) | Step-by-step guide to scanning AWS CDK projects using AccuKnox SaaS. |
@@ -89,6 +90,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [playbook-integrations.md](playbook-integrations.md) | Guide to integrating AccuKnox with various tools and platforms for enhanced security and automation using the zero trust CNAPP model. |
 | [playbook-kspm.md](playbook-kspm.md) | KSPM playbook detailing how to implement Kubernetes security posture management with AccuKnox's zero trust CNAPP platform. |
 | [playbook-overview.md](playbook-overview.md) | Overview of AccuKnox's zero trust CNAPP framework, covering key components and security features for comprehensive protection. |
+| [pr-decorator.md](pr-decorator.md) | Add an AccuKnox security review to every pull request, with a summary, ranked fixes, a findings map and inline suggestions. |
 | [private-github-repo-onboarding.md](private-github-repo-onboarding.md) | Provides the steps to onboard a private GitHub repository on AccuKnox SaaS for secure monitoring and vulnerability detection. |
 | [prompt-firewall.md](prompt-firewall.md) | A step-by-step guide to onboarding your application with the AccuKnox Prompt Firewall |
 | [quay.md](quay.md) | Steps to onboard Quay Registry on AccuKnox for scanning and monitoring container images for vulnerabilities and compliance. |
@@ -99,6 +101,7 @@ Task-oriented how-to guides: onboarding, configuration, and step-by-step procedu
 | [sso.md](sso.md) | Step-by-step guide on inviting new users and setting up SSO for secure and streamlined login to the AccuKnox SaaS platform. |
 | [summarized-custom-reports.md](summarized-custom-reports.md) | Generate summarized custom reports with details on risks and vulnerabilities across cloud environments using AccuKnox CSPM for better visibility. |
 | [systemd-nonbtf.md](systemd-nonbtf.md) | This document provides the steps to onboard a node/control plane in a SystemD based non-BTF environment to the AccuKnox SaaS platform. |
+| [tenant-settings.md](tenant-settings.md) | Set tenant-wide defaults for branding, finding SLAs, default scans, downloads, data retention and cloud checks. |
 | [terraform-aws-onboarding.md](terraform-aws-onboarding.md) | Onboard a standalone AWS account to the AccuKnox platform using Terraform. Terraform provisions the IAM user, policies, and access keys needed to connect the... |
 | [terraform-azure-onboarding.md](terraform-azure-onboarding.md) | Onboard a standalone Azure subscription to the AccuKnox platform using Terraform. Terraform provisions the Azure AD application, service principal, and role... |
 | [terraform-cloud-onboarding.md](terraform-cloud-onboarding.md) | Onboard standalone AWS, Azure, and GCP cloud accounts to the AccuKnox platform using Terraform. Pick a cloud provider to get the prerequisites, Terraform con... |

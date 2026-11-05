@@ -155,59 +155,18 @@ else:
 
 For complete examples, see the [example repository](https://github.com/accuknox/examples/tree/main/prompt-firewall).
 
-## Setting Up the Firewall
+## Manage the Firewall From One View
 
-### Step 1: Add Your Application
+Onboard your application with the Prompt Firewall proxy, then manage integrations, applications, policies and violations from **AI/ML Security** → **Prompt Firewall**.
 
-Navigate to **AI/ML** > **Applications** > **Add Application**. Enter a name and tags for your AI application.
-
-!!! warning "Pre-requisite"
-    You must onboard your application with the Prompt Firewall Proxy before configuring policies. See the [App Onboarding Guide](https://help.accuknox.com/how-to/llm-defense-app-onboard/) for detailed steps.
-
-### Step 2: Configure Policies
-
-Policies can be applied at two levels:
+Policies apply at two levels:
 
 | Level | Scope | Use Case |
 |-------|-------|----------|
 | **Global Policies** | Apply to all applications | Organization-wide rules (e.g., always block PII, always block prompt injection) |
-| **Local Policies** | Apply to a specific application only | App-specific rules (e.g., ban code in a customer support bot but allow it in a developer assistant) |
+| **Local Policies** | Apply to selected applications or tags | App-specific rules (e.g., ban code in a customer support bot but allow it in a developer assistant) |
 
-To add a local policy:
-
-1. Click **Create Local Policy**
-2. Select a policy template (e.g., "Detect Secret Keys in Prompt")
-3. Customize the detection logic and action (Block, Monitor, or Allow)
-4. Assign to your application
-
-![Add local policy to an application](https://accuknox.com/wp-content/uploads/add-local-policy-1-1024x482.png)
-
-![Applied policies view showing active policies on an application](https://accuknox.com/wp-content/uploads/applied-policies-1024x481.png)
-
-### Step 3: Monitor the Dashboard
-
-The AI-Security Dashboard provides real-time visibility into:
-
-- **Total Queries** processed through the firewall
-- **Policy Violations** detected and blocked
-- **Active Policies** currently enforcing
-
-### Step 4: Investigate Violations
-
-Click on any violation count to see the full breakdown by policy. Each violation shows which policy was triggered, whether it was blocked or monitored, and the severity.
-
-### Step 5: Audit and Trace
-
-Every interaction is recorded in the audit trail. Click any query to see:
-
-- The full **conversation** (user prompt and AI response)
-- **Policy scores** for both prompt and response
-- Whether the interaction was **blocked**, **monitored**, or **passed**
-- The exact **policy** and **threshold** that triggered
-
-![Query details showing conversation, policy scores, and block status](./images/image2.png)
-
-![Detailed violation view showing prompt injection detection with multiple policy scores](./images/image1.png)
+The [Prompt Firewall how-to](../how-to/prompt-firewall.md) covers every screen, from the summary cards to the query trace. The [App Onboarding Guide](../how-to/llm-defense-app-onboard.md) covers the proxy setup.
 
 ## Real-World Example: Blocking a Prompt Injection + Code Execution
 
