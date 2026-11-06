@@ -8,7 +8,7 @@ description: A step-by-step guide to onboarding your application with the AccuKn
 This guide walks you through configuring input/output policies in AccuKnox for prompt-level security.
 
 !!! info "Why Prompt Firewall?"
-    AccuKnox Prompt Firewall empowers you to enforce granular security policies at the prompt level, protecting your AI applications from malicious inputs and unsafe outputs. You can use it for several use cases including:
+    AccuKnox Prompt Firewall lets you enforce granular security policies at the prompt level, protecting your AI applications from malicious inputs and unsafe outputs. You can use it for several use cases including:
 
     * Preventing prompt injections
     * Blocking sensitive data leaks
@@ -26,25 +26,53 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 ??? note "Watch: Prompt Firewall Use Case Video"
     <iframe width="560" height="315" src="https://www.youtube.com/embed/l_RCQosnNJk" frameborder="0" allowfullscreen></iframe>
 
-## Step 1: Open AI-Security Dashboard
+## Open the Prompt Firewall View
 
-- Go to **AI/ML** tab → **Applications** → Select your app.
-- Dashboard shows:
-    - **Total Queries**
-    - **Policy Violations**
-    - **Active Policies**
+1. Go to **AI/ML Security** → **Prompt Firewall**.
+2. Set the time range with the date filter. Select **Refresh** to reload the data.
+3. Read the summary cards at the top. They show integrations, applications, active policies, total policies, latency, total queries and queries by action.
 
-![AI-Security-Dashboard](images/prompt-firewall/ai-security-dashboard.png)
+Three tabs sit below the cards: **Applications**, **Policies** and **Violations**. The **Applications** tab opens first.
 
-## Step 2: Review Violations
+## Review Applications Grouped by Integration
 
-- Find violations widget.
-- Click violation count for details.
-- See breakdown by **Policy**.
+One integration can hold several applications. The **Applications** tab groups them by integration name.
 
-![Analyze-Violations-](images/prompt-firewall/analyze-violations.png)
+- Expand an integration row to see its applications.
+- Clear **Group By** to see one flat list of applications.
+- Select **Add Filters** to narrow the list, and **Reset** to clear the filters.
+- Select **Export** to download the list, or select rows and delete them in one action.
+- Select **Add Integration** to onboard a new one. The flow is unchanged: enter a name and copy the token. See [Prompt Firewall App Onboarding](llm-defense-app-onboard.md).
 
-## Step 3: Policy Types (Prompt vs. Response)
+Each application row has actions to edit its integration and to delete the application.
+
+### Open the Application Detail Drawer
+
+Select an application name to open its drawer. Select **Copy link** to share the drawer with a teammate.
+
+- **Overview** tab: summary details, top policies by violations, queries over the selected date range, users, and queries by severity. Select the violations link to open the **Violations** tab filtered to this application.
+- **Policies** tab: every policy that applies to this application. Filter the list or add a policy here. Select the disable control on a policy to turn it off for this application only.
+
+## Manage Policies in One List
+
+The **Policies** tab lists every policy under Prompt Firewall.
+
+- Filter the list and export it.
+- Select several policies to delete them, or to change their **Action**, **Severity** or **Status** in one step.
+- Use the row actions to delete one policy or open it for editing.
+
+### Edit a Policy
+
+Select the edit action on a row. The drawer shows the policy details and whether the scanner checks the **User Prompt** or the **Response**. Change a field and save. The list updates at once.
+
+### Open the Policy Detail Drawer
+
+Select a policy name to open its drawer. Select **Copy link** to share it.
+
+- **Overview** tab: policy details, scanner parameters, and widgets for users, total applications and queries over time.
+- **Applications** tab: every application that uses the policy. Select the disable control to turn the policy off for one application.
+
+## Policy Types (Prompt vs. Response)
 
 - **Prompt Policies**: Input control (e.g., block abusive queries, dangerous requests).
   [Details](https://help.accuknox.com/use-cases/subprompts-categories/?h=prompt)
@@ -71,34 +99,49 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 ![Prompt firewall policy types and categories](../use-cases/image.png)
 
 !!! info "Need Custom Policies Tailored to Your Use Case?"
-    AccuKnox can configure custom prompt firewall policies built around your specific business requirements — regex-based pattern matching, domain-specific block lists, response filtering rules, or any other criteria your use case demands. This goes beyond the default policy templates available out of the box. See default policy types or reach out to your AccuKnox representative to discuss a custom setup.
+    AccuKnox can configure custom prompt firewall policies built around your specific business requirements, such as regex-based pattern matching, domain-specific block lists, response filtering rules, or any other criteria your use case demands. This goes beyond the default policy templates available out of the box. See default policy types or reach out to your AccuKnox representative to discuss a custom setup.
 
-## Step 4: Create/Apply Policies
+## Create a Policy in Three Steps
 
-- Use Global or Local policies.
-- To add a Local Policy:
-  1. Click **Create Local Policy**.
-  2. Pick a template (e.g., "Detect Secret Keys in Prompt").
-  3. Customize logic.
-  4. Assign to your app.
+1. On the **Policies** tab, select the add policy button.
+2. Complete the three steps in the drawer: scan configuration, policy configuration and scanner parameters. In the first step, pick the scanner type, such as the prompt scanner, and the policy type, such as Code.
+3. Choose the scope, then save. The policy count in the summary cards updates.
 
 !!! info "Global vs. Local Policies"
-    - **Global Policies**: Apply across all apps.
-    - **Local Policies**: Specific to selected app only.
+    - **Global Policies**: Apply to all applications.
+    - **Local Policies**: Apply to the applications or tags you select.
 
 ![Add local policy](images/prompt-firewall/add-local-policy.png)
 ![Applied policies](images/prompt-firewall/applied-policies.png)
 
-## Step 5: Audit & Trace
+## Trace Every Query on the Violations Tab
 
-- Use audit trail for every interaction.
-- Trace view shows:
-    - **User Prompt**
-    - **Raw Response**
-    - **Violation Score**
-    - **Triggered Policy**
+The **Violations** tab groups queries by application. Other group options are available in the same menu, and filters work on every view.
 
-![alt](../use-cases/images/image2.png)
+- A group row shows total queries, latency and the violation count. Expand it to see the queries.
+- Clear the grouping to see one flat list of queries.
+
+### Read the Query Summary
+
+Select a query to open its drawer.
+
+- **Summary** tab: key facts about the query, the prompt, the response, and the input and output timestamps. Select **Show more** for long text.
+- **Scores** toggle: switch between prompt scores and response scores. Each row shows the policy, its type, the threshold, the action, the result and the status.
+- When the response was not checked, the response side shows a response code and no scores.
+
+### Find the Text That Triggered a Policy
+
+Open the **Analysis** tab and switch between the prompt and the response.
+
+- The tab lists each policy that blocked or acted on the query, with its severity and the entities it detected.
+- The prompt view highlights the text that triggered each policy. The color follows the action and the severity.
+
+### Open an Attachment
+
+When a query has attachments, the drawer lists each file name. Select a file to open its extracted text.
+
+- Use the page controls to move through a multi-page file.
+- Select **Copy** to copy the extracted text.
 
 ## Example: Conversation Blocking
 
@@ -111,4 +154,4 @@ This guide walks you through configuring input/output policies in AccuKnox for p
 **Result:** Unauthorized code execution is blocked, keeping your AI secure.
 
 !!! note "Takeaway"
-    AccuKnox Prompt Firewall provides a robust layer of security by enabling precise control over AI prompts and responses, helping you safeguard your applications against a wide range of threats.
+    AccuKnox Prompt Firewall adds a layer of security by enabling precise control over AI prompts and responses, helping you safeguard your applications against a wide range of threats.

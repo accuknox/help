@@ -21,7 +21,8 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [3.4-release.md](3.4-release.md) | Discover the latest features, enhancements, and integrations in AccuKnox v3.4, including SCA, Dashboard V3, AI-powered automation, expanded cloud governance,... |
 | [3.5-release.md](3.5-release.md) | AccuKnox v3.5 adds GitHub Actions pipeline auditing, an AI Widget Builder, parent-child smart tickets, public-asset auto-tagging, Talos cluster support, mult... |
 | [3.6-release.md](3.6-release.md) | AccuKnox v3.6 automates the finding lifecycle from Active to Fixed, adds per-account Checks Management, parent-child ticket automation in the Rule Engine, AW... |
-| [3.7-release.md](3.7-release.md) | AccuKnox v3.7 introduces App-based Source Code Security for ASPM. Connect GitHub, GitLab, or Bitbucket once, then run SCA, Secrets, SAST, and IaC scans from... |
+| [3.7-release.md](3.7-release.md) | AccuKnox v3.7 adds GCP onboarding with role impersonation, CIEM at cloud onboarding, scans of running Kubernetes images with Windows node support, registry s... |
+| [3.8-release.md](3.8-release.md) | AccuKnox v3.8 revamps the Prompt Firewall view, adds step-by-step DAST scan evidence and AI Pentesting, pull request decoration, monorepo scan paths, tenant... |
 | [accuknox-agents.md](accuknox-agents.md) | AccuKnox Agents are the agents that are part of the AccuKnox solution. These agents are responsible for enforcing the security policies and providing deep vi... |
 | [accuknox-arch.md](accuknox-arch.md) | A concise and detailed overview of AccuKnox's CNAPP architecture, components, and operational workflows. |
 | [accuknox-release-notes.md](accuknox-release-notes.md) | Browse AccuKnox release versions and changelogs. |
@@ -39,7 +40,7 @@ Getting-started material: installation, on-prem deployment, architecture, and re
 | [devsecops.md](devsecops.md) | Integrate AccuKnox with CI pipeline and perform the scans and show the reports in the SaaS Dashboard. |
 | [dspm-onboarding.md](dspm-onboarding.md) | Set up the AccuKnox DSPM scanner in five steps: prerequisites, read-only grants per data store, install, first scan, and reading findings in the console. |
 | [dspm-overview.md](dspm-overview.md) | AccuKnox DSPM finds sensitive data in cloud storage, databases and SaaS apps. The scanner runs in your region with read-only access, and only a findings file... |
-| [dvwa.md](dvwa.md) | Learn how to secure Damn Vulnerable Web Application (DVWA) using AccuKnox CWPP to identify and block security vulnerabilities effectively. |
+| [dvwa.md](dvwa.md) | Deploy DVWA (Damn Vulnerable Web Application) on Kubernetes, test SQL injection and command injection attacks, and block them with AccuKnox CWPP. |
 | [gcp-cdr.md](gcp-cdr.md) | AccuKnox CDR documentation for GCP |
 | [gke-autopilot.md](gke-autopilot.md) | Install KubeArmor on GKE Autopilot using the Autopilot Workload Allowlist and onboard your cluster to the AccuKnox Platform. |
 | [kubearmor-release.md](kubearmor-release.md) | Collection of KubeArmor version release blogs detailing the latest features, improvements, and fixes to enhance security performance. |

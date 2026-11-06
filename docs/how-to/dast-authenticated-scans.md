@@ -5,7 +5,7 @@ description: Configure authenticated scans in AccuKnox DAST to test protected co
 
 # DAST Authenticated Scan
 
-AccuKnox Dynamic Application Security Testing (DAST) supports **authenticated scans**, enabling the crawler to access and test content behind login pages. The system visualises the session state with **Logged In**, **Logged Out**, and **Fallback** indicators — preventing false negatives where crawlers fail to reach protected content.
+AccuKnox Dynamic Application Security Testing (DAST) supports **authenticated scans**, enabling the crawler to access and test content behind login pages. The system visualises the session state with **Logged In**, **Logged Out**, and **Fallback** indicators, which prevents false negatives where crawlers fail to reach protected content.
 
 !!! tip "Unauthenticated scans"
     If you only need to scan publicly accessible pages without supplying credentials, see [DAST Unauthenticated Scan](dast-scan-no-auth.md).
@@ -32,22 +32,22 @@ AccuKnox Dynamic Application Security Testing (DAST) supports **authenticated sc
 
 ### Target URL
 
-**Enter Target URL** — Primary target URL to scan.
+**Enter Target URL**: Primary target URL to scan.
 
 ### Scan Type
 
-**Scan Type** — Select **Baseline** (quick scan) or **Full** (detailed scan).
+**Scan Type**: Select **Baseline** (quick scan) or **Full** (detailed scan).
 
 ### Authentication
 
-**Authentication** — Select **Auth-based**.
+**Authentication**: Select **Auth-based**.
 
 !!! tip "Applications with MFA"
     To scan an application that uses multi-factor authentication, choose **Browser Plugin based Recorder** as the login method. Record the login flow once and add your TOTP secret key. See [Authenticated DAST scan with MFA](../getting-started/3.6-release.md#authenticated-dast-scan-with-mfa).
 
 ### Login Page URL
 
-**Login Page URL** — The URL of the application's login page where the user enters credentials.
+**Login Page URL**: The URL of the application's login page where the user enters credentials.
 
 Example: `https://ctflearn.com/`
 
@@ -55,7 +55,7 @@ Example: `https://ctflearn.com/`
 
 ### Login Credentials
 
-**Login Credentials** — Valid username and password used to authenticate the scan against the application.
+**Login Credentials**: Valid username and password used to authenticate the scan against the application.
 
 Example: Username: `admin`, Password: `admin`
 
@@ -63,7 +63,7 @@ Example: Username: `admin`, Password: `admin`
 
 ### Include Path
 
-**Include Path** *(Optional)* — Defines the specific URLs or URL patterns to include in the scan scope.
+**Include Path** *(Optional)*: Defines the specific URLs or URL patterns to include in the scan scope.
 
 Example: `https://ctflearn.com/lab/`
 
@@ -71,7 +71,7 @@ Example: `https://ctflearn.com/lab/`
 
 ### Exclude Path
 
-**Exclude Path** *(Optional)* — URLs or URL patterns that should be excluded from the scan to avoid scanning specific pages or actions.
+**Exclude Path** *(Optional)*: URLs or URL patterns that should be excluded from the scan to avoid scanning specific pages or actions.
 
 Example: `https://ctflearn.com/1/scoreboard/0`
 
@@ -79,7 +79,7 @@ Example: `https://ctflearn.com/1/scoreboard/0`
 
 ### Logged In Indicator
 
-**Logged In Indicator** — Keyword or phrase used to confirm a successful login during the scan.
+**Logged In Indicator**: Keyword or phrase used to confirm a successful login during the scan.
 
 Example: `Dashboard`, `Get Started`
 
@@ -87,7 +87,7 @@ Example: `Dashboard`, `Get Started`
 
 ### Logged Out Indicator
 
-**Logged Out Indicator** — Keyword or phrase indicating the user is logged out or the session has expired.
+**Logged Out Indicator**: Keyword or phrase indicating the user is logged out or the session has expired.
 
 Example: `Login`, `Learn`
 
@@ -95,7 +95,7 @@ Example: `Login`, `Learn`
 
 ### Login Fallback URL
 
-**Login Fallback URL** — Post-login page used to verify a successful login.
+**Login Fallback URL**: Post-login page used to verify a successful login.
 
 Example: `https://ctflearn.com/dashboard`
 
@@ -103,9 +103,9 @@ Example: `https://ctflearn.com/dashboard`
 
 ### Label & Tags
 
-**Label** — Create one using these steps: [Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/)
+**Label**: Create one using these steps: [Create Labels](https://help.accuknox.com/how-to/how-to-create-labels/)
 
-**Tags** *(Optional)* — Add any relevant tags.
+**Tags** *(Optional)*: Add any relevant tags.
 
 See the difference between Baseline and Full scan modes here: [Baseline vs Full Scan](https://help.accuknox.com/how-to/dast-scan-types/)
 
@@ -126,3 +126,14 @@ Here is an example of how it looks after you have added everything:
 **Step 8:** Once the **Findings** column is populated, click on it to be redirected to the findings page with all necessary details.
 
 ![Findings Page](./images/dast-auth/image5.png)
+
+## Read the Scan Evidence for a Failed Login
+
+A scan that fails to log in returns no findings. The **Evidence** column shows why.
+
+1. Open the collector's **Scan History**. Each run lists its timestamp, status, findings, evidence and assets.
+2. Select **View** in the **Evidence** column of the run.
+3. Read the steps in order. Each step shows what the scanner did, such as opening the URL, filling the username, filling the password and submitting.
+4. Check the last step. For a failed login, it shows a screenshot of the page the scanner saw, such as a **Login Failure** message.
+
+Use the screenshot to fix the cause, such as a wrong credential, a changed login form or a blocked scanner IP. Then run the scan again.
