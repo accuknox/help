@@ -9,10 +9,7 @@ Coding agents such as Claude Code and Codex run on a developer's machine with th
 
 An agent identity gives each agent its own name, a list of approved models, a trace of its activity and its own access that you can revoke. Claude Code and Codex are supported today. The screens below show Codex.
 
-<video controls preload="none" width="100%" poster="../images/agent-identities/AccuKnox_Agent_Identities_Walkthrough.jpg">
-  <source src="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4" type="video/mp4">
-  Your browser does not support embedded video. <a href="../videos/AccuKnox_Agent_Identities_Walkthrough.mp4">Download the Agent Identities walkthrough video</a> instead.
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gP2JEWb_0wE" title="Secure Claude Code and Codex With Agent Identities" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Each Identity Closes a Gap in Shared Logins
 
