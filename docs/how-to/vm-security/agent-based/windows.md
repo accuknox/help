@@ -50,6 +50,23 @@ Execute the script to install and configure the agent. Replace `<REDACTED>` with
 
 The installation script creates a Windows scheduled task to run the agent periodically.
 
+!!! info "Use an Omni release with the combined Windows report"
+    The report described below needs an Omni release that contains the combined Windows report and AI agent discovery. Older binaries may not produce it.
+
+### What One Scan Sends
+
+Each successful live vulnerability scan publishes one Trivy rootfs artifact for the VM. That artifact combines three sources:
+
+- MSRC Windows update findings.
+- Trivy application dependency findings from every fixed local drive.
+- Windows host inventory.
+
+If the MSRC scan or any fixed-drive scan fails, the agent sends no partial vulnerability artifact. Omni skips network drives and drives that Windows classifies as removable.
+
+The installer downloads and updates four databases: MSRC, the Trivy vulnerability database, the Trivy Java database and the AI agent catalog. When the catalog is available, the rootfs artifact includes a top-level `AIAgentDetections` array with catalog matches for installed AI tools. An empty array means Omni found no matches.
+
+An offline Windows disk or registry scan is a different mode. It still publishes a WINVM report, and that report does not include AI agent detections.
+
 ## Verify the Scan Ran
 
 ### 1. Check the Scheduled Task
@@ -102,72 +119,107 @@ AccuKnox validated Shadow AI Discovery on Windows with three tool types. Each ta
 
 ## Air-Gapped Installation
 
-For environments without direct internet access, follow these steps:
+Air-gapped installation copies the agent and its databases to the Windows machine you want to scan, so that machine downloads nothing. The agent still runs a **live** scan of that machine. AI agent detection works in this mode when the AI catalog is present. An offline Windows disk or registry scan is a different mode and does not produce AI agent detections.
 
-### 1. Download & Extract the Bundle
+The steps below turn on vulnerability and AI agent scanning and skip malware scanning. Prepare the bundle on a connected Windows machine, then move it to the isolated machine through your approved transfer process. Run the commands on the isolated machine in an Administrator PowerShell session.
 
-On a machine with internet access, download the all-in-one bundle:
+### 1. Prepare the Bundle on a Connected Machine
+
+Download and extract `all-in-one.zip`:
 
 ```powershell
 Invoke-WebRequest `
     -Uri "https://accuknox-omni.s3.us-east-1.amazonaws.com/latest/all-in-one.zip" `
     -OutFile all-in-one.zip `
     -UseBasicParsing
-
 Expand-Archive -Path ".\all-in-one.zip" -DestinationPath .\ -Force
 cd .\all-in-one\
 ```
 
-### 2. Setup ClamAV Database
+Before you transfer the bundle, check that it contains three things:
 
-Create the directory and move the ClamAV database files:
+- An Omni binary with combined Windows scanning and AI agent discovery.
+- A matching `agent-install.ps1`. Copy it from the same release if the bundle lacks it.
+- The database files below. The AI catalog is required for the `AIAgentDetections` field in the combined report.
 
 ```powershell
-New-Item -ItemType Directory -Path "C:\Program Files\ClamAV" -Force
-Move-Item -Path .\database\clamav\ -Destination "C:\Program Files\ClamAV\database" -Force
+$requiredFiles = @(
+    '.\omni.exe',
+    '.\agent-install.ps1',
+    '.\database\msrc\db.sqlite3',
+    '.\database\db\trivy.db',
+    '.\database\db\metadata.json',
+    '.\database\java-db\trivy-java.db',
+    '.\database\java-db\metadata.json',
+    '.\database\aiagent\aiagentscan.json'
+)
+$requiredFiles | ForEach-Object { if (-not (Test-Path $_)) { throw "Missing $_" } }
 ```
 
-### 3. Setup the Vulnerability and AI Agent Databases
+If a database is missing or out of date, run this command **on the connected machine**, then run the check again:
 
-Create the directory and move the MSRC, `db`, `java-db` and `aiagent` databases from the bundle:
+```powershell
+.\omni.exe db download msrc vuln java aiagent --destination .\database --force
+```
+
+### 2. Install the Files on the Isolated Machine
+
+Move the databases and the binary to the paths the agent expects:
 
 ```powershell
 New-Item -ItemType Directory -Path "C:\ProgramData\Accuknox\Omni" -Force
 Move-Item -Path .\database\msrc\ -Destination "C:\ProgramData\Accuknox\Omni" -Force
-Move-Item ".\database\db" -Destination "C:\ProgramData\Accuknox\Omni" -Force
-Move-Item ".\database\java-db" -Destination "C:\ProgramData\Accuknox\Omni" -Force
-Move-Item ".\database\aiagent" -Destination "C:\ProgramData\Accuknox\Omni" -Force
-```
-
-### 4. Install VM Scan Solution Agent
-
-Move the VM Scan Solution executable to the installation directory:
-
-```powershell
+Move-Item -Path .\database\db\ -Destination "C:\ProgramData\Accuknox\Omni" -Force
+Move-Item -Path .\database\java-db\ -Destination "C:\ProgramData\Accuknox\Omni" -Force
+Move-Item -Path .\database\aiagent\ -Destination "C:\ProgramData\Accuknox\Omni" -Force
 New-Item -ItemType Directory -Path "C:\Program Files\AccuKnox\Omni\" -Force
 Move-Item -Path .\omni.exe -Destination "C:\Program Files\AccuKnox\Omni\" -Force
 ```
 
-### 5. Run the Installation Script (Air-gapped)
+### 3. Choose How to Deliver the Report
 
-Run the installation script with the `-SkipOmniDownload` and `-SkipDatabaseDownload` flags, so the installer uses the binary and databases you placed. Make sure `clamav.msi` sits at the path you pass to `-ClamavMSIInstallerFile`.
+Pick the path that matches the machine's network access.
 
-```powershell
-.\agent-install.ps1 `
-    -ArtifactEndpoint https://cspm.accuknox.com/api/v1/artifact/ `
-    -TenantId 000 `
-    -ArtifactLabel CHANGEME `
-    -ArtifactApiToken "<REDACTED>" `
-    -ClamavMSIInstallerFile "clamav.msi" `
-    -SkipOmniDownload $true `
-    -SkipDatabaseDownload $true
-```
+=== "The machine can reach CSPM"
 
-### 6. Verify Offline Scanning and Reporting
+    Run the installer to create scheduled scans. `-SkipDatabaseDownload` stops the installer from contacting the database registries. Replace the endpoint, tenant, label and token with values from the same CSPM environment.
 
-1. Confirm that the scheduled task exists, as shown in [Verify the Scan Ran](#verify-the-scan-ran).
-2. Check the scan log for errors and confirm that the databases loaded.
-3. Confirm that the scan finished and produced a local report.
+    ```powershell
+    .\agent-install.ps1 `
+        -ArtifactEndpoint https://cspm.accuknox.com/api/v1/artifact/ `
+        -TenantId 000 `
+        -ArtifactLabel CHANGEME `
+        -ArtifactApiToken "<REDACTED>" `
+        -SkipMalwareScan $true `
+        -SkipOmniDownload $true `
+        -SkipDatabaseDownload $true
+    ```
 
-!!! warning "Air-gapped scanning and central reporting are separate"
-    An endpoint that cannot reach the AccuKnox artifact endpoint cannot upload its results. Omni still scans locally, but the results do not appear in the console until you move them through an approved transfer process.
+    Then confirm the scan ran, as shown in [Verify the Scan Ran](#verify-the-scan-ran).
+
+=== "The machine has no route to CSPM"
+
+    Run a local scan instead. It writes one combined TR JSON artifact to the `reports` directory and uploads nothing. Move the artifact out through your approved transfer process.
+
+    ```powershell
+    & 'C:\Program Files\AccuKnox\Omni\omni.exe' agent scan `
+        --skip-malware-scan `
+        --vuln-db-directory 'C:\ProgramData\Accuknox\Omni' `
+        --local-publisher `
+        --local-publisher-store-path 'C:\ProgramData\Accuknox\Omni\reports'
+    Get-ChildItem 'C:\ProgramData\Accuknox\Omni\reports\*-TR.json'
+    ```
+
+    The local scan does not install a scheduled task or update the copied databases. To refresh them, download them again on a connected machine and transfer them.
+
+### Enable Malware Scanning (Optional)
+
+Malware scanning needs a separate ClamAV Windows MSI and current signature files. The bundle builder includes them only when both are supplied. Without them, keep `-SkipMalwareScan $true`.
+
+To turn on malware scanning in the installer:
+
+1. Place the bundled signatures under `C:\Program Files\ClamAV\database`.
+2. Pass `-ClamavMSIInstallerFile .\clamav.msi` to `agent-install.ps1`.
+3. Remove `-SkipMalwareScan $true` from the command.
+
+ClamAV signature updates need their own network access or a manual transfer.
